@@ -2,13 +2,13 @@
 title: Evaluaciones en Azure Migrate
 description: Obtenga información sobre las evaluaciones en Azure Migrate.
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: 5fc61d9987c9e728a5d83cb3ab3f91b8e8f5f740
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/17/2020
+ms.openlocfilehash: 0cf933dd1c8c61edfcea20ea954c5813f3848b28
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76833336"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425704"
 ---
 # <a name="about-assessments-in-azure-migrate"></a>Acerca de las evaluaciones en Azure Migrate
 
@@ -77,7 +77,7 @@ Esto es lo que se incluye en una evaluación en Azure Migrate: Server Assessment
 
 **Propiedad** | **Detalles**
 --- | ---
-**Ubicación de destino** | Ubicación a la que se quiere migrar. Server Assessment admite actualmente las siguientes regiones de Azure de destino:<br/><br/> Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, Centro de la India, Centro de EE. UU., Este de China, Norte de China, Asia Oriental, Este de EE. UU., Este de EE. UU. 2, Сentro de Alemania, Nordeste de Alemania, Japón Oriental, Japón Occidental, Centro de Corea del Sur, Corea del Sur, Centro y norte de EE. UU., Norte de Europa, Centro y sur de EE. UU., Sudeste Asiático, India del Sur, Sur de Reino Unido, Oeste del Reino Unido, US Gov Arizona, US Gov Texas, US Gov Virginia, Centro-oeste de EE. UU., Oeste de Europa, India occidental, Oeste de EE. UU. y Oeste de EE. UU. 2.
+**Ubicación de destino** | Ubicación a la que se quiere migrar. Server Assessment admite actualmente las siguientes regiones de Azure de destino:<br/><br/> Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, Centro de la India, Centro de EE. UU., Este de China, Norte de China, Este de Asia, Este de EE. UU., Este de EE. UU. 2, Сentro de Alemania, Nordeste de Alemania, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Corea del Sur, Centro y norte de EE. UU., Norte de Europa, Centro y sur de EE. UU., Sudeste de Asia, Sur de la India, Sur de Reino Unido, Oeste del Reino Unido, US Gov Arizona, US Gov Texas, US Gov Virginia, Centro-oeste de EE. UU., Oeste de Europa, Oeste de la India, Oeste de EE. UU. y Oeste de EE. UU. 2.
 *Disco de almacenamiento de destino (ajuste de tamaño tal cual)* * | Tipo de discos que se van a usar para el almacenamiento en Azure. <br/><br/> Especifique el disco de almacenamiento de destino como administrado premium, administrado de SSD estándar o administrado de HDD estándar.
 **Disco de almacenamiento de destino (ajuste de tamaño basado en el rendimiento)** | Especifique el tipo de disco de almacenamiento de destino como automático, administrado premium, administrado de HDD estándar o administrado de SSD estándar.<br/><br/> **Automático**: La recomendación de disco se realiza en función de los datos de rendimiento de los discos (las operaciones de entrada/salida por segundo [IOPS] y el rendimiento).<br/><br/>**Premium o estándar**:  La evaluación recomienda una SKU de disco dentro del tipo de almacenamiento seleccionado.<br/><br/> Si quiere lograr un Acuerdo de Nivel de Servicio de VM de una sola instancia del 99,9 %, considere el uso de discos administrados premium. Esto garantiza que todos los discos de la evaluación se recomienden como discos administrados premium.<br/><br/> Azure Migrate solo admite discos administrados para la valoración de la migración.
 **Instancias reservadas (RI)** | Especifique [instancias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) en Azure para que las estimaciones de costos en la evaluación tengan en cuenta los descuentos de RI.<br/><br/> Actualmente, las instancias reservadas solo se admiten en ofertas de pago por uso en Azure Migrate.
@@ -149,7 +149,7 @@ Cliente de Windows 7, 8 y 10 | Azure solo proporciona compatibilidad con la [sus
 Windows 10 Pro Desktop | Azure proporciona compatibilidad con [derechos de hospedaje multiinquilino.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | Condicionalmente preparada para Azure
 Windows Vista, XP Professional | Estos sistemas operativos han superado la fecha de finalización de soporte técnico. La máquina puede iniciarse en Azure, pero Azure no proporciona compatibilidad con el sistema operativo. | Condicionalmente preparada para Azure. Se recomienda actualizar el sistema operativo antes de migrar a Azure.
 Linux | Azure aprueba estos [sistemas operativos Linux](../virtual-machines/linux/endorsed-distros.md). Otros sistemas operativos Linux pueden iniciarse en Azure, pero recomendamos actualizar el sistema operativo a una versión aprobada antes de migrar a Azure. | Preparada para Azure si la versión está aprobada.<br/><br/>Condicionalmente preparada si la versión no se ha aprobado.
-Otros sistemas operativos<br/><br/> Por ejemplo, Oracle Solaris, Apple Mac OS, FreeBSD, etc. | Azure no aprueba estos sistemas operativos. La máquina puede iniciarse en Azure, pero Azure no proporciona compatibilidad con el sistema operativo. | Condicionalmente preparada para Azure. Se recomienda instalar un sistema operativo compatible antes de migrar a Azure.  
+Otros sistemas operativos<br/><br/> Por ejemplo, Oracle Solaris, Apple macOS, FreeBSD, etc. | Azure no aprueba estos sistemas operativos. La máquina puede iniciarse en Azure, pero Azure no proporciona compatibilidad con el sistema operativo. | Condicionalmente preparada para Azure. Se recomienda instalar un sistema operativo compatible antes de migrar a Azure.  
 Sistema operativo especificado como **otro** en vCenter Server. | Azure Migrate no puede identificar el sistema operativo en este caso. | Preparación desconocida. Asegúrese de que el sistema operativo que se ejecuta dentro de la máquina virtual se admite en Azure.
 Sistemas operativos de 32 bits | Es posible que la máquina se inicie en Azure, pero que Azure no proporcione soporte técnico completo. | Condicionalmente preparada para Azure. Considere la posibilidad de actualizar el sistema operativo de la máquina de un sistema operativo de 32 bits a uno de 64 bits antes de migrar a Azure.
 

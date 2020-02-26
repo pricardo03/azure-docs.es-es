@@ -1,6 +1,6 @@
 ---
 title: Adición de una capa de burbuja a un mapa | Microsoft Azure Maps
-description: En este artículo, obtendrá información sobre cómo agregar una capa de burbuja a un mapa mediante el SDK web de Microsoft Azure Maps.
+description: En este artículo aprenderá a agregar una capa de burbujas a un mapa mediante el SDK web de Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,23 +9,23 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 462d820824ad6c53ad4b93ad5c88c66128619467
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 7ae11734eb804715f3eb1b5edcb02fc328dafec8
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933667"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208563"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Adición de una capa de burbuja a un mapa
 
-En este artículo, se explica cómo puede representar datos de punto procedentes de un origen de datos en un mapa como una capa de burbujas. Las capas de burbuja representan puntos como círculos en el mapa con un radio de píxel fijo. 
+En este artículo, se explica cómo puede representar datos de punto procedentes de un origen de datos en un mapa como una capa de burbujas. Las capas de burbujas representan puntos como círculos en el mapa con un radio de píxel fijo. 
 
 > [!TIP]
 > Las capas de burbuja de forma predeterminada representarán las coordenadas de todos los objetos geométricos en un origen de datos. Para limitar la capa de forma que solo represente las características de geometría de puntos, configure la propiedad `filter` de la capa en `['==', ['geometry-type'], 'Point']` o `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` si desea incluir también las características de MultiPoint.
 
 ## <a name="add-a-bubble-layer"></a>Adición de una capa de burbuja
 
-En el código siguiente, se carga una matriz de puntos en un origen de datos. A continuación, los puntos de datos se conectan a una [capa de burbujas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). La capa de burbujas representa el radio de cada burbuja en cinco píxeles, el color de relleno en blanco, el color de trazo en azul y el ancho del trazo con seis píxeles. 
+En el código siguiente, se carga una matriz de puntos en un origen de datos. A continuación, conecta los puntos de datos a una [capa de burbujas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). La capa de burbujas representa el radio de cada burbuja en cinco píxeles, el color de relleno en blanco, el color de trazo en azul y el ancho del trazo con seis píxeles. 
 
 ```javascript
 //Add point locations.
@@ -62,7 +62,7 @@ A continuación se muestra el código de ejemplo de ejecución completo de la fu
 
 ## <a name="show-labels-with-a-bubble-layer"></a>Mostrar etiquetas con una capa de burbuja
 
-En el código siguiente se muestra cómo usar una capa de burbuja para representar un punto en el mapa y una capa de símbolos para representar una etiqueta. Para ocultar el icono de la capa de símbolo, establezca la propiedad `image` de las opciones del icono en `'none'`.
+Este código muestra cómo usar una capa de burbujas para representar un punto en el mapa y cómo usar una capa de símbolos para representar una etiqueta. Para ocultar el icono de la capa de símbolo, establezca la propiedad `image` de las opciones del icono en `'none'`.
 
 <br/>
 

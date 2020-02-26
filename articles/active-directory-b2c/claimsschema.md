@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/12/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 76e2b1c221475a90dc63498d13d4ede7a78e0779
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: fc01bd5c868cddd448e3a262960af64f50b78d74
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185583"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77372976"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -51,13 +51,31 @@ El elemento **ClaimType** contiene los elementos siguientes:
 | Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | DisplayName | 1:1 | El título que se muestra a los usuarios en varias pantallas. El valor se puede [localizar](localization.md). |
-| DataType | 1:1 | Tipo de la notificación. Se pueden usar los tipos de datos: boolean, date, dateTime, int, long, string, stringCollection y phoneNumber. El tipo de datos primitivo representa el equivalente del tipo de datos de variable de C#. stringCollection representa una colección de cadenas. Para más información, consulte [Tipos y variables de C#](https://docs.microsoft.com/dotnet/csharp/tour-of-csharp/types-and-variables). La fecha sigue la convención ISO 8601. |
+| DataType | 1:1 | Tipo de la notificación. |
 | DefaultPartnerClaimTypes | 0:1 | Los tipos de notificación predeterminada del partner que se van a usar para un protocolo especificado. El valor del elemento **PartnerClaimType** especificado se puede sobrescribir en los elementos **InputClaim** o **OutputClaim**. Use este elemento para especificar el nombre predeterminado de un protocolo.  |
 | Máscara | 0:1 | Cadena opcional de caracteres de enmascaramiento que se pueden aplicar al mostrar la notificación. Por ejemplo, el número de teléfono 324-232-4343 se puede enmascarar como XXX-XXX-4343. |
 | UserHelpText | 0:1 | Una descripción del tipo de notificación que puede ser útil para que los usuarios comprendan su propósito. El valor se puede [localizar](localization.md). |
 | UserInputType | 0:1 | El tipo de control de entrada que el usuario debe tener disponible al especificar manualmente los datos de notificación para el tipo de notificación. Vea los tipos de entrada de usuario que se definen más adelante en esta página. |
 | Restricción | 0:1 | Las restricciones de valor de esta notificación, como una expresión regular (Regex) o una lista de valores aceptables. El valor se puede [localizar](localization.md). |
 PredicateValidationReference| 0:1 | Una referencia a un elemento **PredicateValidationsInput**. Los elementos **PredicateValidationReference** le permiten realizar un proceso de validación para asegurarse de que solo se introducen datos bien formados. Para obtener más información, vea [Predicados](predicates.md). |
+
+### <a name="datatype"></a>DataType
+
+El elemento **DataType** admite los siguientes valores:
+
+| Tipo | Descripción |
+| ------- | ----------- | 
+|boolean|Representa un valor booleano (`true` o `false`).|
+|date| Representa un instante de tiempo, normalmente expresado en forma de fecha de un día. El valor de la fecha sigue la convención ISO 8601.|
+|dateTime|Representa un instante de tiempo, normalmente expresado en forma de fecha y hora del día. El valor de la fecha sigue la convención ISO 8601.|
+|duration|Representa un intervalo de tiempo en años, meses, días, horas, minutos y segundos. El formato es `PnYnMnDTnHnMnS`, donde `P` indica positivo o `N` un valor negativo. `nY` es el número de años seguido de un literal `Y`. `nMo` es el número de meses seguido de un literal `Mo`. `nD` es el número de días seguido de un literal `D`. Ejemplos: `P21Y` representa 21 años. `P1Y2Mo` representa un año y dos meses. `P1Y2Mo5D` representa un año, dos meses y cinco días.  `P1Y2M5DT8H5M620S` representa un año, dos meses, cinco días, ocho horas, cinco minutos y veinte segundos.  |
+|phoneNumber|Representa un número de teléfono. |
+|int| Representa un número entre -2.147.483.648 y 2.147.483.647.|
+|long| Representa un número entre-9.223.372.036.854.775.808 y 9.223.372.036.854.775.807 |
+|string| Representa texto como una secuencia de unidades de código UTF-16.|
+|stringCollection|Representa una colección de `string`.|
+|userIdentity| Representa una identidad de usuario.|
+|userIdentityCollection|Representa una colección de `userIdentity`.|
 
 ### <a name="defaultpartnerclaimtypes"></a>DefaultPartnerClaimTypes
 
@@ -107,7 +125,7 @@ El elemento **Mask** contiene los siguientes atributos:
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | `Type` | Sí | Tipo de enmascaramiento de la notificación. Valores posibles: `Simple` o `Regex`. El valor `Simple` indica que se aplica un solo enmascaramiento del texto en la parte inicial de una notificación de la cadena. El valor `Regex` indica que una expresión regular se aplica a una notificación de la cadena en conjunto.  Si se especifica el valor `Regex`, también debe definirse un atributo opcional con la expresión regular que se va a usar. |
-| `Regex` | No | Si **`Type`** se establece en `Regex`, especifique la expresión regular que se va a usar.
+| `Regex` | Sin | Si **`Type`** se establece en `Regex`, especifique la expresión regular que se va a usar.
 
 El ejemplo siguiente configura una notificación **PhoneNumber** con el enmascaramiento `Simple`:
 
@@ -146,7 +164,7 @@ El elemento **Restriction** puede contener el atributo siguiente:
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| MergeBehavior | No | El método usado para combinar los valores de enumeración con un ClaimType en una directiva principal con el mismo identificador. Use este atributo para sobrescribir una notificación especificada en la directiva base. Valores posibles: `Append`, `Prepend` o `ReplaceAll`. El valor `Append` es una colección de datos que se deben anexar al final de la colección especificada en la directiva principal. El valor `Prepend` es una colección de datos que se deben agregar antes de la colección especificada en la directiva principal. El valor `ReplaceAll` es una colección de datos especificada en la directiva principal que se debe omitir. |
+| MergeBehavior | Sin | El método usado para combinar los valores de enumeración con un ClaimType en una directiva principal con el mismo identificador. Use este atributo para sobrescribir una notificación especificada en la directiva base. Valores posibles: `Append`, `Prepend` o `ReplaceAll`. El valor `Append` es una colección de datos que se deben anexar al final de la colección especificada en la directiva principal. El valor `Prepend` es una colección de datos que se deben agregar antes de la colección especificada en la directiva principal. El valor `ReplaceAll` es una colección de datos especificada en la directiva principal que se debe omitir. |
 
 El elemento **Restriction** contiene los elementos siguientes:
 
@@ -155,7 +173,7 @@ El elemento **Restriction** contiene los elementos siguientes:
 | Enumeración | 1:n | Las opciones disponibles en la interfaz de usuario para que el usuario seleccione una notificación, como un valor en un menú desplegable. |
 | Patrón | 1:1 | Expresión regular que se va a usar. |
 
-### <a name="enumeration"></a>Enumeración
+#### <a name="enumeration"></a>Enumeración
 
 El elemento **Enumeration** contiene los siguientes atributos:
 
@@ -163,7 +181,7 @@ El elemento **Enumeration** contiene los siguientes atributos:
 | --------- | -------- | ----------- |
 | Texto | Sí | La cadena de presentación que se muestra al usuario en la interfaz de usuario para esta opción. |
 |Value | Sí | El valor de notificación que está asociado a la selección de esta opción. |
-| SelectByDefault | No | Indica si esta opción se puede seleccionar o no de forma predeterminada en la interfaz de usuario. Valores posibles: True o False. |
+| SelectByDefault | Sin | Indica si esta opción se puede seleccionar o no de forma predeterminada en la interfaz de usuario. Valores posibles: True o False. |
 
 En el ejemplo siguiente se configura una notificación de lista desplegable **Ciudad** con un valor predeterminado establecido en `New York`:
 
@@ -191,7 +209,7 @@ El elemento **Pattern** puede contener los siguientes atributos:
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | RegularExpression | Sí | La expresión regular con la que deben coincidir las notificaciones de este tipo para que sean válidas. |
-| HelpText | No | El patrón o una expresión regular para esta notificación. |
+| HelpText | Sin | El patrón o una expresión regular para esta notificación. |
 
 En el ejemplo siguiente se configura una notificación de **correo electrónico** con el texto de ayuda y la validación de entrada de la expresión regular:
 
@@ -214,11 +232,26 @@ El marco de experiencia de identidad presenta la notificación de dirección de 
 
 ![Cuadro de texto que muestra el mensaje de error que desencadena la restricción de regex](./media/claimsschema/pattern.png)
 
-## <a name="userinputtype"></a>UserInputType
+### <a name="userinputtype"></a>UserInputType
 
-Azure AD B2C admite una serie de tipos de entrada de usuario, como una lista de cuadro de texto, contraseña y menú desplegable que puede usarse al escribir manualmente los datos de notificación para el tipo de notificación. Debe especificar **UserInputType** al recopilar información del usuario mediante un [perfil técnico autoafirmado](self-asserted-technical-profile.md).
+Azure AD B2C admite una serie de tipos de entrada de usuario, como una lista de cuadro de texto, contraseña y menú desplegable que puede usarse al escribir manualmente los datos de notificación para el tipo de notificación. Debe especificar **UserInputType** al recopilar información del usuario mediante un [perfil técnico autoafirmado](self-asserted-technical-profile.md) y [controles de visualización](display-controls.md).
 
-### <a name="textbox"></a>TextBox
+Los tipos de entrada de usuario disponibles del elemento **UserInputType**:
+
+| UserInputType | Compatible con ClaimType | Descripción |
+| --------- | -------- | ----------- |
+|CheckboxMultiSelect| `string` |Cuadro desplegable de selección múltiple. El valor de la notificación se representa en una cadena con delimitador de coma de los valores seleccionados. |
+|DateTimeDropdown | `date`, `dateTime` |Se despliega para seleccionar un día, un mes y un año. |
+|DropdownSingleSelect |`string` |Cuadro desplegable de selección única. El valor de la notificación es el valor seleccionado.|
+|EmailBox | `string` |Campo de entrada de correo electrónico. |
+|Paragraph | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`|Campo que muestra solo texto en una etiqueta de párrafo. |
+|Contraseña | `string` |Cuadro de texto de contraseña.|
+|RadioSingleSelect |`string` | Colección de botones de radio. El valor de la notificación es el valor seleccionado.|
+|Readonly | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`| Cuadro de texto de solo lectura. |
+|TextBox |`boolean`, `int`, `string` |Cuadro de texto de una sola línea. |
+
+
+#### <a name="textbox"></a>TextBox
 
 El tipo de entrada de usuario **TextBox** se usa para proporcionar un cuadro de texto de una sola línea.
 
@@ -233,7 +266,7 @@ El tipo de entrada de usuario **TextBox** se usa para proporcionar un cuadro de 
 </ClaimType>
 ```
 
-### <a name="emailbox"></a>EmailBox
+#### <a name="emailbox"></a>EmailBox
 
 El tipo de entrada de usuario **EmailBox** se usa para proporcionar un campo de entrada de correo electrónico básico.
 
@@ -251,7 +284,7 @@ El tipo de entrada de usuario **EmailBox** se usa para proporcionar un campo de 
 </ClaimType>
 ```
 
-### <a name="password"></a>Contraseña
+#### <a name="password"></a>Contraseña
 
 El tipo de entrada de usuario **Password** se usa para registrar una contraseña escrita por el usuario.
 
@@ -266,7 +299,7 @@ El tipo de entrada de usuario **Password** se usa para registrar una contraseña
 </ClaimType>
 ```
 
-### <a name="datetimedropdown"></a>DateTimeDropdown
+#### <a name="datetimedropdown"></a>DateTimeDropdown
 
 El tipo de entrada de usuario **DateTimeDropdown** se usa para proporcionar un conjunto de listas desplegables para seleccionar un día, un mes y un año. Puede usar los elementos Predicates y PredicateValidations para controlar los valores de fecha mínimo y máximo. Para obtener más información, vea la sección **Configure a date range** (Configurar un intervalo de fechas) de [Predicates and PredicateValidations](predicates.md) (Predicados y validaciones de predicados).
 
@@ -281,7 +314,7 @@ El tipo de entrada de usuario **DateTimeDropdown** se usa para proporcionar un c
 </ClaimType>
 ```
 
-### <a name="radiosingleselect"></a>RadioSingleSelect
+#### <a name="radiosingleselect"></a>RadioSingleSelect
 
 El tipo de entrada de usuario **RadioSingleSelect** se usa para proporcionar una serie de botones de opción que permiten al usuario seleccionar una opción.
 
@@ -300,7 +333,7 @@ El tipo de entrada de usuario **RadioSingleSelect** se usa para proporcionar una
 </ClaimType>
 ```
 
-### <a name="dropdownsingleselect"></a>DropdownSingleSelect
+#### <a name="dropdownsingleselect"></a>DropdownSingleSelect
 
 El tipo de entrada de usuario **DropdownSingleSelect** se usa para proporcionar un cuadro desplegable que permite al usuario seleccionar una opción.
 
@@ -319,7 +352,7 @@ El tipo de entrada de usuario **DropdownSingleSelect** se usa para proporcionar 
 </ClaimType>
 ```
 
-### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
+#### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
 
 El tipo de entrada de usuario **CheckboxMultiSelect** se usa para proporcionar una serie de casillas de selección que permiten al usuario seleccionar varias opciones.
 
@@ -338,7 +371,7 @@ El tipo de entrada de usuario **CheckboxMultiSelect** se usa para proporcionar u
 </ClaimType>
 ```
 
-### <a name="readonly"></a>Readonly
+#### <a name="readonly"></a>Readonly
 
 El tipo de entrada de usuario **Readonly** se usa para proporcionar un campo de solo lectura para mostrar la notificación y el valor.
 
@@ -354,9 +387,9 @@ El tipo de entrada de usuario **Readonly** se usa para proporcionar un campo de 
 ```
 
 
-### <a name="paragraph"></a>Paragraph
+#### <a name="paragraph"></a>Paragraph
 
-El tipo de entrada de usuario **Paragraph** se usa para proporcionar un campo que muestra solo texto en una etiqueta de párrafo. Por ejemplo, &lt;p&gt;texto&lt;/p&gt;.
+El tipo de entrada de usuario **Paragraph** se usa para proporcionar un campo que muestra solo texto en una etiqueta de párrafo.  Por ejemplo, &lt;p&gt;texto&lt;/p&gt;. Tipo de entrada de usuario **párrafo** `OutputClaim` de un perfil técnico autoafirmado, se debe establecer el atributo `Required` `false` (valor predeterminado).
 
 ![Uso del tipo de notificación con Paragraph](./media/claimsschema/paragraph.png)
 

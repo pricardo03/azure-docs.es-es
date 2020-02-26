@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: b65b7a9fd38b690729fafd86fe213ff56760a1bb
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 280851b2fea0b8100a7d0f8ec8105109a41c8c83
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169832"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252083"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>¿Qué es una instancia de proceso de Azure Machine Learning?
 
@@ -141,11 +141,11 @@ Las instancias de proceso se pueden usar como [destino de proceso de entrenamien
 
 ## <a name="notebookvm"></a>¿Qué ha ocurrido con la VM de cuaderno?
 
-Las instancias de proceso reemplazan la VM de cuaderno.  En las regiones en las que las instancias de proceso no están disponibles todavía, puede seguir usando VMs de Notebook con funcionalidad completa y crear nuevas VMs de Notebook.
+Las instancias de proceso reemplazan la VM de cuaderno.  
 
 Los archivos de cuaderno almacenados en el recurso compartido de archivos del área de trabajo y los almacenes de datos del área de trabajo serán accesibles desde una instancia de proceso. Sin embargo, los paquetes personalizados que se instalaron previamente en una VM de Notebook deberán volver a instalarse en la instancia de proceso. Las limitaciones de cuota que se aplican a la creación de clústeres de proceso se aplicarán también a la creación de instancias de proceso. 
 
-En las regiones en las que las instancias de proceso están disponibles, no se pueden crear nuevas VMs de Notebook. Sin embargo, todavía puede tener acceso a las VMs de Notebook que ha creado y utilizarlas con toda funcionalidad. Las instancias de proceso se pueden crear en la misma área de trabajo que las VMs de Notebook existentes. 
+No se pueden crear las nuevas máquinas virtuales de Notebook. Sin embargo, todavía puede tener acceso a las VMs de Notebook que ha creado y utilizarlas con toda funcionalidad. Las instancias de proceso se pueden crear en la misma área de trabajo que las VMs de Notebook existentes. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

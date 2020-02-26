@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: f460bc3e4809b8a1cbabe1161c888255a7a484db
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 16ee8c1e271f0aa3e6565322f9a4a422dd90b8b8
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157523"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461786"
 ---
 # <a name="automated-backups"></a>Copias de seguridad automatizadas
 
@@ -81,10 +81,14 @@ Las copias de seguridad anteriores al período de retención se depuran automát
 
 Azure SQL Database calculará el almacenamiento de copia de seguridad total en retención como un valor acumulativo. Cada hora, este valor se envía a la canalización de facturación de Azure, que se encarga de agregar este uso por hora para calcular el consumo al final de cada mes. Después de quitar la base de datos, el consumo disminuye a medida que aumenta la antigüedad de las copias de seguridad. En el momento en que estas tienen una antigüedad superior al período de retención, la facturación se detiene. 
 
+   > [!IMPORTANT]
+   > Las copias de seguridad de una base de datos se conservan durante el período de retención especificado, incluso si se ha quitado la base de datos. Aunque quitar y volver a crear una base de datos con frecuencia puede ahorrar en costos de almacenamiento y proceso, también puede aumentar los costos de almacenamiento de copia de seguridad a medida que se conserva una copia de seguridad durante el período de retención especificado (que es de siete días como mínimo) para cada base de datos que se quita y cada vez que se quita. 
 
-### <a name="monitoring-consumption"></a>Supervisar el consumo
 
-Cada tipo de copia de seguridad (completa, diferencial y de registro) se notifica en la hoja de supervisión de la base de datos como una métrica independiente. En este diagrama se muestra cómo supervisar el consumo de almacenamiento de las copias de seguridad.  
+
+### <a name="monitor-consumption"></a>Supervisión del consumo
+
+Cada tipo de copia de seguridad (completa, diferencial y de registro) se notifica en la hoja de supervisión de la base de datos como una métrica independiente. En este diagrama se muestra cómo supervisar el consumo de almacenamiento de copia de seguridad para una única base de datos. Esta característica no está disponible actualmente para las instancias administradas.
 
 ![Supervisión del consumo de copia de seguridad en la hoja de supervisión de la base de datos de Azure Portal](media/sql-database-automated-backup/backup-metrics.png)
 
@@ -105,6 +109,7 @@ El exceso de consumo del almacenamiento de copia de seguridad dependerá de la c
 
 ## <a name="storage-costs"></a>Costos de almacenamiento
 
+El precio del almacenamiento varía si usa el modelo de DTU o el modelo núcleo virtual. 
 
 ### <a name="dtu-model"></a>Modelo de DTU
 
@@ -120,11 +125,14 @@ Supongamos que la base de datos ha acumulado 744 GB de almacenamiento de copia d
 
 Veamos ahora un ejemplo más complejo. Supongamos que la base de datos ha aumentado su retención hasta 14 días a mediados de mes y esto (hipotéticamente) da lugar a que el almacenamiento de copia de seguridad total se duplique a 1488 GB. SQL Database notificaría 1 GB de uso para las horas 1-372 y, después, notificaría el uso como 2 GB para las horas 373-744. Esto se sumaría en una factura final de 1116 GB/mes. 
 
-Se puede usar el análisis de costos de suscripción de Azure para determinar el gasto actual en el almacenamiento de copia de seguridad.
+### <a name="monitor-costs"></a>Supervisión de costos
+
+Para comprender los costos de almacenamiento de copia de seguridad, vaya a **Administración de costos + facturación** en Azure Portal, seleccione **Administración de costos** y, a continuación, seleccione **Análisis de costos**. Seleccione la suscripción deseada como **ámbito** y, a continuación, filtre por el período de tiempo y el servicio que le interese. 
+
+Agregue un filtro para el **nombre de servicio** y, después, elija **Base de datos SQL** en la lista desplegable. Use el filtro de **subcategoría del medidor** para elegir el contador de facturación para el servicio. En el caso de una sola base de datos o de un grupo elástico, elija **single/elastic pool pitr backup storage**. En el caso de una instancia administrada, elija **mi pitr backup storage**. Las subcategorías **Almacenamiento** y **Proceso** pueden interesarle también, aunque no estén asociadas con los costos de almacenamiento de copia de seguridad. 
 
 ![Análisis de costos del almacenamiento de copia de seguridad](./media/sql-database-automated-backup/check-backup-storage-cost-sql-mi.png)
 
-Por ejemplo, para entender los costos de almacenamiento de copia de seguridad de la instancia administrada, vaya a su suscripción en Azure Portal y abra la hoja Análisis de costos. Seleccione la subcategoría de medidor **almacenamiento de copia de seguridad de PITR** para ver el costo actual de copia de seguridad y la previsión de cargos. También se pueden incluir otras subcategorías de medidor, como **instancia administrada de uso general: almacenamiento** o **instancia administrada de uso general: proceso gen5** para comparar el costo del almacenamiento de copia de seguridad con otras categorías de costos.
 
 ## <a name="backup-retention"></a>Retención de copias de seguridad
 

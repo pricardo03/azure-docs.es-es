@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: fd358801b5fe84aac754b5a975234688a707e544
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 6e5571604e6154408f2005ab4804b4270041e4cf
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169963"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444356"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Protección de los trabajos de experimentación e inferencia de ML en una instancia de Azure Virtual Network
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -134,13 +134,14 @@ Para usar un clúster de proceso o una instancia de Proceso de Azure Machine Lea
 > * Si va a colocar varios clústeres o instancias de proceso en una red virtual, es posible que tenga que solicitar un aumento de la cuota para uno o varios de los recursos.
 > * Si las cuentas de Azure Storage del área de trabajo también están protegidas en una red virtual, deben estar en la misma red virtual que el clúster o la instancia de Proceso de Azure Machine Learning. 
 
-El clúster o la instancia de Proceso de Machine Learning asigna automáticamente recursos de red adicionales al grupo de recursos que contiene la red virtual. Para cada clúster o instancia de proceso, el servicio asigna los recursos siguientes:
-
-* Un grupo de seguridad de red
-* Una dirección IP pública
-* Un equilibrador de carga
-
-Estos recursos están limitados por las [cuotas de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) de la suscripción.
+> [!TIP]
+> El clúster o la instancia de Proceso de Machine Learning asigna automáticamente recursos de red adicionales al grupo de recursos que contiene la red virtual. Para cada clúster o instancia de proceso, el servicio asigna los recursos siguientes:
+> 
+> * Un grupo de seguridad de red
+> * Una dirección IP pública
+> * Un equilibrador de carga
+> 
+> Estos recursos están limitados por las [cuotas de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) de la suscripción.
 
 
 ### <a id="mlcports"></a> Puertos necesarios
@@ -500,6 +501,10 @@ Al usar Azure Firewall, debe configurar una regla de red para permitir el tráfi
 Al agregar la regla, establezca __Protocolo__ en cualquiera y los puertos en `*`.
 
 Para más información sobre la configuración de una regla de red, consulte [Implementación y configuración de Azure Firewall mediante Azure Portal](/azure/firewall/tutorial-firewall-deploy-portal#configure-a-network-rule).
+
+## <a name="use-azure-container-registry"></a>Uso de Azure Container Registry
+
+Cuando se usa una red virtual con Azure Machine Learning, __no__ coloque la instancia de Azure Container Registry del área de trabajo en la red virtual. Esta configuración no es compatible.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

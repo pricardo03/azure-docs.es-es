@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/08/2019
+ms.date: 02/19/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da2d598c7bb6d7b06e57dd497d1e2aebf1b63694
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: cd37374ab6341356d84f205e92c9612d8481818f
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898892"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468854"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de error de los informes de actividad de inicio de sesión. 
 
@@ -133,6 +133,7 @@ También puede acceder mediante programación a los datos de inicio de sesión c
 |50178|No se admite el control de sesión para los usuarios con acceso directo.|
 |50180|Se necesita la autenticación integrada de Windows. Habilite el inquilino para un inicio de sesión único de conexión directa.|
 |50181|Error relacionado con OTP durante el inicio de sesión. |
+|50194|La aplicación '{appId}'({appName}) no está configurada como una aplicación multiinquilino. El uso del punto de conexión /common no se admite para las aplicaciones creadas después de '{time}'. Use un punto de conexión específico del inquilino o configure la aplicación para que sea multiinquilino.|
 |50201|La interrupción de este mensaje se mostrará al usuario durante el inicio de sesión cuando se debe proporcionar información adicional al usuario.|
 |51001|La sugerencia de dominio no está presente con el identificador de seguridad local: UPN local.|
 |51004|La cuenta de usuario no existe en el directorio.|
@@ -188,13 +189,19 @@ También puede acceder mediante programación a los datos de inicio de sesión c
 |90072| La cuenta tiene que agregarse primero como un usuario externo en el inquilino. Cierre sesión y vuelva a iniciarla con otra cuenta de Azure AD.|
 |90094| La aplicación ha solicitado permisos a los que el usuario con sesión iniciada no puede dar consentimiento y se bloqueó al usuario. |
 |90095| La aplicación ha solicitado permisos a los que el usuario con sesión iniciada no puede dar consentimiento y se mostró al usuario el formulario de [solicitud de consentimiento del administrador](../manage-apps/configure-admin-consent-workflow.md). |
+|130500|El inicio de sesión de teléfono se bloqueó debido a la directiva de credencial de usuario.|
 |500011| No se encontró la entidad de seguridad de recurso denominada <site address> en el inquilino denominado <tenant ID>. Esto puede pasar si el administrador del inquilino no es el que ha instalado el administrador del inquilino o no ha recibido el consentimiento de ningún usuario del inquilino. Es posible que haya enviado la solicitud de autenticación al inquilino incorrecto.|
+|500014|El elemento '{identifier}' del recurso está deshabilitado.|
 |500021| El inquilino está restringido por el proxy de la empresa. Se deniega el acceso del recurso.|
 |500121| Error de autenticación durante la solicitud de autenticación sólida.|
 |500133| La aserción no está dentro de su intervalo de tiempo válido. Asegúrese de que el token de acceso no ha expirado antes de usarlo para la aserción de usuario o solicite un nuevo token.|
+|500172|El elemento '{name}' del certificado emitido por '{issuer}' no es válido. Hora actual: '{curTime}'. Certificado NotBefore: '{startTime}'. Certificado NotAfter: '{endTime}'.|
+|501291|La aplicación cliente es una aplicación MAM, el dispositivo no está registrado y la solicitud se envía mediante un agente. Se debe realizar la unión al área de trabajo para registrar el dispositivo antes de que se pueda tener acceso a la aplicación.|
+|530003|Se requiere que su dispositivo sea administrado para acceder a este recurso.|
 |530021|La aplicación no cumple los requisitos de aplicación aprobada para el acceso condicional.|
 |530032|Bloqueado por una directiva de seguridad.| 
 |700016|La aplicación con identificador "{appIdentifier}" no se encontró en el directorio "{tenantName}". Esto puede pasar si el administrador del inquilino no es el que ha instalado el administrador del inquilino o no ha recibido el consentimiento de ningún usuario del inquilino. Es posible que haya enviado la solicitud de autenticación al inquilino incorrecto.|
+|700051|El elemento 'token' de response_type no está habilitado para la aplicación. La aplicación solicitó un tipo de respuesta no compatible debido a los siguientes motivos: el elemento 'token' de response_type no está habilitado para la aplicación. El propietario de la aplicación debe ir a Azure Portal o llamar a MS Graph para habilitar la concesión implícita del token de acceso.|
 |900432|El cliente confidencial no se admite en una solicitud entre nubes.|
 |5000811|No se puede comprobar la firma del token SAML. El identificador de la clave de firma no coincide con ninguna clave registrada válida.|
 |7000215|Se ha proporcionado un secreto de cliente no válido.|

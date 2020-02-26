@@ -1,49 +1,110 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Hub
 title: Documentación de Azure Media Services
+summary: Azure Media Services es una plataforma de elementos multimedia basada en la nube que le permite compilar soluciones que requieren codificación, empaquetado, protección del contenido y difusión de eventos en directo.
+brand: azure
 metadata:
-  title: Documentación de Azure Media Services | Microsoft Azure
-  description: 'Azure Media Services es una plataforma basada en la nube que le permite compilar soluciones que consiguen un streaming de vídeo con calidad de difusión, mejoran la accesibilidad y la distribución, analizan el contenido, etc.'
+  title: Documentación de Azure Media Services
+  description: Azure Media Services es una plataforma de flujos de trabajo de elementos multimedia basada en la nube que permite compilar soluciones que requieren codificación, empaquetado, protección del contenido y difusión de eventos en directo.
   services: media-services
-  author: juliako
-  manager: femila
   ms.service: media-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 03/11/2019
+  ms.subservice: 
+  ms.topic: hub-page
+  ms.collection: collection
+  author: Juliako
   ms.author: juliako
-abstract:
-  description: 'Azure Media Services es una plataforma de elementos multimedia basada en la nube que le permite compilar soluciones que requieren codificación, empaquetado, protección del contenido y difusión de eventos en directo. Azure Media Services se integra a la perfección con Azure CDN para escalar los servicios de entrega con servicios de CDN de Akamai y Verizon, permitiendo a los clientes seleccionar la solución adecuada para sus necesidades (por ejemplo, para equilibrio de carga en las redes de entrega de contenido). Video Indexer de Azure Media Services le permite extraer metadatos y conclusiones mediante inteligencia artificial con los valores preestablecidos del analizador de vídeo y audio integrado. Puede mejorar fácilmente la precisión con el entrenamiento de los modelos de inteligencia artificial con contenidos propios mediante Video Indexer API.'
-sections:
+  ms.date: 07//2020
+  ms.openlocfilehash: ff7c361b402f38160b2693f2d22670a96881045b
+  ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 02/25/2020
+  ms.locfileid: "77587675"
+highlightedContent:
+  items:
+  - title: Azure Media Services, versión 3
+    itemType: overview
+    url: ./latest/media-services-overview.md
+  - title: Conceptos de Azure Media Services, versión 3
+    itemType: concept
+    url: ./latest/concepts-overview.md
+  - title: Acerca de Video Indexer de Azure Media Services
+    itemType: overview
+    url: ./video-indexer/video-indexer-overview.md
+  - title: Comparación de los valores predeterminados de Media Services v3 y Video Indexer
+    itemType: concept
+    url: ./video-indexer/compare-video-indexer-with-media-services-presets.md
+  - title: Acerca de Azure Media Services, versión 2 (heredado)
+    itemType: overview
+    url: ./previous/media-services-overview.md
+  - title: Migración de Media Services v2 a v3
+    itemType: concept
+    url: ./latest/migrate-from-v2-to-v3.md
+  - title: Especificaciones de Azure Media Services
+    itemType: concept
+    url: media-services-specifications-live-timed-metadata.md
+conceptualContent:
+  items:
+  - title: Desarrollo con Media Services v3 API
+    links:
+    - url: ./latest/media-services-apis-overview.md
+      itemType: concept
+      text: Desarrollo con Media Services, versión 3
+    - url: https://docs.microsoft.com/samples/browse/?products=azure-media-services
+      itemType: sample
+      text: Ejemplos de código
+  - title: Streaming en vivo
+    links:
+    - url: ./latest/live-streaming-overview.md
+      itemType: concept
+      text: Streaming en directo
+    - url: ./latest/recommended-on-premises-live-encoders.md
+      itemType: concept
+      text: Codificadores de streaming en vivo recomendados
+    - url: ./latest/stream-live-tutorial-with-api.md
+      itemType: tutorial
+      text: Streaming en vivo
+  - title: Streaming a petición
+    links:
+    - url: ./latest/assets-concept.md
+      itemType: concept
+      text: Carga
+    - url: ./latest/encoding-concept.md
+      itemType: concept
+      text: Encoding
+    - url: ./latest/stream-files-tutorial-with-rest.md
+      itemType: tutorial
+      text: Codificación de archivos remotos y streaming
+    - url: ./latest/stream-files-tutorial-with-api.md
+      itemType: tutorial
+      text: Codificación de archivos cargados y streaming
+  - title: Cifrado de contenido
+    links:
+    - url: ./latest/content-protection-overview.md
+      itemType: concept
+      text: Protección
+    - url: ./latest/protect-with-aes128.md
+      itemType: tutorial
+      text: Cifrado dinámico con AES-128
+    - url: ./latest/protect-with-drm.md
+      itemType: tutorial
+      text: Cifrado dinámico con DRM
+  - title: Análisis de contenido
+    links:
+    - url: ./latest/analyzing-video-audio-files-concept.md
+      itemType: concept
+      text: Media Analytics
+    - url: ./latest/analyze-videos-tutorial-with-api.md
+      itemType: tutorial
+      text: Análisis de vídeos
+additionalContent:
+  sections:
   - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 2
-        items:
-          - href: /azure/media-services/latest/
-            html: '<p>Codifique, empaquete, proteja el contenido, haga streaming de vídeos a petición, realice difusiones en directo y analice vídeos con Media Services v3.</p>'
-            image:
-              src: /azure/media-services/latest/media/index/AMSIcons-encoding.svg
-            title: Azure Media Services v3
-          - href: /azure/media-services/previous/
-            html: '<p>Codificación, empaquetado, protección y mucho más. Este es el servicio heredado que está en mantenimiento. Se anima a los clientes a migrar a Media Services v3 ya que se están incluyendo nuevas características y mejoras.</p>'
-            image:
-              src: null
-            title: Azure Media Services v2 (heredado)
-          - href: /azure/cdn/
-            html: <p>Use toda la potencia de Azure CDN para hacer streaming de contenido a escala con servicios de Akamai y Verizon o equilibre la carga entre varias redes de entrega de contenido.</p>
-            image:
-              src: /azure/cdn/media/index/cdn.svg
-            title: CDN
-          - href: 'https://amp.azure.net/libs/amp/latest/docs/index.html'
-            html: <p>Reproduzca contenido multimedia de Microsoft Azure Media Services en una gran variedad de exploradores y dispositivos.</p>
-            image:
-              src: /azure/media-services/latest/media/index/AMSIcons-Player.svg
-            title: Azure Media Player
-          - href: /azure/media-services/video-indexer/
-            html: <p>Extraiga la información de los archivos de audio y vídeo mediante Video Indexer.</p>
-            image:
-              src: media/index/AMSIcons-media_analytics.svg
-            title: Video Indexer de Azure Media Services
+    - title: Azure Storage
+      summary: Información acerca de blobs en bloques y contenedores
+      url: https://docs.microsoft.com/azure/storage/
+    - title: CDN
+      summary: Use la potencia de Azure CDN para hacer streaming de contenido a escala con servicios de Akamai y Verizon, o equilibre la carga entre varias redes de entrega de contenido
+      url: https://docs.microsoft.com/azure/cdn
+    - title: Event Grid
+      summary: Aprenda a usar Azure Event Grid para reaccionar ante eventos pertinentes
+      url: https://docs.microsoft.com/azure/event-grid/

@@ -8,34 +8,36 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 267579f7b4bbfe026f3aa01b00f01f3b872cf4a6
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: fb8a1e1a8c29086553500bdad2e4604d1e1ef471
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911655"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198299"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>Tipos de interacción y métodos abreviados de teclado en el módulo de herramientas de dibujo
 
-En este artículo se describen las distintas formas de dibujar y editar formas en un mapa con un mouse, una pantalla táctil o métodos abreviados de teclado.
+En este artículo se describen las distintas formas de dibujar y editar formas mediante el mouse, la pantalla táctil o métodos abreviados de teclado.
 
 El administrador de dibujo admite tres formas diferentes de interactuar con el mapa para dibujar formas.
 
 * `click`: se agregan coordenadas cuando se hace clic en el mouse o en la entrada táctil.
-* `freehand `: se agregan coordenadas cuando se arrastra el mouse o la entrada táctil en el mapa. 
+* `freehand `: se agregan coordenadas cuando se arrastra el mouse o la entrada táctil en el mapa.
 * `hybrid`: se agregan coordenadas cuando se hace clic o se arrastra el mouse o la entrada táctil.
 
 ## <a name="how-to-draw-shapes"></a>Dibujo de formas
 
-A continuación se describen las distintas formas en que se pueden dibujar formas en el mapa. Antes de que se pueda dibujar cualquier forma, la opción `drawingMode` del administrador de dibujo debe establecerse en un valor de dibujo admitido. Esto puede hacerse mediante programación o presionando uno de los botones de dibujo de la barra de herramientas. El modo de dibujo permanece habilitado, incluso después de dibujar una forma, lo que facilita el dibujo de otras formas del mismo tipo. Este modo se puede poner en un estado de inactividad mediante programación o haciendo clic en el botón de modos de dibujo actual de la barra de herramientas. 
+ Antes de que se pueda dibujar cualquier forma, establezca la opción `drawingMode` del administrador de dibujo en un valor de dibujo admitido. Este valor se puede programar o invocar al presionar uno de los botones de dibujo de la barra de herramientas. El modo de dibujo permanece habilitado, incluso después de dibujar una forma, lo que facilita el dibujo de otras formas del mismo tipo. Establezca mediante programación el modo de dibujo en estado de inactividad. O bien, cambie a estado de inactividad al hacer clic en el botón de modos de dibujo actuales de la barra de herramientas.
+
+En las secciones siguientes se describen las distintas maneras de las que se pueden dibujar formas en el mapa.
 
 ### <a name="how-to-draw-a-point"></a>Dibujo de un punto
 
 Cuando el administrador de dibujo está en el modo de dibujo `draw-point`, se pueden realizar las siguientes acciones para dibujar puntos en el mapa. Estos métodos funcionan con todos los modos de interacción.
 
 **Inicio del dibujo**
- - Haga clic en el botón izquierdo del mouse o toque el mapa para agregar un punto al mapa. 
- - Si el mouse está sobre el mapa, presione la tecla `F` y se agregará un punto mediante la coordenada de donde se encuentra el puntero del mouse. Esto proporcionará un método de precisión mayor para agregar un punto al mapa, ya que habrá menos movimiento en el mouse debido al movimiento de presión del botón izquierdo del mouse.
+ - Haga clic en el botón izquierdo del mouse o toque el mapa para agregar un punto a él. 
+ - Si el mouse está sobre el mapa, presione la tecla `F` y se agregará un punto mediante la coordenada del puntero del mouse. Este método proporciona mayor precisión para agregar un punto al mapa. Gracias al movimiento de presionar el botón izquierdo del mouse, este se moverá menos.
  - Para agregar más puntos al mapa, pulse, toque o presione `F`.
  
 **Finalización del dibujo**
@@ -48,17 +50,17 @@ Cuando el administrador de dibujo está en el modo de dibujo `draw-point`, se pu
 
 ### <a name="how-to-draw-a-line"></a>Dibujo de una línea
 
-Cuando el administrador de dibujo está en modo `draw-line`, se pueden realizar las siguientes acciones para dibujar puntos en el mapa dependiendo de lo que se establezca en el modo de interacción.
+Cuando el administrador de dibujo está en modo `draw-line`, se pueden realizar las siguientes acciones para dibujar puntos en el mapa, dependiendo del modo de interacción.
 
 **Inicio del dibujo**
  - Modo de clic
    * Haga clic en el botón izquierdo del mouse o toque el mapa para agregar cada punto de una línea en el mapa. Se agrega una coordenada a la línea por cada clic o toque. 
-   * Si el mouse está sobre el mapa, presione la tecla `F` y se agregará un punto mediante la coordenada de donde se encuentra el puntero del mouse. Esto proporcionará un método de precisión mayor para agregar un punto al mapa, ya que habrá menos movimiento en el mouse debido al movimiento de presión del botón izquierdo del mouse.
+   * Si el mouse está sobre el mapa, presione la tecla `F` y se agregará un punto mediante la coordenada del puntero del mouse. Este método proporciona mayor precisión para agregar un punto al mapa. Gracias al movimiento de presionar el botón izquierdo del mouse, este se moverá menos.
    * Siga haciendo clic hasta que se hayan agregado todos los puntos deseados a la línea.
  - Modo de mano alzada
    * Presione el botón izquierdo del mouse o pulse en el mapa y arrastre el mouse o el punto de toque. Las coordenadas se agregan a la línea a medida que el mouse o el punto táctil se mueve por el mapa. En cuanto se desencadene el evento del mouse o de toque, se completa el dibujo. La frecuencia con la que se agregan las coordenadas se define mediante la opción `freehandInterval` de los administradores de dibujos.
  - Modo híbrido
-   * Alterne entre los métodos de clic y mano alzada, según sea necesario, mientras se dibuja una sola línea. Por ejemplo, haga clic en unos cuantos puntos, mantenga presionado el botón del mouse y arrástrelo para agregar varios puntos y, a continuación, haga clic y dibuje unos cuantos más. 
+   * Alterne entre los métodos de clic y mano alzada, según prefiera, mientras dibuja una sola línea. Por ejemplo, haga clic en unos cuantos puntos, mantenga presionado el botón del mouse y arrástrelo para agregar varios puntos y, a continuación, haga clic y dibuje unos cuantos más. 
 
 **Finalización del dibujo**
  - Modo de clic o híbrido
@@ -74,17 +76,17 @@ Cuando el administrador de dibujo está en modo `draw-line`, se pueden realizar 
 
 ### <a name="how-to-draw-a-polygon"></a>Dibujo de un polígono
 
-Cuando el administrador de dibujo está en modo `draw-polygon`, se pueden realizar las siguientes acciones para dibujar puntos en el mapa dependiendo de lo que se establezca en el modo de interacción.
+Cuando el administrador de dibujo está en modo `draw-polygon`, se pueden realizar las siguientes acciones para dibujar puntos en el mapa, dependiendo del modo de interacción.
 
 **Inicio del dibujo**
  - Modo de clic
-   * Haga clic en el botón izquierdo del mouse o toque el mapa para agregar cada punto de un polígono en el mapa. Se agrega una coordenada al polígono por cada clic o toque. 
-   * Si el mouse está sobre el mapa, presione la tecla `F` y se agregará un punto mediante la coordenada de donde se encuentra el puntero del mouse. Esto proporcionará un método de precisión mayor para agregar un punto al mapa, ya que habrá menos movimiento en el mouse debido al movimiento de presión del botón izquierdo del mouse.
+   * Haga clic en el botón izquierdo del mouse o toque el mapa para agregar cada punto de un polígono al mapa. Se agrega una coordenada al polígono por cada clic o toque. 
+   * Si el mouse está sobre el mapa, presione la tecla `F` y se agregará un punto mediante la coordenada del puntero del mouse. Este método proporciona mayor precisión para agregar un punto al mapa. Gracias al movimiento de presionar el botón izquierdo del mouse, este se moverá menos.
    * Siga haciendo clic hasta que se hayan agregado todos los puntos deseados al polígono.
  - Modo de mano alzada
-   * Presione el botón izquierdo del mouse o pulse en el mapa y arrastre el mouse o el punto de toque. Las coordenadas se agregan al polígono a medida que el mouse o el punto táctil se mueve por el mapa. En cuanto se desencadene el evento del mouse o de toque, se completa el dibujo. Tenga en cuenta que la frecuencia con la que se agregan las coordenadas se define mediante la opción `freehandInterval` de los administradores de dibujos.
+   * Presione el botón izquierdo del mouse o pulse en el mapa y arrastre el mouse o el punto de toque. Las coordenadas se agregan al polígono a medida que el mouse o el punto táctil se mueve por el mapa. En cuanto se desencadene el evento del mouse o de toque, se completa el dibujo. La frecuencia con la que se agregan las coordenadas se define mediante la opción `freehandInterval` de los administradores de dibujos.
  - Modo híbrido
-   * Alterne entre los métodos de clic y mano alzada, según sea necesario, mientras se dibuja un único polígono. Por ejemplo, haga clic en unos cuantos puntos, mantenga presionado el botón del mouse y arrástrelo para agregar varios puntos y, a continuación, haga clic y dibuje unos cuantos más. 
+   * Alterne entre los métodos de clic y mano alzada, según su preferencia, mientras dibuja un único polígono. Por ejemplo, haga clic en unos cuantos puntos, mantenga presionado el botón del mouse y arrástrelo para agregar varios puntos y, a continuación, haga clic y dibuje unos cuantos más. 
 
 **Finalización del dibujo**
  - Modo de clic o híbrido
@@ -101,10 +103,10 @@ Cuando el administrador de dibujo está en modo `draw-polygon`, se pueden realiz
 
 ### <a name="how-to-draw-a-rectangle"></a>Dibujo de un rectángulo
 
-Cuando el administrador de dibujo está en modo `draw-rectangle`, se pueden realizar las siguientes acciones para dibujar puntos en el mapa dependiendo de lo que se establezca en el modo de interacción. La forma generada seguirá la [especificación de GeoJSON extendida para los rectángulos](extend-geojson.md#rectangle).
+Cuando el administrador de dibujo está en modo `draw-rectangle`, se pueden realizar las siguientes acciones para dibujar puntos en el mapa, dependiendo del modo de interacción. La forma generada seguirá la [especificación de GeoJSON extendida para los rectángulos](extend-geojson.md#rectangle).
 
 **Inicio del dibujo**
- - Presione el botón izquierdo del mouse o pulse en el mapa para agregar la primera esquina del rectángulo y arrástrelo para crear el rectángulo. 
+ - Presione el botón izquierdo del mouse o pulse en el mapa para agregar el primer vértice del rectángulo y arrástrelo para crear el rectángulo. 
 
 **Finalización del dibujo**
  - Suelte el botón del mouse o punto táctil.
@@ -116,7 +118,7 @@ Cuando el administrador de dibujo está en modo `draw-rectangle`, se pueden real
 
 ### <a name="how-to-draw-a-circle"></a>Dibujo de un círculo
 
-Cuando el administrador de dibujo está en modo `draw-circle`, se pueden realizar las siguientes acciones para dibujar puntos en el mapa dependiendo de lo que se establezca en el modo de interacción. La forma generada seguirá la [especificación de GeoJSON extendida para los círculos](extend-geojson.md#circle).
+Cuando el administrador de dibujo está en modo `draw-circle`, se pueden realizar las siguientes acciones para dibujar puntos en el mapa, dependiendo del modo de interacción. La forma generada seguirá la [especificación de GeoJSON extendida para los círculos](extend-geojson.md#circle).
 
 **Inicio del dibujo**
  - Presione el botón izquierdo del mouse o pulse en el mapa para agregar el centro del círculo y arrástrelo para crear un radio al círculo. 
@@ -131,13 +133,13 @@ Cuando el administrador de dibujo está en modo `draw-circle`, se pueden realiza
 
 ## <a name="keyboard-shortcuts"></a>Accesos directos del teclado
 
-Las herramientas de dibujo admiten los métodos abreviados de teclado que facilitan la tarea de dibujar y editar formas en el mapa. Estos métodos abreviados de teclado son funcionales cuando el mapa tiene el foco.
+Las herramientas de dibujo admiten los métodos abreviados de teclado. Estos métodos abreviados de teclado son funcionales cuando el mapa tiene el foco.
 
 | Clave      | Acción                            |
 |----------|-----------------------------------|
 | `C` | Completa cualquier dibujo que esté en curso y establece el modo de dibujo en inactivo. El foco se desplazará al elemento de mapa de nivel superior.  |
 | `Escape` | Cancela cualquier dibujo que esté en curso y establece el modo de dibujo en inactivo. El foco se desplazará al elemento de mapa de nivel superior.  |
-| `F` | Agrega una coordenada a un punto, línea o polígono si el mouse está sobre el mapa. Acción equivalente de hacer clic en el mapa cuando se está en modo de clic o híbrido. Este método abreviado permite dibujos más precisos y más rápidos, ya que puede usar una mano para colocar el mouse y otro para presionar el botón sin mover el mouse desde el gesto de presionar. |
+| `F` | Agrega una coordenada a un punto, línea o polígono si el mouse está sobre el mapa. Acción equivalente de hacer clic en el mapa cuando se está en modo de clic o híbrido. Este método abreviado permite dibujos más precisos y más rápidos. Puede usar una mano para colocar el mouse y la otra para presionar el botón sin mover el mouse con el gesto de presionar. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

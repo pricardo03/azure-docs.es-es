@@ -3,12 +3,12 @@ title: Matriz de compatibilidad de MABS y System Center DPM
 description: En este artículo se resume la compatibilidad de Azure Backup al usar Microsoft Azure Backup Server (MABS) o System Center DPM para realizar copias de seguridad de recursos locales y de VM de Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 211a7e39dc9cda9e4bd96e3a66924b2195524be7
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 9441f7ce9069cd85475877f37abe669f3c4fd516
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111466"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444033"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de compatibilidad para copia de seguridad con Microsoft Azure Backup Server o System Center DPM
 
@@ -70,9 +70,9 @@ Azure Backup puede realizar una copia de seguridad de instancias de DPM/MABS en 
 
 **Escenario** | **DPM/MABS**
 --- | ---
-**MABS en una máquina virtual de Azure** | Windows Server 2012 R2.<br/><br/> Windows 2016 Datacenter.<br/><br/> Windows 2019 Datacenter.<br/><br/> Se recomienda comenzar con una imagen de Marketplace.<br/><br/> A2 estándar como mínimo con dos núcleos y 3,5 GB de RAM.
-**DPM en una máquina virtual de Azure** | System Center 2012 R2 con Update 3 o posterior.<br/><br/> Sistema operativo Windows [según requiera System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> Se recomienda comenzar con una imagen de Marketplace.<br/><br/> A2 estándar como mínimo con dos núcleos y 3,5 GB de RAM.
-**MABS local** | Sistemas operativos compatibles de 64 bits:<br/><br/> MABS v3 y versiones posteriores: Windows Server 2019 (Standard, Datacenter y Essentials). <br/><br/> MABS v2 y versiones posteriores: Windows Server 2016 (Standard, Datacenter y Essentials).<br/><br/> Todas las versiones de MABS:  Windows Server 2012 R2.<br/><br/>Todas las versiones de MABS: Windows Storage Server 2012 R2.
+**MABS en una máquina virtual de Azure** |  Windows 2016 Datacenter.<br/><br/> Windows 2019 Datacenter.<br/><br/> Se recomienda comenzar con una imagen de Marketplace.<br/><br/> Minimum Standard_A4_v2 con cuatro núcleos y 8 GB de RAM.
+**DPM en una máquina virtual de Azure** | System Center 2012 R2 con Update 3 o posterior.<br/><br/> Sistema operativo Windows [según requiera System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> Se recomienda comenzar con una imagen de Marketplace.<br/><br/> Minimum Standard_A4_v2 con cuatro núcleos y 8 GB de RAM.
+**MABS local** |  MABS v3 y versiones posteriores: Windows Server 2016 o Windows Server 2019
 **DPM local** | Servidor físico/máquina virtual de Hyper-V: System Center 2012 SP1 o posterior.<br/><br/> Máquina virtual de VMware: System Center 2012 R2 con Update 5 o posterior.
 
 >[!NOTE]

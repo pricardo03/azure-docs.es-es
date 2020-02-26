@@ -1,19 +1,19 @@
 ---
 title: Módulo de herramientas de dibujo | Microsoft Azure Maps
-description: En este artículo, obtendrá información sobre cómo establecer datos de opciones de dibujo mediante el SDK web de Microsoft Azure Maps
-author: walsehgal
-ms.author: v-musehg
+description: En este artículo, obtendrá información sobre cómo establecer datos de opciones de dibujo mediante el SDK web de Microsoft Azure Maps
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6c64820cdfa03e833bfd2fbad3ba7489170b14e5
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: f3634149b744b9a03f0ed89aafbc20932701bdbc
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988930"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208189"
 ---
 # <a name="use-the-drawing-tools-module"></a>Uso del módulo de herramientas de dibujo
 

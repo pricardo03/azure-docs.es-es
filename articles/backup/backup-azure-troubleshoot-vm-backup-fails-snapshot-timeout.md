@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 47adda38bb39a95fe9abc0775a1822d677f19dab
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 0a4d7f152e555ed89bd0a6aee0a7bc83b9815492
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513854"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469143"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
@@ -64,6 +64,7 @@ Este error se produce cuando uno de los errores de extensión deja a la máquina
 
 - Este problema puede ocurrir si hay un bloqueo en el grupo de recursos del punto de recuperación que impida la limpieza automática del punto de recuperación.
 - Este problema también puede ocurrir si se desencadenan varias copias de seguridad al día. Actualmente recomendamos solo una copia de seguridad por día, ya que los puntos de restauración instantáneos se retienen durante 1 a 5 días según la retención de instantáneas configurada y solo se pueden asociar 18 puntos de restauración instantáneos con una máquina virtual en cualquier momento dado. <br>
+- El número de puntos de restauración entre las colecciones de puntos de restauración y los grupos de recursos de una máquina virtual no puede superar los 18. Para crear un nuevo punto de restauración, elimine los puntos de restauración existentes.
 
 Acción recomendada:<br>
 Para resolver este problema, elimine el bloqueo en el grupo de recursos de la máquina virtual y vuelva a intentar la operación para desencadenar la limpieza.

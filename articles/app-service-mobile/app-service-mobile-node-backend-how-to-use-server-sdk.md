@@ -6,21 +6,16 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.openlocfilehash: fe5ced96a74bfbfbacf3ce1874d64711f6db7449
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 566b6db829c9694a7e5e83cc25695e71ada0bc8d
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668757"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461460"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Uso del SDK de Node.js de Mobile Apps
 
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
-
-> [!NOTE]
-> Visual Studio App Center admite servicios integrados de un extremo a otro fundamentales para el desarrollo de aplicaciones móviles. Los desarrolladores pueden usar los servicios de **compilación**, **prueba** y **distribución** para configurar la canalización de integración y entrega continuas. Una vez que se ha implementado la aplicación, los desarrolladores pueden supervisar el estado y el uso de su aplicación con los servicios de **análisis** y **diagnóstico**, e interactuar con los usuarios que utilizan el servicio de **Push** (inserción). Además, los desarrolladores pueden aprovechar **Auth** para autenticar a los usuarios y el servicio de **datos** para almacenar y sincronizar los datos de la aplicación en la nube.
->
->  Si está pensando en integrar servicios en la nube en su aplicación para dispositivos móviles, regístrese en [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoy mismo.
 
 En este artículo se ofrece información detallada y ejemplos que muestran cómo trabajar con un back-end de Node.js en la característica Mobile Apps de Azure App Service.
 
@@ -189,7 +184,7 @@ Puede agregar esta opción al archivo azureMobile.js si solo quiere que esta opc
 
 El SDK del servidor de Node.js de azure-mobile-apps proporciona mecanismos para exponer las tablas de datos almacenadas en Azure SQL Database como una API web. Proporciona cinco operaciones:
 
-| Operación | DESCRIPCIÓN |
+| Operación | Descripción |
 | --- | --- |
 | GET /tables/*nombredelatabla* |Permite obtener todos los registros de la tabla. |
 | GET /tables/*nombredelatabla*/:id |Permite obtener un registro específico de la tabla. |
@@ -367,9 +362,9 @@ Se recomienda que agregue **azureMobile.js** al archivo **.gitignore** (o a otro
 
 La mayoría de las opciones de configuración del archivo azureMobile.js tienen una configuración de aplicación equivalente en [Azure Portal]. Para configurar la aplicación en **Configuración de aplicaciones**, use la siguiente lista:
 
-| Configuración de aplicación | Configuración de azureMobile.js | DESCRIPCIÓN | Valores válidos |
+| Configuración de aplicación | Configuración de azureMobile.js | Descripción | Valores válidos |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |Nombre |Nombre de la aplicación |string |
+| **MS_MobileAppName** |name |Nombre de la aplicación |string |
 | **MS_MobileLoggingLevel** |logging.level |Nivel mínimo de registro de mensajes en el registro |error, advertencia, información, detallado, depuración, absurdo |
 | **MS_DebugMode** |debug |Habilita o deshabilita el modo de depuración |true, false |
 | **MS_TableSchema** |data.schema |Nombre del esquema predeterminado para tablas SQL |cadena (valor predeterminado: dbo) |
@@ -379,7 +374,7 @@ La mayoría de las opciones de configuración del archivo azureMobile.js tienen 
 
 Para establecer una configuración de aplicación:
 
-1. Inicie sesión en el [Azure Portal].
+1. Inicie sesión en [Azure Portal].
 1. Seleccione **Todos los recursos** o **App Services** y, después, haga clic en el nombre de la aplicación móvil.
 1. El panel **Configuración** se abre de forma predeterminada. En caso contrario, haga clic en **Configuración**.
 1. En el menú **GENERAL**, seleccione **Configuración de la aplicación**.
@@ -396,8 +391,8 @@ Si cambia la mayoría de las opciones de configuración de la aplicación habrá
 
 El uso de Azure SQL Database como almacén de datos es idéntico en todos los tipos de aplicaciones de Azure App Service. Si todavía no lo ha hecho, siga estos pasos para crear un back-end de Mobile Apps:
 
-1. Inicie sesión en el [Azure Portal].
-1. En la parte superior izquierda de la ventana, haga clic en el botón **+NUEVO** > **Web y móvil**> **Aplicación móvil** y, después, especifique el nombre del back-end de Mobile Apps.
+1. Inicie sesión en [Azure Portal].
+1. En la parte superior izquierda de la ventana, haga clic en el botón **+NUEVO** > **Web y móvil**>**Aplicación móvil** y, después, especifique el nombre del servidor back-end de Mobile Apps.
 1. En el cuadro **Grupo de recursos** , escriba el mismo nombre de la aplicación.
 1. Se seleccionará el plan de App Service predeterminado. Si desea cambiar su plan de App Service:
 

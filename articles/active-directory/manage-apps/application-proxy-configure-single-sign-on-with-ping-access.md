@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec115e0fa76e695809ba140202d5f13a319d33dd
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: f3fb94629262519f8cfa5da72ee343726aa7d1c1
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062707"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367984"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticación basada en el encabezado para el inicio de sesión único con el proxy de aplicación y PingAccess
 
@@ -50,7 +50,7 @@ Este artículo va dirigido a quienes publican por primera vez una aplicación co
 
 Si ya tiene habilitado Application Proxy y tiene instalado un conector, puede omitir esta sección e ir a [Agregar la aplicación a Azure AD con el proxy de aplicación](#add-your-application-to-azure-ad-with-application-proxy).
 
-El conector de Application Proxy es un servicio de Windows Server que dirige el tráfico de los empleados remotos a las aplicaciones publicadas. Para obtener instrucciones de instalación detalladas, vea [Tutorial: Adición de una aplicación local para el acceso remoto mediante el proxy de aplicación en Azure Active Directory](application-proxy-add-on-premises-application.md).
+El conector de Application Proxy es un servicio de Windows Server que dirige el tráfico de los empleados remotos a las aplicaciones publicadas. Para obtener instrucciones de instalación detalladas, vea [Tutorial: Adición de una aplicación local para el acceso remoto mediante Application Proxy en Azure Active Directory](application-proxy-add-on-premises-application.md).
 
 1. Inicie sesión en el [portal de Azure Active Directory](https://aad.portal.azure.com/) como administrador de la aplicación. Aparecerá la página del **Centro de administración de Azure Active Directory**.
 1. Seleccione **Azure Active Directory** > **Proxy de la aplicación** > **Descargar servicio de conector**. Se abre la página **Descarga de conectores del proxy de aplicación**.
@@ -124,7 +124,7 @@ Luego, asegúrese de que la dirección URL de redireccionamiento está estableci
 
 Por último, configure la aplicación local para que los usuarios tengan acceso de lectura y otras aplicaciones tengan acceso de lectura/escritura:
 
-1. En la barra lateral **Registros de aplicaciones** de la aplicación, seleccione **Permisos de API** > **Agregar un permiso**  > **API de Microsoft** > **Microsoft Graph**. Se abre la página **Solicitud de permisos de API** de **Microsoft Graph**, que contiene las API de Microsoft Azure Active Directory.
+1. En la barra lateral **Registros de aplicaciones** de la aplicación, seleccione **Permisos de API** > **Agregar un permiso** > **API de Microsoft** > **Microsoft Graph**. Se abre la página **Solicitud de permisos de API** de **Microsoft Graph**, que contiene las API de Microsoft Azure Active Directory.
 
    ![Pantalla con la página Solicitud de permisos de API](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
 
@@ -161,21 +161,7 @@ Para recopilar esta información:
 1. Seleccione **Agregar**. La clave de PingAccess aparece en la tabla de secretos de cliente, con una cadena aleatoria que se rellena automáticamente en el campo **VALOR**.
 1. Junto al campo **VALOR** de la clave de PingAccess, seleccione el icono **Copiar en el Portapapeles**, cópielo y guárdelo. Especificaremos este valor más adelante como el secreto de cliente de PingAccess.
 
-### <a name="update-graphapi-to-send-custom-fields-optional"></a>Actualizar GraphAPI para enviar campos personalizados (opcional)
-
-Si necesita una notificación personalizada que envíe otros tokens en el access_token que PingAccess consume, establezca el campo de la aplicación `acceptMappedClaims` en `True`. Puede utilizar el Probador de Graph o el manifiesto de la aplicación del portal de Azure AD para realizar este cambio.
-
-**En este ejemplo se usa el Probador de Graph:**
-
-```
-PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_your_application>
-
-{
-  "acceptMappedClaims":true
-}
-```
-
-**En este ejemplo se utiliza el [portal de Azure Active Directory](https://aad.portal.azure.com/) para actualizar el campo `acceptMappedClaims`:**
+**Actualice el campo de `acceptMappedClaims`:**
 
 1. Inicie sesión en el [portal de Azure Active Directory](https://aad.portal.azure.com/) como administrador de la aplicación.
 1. Seleccione **Azure Active Directory** > **Registros de aplicaciones**. Aparece una lista de aplicaciones.
@@ -213,7 +199,7 @@ Para que la aplicación use una notificación personalizada e incluya campos adi
 > [!NOTE]
 > Para usar una notificación personalizada, también debe tener una directiva personalizada definida y asignada a la aplicación. Esta directiva debe incluir todos los atributos personalizados necesarios.
 >
-> La asignación y definición de directivas se pueden realizar a través de PowerShell, el Probador de Azure AD Graph o Microsoft Graph. Si usa PowerShell, primero debe usar `New-AzureADPolicy` y, después, asignarlo a la aplicación con `Add-AzureADServicePrincipalPolicy`. Para más información, vea [Asignación de directivas de asignación de notificaciones](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+> La asignación y definición de directivas se pueden realizar a través de PowerShell o Microsoft Graph. Si usa PowerShell, primero debe usar `New-AzureADPolicy` y, después, asignarlo a la aplicación con `Add-AzureADServicePrincipalPolicy`. Para más información, vea [Asignación de directivas de asignación de notificaciones](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 Ejemplo:
 ```powershell

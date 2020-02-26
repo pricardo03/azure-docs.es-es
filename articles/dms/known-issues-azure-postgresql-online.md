@@ -1,7 +1,7 @@
 ---
 title: 'Problemas conocidos: Migraciones en línea de PostgreSQL a Azure Database for PostgreSQL'
 titleSuffix: Azure Database Migration Service
-description: Obtenga información sobre problemas conocidos y limitaciones de migración con las migraciones en línea de PostgreSQL a un servidor único de Azure Database for PostgreSQL con Azure Database Migration Service.
+description: Aprenda sobre problemas conocidos y limitaciones de migración con las migraciones en línea de PostgreSQL a Azure Database for PostgreSQL con Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -13,38 +13,37 @@ ms.custom:
 - seo-lt-2019
 - seo-dt-2019
 ms.topic: article
-ms.date: 10/27/2019
-ms.openlocfilehash: c5c0015c5034dd3b30b716264fd97e9881b3fe67
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/13/2020
+ms.openlocfilehash: ecc3075bbddd313e7c6471abef0d201a79cb87ec
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437868"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471370"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql-single-server"></a>Problemas conocidos y limitaciones de migración con las migraciones en línea de PostgreSQL a Azure DB for PostgreSQL: servidor único
+# <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Problemas conocidos y limitaciones de migración con las migraciones en línea de PostgreSQL a Azure DB for PostgreSQL
 
-Los problemas conocidos y las limitaciones relacionadas con las migraciones en línea de PostgreSQL a Azure Database for PostgreSQL (servidor único) se describen en las siguientes secciones.
+Los problemas conocidos y las limitaciones relacionadas con las migraciones en línea de PostgreSQL a Azure Database for PostgreSQL se describen en las siguientes secciones.
 
 ## <a name="online-migration-configuration"></a>Configuración de la migración en línea
 
-- El servidor PostgreSQL de origen debe ejecutar las versiones 9.5.11, 9.6.7, 10.3 o posteriores. Para más información, consulte el artículo acerca de las [versiones de base de datos admitidas de PostgreSQL](../postgresql/concepts-supported-versions.md).
-- Solo se admiten migraciones de la misma versión. Por ejemplo, no se admite la migración de PostgreSQL 9.5.11 a Azure Database for PostgreSQL 9.6.7.
-
-    > [!NOTE]
-    > Para PostgreSQL versión 10, DMS solo admite en la actualidad la migración de la versión 10.3 a Azure Database for PostgreSQL. Tenemos previsto admitir versiones más recientes de PostgreSQL muy pronto.
-
+- El servidor PostgreSQL de origen debe ejecutar las versiones 9.4, 9.5, 9.6, 10 u 11. Para más información, consulte el artículo acerca de las [versiones de base de datos admitidas de PostgreSQL](../postgresql/concepts-supported-versions.md).
+- Solo se admiten las migraciones a la misma versión o a otra superior. Por ejemplo, se admite la migración de PostgreSQL 9.5 a Azure Database for PostgreSQL 9.6 o 10, pero no de PostgreSQL 11 a PostgreSQL 9.6.
 - Para habilitar la replicación lógica en el archivo de origen **PostgreSQL postgresql.conf**, establezca los parámetros siguientes:
   - **wal_level** = logical
-  - **max_replication_slots** = [núm. máx. de bases de datos para la migración]; si quiere migrar cuatro bases de datos, establezca el valor 4
+  - **max_replication_slots** = [al menos el número máximo de bases de datos para la migración]; si quiere migrar cuatro bases de datos, establezca el valor en al menos 4.
   - **max_wal_senders** = [número de bases de datos que se ejecutan simultáneamente]; el valor recomendado es 10
 - Agregue la dirección IP del agente DMS al archivo pg_hba.conf de PostgreSQL de origen.
-  1. Anote la dirección IP de DMS cuando termine de aprovisionar una instancia de DMS.
+  1. Cuando termine de aprovisionar una instancia de Azure Database Migration Service, anote la dirección IP de DMS.
   2. Agregue la dirección IP al archivo pg_hba.conf, tal como se muestran:
 
-        host    all     172.16.136.18/10    md5    host    replication postgres    172.16.136.18/10    md5
+      ```
+          host  all     172.16.136.18/10    md5
+          host  replication postgres    172.16.136.18/10    md5
+      ```
 
-- El usuario debe tener el permiso de superusuario en el servidor que hospeda la base de datos de origen
-- Aparte de tener ENUM en el esquema de la base de datos de origen, los esquemas de las bases de datos de origen y de destino deben coincidir.
+- El usuario debe tener el rol REPLICACIÓN en el servidor que hospeda la base de datos de origen.
+- Los esquemas de base de datos de origen y destino deben coincidir.
 - El esquema de Azure Database for PostgreSQL (servidor único) de destino no debe tener claves externas. Utilice la consulta siguiente para eliminar las claves externas:
 
     ```
@@ -84,80 +83,9 @@ Los problemas conocidos y las limitaciones relacionadas con las migraciones en l
 
 ## <a name="datatype-limitations"></a>Limitaciones del tipo de datos
 
-- **Limitación**: si hay un tipo de datos ENUM en la base de datos PostgreSQL de origen, se producirá un error en la migración durante la sincronización continua.
+  **Limitación**: Si no hay ninguna clave principal en las tablas, es posible que no se sincronicen los cambios en la base de datos de destino.
 
-    **Solución alternativa**: modificar el tipo de datos ENUM a "character varying" en Azure Database for PostgreSQL.
-
-- **Limitación**: si no hay ninguna clave principal en las tablas, se producirá un error en la sincronización continua.
-
-    **Solución alternativa**: establecer temporalmente una clave principal para la tabla para que continúe la migración. Puede quitar la clave principal una vez completada la migración de datos.
-
-- **Limitación**: No está permitido migrar el tipo de datos JSONB.
-
-## <a name="lob-limitations"></a>Limitaciones de LOB
-
-Las columnas de objetos grandes (LOB) son columnas que pueden alcanzar un tamaño considerable. Para PostgreSQL, los ejemplos de tipos de datos LOB incluyen XML, JSON, IMAGE, TEXT, etc.
-
-- **Limitación**: si se usan tipos de datos de LOB como claves principales, se producirá un error en la migración.
-
-    **Solución alternativa**: reemplazar la clave principal por otros tipos de datos o columnas que no sean de LOB.
-
-- **Limitación**: Si la longitud de columna de objetos grandes (LOB) es mayor que 32 KB, es posible que se trunquen los datos en el destino. Puede comprobar la longitud de columna de LOB mediante esta consulta:
-
-    ```
-    SELECT max(length(cast(body as text))) as body FROM customer_mail
-    ```
-
-    **Solución alternativa**: si tiene un objeto LOB mayor de 32 KB, póngase en contacto con el equipo de ingeniería en [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
-
-- **Limitación**: si hay columnas LOB en la tabla y no hay ningún conjunto de claves principales para la tabla, es posible que los datos no se migren para esta tabla.
-
-    **Solución alternativa**: establecer temporalmente una clave principal para la tabla para que continúe la migración. Puede quitar la clave principal una vez completada la migración de datos.
-
-## <a name="postgresql10-workaround"></a>Solución alternativa de PostgreSQL10
-
-PostgreSQL 10.x realiza varios cambios en nombres de la carpeta pg_xlog y, por tanto, la migración no se ejecuta según lo previsto. Si va a migrar desde PostgreSQL 10.x a Azure Database for PostgreSQL 10.3, ejecute el siguiente script en la base de datos de PostgreSQL de origen para crear una función de contenedor en torno a funciones pg_xlog.
-
-```
-BEGIN;
-CREATE SCHEMA IF NOT EXISTS fnRenames;
-CREATE OR REPLACE FUNCTION fnRenames.pg_switch_xlog() RETURNS pg_lsn AS $$ 
-   SELECT pg_switch_wal(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_xlog_replay_pause() RETURNS VOID AS $$ 
-   SELECT pg_wal_replay_pause(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_xlog_replay_resume() RETURNS VOID AS $$ 
-   SELECT pg_wal_replay_resume(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_current_xlog_location() RETURNS pg_lsn AS $$ 
-   SELECT pg_current_wal_lsn(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_is_xlog_replay_paused() RETURNS boolean AS $$ 
-   SELECT pg_is_wal_replay_paused(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_xlogfile_name(lsn pg_lsn) RETURNS TEXT AS $$ 
-   SELECT pg_walfile_name(lsn); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_last_xlog_replay_location() RETURNS pg_lsn AS $$ 
-   SELECT pg_last_wal_replay_lsn(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_last_xlog_receive_location() RETURNS pg_lsn AS $$ 
-   SELECT pg_last_wal_receive_lsn(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_current_xlog_flush_location() RETURNS pg_lsn AS $$ 
-   SELECT pg_current_wal_flush_lsn(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_current_xlog_insert_location() RETURNS pg_lsn AS $$ 
-   SELECT pg_current_wal_insert_lsn(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_xlog_location_diff(lsn1 pg_lsn, lsn2 pg_lsn) RETURNS NUMERIC AS $$ 
-   SELECT pg_wal_lsn_diff(lsn1, lsn2); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_xlogfile_name_offset(lsn pg_lsn, OUT TEXT, OUT INTEGER) AS $$ 
-   SELECT pg_walfile_name_offset(lsn); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_create_logical_replication_slot(slot_name name, plugin name, 
-   temporary BOOLEAN DEFAULT FALSE, OUT slot_name name, OUT xlog_position pg_lsn) RETURNS RECORD AS $$ 
-   SELECT slot_name::NAME, lsn::pg_lsn FROM pg_catalog.pg_create_logical_replication_slot(slot_name, plugin, 
-   temporary); $$ LANGUAGE SQL;
-ALTER USER PG_User SET search_path = fnRenames, pg_catalog, "$user", public;
-
--- DROP SCHEMA fnRenames CASCADE;
--- ALTER USER PG_User SET search_path TO DEFAULT;
-COMMIT;
-```
-
-  > [!NOTE]
-  > En el script anterior, "PG_User" hace referencia al nombre de usuario que se utiliza para la conexión con el origen de la migración.
+  **Solución alternativa**: establecer temporalmente una clave principal para la tabla para que continúe la migración. Puede quitar la clave principal una vez completada la migración de datos.
 
 ## <a name="limitations-when-migrating-online-from-aws-rds-postgresql"></a>Limitaciones al migrar en línea desde AWS RDS PostgreSQL
 
@@ -171,11 +99,13 @@ Al intentar realizar una migración en línea desde AWS RDS PostgreSQL a Azure D
 - **Error**: La base de datos de destino "{database}" tiene "{número de tablas}" tablas mientras que la base de datos de origen "{database}" tiene "{número de tablas}" tablas. El número de tablas en las bases de datos de origen y de destino deben coincidir.
 
   **Limitación**: este error se produce cuando el número de tablas es diferente entre las bases de datos de origen y de destino.
+
   **Solución alternativa**: asegúrese de que el esquema en el destino coincide con el esquema en el origen. Para obtener detalles sobre la migración de esquemas, consulte la [documentación sobre la migración en línea de Azure PostgreSQL](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
 
 - **Error:** la base de datos de origen {database} está vacía.
 
-  **Limitación**: este error se produce cuando la base de datos de origen está vacía. La causa más probable es que ha seleccionado una base de datos incorrecta como origen.
+  **Limitación**: este error se produce cuando la base de datos de origen está vacía. La causa más probable es que haya seleccionado la base de datos incorrecta como origen.
+
   **Solución alternativa**: vuelva a comprobar la base de datos de origen que ha seleccionado para la migración y, a continuación, inténtelo de nuevo.
 
 - **Error:** la base de datos de destino {database} está vacía. Migre el esquema.
@@ -186,27 +116,8 @@ Al intentar realizar una migración en línea desde AWS RDS PostgreSQL a Azure D
 ## <a name="other-limitations"></a>Otras limitaciones
 
 - El nombre de la base de datos no puede incluir ningún punto y coma (;).
-- No se admiten cadenas de contraseña que tenga llaves de apertura ni de cierre ({}). Esta limitación se aplica tanto a conectarse a PostgreSQL de origen como a Azure Database for PostgreSQL de destino.
 - Una tabla capturada debe tener una clave principal. Si una tabla no tiene una clave principal, el resultado de las operaciones de registro DELETE y UPDATE será impredecible.
 - Se omitirá la actualización de un segmento de clave principal. En estos casos, el destino identificará la aplicación de dicha actualización como una actualización que no actualizó ninguna fila y se escribirá un registro en la tabla de excepciones.
 - La migración de varias tablas con el mismo nombre pero con un caso diferente (por ejemplo, table1, TABLE1 y Table1) puede provocar un comportamiento impredecible y, por tanto, no se admite.
-- Cambiar el procesamiento de los DLL de la tabla [CREATE | ALTER | DROP] se admite, a menos que se guardan en un bloque de cuerpo de función o procedimiento interno o en otras construcciones anidadas. Por ejemplo, el cambio siguiente no se capturará:
-
-    ```
-    CREATE OR REPLACE FUNCTION pg.create_distributors1() RETURNS void
-    LANGUAGE plpgsql
-    AS $$
-    BEGIN
-    create table pg.distributors1(did serial PRIMARY KEY,name varchar(40)
-    NOT NULL);
-    END;
-    $$;
-    ```
-
-- No se admite el procesamiento de cambios (sincronización continua) de operaciones TRUNCATE. No se admite la migración de tablas con particiones. Cuando se detecta una tabla con particiones, ocurre lo siguiente:
-
-  - La base de datos proporcionará una lista de tablas primarias y secundarias.
-  - La tabla se creará en el destino como una tabla normal con las mismas propiedades que las tablas seleccionadas.
-  - Si la tabla primaria de la base de datos de origen tiene el mismo valor de clave principal que sus tablas secundarias, se generará un error de "clave duplicada".
-
-- En DMS, el límite de bases de datos para migrar en una única actividad de migración es de cuatro.
+- No se admite cambiar el procesamiento de los DDL de la tabla [CREATE | ALTER | DROP | TRUNCATE].
+- En Azure Database Migration Service, una única actividad de migración solo puede alojar hasta cuatro bases de datos.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0912316d1c41f46e5dba74b58017f4fd5e8ed529
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 8d68d2e83bba055e92b99ee9294daf6f2395d8dc
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76909140"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77206314"
 ---
 ### <a name="portal"></a>Portal
 
@@ -34,18 +34,18 @@ La configuración de claves administradas por el cliente para los discos requeri
 1. Escriba un nombre de almacén de claves, seleccione una región y seleccione un plan de tarifa.
 1. Seleccione **Revisar y crear**, compruebe las opciones y, a continuación, seleccione **Crear**.
 
-    ![sse-create-a-key-vault.png](media/virtual-machines-disk-encryption-portal/sse-create-a-key-vault.png)
+    ![Captura de pantalla de la experiencia de creación de Azure Key Vault. Muestra los valores concretos que ha creado](media/virtual-machines-disk-encryption-portal/sse-create-a-key-vault.png)
 
 1. Una vez que el almacén de claves termine de implementarse, selecciónelo.
 1. En **Configuración**, seleccione **Claves**.
 1. Seleccione **Generar o importar**.
 
-    ![sse-key-vault-generate-settings.png](media/virtual-machines-disk-encryption-portal/sse-key-vault-generate-settings.png)
+    ![Captura de pantalla del panel de configuración de recursos de Key Vault. Muestra el botón Generar/importar en la configuración.](media/virtual-machines-disk-encryption-portal/sse-key-vault-generate-settings.png)
 
 1. Deje **Tipo de clave** establecido en **RSA** y **Tamaño de la clave RSA** establecido en **2080**.
 1. Rellene las selecciones restantes como desee y, a continuación, seleccione **Crear**.
 
-    ![sse-create-a-key-generate.png](media/virtual-machines-disk-encryption-portal/sse-create-a-key-generate.png)
+    ![Captura de pantalla de la hoja Crear una clave que aparece cuando se selecciona el botón Generar/importar](media/virtual-machines-disk-encryption-portal/sse-create-a-key-generate.png)
 
 #### <a name="setting-up-your-disk-encryption-set"></a>Configuración del conjunto de cifrado de disco
 
@@ -54,7 +54,7 @@ Para crear y configurar conjuntos de cifrado de disco, debe usar el siguiente v�
 1. Abra el [vínculo de conjuntos de cifrado de disco](https://aka.ms/diskencryptionsets).
 1. Seleccione **+Agregar**.
 
-    ![sse-create-disk-encryption-set.png](media/virtual-machines-disk-encryption-portal/sse-create-disk-encryption-set.png)
+    ![Captura de pantalla de la pantalla principal del portal de cifrado de discos. Resaltado del botón Agregar](media/virtual-machines-disk-encryption-portal/sse-create-disk-encryption-set.png)
 
 1. Seleccione el grupo de recursos, asigne un nombre al conjunto de cifrado y seleccione la misma región que el almacén de claves.
 1. Seleccione **Almacén de claves y clave**.
@@ -62,15 +62,15 @@ Para crear y configurar conjuntos de cifrado de disco, debe usar el siguiente v�
 1. Haga clic en **Seleccionar**.
 1. Seleccione **Revisar y crear** y, a continuación, **Crear**.
 
-    ![sse-disk-enc-set-blade-key.png](media/virtual-machines-disk-encryption-portal/sse-disk-enc-set-blade-key.png)
+    ![Captura de pantalla de la hoja de creación del cifrado de disco. Se muestra la suscripción, el grupo de recursos, el nombre del conjunto de cifrado de disco, la región y el selector de claves y de almacenes de claves.](media/virtual-machines-disk-encryption-portal/sse-disk-enc-set-blade-key.png)
 
 1. Abra el conjunto de cifrado de disco una vez que termine de crear y seleccione la alerta que aparece.
 
-    ![sse-disk-enc-alert-fix.png](media/virtual-machines-disk-encryption-portal/sse-disk-enc-alert-fix.png)
+    ![Captura de pantalla del elemento emergente de alertas: "Para asociar un disco, una imagen o una instantánea a este conjunto de cifrado de disco, debe conceder permisos al almacén de claves". Seleccione esta alerta para continuar](media/virtual-machines-disk-encryption-portal/sse-disk-enc-alert-fix.png)
 
 Dos notificaciones deberían aparecer y completarse correctamente. Esto le permitirá usar el conjunto de cifrado de disco con el almacén de claves.
 
-![disk-enc-notification-success.png](media/virtual-machines-disk-encryption-portal/disk-enc-notification-success.png)
+![Captura de pantalla de la asignación de roles y permisos correctos para el almacén de claves.](media/virtual-machines-disk-encryption-portal/disk-enc-notification-success.png)
 
 #### <a name="deploy-a-vm"></a>Implementación de una máquina virtual
 
@@ -82,13 +82,13 @@ El proceso de implementación de VM es similar al proceso de implementación est
 1. En la pestaña **Básico**, seleccione la misma región que el conjunto de cifrado de disco y Azure Key Vault.
 1. Rellene los demás valores en la pestaña **Básico** como desee.
 
-    ![sse-create-a-vm-region.png](media/virtual-machines-disk-encryption-portal/sse-create-a-vm-region.png)
+    ![Captura de pantalla de la experiencia de creación de la máquina virtual, con el valor de región resaltado.](media/virtual-machines-disk-encryption-portal/sse-create-a-vm-region.png)
 
 1. En la pestaña **Discos**, seleccione **Cifrado en reposo con una clave administrada por el cliente**.
 1. Seleccione el conjunto de cifrado de disco en el menú desplegable **Conjunto de cifrado de disco**.
 1. Realice las selecciones restantes como desee.
 
-    ![sse-create-vm-select-cmk-encryption-set.png](media/virtual-machines-disk-encryption-portal/sse-create-vm-select-cmk-encryption-set.png)
+    ![Captura de pantalla de la experiencia de creación de la máquina virtual, con la de hoja discos. Con la lista desplegable conjunto de cifrado de disco resaltada.](media/virtual-machines-disk-encryption-portal/sse-create-vm-select-cmk-encryption-set.png)
 
 #### <a name="enable-on-an-existing-disk"></a>Habilitación en un disco existente
 
@@ -101,16 +101,16 @@ Para administrar y configurar el cifrado de disco en los discos existentes, debe
 1. Vaya a una VM que esté en la misma región que uno de los conjuntos de cifrado de disco.
 1. Abra la VM y seleccione **Detener**.
 
-    ![sse-stop-VM-to-encrypt-disk.png](media/virtual-machines-disk-encryption-portal/sse-stop-VM-to-encrypt-disk.png)
+    ![Captura de pantalla de la superposición principal de la máquina virtual de ejemplo. Con el botón de detención resaltado](media/virtual-machines-disk-encryption-portal/sse-stop-VM-to-encrypt-disk.png)
 
 1. Una vez finalizada la detención de la VM, seleccione **Discos** y, después, seleccione el disco que desea cifrar.
 
-    ![sse-existing-disk-select.png](media/virtual-machines-disk-encryption-portal/sse-existing-disk-select.png)
+    ![Captura de pantalla de la máquina virtual de ejemplo, con la hoja de discos abierta. El disco del sistema operativo está resaltado, como un disco de ejemplo para que lo seleccione.](media/virtual-machines-disk-encryption-portal/sse-existing-disk-select.png)
 
 1. Seleccione **Cifrado** y seleccione **Cifrado en reposo con una clave administrada por el cliente** y, a continuación, seleccione el conjunto de cifrado de disco en la lista desplegable.
 1. Seleccione **Guardar**.
 
-    ![sse-encrypt-existing-disk-customer-managed-key.png](media/virtual-machines-disk-encryption-portal/sse-encrypt-existing-disk-customer-managed-key.png)
+    ![Captura de pantalla del disco del sistema operativo de ejemplo. La hoja cifrado está abierta, el cifrado en reposo con una clave administrada por el cliente está resaltada, así como la instancia de Azure Key Vault de ejemplo. Después de efectuar esas selecciones, se selecciona el botón Guardar.](media/virtual-machines-disk-encryption-portal/sse-encrypt-existing-disk-customer-managed-key.png)
 
 1. Repita este proceso para todos los demás discos conectados a la VM que desea cifrar.
 1. Cuando los discos terminen de cambiar a las claves administradas por el cliente, si no hay ningún otro disco conectado que quiera cifrar, puede iniciar la VM.

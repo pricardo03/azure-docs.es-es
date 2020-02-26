@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/11/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3e5fb1ebb763cc5ecd7dfe8724347c03a487bc13
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: fd6a24c768056c949c05b9e2444bd49ef743c0ef
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157880"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425636"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -70,7 +70,7 @@ El elemento **ContentDefinition** contiene los elementos siguientes:
 | Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | Cadena que contiene la URL de la página HTML5 de la definición de contenido. |
-| RecoveryUri | 0:1 | Cadena que contiene la URL de la página HTML para mostrar un error relacionado con la definición de contenido. |
+| RecoveryUri | 1:1 | Cadena que contiene la URL de la página HTML para mostrar un error relacionado con la definición de contenido. |
 | DataUri | 1:1 | Cadena que contiene la URL relativa de un archivo HTML que proporciona la experiencia del usuario que se invocará para el paso. |
 | Metadatos | 0:1 | Colección de pares de clave y valor que contiene los metadatos usados por la definición de contenido. |
 | LocalizedResourcesReferences | 0:1 | Colección de referencias de recursos localizados. Use este elemento para personalizar la localización de la interfaz de usuario y el atributo de notificaciones. |
@@ -82,11 +82,11 @@ El elemento **DataUri** se usa para especificar el identificador de página. Azu
 | Identificador de página | Descripción |
 | ----- | ----------- |
 | `globalexception` | Muestra una página de error cuando se produce una excepción o un error. |
-| `providerselection` | Muestra una lista de los proveedores de identidades que los usuarios pueden elegir durante el inicio de sesión. |
+| `providerselection`, `idpselection` | Muestra una lista de los proveedores de identidades que los usuarios pueden elegir durante el inicio de sesión.  |
 | `unifiedssp` | Muestra un formulario para iniciar sesión con una cuenta local basada en una dirección de correo electrónico o un nombre de usuario. Este valor también proporciona la función “Mantener iniciada la sesión” y el vínculo "¿Ha olvidado la contraseña?" |
 | `unifiedssd` | Muestra un formulario para iniciar sesión con una cuenta local basada en una dirección de correo electrónico o un nombre de usuario. |
 | `multifactor` | Verifica los números de teléfono mediante mensajes de texto o llamadas de voz durante el registro o inicio de sesión. |
-| `selfasserted` | Muestra un formulario que permite a los usuarios crear o actualizar su perfil. |
+| `selfasserted` | Muestra un formulario para recopilar datos de un usuario. Por ejemplo, permite a los usuarios crear o actualizar su perfil. |
 
 ### <a name="select-a-page-layout"></a>Selección de un diseño de página
 
@@ -147,7 +147,7 @@ La definición de contenido admite los siguientes elementos de metadatos:
 
 | Clave | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| DisplayName | No | Una cadena que contiene el nombre de la definición del contenido. |
+| DisplayName | Sin | Una cadena que contiene el nombre de la definición del contenido. |
 
 ### <a name="localizedresourcesreferences"></a>LocalizedResourcesReferences
 

@@ -7,32 +7,32 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: alzam
-ms.openlocfilehash: fcb60e80189da89b3f634c14582be606307536e6
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 13f012af95bb2b6098317e59e5293fb72804a6a6
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76166673"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471590"
 ---
 # <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users"></a>Habilitar Azure Multi-Factor Authentication (MFA) para los usuarios de VPN
 
-Si quiere que se solicite a los usuarios un segundo factor de autenticación antes de conceder acceso, puede configurar Azure Multi-Factor Authentication (MFA) para su inquilino de Azure AD. Los pasos de este artículo le ayudan a habilitar un requisito para la verificación en dos pasos.
+[!INCLUDE [overview](../../includes/vpn-gateway-vwan-openvpn-enable-mfa-overview.md)]
 
-## <a name="prereq"></a>Requisito previo
+## <a name="enableauth"></a>Habilitar la autenticación
 
-El requisito previo para esta configuración es un inquilino de Azure AD configurado mediante los pasos descritos en [Configurar un inquilino](openvpn-azure-ad-tenant.md).
+[!INCLUDE [enable authentication](../../includes/vpn-gateway-vwan-openvpn-enable-auth.md)]
 
-[!INCLUDE [MFA steps](../../includes/vpn-gateway-vwan-openvpn-azure-ad-mfa.md)]
+## <a name="enablesign"></a>Configuración de las opciones de inicio de sesión
 
-## <a name="enablesign"></a> Configurar las opciones de inicio de sesión
+[!INCLUDE [sign in](../../includes/vpn-gateway-vwan-openvpn-sign-in.md)]
 
-En la página **VPN de Azure - Propiedades**, configure las opciones de inicio de sesión.
+## <a name="peruser"></a>Opción 1: Acceso por usuario
 
-1. En **¿Habilitado para que los usuarios inicien sesión?** , seleccione **Sí**. Esto permite que todos los usuarios del inquilino de AD se conecten correctamente a la VPN.
-2. En **Asignación de usuarios necesaria**, seleccione **Sí** si quiere limitar el inicio de sesión solo a los usuarios que tienen permisos para la VPN de Azure.
-3. Guarde los cambios.
+[!INCLUDE [per user](../../includes/vpn-gateway-vwan-openvpn-per-user.md)]
 
-   ![Permisos](./media/openvpn-azure-ad-mfa/user2.jpg)
+## <a name="conditional"></a>Opción 2: Acceso condicional
+
+[!INCLUDE [conditional access](../../includes/vpn-gateway-vwan-openvpn-conditional.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

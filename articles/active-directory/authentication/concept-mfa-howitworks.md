@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0982f6fb70cd6866af48feab640d5dc36bcb6b28
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 39948214f5bd080be417ed515bea6bff87d3b303
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848687"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484067"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Funcionamiento: Azure Multi-Factor Authentication
 
@@ -38,7 +38,7 @@ Multi-Factor Authentication forma parte de las siguientes ofertas:
 
 * **Azure Active Directory Premium** o **Microsoft 365 Empresa**: uso de la versión completa de Azure Multi-Factor Authentication mediante directivas de acceso condicional para requerir autenticación multifactor con funciones completas.
 
-* Licencias de **Azure AD Free** u **Office 365** independiente: uso de las [directivas de protección de línea base de acceso condicional](../conditional-access/concept-baseline-protection.md) creadas previamente para requerir autenticación multifactor para los usuarios y administradores.
+* Licencias de **Azure AD Free** u **Office 365** independiente: uso de [opciones predeterminadas de seguridad](../fundamentals/concept-fundamentals-security-defaults.md) a fin de requerir autenticación multifactor para los usuarios y administradores.
 
 * **Administradores globales de Azure Active Directory**: un subconjunto de las funcionalidades de capacidades de Azure Multi-Factor Authentication está disponible como medio de protección de las cuentas de administrador global.
 

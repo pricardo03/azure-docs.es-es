@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 02/11/2020
 ms.author: yushwang
-ms.openlocfilehash: 5bedf5bd6d061d74201dbac3f1f99ed0d4c381aa
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: a95cd6ea85a16b0e0bf5f67f5dfc20d57f11463b
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902438"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198109"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Agregar una conexión de sitio a sitio a una red virtual con una conexión de VPN Gateway existente (clásico)
 
@@ -55,10 +55,13 @@ Antes de comenzar la configuración, compruebe que dispone de lo siguiente:
 
 * Hardware VPN compatible para cada ubicación local. Consulte [Acerca de los dispositivos VPN para conectividad de red virtual](vpn-gateway-about-vpn-devices.md) para comprobar si el dispositivo que quiere usar es un dispositivo que se sabe que es compatible.
 * Una dirección IP IPv4 pública orientada externamente para cada dispositivo VPN. La dirección IP no se puede ubicar detrás de un NAT. Esto es un requisito.
-* Deberá instalar la versión más reciente de los cmdlets de Azure PowerShell. Asegúrese de instalar la versión de Service Management (SM) además de la de Resource Manager (RM). Para obtener más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azure/overview) .
 * Alguna persona con experiencia en configuración de hardware de VPN Necesitará un conocimiento amplio de cómo configurar el dispositivo VPN o trabajar con alguien que lo tenga.
 * Los intervalos de dirección IP que desea usar para la red virtual (si aún no ha creado uno).
 * Los intervalos de direcciones IP para cada uno de los sitios de red locales a los que se va a conectar. Tendrá que asegurarse de que los intervalos de dirección IP para cada uno de los sitios de red locales a los que desea conectarse no se solapan. De lo contrario, el portal o la API de REST rechazarán la configuración que se carga.<br>Por ejemplo, si dispone de dos sitios de red locales que contienen el intervalo de dirección IP 10.2.3.0/24 y dispone de un paquete con una dirección de destino 10.2.3.3, Azure no sabrá a qué sitio desea enviar el paquete porque se solapan los intervalos de dirección. Para evitar problemas de enrutamiento, Azure no loe permite cargar un archivo de configuración que disponga de intervalos que se solapan.
+
+### <a name="working-with-azure-powershell"></a>Trabajo con Azure PowerShell
+
+[!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
 ## <a name="1-create-a-site-to-site-vpn"></a>1. Crear una VPN de sitio a sitio
 Si ya tiene una VPN de sitio a sitio con una puerta de enlace de enrutamiento dinámico, perfecto. Puede pasar a [Exportación de la configuración de la red virtual](#export). De lo contrario, haga lo siguiente:
@@ -72,6 +75,19 @@ Si ya tiene una VPN de sitio a sitio con una puerta de enlace de enrutamiento di
 2. Configure una puerta de enlace de enrutamiento mediante estas instrucciones: [Configuración de una instancia de VPN Gateway](vpn-gateway-configure-vpn-gateway-mp.md). Asegúrese de seleccionar **enrutamiento dinámico** como tipo de puerta de enlace.
 
 ## <a name="export"></a>2. Exportar el archivo de configuración de red
+
+Abra la consola de PowerShell con privilegios elevados. Para cambiar a la administración de servicios, use este comando:
+
+```powershell
+azure config mode asm
+```
+
+Conéctese a su cuenta. Use el siguiente ejemplo para conectarse:
+
+```powershell
+Add-AzureAccount
+```
+
 Exporte el archivo de configuración de red de Azure mediante la ejecución del comando siguiente. Puede cambiar la ubicación del archivo que se va a exportar a una ubicación diferente si es necesario.
 
 ```powershell

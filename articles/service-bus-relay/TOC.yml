@@ -42,11 +42,13 @@
       href: relay-hybrid-connections-protocol.md
 - name: Procedimientos
   items:
+    - name: Migración desde las API de Azure Service Manager (clásico) hasta las API de Resource Manager
+      href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json
     - name: Planeamiento y diseño
       items:
         - name: Migración de ACS a SAS
           href: relay-migrate-acs-sas.md
-    - name: Desarrollo
+    - name: Desarrollar
       items:
         - name: Creación de un espacio de nombres
           href: relay-create-namespace-portal.md
@@ -57,7 +59,7 @@
               href: relay-hybrid-connections-dotnet-api-overview.md
             - name: Nodo
               href: relay-hybrid-connections-node-ws-api-overview.md
-    - name: administración
+    - name: Administrar
       items:
         - name: Supervisión de Azure Relay con Azure Monitor
           href: relay-metrics-azure-monitor.md

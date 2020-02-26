@@ -5,15 +5,15 @@ author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 1/14/2020
+ms.date: 2/17/2020
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 463a389116cd58e50839d717b700b604f545e5f2
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: f402effe40042740e74220d177c54963f6c45916
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190119"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444016"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creación de una alerta de métrica con una plantilla de Resource Manager
 
@@ -107,8 +107,8 @@ Para este tutorial, guarde el archivo JSON siguiente como simplestaticmetricaler
             }
         },
         "threshold": {
-            "type": "double",
-            "defaultValue": 0,
+            "type": "string",
+            "defaultValue": "0",
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -1510,14 +1510,14 @@ az group deployment create \
 
 ## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>Plantilla para alerta de métrica que supervisa varios recursos
 
-En las secciones anteriores se han descrito las plantillas de Azure Resource Manager de ejemplo para crear alertas de métricas que supervisan un recurso individual. Ahora, Azure Monitor admite la supervisión de varios recursos con una sola regla de alerta de métrica. En este momento, esta característica solo se admite en la nube pública de Azure y para máquinas virtuales, bases de datos SQL, grupos elásticos SQL y dispositivos Data Box Edge.
+En las secciones anteriores se han descrito las plantillas de Azure Resource Manager de ejemplo para crear alertas de métricas que supervisan un recurso individual. Azure Monitor admite ahora la supervisión de varios recursos (del mismo tipo) con una sola regla de alertas de métricas para los recursos de la misma región de Azure. En este momento, esta característica solo se admite en la nube pública de Azure y para máquinas virtuales, bases de datos de SQL Server, grupos elásticos de SQL Server y dispositivos Data Box Edge. Asimismo, solo puede emplearse con métricas de plataforma, y no con métricas personalizadas.
 
 La regla de alertas de los umbrales dinámicos también puede ayudar a crear umbrales personalizados para cientos de métricas (incluso a distintos tipos) a la vez, lo que reduce el número de reglas de alertas que hay que administrar.
 
 En esta sección se describen las plantillas de Azure Resource Manager de tres escenarios para supervisar varios recursos con una sola regla.
 
 - Supervisión de todas las máquinas virtuales (de una región de Azure) en uno o varios grupos de recursos.
-- Supervisión de todas las máquinas virtuales (de una región de Azure) en una suscripción
+- Supervisión de todas las máquinas virtuales (de una región de Azure) en una suscripción.
 - Supervisión de una lista de máquinas virtuales (de una región de Azure) en una suscripción.
 
 ### <a name="static-threshold-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>Alerta de umbral estático en todas las máquinas virtuales de uno o varios grupos de recursos
@@ -1657,8 +1657,8 @@ Guarde el archivo JSON siguiente como all-vms-in-resource-group-static.json para
             }
         },
         "threshold": {
-            "type": "double",
-            "defaultValue": 0,
+            "type": "string",
+            "defaultValue": "0",
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -2304,8 +2304,8 @@ Guarde el archivo JSON siguiente como all-vms-in-subscription-static.json para u
             }
         },
         "threshold": {
-            "type": "double",
-            "defaultValue": 0,
+            "type": "string",
+            "defaultValue": "0",
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -2946,8 +2946,8 @@ Guarde el archivo JSON siguiente como list-of-vms-static.json para usarlo en est
             }
         },
         "threshold": {
-            "type": "double",
-            "defaultValue": 0,
+            "type": "string",
+            "defaultValue": "0",
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d94237d2cfeb814b2e15d43c9f8863a76c0bcd11
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 94a376c01229de20e6a1264da3f29532becefa8a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190674"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368662"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Habilitación y creación de recursos compartidos de archivos grandes
 
@@ -43,7 +43,7 @@ La habilitación de recursos compartidos de archivos grandes en una cuenta es un
     ![Captura de pantalla que muestra cómo crear un grupo de recursos en el portal](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
 
 1. Después, escriba un nombre para la cuenta de almacenamiento. El nombre debe ser único en Azure. El nombre también debe tener entre 3 y 24 caracteres de longitud y solo puede incluir números y letras minúsculas.
-1. Seleccione una ubicación para la cuenta de almacenamiento y asegúrese de que sea [una de las regiones compatibles con recursos compartidos de archivos grandes](storage-files-planning.md#regional-availability).
+1. Seleccione una ubicación para la cuenta de almacenamiento y asegúrese de que sea [uno de los recursos compartidos de la replicación admitida con archivos grandes](storage-files-planning.md#regional-availability).
 1. Establezca la replicación en **Almacenamiento con redundancia local** o **Almacenamiento con redundancia de zona**.
 1. Deje estos campos con sus valores predeterminados:
 

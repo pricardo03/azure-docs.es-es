@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf1515bcf2223ae730a47f7105d51206ba638cd7
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: bfc5c24b1ba3d623e148e0da5b38a869d056996a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161620"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367807"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory
 
@@ -112,7 +112,7 @@ Las aplicaciones y sistemas que admiten la personalización de la lista de atrib
 - Salesforce
 - ServiceNow
 - Workday
-- Azure Active Directory (se admiten los [atributos predeterminados de Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) y las extensiones de directorios personalizadas)
+- Azure Active Directory (se admiten la [Referencia de la API REST de Microsoft Graph, versión 1.0](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0) y las extensiones de directorios personalizadas)
 - Aplicaciones que admiten [SCIM 2.0](https://tools.ietf.org/html/rfc7643), donde es necesario agregar los atributos definidos en el [esquema principal](https://tools.ietf.org/html/rfc7643)
 
 > [!NOTE]
@@ -133,7 +133,7 @@ Al editar la lista de atributos admitidos, se proporcionan las siguientes propie
 - **¿Varios valores?** : si el atributo admite varios valores.
 - **¿Coincidir mayúsculas y minúsculas?** : si los valores de atributo se evalúan según el uso de mayúsculas o minúsculas.
 - **Expresión de API**: no se usa, salvo que así se indique en la documentación de un conector de aprovisionamiento específico (como Workday).
-- **Atributo de objeto con referencia**: si este es un atributo de tipo referencia, este menú le permite seleccionar la tabla y el atributo de la aplicación de destino que contiene el valor asociado al atributo. Por ejemplo, si tiene un atributo llamado "Department" cuyo valor almacenado hace referencia a un objeto de una tabla "Departments" independiente, seleccionaría "Departments.Name". Las tablas de referencia y los campos de identificador principal admitidos en una determinada aplicación están preconfigurados y actualmente no se pueden editar mediante Azure Portal, pero se pueden modificar con la [Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
+- **Atributo de objeto con referencia**: si este es un atributo de tipo referencia, este menú le permite seleccionar la tabla y el atributo de la aplicación de destino que contiene el valor asociado al atributo. Por ejemplo, si tiene un atributo llamado "Department" cuyo valor almacenado hace referencia a un objeto de una tabla "Departments" independiente, seleccionaría "Departments.Name". Las tablas de referencia y los campos de identificador principal admitidos en una determinada aplicación están preconfigurados y actualmente no se pueden editar mediante Azure Portal, pero se pueden modificar con [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Aprovisionamiento de un atributo de extensión personalizado para una aplicación compatible con SCIM
 El RFC de SCIM define un esquema principal de grupo y usuario, a la vez que permite que las extensiones del esquema cumplan los requisitos de la aplicación. Para agregar un atributo personalizado a una aplicación de SCIM:
@@ -300,7 +300,7 @@ Algunos atributos, como phoneNumbers y emails, son atributos de varios valores e
 
 ## <a name="restoring-the-default-attributes-and-attribute-mappings"></a>Restauración de los atributos predeterminados y las asignaciones de atributos
 
-Si necesita comenzar de nuevo y restablecer las asignaciones existentes de nuevo a su estado predeterminado, puede activar la casilla **Restaurar asignaciones predeterminadas** y guardar la configuración. Al hacerlo, todas las asignaciones se restablecen como si la aplicación se acabara de agregar al inquilino de Azure AD desde la galería de aplicaciones.
+Si necesita comenzar de nuevo y restablecer las asignaciones existentes de nuevo a su estado predeterminado, puede activar la casilla **Restaurar asignaciones predeterminadas** y guardar la configuración. Al hacerlo, todas las asignaciones y los filtros de ámbito se restablecen como si la aplicación se acabara de agregar al inquilino de Azure AD desde la galería de aplicaciones.
 
 Al seleccionar esta opción se fuerza la resincronización de todos los usuarios mientras se ejecuta el servicio de aprovisionamiento.
 

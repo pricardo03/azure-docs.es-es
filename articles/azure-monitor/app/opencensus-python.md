@@ -8,18 +8,18 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 091cf26a0c18aba0925ad23e61950f8622f6080b
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b9d2bda1d3f01d2bf4bb152c0f62ade87bb61b4c
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989525"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368269"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configuración de Azure Monitor para las aplicaciones de Python (versión preliminar)
 
 Azure Monitor admite seguimiento distribuido, recopilación de métricas y registro de aplicaciones de Python gracias a la integración con [OpenCensus](https://opencensus.io). En este artículo, encontrará instrucciones para configurar OpenCensus para Python y enviar los datos de supervisión a Azure Monitor.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 - Instalación de Python. En este artículo se usa [Python 3.7.0](https://www.python.org/downloads/), aunque es probable que las versiones anteriores funcionen con cambios menores.
@@ -107,7 +107,7 @@ Estos son los exportadores que proporciona OpenCensus asignados a los tipos de t
     [SpanData(name='test', context=SpanContext(trace_id=8aa41bc469f1a705aed1bdb20c342603, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='f3f9f9ee6db4740a', parent_span_id=None, attributes=BoundedDict({}, maxlen=32), start_time='2019-06-27T18:21:46.157732Z', end_time='2019-06-27T18:21:47.269583Z', child_span_count=0, stack_trace=None, annotations=BoundedList([], maxlen=32), message_events=BoundedList([], maxlen=128), links=BoundedList([], maxlen=32), status=None, same_process_as_parent_span=None, span_kind=0)]
     ```
 
-3. Aunque introducir valores es útil con fines de demostración, la finalidad básica es emitir el valor de `SpanData` a Azure Monitor. Modifique el código del paso anterior en función del ejemplo de código siguiente:
+3. Aunque introducir valores es útil con fines de demostración, la finalidad básica es emitir el valor de `SpanData` a Azure Monitor. Pase la cadena de conexión directamente al exportador. Como alternativa, especifíquela en una variable de entorno `APPLICATIONINSIGHTS_CONNECTION_STRING`. Modifique el código del paso anterior en función del ejemplo de código siguiente:
 
     ```python
     from opencensus.ext.azure.trace_exporter import AzureExporter
@@ -193,7 +193,7 @@ Estos son los exportadores que proporciona OpenCensus asignados a los tipos de t
     Point(value=ValueLong(7), timestamp=2019-10-09 20:58:07.138614)
     ```
 
-3. Aunque introducir valores es útil con fines de demostración, la finalidad básica es emitir los datos de la métrica a Azure Monitor. Modifique el código del paso anterior en función del ejemplo de código siguiente:
+3. Aunque introducir valores es útil con fines de demostración, la finalidad básica es emitir los datos de la métrica a Azure Monitor. Pase la cadena de conexión directamente al exportador. Como alternativa, especifíquela en una variable de entorno `APPLICATIONINSIGHTS_CONNECTION_STRING`. Modifique el código del paso anterior en función del ejemplo de código siguiente:
 
     ```python
     from datetime import datetime
@@ -277,7 +277,7 @@ Estos son los exportadores que proporciona OpenCensus asignados a los tipos de t
     90
     ```
 
-3. Aunque introducir valores es útil con fines de demostración, la finalidad básica es emitir los datos del registro a Azure Monitor. Modifique el código del paso anterior en función del ejemplo de código siguiente:
+3. Aunque introducir valores es útil con fines de demostración, la finalidad básica es emitir los datos del registro a Azure Monitor. Pase la cadena de conexión directamente al exportador. Como alternativa, especifíquela en una variable de entorno `APPLICATIONINSIGHTS_CONNECTION_STRING`. Modifique el código del paso anterior en función del ejemplo de código siguiente:
 
     ```python
     import logging

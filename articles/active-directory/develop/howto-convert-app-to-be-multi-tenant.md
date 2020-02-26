@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/10/2019
+ms.date: 02/19/2020
 ms.author: ryanwi
-ms.reviewer: jmprieur, lenalepa, sureshja
+ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 7e19e9067052c516427391adcc615767446c4049
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: b3338edf644aee8409cfca05d4ac801594cbf66b
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697156"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467766"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedimientos: Inicio de sesión de cualquier usuario de Azure Active Directory mediante el patrón de aplicación multiinquilino
 
@@ -37,7 +37,7 @@ Para convertir la aplicación en una aplicación multiempresa de Azure AD, siga 
 3. [Actualice el código para administrar varios valores issuer.](#update-your-code-to-handle-multiple-issuer-values)
 4. [Comprenda el consentimiento de administrador y usuario y realice los cambios apropiados en el código.](#understand-user-and-admin-consent)
 
-Vamos a examinar cada paso con detalle. También puede ir directamente a [esta lista de ejemplos de multiinquilino](https://docs.microsoft.com/samples/browse/?products=azure-active-directory).
+Vamos a examinar cada paso con detalle. También puede ir directamente al ejemplo de [Construcción de una aplicación web SaaS multiinquilino que llama a Microsoft Graph mediante Azure AD y OpenID Connect](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md).
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Actualización del registro para que sea multiempresa
 
@@ -176,7 +176,7 @@ En este artículo ha aprendido a crear una aplicación que puede hacer que un us
 
 ## <a name="related-content"></a>Contenido relacionado
 
-* [Ejemplos de aplicación multiinquilino](https://docs.microsoft.com/samples/browse/?products=azure-active-directory)
+* [Ejemplo de aplicación multiinquilino](https://github.com/mspnp/multitenant-saas-guidance)
 * [Directrices de personalización de marca para aplicaciones][AAD-App-Branding]
 * [Objetos de aplicación y de entidad de servicio][AAD-App-SP-Objects]
 * [Integración de aplicaciones con Azure Active Directory][AAD-Integrating-Apps]

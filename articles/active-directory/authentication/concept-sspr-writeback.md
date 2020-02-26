@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c92048d2fce4a098da1e707ec8f7d75479d563f1
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: aa66299753ab11dcad280361cb5fb6f0c31ef242
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161586"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368164"
 ---
 # <a name="what-is-password-writeback"></a>¿Qué es la escritura diferida de contraseñas?
 
@@ -158,13 +158,13 @@ Las contraseñas se escriben en diferido en todas las situaciones siguientes:
 Las contraseñas *no* se escriben en diferido en ninguna de las situaciones siguientes:
 
 * **Operaciones de usuario final no admitidas**
-   * Cualquier usuario final que restablezca su propia contraseña mediante PowerShell v1, v2 o Graph API de Azure AD
+   * Cualquier usuario final que restablezca su propia contraseña mediante PowerShell versión 1, versión 2 o Microsoft Graph API
 * **Operaciones de administrador no admitidas**
-   * Cualquier restablecimiento de contraseña del usuario final que inicie el administrador desde PowerShell v1, v2 o Graph API de Azure AD
+   * Cualquier restablecimiento de contraseña del usuario final que inicie el administrador desde PowerShell versión 1, versión 2 o Microsoft Graph API
    * Cualquier restablecimiento de contraseña del usuario final que inicie el administrador desde el [Centro de administración de Microsoft 365](https://admin.microsoft.com).
 
 > [!WARNING]
-> El uso de la casilla "El usuario debe cambiar la contraseña en el siguiente inicio de sesión" en herramientas administrativas de Active Directory local como Usuarios y equipos de Active Directory o el Centro de administración de Active Directory se admite como característica en versión preliminar de Azure AD Connect. Para obtener más información, consulte el artículo [Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon).
+> El uso de la casilla "El usuario debe cambiar la contraseña en el siguiente inicio de sesión" en herramientas administrativas de Active Directory local como Usuarios y equipos de Active Directory o el Centro de administración de Active Directory se admite como característica en versión preliminar de Azure AD Connect. Para obtener más información, consulte el artículo [Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 266fa2403ef96e808a0c1f1eb46b4f7065c06252
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 3c8c5e3c2552101437bfed17906f94861e676568
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185903"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468444"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Instrucciones: Planeamiento de la implementación del acceso condicional en Azure Active Directory
 
@@ -31,6 +31,9 @@ Si se necesitan otras características, también necesitara las licencias asocia
 Hay dos tipos de directivas de acceso condicional: de base de referencia y estándar. Las [directivas de base de referencia](baseline-protection.md) son las directivas de acceso condicional predefinidas. El objetivo de estas directivas es garantizar que al menos tiene el nivel de base de referencia de seguridad habilitado. Directivas de base de referencia. Las directivas de base de referencia están disponibles en todas las versiones de Azure AD y proporcionan solo opciones de personalización limitadas. Si un escenario requiere más flexibilidad, deshabilite la directiva de base de referencia e implemente los requisitos en una directiva personalizada estándar.
 
 En una directiva de acceso condicional estándar, puede personalizar toda la configuración para que se ajuste a sus requisitos empresariales. Las directivas estándar requieren licencia de Azure AD Premium P1.
+
+>[!NOTE]
+> Se recomienda usar el dispositivo de Azure AD basado en la directiva de acceso condicional para obtener la mejor aplicación después de la autenticación inicial del dispositivo. Esto incluye cerrar sesiones si el dispositivo está fuera de cumplimiento y del flujo de código de dispositivo.
 
 ## <a name="draft-policies"></a>Borradores de directivas
 

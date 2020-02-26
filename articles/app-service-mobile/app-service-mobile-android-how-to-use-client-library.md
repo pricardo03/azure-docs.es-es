@@ -6,19 +6,14 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 32e0584478031226ed52d6ed5f6849f7ad6d3cfe
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 52e91d900ce0f22862904695ba8adf463219c469
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668888"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461596"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Uso del SDK de Azure Mobile Apps para Android
-
-> [!NOTE]
-> Visual Studio App Center admite servicios integrados de un extremo a otro fundamentales para el desarrollo de aplicaciones móviles. Los desarrolladores pueden usar los servicios de **compilación**, **prueba** y **distribución** para configurar la canalización de integración y entrega continuas. Una vez que se ha implementado la aplicación, los desarrolladores pueden supervisar el estado y el uso de su aplicación con los servicios de **análisis** y **diagnóstico**, e interactuar con los usuarios que utilizan el servicio de **Push** (inserción). Además, los desarrolladores pueden aprovechar **Auth** para autenticar a los usuarios y el servicio de **datos** para almacenar y sincronizar los datos de la aplicación en la nube.
->
-> Si está pensando en integrar servicios en la nube en su aplicación para dispositivos móviles, regístrese en [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoy mismo.
 
 En esta guía se muestra cómo utilizar el SDK cliente de Android para Mobile Apps con el objetivo de implementar escenarios comunes, como los siguientes:
 
@@ -290,9 +285,9 @@ MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToD
 
 En primer lugar, obtenga una referencia de tabla.  A continuación, ejecute una consulta en la referencia de tabla.  Una consulta es cualquier combinación de:
 
-* Una `.where()` [cláusula de filtro](#filtering).
-* Una `.orderBy()` [cláusula de ordenación](#sorting).
-* Una `.select()` [cláusula de selección de campos](#selection).
+* Una [cláusula de filtro](#filtering) `.where()`.
+* Una [cláusula de ordenación](#sorting) `.orderBy()`.
+* Una [cláusula de selección de campos](#selection) `.select()`.
 * Una cláusula `.skip()` y `.top()` para [resultados paginados](#paging).
 
 Las cláusulas deben presentarse en el orden anterior.
@@ -452,7 +447,7 @@ Una solicitud de todos los registros con este método crea dos solicitudes como 
 > [!TIP]
 > La elección del tamaño de página adecuado es un equilibrio entre el uso de memoria mientras tiene lugar la solicitud, el uso de ancho de banda y el retraso en la recepción completa de los datos.  El valor predeterminado (50 registros) es adecuado para todos los dispositivos.  Si usa exclusivamente dispositivos de memoria más grande, aumente hasta 500.  Hemos encontrado que si se aumenta el tamaño de página por encima de 500 registros da lugar a retrasos inaceptables y problemas de memoria graves.
 
-### <a name="chaining"></a>Concatenación de métodos de consulta
+### <a name="chaining"></a>Procedimientos: de métodos de consulta
 
 Se pueden concatenar los métodos usados en la consulta de tablas de back-end. Gracias al encadenamiento de consultas, se pueden seleccionar columnas específicas de filas filtradas que se ordenan y paginan. Puede crear filtros lógicos complejos.  Cada método de consulta devuelve un objeto Query. Para finalizar las series de métodos y ejecutar la consulta, llame al método **execute** . Por ejemplo:
 
@@ -678,7 +673,7 @@ ToDoItem result = mToDoTable
     .get();
 ```
 
-## <a name="untyped"></a>Trabajo con datos sin tipo
+## <a name="untyped"></a>Procedimientos: con datos sin tipo
 
 El modelo de programación sin tipo proporciona un control exacto de la serialización de JSON.  Existen algunos escenarios comunes donde recomendamos usar un modelo de programación sin tipo. Por ejemplo, si la tabla de back-end contiene muchas columnas y solo necesita hacer referencia a un subconjunto de ellas.  El modelo con tipo precisa definir todas las columnas especificadas en el back-end de Mobile Apps de su clase de datos.  La mayoría de las llamadas de API para obtener acceso a los datos son similares a las llamadas de programación con tipo. La diferencia principal es que en el modelo sin tipo se invocan métodos en el objeto **MobileServiceJsonTable**, en lugar del objeto **MobileServiceTable**.
 

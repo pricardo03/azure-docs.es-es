@@ -810,6 +810,8 @@
           href: ./domain-joined/hdinsight-use-oozie-domain-joined-clusters.md
     - name: Conceptos
       items:
+        - name: Línea de base de seguridad
+          href: security-baseline.md
         - name: Directrices generales de seguridad de la empresa
           href: ./domain-joined/general-guidelines.md
         - name: Plan para los clústeres de ESP

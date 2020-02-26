@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 797475bfe0f1ec077ad39c6fce1f0facdf679802
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: eb094d04a7210d76a98f3e47af750e49b617e493
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483466"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77195069"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configuración de la administración de las sesiones de autenticación con el acceso condicional
 
@@ -50,6 +50,23 @@ La configuración de la frecuencia de inicio de sesión funciona con aplicacione
 - Cliente web de Teams
 - Dynamics CRM Online
 - Portal de Azure
+
+### <a name="user-sign-in-frequency-and-device-identities"></a>Frecuencia de inicio de sesión de usuario e identidades de dispositivos
+
+Si tiene dispositivos unidos a Azure AD, unidos a Azure AD híbrido o registrados en Azure AD, cuando un usuario desbloquea su dispositivo o inicia sesión de forma interactiva, este evento también cumplirá la directiva de frecuencia de inicio de sesión. En los siguientes 2 ejemplos, la frecuencia de inicio de sesión de usuario está establecida en 1 hora:
+
+Ejemplo 1:
+
+- A las 00:00, un usuario inicia sesión en su dispositivo unido a Azure AD de Windows 10 y comienza a trabajar en un documento almacenado en SharePoint Online.
+- El usuario continúa trabajando en el mismo documento en su dispositivo durante una hora.
+- A la 01:00, se solicita al usuario que vuelva a iniciar sesión según el requisito de frecuencia de inicio de sesión en la directiva de acceso condicional configurada por su administrador.
+
+Ejemplo 2:
+
+- A las 00:00, un usuario inicia sesión en su dispositivo unido a Azure AD de Windows 10 y comienza a trabajar en un documento almacenado en SharePoint Online.
+- A las 00:30, el usuario se pone al día y realiza un bloqueo de interrupción en el dispositivo.
+- A las 00:45, el usuario vuelve de su interrupción y desbloquea el dispositivo.
+- A la 01:45, se solicita al usuario que vuelva a iniciar sesión según el requisito de frecuencia de inicio de sesión de la directiva de acceso condicional configurada por su administrador, ya que el último inicio de sesión se produjo a las 00:45.
 
 ## <a name="persistence-of-browsing-sessions"></a>Persistencia de las sesiones de exploración
 

@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 33b3f9292a2fd185ea5487c0111dc294a6f163cf
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 11b8ade765a2b1c1ee25421073983b96c34e5d15
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030819"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462180"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
@@ -23,10 +23,53 @@ En este artículo conocerá las versiones de Azure Machine Learning.  Para obten
 
 Para obtener información acerca de errores conocidos y soluciones alternativas, consulte [la lista de problemas conocidos](resource-known-issues.md).
 
+## <a name="2020-02-18"></a>18-02-2020
+
+### <a name="azure-machine-learning-sdk-for-python-v111rc0"></a>SDK de Azure Machine Learning para Python v1.1.1rc0
+
++ **Mejoras y correcciones de errores**
+  + **azure-cli-ml**
+    + La generación de perfiles de instancia única se ha corregido para generar una recomendación y se ha puesto a disposición en el SDK de .NET Core.
+  + **azureml-automl-core**
+    + El registro de errores se ha mejorado.
+  + **azureml-automl-runtime**
+    + Se ha corregido el problema con la previsión que se producía cuando el conjunto de datos contenía períodos cortos de agregación en intervalos de tiempo prolongados.
+    + Se ha corregido el problema que se producía cuando se activaba el horizonte máximo automático y la columna de fecha contenía fechas en forma de cadenas. Hemos agregado una conversión adecuada y la opción de que aparezca un error si la conversión a fecha no es posible
+    + Uso de NumPy y SciPy nativos para serializar y deserializar los datos intermedios para FileCacheStore (se usa para las ejecuciones de AutoML locales)
+    + Se ha corregido un problema por el que las ejecuciones secundarias con error se quedaban bloqueadas en el estado "En ejecución".
+  + **azureml-cli-common**
+    + La generación de perfiles de instancia única se ha corregido para generar una recomendación y se ha puesto a disposición en el SDK de .NET Core.
+  + **azureml-core**
+    + Se ha agregado `--grant-workspace-msi-access` como parámetro adicional para la CLI del almacén de datos para registrar el contenedor de blobs de Azure lo cual le permitirá registrar el contenedor de blobs que está detrás de una red virtual.
+    + La generación de perfiles de instancia única se ha corregido para generar una recomendación y se ha puesto a disposición en el SDK de .NET Core.
+    + Se ha corregido el problema en aks.py _deploy
+    + Valida la integridad de los modelos que se cargan para evitar errores de almacenamiento silenciosos.
+  + **azureml-interpret**
+    + Se han agregado excepciones de azureml-style a azureml-interpret
+    + Se ha corregido la serialización de DeepScoringExplainer para los modelos de Keras
+  + **azureml-pipeline-core**
+    + El cuaderno de puntuación por lotes de la canalización ahora usa ParallelRunStep
+  + **azureml-pipeline-steps**
+    + Se ha movido `AutoMLStep` del paquete `azureml-pipeline-steps`. Se ha puesto en desuso `AutoMLStep` en `azureml-train-automl-runtime`.
+  + **azureml-contrib-pipeline-steps**
+    + Se ha agregado el parámetro opcional side_inputs a ParallelRunStep. Este parámetro se puede utilizar para montar la carpeta en el contenedor. Los tipos que se admiten actualmente son DataReference y PipelineData.
+  + **azureml-tensorboard**
+    + Se ha actualizado azureml-tensorboard para que admita Tensorflow 2.0
+  + **azureml-train-automl-client**
+    + Se ha corregido el problema de invalidación de FeaturizationConfig que filtra la configuración de características personalizada.
+  + **azureml-train-automl-runtime**
+    + Se ha movido `AutoMLStep` del paquete `azureml-pipeline-steps`. Se ha puesto en desuso `AutoMLStep` en `azureml-train-automl-runtime`.
+  + **azureml-train-core**
+    + Compatibilidad con la versión 1.4 de PyTorch en el estimador de PyTorch
+  
 ## <a name="2020-02-04"></a>04-02-2020
 
 ### <a name="azure-machine-learning-sdk-for-python-v110rc0"></a>SDK de Azure Machine Learning para Python v1.1.0rc0
 
++ **Cambios importantes**
+  + **Versionamiento Semántico 2.0.0**
+    + A partir de la versión 1.1, el SDK de Python para Azure Machine Learning adopta Versionamiento Semántico 2.0.0. [Obtenga más información aquí.](https://semver.org/) Todas las versiones posteriores seguirán un nuevo esquema de numeración y un contrato de Versionamiento Semántico. 
+  
 + **Mejoras y correcciones de errores**
   + **azureml-automl-runtime**
     + Mayor velocidad de caracterización.
@@ -118,8 +161,7 @@ Para obtener información acerca de errores conocidos y soluciones alternativas,
     + Se agregó información de CreatedBy al modelo y a los objetos de servicio. Se puede obtener acceso a través de <var>. created_by
     + Se corrigió ContainerImage.run(), que no configuraba correctamente el puerto HTTP del contenedor de Docker.
     + Creación `azureml-dataprep` opcional para el comando de la CLI de `az ml dataset register`
-  + **azureml-dataprep**
-    + Se corrigió un error por el cual TabularDataset.to_pandas_dataframe volvía incorrectamente a un lector alternativo e imprimía una advertencia.
+    + Se corrigió un error por el cual `TabularDataset.to_pandas_dataframe` volvía incorrectamente a un lector alternativo e imprimía una advertencia.
   + **azureml-explain-model**
     + aplazar la dependencia de la forma a interpretar-comunidad de azureml-interpretar
   + **azureml-pipeline-core**

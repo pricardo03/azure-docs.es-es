@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 08/27/2019
-ms.openlocfilehash: b7c406c1d7f55b364d72b2b5626b3c17a34d8338
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: bf83155e971061f22e5f5fc33d216b58621c9249
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552770"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462656"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Tutorial: adición de una instancia administrada de SQL Database a un grupo de conmutación por error
 
@@ -34,15 +34,15 @@ Agregue una instancia administrada de SQL Database a un grupo de conmutación po
   > - Las instancias administradas que participan en un grupo de conmutación por error requieren [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) o dos puertas de enlace de VPN conectadas. En este tutorial se proporcionan los pasos para crear y conectar las puertas de enlace de VPN. Sáltese estos pasos si ya tiene ExpressRoute configurado. 
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 Para completar este tutorial, asegúrese de disponer de los siguientes elementos: 
 
 - Suscripción a Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/) si aún no tiene una.
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Para completar el tutorial, asegúrese de que cuenta con los elementos siguientes:
 
 - Suscripción a Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/) si aún no tiene una.
@@ -55,7 +55,7 @@ Para completar el tutorial, asegúrese de que cuenta con los elementos siguiente
 En este paso, creará el grupo de recursos y la instancia administrada principal del grupo de conmutación por error mediante Azure Portal o PowerShell. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal) 
+# <a name="portal"></a>[Portal](#tab/azure-portal) 
 
 Cree el grupo de recursos y la instancia administrada principal mediante Azure Portal. 
 
@@ -75,7 +75,7 @@ Cree el grupo de recursos y la instancia administrada principal mediante Azure P
 1. Deje el resto de la configuración en sus valores predeterminados y seleccione **Revisar y crear** para revisar la configuración de la instancia administrada. 
 1. Seleccione **Crear** para crear la instancia administrada principal. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Cree el grupo de recursos y la instancia administrada principal mediante PowerShell. 
 
@@ -405,7 +405,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 ## <a name="2---create-secondary-virtual-network"></a>2\. Creación de una red virtual secundaria
 Si usa Azure Portal para crear la instancia administrada, tendrá que crear la red virtual por separado, ya que hay un requisito de que la subred de la instancia administrada principal y secundaria no tenga intervalos superpuestos. Si usa PowerShell para configurar la instancia administrada, vaya al paso 3. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal) 
+# <a name="portal"></a>[Portal](#tab/azure-portal) 
 Para comprobar el intervalo de subred de la red virtual principal, siga estos pasos:
 1. En [Azure Portal](https://portal.azure.com), vaya a su grupo de recursos y seleccione la red virtual para la instancia principal. 
 1. Seleccione **Subredes** en **Configuración** y anote el **Intervalo de direcciones**. El intervalo de direcciones de subred perteneciente a la red virtual para la instancia administrada secundaria no puede superponerse con el intervalo anotado. 
@@ -433,7 +433,7 @@ Para crear una red virtual, siga estos pasos:
 
     ![Valores de red virtual secundaria](media/sql-database-managed-instance-failover-group-tutorial/secondary-virtual-network.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Este paso solo es necesario si utiliza Azure Portal para implementar la instancia administrada. Si usa PowerShell, vaya al paso 3. 
 
@@ -446,7 +446,7 @@ La segunda instancia administrada debe:
 - Estar vacía. 
 - Tener una subred y un intervalo de direcciones IP distintos de los de la instancia administrada principal. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal) 
+# <a name="portal"></a>[Portal](#tab/azure-portal) 
 
 Cree una instancia administrada secundaria mediante Azure Portal. 
 
@@ -482,7 +482,7 @@ Cree una instancia administrada secundaria mediante Azure Portal.
 1. Seleccione **Revisar y crear** para revisar la configuración de la instancia administrada secundaria. 
 1. Seleccione **Crear** para crear la instancia administrada secundaria. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Cree una instancia administrada secundaria mediante PowerShell. 
 
@@ -734,7 +734,7 @@ Para que dos instancias administradas participen en un grupo de conmutación por
 En este artículo se proporcionan los pasos para crear las dos puertas de enlace de VPN y conectarlas, pero puede ir directamente a la creación del grupo de conmutación por error si ha configurado ExpressRoute en su lugar. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Cree la puerta de enlace para la red virtual de la instancia administrada principal mediante Azure Portal. 
 
@@ -773,7 +773,7 @@ Cree la puerta de enlace para la red virtual de la instancia administrada princi
 1. Seleccione **Crear** para crear la nueva puerta de enlace de red virtual. 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Cree la puerta de enlace para la red virtual de la instancia administrada principal mediante PowerShell. 
 
@@ -828,7 +828,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 En este paso, cree la puerta de enlace para la red virtual de la instancia administrada secundaria mediante Azure Portal. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Mediante Azure Portal, repita los pasos de la sección anterior para crear la subred y la puerta de enlace de la red virtual para la instancia administrada secundaria. Rellene los campos obligatorios para configurar la puerta de enlace para la instancia administrada secundaria. 
 
@@ -851,7 +851,7 @@ Mediante Azure Portal, repita los pasos de la sección anterior para crear la su
    ![Configuración de la puerta de enlace secundaria](media/sql-database-managed-instance-failover-group-tutorial/settings-for-secondary-gateway.png)
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Cree la puerta de enlace para la red virtual de la instancia administrada secundaria mediante PowerShell. 
 
@@ -908,7 +908,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 En este paso, cree una conexión bidireccional entre las dos puertas de enlace de las dos redes virtuales. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Conecte las dos puertas de enlace mediante Azure Portal. 
 
@@ -933,7 +933,7 @@ Conecte las dos puertas de enlace mediante Azure Portal.
 1. En la pestaña **Resumen**, revise la configuración de la conexión bidireccional y, después, seleccione **Aceptar** para crear la conexión. 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Conecte las dos puertas de enlace mediante PowerShell. 
 
@@ -967,7 +967,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 En este paso, creará el grupo de conmutación por error y le agregará ambas instancias administradas. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 Cree el grupo de conmutación por error mediante Azure Portal. 
 
 
@@ -984,7 +984,7 @@ Cree el grupo de conmutación por error mediante Azure Portal.
 1. Una vez completada la implementación del grupo de conmutación por error, volverá a mostrarse la página **Grupo de conmutación por error**. 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Cree el grupo de conmutación por error mediante PowerShell. 
 
    ```powershell-interactive
@@ -1010,11 +1010,11 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 En este paso, se producirá un error en el grupo de conmutación por error en el servidor secundario y, a continuación, se realizará la conmutación por recuperación mediante Azure Portal. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 Pruebe la conmutación por error mediante Azure Portal. 
 
 
-1. Navegue a la instancia administrada en [Azure Portal](https://portal.azure.com) y seleccione **Grupos de conmutación por error de instancias** en las opciones de configuración. 
+1. Vaya a la instancia administrada _secundaria_ en [Azure Portal](https://portal.azure.com) y seleccione **Grupos de conmutación por error de instancias** en las opciones de configuración. 
 1. Revise cuál instancia administrada es la principal y cuál es la secundaria. 
 1. Seleccione **Conmutación por error** y, a continuación, seleccione **Sí** en la advertencia acerca de la desconexión de las sesiones TDS. 
 
@@ -1024,10 +1024,10 @@ Pruebe la conmutación por error mediante Azure Portal.
 
    ![Las instancias administradas cambian roles después de la conmutación por error](media/sql-database-managed-instance-failover-group-tutorial/mi-switched-after-failover.png)
 
-1. Vuelva a seleccionar **Conmutación por error** para que la instancia principal vuelva a tener el rol principal. 
+1. Vaya a la nueva instancia administrada _secundaria_ y seleccione **Conmutación por error** para que la instancia principal vuelva a tener el rol principal. 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Pruebe la conmutación por error mediante PowerShell. 
 
    ```powershell-interactive
@@ -1076,14 +1076,14 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 Para limpiar los recursos, elimine primero la instancia administrada, después el clúster virtual, a continuación el resto de los recursos y, por último, el grupo de recursos. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 1. Vaya a su grupo de recursos en [Azure Portal](https://portal.azure.com). 
 1. Seleccione las instancias administradas y después seleccione **Eliminar**. Escriba `yes` en el cuadro de texto para confirmar que quiere eliminar el recurso y después seleccione **Eliminar**. Este proceso puede tardar algún tiempo en completarse en segundo plano y, hasta que finalice, no podrá eliminar el *Clúster virtual* ni ningún otro recurso dependiente. Supervise la eliminación en la pestaña Actividad para confirmar que la instancia administrada se ha eliminado. 
 1. Una vez que se elimine la instancia administrada, puede eliminar el *Clúster virtual* al seleccionarlo en el grupo de recursos y elegir **Eliminar**. Escriba `yes` en el cuadro de texto para confirmar que quiere eliminar el recurso y después seleccione **Eliminar**. 
 1. Elimine todos los recursos restantes. Escriba `yes` en el cuadro de texto para confirmar que quiere eliminar el recurso y después seleccione **Eliminar**. 
 1. Para eliminar el grupo de recursos, seleccione **Eliminar grupo de recursos**, escriba el nombre del grupo de recursos (`myResourceGroup`) y, a continuación, seleccione **Eliminar**. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Tendrá que quitar el grupo de recursos dos veces. Al quitar el grupo de recursos la primera vez, se quitarán la instancia administrada y los clústeres virtuales, pero se producirá el mensaje de error `Remove-AzResourceGroup : Long running operation failed with status 'Conflict'.`. Ejecute el comando Remove-AzResourceGroup una segunda vez para quitar los recursos residuales y el grupo de recursos.
 
@@ -1104,7 +1104,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 
 ## <a name="full-script"></a>Script completo
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 [!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-managed-instance-to-failover-group-az-ps.ps1 "Add managed instance to a failover group")]
 
 Este script usa los siguientes comandos. Cada comando de la tabla crea un vínculo a documentación específica del comando.
@@ -1136,7 +1136,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | Ejecuta una conmutación por error de un grupo de conmutación por error de la instancia administrada. | 
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina un grupo de recursos. | 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal) 
+# <a name="portal"></a>[Portal](#tab/azure-portal) 
 
 No hay scripts disponibles para Azure Portal.
 

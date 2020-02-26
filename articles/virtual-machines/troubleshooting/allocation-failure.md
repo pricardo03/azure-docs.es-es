@@ -12,12 +12,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
-ms.openlocfilehash: 72fbdbcfcd94dd41a67bb81314802dd7314ae463
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b4750ad9fdfa214aa4d7b6a0355c319e7eb1d9c3
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60505826"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484407"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Solución de problemas de errores de asignación al crear, reiniciar o cambiar el tamaño de una VM en Azure
 
@@ -79,15 +79,17 @@ Si usa zonas de disponibilidad, pruebe otra zona de la región que pueda tener c
 
 Si su solicitud de asignación es grande (más de 500 núcleos), consulta las instrucciones en las siguientes secciones para dividir la solicitud en implementaciones más pequeñas.
 
+[Vuelva a implementar la máquina virtual](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/redeploy-to-new-node-windows). Al volver a implementar la máquina virtual, esta se asigna a un nuevo clúster dentro de la región.
+
 ## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>Errores de asignación para tamaños de VM anteriores (Av1, Dv1, DSv1, D15v2, DS15v2, etc.).
 
 A medida que ampliamos la infraestructura de Azure, implementamos hardware de nueva generación diseñado para admitir los tipos de máquina virtual más recientes. Algunas de las máquinas virtuales de serie anteriores no se ejecutan en nuestra infraestructura de última generación. Por este motivo, en ocasiones, los clientes pueden experimentar errores de asignación para estas SKU heredadas. Para evitar este problema, animamos a los clientes que utilizan máquinas virtuales de serie heredadas a que consideren la posibilidad de migrar a las máquinas virtuales equivalentes que sean más recientes atendiendo a las recomendaciones que se indican a continuación. Estas máquinas están optimizadas para el hardware más reciente y permiten beneficiarse de una mejor relación precio/rendimiento. 
 
 |Tamaño o serie de VM heredados|Tamaño o serie de VM más recientes recomendados|Más información|
 |----------------------|----------------------------|--------------------|
-|Serie Av1|[Serie Av2](../windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
-|Serie Dv1 o DSv1 (D1 a D5)|[Serie Dv3 o DSv3](../windows/sizes-general.md#dsv3-series-1)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
-|Serie Dv1 o DSv1 (D11 a D14)|[Serie Ev3 o ESv3](../windows/sizes-memory.md#ev3-series)|
+|Serie Av1|[Serie Av2](../av2-series.md)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
+|Serie Dv1 o DSv1 (D1 a D5)|[Serie Dv3 o DSv3](../dv3-dsv3-series.md)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
+|Serie Dv1 o DSv1 (D11 a D14)|[Serie Ev3 o ESv3](../ev3-esv3-series.md)|
 |D15v2 o DS15v2|Si usa el modelo de implementación de Resource Manager para aprovechar los tamaños de VM más grandes, considere la posibilidad de trasladarse a D16v3/DS16v3 o D32v3/DS32v3. Estos están diseñados para ejecutarse en el hardware de última generación. Si usa el modelo de implementación de Resource Manager para asegurarse de que su máquina virtual está aislada para hardware dedicado a un solo cliente, considere la posibilidad de trasladarse a los nuevos tamaños de VM aislados, E64i_v3 or E64is_v3, diseñados para ejecutarse en el hardware de última generación. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
 
 ## <a name="allocation-failures-for-large-deployments-more-than-500-cores"></a>Errores de asignación para grandes implementaciones (más de 500 núcleos)

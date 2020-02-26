@@ -5,20 +5,20 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 02/19/2020
 ms.author: helohr
-ms.openlocfilehash: e2fa30772082f4d2f7c02add61412432233e3f04
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 426ca10893e6858722b58422400582e4940287e2
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470579"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484611"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Preguntas frecuentes sobre la sesión múltiple de Windows 10 Enterprise
 
-En este artículo se responden preguntas frecuentes y se describen procedimientos recomendados para la sesión múltiple de Windows 10 Enterprise.
+En este artículo se responden preguntas frecuentes y se explican procedimientos recomendados para la sesión múltiple de Windows 10 Enterprise.
  
-## <a name="what-is-windows-10-enterprise-multi-session"></a>¿Qué es la sesión múltiple de Windows 10 Enterprise? 
+## <a name="what-is-windows-10-enterprise-multi-session"></a>¿Qué es la sesión múltiple de Windows 10 Enterprise?
 
 La sesión múltiple de Windows 10 Enterprise, anteriormente conocida como Windows 10 Enterprise para escritorios virtuales (EVD), es un nuevo host de sesión de Escritorio remoto que permite varias sesiones interactivas simultáneas, lo que anteriormente solo era posible con Windows Server. Esta funcionalidad proporciona a los usuarios una experiencia conocida de Windows 10, mientras que el departamento de TI puede beneficiarse de las ventajas en los costos de la sesión múltiple y usar licencias de Windows por usuario existentes en lugar de licencias de acceso de cliente (CAL) de RDS. Para más información sobre licencias y precios, consulte [Precios de Windows Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/). 
  
@@ -71,6 +71,31 @@ Para obtener más información sobre cómo configurar un contenedor de perfiles 
 ## <a name="which-license-do-i-need-to-access-windows-10-enterprise-multi-session"></a>¿Qué licencia se necesita para acceder a la sesión múltiple de Windows 10 Enterprise?
 
 Para ver una lista completa de licencias aplicables, consulte [Precios de Windows Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+
+## <a name="why-do-my-apps-disappear-after-i-sign-out"></a>¿Por qué las aplicaciones desaparecen después de cerrar sesión?
+
+Esto sucede porque usa la sesión múltiple de Windows 10 Enterprise con una solución de administración de perfiles como FSLogix. La solución de administrador o de perfiles ha configurado el sistema para eliminar los perfiles de usuario cuando estos cierren sesión. Esta configuración significa que cuando el sistema elimina su perfil de usuario después de cerrar la sesión, también quita todas las aplicaciones que haya instalado durante la sesión. Si desea mantener las aplicaciones instaladas, deberá pedir al administrador que aprovisione estas aplicaciones para todos los usuarios del entorno de Windows Virtual Desktop.
+
+## <a name="how-do-i-make-sure-apps-dont-disappear-when-users-sign-out"></a>¿Cómo asegurarse de que las aplicaciones no desaparecen cuando los usuarios cierran sesión?
+
+La mayoría de los entornos virtualizados están configurados de forma predeterminada para evitar que los usuarios instalen aplicaciones adicionales en sus perfiles. Si quiere asegurarse de que una aplicación no desaparece cuando el usuario cierra sesión en Windows Virtual Desktop, tiene que aprovisionar la aplicación para todos los perfiles de usuario de su entorno. Para más información sobre cómo aprovisionar las aplicaciones, consulte estos recursos.
+
+- [Publicar aplicaciones integradas en Windows Virtual Desktop](publish-apps.md)
+- [Opciones de la línea de comandos de mantenimiento de paquetes de aplicaciones DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
+- [Add-AppxProvisionedPackage](https://docs.microsoft.com/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
+
+## <a name="how-do-i-make-sure-users-dont-download-and-install-apps-from-the-microsoft-store"></a>¿Cómo asegurarse de que los usuarios no descarguen e instalen aplicaciones de Microsoft Store?
+
+Puede deshabilitar la aplicación Microsoft Store para asegurarse de que los usuarios no descarguen aplicaciones adicionales más allá de las aplicaciones que ya ha aprovisionado para ellos.
+
+Para deshabilitar la aplicación de la tienda:
+
+1. Cree una nueva directiva de grupo.
+2. Seleccione **Configuración del equipo** > **Plantillas administrativas** > **Componentes de Windows**.
+3. Seleccione **Tienda**.
+4. Seleccione la **aplicación de la tienda**.
+5. Seleccione **Deshabilitado** y, después, **Aceptar**.
+6. Seleccione **Aplicar**.
  
 ## <a name="next-steps"></a>Pasos siguientes
 

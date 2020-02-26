@@ -7,24 +7,26 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 2c32e67bb2b47a24036a341ea4e1b83037abbaee
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: ebd65f2dcbb0040b764290627bbfd2901aa9a7d3
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827536"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443982"
 ---
 # <a name="query-data-using-the-azure-data-explorer-python-library"></a>Consulta de datos mediante la biblioteca de Python de Azure Data Explorer
 
-El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. El Explorador de datos de Azure proporciona un [biblioteca de cliente de datos para Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Esta biblioteca permite consultar los datos desde el código. En este artículo se conecta a una tabla en el *clúster de ayuda* que hemos configurado para facilitar el aprendizaje. A continuación, consulta una tabla en ese clúster, que devuelve los resultados.
+En este artículo, se van a consultar datos mediante Azure Data Explorer. El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro.
+
+El Explorador de datos de Azure proporciona un [biblioteca de cliente de datos para Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Esta biblioteca permite consultar los datos desde el código. Conéctese a una tabla en el *clúster de ayuda* que se ha configurado para facilitar el aprendizaje. Puede consultar una tabla de ese clúster y devolver los resultados.
 
 Este artículo también está disponible como [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
+
+* [Python 3.4+](https://www.python.org/downloads/)
 
 * Una cuenta de correo electrónico organizativa que sea miembro de Azure Active Directory (AAD)
-
-* [Python](https://www.python.org/downloads/) instalado en el equipo de desarrollo
 
 ## <a name="install-the-data-library"></a>Instalar la biblioteca de datos
 
@@ -34,7 +36,7 @@ Instale *azure-kusto-data*.
 pip install azure-kusto-data
 ```
 
-## <a name="add-import-statements-and-constants"></a>Agregar instrucciones y constantes de importación
+## <a name="add-import-statements-and-constants"></a>Incorporación de instrucciones de importación y constantes
 
 Importe clases de la biblioteca, así como *Pandas*, una biblioteca de análisis de datos.
 
@@ -45,7 +47,7 @@ from azure.kusto.data.helpers import dataframe_from_result_table
 import pandas as pd
 ```
 
-Para autenticar una aplicación, el Explorador de datos de Azure usa el identificador del inquilino AAD. Para buscar el identificador de inquilino, use la dirección URL siguiente, sustituyendo su dominio por *SuDominio*.
+Para autenticar una aplicación, el Explorador de datos de Azure usa el identificador del inquilino de AAD. Para buscar el identificador de inquilino, use la dirección URL siguiente, sustituyendo su dominio por *SuDominio*.
 
 ```
 https://login.windows.net/<YourDomain>/.well-known/openid-configuration/
@@ -57,7 +59,7 @@ Por ejemplo, si el nombre de dominio es *contoso.com*, la dirección URL es: [ht
 "authorization_endpoint":"https://login.windows.net/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize"
 ```
 
-En este caso, el identificador de inquilino es `6babcaad-604b-40ac-a9d7-9fd97c0b779f`. Establezca el valor de AAD_TENANT_ID antes de ejecutar este código.
+En este caso es el id. de inquilino es `6babcaad-604b-40ac-a9d7-9fd97c0b779f`. Establezca el valor de AAD_TENANT_ID antes de ejecutar este código.
 
 ```python
 AAD_TENANT_ID = "<TenantId>"

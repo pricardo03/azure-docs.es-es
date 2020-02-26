@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: f1379202fc59e9cca7a3543be201f8ebff276bef
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 560575ca7f51218e472abecb4319f4a3db69b1ff
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168354"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77431169"
 ---
 # <a name="speech-service-supported-regions"></a>Regiones admitidas del servicio de voz
 
@@ -44,7 +44,7 @@ Si usa el [SDK de Voz](speech-sdk.md), las regiones se especifican mediante el *
 
 Las regiones disponibles para el **reconocimiento de la intención** mediante el SDK de Voz son las siguientes:
 
-| Región global | Region           | Parámetro del SDK de Voz |
+| Región global | Region           | Identificador de región |
 | ------------- | ---------------- | -------------------- |
 | Asia          | Este de Asia        | `eastasia`           |
 | Asia          | Sudeste de Asia   | `southeastasia`      |
@@ -65,7 +65,7 @@ Se trata de un subconjunto de las regiones de publicación compatibles con el [s
 
 El [SDK de Voz](speech-sdk.md) admite funcionalidades de **asistente de voz** en estas regiones:
 
-| Region         | Parámetro del SDK de Voz |
+| Region         | Identificador de región |
 | -------------- | -------------------- |
 | Oeste de EE. UU.        | `westus`             |
 | Oeste de EE. UU. 2      | `westus2`            |

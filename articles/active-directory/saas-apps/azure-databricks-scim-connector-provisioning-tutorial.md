@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: de60b4ea1b09998e84bab4d204e3c8c3bc8779a4
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: fe1260982edc877c049716bd74f1bb3e90d33b0f
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77050362"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370522"
 ---
 # <a name="tutorial-configure-azure-databricks-scim-connector-for-automatic-user-provisioning"></a>Tutorial: Configuración de Azure Databricks SCIM Connector para el aprovisionamiento de usuarios automático
 
@@ -96,7 +96,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba sus credenciales de administrador y su nombre de usuario de Azure Databricks SCIM Connector. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Azure Databricks SCIM Connector. Si la conexión no se establece, asegúrese de que la cuenta de Azure Databricks SCIM Connector tenga permisos de administrador y pruebe otra vez.
+5. En la sección **Credenciales de administrador**, escriba el valor de punto de conexión de SCIM en **URL de inquilino**. La dirección URL del inquilino debe tener el formato `https://<region>.azuredatabricks.net/api/2.0/preview/scim`, donde se puede encontrar la **región** en la dirección URL de la página principal de Azure Databricks. Por ejemplo, un punto de conexión de SCIM para la región **westus** será `https://westus.azuredatabricks.net/api/2.0/preview/scim`. Escriba el valor del token recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Azure Databricks SCIM Connector. Si la conexión no se establece, asegúrese de que la cuenta de Azure Databricks SCIM Connector tenga permisos de administrador y pruebe otra vez.
 
     ![Aprovisionamiento](./media/azure-databricks-scim-provisioning-connector-provisioning-tutorial/provisioning.png)
 

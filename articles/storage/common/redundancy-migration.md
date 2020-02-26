@@ -10,12 +10,12 @@ ms.date: 02/10/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 78a7f3eb920d2f656b91cff187ca22b1e15973b7
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 14ad6dbf139b34f501e0b0ea8c16d8570b2ace5b
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163789"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212572"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Cambio en la forma en que se replican las cuentas de almacenamiento
 
@@ -38,10 +38,10 @@ En la tabla siguiente se proporciona información general sobre cómo cambiar de
 
 | Conmutación | ... a LRS | …a GRS/RA-GRS | …a ZRS | …a GZRS/RA-GZRS |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| <b>… desde LRS</b> | N/D | Uso de Azure Portal, PowerShell o la CLI para cambiar la opción de replicación | Realización de una migración manual <br /><br />Solicitud de una migración en vivo | Realización de una migración manual <br /><br />Solicitud de una migración en vivo |
-| <b>… desde GRS/RA-GRS</b> | Uso de Azure Portal, PowerShell o la CLI para cambiar la opción de replicación | N/D | Realización de una migración manual <br /><br />Solicitud de una migración en vivo | Realización de una migración manual <br /><br />Solicitud de una migración en vivo |
-| <b>... desde ZRS</b> | Realización de una migración manual <br /><br />Solicitud de una migración en vivo | Realización de una migración manual <br /><br />Solicitud de una migración en vivo | N/D | Uso de Azure Portal, PowerShell o la CLI para cambiar la opción de replicación |
-| <b>… desde GZRS/RA-GZRS</b> | Realización de una migración manual <br /><br />Solicitud de una migración en vivo | Realización de una migración manual <br /><br />Solicitud de una migración en vivo | Uso de Azure Portal, PowerShell o la CLI para cambiar la opción de replicación | N/D |
+| <b>… desde LRS</b> | N/D | Uso de Azure Portal, PowerShell o la CLI para cambiar la opción de replicación<sup>1</sup> | Realización de una migración manual <br /><br />Solicitud de una migración en vivo | Realización de una migración manual <br /><br /> O BIEN <br /><br /> Cambie a GRS/RA-GRS primero y, a continuación, solicite una migración activa<sup>1</sup> |
+| <b>… desde GRS/RA-GRS</b> | Uso de Azure Portal, PowerShell o la CLI para cambiar la opción de replicación | N/D | Realización de una migración manual <br /><br /> O BIEN <br /><br /> Cambio primero a LRS y luego solicitud de una migración en vivo | Realización de una migración manual <br /><br /> Solicitud de una migración en vivo |
+| <b>... desde ZRS</b> | Realización de una migración manual | Realización de una migración manual | N/D | Uso de Azure Portal, PowerShell o la CLI para cambiar la opción de replicación<sup>1</sup> |
+| <b>… desde GZRS/RA-GZRS</b> | Realización de una migración manual | Realización de una migración manual | Uso de Azure Portal, PowerShell o la CLI para cambiar la opción de replicación | N/D |
 
 <sup>1</sup> Incurre en un cargo de salida único.
 

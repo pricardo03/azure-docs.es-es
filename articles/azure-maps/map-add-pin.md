@@ -1,6 +1,6 @@
 ---
 title: Adición de una capa de símbolo a un mapa | Microsoft Azure Maps
-description: En este artículo, obtendrá información sobre cómo usar la capa de símbolo para personalizar y agregar símbolos a un mapa mediante el SDK web de Microsoft Azure Maps.
+description: En este artículo aprenderá a usar la capa de símbolos para personalizar y agregar símbolos a un mapa mediante el SDK web de Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,16 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 8c39c7b57167d65dfa639d41665f5d5b38110183
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: b8d131dcc798fb2fe1d4bb650cd5b0a68903381b
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933137"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209705"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Adición de una capa de símbolo a un mapa
 
-Un símbolo puede estar conectado a un origen de datos y usarse para representar un icono o un texto en un punto determinado. Las capas de símbolos se representan mediante WebGL y se utilizan para representar grandes colecciones de puntos en el mapa. En comparación con los marcadores HTML, la capa de símbolos representa un gran número de datos de puntos en el mapa con un rendimiento mejorado. Sin embargo, la capa de símbolos no es compatible con los elementos CSS y HTML tradicionales para aplicar estilos.  
+Conecte un símbolo a un origen de datos y úselo para representar un icono o un texto en un punto determinado. 
+
+Las capas de símbolo se representan mediante WebGL. Use una capa de símbolos para representar grandes colecciones de puntos en el mapa. En comparación con los marcadores HTML, la capa de símbolos representa un gran número de datos de puntos en el mapa con un rendimiento mejorado. Sin embargo, la capa de símbolos no es compatible con los elementos CSS y HTML tradicionales para aplicar estilos.  
 
 > [!TIP]
 > De forma predeterminada, las capas de símbolo representarán las coordenadas de todos los objetos geométricos en un origen de datos. Para limitar la capa de forma que solo represente las características de la geometría de puntos, establezca la propiedad `filter` de la capa en `['==', ['geometry-type'], 'Point']` o `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]`. Si lo desea, también puede incluir características de MultiPoint.
@@ -33,7 +35,9 @@ El administrador de sprites de imágenes de mapas carga imágenes personalizadas
 
 ## <a name="add-a-symbol-layer"></a>Adición de una capa de símbolo
 
-Para poder agregar una capa de símbolos al mapa, debe realizar primero algunas operaciones. En primer lugar, debe crear un origen de datos y agregarlo al mapa. Después, podrá crear la capa de símbolos y pasarla al origen de datos para que recupere los datos de este origen. Por último, es necesario agregar los datos al origen de datos para que haya algo que representar. En el ejemplo siguiente, se muestra el código que debe agregarse al mapa una vez que se ha cargado. El código representa un único punto en el mapa mediante una capa de símbolos. 
+Para poder agregar una capa de símbolos al mapa, debe realizar primero algunas operaciones. En primer lugar, cree un origen de datos y agréguelo al mapa. Cree una capa de símbolos. Pase el origen de datos a la capa de símbolos para recuperar los datos de este origen. Por último, agregue datos al origen de datos para que haya algo que representar. 
+
+En el código siguiente se muestra lo que debe agregarse al mapa una vez que se haya cargado. En este ejemplo se representa un único punto en el mapa mediante una capa de símbolos. 
 
 ```javascript
 //Create a data source and add it to the map.

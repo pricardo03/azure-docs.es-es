@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/13/2020
+ms.date: 02/18/2020
 ms.author: juliako
-ms.openlocfilehash: e457fbe5b8dd23c93110fb8ccc7d8857128de82c
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 245eabdf4d77682c87062c2581239a554112d748
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169371"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468769"
 ---
 # <a name="upload-and-index-your-videos"></a>Carga e indexación de los vídeos  
 
@@ -47,7 +47,7 @@ En el artículo se muestra cómo cargar e indexar los vídeos con estas opciones
 
     Si se trata de una dirección URL privada, es necesario especificar el token de acceso en la solicitud.
 - La dirección URL tiene que apuntar a un archivo multimedia válido, no a una página web, como un vínculo a la página `www.youtube.com`.
-- Puede cargar hasta 60 películas por minuto.
+- En una cuenta de pago, puede cargar hasta 50 películas por minuto y en una cuenta de prueba hasta 5 películas por minuto.
 
 > [!Tip]
 > Es recomendable que use .NET Framework versión 4.6.2 o superior porque las versiones anteriores de .NET Framework no usan de forma predeterminada TLS 1.2.
@@ -123,6 +123,10 @@ Utilice este parámetro si hay grabaciones sin formato o externas que contengan 
 - `VideoOnly`: indexar y extraer información detallada solo con vídeo (e ignorar el audio)
 - `Default`: indexar y extraer información detallada con audio y vídeo
 - `DefaultWithNoiseReduction`: indexar y extraer información detallada de audio y vídeo, mientras se aplican algoritmos de reducción de ruido en la transmisión de audio
+
+> [!NOTE]
+> Video Indexer cubre hasta dos pistas de audio. Si hay más pistas de audio en el archivo, se tratarán como una pista.<br/>
+Si desea indexar las pistas por separado, tendrá que extraer el archivo de audio correspondiente e indexarlo como `AudioOnly`.
 
 El precio depende de la opción de indexación seleccionada.  
 
@@ -348,6 +352,7 @@ La operación Upload puede devolver los códigos de estado que aparecen en la si
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|El mismo vídeo ya se está procesando en la cuenta especificada.|
 |400|VIDEO_ALREADY_FAILED|El mismo vídeo no se pudo procesar en la cuenta especificada hace menos de 2 horas. Los clientes de API deberán esperar al menos 2 horas antes de volver a cargar un vídeo.|
+|429||Las cuentas de prueba tienen permitido realizar hasta 5 cargas por minuto. Las cuentas de prueba tienen permitido realizar hasta 50 cargas por minuto.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 0ea9da894b9738fff634937294a07cc4b10624f0
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: bc15ee42fd7ef8e41b332104b28af808c336789f
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048873"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430421"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Cifrado del lado servidor de Azure Managed Disks
 
@@ -38,7 +38,7 @@ Puede optar por administrar el cifrado en el nivel de cada disco administrado, c
 
 En el siguiente diagrama se muestra cómo los discos administrados utilizan Azure Active Directory y Azure Key Vault para realizar solicitudes con la clave administrada por el cliente:
 
-![Flujo de trabajo de claves administradas por el cliente de discos administrados](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
+![Flujo de trabajo de discos administrados y claves administradas por el cliente. Un administrador crea una instancia de Azure Key Vault, después crea un conjunto de cifrado de discos y configura el conjunto de cifrado de discos. El conjunto está asociado a una VM que permite que el disco haga uso de Azure AD para autenticarse.](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
 
 
 En la lista siguiente se explica el diagrama más detalladamente:
@@ -58,7 +58,7 @@ Para revocar el acceso a las claves administradas por el cliente, vea [PowerShel
 
 Actualmente, solo se admiten las siguientes regiones:
 
-- Disponible como una oferta de disponibilidad general en las regiones del Este de EE. UU., Oeste de EE. UU. 2 y Centro-sur de EE. UU.
+- Disponible como una oferta de disponibilidad general en las regiones del Este de EE. UU., Oeste de EE. UU. 2, Centro-sur de EE. UU y Sur de Reino Unido.
 - Disponible como versión preliminar pública en las regiones Centro-oeste de EE. UU., Este de EE. UU. 2, Centro de Canadá y Norte de Europa.
 
 ### <a name="restrictions"></a>Restricciones

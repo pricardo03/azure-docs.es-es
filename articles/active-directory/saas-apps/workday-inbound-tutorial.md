@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acc458c59858196ea110d0ff2030ccd7f7b6fc58
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: feedce112110b1c944e3cb0af79e76fe1bda4778
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121746"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77365640"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios
 
@@ -801,7 +801,7 @@ No, la solución no mantiene una caché de perfiles de usuario. El servicio de a
 
 #### <a name="does-the-solution-support-assigning-on-premises-ad-groups-to-the-user"></a>¿La solución permite asignar grupos de AD locales al usuario?
 
-Actualmente no se admite esta funcionalidad. La solución alternativa recomendada es implementar un script de PowerShell que realiza consultas en el punto de conexión de Azure AD Graph API para los datos de registro de auditoría y utilizar eso para desencadenar escenarios como la asignación de grupos. Este script de PowerShell puede anexarse a un programador de tareas e implementarse en el mismo equipo que ejecuta el agente de aprovisionamiento.  
+Actualmente no se admite esta funcionalidad. La solución alternativa recomendada es implementar un script de PowerShell que realiza consultas en el punto de conexión de Microsoft Graph API para los [datos de registro de auditoría](https://docs.microsoft.com/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta) y utilizar eso para desencadenar escenarios como la asignación de grupos. Este script de PowerShell puede anexarse a un programador de tareas e implementarse en el mismo equipo que ejecuta el agente de aprovisionamiento.  
 
 #### <a name="which-workday-apis-does-the-solution-use-to-query-and-update-workday-worker-profiles"></a>¿Qué API de Workday usa la solución para consultar y actualizar los perfiles de trabajo de Workday?
 

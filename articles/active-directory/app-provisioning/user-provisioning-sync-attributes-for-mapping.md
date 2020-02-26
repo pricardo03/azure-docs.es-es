@@ -15,18 +15,18 @@ ms.date: 05/13/2019
 ms.author: mimart
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f49fce985484e85bcba2883a66ec0b1e6d032a8
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 12d8e60d3bfeb2e72d52b30dffcec4ad6e6c3f08
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77065587"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368189"
 ---
 # <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>Sincronización de un atributo de Active Directory local en Azure AD para el aprovisionamiento en una aplicación
 
 Al personalizar las asignaciones de atributos para el aprovisionamiento de usuarios, es posible que el atributo que quiera asignar no aparezca en la lista **Atributo de origen**. En este artículo se muestra cómo agregar el atributo que falta mediante la sincronización de Active Directory (AD) local en Azure Active Directory (Azure AD).
 
-Azure AD debe contener todos los datos necesarios para crear un perfil de usuario al aprovisionar cuentas de usuario de Azure AD en una aplicación SaaS. En algunos casos, para que los datos estén disponibles es posible que tenga que sincronizar atributos de AD local en Azure AD. Azure AD Connect sincroniza automáticamente determinados atributos en Azure AD, pero no todos. Además, algunos atributos (por ejemplo, SAMAccountName) que se sincronizan de manera predeterminada no pueden exponerse a través de Azure AD Graph API. En estos casos, puede usar la característica de extensión de directorio de Azure AD Connect para sincronizar el atributo en Azure AD. De este modo, el atributo será visible para Azure AD Graph API y el servicio de aprovisionamiento de Azure AD.
+Azure AD debe contener todos los datos necesarios para crear un perfil de usuario al aprovisionar cuentas de usuario de Azure AD en una aplicación SaaS. En algunos casos, para que los datos estén disponibles es posible que tenga que sincronizar atributos de AD local en Azure AD. Azure AD Connect sincroniza automáticamente determinados atributos en Azure AD, pero no todos. Además, algunos atributos (por ejemplo, SAMAccountName) que se sincronizan de manera predeterminada no pueden exponerse mediante Microsoft Graph API. En estos casos, puede usar la característica de extensión de directorio de Azure AD Connect para sincronizar el atributo en Azure AD. De este modo, el atributo será visible para Microsoft Graph API y el servicio de aprovisionamiento de Azure AD.
 
 Si los datos que necesita para el aprovisionamiento están en Active Directory, pero no están disponibles para el aprovisionamiento debido a las razones descritas anteriormente, siga estos pasos.
  

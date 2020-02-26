@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 7ec18cab74d683e4547843f965d22026e7ba22aa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 254c912114e3f1c7a495f389bc6a6416cbde7e11
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461146"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472458"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Asociación de un recurso de Cognitive Services con un conjunto de aptitudes en Azure Cognitive Search 
 
@@ -48,7 +48,7 @@ No existe forma alguna de migrar un servicio entre regiones. Si recibe este erro
 
 Puede usar una opción de procesamiento limitada y gratuita para completar los ejercicios del tutorial y la guía de inicio rápido de enriquecimiento con inteligencia artificial.
 
-Los recursos gratuitos (enriquecimientos limitados) se restringen a 20 documentos al día, por suscripción.
+Los recursos gratuitos (enriquecimientos limitados) se restringen a 20 documentos al día por indexador. Puede eliminar y volver a crear el indexador para restablecer el contador.
 
 1. Abra el Asistente para la importación de datos:
 

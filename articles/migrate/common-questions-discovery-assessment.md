@@ -2,21 +2,22 @@
 title: 'Preguntas comunes: detección, valoración y análisis de dependencias en Azure Migrate'
 description: Obtenga respuestas a preguntas comunes sobre detección, valoración y análisis de dependencias en Azure Migrate.
 ms.topic: conceptual
-ms.date: 12/29/2019
-ms.openlocfilehash: 201d67c38e9583de16cb6075cc1c4bf826c204fd
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.date: 02/17/2020
+ms.openlocfilehash: 2ae534e50cbee3ebd17d703f957aa7200460dbfe
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77059494"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426299"
 ---
 # <a name="common-questions-about-discovery-assessment-and-dependency-analysis"></a>Preguntas comunes sobre detección, valoración y análisis de dependencias
 
-En este artículo se responde a preguntas comunes sobre detección, valoración y análisis de dependencias en Azure Migrate. Si tiene más preguntas después de leer este artículo, publíquelas en el [Foro de Azure Migrate](https://aka.ms/AzureMigrateForum). Si tiene otras preguntas, repase estos artículos:
+En este artículo se responde a preguntas comunes sobre detección, valoración y análisis de dependencias en Azure Migrate. Si tiene otras preguntas, repase estos artículos:
 
 - [Preguntas generales](resources-faq.md) sobre Azure Migrate.
 - [Preguntas](common-questions-appliance.md) sobre el dispositivo de Azure Migrate.
 - [Preguntas](common-questions-server-migration.md) sobre la migración de servidores.
+- Publique preguntas en el [foro de Azure Migrate](https://aka.ms/AzureMigrateForum).
 
 
 

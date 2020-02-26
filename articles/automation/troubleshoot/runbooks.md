@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 65006b8357db44c3e1b8f8d9e819615b5dd9db6e
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 571be831d337c71a084780da18b480cdd1e42d20
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031755"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77365213"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solución de problemas relativos a errores con runbooks
 
@@ -569,53 +569,77 @@ La cuenta nxautomationuser del agente de Log Analytics para Linux no está confi
 
 * Verifique la configuración de la cuenta nxautomationuser en el archivo sudoers. Consulte [Ejecución de runbooks en Hybrid Runbook Worker](../automation-hrw-run-runbooks.md)
 
+## <a name="scenario-cmdlet-failing-in-pnp-powershell-runbook-on-azure-automation"></a>Escenario: error de cmdlet en el runbook de PowerShell de PnP en Azure Automation
+
+### <a name="issue"></a>Problema
+
+Cuando un runbook escribe un objeto PnP generado por PowerShell directamente en la salida de Azure Automation, la salida del cmdlet no puede volver a transmitirse a Automation.
+
+### <a name="cause"></a>Causa
+
+Este problema se produce normalmente cuando Azure Automation procesa runbooks que invocan cmdlets de PowerShell de PnP, por ejemplo, **add-pnplistitem**, sin detectar los objetos devueltos.
+
+### <a name="resolution"></a>Solución
+
+Edite los scripts para asignar los valores devueltos a variables para que los cmdlets no intenten escribir los objetos completos en la salida estándar. Un script puede redirigir el flujo de salida a un cmdlet, como se muestra a continuación.
+
+```azurecli
+  $null = add-pnplistitem
+```
+Si el script analiza la salida del cmdlet, el script debe almacenar la salida en una variable y manipular la variable en lugar de simplemente transmitir la salida.
+
+```azurecli
+$SomeVariable = add-pnplistitem ....
+if ($SomeVariable.someproperty -eq ....
+```
+
 ## <a name="other"></a>Mi problema no aparece en la lista anterior
 
 En las secciones siguientes se muestran otros errores comunes además de documentación adicional para ayudarle a resolver el problema.
 
-## <a name="hybrid-runbook-worker-doesnt-run-jobs-or-isnt-responding"></a>Hybrid Runbook Worker no ejecuta trabajos o no responde.
+### <a name="hybrid-runbook-worker-doesnt-run-jobs-or-isnt-responding"></a>Hybrid Runbook Worker no ejecuta trabajos o no responde.
 
 Si ejecuta los trabajos mediante Hybrid Worker en lugar de Azure Automation, necesita [solucionar los problemas en Hybrid Worker](https://docs.microsoft.com/azure/automation/troubleshoot/hybrid-runbook-worker).
 
-## <a name="runbook-fails-with-no-permission-or-some-variation"></a>Se produce un error del tipo "sin permisos" o alguna variante del mismo.
+### <a name="runbook-fails-with-no-permission-or-some-variation"></a>Se produce un error del tipo "sin permisos" o alguna variante del mismo.
 
 Es posible que las cuentas de ejecución no tengan los mismos permisos en los recursos de Azure que su cuenta actual. Asegúrese de que su cuenta de ejecución tiene [permisos para acceder a todos los recursos](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) que se usan en el script.
 
-## <a name="runbooks-were-working-but-suddenly-stopped"></a>Los runbooks estaban funcionando, pero se han detenido.
+### <a name="runbooks-were-working-but-suddenly-stopped"></a>Los runbooks estaban funcionando, pero se han detenido.
 
 * Si anteriormente los runbooks se estaban ejecutando, pero se han detenido, asegúrese de que la [cuenta de ejecución](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal) no haya expirado.
 * Si usa webhooks para iniciar los runbooks, asegúrese de que no haya expirado [ningún webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook).
 
-## <a name="issues-passing-parameters-into-webhooks"></a>Problemas al pasar parámetros a webhooks
+### <a name="issues-passing-parameters-into-webhooks"></a>Problemas al pasar parámetros a webhooks
 
 Para pasar parámetros a webhooks, consulte [Inicio de un runbook desde un webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
 
-## <a name="issues-using-az-modules"></a>Problemas al usar módulos de Az
+### <a name="issues-using-az-modules"></a>Problemas al usar módulos de Az
 
-No se admite el uso de módulos de Az y de módulos de AzureRM en la misma cuenta de Automation. Para obtener más información, consulte [Módulos de Az en runbooks](https://docs.microsoft.com/azure/automation/az-modules).
+No se admite el uso de módulos Az y de módulos AzureRM en la misma cuenta de Automation. Para obtener más información, consulte [Módulos de Az en runbooks](https://docs.microsoft.com/azure/automation/az-modules).
 
-## <a name="inconsistent-behavior-in-runbooks"></a>Comportamiento incoherente en los runbooks
+### <a name="inconsistent-behavior-in-runbooks"></a>Comportamiento incoherente en los runbooks
 
 Siga las instrucciones que se indican en [Ejecución de runbooks](https://docs.microsoft.com/azure/automation/automation-runbook-execution#runbook-behavior) para evitar problemas con trabajos simultáneos, recursos que se crean varias veces o cualquier otra lógica de temporización en los runbooks.
 
-## <a name="runbook-fails-with-the-error-no-permission-forbidden-403-or-some-variation"></a>Se produce un error en el runbook del tipo "Sin permisos, Prohibido (403)" o alguna variación de este.
+### <a name="runbook-fails-with-the-error-no-permission-forbidden-403-or-some-variation"></a>Se produce un error en el runbook del tipo "Sin permisos, Prohibido (403)" o alguna variación de este.
 
 Es posible que las cuentas de ejecución no tengan los mismos permisos en los recursos de Azure que su cuenta actual. Asegúrese de que su cuenta de ejecución tiene [permisos para acceder a todos los recursos](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) que se usan en el script.
 
-## <a name="runbooks-were-working-but-suddenly-stopped"></a>Los runbooks estaban funcionando, pero se han detenido.
+### <a name="runbooks-were-working-but-suddenly-stopped"></a>Los runbooks estaban funcionando, pero se han detenido.
 
 * Si anteriormente los runbooks se estaban ejecutando, pero se han detenido, asegúrese de que la cuenta de ejecución no haya expirado. Consulte [renovación de la certificación](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal).
 * Si usa webhooks para iniciar los runbooks, asegúrese de que el webhook [no haya expirado](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook).
 
-## <a name="passing-parameters-into-webhooks"></a>Paso de parámetros a webhooks
+### <a name="passing-parameters-into-webhooks"></a>Paso de parámetros a webhooks
 
 Para pasar parámetros a webhooks, consulte el artículo [Inicio de un runbook desde un webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
 
-## <a name="using-az-modules"></a>Uso de módulos de Az
+### <a name="using-az-modules"></a>Uso de módulos de Az
 
-No se admite el uso de módulos de Az y de módulos de AzureRM en la misma cuenta de Automation. Consulte el artículo [Módulos de Az en runbooks](https://docs.microsoft.com/azure/automation/az-modules).
+No se admite el uso de módulos Az y de módulos AzureRM en la misma cuenta de Automation. Consulte el artículo [Módulos de Az en runbooks](https://docs.microsoft.com/azure/automation/az-modules).
 
-## <a name="using-self-signed-certificates"></a>Uso de certificados autofirmados
+### <a name="using-self-signed-certificates"></a>Uso de certificados autofirmados
 
 Para usar certificados autofirmados, consulte la sección [Creación de un certificado nuevo](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate).
 

@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: 2ee3e661d6c01aa2e4f37ac9a70e00be5da5f794
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 2/18/2020
+ms.openlocfilehash: 1c9b4b1099bda69764aa7a1a5a984a6316e1047d
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975642"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462418"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-performance-options"></a>Opciones de rendimiento de Hiperescala (Citus) para Azure Database for PostgreSQL
 
@@ -33,20 +33,23 @@ Puede seleccionar la configuración de proceso y almacenamiento por separado par
 Los grupos de servidores Hiperescala (Citus) están disponibles en las siguientes regiones de Azure:
 
 * América:
-    * Centro de Canadá*
-    * East US
+    * Centro de Canadá
+    * Centro de EE. UU.
+    * Este de EE. UU.
     * Este de EE. UU. 2
-    * Centro-norte de EE. UU
+    * Centro-Norte de EE. UU
     * Oeste de EE. UU. 2
 * Asia Pacífico:
-    * Este de Australia *
-    * Sudeste asiático
+    * Este de Australia
+    * Japón Oriental
+    * Centro de Corea del Sur
+    * Sudeste de Asia
 * Europa:
-    * Europa del Norte
+    * Norte de Europa
     * Sur de Reino Unido 2
-    * Europa occidental
+    * Oeste de Europa
 
-Las regiones con un asterisco (\*) todavía no admiten [alta disponibilidad](concepts-hyperscale-high-availability.md).
+Es posible que algunas de estas regiones no se activen inicialmente en todas las suscripciones de Azure. Si desea utilizar una región de la lista anterior y no la ve en su suscripción, o si desea usar una región que no está en esta lista, abra una [solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="pricing"></a>Precios
 Para conocer la información más actualizada sobre precios, consulte la [página de precios](https://azure.microsoft.com/pricing/details/postgresql/) del servicio.

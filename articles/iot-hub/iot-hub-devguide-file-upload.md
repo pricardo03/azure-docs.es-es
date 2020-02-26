@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.openlocfilehash: 3ae87523e66ae49d17f198a1f70b0f449ca0a713
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 35e10c0f9babca7719ff496e7068ad1564670fee
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080418"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209161"
 ---
 # <a name="upload-files-with-iot-hub"></a>Carga de archivos con IoT Hub
 
@@ -25,7 +25,7 @@ Antes de cargar un archivo en IoT Hub desde un dispositivo, tiene que configurar
 
 El dispositivo puede entonces [inicializar una carga](iot-hub-devguide-file-upload.md#initialize-a-file-upload) y, a continuación, [notificar a IoT Hub](iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload) cuando se complete la carga. Opcionalmente, cuando un dispositivo notifica a IoT Hub que la carga está completa, el servicio puede generar un [mensaje de notificación](iot-hub-devguide-file-upload.md#file-upload-notifications).
 
-### <a name="when-to-use"></a>Cuándo se deben usar
+### <a name="when-to-use"></a>Cuándo se usa
 
 Cargas de archivos, para archivos multimedia y grandes lotes de telemetría cargados por dispositivos conectados de manera intermitente o comprimidos para ahorrar ancho de banda.
 
@@ -97,7 +97,7 @@ Opcionalmente, cuando un dispositivo notifica a IoT Hub que la carga está compl
 
 Como se ha explicado en [Puntos de conexión](iot-hub-devguide-endpoints.md), IoT Hub entrega notificaciones de carga de archivos a través de un punto de conexión accesible desde el servicio ( **/messages/servicebound/fileuploadnotifications**) en forma de mensajes. La semántica de recepción de las notificaciones de carga de archivos es la misma que para los mensajes de nube a dispositivo y tiene el mismo [ciclo de vida del mensaje](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). Cada mensaje recuperado del punto de conexión de notificación de carga de archivos es un registro JSON con las siguientes propiedades:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 | --- | --- |
 | EnqueuedTimeUtc |Marca de tiempo que indica cuándo se creó la notificación. |
 | deviceId |**DeviceId** del dispositivo que ha cargado el archivo. |
@@ -123,12 +123,14 @@ Como se ha explicado en [Puntos de conexión](iot-hub-devguide-endpoints.md), Io
 
 Cada centro de IoT tiene las siguientes opciones de configuración para las notificaciones de carga de archivos:
 
-| Propiedad | DESCRIPCIÓN | Intervalo y valor predeterminado |
+| Propiedad | Descripción | Intervalo y valor predeterminado |
 | --- | --- | --- |
 | **enableFileUploadNotifications** |Controla si las notificaciones de carga de archivos se escriben en el punto de conexión de notificaciones de archivo. |Bool. Valor predeterminado: verdadero. |
 | **fileNotifications.ttlAsIso8601** |TTL predeterminado para las notificaciones de carga de archivos. |Intervalo ISO_8601 hasta 48H (1 minuto como mínimo). Valor predeterminado: 1 hora. |
 | **fileNotifications.lockDuration** |Duración del bloqueo de la cola de notificaciones de carga de archivos. |De 5 a 300 segundos (5 segundos como mínimo). Valor predeterminado: 60 segundos. |
 | **fileNotifications.maxDeliveryCount** |Número máximo de entregas en la cola de notificaciones de carga de archivos. |De 1 a 100. Valor predeterminado: 100. |
+
+Puede establecer estas propiedades en la instancia de IoT Hub mediante Azure Portal, la CLI de Azure o PowerShell. Para más información sobre cómo hacerlo, consulte los temas que se encuentran en [Configuración de la carga de archivos](iot-hub-configure-file-upload.md).
 
 ## <a name="additional-reference-material"></a>Material de referencia adicional
 

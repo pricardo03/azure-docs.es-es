@@ -28,3 +28,15 @@
       href: security-control-incident-response.md
     - name: Pruebas de penetración y ejercicios del equipo rojo
       href: security-control-penetration-tests-red-team-exercises.md
+- name: Base de referencia de seguridad
+  items:
+    - name: Introducción a la base de referencia de Azure
+      href: security-baselines-overview.md
+    - name: Base de referencia de seguridad de Batch
+      href: ../../batch/security-baseline.md
+    - name: Base de referencia de seguridad de Key Vault
+      href: ../../key-vault/security-baseline.md
+    - name: Base de referencia de seguridad de HDInsight
+      href: ../../hdinsight/security-baseline.md
+    - name: Base de referencia de seguridad de SQL Database
+      href: ../../sql-database/security-baseline.md

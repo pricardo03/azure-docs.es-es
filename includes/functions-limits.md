@@ -4,19 +4,19 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 05/09/2019
 ms.author: glenga
-ms.openlocfilehash: 8946da455b4a395814d4cb5a833932c2e3d56f0a
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 4643bb7f95e4fd1249d3ab6699c1f835c77f18fe
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75658532"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198350"
 ---
 | Resource | [Plan de consumo](../articles/azure-functions/functions-scale.md#consumption-plan) | [Plan Premium](../articles/azure-functions/functions-scale.md#premium-plan) | [Plan de App Service](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
 | Escalado horizontal | Basado en eventos | Basado en eventos | [Manual o escalabilidad automática](../articles/app-service/manage-scale-up.md) | 
 | Instancias máximas | 200 | 100 | 10-20 |
 |[Duración de tiempo de espera](../articles/azure-functions/functions-scale.md#timeout) predeterminada (min) |5 | 30 |30<sup>2</sup> |
-|[Duración máxima de tiempo de espera](../articles/azure-functions/functions-scale.md#timeout) (min) |10 | 60 | sin enlazar<sup>3</sup> |
+|[Duración máxima de tiempo de espera](../articles/azure-functions/functions-scale.md#timeout) (min) |10 | sin enlazar<sup>8</sup> | sin enlazar<sup>3</sup> |
 | Número máximo de conexiones salientes (por instancia) | 600 activas (1200 en total) | sin enlazar | sin enlazar |
 | Tamaño máximo de la solicitud (MB)<sup>4</sup> | 100 | 100 | 100 |
 | Longitud máxima de la cadena de consulta<sup>4</sup> | 4096 | 4096 | 4096 |
@@ -35,4 +35,5 @@ ms.locfileid: "75658532"
 <sup>4</sup> Estos límites [se establecen en el host](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config).  
 <sup>5</sup> El número real de aplicaciones de funciones que puede hospedar depende de la actividad de las aplicaciones, el tamaño de las instancias de máquina y la utilización de recursos correspondiente.  
 <sup>6</sup> El límite de almacenamiento es el tamaño total del almacenamiento temporal entre todas las aplicaciones en el mismo plan de App Service. El plan de consumo usa Azure Files para el almacenamiento temporal.  
-<sup>7</sup> Cuando la aplicación de funciones se hospeda en un [plan de consumo](../articles/azure-functions/functions-scale.md#consumption-plan), solo se admite solo la opción CNAME. Para aplicaciones de funciones se hospedan en un [plan Premium](../articles/azure-functions/functions-scale.md#premium-plan) o en un [plan de App Service](../articles/azure-functions/functions-scale.md#app-service-plan), puede asignar un dominio personalizado mediante un CNAME o un registro A.
+<sup>7</sup> Cuando la aplicación de funciones se hospeda en un [plan de consumo](../articles/azure-functions/functions-scale.md#consumption-plan), solo se admite solo la opción CNAME. Para aplicaciones de funciones se hospedan en un [plan Premium](../articles/azure-functions/functions-scale.md#premium-plan) o en un [plan de App Service](../articles/azure-functions/functions-scale.md#app-service-plan), puede asignar un dominio personalizado mediante un CNAME o un registro A.  
+<sup>8</sup> Garantizado hasta 60 minutos.

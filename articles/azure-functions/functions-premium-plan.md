@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: b373691a6b9649a43d68c9da93b49fd20536c42b
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 81db0889294360f74cb42d388e5d875de91c1019
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024643"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212470"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan prémium de Azure Functions
 
@@ -57,7 +57,7 @@ Las instancias de Azure Functions implementadas en un plan Premium tienen la ven
 
 Cuando se asigne una subred a la aplicación de funciones en un plan Premium, necesitará una subred con suficientes direcciones IP para cada posible instancia. Se requiere un bloque de direcciones IP con al menos 100 direcciones disponibles.
 
-Para más información, consulte este artículo sobre la [integración de una aplicación de funciones con una red virtual](functions-create-vnet.md).
+Para más información, consulte [Integración de una aplicación de funciones con una red virtual](functions-create-vnet.md).
 
 ### <a name="rapid-elastic-scale"></a>Escalado elástico rápido
 
@@ -94,6 +94,11 @@ Cuando cree o escale un plan, podrá elegir entre tres tamaños de instancia.  S
 |EP2|2|7 GB|250 GB|
 |EP3|4|14 GB|250 GB|
 
+### <a name="memory-utilization-considerations"></a>Consideraciones sobre el uso de memoria
+La ejecución en un equipo con más memoria no siempre significa que la aplicación de funciones usará toda la memoria disponible.
+
+Por ejemplo, una aplicación de funciones de JavaScript está restringida por el límite de memoria predeterminado en Node.js. Para aumentar este límite de memoria fijo, agregue la configuración de la aplicación `languageWorkers:node:arguments` con un valor de `--max-old-space-size=<max memory in MB>`.
+
 ## <a name="regions"></a>Regions
 
 A continuación se muestran las regiones admitidas actualmente para cada SO.
@@ -107,7 +112,7 @@ A continuación se muestran las regiones admitidas actualmente para cada SO.
 |Sur de Brasil| ✔<sup>2</sup> |  |
 |Centro de Canadá| ✔ |  |
 |Centro de EE. UU.| ✔ |  |
-|Asia oriental| ✔ |  |
+|Este de Asia| ✔ |  |
 |Este de EE. UU. | ✔ | ✔<sup>1</sup> |
 |Este de EE. UU. 2| ✔ |  |
 |Centro de Francia| ✔ |  |
@@ -118,8 +123,8 @@ A continuación se muestran las regiones admitidas actualmente para cada SO.
 |Centro-Norte de EE. UU| ✔ |  |
 |Norte de Europa| ✔ | ✔<sup>1</sup> |
 |Centro-sur de EE. UU.| ✔ | ✔<sup>1</sup> |
-|India del Sur | ✔ | |
-|Sudeste asiático| ✔ | ✔<sup>1</sup> |
+|Sur de la India | ✔ | |
+|Sudeste de Asia| ✔ | ✔<sup>1</sup> |
 |Sur de Reino Unido 2| ✔ | |
 |Oeste de Reino Unido| ✔ |  |
 |Oeste de Europa| ✔ | ✔<sup>1</sup> |

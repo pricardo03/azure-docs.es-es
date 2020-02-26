@@ -1,6 +1,6 @@
 ---
-title: Exportación o importación de la configuración de aprovisionamiento mediante Graph API | Microsoft Docs
-description: Aprenda a exportar e importar una configuración de aprovisionamiento mediante Graph API.
+title: Exportación o importación de la configuración de aprovisionamiento mediante Microsoft Graph API | Microsoft Docs
+description: Aprenda a exportar e importar una configuración de aprovisionamiento mediante Microsoft Graph API.
 services: active-directory
 author: cmmdesai
 documentationcenter: na
@@ -15,21 +15,21 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af699fa2201bce5627426dcdefc1b98c1d885ae5
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e2fa80726875c82cfa4b5d4cf6a14f4e0dae1871
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77065763"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367802"
 ---
-# <a name="export-or-import-your-provisioning-configuration-by-using-graph-api"></a>Exportación o importación de la configuración de aprovisionamiento mediante Graph API
+# <a name="export-or-import-your-provisioning-configuration-by-using-the-microsoft-graph-api"></a>Exportación o importación de la configuración de aprovisionamiento mediante Microsoft Graph API
 
-Puede usar Microsoft Graph API y Graph Explorer para exportar el esquema y las asignaciones de atributos de aprovisionamiento de usuarios a un archivo JSON e importarlos de nuevo en Azure AD. También puede usar los pasos que se indican aquí para crear una copia de seguridad de la configuración de aprovisionamiento. 
+Puede usar Microsoft Graph API y el Probador de Microsoft Graph para exportar el esquema y las asignaciones de atributos de aprovisionamiento de usuarios en un archivo JSON e importarlos de nuevo a Azure AD. También puede usar los pasos que se indican aquí para crear una copia de seguridad de la configuración de aprovisionamiento. 
 
 ## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Paso 1: Recuperar el identificador de la entidad de servicio de la aplicación de aprovisionamiento (identificador de objeto)
 
 1. Inicie [Azure Portal](https://portal.azure.com) y vaya a la sección Propiedades de la aplicación de aprovisionamiento. Por ejemplo, si desea exportar la asignación de la *aplicación de aprovisionamiento de usuarios de Workday a AD*, vaya a la sección Propiedades de dicha aplicación. 
-1. En la sección Propiedades de la aplicación de aprovisionamiento, copie el valor GUID asociado con el campo *Id. de objeto*. Este valor también se conoce como el elemento **ServicePrincipalId** de la aplicación y se usará en las operaciones del Probador de Graph.
+1. En la sección Propiedades de la aplicación de aprovisionamiento, copie el valor GUID asociado con el campo *Id. de objeto*. Este valor también se conoce como el elemento **ServicePrincipalId** de la aplicación y se usará en las operaciones del Probador de Microsoft Graph.
 
    ![Identificador de la entidad de servicio de la aplicación de Workday](./media/export-import-provisioning-configuration/wd_export_01.png)
 
@@ -38,7 +38,7 @@ Puede usar Microsoft Graph API y Graph Explorer para exportar el esquema y las a
 1. Iniciar el [Probador de Graph de Microsoft](https://developer.microsoft.com/graph/graph-explorer)
 1. Haga clic en el botón "Iniciar sesión con Microsoft" e inicie sesión con las credenciales de administrador de la aplicación o de administrador global de Azure AD.
 
-    ![Inicio de sesión en Graph](./media/export-import-provisioning-configuration/wd_export_02.png)
+    ![Inicio de sesión de Microsoft Graph](./media/export-import-provisioning-configuration/wd_export_02.png)
 
 1. Una vez haya iniciado sesión correctamente, verá los detalles de la cuenta de usuario en el panel izquierdo.
 

@@ -2,19 +2,21 @@
 title: Funciones de plantillas
 description: Describe las funciones que se van a usar en una plantilla del Administrador de recursos de Azure para recuperar valores, trabajar con cadenas y valores numéricos y recuperar información de implementación.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: aef813595df96449d5dd59ad1e95e77c4c198d0f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/13/2020
+ms.openlocfilehash: a9d10ad4899f35acd45069cb3d351a60632fed3a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476214"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207049"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funciones de la plantilla del Administrador de recursos de Azure
 
 En este artículo se describen todas las funciones que puede utilizar en una plantilla de Azure Resource Manager. Para obtener información sobre el uso de funciones en la plantilla, consulte la [sintaxis de la plantilla](template-expressions.md).
 
 Para crear sus propias funciones, consulte [Funciones definidas por el usuario](template-syntax.md#functions).
+
+La mayoría de las funciones operan de la misma forma cuando se implementan en un grupo de recursos, en una suscripción, en un grupo de administración o en un inquilino. Hay algunas funciones que no pueden utilizarse en todos los ámbitos. Se indican en las listas siguientes.
 
 <a id="array" aria-hidden="true" />
 <a id="coalesce" aria-hidden="true" />
@@ -35,6 +37,7 @@ Para crear sus propias funciones, consulte [Funciones definidas por el usuario](
 <a id="union" aria-hidden="true" />
 
 ## <a name="array-and-object-functions"></a>Funciones de matriz y objeto
+
 Resource Manager ofrece varias funciones para trabajar con matrices y objetos.
 
 * [array](template-functions-array.md#array)
@@ -62,6 +65,7 @@ Resource Manager ofrece varias funciones para trabajar con matrices y objetos.
 <a id="greaterorequals" aria-hidden="true" />
 
 ## <a name="comparison-functions"></a>Funciones de comparación
+
 Resource Manager proporciona varias funciones para realizar comparaciones en las plantillas.
 
 * [equals](template-functions-comparison.md#equals)
@@ -75,6 +79,7 @@ Resource Manager proporciona varias funciones para realizar comparaciones en las
 <a id="variables" aria-hidden="true" />
 
 ## <a name="deployment-value-functions"></a>Funciones con valores de implementación
+
 El Administrador de recursos ofrece las siguientes funciones para obtener valores de las secciones de la plantilla y valores relacionados con la implementación:
 
 * [deployment](template-functions-deployment.md#deployment)
@@ -89,6 +94,7 @@ El Administrador de recursos ofrece las siguientes funciones para obtener valore
 <a id="or" aria-hidden="true" />
 
 ## <a name="logical-functions"></a>Funciones lógicas
+
 Resource Manager ofrece las siguientes funciones para trabajar con condiciones lógicas:
 
 * [and](template-functions-logical.md#and)
@@ -109,6 +115,7 @@ Resource Manager ofrece las siguientes funciones para trabajar con condiciones l
 <a id="sub" aria-hidden="true" />
 
 ## <a name="numeric-functions"></a>Funciones numéricas
+
 El Administrador de recursos ofrece las siguientes funciones para trabajar con números enteros:
 
 * [add](template-functions-numeric.md#add)
@@ -134,6 +141,7 @@ El Administrador de recursos ofrece las siguientes funciones para trabajar con n
 <a id="tenantResourceId" aria-hidden="true" />
 
 ## <a name="resource-functions"></a>Funciones de recursos
+
 El Administrador de recursos ofrece las siguientes funciones para obtener valores de recursos:
 
 * [extensionResourceId](template-functions-resource.md#extensionresourceid)
@@ -143,9 +151,9 @@ El Administrador de recursos ofrece las siguientes funciones para obtener valore
 * [list*](template-functions-resource.md#list)
 * [providers](template-functions-resource.md#providers)
 * [reference](template-functions-resource.md#reference)
-* [resourceGroup](template-functions-resource.md#resourcegroup)
-* [resourceId](template-functions-resource.md#resourceid)
-* [suscripción](template-functions-resource.md#subscription)
+* [resourceGroup](template-functions-resource.md#resourcegroup): solo puede utilizarse cuando la implementación se realiza en un grupo de recursos.
+* [resourceId](template-functions-resource.md#resourceid): puede utilizarse con cualquier ámbito, pero los valores correctos cambiarán en función de este.
+* [subscription](template-functions-resource.md#subscription): solo puede utilizarse cuando la implementación se realiza en un grupo de recursos o una suscripción.
 * [subscriptionResourceId](template-functions-resource.md#subscriptionresourceid)
 * [tenantResourceId](template-functions-resource.md#tenantresourceid)
 
@@ -181,6 +189,7 @@ El Administrador de recursos ofrece las siguientes funciones para obtener valore
 <a id="uricomponenttostring" aria-hidden="true" />
 
 ## <a name="string-functions"></a>Funciones de cadena
+
 El Administrador de recursos ofrece las siguientes funciones para trabajar con cadenas:
 
 * [base64](template-functions-string.md#base64)
@@ -221,5 +230,5 @@ El Administrador de recursos ofrece las siguientes funciones para trabajar con c
 
 * Para obtener una descripción de las secciones de una plantilla del Administrador de recursos de Azure, vea [Creación de plantillas del Administrador de recursos de Azure](template-syntax.md)
 * Para combinar varias plantillas, vea [Uso de plantillas vinculadas con el Administrador de recursos de Azure](linked-templates.md)
-* Para iterar una cantidad de veces determinada al crear un tipo de recurso, vea [Creación de varias instancias de recursos en Azure Resource Manager](create-multiple-instances.md)
+* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](copy-resources.md).
 * Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con una plantilla de Azure Resource Manager](deploy-powershell.md).

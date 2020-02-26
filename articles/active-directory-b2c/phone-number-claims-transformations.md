@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 02/14/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 38763f414b1e5373af79d2501850a44e8e813451
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: c5beef98f03c52ca022a7ab8047d3b392755c0bf
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185467"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212201"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definición de transformaciones de notificaciones de número de teléfono en Azure AD B2C
 
@@ -32,7 +32,8 @@ Esta notificación valida el formato del número de teléfono. Si se encuentra e
 
 | Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | string | Notificación del tipo de cadena desde el que se realiza la conversión. |
+| InputClaim | phoneNumberString | string |  Notificación de cadena para el número de teléfono. El número de teléfono tiene que estar en formato internacional y estar completo con un signo "+" y un código de país al principio. Si se proporciona la notificación de entrada `country`, el número de teléfono está en formato local (sin el código de país). |
+| InputClaim | country | string | [Opcional] Notificación de cadena para el código de país del número de teléfono en formato ISO3166 (el código de país ISO-3166 de dos letras). |
 | OutputClaim | outputClaim | phoneNumber | Resultado de esta transformación de notificaciones. |
 
 La transformación de notificaciones **ConvertStringToPhoneNumberClaim** siempre se ejecuta desde un [perfil técnico de validación](validation-technical-profile.md) llamado por un [perfil técnico autoafirmado](self-asserted-technical-profile.md) o un [control de visualización](display-controls.md). Los metadatos de un perfil técnico autoafirmado **UserMessageIfClaimsTransformationInvalidPhoneNumber** controlan el mensaje de error que se presenta al usuario.
@@ -44,7 +45,8 @@ Puede usar esta transformación de notificaciones para asegurarse de que la noti
 ```XML
 <ClaimsTransformation Id="ConvertStringToPhoneNumber" TransformationMethod="ConvertStringToPhoneNumberClaim">
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="phoneString" TransformationClaimType="inputClaim" />
+    <InputClaim ClaimTypeReferenceId="phoneString" TransformationClaimType="phoneNumberString" />
+    <InputClaim ClaimTypeReferenceId="countryCode" TransformationClaimType="country" />
   </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="outputClaim" />
@@ -63,11 +65,19 @@ El perfil técnico autoafirmado que llama al perfil técnico de validación que 
 </TechnicalProfile>
 ```
 
-### <a name="example"></a>Ejemplo
+### <a name="example-1"></a>Ejemplo 1
 
 - Notificaciones de entrada:
-  - **inputClaim**: +1 (123) 456-7890
+  - **phoneNumberString**: 045 456-7890
+  - **country**: DK
 - Notificaciones de salida:
+  - **outputClaim**: +450546148120
+
+### <a name="example-2"></a>Ejemplo 2
+
+- Notificaciones de entrada:
+  - **phoneNumberString**: +1 (123) 456-7890
+- Notificaciones de salida: 
   - **outputClaim**: +11234567890
 
 ## <a name="getnationalnumberandcountrycodefromphonenumberstring"></a>GetNationalNumberAndCountryCodeFromPhoneNumberString

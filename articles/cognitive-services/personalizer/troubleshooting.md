@@ -1,21 +1,15 @@
 ---
 title: 'Solución de problemas: Personalizer'
-titleSuffix: Azure Cognitive Services
 description: En este artículo se incluyen respuestas a preguntas para solucionar problemas sobre Personalizer.
-author: diberry
-manager: nitinme
-services: cognitive-services
-ms.service: cognitive-services
-ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 02/18/2020
 ms.author: diberry
-ms.openlocfilehash: 5aeda9abcebda50cf97e1473b458d8f1f9d15970
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: fec403da7f54098dbf197d14f3b16afd30bf5efc
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75832175"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469551"
 ---
 # <a name="personalizer-troubleshooting"></a>Solución de problemas de Personalizer
 
@@ -23,69 +17,92 @@ En este artículo se incluyen respuestas a preguntas para solucionar problemas s
 
 ## <a name="transaction-errors"></a>Errores de transacción
 
-### <a name="i-get-an-http-429-too-many-requests-response-from-the-service-what-can-i-do"></a>Obtengo una respuesta HTTP 429 (demasiadas solicitudes) del servicio. ¿Qué puedo hacer?
+<details>
+<summary><b>Obtengo una respuesta HTTP 429 (demasiadas solicitudes) del servicio. ¿Qué puedo hacer?</b></summary>
 
-Si seleccionó un plan de tarifa gratis al crear la instancia de Personalizer, existe un límite de cuota para el número permitido de solicitudes de Rank. Revise la tasa de llamadas API para Rank API (en el panel Métricas de Azure Portal del recurso de Personalizer) y ajuste el plan de tarifa (en el panel Plan de tarifa) si tiene previsto que el volumen de llamadas aumente hasta superar el umbral del plan de tarifa seleccionado.
+**Respuesta**: Si seleccionó un plan de tarifa gratis al crear la instancia de Personalizer, existe un límite de cuota para el número permitido de solicitudes de Rank. Revise la tasa de llamadas API para Rank API (en el panel Métricas de Azure Portal del recurso de Personalizer) y ajuste el plan de tarifa (en el panel Plan de tarifa) si tiene previsto que el volumen de llamadas aumente hasta superar el umbral del plan de tarifa seleccionado.
 
-### <a name="im-getting-a-5xx-error-on-rank-or-reward-apis-what-should-i-do"></a>Obtengo un error 5xx en las API Rank o Reward. ¿Cuál debo hacer?
+</details>
 
-Estos problemas deben ser fáciles de solucionar. Si persisten, póngase en contacto con el servicio de soporte técnico al seleccionar **Nueva solicitud de soporte técnico** en la sección **Soporte técnico y solución de problemas**en Azure Portal del recurso de Personalizer.
+<details>
+<summary><b>Obtengo un error 5xx en las llamadas a Rank API o Reward API. ¿qué debo hacer?</b></summary>
 
+**Respuesta**: Estos problemas deben ser fáciles de solucionar. Si persisten, póngase en contacto con el servicio de soporte técnico al seleccionar **Nueva solicitud de soporte técnico** en la sección **Soporte técnico y solución de problemas**en Azure Portal del recurso de Personalizer.
+
+</details>
 
 ## <a name="learning-loop"></a>Bucle de aprendizaje
 
-<!--
+<details>
+<summary>
+<b>El bucle de aprendizaje parece que no aprende. ¿Cómo puedo corregirlo?</b></summary>
 
-### How do I import a learning policy?
-
-
--->
-
-### <a name="the-learning-loop-doesnt-seem-to-learn-how-do-i-fix-this"></a>El bucle de aprendizaje parece que no aprende. ¿Cómo puedo corregirlo?
-
-El bucle de aprendizaje necesita unas pocas miles de llamadas a Reward antes de que las llamadas a Rank se prioricen eficazmente.
+**Respuesta**: El bucle de aprendizaje necesita unas pocas miles de llamadas a Reward antes de que las llamadas a Rank se prioricen eficazmente.
 
 Si no está seguro de cómo se está comportando el bucle de aprendizaje actualmente, ejecute una [evaluación sin conexión](concepts-offline-evaluation.md) y aplique la directiva de aprendizaje corregido.
 
-### <a name="i-keep-getting-rank-results-with-all-the-same-probabilities-for-all-items-how-do-i-know-personalizer-is-learning"></a>Sigo obteniendo resultados de clasificación con las mismas probabilidades para todos los elementos. ¿Cómo puedo saber si Personalizer está aprendiendo?
+</details>
 
-Personalizer devuelve las mismas probabilidades en un resultado de la Rank API cuando acaba de iniciar y tiene un modelo _vacío_, o cuando se restablece el bucle de Personalizer y el modelo todavía está dentro del período establecido en **Frecuencia de actualización del modelo**.
+<details>
+<summary><b>Sigo obteniendo resultados de clasificación con las mismas probabilidades para todos los elementos. ¿Cómo puedo saber si Personalizer está aprendiendo?</b></summary>
+
+**Respuesta**: Personalizer devuelve las mismas probabilidades en un resultado de la Rank API cuando acaba de iniciar y tiene un modelo _vacío_, o cuando se restablece el bucle de Personalizer y el modelo todavía está dentro del período establecido en **Frecuencia de actualización del modelo**.
 
 Cuando comience el nuevo período de actualización, se usará el modelo actualizado y verá el cambio de probabilidades.
 
-### <a name="the-learning-loop-was-learning-but-seems-to-not-learn-anymore-and-the-quality-of-the-rank-results-isnt-that-good-what-should-i-do"></a>El bucle de aprendizaje estaba aprendiendo, pero parece que ya no es así, y la calidad de los resultados de Rank no es tan buena. ¿Cuál debo hacer?
+</details>
 
+<details>
+<summary><b>El bucle de aprendizaje estaba aprendiendo, pero parece que ya no es así, y la calidad de los resultados de Rank no es tan buena. ¿qué debo hacer?</b></summary>
+
+**Respuesta**:
 * Asegúrese de haber completado y aplicado una evaluación en Azure Portal para ese recurso de Personalizer (bucle de aprendizaje).
 * Asegúrese de que se hayan enviado (a través de Reward API) y procesado todas las recompensas.
 
-### <a name="how-do-i-know-that-the-learning-loop-is-getting-updated-regularly-and-is-used-to-score-my-data"></a>¿Cómo puedo saber si el bucle de aprendizaje se está actualizando periódicamente y usándose para puntuar los datos?
+</details>
 
-Puede encontrar la hora de la última actualización del modelo en la página **Configuración de modelo y aprendizaje** de Azure Portal. Si ve una marca de tiempo antigua, es probable que no esté enviando las llamadas de Rank y Reward. Si el servicio no tiene datos entrantes, no se actualiza el aprendizaje. Si nota que el bucle de aprendizaje no se actualiza con suficiente frecuencia, puede modificar la **Frecuencia de actualización del modelo** del bucle.
 
+<details>
+<summary><b>¿Cómo puedo saber si el bucle de aprendizaje se está actualizando periódicamente y usándose para puntuar los datos?</b></summary>
+
+**Respuesta**: Puede encontrar la hora de la última actualización del modelo en la página **Configuración de modelo y aprendizaje** de Azure Portal. Si ve una marca de tiempo antigua, es probable que no esté enviando las llamadas de Rank y Reward. Si el servicio no tiene datos entrantes, no se actualiza el aprendizaje. Si nota que el bucle de aprendizaje no se actualiza con suficiente frecuencia, puede modificar la **Frecuencia de actualización del modelo** del bucle.
+
+</details>
 
 ## <a name="offline-evaluations"></a>Evaluaciones sin conexión
 
-### <a name="an-offline-evaluations-feature-importance-returns-a-long-list-with-hundreds-or-thousands-of-items-what-happened"></a>La importancia de las características de una evaluación sin conexión devuelve una lista larga con cientos o miles de elementos. ¿Qué ha ocurrido?
+<details>
+<summary><b>La importancia de las características de una evaluación sin conexión devuelve una lista larga con cientos o miles de elementos. ¿Qué ha ocurrido?</b></summary>
 
-Esto suele deberse a que se enviaron marcas de tiempo, Id. de usuario u otras características específicas.
+**Respuesta**: Esto suele deberse a que se enviaron marcas de tiempo, Id. de usuario u otras características específicas.
 
-### <a name="i-created-an-offline-evaluation-and-it-succeeded-almost-instantly-why-is-that-i-dont-see-any-results"></a>He creado una evaluación sin conexión y se realizó con éxito casi al instante. ¿Por qué ocurre esto? No se ve ningún resultado.
+</details>
 
-La evaluación sin conexión utiliza los datos de modelo entrenado de los eventos en ese período de tiempo. Si no ha enviado ningún dato en el período entre las horas inicial y final de la evaluación, esta se completará sin ningún resultado. Envíe una nueva evaluación sin conexión seleccionando un intervalo de tiempo con los eventos que sabe que se enviaron a Personalizer.
+<details>
+<summary><b>He creado una evaluación sin conexión y se realizó con éxito casi al instante. ¿Por qué ocurre esto? No se ve ningún resultado.</b></summary>
+
+**Respuesta**: La evaluación sin conexión utiliza los datos de modelo entrenado de los eventos en ese período de tiempo. Si no ha enviado ningún dato en el período entre las horas inicial y final de la evaluación, esta se completará sin ningún resultado. Envíe una nueva evaluación sin conexión seleccionando un intervalo de tiempo con los eventos que sabe que se enviaron a Personalizer.
+
+</details>
+
 
 ## <a name="learning-policy"></a>Directiva de aprendizaje
 
-### <a name="how-do-i-import-a-learning-policy"></a>¿Cómo puedo importar una directiva de aprendizaje?
+<details>
+<summary><b>¿Cómo puedo importar una directiva de aprendizaje?</b></summary>
 
-Obtenga más información sobre los [conceptos de la directiva de aprendizaje](concept-active-learning.md#understand-learning-policy-settings) y [cómo aplicar](how-to-learning-policy.md) una nueva directiva de aprendizaje. Si no quiere seleccionar una directiva de aprendizaje, puede usar [la evaluación sin conexión](how-to-offline-evaluation.md) para sugerir una directiva de aprendizaje en función de los eventos actuales.
+**Respuesta**: Obtenga más información sobre los [conceptos de la directiva de aprendizaje](concept-active-learning.md#understand-learning-policy-settings) y [cómo aplicar](how-to-learning-policy.md) una nueva directiva de aprendizaje. Si no quiere seleccionar una directiva de aprendizaje, puede usar [la evaluación sin conexión](how-to-offline-evaluation.md) para sugerir una directiva de aprendizaje en función de los eventos actuales.
 
+</details>
 
 ## <a name="security"></a>Seguridad
 
-### <a name="the-api-key-for-my-loop-has-been-compromised-what-can-i-do"></a>La clave de API para mi bucle está en peligro. ¿Qué puedo hacer?
+<details>
+<summary><b>La clave de API para mi bucle está en peligro. ¿Qué puedo hacer?</b></summary>
 
-Puede regenerar una clave después de intercambiarla con los clientes para que usen otra clave. Tener dos claves le permite propagar la clave de manera diferida sin producir tiempo de inactividad. Se recomienda hacerlo de forma periódica como medida de seguridad.
+**Respuesta**: Puede regenerar una clave después de intercambiarla con los clientes para que usen otra clave. Tener dos claves le permite propagar la clave de manera diferida sin producir tiempo de inactividad. Se recomienda hacerlo de forma periódica como medida de seguridad.
 
+</details>
 
 ## <a name="next-steps"></a>Pasos siguientes
 

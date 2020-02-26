@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 01/17/2020
+ms.date: 02/13/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 04a3af7c85a361878e37cf3ee210e8a5c9f3cd30
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 9858f7ac25f2063e62dce0322f1859a0a7fcf83b
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121980"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198673"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Roles integrados en los recursos de Azure
 
@@ -422,7 +422,8 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **Id** | ae349356-3a1b-4a5e-921d-050484c6347e |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alertas |
+> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alertas clásicas |
+> | Microsoft.Insights/metricAlerts/* | Crear y administrar nuevas reglas de alertas |
 > | Microsoft.Insights/components/* | Crear y administrar componentes de Insights |
 > | Microsoft.Insights/webtests/* | Crear y administrar pruebas web |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |

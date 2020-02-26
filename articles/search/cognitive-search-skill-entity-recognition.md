@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 559d8cb25624c1d8bebb2969fbeeb80bdcc020e6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6393c1eeaaa72d653704fcc52442bfb326dc2cdd
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73479739"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472339"
 ---
 #   <a name="entity-recognition-cognitive-skill"></a>Aptitud cognitiva de reconocimiento de entidades
 
@@ -29,23 +29,23 @@ La aptitud **Reconocimiento de entidades** extrae entidades de distintos tipos d
 Microsoft.Skills.Text.EntityRecognitionSkill
 
 ## <a name="data-limits"></a>Límites de datos
-El tamaño máximo de un registro debe ser de 50 000 caracteres, medidos por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Si tiene que dividir los datos antes de enviarlos al extractor de frases clave, puede usar la [aptitud de división de texto](cognitive-search-skill-textsplit.md).
+El tamaño máximo de un registro debe tener menos de 50 000 caracteres según la medición de [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Si tiene que dividir los datos antes de enviarlos al extractor de frases clave, puede usar la [aptitud de división de texto](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parámetros de la aptitud
 
 Los parámetros distinguen mayúsculas de minúsculas y son opcionales.
 
-| Nombre de parámetro     | DESCRIPCIÓN |
+| Nombre de parámetro     | Descripción |
 |--------------------|-------------|
 | categories    | Matriz de categorías que se deben extraer.  Tipos de categorías posibles: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Si no se proporciona ninguna categoría, se devuelven todos los tipos.|
-|defaultLanguageCode |  Código de idioma del texto de entrada. Se admiten los siguientes idiomas: `de, en, es, fr, it`|
+|defaultLanguageCode |  Código de idioma del texto de entrada. Se admiten los siguientes idiomas: `ar, cs, da, de, en, es, fi, fr, hu, it, ja, ko, nl, no, pl, pt-BR, pt-PT, ru, sv, tr, zh-hans`. No todas las categorías de entidad son compatibles con todos los idiomas. Consulte la nota que aparece a continuación.|
 |minimumPrecision | Un valor entre 0 y 1. Si la puntuación de confianza (en el resultado `namedEntities`) es inferior a este valor, no se devuelve la entidad. El valor predeterminado es 0. |
-|includeTypelessEntities | Establézcalo en `true` si desea reconocer entidades conocidas que no se ajustan a las categorías actuales. Las entidades reconocidas se devuelven en el campo de salida complejo `entities`. Por ejemplo, "Windows 10" es una entidad conocida (un producto), pero como "Productos" no es una categoría admitida, esta entidad se incluiría en el campo de salida de las entidades. El valor predeterminado es `false` |
+|includeTypelessEntities | Establézcalo en `true` si desea reconocer entidades conocidas que no se ajustan a las categorías actuales. Las entidades reconocidas se devuelven en el campo de salida complejo `entities`. Por ejemplo, "Windows 10" es una entidad conocida (un producto), pero como "Productos" no es una categoría admitida, esta entidad se incluiría en el campo de salida de las entidades. Valor predeterminado: `false` |
 
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud
 
-| Nombre de entrada      | DESCRIPCIÓN                   |
+| Nombre de entrada      | Descripción                   |
 |---------------|-------------------------------|
 | languageCode  | Opcional. El valor predeterminado es `"en"`.  |
 | text          | Texto que se analizará.          |
@@ -53,9 +53,9 @@ Los parámetros distinguen mayúsculas de minúsculas y son opcionales.
 ## <a name="skill-outputs"></a>Salidas de la aptitud
 
 > [!NOTE]
-> No todas las categorías de entidad son compatibles con todos los idiomas. Solo _en_, _es_ admiten la extracción de los tipos `"Quantity"`, `"Datetime"`, `"URL"` y `"Email"`.
+> No todas las categorías de entidad son compatibles con todos los idiomas. Los tipos de categoría de entidad `"Person"`, `"Location"` y `"Organization"` se admiten para todos los idiomas anteriores. Solo _de_, _en_, _es_, _fr_ y _zh-hans_ admiten la extracción de los tipos `"Quantity"`, `"Datetime"`, `"URL"` y `"Email"`. Para más información, consulte [Compatibilidad de idiomas y regiones para Text Analytics API](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support).  
 
-| Nombre de salida     | DESCRIPCIÓN                   |
+| Nombre de salida     | Descripción                   |
 |---------------|-------------------------------|
 | persons      | Una matriz de cadenas donde cada cadena representa el nombre de una persona. |
 | locations  | Una matriz de cadenas donde cada cadena representa una ubicación. |
@@ -191,7 +191,7 @@ Los parámetros distinguen mayúsculas de minúsculas y son opcionales.
 ## <a name="error-cases"></a>Casos de error
 Si no se admite el código de idioma del documento, se devuelve un error y no se extrae ninguna entidad.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 + [Aptitudes integradas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)

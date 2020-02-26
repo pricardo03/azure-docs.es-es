@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: bbb0992eaeef7892e5940130131ac139a339b47d
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: fa73cb690fafb67f75abafab1b0dd27ffa0b8e32
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77083236"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210506"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implementación de modelos con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -584,6 +584,20 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 [!INCLUDE [aml-local-deploy-config](../../includes/machine-learning-service-local-deploy-config.md)]
 
 Para más información, consulte la documentación de [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy).
+
+### <a name="understanding-service-state"></a>Descripción del estado del servicio
+
+Durante la implementación del modelo, es posible que vea el cambio de estado del servicio mientras se implementa por completo.
+
+En la tabla siguiente se describen los diferentes estados del servicio:
+
+| Estado de WebService | Descripción | ¿Estado final?
+| ----- | ----- | ----- |
+| En transición | El servicio está en proceso de implementación. | Sin |
+| Unhealthy (Incorrecto) | El servicio se ha implementado pero actualmente no se puede acceder a él.  | Sin |
+| No programable | El servicio no se puede implementar en este momento debido a la falta de recursos. | Sin |
+| Con error | No se pudo implementar el servicio debido a un error o a un bloqueo. | Sí |
+| Healthy | El servicio está en buen estado y el punto de conexión está disponible. | Sí |
 
 ### <a id="notebookvm"></a> Servicio web de instancia de proceso (desarrollo y pruebas)
 

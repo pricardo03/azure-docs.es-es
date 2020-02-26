@@ -1,5 +1,5 @@
 ---
-title: Creación y edición de directivas de seguridad de Azure Policy mediante la API de REST | Microsoft Docs
+title: Creación y edición de directivas de seguridad de Azure Policy mediante la API REST
 description: Obtenga información sobre la administración de directivas de Azure Policy a través de una API de REST.
 services: security-center
 author: memildin
@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 56c5ca8c4e1d70e002a338c753f9ab1f0b1aa411
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: c218b5dc8ca3bfa0358a9b6a0d4867696762a8d4
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521502"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430948"
 ---
 # <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Configuración de una directiva de seguridad mediante la API de REST
 

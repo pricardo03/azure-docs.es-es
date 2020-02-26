@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
-ms.openlocfilehash: facd52ea1fdaa2ad30d6b1544cb1f2d6d5833bfa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e2b3ceba7a3673caa38e09f6b4dfa296fd063cfe
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450555"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467920"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solución de problemas de Azure Diagnostics
 En este artículo se proporciona información para la solución de problemas relacionados con el uso de Azure Diagnostics. Para obtener información sobre Azure Diagnostics, consulte la [introducción a Azure Diagnostics](diagnostics-extension-overview.md).
@@ -51,7 +51,7 @@ Estas son las rutas de acceso a algunos de los registros y artefactos más impor
 | **Archivo de registro de MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Los datos métricos no aparecen en Azure Portal
-Azure Diagnostics proporciona una serie de datos métricos, que se pueden mostrar en Azure Portal. Si tiene problemas para ver estos datos en el portal, compruebe la tabla WADMetrics\* que se encuentra en la cuenta de almacenamiento de Azure Diagnostics para ver si existen los registros métricos correspondientes.
+Azure Diagnostics proporciona una serie de datos métricos, que se pueden mostrar en Azure Portal. Si tiene problemas para ver los datos en el portal, consulte la tabla WADMetrics\* de la cuenta de almacenamiento de Azure Diagnostics para ver si los registros de las métricas correspondientes están presentes y para asegurarse que el [proveedor de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) Microsoft.Insights esté registrado.
 
 En este caso, el elemento **PartitionKey** de la tabla se compone del id. de recursos, la máquina virtual o el conjunto de escalado de máquinas virtuales. **RowKey** es el nombre de la métrica (también conocido como el nombre del contador de rendimiento).
 
@@ -297,5 +297,5 @@ La experiencia del portal de las máquinas virtuales muestra de forma predetermi
 
 - Si los datos del almacenamiento tienen nombres de contadores en inglés. Si los nombres de los contadores no están en inglés, el gráfico de métricas del portal no podrá reconocerlos. **Mitigación**: cambie el idioma de la máquina a inglés en las cuentas del sistema. Para ello, seleccione **Panel de control** > **Región** > **Administración** > **Copiar configuración**. A continuación, anule la selección de la opción **Cuentas de sistema y de pantalla de bienvenida** para que el lenguaje personalizado no se aplique a la cuenta del sistema.
 
-- Si usa caracteres comodín (\*) en los nombres de los contadores de rendimiento, el portal no podrá correlacionar el contador de rendimiento configurado y el recopilado cuando estos se envíen al receptor de Azure Storage. **Mitigación**: para asegurarse de que puede usar caracteres comodín y que tiene el portal expandido (\*), enrute los contadores de rendimiento hacia el [receptor "Azure Monitor"](diagnostics-extension-schema.md#diagnostics-extension-111).
+- Si usa caracteres comodín (\*) en los nombres de los contadores de rendimiento, el portal no podrá correlacionar el contador de rendimiento configurado y el recopilado cuando estos se envíen al receptor de Azure Storage. **Mitigación**: para asegurarse de que puede usar caracteres comodín y que tiene el portal expandido (\*), enrute los contadores de rendimiento hacia el receptor de Azure Monitor.
 

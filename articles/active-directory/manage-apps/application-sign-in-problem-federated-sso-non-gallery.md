@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70a85a81996766b862cd6fbc3b605636385e0fda
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 8cd951f0b4d2f4887630e29cbd3b0ae429b9f6f7
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159189"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367864"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemas al iniciar sesión en una aplicación que no es de la galería configurada para inicio de sesión único federado
 
@@ -164,7 +164,7 @@ El proveedor de la aplicación debe validar que admite la implementación de SAM
 
 ## <a name="misconfigured-application"></a>Aplicación mal configurada
 
-*Error AADSTS650056: Aplicación mal configurada. Esto puede deberse a uno de los siguientes motivos: El cliente no ha enumerado ningún permiso para "AAD Graph" en los permisos solicitados en el registro de aplicaciones del cliente. O bien el administrador no ha dado su consentimiento en el inquilino. Compruebe también el identificador de la aplicación en la solicitud para asegurarse de que coincide con el identificador de la aplicación cliente configurada. Póngase en contacto con su administrador para corregir la configuración o dar su consentimiento en nombre del inquilino.* .
+*Error AADSTS650056: Aplicación mal configurada. Esto puede deberse a uno de los siguientes motivos: El cliente no ha enumerado ningún permiso en los permisos solicitados en el registro de aplicación del cliente. O bien el administrador no ha dado su consentimiento en el inquilino. Compruebe también el identificador de la aplicación en la solicitud para asegurarse de que coincide con el identificador de la aplicación cliente configurada. Póngase en contacto con su administrador para corregir la configuración o dar su consentimiento en nombre del inquilino.* .
 
 **Causa posible**
 

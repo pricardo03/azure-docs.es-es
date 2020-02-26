@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 359f2b42ca6f56087be53a5aeb328fe43a478d63
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 63f7eac52a555be1877f235bd2f7f1d9315d53d5
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988296"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208512"
 ---
 # <a name="show-directions-from-a-to-b"></a>Presentación de indicaciones de ruta de A a B
 
@@ -43,7 +43,7 @@ El sexto bloque de código consulta el servicio de enrutamiento de Azure Maps, q
 
 El último bloque de código establece los límites del mapa con la propiedad [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) del mapa.
 
-La consulta de ruta, el origen de datos, el símbolo, las capas de línea y los límites de cámara se crean y establecen dentro del [agente de escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) del mapa. Esta estructura de código garantiza que los resultados se muestran solo después de que el mapa se carga por completo.
+La consulta de ruta, el origen de datos, el símbolo, las capas de líneas y los límites de cámara se crean en el [agente de escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Esta estructura de código garantiza que los resultados se muestran solo una vez cargado el mapa por completo.
 
 ## <a name="query-the-route-via-fetch-api"></a>Consultar la ruta a través de la API de captura
 
@@ -64,7 +64,7 @@ El bloque de código siguiente crea los puntos `SouthWest` y `NorthEast` desde l
 
 El último bloque de código utiliza la [API de captura](https://fetch.spec.whatwg.org/) para realizar una solicitud de búsqueda en la [API de ruta de Azure Maps](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). A continuación, se analiza la respuesta. Si la respuesta fue correcta, se utiliza la información sobre la latitud y longitud para crear una línea de una matriz mediante la conexión de esos puntos. Los datos de línea se agregan a continuación al origen de datos para representar la ruta en el mapa. Puede consultar [Adición de una línea en el mapa](map-add-line-layer.md) para obtener instrucciones.
 
-La consulta de ruta, el origen de datos, el símbolo, las capas de línea y los límites de cámara se crean y establecen dentro del [agente de escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) del mapa. Como ya se indicó, queremos asegurarnos de que los resultados se muestran una vez que el mapa se carga por completo.
+La consulta de ruta, el origen de datos, el símbolo, las capas de líneas y los límites de cámara se crean en el [agente de escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Como ya se indicó, queremos asegurarnos de que los resultados se muestran una vez que el mapa se carga por completo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

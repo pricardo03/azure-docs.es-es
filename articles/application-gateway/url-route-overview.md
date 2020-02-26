@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 2234ae4ce8257559f78d6aa50ecae59ae742ba33
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: e20acb131b1a091fef858dab34705f4a8d3b4c4a
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910019"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251845"
 ---
 # <a name="url-path-based-routing-overview"></a>Información general del enrutamiento basado en URL
 
@@ -27,7 +27,7 @@ En el ejemplo siguiente, Application Gateway atiende el tráfico de contoso.com 
 Las solicitudes de http\://contoso.com/video/* se enrutan a VideoServerPool y las de http\://contoso.com/images/* a ImageServerPool. DefaultServerPool se selecciona si ninguno de los patrones de ruta de acceso coincide.
 
 > [!IMPORTANT]
-> Las reglas se procesan en el orden en que aparecen en el portal. Es muy recomendable configurar a los agentes de escucha multisitio antes de configurar un agente de escucha básico.  De esta forma se asegura de que el tráfico se enruta al back-end adecuado. Si un agente de escucha básico aparece en primer lugar y coincide con una solicitud entrante, lo procesa ese agente de escucha.
+> En la SKU v1, las reglas se procesan en el orden en que aparecen en el portal. Si un agente de escucha básico aparece en primer lugar y coincide con una solicitud entrante, lo procesa ese agente de escucha. En el caso de la SKU v2, las coincidencias exactas tienen mayor prioridad. Sin embargo, es muy recomendable configurar a los agentes de escucha multisitio antes de configurar un agente de escucha básico. De esta forma se asegura de que el tráfico se enruta al back-end adecuado.
 
 ## <a name="urlpathmap-configuration-element"></a>Elemento de configuración UrlPathMap
 
@@ -74,12 +74,12 @@ Las reglas de ruta de acceso no distinguen mayúsculas de minúsculas.
 
 |Patrón de ruta de acceso de v1  |¿Se admite?  |
 |---------|---------|
-|`/images/*`     |Sí|
+|`/images/*`     |sí|
 |`/images*`     |no|
 |`/images/*.jpg`     |no|
 |`/*.jpg`     |no|
 |`/Repos/*/Comments/*`     |no|
-|`/CurrentUser/Comments/*`     |Sí|
+|`/CurrentUser/Comments/*`     |sí|
 
 #### <a name="v2"></a>v2
 
@@ -87,12 +87,12 @@ Las reglas de ruta de acceso no distinguen mayúsculas de minúsculas.
 
 |Patrón de ruta de acceso de v2  |¿Se admite?  |
 |---------|---------|
-|`/images/*`     |Sí|
-|`/images*`     |Sí|
+|`/images/*`     |sí|
+|`/images*`     |sí|
 |`/images/*.jpg`     |no|
 |`/*.jpg`     |no|
 |`/Repos/*/Comments/*`     |no|
-|`/CurrentUser/Comments/*`     |Sí|
+|`/CurrentUser/Comments/*`     |sí|
 
 Para obtener más información, puede consultar una [plantilla de Resource Manager que use el enrutamiento basado en URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) .
 

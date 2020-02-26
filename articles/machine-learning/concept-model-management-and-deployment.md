@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: f6819ddce777a5740ef1f5f9ab887a0646c4e464
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: e53db645875646b1e021cc0d3d760677e1128c0c
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122345"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486383"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Administración, implementación y supervisión de modelos con Azure Machine Learning
 
@@ -138,6 +138,19 @@ La supervisión permite comprender qué datos se envían a su modelo y las predi
 Esta información le ayudará a comprender cómo se usa el modelo. Los datos de entrada recopilados también pueden ser útiles para entrenar versiones futuras del modelo.
 
 Para más información, consulte [cómo habilitar la recopilación de datos de un modelo](how-to-enable-data-collection.md).
+
+## <a name="retrain-your-model-on-new-data"></a>Nuevo entrenamiento del modelo con datos nuevos
+
+A menudo, querrá actualizar el modelo o incluso volver a entrenarlo desde cero, a medida que reciba información nueva. A veces, la recepción de nuevos datos es una parte esperada del dominio. Otras veces, como se explica en [Detección del desfase de datos (versión preliminar) en los conjuntos de datos](how-to-monitor-datasets.md), el rendimiento del modelo puede reducirse en función de los cambios realizados en un sensor determinado, los cambios naturales en los datos, como los efectos estacionales, o las características que se desplazan en relación con otras características. 
+
+No hay ninguna respuesta universal a la pregunta "Cómo puedo saber si debo volver a entrenarlo?" Sin embargo, las herramientas de supervisión y eventos de Azure ML descritas anteriormente son buenos puntos de partida para la automatización. Una vez que haya decidido volver a entrenarlo, debe: 
+
+- Realizar un preprocesamiento de los datos mediante un proceso repetible y automatizado
+- Entrenar el nuevo modelo
+- Comparar las salidas del nuevo modelo con las del modelo anterior
+- Usar criterios predefinidos para elegir si quiere reemplazar el modelo anterior 
+
+Un tema a considerar de los pasos anteriores es que el reciclaje debe estar automatizado, en lugar de ser ad hoc. Las [canalizaciones de Azure Machine Learning](concept-ml-pipelines.md) son una buena respuesta para crear flujos de trabajo relacionados con la preparación, el entrenamiento, la validación y la implementación de los datos. Lea [Volver a entrenar modelos con el diseñador de Azure Machine Learning](how-to-retrain-designer.md) para ver cómo se ajustan las canalizaciones y el diseñador de Azure Machine Learning en un escenario de reentrenamiento. 
 
 ## <a name="automate-the-ml-lifecycle"></a>Automatización del ciclo de vida de Machine Learning 
 

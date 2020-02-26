@@ -3,12 +3,12 @@ title: Implementación de recursos en una suscripción
 description: Se describe cómo crear un grupo de recursos en una plantilla de Azure Resource Manager. También se muestra cómo implementar recursos en el ámbito de la suscripción de Azure.
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: c53d274303a203a427a36f8f729f6b43cee44e40
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 50db0b4d46ff4e367411829aa75fa017a168372f
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120618"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207662"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creación de grupos de recursos y otros recursos en el nivel de suscripción
 
@@ -135,7 +135,7 @@ En la plantilla siguiente se crea un grupo de recursos vacío.
 }
 ```
 
-Use el [elemento copy](create-multiple-instances.md) con grupos de recursos para crear más de un grupo de recursos.
+Use el [elemento copy](copy-resources.md) con grupos de recursos para crear más de un grupo de recursos.
 
 ```json
 {
@@ -170,7 +170,7 @@ Use el [elemento copy](create-multiple-instances.md) con grupos de recursos para
 }
 ```
 
-Para obtener más información sobre la iteración de recursos, consulte [Implementación de varias instancias de un recurso o una propiedad en plantillas de Azure Resource Manager](./create-multiple-instances.md) y [Tutorial: Creación de varias instancias de recursos con plantillas de Resource Manager](./template-tutorial-create-multiple-instances.md).
+Para más información sobre la iteración de recursos, consulte este artículo sobre la [implementación de varias instancias de un recurso en las plantillas de Azure Resource Manager](./copy-resources.md) y [Tutorial: Creación de varias instancias de recursos con plantillas de Resource Manager](./template-tutorial-create-multiple-instances.md).
 
 ## <a name="resource-group-and-resources"></a>Grupo de recursos y recursos
 

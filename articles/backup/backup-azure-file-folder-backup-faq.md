@@ -3,16 +3,16 @@ title: 'Copias de seguridad de archivos y carpetas: preguntas comunes'
 description: Responde las preguntas habituales acerca de la realización de copias de seguridad de archivos y carpetas con Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 45c01a08151060b60b0f3e3b27b2fcc16ec8e60b
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 7b80932d49038bb42fa93f71b3ac0194c2869489
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720368"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425075"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Preguntas comunes acerca de la realización de copias de seguridad de archivos y carpetas
 
-Este artículo contiene respuestas a preguntas habituales acerca de la copia de seguridad de archivos y carpetas con el agente de Microsoft Azure Recovery Services (MARS) en el servicio [Azure Backup](backup-overview.md).
+Este artículo da respuesta a preguntas habituales sobre la copia de seguridad de archivos y carpetas con el agente de Microsoft Azure Recovery Services (MARS) del servicio [Azure Backup](backup-overview.md).
 
 ## <a name="configure-backups"></a>Configuración de copias de seguridad
 
@@ -90,7 +90,7 @@ Esta advertencia puede aparecer aunque se haya configurado una directiva de copi
 El tamaño de la carpeta de caché determina la cantidad de datos de los que se realiza la copia de seguridad.
 
 * Los volúmenes de la carpeta de caché deben tener un espacio libre equivalente, al menos, al 5-10 % del tamaño total de datos de copia de seguridad.
-* Si el volumen tiene menos del 5 % de espacio libre, aumente el tamaño del volumen o mueva la carpeta de caché a un volumen que tenga suficiente espacio libre.
+* Si el volumen tiene menos del 5 % de espacio libre, aumente el tamaño del volumen o mueva la carpeta de la memoria caché a un volumen que tenga suficiente espacio libre siguiendo [estos pasos](#how-do-i-change-the-cache-location-for-the-mars-agent).
 * Si se realiza una copia de seguridad del estado del sistema Windows, se necesitan 30-35 GB adicionales de espacio libre en el volumen que contiene la carpeta de la caché.
 
 ### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>¿Cómo se puede comprobar si la carpeta temporal es válida y accesible?
@@ -98,35 +98,35 @@ El tamaño de la carpeta de caché determina la cantidad de datos de los que se 
 1. De forma predeterminada, la carpeta temporal se encuentra en `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`.
 2. Asegúrese de que la ruta de acceso de la ubicación de la carpeta temporal coincide con los valores de las entradas de clave del Registro que se muestran a continuación:
 
-  | Ruta de acceso del Registro | Clave del Registro | Value |
-  | --- | --- | --- |
-  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nueva ubicación de la carpeta de la memoria caché* |
-  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nueva ubicación de la carpeta de la memoria caché* |
+    | Ruta de acceso del Registro | Clave del Registro | Value |
+    | --- | --- | --- |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nueva ubicación de la carpeta de la memoria caché* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nueva ubicación de la carpeta de la memoria caché* |
 
 ### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>¿Cómo se cambia la ubicación de la caché del agente de MARS?
 
 1. Ejecute este comando en un símbolo del sistema con privilegios elevados para detener el motor de Azure Backup:
 
     ```Net stop obengine```
-
 2. Si ha configurado la copia de seguridad del estado del sistema, abra Administración de discos y desmonte los discos que tengan nombres con el formato `"CBSSBVol_<ID>"`.
-3. No mueva los archivos. En su lugar, copie la carpeta de espacio en caché en otra unidad que tenga suficiente espacio.
-4. Actualice las siguientes entradas del Registro con la ruta de acceso de la nueva carpeta de la caché.
+3. De forma predeterminada, la carpeta temporal se encuentra en `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`.
+4. Copie toda la carpeta `\Scratch` en otra unidad que tenga suficiente espacio. Asegúrese de que el contenido se copia en lugar de moverse.
+5. Actualice las siguientes entradas del Registro con la ruta de acceso de la carpeta temporal que acaba de mover.
 
     | Ruta de acceso del Registro | Clave del Registro | Value |
     | --- | --- | --- |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nueva ubicación de la carpeta de la memoria caché* |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nueva ubicación de la carpeta de la memoria caché* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Ubicación de la nueva carpeta temporal* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Ubicación de la nueva carpeta temporal* |
 
-5. Reinicie el motor de Azure Backup en una ventana del símbolo del sistema con privilegios elevados:
+6. Reinicie el motor de Azure Backup en una ventana del símbolo del sistema con privilegios elevados:
 
-  ```command
-  Net stop obengine
+    ```command
+    Net stop obengine
 
-  Net start obengine
-  ```
+    Net start obengine
+    ```
 
-6. Ejecutar una copia de seguridad a petición. Si la copia de seguridad finaliza correctamente con la nueva ubicación, puede quitar la carpeta de caché original.
+7. Ejecutar una copia de seguridad a petición. Si la copia de seguridad finaliza correctamente con la nueva ubicación, puede quitar la carpeta de caché original.
 
 ### <a name="where-should-the-cache-folder-be-located"></a>¿Dónde debería estar la carpeta de caché?
 

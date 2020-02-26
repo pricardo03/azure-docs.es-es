@@ -1,18 +1,18 @@
 ---
 title: Capacidad reservada en Azure Cosmos DB para optimizar el costo
 description: Aprenda a comprar capacidad reservada de Azure Cosmos DB para ahorrar en los costos de proceso.
-author: bandersmsft
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/29/2019
-ms.author: banders
+ms.date: 02/14/2020
+ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 83ecb0ad85a02c8c05b9d7e504e578afd98ed7b6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8e29683b994d66e769a24bb2d386a2120cf8eab9
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969352"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367713"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Optimización del costo con capacidad reservada en Azure Cosmos DB
 
@@ -30,13 +30,29 @@ Puede comprar capacidad reservada de Azure Cosmos DB en [Azure Portal](https://p
 
 ## <a name="determine-the-required-throughput-before-purchase"></a>Determinación del rendimiento necesario antes de la compra
 
-El tamaño de la reserva debe basarse en la cantidad total de rendimiento que usarán los recursos de Azure Cosmos DB existentes o que se van a implementar. Puede determinar el rendimiento necesario de las maneras siguientes:
+El tamaño de la reserva debe basarse en la cantidad total de rendimiento que usarán los recursos de Azure Cosmos DB existentes o que se van a implementar. Puede ver los tamaños de reserva recomendados en Azure Portal mediante los pasos siguientes:
 
-* Obtenga los datos históricos del rendimiento total aprovisionado a través de sus cuentas, bases de datos y colecciones de Azure Cosmos DB en todas las regiones. Por ejemplo, puede evaluar el rendimiento aprovisionado medio diario si descarga el extracto de uso diario desde `https://account.azure.com`.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).  
 
-* Si es un cliente de Contrato Enterprise (EA), puede descargar el archivo de uso para obtener los detalles de rendimiento de Azure Cosmos DB. Consulte el valor **Tipo de servicio** de la sección **Información adicional** en el archivo de uso.
+2. Seleccione **Todos los servicios** > **Reservations** > **Agregar**.
 
-* Puede sumar el rendimiento medio de todas las cargas de trabajo de las cuentas de Azure Cosmos DB que espera ejecutar durante el próximo período de uno o tres años. A continuación, puede usar esa cantidad para la reserva.
+3. En el panel **Comprar reservas**, elija **Azure Cosmos DB**.
+
+4. Seleccione la pestaña **Recomendado** para ver las reservas recomendadas:
+
+Puede filtrar las recomendaciones por los siguientes atributos:
+
+- **Período** (1 o 3 años)
+- **Frecuencia de facturación** (mensual o por adelantado)
+- **Tipo de rendimiento** (RU frente a RU de arquitectura multimaestro)
+
+Además, puede limitar el ámbito de las recomendaciones a un único grupo de recursos, una sola suscripción o toda la inscripción de Azure. Puede mostrar recomendaciones basadas en el uso durante los últimos 7, 30 o 60 días.
+
+A continuación se muestra una recomendación de ejemplo:
+
+![Recomendaciones de capacidad reservada](./media/cosmos-db-reserved-capacity/reserved-capacity-recommendation.png)
+
+Esta recomendación de comprar una reserva de 30 000 RU/s indica que, entre las reservas de 3 años, un tamaño de reserva de 30 000 RU/s maximizará el ahorro. En este caso, la recomendación se calcula en función de los últimos 30 días de uso de Azure Cosmos DB. Si este cliente espera que los últimos 30 días de uso de Azure Cosmos DB sea representativo del uso futuro, para maximizar el ahorro compraría una reserva de 30 000 RU/s.
 
 ## <a name="buy-azure-cosmos-db-reserved-capacity"></a>Compra de capacidad reservada de Azure Cosmos DB
 
@@ -73,8 +89,6 @@ Después de comprar una reserva, se aplica inmediatamente a cualquier recurso de
 Cuando expira la reserva, las instancias de Azure Cosmos DB se siguen ejecutando y se facturan según las tarifas habituales de pago por uso.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelación, intercambio o reembolso de reservas
-
-Para ayudar a identificar la capacidad reservada adecuada, consulte [Aplicación del descuento por reserva a Azure Cosmos DB](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md).
 
 Puede cancelar, intercambiar o reembolsar reservas con ciertas limitaciones. Para más información, consulte [Autoservicio de intercambios y reembolsos de reservas de Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 

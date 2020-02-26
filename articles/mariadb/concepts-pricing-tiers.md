@@ -6,24 +6,23 @@ ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 36563e11d7a5fb7cfd5878294c3b83977f6bb619
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 084c1b4163ac7f0f595fadba93a7905ea7f96dd0
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772404"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485461"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Planes de tarifa de Azure Database for MariaDB
 
 Puede crear un servidor de Azure Database for MariaDB en tres planes de tarifa diferentes: Básico, De uso general y Optimizado para memoria. Los planes de tarifa se diferencian por la cantidad de proceso en núcleos virtuales que se puede aprovisionar, la cantidad de memoria por núcleo virtual y la tecnología de almacenamiento usada para almacenar los datos. Todos los recursos se aprovisionan en el nivel de servidor MariaDB. Un servidor puede tener una o varias bases de datos.
 
-|    | **Básico** | **Uso general** | **Memoria optimizada** |
+|    | **Basic** | **Uso general** | **Memoria optimizada** |
 |:---|:----------|:--------------------|:---------------------|
 | Generación de procesos | Gen 5 |Gen 5 | Gen 5 |
 | Núcleos virtuales | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| Memoria por núcleo virtual | 2 GB | 5 GB | 10 GB |
+| Memoria por núcleo virtual | 2 GB | 5 GB | 10 GB |
 | Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 4 TB | De 5 GB a 4 TB |
-| Tipo de almacenamiento | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | Período de retención de copias de seguridad de base de datos | De 7 a 35 días | De 7 a 35 días | De 7 a 35 días |
 
 Para elegir un plan de tarifa, use la siguiente tabla como punto de partida.
@@ -44,9 +43,9 @@ Los recursos de proceso se proporcionan como núcleos virtuales, que representan
 
 El almacenamiento que se aprovisiona es la cantidad de capacidad de almacenamiento disponible para el servidor de Azure Database for MariaDB. El almacenamiento se usa para los archivos de base de datos, los archivos temporales, los registros de transacciones y los registros del servidor MariaDB. La cantidad total de almacenamiento que se aprovisiona también define la capacidad de E/S disponible para su servidor.
 
-|    | **Básico** | **Uso general** | **Memoria optimizada** |
+|    | **Basic** | **Uso general** | **Memoria optimizada** |
 |:---|:----------|:--------------------|:---------------------|
-| Tipo de almacenamiento | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
+| Tipo de almacenamiento | Almacenamiento básico | Almacenamiento de uso general | Almacenamiento de uso general |
 | Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 4 TB | De 5 GB a 4 TB |
 | Tamaño de incremento de almacenamiento | 1 GB | 1 GB | 1 GB |
 | E/S | Variable |3 IOPS/GB<br/>100 IOPS mín.<br/>6000 IOPS máx. | 3 IOPS/GB<br/>100 IOPS mín.<br/>6000 IOPS máx. |

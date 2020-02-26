@@ -8,19 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 75ad83411edfdfe7545e8f80df17fea56e317ee0
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 98db10f0fc7a417f39d4bb00e77af6bdea034a03
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911620"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198282"
 ---
 # <a name="extended-geojson-geometries"></a>Geometrías GeoJSON extendidas
 
-Azure Maps proporciona una lista de API eficaces para buscar dentro o a lo largo de características geográficas.
-Estas API están estandarizadas en las [especificaciones de GeoJSON][1] para representar las características geográficas (por ejemplo, los límites de estado o las rutas).  
+Azure Maps proporciona una lista de API eficaces para buscar dentro de características geográficas o junto a ellas. Estas API se adhieren a la [especificación de GeoJSON][1] estándar de representación de características geográficas.  
 
-Las [especificaciones de GeoJSON][1] solo admiten las geometrías siguientes:
+La [especificación de GeoJSON][1] solo admite las geometrías siguientes:
 
 * GeometryCollection
 * LineString
@@ -30,7 +29,7 @@ Las [especificaciones de GeoJSON][1] solo admiten las geometrías siguientes:
 * Punto
 * Polygon
 
-Algunas API de Azure Maps (por ejemplo: [Search Inside Geometry](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)) aceptan geometrías como "Circle", que no son parte de las [especificaciones de GeoJSON][1].
+Algunas API de Azure Maps aceptan geometrías que no forman parte de la [especificación de GeoJSON][1]. Por ejemplo, [Search Inside Geometry](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry) API acepta círculos y polígonos.
 
 Este artículo proporciona una explicación detallada sobre cómo Azure Maps amplía las [especificaciones de GeoJSON][1] para representar determinadas geometrías.
 
@@ -38,7 +37,7 @@ Este artículo proporciona una explicación detallada sobre cómo Azure Maps amp
 
 La geometría `Circle` no es compatible con las [especificaciones de GeoJSON][1]. Usamos el objeto `GeoJSON Point Feature` para representar un círculo.
 
-Una geometría `Circle` representada mediante el objeto `GeoJSON Feature`__debe__ contener lo siguiente:
+Una geometría `Circle` representada mediante el objeto `GeoJSON Feature` __debe__ contener las propiedades y coordenadas siguientes:
 
 - Center
 
@@ -54,7 +53,7 @@ Una geometría `Circle` representada mediante el objeto `GeoJSON Feature`__debe_
 
 #### <a name="example"></a>Ejemplo
 
-Así es cómo representará un círculo centrado en (latitud: 47.639754, longitud:-122.126986) con un radio igual a 100 metros, mediante un objeto `GeoJSON Feature`:
+Así se representa un círculo con un objeto `GeoJSON Feature`. Vamos a centrar el círculo en latitud: 47,639754 y longitud: -122,126986, y asígnele un radio igual a 100 metros:
 
 ```json            
 {
@@ -74,11 +73,11 @@ Así es cómo representará un círculo centrado en (latitud: 47.639754, longitu
 
 La geometría `Rectangle` no es compatible con las [especificaciones de GeoJSON][1]. Usamos el objeto `GeoJSON Polygon Feature` para representar un rectángulo. La extensión de rectángulo se usa principalmente en el módulo de herramientas de dibujo del SDK para web.
 
-Una geometría `Rectangle` representada mediante el objeto `GeoJSON Polygon Feature`__debe__ contener lo siguiente:
+Una geometría `Rectangle` representada mediante el objeto `GeoJSON Polygon Feature` __debe__ contener las propiedades y coordenadas siguientes:
 
 - Esquinas
 
-    Las esquinas del rectángulo se representan mediante las coordenadas de un objeto `GeoJSON Polygon`. Debería haber cinco coordenadas, una para cada esquina, y una quinta que sea igual que la primera para cerrar el anillo del polígono. Se asumirá que estas coordenadas se alinean y se giran según desee el desarrollador.
+    Las esquinas del rectángulo se representan mediante las coordenadas de un objeto `GeoJSON Polygon`. Debería haber cinco coordenadas, una para cada vértice. Y una quinta coordenada igual que la primera para cerrar el anillo del polígono. Se supone que estas coordenadas se alinean y que el desarrollador puede rotarlas según lo desee.
 
 - SubType
 

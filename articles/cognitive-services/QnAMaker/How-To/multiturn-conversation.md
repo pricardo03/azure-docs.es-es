@@ -1,22 +1,14 @@
 ---
 title: 'Conversaciones de varios turnos: QnA Maker'
-titleSuffix: Azure Cognitive Services
 description: Use solicitudes y contexto para administrar los múltiples turnos del bot, lo que se conoce como multiturno, de una pregunta a otra. Multiturno es la capacidad de mantener una conversación fluida en la que el contexto de la pregunta anterior influye en la siguiente pregunta y en su respuesta.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.author: diberry
-ms.openlocfilehash: 681f00adde1d440fbb41f2e66652db34d53fbf99
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/13/2020
+ms.openlocfilehash: abdde09fbb1f6b066772366c5cea933824cb5864
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843267"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210421"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Uso de avisos de seguimiento para crear múltiples turnos de una conversación
 
@@ -31,6 +23,9 @@ Para ver cómo funciona el multiturno, vea el siguiente vídeo de demostración:
 Algunas preguntas no se pueden responder en un único turno. Cuando diseña conversaciones de la aplicación cliente (bot de chat), el usuario puede formular una pregunta que debe filtrarse o mejorarse para determinar la respuesta correcta. Puede crear este flujo de las preguntas posibles presentando al usuario *avisos de seguimiento*.
 
 Cuando un usuario realiza una pregunta, QnA Maker devuelve la respuesta _y_ los avisos de seguimiento. Esta respuesta le permite presentar las opciones de seguimiento como posibles respuestas.
+
+> [!CAUTION]
+> Los avisos de múltiples turnos no se extraen de los documentos de preguntas más frecuentes. Si necesita la extracción de avisos de múltiples turnos, quite los signos de interrogación que designan los pares de preguntas y respuestas como preguntas más frecuentes.
 
 ## <a name="example-multi-turn-conversation-with-chat-bot"></a>Ejemplo de conversación multiturno con bot de chat
 

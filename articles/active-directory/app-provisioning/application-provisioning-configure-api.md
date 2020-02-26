@@ -1,6 +1,6 @@
 ---
-title: 'Uso de las MS Graph API para configurar el aprovisionamiento: Azure Active Directory | Microsoft Docs'
-description: ¿Necesita configurar el aprovisionamiento de varias instancias de una aplicación? Obtenga información de cómo ahorrar tiempo mediante el uso de las MS Graph API para automatizar la configuración del aprovisionamiento automático.
+title: 'Uso de Microsoft Graph API para configurar el aprovisionamiento: Azure Active Directory | Microsoft Docs'
+description: ¿Necesita configurar el aprovisionamiento de varias instancias de una aplicación? Aprenda a ahorrar tiempo mediante el uso de Microsoft Graph API para automatizar la configuración del aprovisionamiento automático.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,16 +16,16 @@ ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f19f6e4add9bd677b05e09c627532a7a48354ce
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: f5780227274e8f9574fcdfcd388d75e333cc3d42
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77065939"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367829"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Configuración del aprovisionamiento mediante las Microsoft Graph API
 
-Azure Portal ofrece una manera cómoda de configurar el aprovisionamiento de aplicaciones individuales de una en una. Pero si va a crear varias instancias de una aplicación, o incluso cientos, puede ser más fácil automatizar la creación y la configuración de las aplicaciones con las Microsoft Graph API. En este artículo se explica cómo automatizar la configuración de aprovisionamiento a través de las API. Este método se usa normalmente para aplicaciones como [Amazon Web Services](../saas-apps/amazon-web-service-tutorial.md#configure-azure-ad-sso).
+Azure Portal ofrece una manera cómoda de configurar el aprovisionamiento de aplicaciones individuales de una en una. Pero si va a crear varias instancias de una aplicación, o incluso cientos, puede ser más fácil automatizar la creación y la configuración de las aplicaciones con Microsoft Graph API. En este artículo se explica cómo automatizar la configuración de aprovisionamiento a través de las API. Este método se usa normalmente para aplicaciones como [Amazon Web Services](../saas-apps/amazon-web-service-tutorial.md#configure-azure-ad-sso).
 
 **Información general de los pasos para usar las Microsoft Graph API para automatizar la configuración del aprovisionamiento**
 

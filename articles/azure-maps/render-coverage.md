@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 04e7aeddaa4e3aba38f1bf08893b0b0487109653
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 7821b0b76fb9be1b62aaf334b3c07aaff1d0021a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025459"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209552"
 ---
 # <a name="azure-maps-render-coverage"></a>Cobertura de representación de Azure Maps
 
-Azure Maps usa mosaicos de trama y mosaicos vectoriales para crear mapas. En su resolución más baja, todo el mundo cabría en un solo mosaico. En su resolución más alta, un solo mosaico representa 38 metros cuadrados. A medida que acerque la imagen, verá cada vez más detalles sobre continentes, regiones, ciudades y calles individuales. Para más información sobre los mosaicos, consulte [Niveles de zoom y cuadrícula de mosaico](zoom-levels-and-tile-grid.md).
+Azure Maps usa mosaicos de trama y mosaicos vectoriales para crear mapas. En su resolución más baja, todo el mundo cabría en un solo mosaico. En su resolución más alta, un solo mosaico representa 38 metros cuadrados. A medida que acerque la imagen en el mapa verá cada vez más detalles sobre los continentes, las regiones, las ciudades y las distintas calles. Para más información sobre los mosaicos, consulte [Niveles de zoom y cuadrícula de mosaico](zoom-levels-and-tile-grid.md).
 
 Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas las regiones. En las tablas siguientes se detalla el nivel de información que puede representar para cada región.
 

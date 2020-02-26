@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: 05b099eebcbb7b8f77357c9dcf3a4d567d3886d6
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 3b423a25b6b13ad543ef4a74bc0335ce19f5766d
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75553076"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461820"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configuración de un grupo de conmutación por error para Azure SQL Database
 
@@ -25,7 +25,7 @@ Este tema le enseña a configurar un [grupo de conmutación por error automátic
 ## <a name="single-database"></a>Base de datos única
 Cree el grupo de conmutación por error y agregue una base de datos única mediante Azure Portal o PowerShell.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 
 Tenga en cuenta los siguientes requisitos previos:
 
@@ -33,7 +33,7 @@ Tenga en cuenta los siguientes requisitos previos:
 
 ### <a name="create-failover-group"></a>Creación de un grupo de conmutación por error
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 Cree el grupo de conmutación por error y agregue la base de datos única mediante Azure Portal.
 
 
@@ -53,7 +53,7 @@ Cree el grupo de conmutación por error y agregue la base de datos única median
         
     ![Adición de la base de datos SQL a un grupo de conmutación por error](media/sql-database-single-database-failover-group-tutorial/add-sqldb-to-failover-group.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Cree el grupo de conmutación por error y agregue la base de datos única mediante PowerShell. 
 
    ```powershell-interactive
@@ -107,7 +107,7 @@ Cree el grupo de conmutación por error y agregue la base de datos única median
 
 Pruebe la conmutación por error de su grupo de conmutación por error mediante Azure Portal o PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Pruebe la conmutación por error de su grupo de conmutación por error mediante Azure Portal. 
 
@@ -129,7 +129,7 @@ Pruebe la conmutación por error de su grupo de conmutación por error mediante 
 1. Revise qué servidor es ahora el principal y cuál el secundario. Si la conmutación por error se realiza correctamente, los dos servidores deben tener los roles intercambiados. 
 1. Vuelva a seleccionar **Conmutación por error** para devolver los servidores a sus roles originales. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Pruebe la conmutación por error de su grupo de conmutación por error mediante PowerShell.  
 
@@ -190,7 +190,7 @@ Revierta el grupo de conmutación por error al servidor principal:
 ## <a name="elastic-pool"></a>Grupo elástico
 Cree el grupo de conmutación por error y agregue un grupo elástico mediante Azure Portal o PowerShell.  
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 
 Tenga en cuenta los siguientes requisitos previos:
 
@@ -200,7 +200,7 @@ Tenga en cuenta los siguientes requisitos previos:
 
 Creación del grupo de conmutación por error para su grupo elástico mediante Azure Portal o PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 Cree el grupo de conmutación por error y agregue el grupo elástico mediante Azure Portal.
 
 1. Seleccione **Azure SQL** en el menú izquierdo de [Azure Portal](https://portal.azure.com). Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba Azure SQL en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
@@ -221,7 +221,7 @@ Cree el grupo de conmutación por error y agregue el grupo elástico mediante Az
         
 1. Elija **Seleccionar** para aplicar la configuración del grupo elástico al grupo de conmutación por error y, después, seleccione **Crear** para crear el grupo de conmutación por error. Al agregar el grupo elástico al grupo de conmutación por error, se iniciará automáticamente el proceso de replicación geográfica. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Cree el grupo de conmutación por error y agregue el grupo elástico mediante PowerShell. 
 
@@ -271,7 +271,7 @@ Cree el grupo de conmutación por error y agregue el grupo elástico mediante Po
 
 Pruebe la conmutación por error de su grupo elástico mediante Azure Portal o PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Se producirá un error en el grupo de conmutación por error en el servidor secundario y, a continuación, se realizará la conmutación por recuperación mediante Azure Portal. 
 
@@ -293,7 +293,7 @@ Se producirá un error en el grupo de conmutación por error en el servidor secu
 1. Revise cuál es el servidor principal y cuál es el secundario. Si la conmutación por error se realiza correctamente, los dos servidores deben tener los roles intercambiados. 
 1. Seleccionar de nuevo **Conmutación por error** para que el grupo de conmutación por error vuelva a la configuración original. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Pruebe la conmutación por error de su grupo de conmutación por error mediante PowerShell.
 
@@ -341,7 +341,7 @@ Cree un grupo de conmutación por error entre dos instancias administradas media
 
 Tendrá que configurar [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) o crear una puerta de enlace para la red virtual de cada instancia administrada, conectar las dos puertas de enlace y luego crear el grupo de conmutación por error. 
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 Tenga en cuenta los siguientes requisitos previos:
 
 - La instancia administrada secundaria debe estar vacía.
@@ -353,7 +353,7 @@ Tenga en cuenta los siguientes requisitos previos:
 
 Si no ha configurado [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md), puede crear la puerta de enlace de red virtual principal con Azure Portal o PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Cree la puerta de enlace de red virtual principal mediante Azure Portal. 
 
@@ -390,7 +390,7 @@ Cree la puerta de enlace de red virtual principal mediante Azure Portal.
 
 1. Seleccione **Crear** para crear la nueva puerta de enlace de red virtual. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Cree la puerta de enlace de red virtual principal mediante PowerShell. 
 
@@ -426,7 +426,7 @@ Cree la puerta de enlace de red virtual principal mediante PowerShell.
 
 Cree la puerta de enlace de red virtual secundaria mediante Azure Portal o PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 Repita los pasos de la sección anterior para crear la subred y la puerta de enlace de la red virtual para la instancia administrada secundaria. Rellene los campos obligatorios para configurar la puerta de enlace para la instancia administrada secundaria. 
 
    En la tabla siguiente se muestran los valores necesarios para la puerta de enlace de la instancia administrada secundaria:
@@ -447,7 +447,7 @@ Repita los pasos de la sección anterior para crear la subred y la puerta de enl
 
    ![Configuración de la puerta de enlace secundaria](media/sql-database-managed-instance-failover-group-tutorial/settings-for-secondary-gateway.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Cree la puerta de enlace de red virtual secundaria mediante PowerShell. 
 
@@ -488,7 +488,7 @@ Deben crearse dos conexiones: la conexión de la puerta de enlace principal a la
 
 La clave compartida usada para ambas conexiones debe ser la misma para cada conexión. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 Cree conexiones entre las dos puertas de enlace mediante Azure Portal. 
 
 1. Seleccione **Crear un recurso** en [Azure Portal](https://portal.azure.com).
@@ -510,7 +510,7 @@ Cree conexiones entre las dos puertas de enlace mediante Azure Portal.
 
 1. En la pestaña **Resumen**, revise la configuración de la conexión bidireccional y, después, seleccione **Aceptar** para crear la conexión. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Cree conexiones entre las dos puertas de enlace mediante PowerShell. 
 
@@ -546,7 +546,7 @@ Cree conexiones entre las dos puertas de enlace mediante PowerShell.
 ### <a name="create-the-failover-group"></a>Creación del grupo de conmutación por error 
 Cree el grupo de conmutación por error para sus instancias administradas mediante Azure Portal o PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Cree el grupo de conmutación por error para sus instancias administradas mediante Azure Portal. 
 
@@ -562,7 +562,7 @@ Cree el grupo de conmutación por error para sus instancias administradas median
 
 1. Una vez completada la implementación del grupo de conmutación por error, volverá a mostrarse la página **Grupo de conmutación por error**. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Cree el grupo de conmutación por error para sus instancias administradas mediante PowerShell. 
 
@@ -588,11 +588,11 @@ Cree el grupo de conmutación por error para sus instancias administradas median
 
 Pruebe la conmutación por error de su grupo de conmutación por error mediante Azure Portal o PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Pruebe la conmutación por error de su grupo de conmutación por error mediante Azure Portal. 
 
-1. Navegue a la instancia administrada en [Azure Portal](https://portal.azure.com) y seleccione **Grupos de conmutación por error de instancias** en las opciones de configuración. 
+1. Vaya a la instancia administrada _secundaria_ en [Azure Portal](https://portal.azure.com) y seleccione **Grupos de conmutación por error de instancias** en las opciones de configuración. 
 1. Revise cuál instancia administrada es la principal y cuál es la secundaria. 
 1. Seleccione **Conmutación por error** y, a continuación, seleccione **Sí** en la advertencia acerca de la desconexión de las sesiones TDS. 
 
@@ -602,9 +602,9 @@ Pruebe la conmutación por error de su grupo de conmutación por error mediante 
 
    ![Las instancias administradas cambian roles después de la conmutación por error](media/sql-database-managed-instance-failover-group-tutorial/mi-switched-after-failover.png)
 
-1. Vuelva a seleccionar **Conmutación por error** para que la instancia principal vuelva a tener el rol principal. 
+1. Vaya a la nueva instancia administrada _secundaria_ y seleccione **Conmutación por error** para que la instancia principal vuelva a tener el rol principal. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Pruebe la conmutación por error de su grupo de conmutación por error mediante PowerShell. 
 

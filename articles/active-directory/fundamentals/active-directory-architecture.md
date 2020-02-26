@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d0511f008a3d5bc39a0fb2d9406d33b72dbede6
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 854fb4649f8c1113f20abe5807dd0ce473ba6ee3
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532943"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368071"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>¿Qué es la arquitectura de Azure Active Directory?
 
@@ -100,7 +100,7 @@ El modelo de directorio es uno de coherencias finales. Uno de los problemas típ
 
 Azure AD proporciona coherencia de lectura y escritura para las aplicaciones dirigidas a una réplica secundaria mediante el enrutamiento de sus operaciones de escritura a la réplica principal y la recuperación de forma sincrónica de las operaciones de escritura a la réplica secundaria.
 
-Las operaciones de escritura de la aplicación que utilizan Graph API de Azure AD se extraen de la afinidad de mantenimiento a una réplica de directorio para la coherencia de lectura y escritura. El servicio Graph de Azure AD mantiene una sesión lógica, que tiene afinidad con una réplica secundaria que se utiliza para las lecturas; la afinidad se captura en un "token de réplica" que el servicio Graph almacena en caché mediante una memoria caché distribuida en el centro de datos de la réplica secundaria. Este token se usa entonces para las siguientes operaciones de la misma sesión lógica. Para seguir usando la misma sesión lógica, las solicitudes posteriores deben enrutarse al mismo centro de datos de Azure AD. No es posible continuar una sesión lógica si las solicitudes del cliente del directorio se enrutan a varios centros de datos de Azure Ad. Si esto ocurre, el cliente tiene varias sesiones lógicas con coherencias de lectura-escritura independientes.
+Las operaciones de escritura de la aplicación que utilizan Microsoft Graph API de Azure AD se extraen de la afinidad de mantenimiento a una réplica de directorio para la coherencia de lectura y escritura. El servicio Microsoft Graph API mantiene una sesión lógica, que tiene afinidad con una réplica secundaria que se utiliza para las lecturas; la afinidad se captura en un "token de réplica" que el servicio almacena en caché mediante una memoria caché distribuida en el centro de datos de la réplica secundaria. Este token se usa entonces para las siguientes operaciones de la misma sesión lógica. Para seguir usando la misma sesión lógica, las solicitudes posteriores deben enrutarse al mismo centro de datos de Azure AD. No es posible continuar una sesión lógica si las solicitudes del cliente del directorio se enrutan a varios centros de datos de Azure Ad. Si esto ocurre, el cliente tiene varias sesiones lógicas con coherencias de lectura-escritura independientes.
 
  >[!NOTE]
  >Las operaciones de escritura se replican inmediatamente a la réplica secundaria en la que se emitieron las operaciones de lectura de la sesión lógica.

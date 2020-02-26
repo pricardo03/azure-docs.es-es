@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/04/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b6c70e1a5c7e5b81157c09a794ff75e276a20d1f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 8f2a86f72f16a23b0133601cfe41b9e636d8866d
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982745"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425613"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico autoafirmado en una directiva personalizada en Azure Active Directory B2C
 
@@ -55,7 +55,7 @@ En un perfil técnico autoafirmado, puede usar los elementos **InputClaims** y *
 
 La característica de notificaciones de visualización se encuentra actualmente en **versión preliminar**.
 
-El elemento **DisplayClaims** contiene una lista de las notificaciones que se van a presentar en la pantalla para recopilar datos del usuario. Para rellenar previamente los valores de las notificaciones de salida, use las notificaciones de entrada que se describieron anteriormente. El elemento también puede incluir un valor predeterminado.
+El elemento **DisplayClaims** contiene una lista de las notificaciones que se van a presentar en la pantalla para recopilar datos del usuario. Para rellenar previamente los valores de las notificaciones de visualización, use las notificaciones de entrada descritas anteriormente. El elemento también puede incluir un valor predeterminado.
 
 El orden de las notificaciones en **DisplayClaims** especifica el orden en que Azure AD B2C presenta las notificaciones en la pantalla. Para forzar que el usuario proporcione un valor para una notificación específica, establezca el atributo **Required** del elemento **DisplayClaim** en `true`.
 
@@ -189,16 +189,22 @@ También puede llamar a un perfil técnico de la API de REST con la lógica de n
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| setting.operatingMode | No | En una página de inicio de sesión, esta propiedad controla el comportamiento del campo de nombre de usuario, como la validación de entrada y los mensajes de error. Valores esperados: `Username` o `Email`. |
-| AllowGenerationOfClaimsWithNullValues| No| Permite que se genere una notificación con un valor NULL. Por ejemplo, en caso de que un usuario no active una casilla.|
+| setting.operatingMode <sup>1</sup>| Sin | En una página de inicio de sesión, esta propiedad controla el comportamiento del campo de nombre de usuario, como la validación de entrada y los mensajes de error. Valores esperados: `Username` o `Email`.  |
+| AllowGenerationOfClaimsWithNullValues| Sin| Permite que se genere una notificación con un valor NULL. Por ejemplo, en caso de que un usuario no active una casilla.|
 | ContentDefinitionReferenceId | Sí | El identificador de la [definición de contenido](contentdefinitions.md) asociada a este perfil técnico. |
-| EnforceEmailVerification | No | Para registrarse o editar el perfil, exige la comprobación del correo electrónico. Valores posibles: `true` (opción predeterminada) o `false`. |
-| setting.retryLimit | No | Controla el número de veces que un usuario puede intentar proporcionar los datos que se comprueban con un perfil técnico de validación. Por ejemplo, si un usuario intenta registrarse con una cuenta que ya existe y sigue intentándolo hasta que alcance el límite.
-| SignUpTarget | No | Identificador de intercambio de destinos del registro. Cuando el usuario hace clic en el botón de registro, Azure AD B2C ejecuta el identificador de intercambio especificado. |
-| setting.showCancelButton | No | Muestra el botón para cancelar. Valores posibles: `true` (opción predeterminada) o `false` |
-| setting.showContinueButton | No | Muestra el botón para continuar. Valores posibles: `true` (opción predeterminada) o `false` |
-| setting.showSignupLink | No | Muestra el botón para registrarse. Valores posibles: `true` (opción predeterminada) o `false` |
-| setting.forgotPasswordLinkLocation| No| Muestra el vínculo de contraseña olvidada. Valores posibles: `AfterInput` (valor predeterminado) el vínculo se muestra en la parte inferior de la página o `None` quita el vínculo de contraseña olvidada.| 
+| EnforceEmailVerification | Sin | Para registrarse o editar el perfil, exige la comprobación del correo electrónico. Valores posibles: `true` (opción predeterminada) o `false`. |
+| setting.retryLimit | Sin | Controla el número de veces que un usuario puede intentar proporcionar los datos que se comprueban con un perfil técnico de validación. Por ejemplo, si un usuario intenta registrarse con una cuenta que ya existe y sigue intentándolo hasta que alcance el límite.
+| SignUpTarget <sup>1</sup>| Sin | Identificador de intercambio de destinos del registro. Cuando el usuario hace clic en el botón de registro, Azure AD B2C ejecuta el identificador de intercambio especificado. |
+| setting.showCancelButton | Sin | Muestra el botón para cancelar. Valores posibles: `true` (opción predeterminada) o `false` |
+| setting.showContinueButton | Sin | Muestra el botón para continuar. Valores posibles: `true` (opción predeterminada) o `false` |
+| setting.showSignupLink <sup>2</sup>| Sin | Muestra el botón para registrarse. Valores posibles: `true` (opción predeterminada) o `false` |
+| setting.forgotPasswordLinkLocation <sup>2</sup>| Sin| Muestra el vínculo de contraseña olvidada. Valores posibles: `AfterInput` (valor predeterminado) el vínculo se muestra en la parte inferior de la página o `None` quita el vínculo de contraseña olvidada.| 
+| IncludeClaimResolvingInClaimsHandling  | Sin | En el caso de las notificaciones de entrada y salida, especifica si se incluye la [resolución de notificaciones](claim-resolver-overview.md) en el perfil técnico. Valores posibles: `true` o `false`  (valor predeterminado). Si desea utilizar un solucionador de notificaciones en el perfil técnico, establézcalo en `true`. |
+
+Notas:
+1. Disponible para el tipo de definición de contenido [DataUri](contentdefinitions.md#datauri) de `unifiedssp` o `unifiedssd`.
+1. Disponible para el tipo de definición de contenido [DataUri](contentdefinitions.md#datauri) de `unifiedssp` o `unifiedssd`. [Versión de diseño de página](page-layout.md) 1.1.0 y versiones posteriores.
+
 ## <a name="cryptographic-keys"></a>Claves de cifrado
 
 El elemento **CryptographicKeys** no se usa.

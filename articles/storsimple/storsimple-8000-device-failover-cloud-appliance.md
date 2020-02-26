@@ -1,5 +1,5 @@
 ---
-title: Conmutación por error y recuperación ante desastres de StorSimple en un dispositivo StorSimple Cloud Appliance | Microsoft Docs
+title: Conmutación por error y recuperación ante desastres en un dispositivo virtual StorSimple | Microsoft Docs
 description: Aprenda a conmutar por error el dispositivo físico de la serie StorSimple 8000 a un dispositivo de nube.
 services: storsimple
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 45c521fd044fa258b8052a3f0de48784cf4160e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 347b899608d4322a7873b9f80f38ca1c767194d7
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60584444"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468752"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>Conmutación por error a StorSimple Cloud Appliance
 
@@ -27,13 +27,13 @@ ms.locfileid: "60584444"
 
 En este tutorial se describen los pasos necesarios para conmutar por error un dispositivo físico de la serie StorSimple 8000 a un dispositivo StorSimple Cloud Appliance en caso de desastre. StorSimple usa la característica de conmutación por error de dispositivos para migrar los datos desde un dispositivo físico de origen en el centro de datos a un dispositivo de nube que se ejecuta en Azure. Las instrucciones de este tutorial se aplican a los dispositivos físicos y dispositivos de nube de la serie StorSimple 8000 que ejecutan las versiones de software Update 3 y posteriores.
 
-Para aprender más sobre la conmutación por error de dispositivos y cómo se usa para recuperarse de un desastre, vaya a [Failover and disaster recovery for StorSimple 8000 series devices](storsimple-8000-device-failover-disaster-recovery.md) (Conmutación por error y recuperación ante desastres para dispositivos de la serie StorSimple 8000).
+Para aprender más sobre la conmutación por error de dispositivos y cómo se usa para recuperarse de un desastre, vaya a [Conmutación por error y recuperación ante desastres para dispositivos de la serie StorSimple 8000](storsimple-8000-device-failover-disaster-recovery.md).
 
 Para conmutar por error un dispositivo físico StorSimple a otro dispositivo físico, vaya a [Fail over to a StorSimple physical device](storsimple-8000-device-failover-physical-device.md) (Conmutación por error a un dispositivo físico StorSimple). Para conmutar por error un dispositivo a sí mismo, vaya a [Fail over to the same StorSimple physical device](storsimple-8000-device-failover-same-device.md) (Conmutación por error al mismo dispositivo físico StorSimple).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-- Asegúrese de haber revisado las consideraciones sobre la conmutación por error de dispositivos. Para más información, vaya a [Common considerations for device failover](storsimple-8000-device-failover-disaster-recovery.md) (Consideraciones comunes sobre la conmutación por error de dispositivos).
+- Asegúrese de haber revisado las consideraciones sobre la conmutación por error de dispositivos. Para más información, vaya a [Consideraciones comunes para la conmutación por error de dispositivo](storsimple-8000-device-failover-disaster-recovery.md).
 
 - Antes de ejecutar este procedimiento, debe haber creado y configurado un dispositivo StorSimple Cloud Appliance. Si ejecuta la versión de software Update 3 o posterior, considere la posibilidad de usar un dispositivo de nube 8020 para el DR. El modelo 8020 tiene 64 TB y usa Premium Storage. Para más información, vaya a [Implementación y administración de una instancia de StorSimple Cloud Appliance](storsimple-8000-cloud-appliance-u2.md).
 
@@ -67,11 +67,11 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo StorSimple Cloud
         ![Seleccionar origen](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev11.png)
     2. Haga clic en **Destino**. Seleccione un dispositivo de nube de destino en la lista desplegable de dispositivos disponibles. **Solo se muestran en la lista los dispositivos que tienen capacidad suficiente para alojar los contenedores de volúmenes de origen.**
 
-        ![Selección del destino](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev12.png)
+        ![Seleccionar destino](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev12.png)
 
     3. Revise la configuración de conmutación por error en **Resumen** y seleccione la casilla de verificación que indica que los volúmenes de los contenedores de volumen seleccionados están sin conexión. 
 
-        ![Revisión de la configuración de conmutación por error](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev13.png)
+        ![Revisar la configuración de conmutación por error](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev13.png)
 
 9. Se crea un trabajo de conmutación por error. Para supervisar el trabajo de conmutación por error, haga clic en la notificación de trabajo.
 
@@ -87,7 +87,7 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo StorSimple Cloud
 
        Si el contenedor de volúmenes que ha conmutado por error ha anclado volúmenes localmente, esos volúmenes se conmutan por error como volúmenes en capas. Los volúmenes anclados localmente no se admiten en un dispositivo StorSimple Cloud Appliance.
 
-       ![Visualización de contenedores de volúmenes de destino](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev17.png)
+       ![Ver contenedores de volúmenes de destino](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev17.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

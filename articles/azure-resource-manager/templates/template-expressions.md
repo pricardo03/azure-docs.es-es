@@ -2,13 +2,13 @@
 title: Sintaxis y expresiones de plantillas
 description: En este artículo se describe la sintaxis JSON declarativa de las plantillas de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: 42649d4b04b03de32b82335fce68401192de75a3
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.date: 02/13/2020
+ms.openlocfilehash: 7bca3125f80225d2180734f483194a63e39d9cf5
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120603"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207407"
 ---
 # <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Sintaxis y expresiones de las plantillas de Azure Resource Manager
 
@@ -16,11 +16,9 @@ La sintaxis básica de la plantilla es JSON. Sin embargo, puede utilizar expresi
 
 Las expresiones de plantilla no pueden superar los 24 576 caracteres.
 
-Las expresiones admiten json('null') y las propiedades admiten un valor literal null. En ambos casos, las plantillas de Resource Manager lo tratan como si la propiedad no estuviera presente.
-
 ## <a name="use-functions"></a>Uso de las funciones
 
-En el ejemplo siguiente se muestra una expresión en el valor predeterminado de un parámetro:
+Azure Resource Manager cuenta con [funciones](template-functions.md) que se pueden usar en una plantilla. En el ejemplo siguiente, se muestra una expresión que utiliza una función en el valor predeterminado de un parámetro:
 
 ```json
 "parameters": {
@@ -40,6 +38,12 @@ Para pasar un valor de cadena como parámetro a una función, use comillas simpl
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]"
 ```
+
+La mayoría de las funciones operan del mismo modo cuando se implementan en un grupo de recursos, en una suscripción, en un grupo de administración o en un inquilino. Las siguientes funciones tienen restricciones en función del ámbito:
+
+* [resourceGroup](template-functions-resource.md#resourcegroup): solo puede utilizarse cuando la implementación se realiza en un grupo de recursos.
+* [resourceId](template-functions-resource.md#resourceid): puede utilizarse con cualquier ámbito, pero los valores correctos cambiarán en función de este.
+* [subscription](template-functions-resource.md#subscription): solo puede utilizarse cuando la implementación se realiza en un grupo de recursos o una suscripción.
 
 ## <a name="escape-characters"></a>Carácter de escape
 
@@ -65,6 +69,15 @@ Para utilizar un carácter de escape en las comillas dobles en una expresión, c
 "tags": {
     "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
 },
+```
+
+## <a name="null-values"></a>Valores NULL
+
+Para establecer una propiedad en null, puede utilizar **null** o **[json('null')]** . La [función json](template-functions-array.md#json) devuelve un objeto vacío cuando se proporciona `null` como parámetro. En ambos casos, las plantillas de Resource Manager lo tratan como si la propiedad no estuviera presente.
+
+```json
+"stringValue": null,
+"objectValue": "[json('null')]"
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

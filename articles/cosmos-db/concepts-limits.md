@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 2cce9cbe20121376ad77692773df1d58fcf5257f
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 940ac7b0a2720283b669fc7ea5a9dbc163ddbe64
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759779"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460218"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cuotas de servicio de Azure Cosmos DB
 
@@ -77,7 +77,8 @@ Cosmos DB crea automáticamente copias de seguridad de los datos a intervalos re
 | Resource | Límite predeterminado |
 | --- | --- |
 | Número máximo de bases de datos | Sin límite |
-| Número máximo de contenedores por base de datos (o cuenta) | Sin límite |
+| Número máximo de contenedores por base de datos con rendimiento compartido |25 |
+| Número máximo de contenedores por base de datos o cuenta con rendimiento dedicado  |sin límite |
 | Número máximo de regiones | Sin límite (todas las regiones de Azure) |
 
 ## <a name="per-container-limits"></a>Límites de cada contenedor
@@ -103,7 +104,7 @@ En función de la API que use, un elemento de Azure Cosmos puede representar un 
 | --- | --- |
 | Tamaño máximo de un elemento | 2 MB (longitud en UTF-8 de la representación JSON) |
 | Longitud máxima del valor de la clave de partición | 2048 bytes |
-| Longitud máxima del valor de id. | 1024 bytes |
+| Longitud máxima del valor de id. | 1023 bytes |
 | Número máximo de propiedades por elemento | Ningún límite práctico |
 | Máxima profundidad de anidamiento | Ningún límite práctico |
 | Longitud máxima del nombre de la propiedad | Ningún límite práctico |
@@ -181,7 +182,7 @@ En la tabla siguiente se enumeran los límites de la prueba de encontrará en [P
 | Rendimiento máximo por base de datos de rendimiento compartido | 20000 |
 | Almacenamiento total máximo por cuenta | 10 GB |
 
-La Prueba de Cosmos DB admite la distribución global solo en las regiones de Centro de EE. UU., el Norte de Europa y el Sudeste Asiático. No se pueden crear incidencias de soporte técnico de Azure para las cuentas de prueba de Azure Cosmos DB. Sin embargo, se ofrece soporte técnico para aquellos suscriptores que cuenten con planes de soporte técnico existentes.
+La Prueba de Cosmos DB admite la distribución global solo en las regiones de Centro de EE. UU., el Norte de Europa y el Sudeste de Asia. No se pueden crear incidencias de soporte técnico de Azure para las cuentas de prueba de Azure Cosmos DB. Sin embargo, se ofrece soporte técnico para aquellos suscriptores que cuenten con planes de soporte técnico existentes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

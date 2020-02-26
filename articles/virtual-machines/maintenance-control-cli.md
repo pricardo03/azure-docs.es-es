@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: cynthn
-ms.openlocfilehash: cf4c8c57121a06a607770470c5aef69c5edc0c5f
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 58c0964d170f49066802b955f09dab01eaf998a7
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77115644"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252202"
 ---
 # <a name="preview-control-updates-with-maintenance-control-and-the-azure-cli"></a>Vista previa: Control de las actualizaciones con el control de mantenimiento y la CLI de Azure
 
@@ -233,6 +233,18 @@ az maintenance applyupdate create \
 Puede comprobar el progreso de las actualizaciones mediante `az maintenance applyupdate get`. 
 
 Puede usar `default` como nombre de la actualización para ver los resultados de la última actualización o reemplazar `myUpdateName` por el nombre de la actualización que se devolvió cuando se ejecutó `az maintenance applyupdate create`.
+
+```text
+Status         : Completed
+ResourceId     : /subscriptions/12ae7457-4a34-465c-94c1-17c058c2bd25/resourcegroups/TestShantS/providers/Microsoft.Comp
+ute/virtualMachines/DXT-test-04-iso
+LastUpdateTime : 1/1/2020 12:00:00 AM
+Id             : /subscriptions/12ae7457-4a34-465c-94c1-17c058c2bd25/resourcegroups/TestShantS/providers/Microsoft.Comp
+ute/virtualMachines/DXT-test-04-iso/providers/Microsoft.Maintenance/applyUpdates/default
+Name           : default
+Type           : Microsoft.Maintenance/applyUpdates
+```
+LastUpdateTime será la hora a la que se completó la actualización, tanto si la inició el usuario o la plataforma en caso de que no se usara la ventana de mantenimiento automático. Si nunca se ha aplicado una actualización mediante el control de mantenimiento, se mostrará el valor predeterminado.
 
 ### <a name="isolated-vm"></a>Máquina virtual aislada
 

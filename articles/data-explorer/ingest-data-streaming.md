@@ -7,23 +7,23 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: cc152460be777c30d79f783b9acfa846a4c73a72
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 49129bede62e456cf2807cc879b7fc5e1793b65b
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188023"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77424956"
 ---
 # <a name="streaming-ingestion-preview"></a>Ingesta de streaming (versión preliminar)
 
-La ingesta de streaming está destinada a escenarios que requieren una latencia baja con un tiempo de ingesta de menos de 10 segundos de datos de volumen variado. Se usa para la optimización del procesamiento operativo de muchas tablas, en una o varias bases de datos donde el flujo de datos de cada tabla es relativamente pequeño (pocos registros por segundo), pero el volumen de ingesta de datos global es alto (miles de registros por segundo).
+La ingesta de streaming está destinada a escenarios que requieren una latencia baja con un tiempo de ingesta de menos de 10 segundos de datos de volumen variado. Se usa para la optimización del procesamiento operativo de muchas tablas (de una o varias bases de datos), donde el flujo de datos a cada tabla es relativamente pequeño (pocos registros por segundo), pero el volumen de ingesta de datos global es alto (miles de registros por segundo).
 
 Use la ingesta clásica (masiva) en lugar de la ingesta de streaming cuando la cantidad de datos crezca más de 1 MB por segundo y tabla. Lea [Introducción a la ingesta de datos](/azure/data-explorer/ingest-data-overview) para conocer más sobre los distintos métodos de ingesta.
 
 > [!NOTE]
 > La ingesta de streaming no admite las siguientes características:
 > * [Cursores de base de datos](/azure/kusto/management/databasecursor).
-> * [Asignación de datos](/azure/kusto/management/mappings). Solo se admite la asignación de datos [creada previamente](/azure/kusto/management/create-ingestion-mapping-command). 
+> * [Asignación de datos](/azure/kusto/management/mappings). Solo se admite la asignación de datos [creada previamente](/azure/kusto/management/tables#create-ingestion-mapping). 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -73,10 +73,11 @@ Hay dos tipos de ingesta de streaming admitidos:
 
 ## <a name="limitations"></a>Limitaciones
 
-* El rendimiento y la capacidad de la ingesta de streaming se escalan cuando aumentan los tamaños de las máquinas virtuales y los clústeres. Las ingestas simultáneas se limitan a 6 ingestas por núcleo. Por ejemplo, en el caso de las SKU de 16 núcleos, como las D14 y L16, la carga máxima admitida es de 96 ingestas simultáneas. Para las SKU de 2 núcleos, como la D11, la carga máxima admitida es de 12 ingestas simultáneas.
+* El rendimiento y la capacidad de la ingesta de streaming se escalan cuando aumentan los tamaños de las máquinas virtuales y los clústeres. Las ingestas simultáneas se limitan a seis ingestas por núcleo. Por ejemplo, en el caso de las SKU de 16 núcleos, como las D14 y L16, la carga máxima admitida es de 96 ingestas simultáneas. En el caso de las SKU de dos núcleos, como la D11, la carga máxima admitida es de 12 ingestas simultáneas.
 * El límite de tamaño de datos por solicitud de ingesta es de 4 MB.
 * Las actualizaciones de esquema, como la creación y modificación de tablas y asignaciones de ingesta, pueden tardar hasta cinco minutos en el servicio de ingesta de streaming.
 * Cuando se habilita la ingesta de streaming en un clúster, incluso cuando los datos no se ingieren a través de streaming, se usa parte del disco SSD local de las máquinas del clúster para los datos de ingesta de streaming y se reduce el almacenamiento disponible para la caché activa.
+* No se pueden establecer [etiquetas de extensión](/azure/kusto/management/extents-overview.md#extent-tagging) en los datos de ingesta de streaming.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

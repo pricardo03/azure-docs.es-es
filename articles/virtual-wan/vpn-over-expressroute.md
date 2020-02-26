@@ -1,21 +1,20 @@
 ---
-title: Creación de una conexión VPN de sitio a sitio a través del emparejamiento privado de ExpressRoute en Azure virtual WAN | Microsoft Docs
+title: 'Configuración del cifrado de ExpressRoute: IPsec sobre ExpressRoute para Azure Virtual WAN'
 description: En este tutorial, aprenderá a usar Azure Virtual WAN para crear una conexión VPN de sitio a sitio a través del emparejamiento privado de ExpressRoute.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 02/18/2020
 ms.author: cherylmc
-Customer intent: I want to connect my on-premises networks to my virtual networks by using an S2S VPN connection over my ExpressRoute private peering through Azure Virtual WAN.
-ms.openlocfilehash: ae971bad47d84b6928ebea64e416d21af25528ad
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c74f703927999bf35dd2d8292b8fa0a6d3c55065
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896622"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459793"
 ---
-# <a name="create-a-site-to-site-vpn-connection-over-expressroute-private-peering-by-using-azure-virtual-wan"></a>Creación de una conexión VPN de sitio a sitio a través del emparejamiento privado de ExpressRoute mediante Azure Virtual WAN
+# <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Cifrado de ExpressRoute: IPsec sobre ExpressRoute para Virtual WAN
 
 En este artículo se muestra cómo usar Azure Virtual WAN para establecer una conexión VPN de IPsec/IKE desde la red local a Azure a través del emparejamiento privado de un circuito Azure ExpressRoute. Esta técnica puede proporcionar un tránsito cifrado entre las redes locales y las redes virtuales de Azure a través de ExpressRoute sin necesidad de pasar por la red pública de Internet ni utilizar direcciones IP públicas.
 
@@ -83,7 +82,7 @@ El recurso del sitio es el mismo que el de los sitios VPN que no son de ExpressR
    * **Suscripción**: compruebe la suscripción.
    * **Grupo de recursos**: seleccione o cree el grupo de recursos que desea usar.
    * **Región**: escriba la región de Azure del recurso del sitio VPN.
-   * **Nombre**: escriba el nombre que desee usar para hacer referencia a su sitio local.
+   * **Name**: escriba el nombre que desee usar para hacer referencia a su sitio local.
    * **Proveedor del dispositivo**: escriba el proveedor del dispositivo VPN local.
    * **Protocolo de puerta de enlace de borde**: seleccione "Habilitar" si la red local usa el protocolo de puerta de enlace de borde.
    * **Espacio de direcciones privadas**: escriba el espacio de direcciones IP que se encuentra en el sitio local. El tráfico destinado a este espacio de direcciones se enruta a la red local a través de la puerta de enlace de VPN.

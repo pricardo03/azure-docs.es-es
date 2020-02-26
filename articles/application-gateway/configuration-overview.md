@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: 146dbdbf2f4e107e81515ce83188fa48c52aef36
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 355909052a711773545114179cd5d1ca01811cec
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714858"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485087"
 ---
 # <a name="application-gateway-configuration-overview"></a>Introducción a la configuración de Application Gateway
 
@@ -25,7 +25,7 @@ Esta imagen muestra una aplicación que tiene tres clientes de escucha. Los dos 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Red virtual de Azure y subred dedicada
 
@@ -210,7 +210,7 @@ En el caso de una regla basada en ruta de acceso, agregue varias configuraciones
 
 Si se configura el redireccionamiento para una regla básica, todas las solicitudes del cliente de escucha asociado se reenviarán al destino. Esto es un redireccionamiento *global*. Si se configura el redireccionamiento para una regla basada en ruta de acceso, solo se redirigirán aquellas solicitudes de una determinada área del sitio. Un ejemplo es un área de carro de la compra que se indica mediante */cart/\** . Esto es un redireccionamiento *basado en ruta de acceso*.
 
-Para más información acerca de los redireccionamientos, consulte [Introducción a la redirección de Application Gateway](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
+Para más información acerca de los redireccionamientos, consulte [Introducción a la redirección de Application Gateway](redirect-overview.md).
 
 #### <a name="redirection-type"></a>Tipo de redireccionamiento
 
@@ -227,24 +227,24 @@ Elige el cliente de escucha como destino de redireccionamiento para redirigir el
 ![Cuadro de diálogo de componentes de Application Gateway](./media/configuration-overview/configure-redirection.png)
 
 Para más información sobre el redireccionamiento de HTTP a HTTPS, consulte:
-- [HTTP-to-HTTPS redirection by using the Azure portal](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal) (Redireccionamiento de HTTP a HTTPS mediante Azure Portal)
-- [HTTP-to-HTTPS redirection by using PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell) (Redireccionamiento de HTTP a HTTPS mediante PowerShell)
-- [HTTP-to-HTTPS redirection by using the Azure CLI](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli) (Redireccionamiento de HTTP a HTTPS mediante la CLI de Azure)
+- [HTTP-to-HTTPS redirection by using the Azure portal](redirect-http-to-https-portal.md) (Redireccionamiento de HTTP a HTTPS mediante Azure Portal)
+- [HTTP-to-HTTPS redirection by using PowerShell](redirect-http-to-https-powershell.md) (Redireccionamiento de HTTP a HTTPS mediante PowerShell)
+- [HTTP-to-HTTPS redirection by using the Azure CLI](redirect-http-to-https-cli.md) (Redireccionamiento de HTTP a HTTPS mediante la CLI de Azure)
 
 ##### <a name="external-site"></a>Sitio externo
 
 Elija un sitio externo cuando desee redirigir el tráfico del cliente de escucha asociado con esta regla a un sitio externo. Puede decidir incluir la cadena de consulta de la solicitud original en la solicitud que se reenviará al destino de redireccionamiento. No se puede reenviar la ruta de acceso al sitio externo que se encontraba en la solicitud original.
 
 Para más información sobre el redireccionamiento, consulte:
-- [Redirect traffic to an external site by using PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-external-site-powershell) (Redireccionamiento del tráfico a un sitio externo mediante PowerShell)
-- [Redirect traffic to an external site by using the CLI](https://docs.microsoft.com/azure/application-gateway/redirect-external-site-cli) (Redireccionamiento del tráfico a un sitio externo mediante la CLI)
+- [Redirect traffic to an external site by using PowerShell](redirect-external-site-powershell.md) (Redireccionamiento del tráfico a un sitio externo mediante PowerShell)
+- [Redirect traffic to an external site by using the CLI](redirect-external-site-cli.md) (Redireccionamiento del tráfico a un sitio externo mediante la CLI)
 
 #### <a name="rewrite-the-http-header-setting"></a>Reescritura del valor del encabezado HTTP
 
 Este valor permite agregar, quitar o actualizar los encabezados de respuesta y de solicitudes HTTP, mientras los paquetes de solicitudes y respuestas se mueven entre el cliente y los grupos de servidores back-end. Para más información, consulte:
 
- - [Introducción a la reescritura de encabezados HTTP](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
- - [Configuración de la reescritura de encabezados HTTP](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+ - [Introducción a la reescritura de encabezados HTTP](rewrite-http-headers.md)
+ - [Configuración de la reescritura de encabezados HTTP](rewrite-http-headers-portal.md)
 
 ## <a name="http-settings"></a>Configuración de HTTP
 
@@ -252,7 +252,18 @@ La puerta de enlace de aplicaciones enrutará el tráfico a los servidores back-
 
 ### <a name="cookie-based-affinity"></a>Afinidad basada en cookies
 
-Esta característica es útil cuando se quiere mantener una sesión de usuario en el mismo servidor. Las cookies administradas por la puerta de enlace permiten a esta dirigir el tráfico posterior de una sesión de usuario hasta el mismo servidor para su procesamiento. Esto es importante en aquellos casos en los que se guarda el estado de la sesión de forma local en el servidor para una sesión de usuario. Si la aplicación no puede administrar la afinidad basada en cookies, no podrá usar esta característica. Para poder utilizarla, asegúrese de que los clientes admiten cookies.
+Azure Application Gateway usa cookies administradas de puerta de enlace para mantener las sesiones de usuario. Cuando un usuario envía la primera solicitud a Application Gateway, establece una cookie de afinidad en la respuesta con un valor de hash que contiene los detalles de la sesión, de modo que las solicitudes posteriores que lleven la cookie de afinidad se enrutarán al mismo servidor back-end para mantener la adherencia. 
+
+Esta característica es útil cuando se desea mantener una sesión de usuario en el mismo servidor y cuando el estado de la sesión se guarda localmente en el servidor para una sesión de usuario. Si la aplicación no puede administrar la afinidad basada en cookies, no podrá usar esta característica. Para poder utilizarla, asegúrese de que los clientes admiten cookies.
+
+A partir del **17 de febrero de 2020**, la [actualización v80](https://chromiumdash.appspot.com/schedule) de [Chromium](https://www.chromium.org/Home) incluye un mandato por el que las cookies HTTP sin el atributo SameSite se tratan como SameSite=Lax. En el caso de las solicitudes CORS (uso compartido de recursos de varios orígenes), si la cookie tiene que enviarse en un contexto de terceros, tiene que usar los atributos "SameSite=None; Secure" y solo se debe enviar a través de HTTPS. De lo contrario, en un escenario de solo HTTP, el explorador no enviará las cookies en el contexto de terceros. El objetivo de esta actualización de Chrome es mejorar la seguridad y evitar los ataques de falsificación de solicitudes entre sitios (CSRF). 
+
+Para admitir este cambio, Application Gateway (todos los tipos de SKU) insertarán otra cookie idéntica llamada **ApplicationGatewayAffinityCORS** además de la cookie **ApplicationGatewayAffinity existente**, que es similar. Sin embargo, esta cookie ahora tendrá dos atributos más **"SameSite=None;Secure"** para que se pueda mantener la sesión incluso en solicitudes entre orígenes.
+
+Tenga en cuenta que el nombre predeterminado de la cookie de afinidad es **ApplicationGatewayAffinity** y los usuarios pueden cambiarlo. Si usa un nombre de cookie de afinidad personalizado, se agregará una cookie adicional con CORS como sufijo; por ejemplo, **CustomCookieNameCORS**.
+
+> [!NOTE]
+> Es obligatorio que, si se establece el atributo **SameSite=None**, la cookie contenga también la marca **Secure** y se envíe a través de **HTTPS**. Por tanto, si la afinidad de la sesión se requiere a través de CORS, debe migrar la carga de trabajo a HTTPS. Consulte la documentación sobre la descarga de SSL y SSL de un extremo a otro para Application Gateway: [Introducción](ssl-overview.md), [Configuración de la descarga de SSL](create-ssl-portal.md), [Configuración de SSL de un extremo a otro](end-to-end-ssl-portal.md).
 
 ### <a name="connection-draining"></a>Purga de la conexión
 
@@ -262,7 +273,7 @@ La purga de conexión ayuda a la correcta eliminación de miembros del grupo de 
 
 Application Gateway admite HTTP y HTTPS para las solicitudes de enrutamiento a los servidores back-end. Si elige HTTP, el tráfico a los servidores back-end no estará cifrado. Si la comunicación sin cifrar no es aceptable, seleccione HTTPS.
 
-Esta configuración combinada con HTTPS en el cliente de escucha admite [SSL de un extremo a otro](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Esto le permite transmitir de forma segura información confidencial cifrada al back-end. Cada servidor back-end del grupo con SSL de un extremo a otro habilitada debe configurarse con un certificado para permitir la comunicación segura.
+Esta configuración combinada con HTTPS en el cliente de escucha admite [SSL de un extremo a otro](ssl-overview.md). Esto le permite transmitir de forma segura información confidencial cifrada al back-end. Cada servidor back-end del grupo con SSL de un extremo a otro habilitada debe configurarse con un certificado para permitir la comunicación segura.
 
 ### <a name="port"></a>Port
 
@@ -301,7 +312,7 @@ Se trata de un acceso directo solo para la interfaz de usuario que selecciona lo
 
 ### <a name="use-custom-probe"></a>Usar sondeo personalizado
 
-Esta opción asocia un [sondeo personalizado](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe) con una configuración de HTTP. Solo puede asociar un sondeo personalizado con una configuración de HTTP. Si no asocia explícitamente un sondeo personalizado, se empleará el [sondeo predeterminado](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe-settings) para supervisar el estado del back-end. Es recomendable crear un sondeo personalizado para un mayor control sobre la supervisión del estado de los servidores back-end.
+Esta opción asocia un [sondeo personalizado](application-gateway-probe-overview.md#custom-health-probe) con una configuración de HTTP. Solo puede asociar un sondeo personalizado con una configuración de HTTP. Si no asocia explícitamente un sondeo personalizado, se empleará el [sondeo predeterminado](application-gateway-probe-overview.md#default-health-probe-settings) para supervisar el estado del back-end. Es recomendable crear un sondeo personalizado para un mayor control sobre la supervisión del estado de los servidores back-end.
 
 > [!NOTE]
 > El sondeo personalizado no supervisa el estado del grupo de servidores back-end a menos que la configuración de HTTP correspondiente esté explícitamente asociada a un cliente de escucha.
@@ -335,7 +346,7 @@ Después de crear un grupo de servidores back-end, debe asociarlo con una o vari
 
 ## <a name="health-probes"></a>Sondeos de estado
 
-Una puerta de enlace de aplicaciones supervisa el estado de todos los recursos en su back-end de forma predeterminada. Pero se recomienda encarecidamente que cree un sondeo personalizado para cada configuración de HTTP de back-end para conseguir un mayor control sobre la supervisión del estado. Para más información sobre cómo configurar un sondeo personalizado, consulte [Configuración de sondeo de estado personalizado](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe-settings).
+Una puerta de enlace de aplicaciones supervisa el estado de todos los recursos en su back-end de forma predeterminada. Pero se recomienda encarecidamente que cree un sondeo personalizado para cada configuración de HTTP de back-end para conseguir un mayor control sobre la supervisión del estado. Para más información sobre cómo configurar un sondeo personalizado, consulte [Configuración de sondeo de estado personalizado](application-gateway-probe-overview.md#custom-health-probe-settings).
 
 > [!NOTE]
 > Después de crear un sondeo de estado personalizado, debe asociarlo a una configuración de HTTP de back-end. Un sondeo personalizado no supervisará el estado del grupo de servidores back-end a menos que la configuración HTTP correspondiente esté explícitamente asociada a un cliente de escucha mediante una regla.

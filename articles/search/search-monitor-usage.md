@@ -1,181 +1,131 @@
 ---
-title: Supervisión del uso de recursos y métricas de consultas
+title: Supervisión de operaciones y actividades
 titleSuffix: Azure Cognitive Search
 description: Habilite el registro y obtenga métricas de actividades de consulta, uso de recursos y otros datos del sistema de un servicio de Azure Cognitive Search.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 7ef868f156ac537cb066f293872f69135c4df25f
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.date: 02/15/2020
+ms.openlocfilehash: 353e00f902a7314e5e5b7c8ee03e8b925a510b26
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77059662"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462333"
 ---
-# <a name="monitor-resource-consumption-and-query-activity-in-azure-cognitive-search"></a>Supervisión del consumo de recursos y la actividad de consulta en Azure Cognitive Search
+# <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Supervisión de operaciones y actividades de Azure Cognitive Search
 
-En la página de información general del servicio Azure Cognitive Search, puede ver los datos del sistema sobre el uso de recursos, las métricas de consulta y la cantidad de cuota disponible para crear más índices, indexadores y orígenes de datos. También puede usar el portal para configurar el análisis de registros u otro recurso usado para la recopilación de datos persistentes. 
+En este artículo se presenta la supervisión en el nivel de servicio (recurso), en el nivel de carga de trabajo (consultas e indexación) y se sugiere un marco para supervisar el acceso de los usuarios.
 
-La configuración de registros es útil para el autodiagnóstico y la conservación del historial de operaciones. Internamente, los registros existen en el back-end durante un breve período de tiempo, suficiente para su investigación y análisis si presenta una incidencia de soporte técnico. Si quiere tener control sobre la información de registro y acceder a ella, debe configurar una de las soluciones que se describen en este artículo.
+En el espectro, usará una combinación de infraestructura integrada y servicios básicos como Azure Monitor, así como las API de servicio que devuelven estadísticas, recuentos y estado. Conocer el rango de funcionalidades puede ayudarle a crear un bucle de comentarios para que pueda solucionar los problemas a medida que surjan.
 
-En este artículo, aprenderá sobre las opciones de supervisión, cómo habilitar el registro y el almacenamiento de registros y cómo ver el contenido del registro.
+## <a name="use-azure-monitor"></a>Uso de Azure Monitor
 
-## <a name="metrics-at-a-glance"></a>Métricas de un vistazo
+Muchos servicios, entre los que se incluye Azure Cognitive Search, aprovechan [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) para las alertas, métricas y registro de datos de diagnóstico. En el caso de Azure Cognitive Search, la infraestructura de supervisión integrada se usa principalmente para la supervisión de nivel de recurso (estado del servicio) y la [supervisión de consultas](search-monitor-queries.md).
 
-Las secciones **Usage** (Uso) y **Monitoring** (Supervisión) integradas en la página de información general informan sobre las métricas de consumo de recursos y ejecución de consultas. Esta información está disponible en cuanto comienza a usar el servicio, sin necesidad de ninguna configuración. Esta página se actualiza cada pocos minutos. Si va a concretar las decisiones sobre [qué nivel usar para las cargas de trabajo de producción](search-sku-tier.md) o si [ajustar el número de réplicas activas y particiones](search-capacity-planning.md), estas métricas pueden ayudarle con esas decisiones al mostrarle la velocidad a la que se consumen los recursos y el modo en que la configuración actual administra la carga existente.
+La siguiente captura de pantalla le ayuda a buscar características de Azure Monitor en el portal.
 
-La pestaña **Usage** (Uso) muestra la disponibilidad de recursos relativa a los [límites](search-limits-quotas-capacity.md) actuales. La siguiente ilustración es del servicio gratuito, que está limitado a 3 objetos de cada tipo y 50 MB de almacenamiento. Un servicio básico o estándar tiene límites más altos y, si aumentan los recuentos de particiones, el almacenamiento máximo aumenta proporcionalmente.
++ La pestaña**Supervisión**, que se encuentra en la página de información general principal, muestra las métricas clave de un vistazo.
++ **Registro de actividad**, inmediatamente debajo de Información general, informa acerca de acciones de nivel de recurso: estado del servicio y notificaciones de solicitud de clave de API.
++ En **Supervisión**, que está más abajo en la lista, proporciona alertas, métricas y registros de diagnóstico configurables. Créelos cuando los necesite. Una vez que los datos se recopilan y almacenan, puede consultar o visualizar los detalles de la información.
 
-![Estado de uso en relación con límites efectivos](./media/search-monitor-usage/usage-tab.png
- "Estado de uso en relación con límites efectivos")
+![Integración de Azure Monitor en un servicio de búsqueda](./media/search-monitor-usage/azure-monitor-search.png
+ "Integración de Azure Monitor en un servicio de búsqueda")
 
-## <a name="queries-per-second-qps-and-other-metrics"></a>Consultas por segundo (QPS) y otras métricas
+### <a name="precision-of-reported-numbers"></a>Precisión de los números notificados
 
-La pestaña **Monitoring** (Supervisión) muestra las medias acumuladas de métricas como *Search queries per second* (QPS) (Buscar consultas por segundo), agregadas por minuto. 
-*Search latency* (Latencia de búsqueda): la cantidad de tiempo que ha necesitado el servicio de búsqueda para procesar las consultas de búsqueda, agregadas por minuto. *Throttled search queries percentage* (Porcentaje de consultas de búsqueda limitadas) (no se muestra): porcentaje de consultas de búsqueda que se han limitado, también agregadas por minuto.
+Las páginas del portal se actualizan cada pocos minutos. Como tales, los números que se notifican en el portal son aproximados y están pensados para proporcionarle una sensación general de la capacidad del sistema para atender las solicitudes. Las métricas actuales, como las consultas por segundo (QPS), pueden ser mayores o menores que el número que se muestra en la página.
 
-Estos números son aproximados y están pensados para proporcionarle una idea general de la capacidad del sistema para atender las solicitudes. El QPS real puede ser mayor o menor que el número notificado en el portal.
+## <a name="activity-logs-and-service-health"></a>Registros de actividad y estado del servicio
 
-![Actividad de consultas por segundo](./media/search-monitor-usage/monitoring-tab.png "Actividad de consultas por segundo")
+El [**registro de actividad**](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) recopila información de Azure Resource Manager e informa sobre los cambios en el estado del servicio. Puede supervisar si en el registro de actividad hay condiciones críticas, de error y de advertencia relacionadas con el estado del servicio.
 
-## <a name="activity-logs"></a>Registros de actividad
-
-El **registro de actividad** recopila información de Azure Resource Manager. Algunos ejemplos de la información encontrada en el registro de actividad incluyen la creación o eliminación de un servicio, la actualización de un grupo de recursos, la comprobación de disponibilidad de nombres o la obtención de una clave de acceso del servicio para administrar una solicitud. 
+En el caso de las tareas en el servicio (como las consultas, la indexación o la creación de objetos), verá notificaciones informativas genéricas como *Get Admin Key* y *Get Query keys* para cada solicitud, pero no la acción específica en sí. Para obtener información de este nivel de detalle, debe configurar el registro de diagnóstico.
 
 Puede acceder al **registro de actividad** desde el panel de navegación izquierdo, desde las notificaciones de la barra de comandos de la ventana superior o desde la página **Diagnose and solve problems** (Diagnosticar y resolver problemas).
 
-Para las tareas en servicio, como crear un índice o eliminar un origen de datos, verá notificaciones genéricas, como "Obtener la clave de administrador" para cada solicitud, pero no la propia acción específica. En este nivel de información, debe habilitar una solución de supervisión complementaria.
+## <a name="monitor-storage"></a>Supervisión de almacenamiento
 
-## <a name="add-on-monitoring-solutions"></a>Soluciones de supervisión complementarias
+Las páginas con pestañas integradas en la página de información general generan informes del uso de los recursos. Esta información está disponible en cuanto comienza a usar el servicio, no es preciso realizar ningún tipo de configuración, y la página se actualiza cada pocos minutos. 
 
-Azure Cognitive Search no almacena ningún dato aparte de los objetos que administra, lo que significa que los datos de registro se deben almacenar externamente. Puede configurar cualquiera de los recursos siguientes si desea conservar los datos de registro. 
+Si va a concretar las decisiones sobre [qué nivel usar para las cargas de trabajo de producción](search-sku-tier.md) o si [ajustar el número de réplicas activas y particiones](search-capacity-planning.md), estas métricas pueden ayudarle con esas decisiones al mostrarle la velocidad a la que se consumen los recursos y el modo en que la configuración actual administra la carga existente.
 
-En la tabla siguiente se comparan las opciones para almacenar registros, agregar supervisión exhaustiva de las operaciones de servicio y consultar las cargas de trabajo mediante Application Insights.
+Las alertas relacionadas con el almacenamiento no están disponibles actualmente; el consumo de almacenamiento no se agrega ni se registra en la tabla **AzureMetrics** de Azure Monitor. Necesitaría [compilar una solución personalizada](https://docs.microsoft.com/azure/azure-monitor/insights/solutions-creating) que emita notificaciones relacionadas con los recursos, en las que el código comprueba el tamaño del almacenamiento y controla la respuesta. Para más información sobre las métricas de almacenamiento, consulte [Obtención de estadísticas del servicio](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics#response).
 
-| Resource | Se usa para |
-|----------|----------|
-| [Registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Eventos registrados y métricas de consulta, según los esquemas siguientes. Los eventos se registran en un área de trabajo de Log Analytics. Puede ejecutar consultas en un área de trabajo para devolver información detallada del registro. Para más información, consulte [Introducción a los registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Eventos registrados y métricas de consulta, según los esquemas siguientes. Los eventos se registran en un contenedor de blobs y se almacenan en archivos JSON. Use un editor de JSON para ver el contenido del archivo.|
-| [Event Hubs](https://docs.microsoft.com/azure/event-hubs/) | Eventos registrados y métricas de consulta, según los esquemas documentados en este artículo. Elija esta opción como un servicio alternativo de recopilación de datos para registros muy grandes. |
+Para la supervisión visual en el portal, la pestaña **Uso** muestra la disponibilidad de los recursos, en relación con los [límites](search-limits-quotas-capacity.md) actuales que impone el nivel de servicio. 
 
-Tanto los registros de Azure Monitor como Blob Storage están disponibles como un servicio gratuito, por lo que puede probarlos sin ningún costo el tiempo que dure su suscripción a Azure. La suscripción a Application Insights y su uso son gratuitos siempre y cuando el tamaño de los datos de aplicación esté por debajo de determinados límites (consulte la [página de precios](https://azure.microsoft.com/pricing/details/monitor/) para más información).
+La siguiente ilustración es del servicio gratuito, que está limitado a 3 objetos de cada tipo y 50 MB de almacenamiento. Un servicio básico o estándar tiene límites más altos y, si aumentan los recuentos de particiones, el almacenamiento máximo aumenta proporcionalmente.
 
-La siguiente sección le guía por los pasos necesarios para habilitar y usar Azure Blob Storage para recopilar datos de registro creados por las operaciones de Azure Cognitive Search, y acceder a ellos.
+![Estado de uso en relación con los límites del nivel](./media/search-monitor-usage/usage-tab.png
+ "Estado de uso en relación con los límites del nivel")
 
-## <a name="enable-logging"></a>Habilitación del registro
+## <a name="monitor-workloads"></a>Supervisión de cargas de trabajo
 
-De forma predeterminada, el registro para indexación y consulta de cargas de trabajo está desactivado y la infraestructura de registro y el almacenamiento externo a largo plazo dependen de soluciones complementarias. Por sí solos, los únicos datos persistentes en Azure Cognitive Search son los objetos que crea y administra, por lo que los registros se deben almacenar en otra parte.
+Los eventos registrados incluyen los relacionados con la indexación y las consultas. La tabla **AzureDiagnostics** de Log Analytics recopila datos operativos relacionados con consultas e indexación.
 
-En esta sección, aprenderá a usar Blob Storage para almacenar datos de métricas y eventos registrados.
+La mayoría de los datos registrados son para operaciones de solo lectura. En el caso de otras operaciones de creación-actualización-eliminación no capturadas en el registro, puede consultar en el servicio de búsqueda información del sistema.
 
-1. Si aún no tiene una, [cree una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). Puede colocarla en el mismo grupo de recursos que Azure Cognitive Search para simplificar la limpieza más adelante si quiere eliminar todos los recursos usados en este ejercicio.
+| OperationName | Descripción |
+|---------------|-------------|
+| ServiceStats | Esta operación es una llamada de una rutina a [Get Service Statistics](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics), que se realiza de forma directa o implícita para rellenar una página de información general del portal cuando se carga o se actualiza. |
+| Query.Search |  Consulte [Supervisión de consultas](search-monitor-queries.md) para ver información acerca de las consultas registradas.|
+| Indexing.Index  | Esta operación es una llamada a [Agregación, actualización o eliminación de documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). |
+| indexes.Prototype | Este es un índice que crea el Asistente para importar datos. |
+| Indexers.Create | Cree un índice de forma explícita o implícita mediante el Asistente para importar datos. |
+| Indexers.Get | Devuelve el nombre de un indexador siempre que este se ejecuta. |
+| Indexers.Status | Devuelve el estado de un indexador siempre que este se ejecuta. |
+| DataSources.Get | Devuelve el nombre del origen de datos siempre que se ejecuta un indexador.|
+| Indexes.Get | Devuelve el nombre de un índice siempre que se ejecuta un indexador. |
 
-   La cuenta de almacenamiento debe existir en la misma región que Azure Cognitive Search.
+### <a name="kusto-queries-about-workloads"></a>Consultas de Kusto acerca de las cargas de trabajo
 
-2. Abra la página de información general del servicio de búsqueda. En el panel de navegación izquierdo, desplácese a **Supervisión** y haga clic en **Configuración de diagnóstico**.
+Si ha habilitado el registro, puede consultar en **AzureDiagnostics** una lista de operaciones que se han ejecutado en el servicio y cuándo se han ejecutado. También puede poner en correlación una actividad para investigar los cambios en el rendimiento.
 
-   ![Configuración de diagnóstico](./media/search-monitor-usage/diagnostic-settings.png "Configuración de diagnóstico")
+#### <a name="example-list-operations"></a>Ejemplo: Mostrar operaciones 
 
-3. Seleccione **Agregar configuración de diagnóstico**.
-
-4. Elija los datos que quiere exportar: registros, métricas o ambos. Puede copiarlos en una cuenta de almacenamiento, enviarlos a un centro de eventos o exportarlo a los registros de Azure Monitor.
-
-   Para el archivado en Blob Storage, solo debe existir la cuenta de almacenamiento. Los contenedores y blobs se crearán a medida que sean necesarios cuando se exporten los datos de registro.
-
-   ![Configurar archivo de Blob Storage](./media/search-monitor-usage/configure-blob-storage-archive.png "Configurar archivo de Blob Storage")
-
-5. Guarde el perfil.
-
-6. Para probar el registro, cree o elimine objetos (se crean eventos de registro) y envíe consultas (se generan métricas). 
-
-El registro se habilita después de guardar el perfil. Los contenedores solo se crean cuando hay una actividad para registrar o medir. Cuando los datos se copian en una cuenta de almacenamiento, adoptan el formato JSON y se colocan en dos contenedores:
-
-* insights-logs-operationlogs: para los registros del tráfico de búsqueda
-* insights-metrics-pt1m: para las métricas
-
-**Transcurre una hora antes de que los contenedores aparezcan en Blob Storage. Hay un blob, por hora y por contenedor.**
-
-Puede usar [Visual Studio Code](#download-and-open-in-visual-studio-code) u otro editor de JSON para ver los archivos. 
-
-### <a name="example-path"></a>Ruta de acceso de ejemplo
+Devuelve una lista de operaciones y un recuento de cada una de ellas.
 
 ```
-resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2018/m=12/d=25/h=01/m=00/name=PT1H.json
+AzureDiagnostics
+| summarize count() by OperationName
 ```
 
-## <a name="log-schema"></a>Esquema de registro
-Los blobs que contienen los registros de tráfico del servicio de búsqueda se estructuran como se describe en esta sección. Cada blob tiene un objeto raíz llamado **registros** que contiene una matriz de objetos de registro. Cada blob contiene registros de todas las operaciones que tuvieron lugar durante la misma hora.
+#### <a name="example-correlate-operations"></a>Ejemplo: Poner en correlación operaciones
 
-| Nombre | Tipo | Ejemplo | Notas |
-| --- | --- | --- | --- |
-| time |datetime |"2018-12-07T00:00:43.6872559Z" |Marca de tiempo de la operación |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Su ResourceId |
-| operationName |string |"Query.Search" |El nombre de la operación |
-| operationVersion |string |"2019-05-06" |La versión de la API usada |
-| category |string |"OperationLogs" |constant |
-| resultType |string |"Success" |Valores posibles: Success o Failure |
-| resultSignature |int |200 |Código de resultado HTTP |
-| durationMS |int |50 |Duración de la operación en milisegundos |
-| properties |object |consulte la tabla siguiente |Objeto que contiene datos específicos de la operación |
+Pone en correlación una solicitud de consulta con operaciones de indexación y representar los puntos de datos en un gráfico de tiempo.
 
-**Esquema de propiedades**
+```
+AzureDiagnostics
+| summarize OperationName, Count=count()
+| where OperationName in ('Query.Search', 'Indexing.Index')
+| summarize Count=count(), AvgLatency=avg(DurationMs) by bin(TimeGenerated, 1h), OperationName
+| render timechart
+```
 
-| Nombre | Tipo | Ejemplo | Notas |
-| --- | --- | --- | --- |
-| Descripción |string |"GET /indexes('content')/docs" |Punto de conexión de la operación |
-| Consultar |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Los parámetros de consulta |
-| Documentos |int |42 |Número de documentos procesados |
-| IndexName |string |"testindex" |Nombre del índice asociado a la operación |
+### <a name="use-search-apis"></a>Uso de API de búsqueda
 
-## <a name="metrics-schema"></a>Esquema de métricas
-
-Se capturan las métricas de solicitudes de consulta.
-
-| Nombre | Tipo | Ejemplo | Notas |
-| --- | --- | --- | --- |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |el identificador de recurso |
-| metricName |string |"Latency" |el nombre de la métrica |
-| time |datetime |"2018-12-07T00:00:43.6872559Z" |la marca de tiempo de la operación |
-| average |int |64 |El valor de media de las muestras sin procesar en el intervalo de tiempo de la métrica |
-| minimum |int |37 |El valor mínimo de las muestras sin procesar en el intervalo de tiempo de la métrica |
-| maximum |int |78 |El valor máximo de las muestras sin procesar en el intervalo de tiempo de la métrica |
-| total |int |258 |El valor total de las muestras sin procesar en el intervalo de tiempo de la métrica |
-| count |int |4 |El número de muestras sin procesar usadas para generar la métrica |
-| timegrain |string |"PT1M" |El intervalo de agregación de la métrica en ISO 8601 |
-
-Todas las métricas se notifican en intervalos de un minuto. Cada métrica expone los valores mínimo, máximo y promedio por minuto.
-
-En el caso de la métrica SearchQueriesPerSecond, el mínimo es el valor más bajo de las consultas de búsqueda por segundo que se registró en ese minuto. Lo mismo sucede con el valor máximo. El promedio es el agregado en todo el minuto.
-Piense en este escenario durante un minuto: un segundo de carga elevada que es el máximo en SearchQueriesPerSecond, seguido de 58 segundos de carga media y, por último, 1 segundo con solo una consulta (que es el mínimo).
-
-En el caso de ThrottledSearchQueriesPercentage, el mínimo, máximo, promedio y total tendrán el mismo valor: el porcentaje de consultas de búsqueda con limitaciones, del número total de consultas de búsqueda durante un minuto.
-
-## <a name="download-and-open-in-visual-studio-code"></a>Descarga y apertura en Visual Studio Code
-
-Puede usar cualquier editor de JSON para ver el archivo de registro. Si no tiene uno, se recomienda [Visual Studio Code](https://code.visualstudio.com/download).
-
-1. En Azure Portal, abra su cuenta de almacenamiento. 
-
-2. En el panel de navegación izquierdo, haga clic en **Blobs**. Verá **insights-logs-operationlogs** e **insights-metrics-pt1m**. Estos contenedores se crean mediante Azure Cognitive Search cuando se exportan los datos de registro a Blob Storage.
-
-3. Haga clic en la jerarquía de carpetas hasta llegar al archivo .json.  Use el menú contextual para descargar el archivo.
-
-Una vez descargado el archivo, ábralo en un editor de JSON para ver el contenido.
-
-## <a name="use-system-apis"></a>Uso de las API del sistema
 La API REST de Azure Cognitive Search y .NET SDK proporcionan acceso mediante programación a información de métricas de servicio, índice e indexadores y recuentos de documentos.
 
-* [Get Services Statistics](/rest/api/searchservice/get-service-statistics) (Obtención de estadísticas de servicios)
-* [Obtención de estadísticas de índice](/rest/api/searchservice/get-index-statistics)
-* [Documentos de recuento](/rest/api/searchservice/count-documents)
-* [Obtención del estado del indizador](/rest/api/searchservice/get-indexer-status)
++ [GET Service Statistics](/rest/api/searchservice/get-service-statistics)
++ [GET Index Statistics](/rest/api/searchservice/get-index-statistics)
++ [GET Document Counts](/rest/api/searchservice/count-documents)
++ [GET Indexer Status](/rest/api/searchservice/get-indexer-status)
 
-Para habilitar el uso de PowerShell o la CLI de Azure, consulte la documentación [aquí](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
+## <a name="monitor-user-access"></a>Supervisión del acceso de los usuarios
+
+Dado que los índices de búsqueda son un componente de una aplicación cliente mayor, no hay ninguna metodología integrada para controlar o supervisar el acceso a un índice por usuario. Se asume que las solicitudes provienen de una aplicación cliente, tanto para las solicitudes de consulta como del administrador. Las operaciones de escritura y lectura del administrador incluyen la creación, actualización y eliminación de objetos en todo el servicio. Las operaciones de solo lectura son consultas a la colección de documentos, cuyo ámbito es un solo índice. 
+
+De por sí, lo que verá en los registros de actividad son referencias a llamadas mediante claves de administrador o claves de consulta. La clave apropiada se incluye en las solicitudes que parten del código de cliente. El servicio no está equipado para administrar los tokens de identidad o la suplantación.
+
+Cuando existen requisitos empresariales para la autorización por usuario, se recomienda la integración con Azure Active Directory. Puede usar $filter y las identidades del usuario para [recortar los resultados de la búsqueda](search-security-trimming-for-azure-search-with-aad.md) de documentos que un usuario no debe ver. 
+
+No hay ninguna forma de registrar esta información por separado de la cadena de consulta que incluye el parámetro $filter. Para obtener información acerca de la generación de informes de cadenas de consulta, consulte [Administración de consultas](search-monitor-queries.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte [Administración de servicios de Azure Search en Microsoft Azure](search-manage.md) para más información sobre la administración de servicios, o [Rendimiento y optimización](search-performance-optimization.md) para que le sirva de guía de optimización.
+La fluidez con Azure Monitor es esencial para supervisar todos los servicios de Azure, lo que incluye recursos como Azure Cognitive Search. Si no conoce Azure Monitor, dedique un tiempo a leer los artículos relacionados con los recursos. Además de los tutoriales, el siguiente artículo es un buen punto de partida.
+
+> [!div class="nextstepaction"]
+> [Supervisión de recursos de Azure con Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource)

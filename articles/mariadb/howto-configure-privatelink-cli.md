@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 2d39afcea056c76b6c9672e1963d7529fbfce549
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 19613ab917d303863a8d90133bcce2e1353289c1
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280941"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426214"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-preview-using-cli"></a>Creación y administración de Private Link para Azure Database for MariaDB (versión preliminar) mediante la CLI
 
@@ -20,7 +20,7 @@ Un punto de conexión privado es el bloque de creación fundamental para el vín
 > [!NOTE]
 > Esta característica está disponible en todas las regiones de Azure donde Azure Database for MariaDB admita los planes de tarifa de uso general y optimizado para memoria.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para seguir esta guía, necesitará:
 
@@ -131,7 +131,7 @@ Conéctese a la máquina virtual *myVm* desde Internet de la siguiente manera:
 
 1. Seleccione **Descargar archivo RDP**. Azure crea un archivo de Protocolo de Escritorio remoto ( *.rdp*) y lo descarga en su equipo.
 
-1. Abra el archivo downloaded.rdp*.
+1. Abra el archivo *downloaded.rdp*.
 
     1. Cuando se le pida, seleccione **Conectar**.
 
@@ -159,31 +159,32 @@ Conéctese a la máquina virtual *myVm* desde Internet de la siguiente manera:
     Non-authoritative answer:
     Name:    mydemoserver.privatelink.mariadb.database.azure.com
     Address:  10.1.3.4
+    ```
 
-3. Test the private link connection for the MariaDB server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
+3. Pruebe la conexión de Private Link del servidor MariaDB con cualquier cliente disponible. En el ejemplo siguiente se ha usado [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) para realizar la operación.
 
-4. In **New connection**, enter or select this information:
+4. En **Nueva conexión**, escriba o seleccione esta información:
 
-    | Setting | Value |
+    | Configuración | Value |
     | ------- | ----- |
-    | Connection Name| Select the connection name of your choice.|
-    | Hostname | Select *mydemoserver.privatelink.mariadb.database.azure.com* |
-    | Username | Enter username as *username@servername* which is provided during the MariaDB server creation. |
-    | Password | Enter a password provided during the MariaDB server creation. |
+    | Nombre de la conexión| Seleccione el nombre de la conexión que prefiera.|
+    | Hostname | Seleccione *mydemoserver.privatelink.mariadb.database.azure.com*. |
+    | Nombre de usuario | Escriba el nombre de usuario como *username@servername* , que se proporciona durante la creación del servidor de MariaDB. |
+    | Contraseña | Escriba una contraseña proporcionada durante la creación del servidor MariaDB. |
     ||
 
-5. Select **Test Connection** or **OK**.
+5. Seleccione **Probar conexión** o **Aceptar**.
 
-6. (Optionally) Browse databases from left menu and Create or query information from the MariaDB database
+6. (Opcional) Examine las bases de datos del menú izquierdo y cree o consulte información de la base de datos MariaDB
 
-8. Close the remote desktop connection to myVm.
+8. Cierre la conexión de Escritorio remoto a myVm.
 
-## Clean up resources 
-When no longer needed, you can use az group delete to remove the resource group and all the resources it has: 
+## <a name="clean-up-resources"></a>Limpieza de recursos 
+Cuando ya no se necesite, puede utilizar az group delete para quitar el grupo de recursos y todos los recursos que contiene: 
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes 
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Más información sobre [qué es un punto de conexión privado de Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+Más información sobre [Qué es un punto de conexión privado de Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)

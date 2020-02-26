@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7791e7b50a963d2f92a2cbc460e36f9e83bb1b52
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: f1b7e4716e731e6b73e3ac60b64baa71043906fc
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025704"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483761"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -36,7 +36,7 @@ SSO de conexión directa se puede combinar con los métodos de inicio de sesión
 ![Inicio de sesión único de conexión directa](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
->Un inicio de sesión único de conexión directa necesita que el dispositivo del usuario esté **unido a un dominio**, pero no que esté [unido a Azure AD](../active-directory-azureadjoin-overview.md).
+>El inicio de sesión único de conexión directa necesita que el dispositivo del usuario esté **unido al dominio** únicamente, pero no se usa en dispositivos [unidos a Azure AD](../devices/concept-azure-ad-join.md) o [unidos a Azure AD híbrido](../devices/concept-azure-ad-join-hybrid.md). El inicio de sesión único en unido a Azure AD y unido a Azure AD híbrido funciona según el [token de actualización principal](../devices/concept-primary-refresh-token.md).
 
 ## <a name="key-benefits"></a>Ventajas principales
 
@@ -78,7 +78,7 @@ SSO de conexión directa se puede combinar con los métodos de inicio de sesión
 \*\*\*Requiere [configuración adicional](how-to-connect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
->En el caso de Windows 10, la recomendación es usar [Azure AD Join](../active-directory-azureadjoin-overview.md) para que la experiencia de inicio de sesión único con Azure AD sea óptima.
+>En el caso de Windows 10, la recomendación es usar [Azure AD Join](../devices/concept-azure-ad-join.md) para que la experiencia de inicio de sesión único con Azure AD sea óptima.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

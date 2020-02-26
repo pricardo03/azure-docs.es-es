@@ -7,16 +7,16 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 3b0bb62de4a96a45d607e05b32a87feec692e4d4
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: e76ae2e072bb780ac9788902e9157db871e4f09d
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75722205"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373373"
 ---
 # <a name="configure-managed-identities-for-your-azure-data-explorer-cluster"></a>Configuración de identidades administradas para el clúster de Azure Data Explorer
 
-Una [identidad administrada de Azure Active Directory](/azure/active-directory/managed-identities-azure-resources/overview) permite al clúster acceder fácilmente a otros recursos protegidos por AAD, como Azure Key Vault. La plataforma Azure administra la identidad y no es necesario que lleve a cabo el aprovisionamiento ni la rotación de los secretos. En este artículo se muestra cómo crear una identidad administrada para los clústeres de Azure Data Explorer. 
+Una [identidad administrada de Azure Active Directory](/azure/active-directory/managed-identities-azure-resources/overview) permite al clúster acceder fácilmente a otros recursos protegidos por AAD, como Azure Key Vault. La plataforma Azure administra la identidad y no es necesario que lleve a cabo el aprovisionamiento ni la rotación de los secretos. En este artículo se muestra cómo crear una identidad administrada para los clústeres de Azure Data Explorer. La configuración de identidad administrada solo se admite actualmente para [permitir claves administradas por el cliente en el clúster](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault).
 
 > [!Note]
 > Las identidades administradas de Azure Data Explorer no se comportarán según lo previsto si la aplicación se migra entre suscripciones o inquilinos. La aplicación necesitará obtener una nueva identidad. Para ello, puede deshabilitar y volver a habilitar la característica mediante las indicaciones de [Quitar una identidad](#remove-an-identity). Las directivas de acceso y los recursos de nivel inferior también deberán actualizarse para utilizar la nueva identidad.

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: d270d38bce45c45f9323a971ad69dc2b931a9169
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dd7579c97e2166e2822ee5674bbcd5a8ad64d2c7
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369854"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201499"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Descripción y ajuste de las unidades de streaming
 
@@ -59,6 +59,8 @@ Los elementos de consulta temporal (orientados al tiempo) son el conjunto básic
 Tenga en cuenta que un trabajo con lógica de consulta compleja podría tener un alto porcentaje de utilización de unidades de streaming, incluso cuando no está recibiendo continuamente eventos de entrada. Esto puede suceder después de un repentino aumento de los eventos de entrada y salida. El trabajo puede continuar manteniendo el estado en memoria si la consulta es compleja.
 
 El porcentaje de utilización de unidades de streaming podría caer repentinamente a 0 durante un breve período antes de volver a los niveles esperados. Esto sucede debido a errores transitorios o a actualizaciones del sistema que se hayan iniciado. Aumentar el número de unidades de streaming para un trabajo podría no reducir el porcentaje de utilización de SU si la consulta no es [totalmente paralela](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization).
+
+Al comparar el uso durante un período de tiempo, utilice las [métricas de velocidad de eventos](stream-analytics-monitoring.md). Las métricas InputEvents y OutputEvents muestran el número de eventos que se leyeron y procesaron. También hay métricas que indican el número de eventos de error, como los errores de deserialización. Cuando aumenta el número de eventos por unidad de tiempo, el porcentaje de unidades de almacenamiento aumenta en la mayoría de los casos.
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>Lógica de consulta con estado en elementos temporales
 Una funcionalidad única de un trabajo de Azure Stream Analytics es realizar procesamiento con estado, como funciones de análisis temporal, combinaciones temporales y agregados en ventanas. Cada uno de estos operadores conserva información de estado. El tamaño máximo de la ventana para estos elementos de consulta es siete días. 

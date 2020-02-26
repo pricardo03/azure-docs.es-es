@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 02/13/2020
 ms.author: jingwang
-ms.openlocfilehash: 9e962a0e76cdc0d51a87df3c33927c34db991fc7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6d867ccd8704d4aba4627e7b81638394b7e1e8d3
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927409"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77423786"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Formato Avro en Azure Data Factory
 
@@ -26,11 +26,11 @@ El formato Avro se admite para los conectores siguientes: [Amazon S3](connector-
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). En esta sección se proporciona una lista de las propiedades que admite el conjunto de datos de Avro.
 
-| Propiedad         | DESCRIPCIÓN                                                  | Obligatorio |
+| Propiedad         | Descripción                                                  | Obligatorio |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| Tipo             | La propiedad type del conjunto de datos debe establecerse en **Avro**. | Sí      |
-| location         | Configuración de ubicación de los archivos. Cada conector basado en archivos tiene su propio tipo de ubicación y propiedades compatibles en `location`. **Vea los detalles en el artículo de conectores -> sección de propiedades del conjunto de datos**. | Sí      |
-| avroCompressionCodec | El códec de compresión que se usará al escribir en archivos Avro. Al leer desde archivos Avro, Data Factory determina automáticamente el códec de compresión según los metadatos del archivo.<br>Los tipos admitidos son "**none**" (valor predeterminado), "**deflate**", "**snappy**". | Sin       |
+| type             | La propiedad type del conjunto de datos debe establecerse en **Avro**. | Sí      |
+| ubicación         | Configuración de ubicación de los archivos. Cada conector basado en archivos tiene su propio tipo de ubicación y propiedades compatibles en `location`. **Vea los detalles en el artículo de conectores -> sección de propiedades del conjunto de datos**. | Sí      |
+| avroCompressionCodec | El códec de compresión que se usará al escribir en archivos Avro. Al leer desde archivos Avro, Data Factory determina automáticamente el códec de compresión según los metadatos del archivo.<br>Los tipos admitidos son "**none**" (valor predeterminado), "**deflate**", "**snappy**". Tenga en cuenta que la actividad de copia no es compatible actualmente con Snappy cuando hay archivos Avro de lectura y escritura. | Sin       |
 
 > [!NOTE]
 > No se admiten espacios en blanco en el nombre de columna de los archivos Avro.
@@ -67,21 +67,21 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 En la sección ***\*source\**** de la actividad de copia se admiten las siguientes propiedades.
 
-| Propiedad      | DESCRIPCIÓN                                                  | Obligatorio |
+| Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
-| Tipo          | La propiedad type del origen de la actividad de copia debe establecerse en **AvroSource**. | Sí      |
+| type          | La propiedad type del origen de la actividad de copia debe establecerse en **AvroSource**. | Sí      |
 | storeSettings | Un grupo de propiedades sobre cómo leer datos de un almacén de datos. Cada conector basado en archivos tiene su propia configuración de lectura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | Sin       |
 
 ### <a name="avro-as-sink"></a>Avro como receptor
 
 En la sección ***\*sink\**** de la actividad de copia se admiten las siguientes propiedades.
 
-| Propiedad      | DESCRIPCIÓN                                                  | Obligatorio |
+| Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
-| Tipo          | La propiedad type del origen de la actividad de copia debe establecerse en **AvroSink**. | Sí      |
+| type          | La propiedad type del origen de la actividad de copia debe establecerse en **AvroSink**. | Sí      |
 | storeSettings | Un grupo de propiedades sobre cómo escribir datos en un almacén de datos. Cada conector basado en archivos tiene su propia configuración de escritura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | Sin       |
 
-## <a name="data-type-support"></a>Compatibilidad con los tipos de datos
+## <a name="data-type-support"></a>Compatibilidad con tipos de datos
 
 No se admiten [tipos de datos complejos](https://avro.apache.org/docs/current/spec.html#schema_complex) de Avro (registros, enumeraciones, matrices, asignaciones, uniones y fijos).
 

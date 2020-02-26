@@ -1,19 +1,19 @@
 ---
 title: Estilos de mapa admitidos | Microsoft Azure Maps
-description: En este artículo, obtendrá información sobre los distintos estilos de representación de mapas compatibles con Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+description: En este artículo aprenderá sobre los distintos estilos de representación de mapas compatibles con Microsoft Azure Maps.
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 92e48486777d82589a56074790dd709c5d525859
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 9cdfd0d029057e36e010203b7c35a5aafee4b574
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910634"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208291"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Estilos de mapa admitidos en Azure Maps
 Azure Maps es compatible con varios estilos de mapa integrados, tal como se describe a continuación.
@@ -31,7 +31,7 @@ Un mapa de **carreteras** es un mapa estándar que muestra las carreteras y cara
 
 ## <a name="blank-and-blank_accessible"></a>blank y blank_accessible
 
-Los estilos de mapa **blank** y **blank_accessible** proporcionan un lienzo en blanco en el que visualizar los datos. El estilo**estilo** seguirá proporcionando actualizaciones del lector de pantalla con detalles de la ubicación en que se encuentra el mapa, aunque no se muestre el mapa base.
+Los estilos de mapa **blank** y **blank_accessible** proporcionan un lienzo en blanco en el que visualizar los datos. El estilo **blank_accessible** seguirá proporcionando actualizaciones del lector de pantalla con detalles de la ubicación del mapa, aunque no se muestre el mapa base.
 
 > [!Note]
 > En el SDK web puede cambiar el color de fondo del mapa estableciendo el estilo CSS `background-color` del elemento DIV del mapa.

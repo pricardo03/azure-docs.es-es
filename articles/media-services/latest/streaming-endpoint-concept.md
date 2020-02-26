@@ -10,14 +10,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/11/2019
+ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: c8901dccb67e91c608e999f823cf7d2e757da08b
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: c1e9be605a6f01695f2472ae76a9e5a786388aa0
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186011"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77206113"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Puntos de conexión de streaming (origen) en Azure Media Services
 
@@ -39,7 +39,7 @@ Al usar el punto de conexión de streaming predeterminado, se omite `servicename
 ### <a name="limitations"></a>Limitaciones
 
 * El nombre del punto de conexión de streaming tiene un valor máximo de 24 caracteres.
-* El nombre debe seguir este patrón [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference): `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
+* El nombre debe seguir este patrón [de expresión regular](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference): `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
 
 ## <a name="types"></a>Tipos
 
@@ -47,7 +47,7 @@ Existen dos tipos de **puntos de conexión de streaming**: **Estándar** (versi�
 
 En la tabla se describen los tipos:
 
-|type|Unidades de escalado|DESCRIPCIÓN|
+|Tipo|Unidades de escalado|Descripción|
 |--------|--------|--------|  
 |**Estándar**|0|El punto de conexión de streaming predeterminado es de tipo **Estándar** y se puede cambiar al tipo Premium mediante el ajuste de `scaleUnits`.|
 |**Premium**|>0|Los puntos de conexión de streaming **Premium** son adecuados para cargas de trabajo avanzadas y proporcionan una capacidad de ancho de banda dedicada y escalable. Para pasar a un tipo **Premium** se ajusta la propiedad `scaleUnits` (unidades de streaming). La propiedad `scaleUnits` proporciona capacidad de salida dedicada que puede adquirirse en incrementos de 200 Mbps. Cuando se usa el tipo **Premium**, cada unidad habilitada proporciona capacidad de ancho de banda adicional a la aplicación. |
@@ -73,7 +73,7 @@ Uso recomendado |Se recomienda para la gran mayoría de escenarios de streaming.
 
 <sup>1</sup> Solo se usa directamente en el punto de conexión de streaming cuando la red CDN no está habilitada en el punto de conexión.<br/>
 
-## <a name="properties"></a>properties (Propiedades)
+## <a name="properties"></a>Propiedades
 
 En esta sección se proporcionan detalles sobre algunas de las propiedades del punto de conexión de streaming. Para obtener ejemplos de cómo crear un nuevo punto de conexión de streaming y las descripciones de todas las propiedades, vea [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create) (Punto de conexión de streaming).
 
@@ -147,16 +147,21 @@ También debe tener en cuenta cómo funciona el streaming adaptable. Cada fragme
 
 ### <a name="enable-azure-cdn-integration"></a>Habilitación de la integración de Azure CDN
 
+> [!IMPORTANT]
+> No puede habilitar CDN con cuentas de prueba o cuentas educativas de Azure.
+>
+> La integración de la red CDN está habilitada en todos los centros de datos de Azure excepto para las regiones Gobierno Federal y China.
+
 Después de aprovisionar un punto de conexión de streaming con la red CDN habilitada, hay un tiempo de espera definido en Media Services antes de realizar la actualización de DNS para asignar el punto de conexión de streaming al punto de conexión de la red CDN.
 
 Si más adelante desea volver a habilitar o deshabilitar la red CDN, punto de conexión de streaming debe estar en estado **stopped** (detenido). Es posible que transcurran hasta dos horas hasta que la integración de Azure CDN se habilite y los cambios se activen en todos los POP de la red CDN. Sin embargo, puede iniciar el punto de conexión de streaming y transmitir sin interrupciones desde ahí y, una vez que la integración esté completa, la transmisión se efectúa desde la red CDN. Durante el período de aprovisionamiento, el punto de conexión de streaming estará en estado **iniciando** y es posible que note una reducción en el rendimiento.
 
 Cuando se crea el punto de conexión de streaming Estándar, se configura de forma predeterminada con Standard Verizon. Puede configurar los proveedores Premium Verizon o Standard Akamai mediante las API REST.
 
-La integración de la red CDN está habilitada en todos los centros de datos de Azure excepto las regiones de China y el Gobierno Federal.
+La integración de Azure Media Services con Azure CDN se implementa en **Azure CDN de Verizon** para puntos de conexión de streaming estándar. Los puntos de conexión de streaming premium pueden configurarse con todos los **proveedores y planes de tarifa de Azure CDN**. 
 
-> [!IMPORTANT]
-> La integración de Azure Media Services con Azure CDN se implementa en **Azure CDN de Verizon** para puntos de conexión de streaming estándar. Los puntos de conexión de streaming premium pueden configurarse con todos los **proveedores y planes de tarifa de Azure CDN**. Para obtener más información sobre las características de Azure CDN, consulte la [información general de la red CDN](../../cdn/cdn-overview.md).
+> [!NOTE]
+> Para más información sobre Azure CDN, consulte [Información general de la red CDN](../../cdn/cdn-overview.md).
 
 ### <a name="determine-if-dns-change-was-made"></a>Determinar si se realizó el cambio de DNS
 
@@ -165,6 +170,10 @@ Puede determinar si se ha realizado el cambio de DNS en un punto de conexión de
 ## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, realice comentarios y obtenga actualizaciones
 
 Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
+
+## <a name="see-also"></a>Consulte también
+
+[Información general de la red CDN](../../cdn/cdn-overview.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

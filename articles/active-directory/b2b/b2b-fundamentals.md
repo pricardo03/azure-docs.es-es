@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2aa6bc856fc7b7de071a45f3aa11c051e36eca4f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e17e0f1f01e836a7a240100c1c0e1f015da5f00
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475026"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368155"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Procedimientos recomendados de Azure Active Directory B2B
 Este artículo contiene recomendaciones y procedimientos recomendados para la colaboración de negocio a negocio (B2B) en Azure Active Directory (Azure AD).
@@ -33,7 +33,7 @@ Este artículo contiene recomendaciones y procedimientos recomendados para la co
 | Aplique directivas de acceso condicional para Multi-Factor Authentication (MFA). | Se recomienda aplicar las directivas de MFA en las aplicaciones que desee compartir con los usuarios de B2B de asociados. De este modo, MFA se aplicará de forma coherente en las aplicaciones del inquilino, independientemente de si la organización asociada usa MFA. Consulte [Acceso condicional para usuarios de colaboración B2B](conditional-access.md). |
 | Si va a aplicar directivas de acceso condicional basado en el dispositivo, use listas de exclusión para permitir el acceso a los usuarios de B2B. | Si la organización tiene habilitadas directivas de acceso condicional basado en el dispositivo, los dispositivos de los usuarios invitados de B2B se bloquearán porque no están administrados por su organización. Puede crear listas de exclusión que contengan usuarios de asociados específicos para excluirlos de la directiva de acceso condicional basado en el dispositivo. Consulte [Acceso condicional para usuarios de colaboración B2B](conditional-access.md). |
 | Use una dirección URL específica del inquilino cuando proporcione vínculos directos a los usuarios invitados de B2B. | Como alternativa a la invitación por correo electrónico, puede darle al invitado un vínculo directo a la aplicación o al portal. Este vínculo directo debe ser específico del cliente, por lo que debe incluir un identificador de inquilino o dominio comprobado, de manera que el invitado se pueda autenticar en el inquilino donde se encuentra la aplicación compartida. Consulte [Experiencia de invitación de colaboración B2B de Azure Active Directory](redemption-experience.md). |
-| Al desarrollar una aplicación, utilice UserType para determinar la experiencia del usuario invitado.  | Si está desarrollando una aplicación y desea proporcionar diferentes experiencias para usuarios de inquilinos y usuarios invitados, use la propiedad UserType. La notificación UserType no está incluida actualmente en el token. Las aplicaciones deben usar Graph API para consultar el usuario en el directorio y obtener su valor de UserType. |
+| Al desarrollar una aplicación, utilice UserType para determinar la experiencia del usuario invitado.  | Si está desarrollando una aplicación y desea proporcionar diferentes experiencias para usuarios de inquilinos y usuarios invitados, use la propiedad UserType. La notificación UserType no está incluida actualmente en el token. Las aplicaciones deben usar Microsoft Graph API para consultar el usuario en el directorio y obtener su valor de UserType. |
 | Cambie la propiedad UserType *solo* si cambia la relación del usuario con la organización. | Aunque es posible usar PowerShell para convertir la propiedad UserType de un usuario de miembro a invitado (y viceversa), solo debe cambiar esta propiedad si cambia la relación del usuario con la organización. Consulte [Propiedades de un usuario de colaboración B2B de Azure Active Directory](user-properties.md).|
 
 ## <a name="next-steps"></a>Pasos siguientes

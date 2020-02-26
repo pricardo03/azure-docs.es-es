@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: d7d3182ad00d0ce151c6d327b29584c7e2ff1323
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 67846293257661a4f7a907d76402d2e98c339225
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457867"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251641"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric para Visual Studio Code
 
@@ -21,7 +21,7 @@ En este artículo se proporciona información general sobre los requisitos y la 
 > [!IMPORTANT]
 > Las aplicaciones de Java para Service Fabric se pueden desarrollar en máquinas Windows, pero solo se pueden implementar en clústeres Linux de Azure. En Windows no se admite la depuración de aplicaciones de Java.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Los siguientes requisitos previos deben instalarse en todos los entornos.
 
@@ -69,7 +69,7 @@ La extensión de Service Fabric Reliable Services para VS Code ofrece muchos com
 
 El comando **Service Fabric: Create Application** (Crear aplicación) crea una aplicación de Service Fabric en el área de trabajo actual. Dependiendo de qué generadores Yeoman estén instalados en el equipo de desarrollo, puede crear varios tipos de aplicación de Service Fabric, incluidos proyectos de Java, C#, Container y Guest. 
 
-1.  Seleccione el comando **Service Fabric: Add Service** (Agregar servicio).
+1.  Seleccione el comando **Service Fabric: Comando Create Application** (Crear aplicación).
 2.  Seleccione el tipo de la nueva aplicación de Service Fabric. 
 3.  Escriba el nombre de la aplicación que desea crear.
 3.  Seleccione el tipo de servicio que desea agregar a la aplicación de Service Fabric. 

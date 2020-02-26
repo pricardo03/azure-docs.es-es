@@ -104,9 +104,9 @@
       href: how-to-assess.md
     - name: Agrupación de máquinas para su evaluación
       href: how-to-create-a-group.md
-    - name: Agrupación de máquinas mediante la visualización de dependencias
+    - name: Análisis de las dependencias de la máquina (con agente)
       href: how-to-create-group-machine-dependencies.md
-    - name: Agrupación de máquinas mediante la visualización de dependencias sin agentes
+    - name: Análisis de las dependencias de la máquina (sin agente)
       href: how-to-create-group-machine-dependencies-agentless.md
     - name: Crear una evaluación
       href: how-to-create-assessment.md

@@ -1,5 +1,5 @@
 ---
-title: El reinicio de máquinas virtuales de Azure está atascado en el reinicio, apagado o detención de servicios | Microsoft Docs
+title: El apagado de máquinas virtuales de Azure está atascado en el reinicio, apagado o detención de servicios | Microsoft Docs
 description: Este artículo le ayuda a solucionar errores de servicio en las máquinas virtuales Windows en Azure.
 services: virtual-machines-windows
 documentationCenter: ''
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/19/2019
 ms.author: tibasham
-ms.openlocfilehash: db7b26402170236843891799738088b9229e4693
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5d6396efc9ab25baa0d32e7c33c7715863516249
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474194"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77371360"
 ---
-# <a name="azure-windows-vm-restart-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>El reinicio de máquinas virtuales Windows en Azure está atascado en "Reiniciando", "Apagando" o "Deteniendo servicios"
+# <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>El apagado de máquinas virtuales Windows en Azure está atascado en "Reiniciando", "Apagando" o "Deteniendo servicios".
 
-En este artículo se proporcionan los pasos necesarios para resolver los problemas de los mensajes "Reiniciando", "Apagando" o "Deteniendo servicios" que pueden aparecer al reiniciar una máquina virtual (VM) Windows en Microsoft Azure.
+En este artículo se proporcionan los pasos necesarios para resolver los problemas de los mensajes "Reiniciando", "Apagando" o "Deteniendo servicios" que pueden aparecer al reiniciar una máquina virtual Windows en Microsoft Azure.
 
 ## <a name="symptoms"></a>Síntomas
 

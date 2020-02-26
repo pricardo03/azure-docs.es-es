@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: d89d506d8912706bbdb802801b16d01036ecb8e2
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 99c6ee5d58655350d14add61530fae647a675508
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583622"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443234"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configuración y administración del grupo de máquinas virtuales 
 En este artículo se muestra cómo realizar las tareas siguientes:
@@ -96,6 +96,9 @@ El creador del laboratorio (instructor o profesor) puede conectarse a la máquin
  Para conectarse a la máquina virtual del alumno, mantenga el puntero sobre la máquina virtual en la lista y seleccione el botón de equipo.  
 
 ![Botón de conexión a la máquina virtual de alumno](../media/how-to-set-virtual-machine-passwords/connect-student-vm.png)
+
+> [!NOTE]
+> Cuando el profesor inicia la máquina virtual y se conecta, la cuota del alumno no se ve afectada. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para conocer otras opciones de uso de alumnos que (como propietario del laboratorio) puede configurar, consulte el artículo siguiente: [Configuración del uso de alumnos](how-to-configure-student-usage.md).

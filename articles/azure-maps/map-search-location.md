@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 08d9245201a8e0899d47847eb10dcdff3c0d8d16
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 13daf20e364b1e629b3ae13be2c9406da3702211
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984683"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209654"
 ---
 # <a name="show-search-results-on-the-map"></a>Presentación de los resultados de la búsqueda en el mapa
 
@@ -37,7 +37,7 @@ El cuarto bloque de código usa el método [SearchFuzzy](/javascript/api/azure-m
 
 El último bloque de código ajusta los límites de cámara para el mapa mediante la propiedad [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) del mapa.
 
-La solicitud de búsqueda, el origen de datos, la capa de símbolos y los límites de cámara están dentro del [agente de escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) listo del mapa. Queremos asegurarnos de que los resultados se muestran una vez que el mapa se carga por completo.
+La solicitud de búsqueda, el origen de datos, la capa de símbolos y los límites de cámara están dentro del [agente de escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) del mapa. Queremos asegurarnos de que los resultados se muestran una vez que el mapa se carga por completo.
 
 
 ## <a name="make-a-search-request-via-fetch-api"></a>Realización de una solicitud de búsqueda a través de la API de captura

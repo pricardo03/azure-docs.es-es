@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: d85f6ba9d50b7d30930322ca34cb15edb30e1472
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 683b35661a41325cfd5baa877acdb0e37529bb94
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775010"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198741"
 ---
 # <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>Migración de imágenes de máquina virtual (VM) a almacenamiento de disco administrado en Azure Marketplace
 
@@ -61,6 +61,6 @@ No se pueden realizar actualizaciones en las imágenes de máquina virtual duran
 
 No, el proceso de publicación sigue igual. 
 
-## <a name="next-steps"></a>Pasos siguientes
+### <a name="can-the-publisher-move-their-offers-to-managed-disk"></a>¿Puede el anunciante trasladar sus ofertas a Managed Disks?
 
-Visite la página [Guía de publicación de ofertas de máquinas virtuales](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines).
+No, los anunciantes no pueden trasladar sus ofertas a Managed Disks. Tendrán que esperar y sus imágenes se trasladarán automáticamente. Se enviarán notificaciones al anunciante antes de realizar los cambios.

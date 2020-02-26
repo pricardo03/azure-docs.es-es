@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: rohogue
-ms.openlocfilehash: 9ad6348e15c8a25f721a89be7eab3e17c58ae17c
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: da260074fc69fac9e98d3698bb2d40fdf80d7118
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988903"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252049"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Administración de la memoria caché desde Azure Portal
 
@@ -73,6 +73,8 @@ El acceso de cliente no se interrumpe durante una actualización de software, pe
 La actualización de software puede tardar varias horas. Las memorias caché configuradas con un mayor rendimiento tardan más tiempo en actualizarse que las que tienen valores de rendimiento de pico más pequeños.
 
 Cuando haya una actualización de software disponible, tendrá una semana aproximadamente para aplicarla manualmente. La fecha de finalización aparece en el mensaje de actualización. Si no actualiza durante ese tiempo, Azure aplica automáticamente la actualización a la memoria caché. El momento de la actualización automática no es configurable. Si le preocupa el impacto en el rendimiento de la memoria caché, debe actualizar el software usted mismo antes de que expire el período de tiempo.
+
+Si la caché se detiene cuando se supera la fecha de finalización, actualizará automáticamente el software la próxima vez que se inicie. (Es posible que la actualización no se inicie inmediatamente, pero se iniciará en la primera hora).
 
 Haga clic en el botón **Actualizar** para comenzar la actualización de software. El estado de la memoria caché cambia a **Actualizando** hasta que se complete la operación.
 

@@ -1,25 +1,25 @@
 ---
 title: Cobertura de movilidad (tráfico) | Microsoft Azure Maps
-description: En este artículo, obtendrá información acerca de la cobertura de movilidad en Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+description: En este artículo aprenderá sobre la cobertura de movilidad en Microsoft Azure Maps
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8dcbfe7a47dba5a1783d6010d41e33073bc0bb20
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 04804f28b2b0b5c45ed8f523d2f465f81b6ab151
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048919"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208257"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Cobertura de movilidad en Azure Maps
 
-Azure Maps cuenta con el [servicio Mobility](https://aka.ms/AzureMapsMobilityService). El servicio Mobility mejora el tiempo de desarrollo de las aplicaciones con características para el transporte público, el uso compartido de bicicletas y el uso compartido de motos. Brinda la posibilidad de crear rutas con opciones multimodales para el planeamiento de recorridos. Entre las características de transporte público, se incluyen la búsqueda de estaciones cercanas, paradas y líneas de transporte, así como la obtención de información sobre los horarios, las llegadas del transporte público en tiempo real, la lista de paradas y las guías de rutas. El servicio devuelve información estadística y en tiempo real sobre la disponibilidad para el uso compartido de vehículos, bicicletas y motos. La API devuelve alertas de servicio e itinerarios paso por paso detallados y multimodales.
+Azure Maps cuenta con el [servicio Mobility](https://aka.ms/AzureMapsMobilityService). El servicio Mobility mejora el tiempo de desarrollo de las aplicaciones con características para el transporte público, el uso compartido de bicicletas y el uso compartido de motos. Entre las características de transporte público se incluyen la búsqueda de estaciones cercanas, de paradas y de líneas de transporte, así como la obtención de información sobre los horarios, las llegadas del transporte público en tiempo real, la lista de paradas y las guías de las rutas. El servicio devuelve información estadística y en tiempo real sobre la disponibilidad para el uso compartido de vehículos, bicicletas y motos. Además, Mobility Service proporciona funcionalidades de cálculo de ruta con opciones de planeamiento de trayectos mixtos. El planeamiento de trayectos mixtos incluye la bicicleta, los vehículos de alquiler con conductor y el transporte público en el mismo viaje. Los usuarios pueden acceder a itinerarios detallados y mixtos paso a paso y alertas de servicio.
 
-Azure Maps no tiene el mismo nivel de información y precisión en todas las ciudades ni en todas las regiones o países. La capacidad para llamar a los datos de transporte depende de la ciudad. Es posible que los datos no incluyan todas las opciones de transporte público ni todas las agencias que prestan servicio a la ciudad.
+Azure Maps no tiene el mismo nivel de información y precisión en todas las ciudades ni en todas las regiones o países. La capacidad para llamar a los datos de transporte depende de la ciudad. Además, es posible que los datos no incluyan todas las opciones de transporte público ni todas las empresas que prestan servicio a la ciudad.
 
 En la siguiente tabla se proporciona información sobre la cobertura del servicio de movilidad de Azure Maps.
 

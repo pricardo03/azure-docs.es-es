@@ -114,6 +114,8 @@
           href: service-bus-messaging-security-controls.md
 - name: Guías paso a paso
   items:
+    - name: Migración desde las API de Azure Service Manager (clásico) hasta las API de Resource Manager
+      href: deprecate-service-bus-management.md
     - name: Creación de un espacio de nombres
       href: service-bus-create-namespace-portal.md
     - name: Desarrollar

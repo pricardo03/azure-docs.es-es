@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: d8d3204c8a5ace17ae47a17d4c4ffec2ec7977f2
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/14/2020
+ms.openlocfilehash: 0603ad1fbecf33e5880fd7f18d35af51795f8e39
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112258"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251998"
 ---
 # <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-cognitive-search"></a>Tutorial de REST: Indexación y búsqueda de datos semiestructurados (blobs JSON) en Azure Cognitive Search
 
@@ -27,11 +27,11 @@ En este tutorial, usará las [API REST de Azure Cognitive Search](https://docs.m
 > * Configurar y ejecutar un indexador para leer el contenedor y extraer contenido que permite búsquedas de Azure Blob Storage
 > * Buscar el índice que acaba de crear.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este inicio rápido se usan los siguientes servicios, herramientas y datos. 
 
-[Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial. 
+[Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial. 
 
 [Cree una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para almacenar los datos de ejemplo.
 
@@ -83,7 +83,7 @@ Ejecute las siguientes tres llamadas API desde el cliente de REST.
 
 ## <a name="create-a-data-source"></a>Creación de un origen de datos
 
-La [API Create Data Source](https://docs.microsoft.com/rest/api/searchservice/create-data-source) crea un objeto de Azure Cognitive Search que especifica qué datos se indexan.
+[Create Data Source API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) crea un objeto de Azure Cognitive Search que especifica qué datos se indexan.
 
 El punto de conexión de esta llamada es `https://[service name].search.windows.net/datasources?api-version=2019-05-06`. Reemplace `[service name]` por el nombre del servicio de búsqueda. 
 
@@ -126,7 +126,7 @@ La respuesta debería tener este aspecto:
 
 ## <a name="create-an-index"></a>Creación de un índice
     
-La segunda llamada es a la [API Create Index](https://docs.microsoft.com/rest/api/searchservice/create-indexer), que crea un índice de Azure Cognitive Search que almacena todos los datos en los que se pueden realizar búsquedas. Un índice especifica todos los parámetros y sus atributos.
+La segunda llamada es a la [API Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index), que crea un índice de Azure Cognitive Search que almacena todos los datos en los que se pueden realizar búsquedas. Un índice especifica todos los parámetros y sus atributos.
 
 La dirección URL de esta llamada es `https://[service name].search.windows.net/indexes?api-version=2019-05-06`. Reemplace `[service name]` por el nombre del servicio de búsqueda.
 
@@ -259,7 +259,7 @@ La respuesta debería tener este aspecto:
 
 ## <a name="search-your-json-files"></a>Buscar los archivos JSON
 
-Puede empezar a realizar búsquedas en cuanto se cargue el primer documento. Para esta tarea, use el [ **Explorador de búsqueda**](search-explorer.md) del portal.
+Puede empezar a realizar búsquedas en cuanto se cargue el primer documento. Para esta tarea, use el [**Explorador de búsqueda**](search-explorer.md) del portal.
 
 En Azure Portal, abra la página **Introducción** del servicio de búsqueda y busque el índice que creó en la lista **Índices**.
 

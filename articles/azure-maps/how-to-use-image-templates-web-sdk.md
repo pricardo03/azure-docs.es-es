@@ -1,6 +1,6 @@
 ---
 title: Plantillas de imagen en el SDK web de Azure Maps | Microsoft Azure Maps
-description: En este artículo, aprenderá a usar plantillas de imagen con marcadores HTML y varias capas en el SDK web de Microsoft Azure Maps.
+description: En este artículo aprenderá a usar plantillas de imagen con marcadores HTML y varias capas en el SDK web de Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 8/6/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: cb182a5db77a517b11fb1863665f8c54d58b254a
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: f3b1141ea3c3c8e33b8a2ae12c22b6962a90d32b
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911573"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198231"
 ---
 # <a name="how-to-use-image-templates"></a>Uso de plantillas de imagen
 
@@ -24,7 +24,7 @@ Las imágenes se pueden usar con los marcadores HTML y varias capas dentro del S
  - Las capas de polígono se pueden representar con una imagen de patrón de relleno. 
  - Los marcadores HTML pueden representar puntos mediante imágenes y otros elementos HTML.
 
-Con el fin de garantizar un buen rendimiento con las capas, estas imágenes deben cargarse en el recurso de sprite de imagen de mapa antes de la representación. De forma predeterminada, el objeto [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions) de SymbolLayer carga previamente un par de imágenes de marcador en algunos colores en el sprite de imagen de mapa. Estas mismas imágenes de marcador y otras más están disponibles como plantillas SVG y se pueden usar para crear imágenes con escalas personalizadas, así como para el color principal y el secundario del cliente. En total se proporcionan 42 plantillas de imagen: 27 iconos de símbolos y 15 patrones de relleno de polígonos.
+Con el fin de garantizar un buen rendimiento con las capas, estas cargue las imágenes en el recurso de sprite de imagen de mapa antes de la representación. De forma predeterminada, el objeto [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions) de SymbolLayer carga previamente un par de imágenes de marcador en algunos colores en el sprite de imagen de mapa. Estas imágenes de marcador y mucho más están disponibles como plantillas SVG. Se pueden usar para crear imágenes con escalas personalizadas o como color principal y secundario del cliente. En total se proporcionan 42 plantillas de imagen: 27 iconos de símbolos y 15 patrones de relleno de polígonos.
 
 Se pueden agregar plantillas de imagen a los recursos de sprite de imagen de mapa mediante la función `map.imageSprite.createFromTemplate`. Esta función permite pasar hasta cinco parámetros;
 
@@ -32,9 +32,9 @@ Se pueden agregar plantillas de imagen a los recursos de sprite de imagen de map
 createFromTemplate(id: string, templateName: string, color?: string, secondaryColor?: string, scale?: number): Promise<void>
 ```
 
-donde `id` es un identificador único que se crea y que se asigna a la imagen cuando se agrega al sprite de imagen de mapa. Use este identificador en las capas para especificar el recurso de imagen que se va a representar. `templateName` especifica la plantilla de imagen que se va a usar. La opción `color` establece el color principal de la imagen y las opciones `secondaryColor` establecen el color secundario de la imagen. La opción `scale` escala la plantilla de imagen antes de aplicarla al sprite de imagen. Cuando la imagen se aplica al sprite de imagen, se convierte en un PNG. Para garantizar una representación nítida, es mejor escalar la plantilla de imagen antes de agregarla al sprite que escalarla verticalmente en una capa.
+`id` es un identificador único que usted crea. `id` se asigna a la imagen cuando se agrega al sprite de imagen del mapa. Use este identificador en las capas para especificar el recurso de imagen que se va a representar. `templateName` especifica la plantilla de imagen que se va a usar. La opción `color` establece el color principal de la imagen y las opciones `secondaryColor` establecen el color secundario de la imagen. La opción `scale` escala la plantilla de imagen antes de aplicarla al sprite de imagen. Cuando la imagen se aplica al sprite de imagen, se convierte en un PNG. Para garantizar una representación nítida, es mejor escalar verticalmente la plantilla de imagen antes de agregarla al sprite que hacerlo en una capa.
 
-Esta función carga de forma asincrónica la imagen en el sprite de imágenes y, por tanto, devuelve la promesa de que puede esperar a que esta función se complete.
+Esta función carga de forma asincrónica la imagen en el sprite de imagen. Por lo tanto, devuelve una promesa que puede esperar que esta función realice.
 
 En el código siguiente se muestra cómo crear una imagen a partir de una de las plantillas integradas y utilizarla con una capa de símbolos.
 
@@ -106,7 +106,7 @@ Consulte el fragmento de código (pen) de un <a href='https://codepen.io/azurema
 
 ## <a name="create-custom-reusable-templates"></a>Creación de plantillas reutilizables personalizadas
 
-Si la aplicación usa el mismo icono con iconos diferentes o si va a crear un módulo que agrega plantillas de imagen adicionales, puede agregar y recuperar fácilmente estos iconos desde el SDK de Azure Maps para web mediante las siguientes funciones estáticas en el espacio de nombres `atlas`.
+Si la aplicación usa el mismo icono con iconos diferentes o si va a crear un módulo que agregue plantillas de imagen adicionales, puede agregar y recuperar fácilmente estos iconos desde el SDK web de Azure Maps. Utilice las siguientes funciones estáticas en el espacio de nombres `atlas`.
 
 | Nombre | Tipo de valor devuelto | Descripción | 
 |-|-|-|
@@ -123,7 +123,7 @@ Las plantillas de imagen SVG admiten los siguientes valores del marcador de posi
 | `{scale}` | La imagen SVG se convierte en una imagen PNG cuando se agrega al sprite de imagen de mapa. Este marcador de posición se puede usar para escalar una plantilla antes de que se convierta para asegurarse de que se representa claramente. | 
 | `{text}` | La ubicación para representar texto cuando se usa con un marcador HTML. |
 
-En el ejemplo siguiente se muestra cómo tomar una plantilla SVG y agregarla al SDK de Azure Maps para web como una plantilla de icono reutilizable. 
+En el ejemplo siguiente se muestra cómo tomar una plantilla SVG y agregarla al SDK web de Azure Maps como plantilla de icono reutilizable. 
 
 <br/>
 
@@ -133,7 +133,7 @@ Consulte el fragmento de código (pen) para <a href='https://codepen.io/azuremap
 
 ## <a name="list-of-image-templates"></a>Lista de plantillas de imagen
 
-En la tabla siguiente se enumeran todas las plantillas de imagen disponibles actualmente en el SDK de Azure Maps para web con el nombre de la plantilla sobre cada imagen. De forma predeterminada, el color principal es el azul y el secundario es el blanco. Para que el color secundario sea más fácil de ver en un fondo blanco, las siguientes imágenes tienen el color secundario establecido en negro.
+En esta tabla se enumeran todas las plantillas de imagen disponibles actualmente en el SDK web de Azure Maps. El nombre de la plantilla se encuentra encima de cada imagen. De forma predeterminada, el color principal es el azul y el secundario es el blanco. Para que el color secundario sea más fácil de ver en un fondo blanco, las siguientes imágenes tienen el color secundario establecido en negro.
 
 **Plantillas de iconos de símbolos**
 

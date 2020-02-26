@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: baa44481c4641f69ead5335298316c837062d2c0
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 6842338bd27e4bea3436f0b249380ab773d60de6
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186044"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368089"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Preguntas más frecuentes sobre el acceso condicional de Azure Active Directory
 
@@ -40,7 +40,7 @@ Una directiva de acceso condicional establece los requisitos para obtener acceso
 
 Las directivas de acceso condicional se aplican a todas las cuentas de usuario. Aquí se incluyen las cuentas de usuario que se usan como cuentas de servicio. A menudo sucede que una cuenta de servicio que se ejecuta de forma desatendida no puede satisfacer los requisitos de una directiva de acceso condicional. Por ejemplo, se podría requerir una autenticación multifactor. Las cuentas de servicio se pueden excluir de una directiva mediante la configuración de administración de directivas de acceso condicional. 
 
-## <a name="are-graph-apis-available-for-configuring-conditional-access-policies"></a>¿Está disponible Graph API para configurar directivas de acceso condicional?
+## <a name="are-microsoft-graph-apis-available-for-configuring-conditional-access-policies"></a>¿Está disponible Microsoft Graph API para configurar directivas de acceso condicional?
 
 Actualmente no. 
 

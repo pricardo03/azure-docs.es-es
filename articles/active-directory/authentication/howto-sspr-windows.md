@@ -11,14 +11,14 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be1c0e93a51064870635d4f06bd5b365bbfe517a
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a1f0e5242d87bc68efd92a52619e8d48cff9ac87
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847293"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370071"
 ---
-# <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Procedimientos para: Habilitar el restablecimiento de contraseña desde la pantalla de inicio de sesión de Windows
+# <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Procedimientos: Habilitar el restablecimiento de contraseña desde la pantalla de inicio de sesión de Windows
 
 En el caso de los equipos que ejecutan Windows 7, 8, 8.1 y 10, puede permitir que los usuarios restablezcan su contraseña en la pantalla de inicio de sesión de Windows. Los usuarios ya no tienen que buscar un dispositivo con un explorador Web para acceder al [portal de SSPR](https://aka.ms/sspr).
 
@@ -27,7 +27,9 @@ En el caso de los equipos que ejecutan Windows 7, 8, 8.1 y 10, puede permitir qu
 ## <a name="general-limitations"></a>Limitaciones generales
 
 - El restablecimiento de contraseña no se admite actualmente desde Escritorio remoto o sesiones mejoradas de Hyper-V.
-- Esta característica no funciona para las redes con la red autenticación 802.1X implementada y la opción "Realizar inmediatamente antes de que el usuario inicie sesión". Para las redes con la autenticación de red 802.1X implementada se recomienda usar la autenticación del equipo para habilitar esta característica.
+- Se sabe que algunos proveedores de credenciales de terceros provocan problemas con esta característica.
+- Se sabe que la deshabilitación de UAC mediante la modificación de la [clave del registro EnableLUA](https://docs.microsoft.com/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) provoca problemas.
+- Esta característica no funciona para las redes con la autenticación de red 802.1x implementada y la opción "Realizar inmediatamente antes de que el usuario inicie sesión". Para las redes con la autenticación de red 802.1X implementada se recomienda usar la autenticación del equipo para habilitar esta característica.
 - Los equipos unidos a Azure AD híbrido deben tener una línea de visión de conectividad de red a un controlador de dominio para usar las nuevas credenciales en caché de contraseña y actualización.
 - Si se usa una imagen, antes de ejecutar sysprep, asegúrese de que se borra la caché web para la cuenta predefinida de administrador antes de realizar el paso de CopyProfile. Puede encontrar más información sobre este paso en el artículo de soporte técnico [Rendimiento deficiente cuando se usa el perfil de usuario predeterminado personalizado](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - Se sabe que los valores siguientes interfieren con la capacidad de usar y restablecer contraseñas en dispositivos Windows 10
@@ -113,7 +115,7 @@ Cuando los usuarios restablecen su contraseña desde la pantalla de inicio de se
 > [!WARNING]
 > Se debe habilitar TLS 1.2, no solo establecerlo en negociación automática.
 
-### <a name="install"></a>Instalación
+### <a name="install"></a>Instalar
 
 1. Descargue el instalador adecuado para la versión de Windows que desea habilitar.
    - El software está disponible en el centro de descarga de Microsoft en [https://aka.ms/sspraddin](https://aka.ms/sspraddin)

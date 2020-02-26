@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: mlearned
-ms.openlocfilehash: d1d04ab3ebb96d2739b991620b05aa307d9eaf91
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 0583e773a344a6786d13a5da30be24369d75f11f
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767433"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251709"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Versión preliminar: Creación de un contenedor de Windows Server en un clúster de Azure Kubernetes Service (AKS) mediante la CLI de Azure
 
@@ -148,6 +148,10 @@ az aks create \
 > [!Note]
 > Si recibe un error de validación de contraseña, intente crear el grupo de recursos en otra región.
 > A continuación, intente crear el clúster con el nuevo grupo de recursos.
+
+> [!Note]
+> Si no puede crear el clúster de AKS porque la versión no se admite en esta región, puede usar el comando[az aks get-versions --location eastus] para encontrar la lista de versiones admitidas en esta región.
+
 
 Transcurridos unos minutos, el comando se completa y devuelve información en formato JSON sobre el clúster. En ocasiones, el clúster puede tardar más de unos minutos en aprovisionarse. Espere hasta 10 minutos en estos casos. 
 
@@ -288,6 +292,9 @@ sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 Para ver la aplicación de ejemplo en acción, abra un explorador web en la dirección IP externa del servicio.
 
 ![Imagen de cómo llegar a la aplicación de ejemplo de ASP.NET](media/windows-container/asp-net-sample-app.png)
+
+> [!Note]
+> Si se agota el tiempo de espera de conexión al intentar cargar la página, debe comprobar que la aplicación de ejemplo esté lista con el siguiente comando [kubectl get pods --watch]. A veces, el contenedor Windows no se habrá iniciado en el momento en que la dirección IP externa esté disponible.
 
 ## <a name="delete-cluster"></a>Eliminación de clúster
 

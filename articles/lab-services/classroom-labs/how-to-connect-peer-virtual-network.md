@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: d3f6acef7491a07f94eec0b2c3b2f3bcd9c01a33
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 5e013011f81542aa279ba9276a6a1aac01eb9e41
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701664"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443211"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Conexión de la red del laboratorio con una red virtual del mismo nivel en Azure Lab Services 
 En este artículo encontrará información sobre cómo emparejar su red de laboratorio con otra red. 
@@ -34,7 +34,7 @@ Puede que necesite conectar la red de laboratorio con una red virtual del mismo 
 Algunas redes locales están conectadas a Azure Virtual Network ya sea a través de [ExpressRoute](../../expressroute/expressroute-introduction.md) o de una [puerta de enlace de red virtual](../../vpn-gateway/vpn-gateway-about-vpngateways.md). Estos servicios se deben configurar fuera de Azure Lab Services. Para obtener más información sobre cómo conectar una red local a Azure mediante ExpressRoute, consulte [Información general sobre ExpressRoute](../../expressroute/expressroute-introduction.md). Para lograr la conectividad local mediante una puerta de enlace de red virtual, tanto la puerta de enlace como la red virtual y la cuenta de laboratorio deben estar en la misma región.
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Configuración al crear la cuenta de laboratorio
-Durante la creación de la cuenta de laboratorio, puede elegir una red virtual existente de la lista desplegable **Asociar red virtual**. La red virtual seleccionada se conecta (empareja) a laboratorios creados con la cuenta de laboratorio. Todas las máquinas virtuales en los laboratorios que se creen después de hacer este cambio tendrían acceso a los recursos en la red virtual emparejada. 
+Durante la creación de la cuenta de laboratorio, puede elegir una red virtual existente de la lista desplegable **Asociar red virtual** en la pestaña **Avanzado**. La red virtual seleccionada se conecta (empareja) a laboratorios creados con la cuenta de laboratorio. Todas las máquinas virtuales en los laboratorios que se creen después de hacer este cambio tendrían acceso a los recursos en la red virtual emparejada. 
 
 ![Selección de una red virtual para emparejamiento](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer.png)
 
@@ -54,10 +54,10 @@ Al seleccionar una red virtual en el campo **Asociar red virtual**, se deshabili
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los artículos siguientes:
+Vea los artículos siguientes:
 
-- [Como administrador, crear y administrar cuentas de laboratorio](how-to-manage-lab-accounts.md)
-- [Como propietario del laboratorio, crear y administrar laboratorios](how-to-manage-classroom-labs.md)
-- [Como propietario del laboratorio, configurar y publicar plantillas](how-to-create-manage-template.md)
-- [Como usuario del laboratorio, obtener acceso a laboratorios educativos](how-to-use-classroom-lab.md)
-
+- [Permiso para que el creador del laboratorio seleccione su ubicación](allow-lab-creator-pick-lab-location.md)
+- [Asociación o desasociación de una galería de imágenes compartidas en Azure Lab Services](how-to-attach-detach-shared-image-gallery.md)
+- [Cómo agregar un usuario como propietario de un laboratorio de clase en Azure Lab Services](how-to-add-user-lab-owner.md)
+- [Configuración del firewall para Azure Lab Services](how-to-configure-firewall-settings.md)
+- [Configuración de cuentas de laboratorio en Azure Lab Services](how-to-configure-lab-accounts.md)

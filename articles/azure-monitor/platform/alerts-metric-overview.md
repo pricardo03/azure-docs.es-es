@@ -7,12 +7,12 @@ ms.date: 12/5/2019
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 8f84b5641b79514ffed493302f246ecc51a20a87
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: abcf7d100a1c195d4a49c3061bf22710285c2a9f
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850064"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444169"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprender cómo funcionan las alertas de métricas en Azure Monitor
 
@@ -29,7 +29,7 @@ Supongamos que ha creado una regla de alerta de métrica de umbral estático sim
 - Recurso de objetivo (el recurso de Azure que quiere supervisar): myVM
 - Métrica: Porcentaje de CPU
 - Tipo de condición: estática
-- Agregación de tiempo (estadística que se ejecuta sobre valores de métrica sin procesar. Las agregaciones de tiempo compatibles son Min, Max, Avg, Total y Count): Media
+- Agregación de tiempo (estadística que se ejecuta sobre valores de métrica sin procesar. Las agregaciones de tiempo compatibles son Min, Max, Avg, Total y Count): Average
 - Período (la ventana temporal según la cual se comprueban los valores de la métrica): En los últimos 5 minutos
 - Frecuencia (es decir, la frecuencia con la que la alerta de métricas comprueba si se cumplen las condiciones): 1 min
 - Operador: Mayor que
@@ -46,11 +46,11 @@ Supongamos que ha creado una regla de alerta de métrica simple de umbrales din�
 - Recurso de objetivo (el recurso de Azure que quiere supervisar): myVM
 - Métrica: Porcentaje de CPU
 - Tipo de condición: Dinámica
-- Agregación de tiempo (estadística que se ejecuta sobre valores de métrica sin procesar. Las agregaciones de tiempo compatibles son Min, Max, Avg, Total y Count): Media
+- Agregación de tiempo (estadística que se ejecuta sobre valores de métrica sin procesar. Las agregaciones de tiempo compatibles son Min, Max, Avg, Total y Count): Average
 - Período (la ventana temporal según la cual se comprueban los valores de la métrica): En los últimos 5 minutos
 - Frecuencia (es decir, la frecuencia con la que la alerta de métricas comprueba si se cumplen las condiciones): 1 min
 - Operador: Mayor que
-- Sensibilidad: Mediano
+- Sensibilidad: Media
 - Períodos de retroceso: 4
 - Número de infracciones: 4
 
@@ -77,9 +77,9 @@ Supongamos que tiene un plan de App Service para su sitio web. Quiere supervisar
 - Recurso de destino: myAppServicePlan
 - Métrica: Porcentaje de CPU
 - Tipo de condición: estática
-- Dimensiones
+- Dimensions
   - Instance = InstanceName1, InstanceName2
-- Agregación de tiempo: Media
+- Agregación de tiempo: Average
 - Período: En los últimos 5 minutos
 - Frecuencia: 1 min
 - Operador: GreaterThan
@@ -92,9 +92,9 @@ Supongamos que tiene una aplicación web con una demanda masiva y es necesario a
 - Recurso de destino: myAppServicePlan
 - Métrica: Porcentaje de CPU
 - Tipo de condición: estática
-- Dimensiones
+- Dimensions
   - Instancia: *
-- Agregación de tiempo: Media
+- Agregación de tiempo: Average
 - Período: En los últimos 5 minutos
 - Frecuencia: 1 min
 - Operador: GreaterThan
@@ -109,13 +109,13 @@ Supongamos que tiene una aplicación web con muchas instancias y no sabe cuál e
 - Recurso de destino: myAppServicePlan
 - Métrica: Porcentaje de CPU
 - Tipo de condición: Dinámica
-- Dimensiones
+- Dimensions
   - Instancia: *
-- Agregación de tiempo: Media
+- Agregación de tiempo: Average
 - Período: En los últimos 5 minutos
 - Frecuencia: 1 min
 - Operador: GreaterThan
-- Sensibilidad: Mediano
+- Sensibilidad: Media
 - Períodos de retroceso: 1
 - Número de infracciones: 1
 
@@ -125,15 +125,15 @@ El aumento de los períodos de retroceso y del número de infracciones también 
 
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Supervisión a escala mediante alertas de métricas en Azure Monitor
 
-Hasta ahora, ha visto cómo se puede usar una única alerta de métrica para supervisar una o varias series temporales de métricas relacionadas con un único recurso de Azure. Con frecuencia, es posible que desee aplicar la misma regla de alertas a muchos recursos. Azure Monitor también admite la supervisión de varios recursos con una sola regla de alerta de métrica. En este momento, esta característica solo se admite en máquinas virtuales, bases de datos de SQL Server, grupos elásticos de SQL Server y dispositivos Data Box Edge. Además, una alerta de métrica individual puede supervisar los recursos de una sola región de Azure.
+Hasta ahora, ha visto cómo se puede usar una única alerta de métrica para supervisar una o varias series temporales de métricas relacionadas con un único recurso de Azure. Con frecuencia, es posible que desee aplicar la misma regla de alertas a muchos recursos. Azure Monitor también permite supervisar varios recursos (del mismo tipo) utilizando una sola regla de alertas de métricas con los recursos que se encuentran en la misma región de Azure. En la actualidad, esta característica solo puede utilizarse en la nube pública de Azure con máquinas virtuales, bases de datos de SQL Server, grupos elásticos de SQL Server y dispositivos de Data Box Edge. Asimismo, solo puede emplearse con métricas de plataforma, y no con métricas personalizadas.
 
-Puede especificar el ámbito de la supervisión por una única alerta de métrica de cualquiera de estas tres formas:
+Puede especificar el ámbito de supervisión mediante una sola alerta de métrica de estas tres formas:
 
 - como una lista de máquinas virtuales de una región de Azure en una suscripción
 - todas las máquinas virtuales (de una región de Azure) en uno o varios grupos de recursos de una suscripción
 - todas las máquinas virtuales (de una región de Azure) en una suscripción
 
-La creación de reglas de alertas de métrica que supervisen varios recursos es similar a [crear cualquier otra alerta de métrica](alerts-metric.md) que supervise un único recurso. La única diferencia es que debe seleccionar todos los recursos que desea supervisar. Estas reglas también se pueden crear mediante las [plantillas de Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Recibirá notificaciones individuales para cada máquina virtual.
+La creación de reglas de alertas de métrica que supervisen varios recursos es similar a [crear cualquier otra alerta de métrica](alerts-metric.md) que supervise un único recurso. La única diferencia es que debe seleccionar todos los recursos que desea supervisar. Estas reglas también se pueden crear mediante las [plantillas de Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Recibirá notificaciones diferentes de cada máquina virtual.
 
 ## <a name="typical-latency"></a>Latencia típica
 

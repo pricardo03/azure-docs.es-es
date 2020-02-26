@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bbc9048452c5361306dd05e712090543bb1066ce
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 578fcf4cd03a2d4fc8400b9e84f53206750a588c
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111507"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430727"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Reenvío de datos de informes de Azure Automation State Configuration a registros de Azure Monitor
 
@@ -36,111 +36,114 @@ Con los registros de Azure Monitor, puede:
 Para empezar a enviar los informes de Automation State Configuration a los registros de Azure Monitor, necesita:
 
 - La versión de noviembre de 2016, o una posterior, de [Azure PowerShell](/powershell/azure/overview) (v2.3.0).
-- Una cuenta de Azure Automation Para más información, consulte [Introducción a Azure Automation](automation-offering-get-started.md)
-- Un área de trabajo de Log Analytics con una oferta de servicio de **Automation & Control**. Para más información, consulte [Introducción a Azure Monitor](../log-analytics/log-analytics-get-started.md).
-- Al menos un nodo de Azure Automation State Configuration. Para más información, consulte [Incorporación de máquinas para administrarlas con Azure Automation State Configuration](automation-dsc-onboarding.md)
-- Módulo [xDscDiagnostics](https://www.powershellgallery.com/packages/xDscDiagnostics/2.7.0.0), versión 2.7.0.0 o posterior. Para consultar los pasos de instalación, consulte [Solución de problemas de Desired State Configuration (DSC)](./troubleshoot/desired-state-configuration.md#steps-to-troubleshoot-desired-state-configuration-dsc).
+- Una cuenta de Azure Automation Para más información, consulte [Introducción a Azure Automation](automation-intro.md).
+- Un área de trabajo de Log Analytics con una oferta de servicio de Automation & Control. Para más información, consulte [Introducción a los análisis de registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+- Al menos un nodo de Azure Automation State Configuration. Para más información, consulte [Incorporación de máquinas para administrarlas con State Configuration de Azure Automation](automation-dsc-onboarding.md).
+- Módulo [xDscDiagnostics](https://www.powershellgallery.com/packages/xDscDiagnostics/2.7.0.0), versión 2.7.0.0 o posterior. Para conocer los pasos necesarios para la instalación, consulte [Solución de problemas de Desired State Configuration (DSC) de Azure Automation](./troubleshoot/desired-state-configuration.md).
 
 ## <a name="set-up-integration-with-azure-monitor-logs"></a>Configuración de la integración con registros de Azure Monitor
 
 Para comenzar a importar datos de DSC de Azure Automation en los registros de Azure Monitor, haga lo siguiente:
 
-1. Inicie sesión en su cuenta de Azure en PowerShell. Consulte [Inicio de sesión con Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)
-1. Obtenga el valor de _ResourceId_ de su cuenta de Automation mediante la ejecución del siguiente comando de PowerShell: (si tiene más de una cuenta de Automation, elija el valor de _ResourceID_ de la cuenta que desea configurar).
+1. Inicie sesión en su cuenta de Azure en PowerShell. Consulte [Inicio de sesión con Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+1. Para obtener el identificador de recurso de la cuenta de Automation, ejecute el siguiente cmdlet de PowerShell. Si tiene más de una cuenta de Automation, elija el identificador de recurso de la cuenta que desea configurar.
 
    ```powershell
-   # Find the ResourceId for the Automation Account
+   # Find the ResourceId for the Automation account
    Get-AzResource -ResourceType 'Microsoft.Automation/automationAccounts'
    ```
 
-1. Obtenga el valor de _ResourceId_ del área de trabajo de Log Analytics mediante la ejecución del siguiente comando de PowerShell: (si tiene más de un área de trabajo, elija el valor de _ResourceID_ del área de trabajo que desea configurar).
+1. Para obtener el identificador de recurso del área de trabajo de Log Analytics, ejecute el siguiente cmdlet de PowerShell. Si tiene más de un área de trabajo, elija el identificador de recurso del área de trabajo que desea configurar.
 
    ```powershell
    # Find the ResourceId for the Log Analytics workspace
    Get-AzResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
    ```
 
-1. Ejecute el siguiente comando de PowerShell, pero reemplace `<AutomationResourceId>` y `<WorkspaceResourceId>` por los valores de _ResourceId_ valores de cada uno de los pasos anteriores:
+1. Ejecute el siguiente cmdlet de PowerShell, pero reemplace `<AutomationResourceId>` y `<WorkspaceResourceId>` por los valores de *ResourceId* valores de cada uno de los pasos anteriores.
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Category 'DscNodeStatus'
    ```
 
-Si desea detener la importación de datos de Azure Automation State Configuration en los registros de Azure Monitor, ejecute el siguiente comando de PowerShell:
+1. Si desea detener la importación de datos de State Configuration de Azure Automation en los registros de Azure Monitor, ejecute el siguiente cmdlet de PowerShell.
 
-```powershell
-Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $false -Category 'DscNodeStatus'
-```
+   ```powershell
+   Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $false -Category 'DscNodeStatus'
+   ```
 
 ## <a name="view-the-state-configuration-logs"></a>Visualización de los registros de State Configuration
 
-Después de configurar la integración con los registros de Azure Monitor de sus datos de State Configuration de Automation, seleccione **Registros** en la sección **Supervisión** del panel izquierdo de la página de State Configuration (DSC) para consultarlos.  
+Después de configurar la integración con los registros de Azure Monitor de sus datos de State Configuration de Automation, seleccione **Registros** en la sección **Supervisión** del panel izquierdo de la página State Configuration (DSC) para consultarlos.
 
 ![Registros](media/automation-dsc-diagnostics/automation-dsc-logs-toc-item.png)
 
-Se abre la hoja **Búsqueda de registros**, donde se ve una operación **DscNodeStatusData** para cada nodo de State Configuration y una operación **DscResourceStatusData** para cada [recurso de DSC](/powershell/scripting/dsc/resources/resources) llamado en la configuración que se aplica a un nodo.
+Se abre el panel **Búsqueda de registros** con una región de consulta cuyo ámbito es el recurso de la cuenta de Automation. Puede buscar las operaciones de DSC en los registros de State Configuration buscando en los registros de Azure Monitor. Los registros de las operaciones de DSC se almacenan en la tabla AzureDiagnostics. Por ejemplo, para buscar los nodos que no son compatibles, escriba la siguiente consulta.
 
-La operación **DscResourceStatusData** contiene información de los recursos de DSC en que se produjeron errores.
-
-Haga clic en la operación que desee de la lista para ver los datos de la misma.
-
-Para ver los registros, realice la búsqueda en los registros de Azure Monitor. Consulte [Búsqueda de datos mediante búsquedas de registros](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview). Escriba la siguiente consulta para buscar los registros de State Configuration.
-
-```
-AzureDiagnostics
+```AzureDiagnostics
 | where Category == 'DscNodeStatus' 
 | where OperationName contains 'DSCNodeStatusData'
 | where ResultType != 'Compliant'
 ```
+Detalles de filtrado:
+
+* Filtre por *DscNodeStatusData* para devolver las operaciones de cada nodo de State Configuration.
+* Filtre por *DscResourceStatusData* para devolver las operaciones de cada recurso de DSC llamado en la configuración de nodo aplicada a ese recurso. 
+* Filtre por *DscResourceStatusData* para devolver información de errores de los recursos de DSC con errores.
+
+Para más información sobre la creación de consultas de registros para buscar datos, consulte [Introducción a las consultas de registro en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
 ### <a name="send-an-email-when-a-state-configuration-compliance-check-fails"></a>Envío de un correo electrónico cuando se produce un error en cualquier comprobación de cumplimiento de State Configuration
 
 Uno de nuestros principales clientes solicita la capacidad para enviar un correo electrónico o un mensaje de texto cuando aparece algún problema en una configuración de DSC.
 
-Para crear una regla de alerta, primero debe crear una búsqueda de registros para los registros del informe de State Configuration que deben invocar la alerta. Haga clic en el botón **+ Nueva regla de alertas** para crear y configurar la regla de alerta.
+Para crear una regla de alertas, primero debe crear una búsqueda de registros para los registros del informe de State Configuration que deben invocar la alerta. Haga clic en el botón **+ Nueva regla de alertas** para crear y configurar la regla de alerta.
 
 1. En la página de información general del área de trabajo de Log Analytics, haga clic en **Registros**.
 1. Cree una consulta de búsqueda de registros para la alerta; para ello, escriba la siguiente búsqueda en el campo de la consulta: `Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
 
-   Si ha configurado registros de más de una cuenta de Automation o suscripción a su área de trabajo, puede agrupar las alertas por suscripción o cuenta de Automation.
-   El nombre de la cuenta de Automation puede derivarse del campo Resource (Recurso) en la búsqueda de DscNodeStatusData.
-1. Para abrir la pantalla **Crear regla**, haga clic en **+ Nueva regla de alertas** en la parte superior de la página. Para obtener más información acerca de las opciones para configurar la alerta, consulte [Crear una regla de alerta](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
+   Si ha configurado registros de más de una cuenta de Automation o suscripción a su área de trabajo, puede agrupar las alertas por suscripción o cuenta de Automation. El nombre de la cuenta de Automation se deriva del campo Resource (Recurso) en la búsqueda de DscNodeStatusData.
+1. Para abrir la pantalla **Crear regla**, haga clic en **+ Nueva regla de alertas** en la parte superior de la página. 
+
+Para obtener más información acerca de las opciones para configurar la alerta, consulte [Crear una regla de alerta](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>Búsqueda de recursos de DSC con errores en todos los nodos
 
 Una ventaja de usar los registros de Azure Monitor es que puede buscar comprobaciones con errores en todos los nodos.
 Para buscar todas las instancias de recursos de DSC con errores:
 
-1. En la página de información general del área de trabajo de Log Analytics, haga clic en **Registros**.
+1. En la página de información general del área de trabajo de Log Analytics, haga clic en **Registros**.
 1. Cree una consulta de búsqueda de registros para la alerta; para ello, escriba la siguiente búsqueda en el campo de la consulta: `Type=AzureDiagnostics Category='DscNodeStatus' OperationName='DscResourceStatusData' ResultType='Failed'`
 
 ### <a name="view-historical-dsc-node-status"></a>Visualización del historial de estado del nodo de DSC
 
-Por último, puede desear visualizar el historial de estado del nodo de DSC con el paso del tiempo.
-Esta consulta se puede usar para buscar el estado del nodos de DSC con el paso del tiempo.
+Para visualizar el historial de estado del nodo de DSC con el paso del tiempo, puede usar esta consulta:
 
 `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=DscNodeStatus NOT(ResultType="started") | measure Count() by ResultType interval 1hour`
 
-Se mostrará un gráfico del estado del nodo con el paso del tiempo.
+Esta consulta muestra un gráfico del estado del nodo con el paso del tiempo.
 
 ## <a name="azure-monitor-logs-records"></a>Registros de Azure Monitor
 
-La característica Diagnósticos de Azure Automation crea dos categorías de registros en los registros de Azure Monitor.
+Diagnósticos de Azure Automation crea dos categorías de registros en los registros de Azure Monitor:
+
+* Datos de estado del nodo (DscNodeStatusData)
+* Datos de estado del recurso (DscResourceStatusData)
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
 | Propiedad | Descripción |
 | --- | --- |
 | TimeGenerated |Fecha y hora en que se ejecutó la comprobación de cumplimiento. |
-| OperationName |DscNodeStatusData |
+| OperationName |DscNodeStatusData. |
 | ResultType |Si el nodo es compatible. |
 | NodeName_s |El nombre del nodo administrado. |
 | NodeComplianceStatus_s |Si el nodo es compatible. |
 | DscReportStatus |Si la comprobación de cumplimiento se ejecutó correctamente. |
-| ConfigurationMode | Cómo se aplica la configuración al nodo. Los valores posibles son __"ApplyOnly"__ , __"ApplyandMonitior"__ y __"ApplyandAutoCorrect"__ . <ul><li>__ApplyOnly__: DSC se aplica la configuración y es lo único que hace, salvo que se inserte una nueva configuración en el nodo de destino o cuando se extrae una nueva configuración de un servidor. Después de la aplicación inicial de una nueva configuración, DSC no comprueba si se ha producido una desviación desde un estado configurado previamente. DSC intenta aplicar la configuración hasta que sea la correcta antes de __ApplyOnly__ surta efecto. </li><li> __ApplyAndMonitor__: Este es el valor predeterminado. El LCM aplica las nuevas configuraciones. Después de la aplicación inicial de una nueva configuración, si el nodo de destino se desvía del estado deseado, DSC notifica la discrepancia en los registros. DSC intenta aplicar la configuración hasta que sea la correcta antes de __ApplyAndMonitor__ surta efecto.</li><li>__ApplyAndAutoCorrect__: DSC aplica las nuevas configuraciones. Después de la aplicación inicial de una nueva configuración, si el nodo de destino se desvía del estado deseado, DSC notifica la discrepancia en los registros y vuelve a aplicar la configuración actual.</li></ul> |
+| ConfigurationMode | Cómo se aplica la configuración al nodo. Los valores posibles son: <ul><li>*ApplyOnly*: DSC se aplica la configuración y es lo único que hace, salvo que se inserte una nueva configuración en el nodo de destino o cuando se extrae una nueva configuración de un servidor. Después de la aplicación inicial de una nueva configuración, DSC no comprueba si se ha producido una desviación desde un estado configurado previamente. DSC intenta aplicar la configuración hasta que sea la correcta antes de que el valor de *ApplyOnly* surta efecto. </li><li>*ApplyAndMonitor*: Este es el valor predeterminado. El LCM aplica las nuevas configuraciones. Después de la aplicación inicial de una nueva configuración, si el nodo de destino se desvía del estado deseado, DSC notifica la discrepancia en los registros. DSC intenta aplicar la configuración hasta que sea la correcta antes de que el valor de *ApplyAndMonitor* surta efecto.</li><li>*ApplyAndAutoCorrect*: DSC aplica las nuevas configuraciones. Después de la aplicación inicial de una nueva configuración, si el nodo de destino se desvía del estado deseado, DSC notifica la discrepancia en los registros y vuelve a aplicar la configuración actual.</li></ul> |
 | HostName_s | El nombre del nodo administrado. |
 | IPAddress | La dirección IPv4 del nodo administrado. |
-| Category | DscNodeStatus |
+| Category | DscNodeStatus. |
 | Resource | El nombre de la cuenta de Azure Automation. |
 | Tenant_g | GUID que identifica al inquilino para el llamador. |
 | NodeId_g |GUID que identifica el nodo administrado. |
@@ -149,13 +152,13 @@ La característica Diagnósticos de Azure Automation crea dos categorías de reg
 | ReportStartTime_t |Fecha y hora en que el informe se inició. |
 | ReportEndTime_t |Fecha y hora en que el informe se completó. |
 | NumberOfResources_d |El número de recursos de DSC que se llama en la configuración que se aplica al nodo. |
-| SourceSystem | Cómo los registros de Azure Monitor recopilan los datos. Siempre *Azure* para Diagnósticos de Azure. |
-| ResourceId |Especifica la cuenta de Azure Automation. |
+| SourceSystem | Cómo los registros de Azure Monitor recopilan los datos. Siempre "Azure" para Diagnósticos de Azure. |
+| ResourceId |Identificador de la cuenta de Azure Automation. |
 | ResultDescription | La descripción de esta operación. |
 | SubscriptionId | Identificador de la suscripción de Azure (GUID) para la cuenta de Automation. |
 | ResourceGroup | Nombre del grupo de recursos de la cuenta de Automation. |
-| ResourceProvider | MICROSOFT.AUTOMATION |
-| ResourceType | AUTOMATIONACCOUNTS |
+| ResourceProvider | MICROSOFT.AUTOMATION. |
+| ResourceType | AUTOMATIONACCOUNTS. |
 | CorrelationId |GUID identificador de correlación del informe de cumplimiento. |
 
 ### <a name="dscresourcestatusdata"></a>DscResourceStatusData
@@ -166,7 +169,7 @@ La característica Diagnósticos de Azure Automation crea dos categorías de reg
 | OperationName |DscResourceStatusData|
 | ResultType |Si el recurso es compatible. |
 | NodeName_s |El nombre del nodo administrado. |
-| Category | DscNodeStatus |
+| Category | DscNodeStatus. |
 | Resource | El nombre de la cuenta de Azure Automation. |
 | Tenant_g | GUID que identifica al inquilino para el llamador. |
 | NodeId_g |GUID que identifica el nodo administrado. |
@@ -185,8 +188,8 @@ La característica Diagnósticos de Azure Automation crea dos categorías de reg
 | ResultDescription | La descripción de esta operación. |
 | SubscriptionId | Identificador de la suscripción de Azure (GUID) para la cuenta de Automation. |
 | ResourceGroup | Nombre del grupo de recursos de la cuenta de Automation. |
-| ResourceProvider | MICROSOFT.AUTOMATION |
-| ResourceType | AUTOMATIONACCOUNTS |
+| ResourceProvider | MICROSOFT.AUTOMATION. |
+| ResourceType | AUTOMATIONACCOUNTS. |
 | CorrelationId |GUID identificador de correlación del informe de cumplimiento. |
 
 ## <a name="summary"></a>Resumen

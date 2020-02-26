@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2019
+ms.date: 02/18/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd013b44454cc0283ef84d6a978b15400eca8786
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 0d6d621646aaa5c8c44a20cf327cd10fa31990b0
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022501"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484543"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Información sobre el esquema de Azure AD
 Un objeto de Azure Active Directory (Azure AD), al igual que cualquier directorio, es una construcción de datos general mediante programación que representa elementos como usuarios, grupos y contactos. Al crear un nuevo usuario o contacto en Azure AD, está creando una nueva instancia de ese objeto. Estas instancias se pueden diferenciar en función de sus propiedades.
@@ -67,6 +67,9 @@ En la tabla siguiente se enumeran algunos atributos comunes y se describe cómo 
 |ProxyAdress|Directo|ProxyAddress|
 
 ## <a name="view-the-schema"></a>Consulta del esquema
+> [!WARNING]
+> La configuración de aprovisionamiento en la nube crea una entidad de servicio. La entidad de servicio está visible en Azure Portal. No debe modificar las asignaciones de atributo mediante la experiencia de la entidad de servicio en Azure Portal.  Esto no se admite.
+
 Para ver el esquema y comprobarlo, siga estos pasos.
 
 1.  Vaya al [Probador de Graph](https://developer.microsoft.com/graph/graph-explorer).

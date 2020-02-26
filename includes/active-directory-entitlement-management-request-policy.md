@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/11/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: d89240467d5ea5172d04c8eb187fe85d1b702723
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c73a62b2d5feeae42a5ea35c88073dd5fcc0d78c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74981323"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77192656"
 ---
 ## <a name="for-users-in-your-directory"></a>para los usuarios del directorio
 
@@ -198,7 +198,7 @@ Por ejemplo, si especificó que Alice y Bob sean los primeros aprobadores, indiq
 
 ## <a name="enable-requests"></a>Habilitación de solicitudes
 
-1. Si quiere que el paquete de acceso esté disponible de inmediato para los usuarios de la directiva de solicitud para que puedan solicitarlo, haga clic en **Sí** para habilitarla.
+1. Si quiere que el paquete de acceso esté disponible de inmediato para los usuarios de la directiva de solicitud para que puedan solicitarlo, cambie el conmutador de alternancia Habilitar a **Sí**.
 
     Podrá habilitarla en todo momento cuando haya terminado de crear el paquete de acceso.
 

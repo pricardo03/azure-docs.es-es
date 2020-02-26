@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1300ecff416962bda4da800c5eff134951658846
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 600cd3f3ad8826b52648b51beb8c66a382766b80
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159172"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367882"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configuración del comportamiento de inicio de sesión de Azure Active Directory de una aplicación mediante una directiva de detección del dominio de inicio
 
@@ -100,9 +100,7 @@ Las directivas solo surten efecto para una aplicación específica cuando se adj
 
 Solo puede haber una directiva de HRD activa en una entidad de servicio en un momento dado.  
 
-Puede usar Microsoft Azure Active Directory Graph API directamente o los cmdlets de PowerShell de Azure Active Directory para crear y administrar la directiva de HRD.
-
-Graph API que manipula la directiva se describe en el artículo [Operations on policy](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) (Operaciones en la directiva) de MSDN.
+Puede usar los cmdlets de PowerShell de Azure Active Directory para crear y administrar la directiva de HRD.
 
 Este es un ejemplo de la definición de la directiva de HRD:
     
@@ -209,7 +207,7 @@ Para aplicar la directiva de HRD después de crearla, puede asignarla a varias e
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Paso 2: Búsqueda de la entidad de servicio a la cual se asignará la directiva  
 Para ello, necesita el valor de **ObjectID** de las entidades de servicio a las que quiere asignar la directiva. Hay varias maneras de buscar el valor de **ObjectID** de las entidades de servicio.    
 
-Puede usar el portal, o bien puede consultar [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). También puede ir a la [herramienta Probador de Graph](https://developer.microsoft.com/graph/graph-explorer) e iniciar sesión en su cuenta de Azure AD para ver todas las entidades de servicio de su organización. 
+Puede usar el portal, o bien puede consultar [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta). También puede ir a la [herramienta Probador de Graph](https://developer.microsoft.com/graph/graph-explorer) e iniciar sesión en su cuenta de Azure AD para ver todas las entidades de servicio de su organización. 
 
 Dado que usa PowerShell, puede usar el cmdlet siguiente para enumerar las entidades de servicio y sus identificadores.
 
