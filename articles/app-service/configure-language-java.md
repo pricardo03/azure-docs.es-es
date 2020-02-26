@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9ee989a079366a470d086a8b931685a6c1dbc757
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: e5beb60107b3632da336a20f167e1c2f5b53140a
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889348"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461273"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configuración de una aplicación de Java en Windows para Azure App Service
 
@@ -24,11 +24,12 @@ Esta guía incluye conceptos clave e instrucciones para los desarrolladores de J
 
 ## <a name="deploying-your-app"></a>Implementación de la aplicación
 
-Puede usar el [complemento Maven para Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)para implementar los archivos .war. La implementación con entornos de desarrollo integrado populares también se admite con [Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) o [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
+Puede usar el [complemento de Azure Web App para Maven](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) para implementar los archivos .war. La implementación con entornos de desarrollo integrado populares también se admite con [Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) o [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
 
 De lo contrario, el método de implementación dependerá del tipo de archivo:
 
 - Para implementar archivos .war en Tomcat, utilice el punto de conexión `/api/wardeploy/` para realizar el conjunto de rutinas POST en el archivo. Para obtener más información sobre esta API, consulte [este documento](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
+- Para implementar archivos .jar en Java SE, use el punto de conexión `/api/zipdeploy/` del sitio de Kudu. Para obtener más información sobre esta API, consulte [este documento](https://docs.microsoft.com/azure/app-service/deploy-zip#rest).
 
 No implemente el archivo .war mediante FTP. La herramienta FTP está diseñada para cargar los scripts de inicio, dependencias u otros archivos en tiempo de ejecución. Tenga en cuenta que no es la opción óptima para realizar la implementación de aplicaciones web.
 
@@ -128,9 +129,9 @@ Las aplicaciones de Java que se ejecutan en App Service presentan el mismo conj
 
 Configure la autenticación de la aplicación en Azure Portal con la opción **Autenticación y autorización**. Desde allí, puede habilitar la autenticación con Azure Active Directory o con inicios de sesión en redes sociales como Facebook, Google o GitHub. La configuración de Azure Portal solo funciona al configurar un proveedor de autenticación único. Para obtener más información, consulte [Configuración de una aplicación de App Service para usar el inicio de sesión de Azure Active Directory](configure-authentication-provider-aad.md) y los artículos relacionados de otros proveedores de identidades. Si tiene que habilitar varios proveedores de inicio de sesión, siga las instrucciones del artículo sobre la [personalización de la autenticación en App Service](app-service-authentication-how-to.md).
 
-#### <a name="tomcat-and-wildfly"></a>Tomcat y Wildfly
+#### <a name="tomcat"></a>Tomcat
 
-La aplicación Tomcat o Wildfly puede acceder a las reclamaciones del usuario directamente desde el servlet de mediante la conversión de la entidad de seguridad de objeto a un objeto del mapa. Este último objeto asignará ca tipo de reclamación a una colección de las notificaciones de dicho tipo. En el código siguiente, `request` es una instancia de `HttpServletRequest`.
+La aplicación Tomcat puede acceder a las reclamaciones del usuario directamente desde el servlet mediante la conversión del objeto Principal a un objeto Map. Este último objeto asignará ca tipo de reclamación a una colección de las notificaciones de dicho tipo. En el código siguiente, `request` es una instancia de `HttpServletRequest`.
 
 ```java
 Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
@@ -287,6 +288,10 @@ Para editar `server.xml` de Tomcat u otros archivos de configuración, en primer
 
 Finalmente, reinicie App Service. Las implementaciones deben ir a `D:\home\site\wwwroot\webapps` igual que antes.
 
+## <a name="configure-java-se"></a>Configuración de Java SE
+
+Al ejecutar una aplicación .JAR en Java SE en Windows, `server.port` se pasa como una opción de línea de comandos cuando se inicia la aplicación. Puede resolver manualmente el puerto HTTP desde la variable de entorno `HTTP_PLATFORM_PORT`. El valor de esta variable del entorno será el puerto HTTP en que debe escuchar la aplicación. 
+
 ## <a name="java-runtime-statement-of-support"></a>Instrucción de compatibilidad de Java Runtime
 
 ### <a name="jdk-versions-and-maintenance"></a>Mantenimiento y versiones de JDK
@@ -300,6 +305,8 @@ Los JDK compatibles se revisarán trimestralmente de manera automática en enero
 ### <a name="security-updates"></a>Actualizaciones de seguridad
 
 Las revisiones y correcciones de las vulnerabilidades de seguridad principales se publicarán en cuanto estén disponibles a través de Azul Systems. Una vulnerabilidad "principal" se define con una puntuación total de 9.0 o superior en el [CVSS (Common Vulnerability Scoring System), versión 2 del NIST](https://nvd.nist.gov/cvss.cfm).
+
+Tomcat 8.0 alcanzó el [fin de la vida útil el 30 de septiembre de 2018](https://tomcat.apache.org/tomcat-80-eol.html). Aunque el entorno en tiempo de ejecución sigue disponible en Azure App Service, Azure no aplicará actualizaciones de seguridad a Tomcat 8.0. Si es posible, migre las aplicaciones a Tomcat 8.5 o 9.0. Tanto Tomcat 8.5 como 9.0 están disponibles en Azure App Service. Para más información, consulte el [sitio oficial de Tomcat](https://tomcat.apache.org/whichversion.html). 
 
 ### <a name="deprecation-and-retirement"></a>Desuso y retirada
 

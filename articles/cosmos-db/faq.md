@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: ac93d1f4f0f148e1f0ce3d0f21ac9a694f2e896d
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 322d1c9ead1e7591c359c35c445fa32529db22ef
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310023"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462486"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Preguntas más frecuentes sobre diferentes API en Azure Cosmos DB
 
@@ -79,17 +79,18 @@ Para corregir un problema con la cuenta, envíe una [solicitud de soporte técni
 
 ## <a id="try-cosmos-db"></a>Prueba de las suscripciones de Azure Cosmos DB
 
-Ya puede disfrutar de Azure Cosmos DB durante un tiempo limitado sin una suscripción, y sin que le suponga ningún gasto ni compromiso. Para registrarse en una suscripción de prueba de Azure Cosmos DB, vaya a [Pruebe gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/). Esta suscripción es independiente de la [evaluación gratuita de Azure](https://azure.microsoft.com/free/) y puede utilizarse junto con una evaluación gratuita o una suscripción de pago de Azure.
+Ya puede disfrutar de Azure Cosmos DB durante un tiempo limitado sin una suscripción, y sin que le suponga ningún gasto ni compromiso. Para registrarse en una suscripción de prueba de Azure Cosmos DB, vaya a [Pruebe gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) y use cualquier cuenta de Microsoft (MSA) personal. Esta suscripción es independiente de la [evaluación gratuita de Azure](https://azure.microsoft.com/free/) y puede utilizarse junto con una evaluación gratuita o una suscripción de pago de Azure.
 
 Las suscripciones de prueba de Azure Cosmos DB aparecen en Azure Portal junto con otras suscripciones asociadas con el identificador de usuario.
 
 Las condiciones siguientes se aplican a las suscripciones de prueba de Azure Cosmos DB:
 
+* Se puede conceder acceso a la cuenta a cuentas de Microsoft (MSA) personales. Evite el uso de cuentas de Active Directory (AAD) o cuentas que pertenezcan a inquilinos corporativos de AAD, ya que podrían tener limitaciones que pueden bloquear la concesión de acceso.
 * Un [contenedor aprovisionado con rendimiento](./set-throughput.md#set-throughput-on-a-container) por cada suscripción para las cuentas de SQL, Gremlin API y Table.
 * Hasta tres [colecciones aprovisionadas con rendimiento](./set-throughput.md#set-throughput-on-a-container) por suscripción para las cuentas de MongoDB.
 * Una [base de datos aprovisionada con rendimiento](./set-throughput.md#set-throughput-on-a-database) por suscripción. Las bases de datos aprovisionadas con rendimiento pueden incluir cualquier número de contenedores.
 * 10 GB de capacidad de almacenamiento.
-* La replicación global está disponible en las [regiones de Azure](https://azure.microsoft.com/regions/) siguientes: Centro de EE. UU., Europa del Norte y Sudeste Asiático
+* La replicación global está disponible en las [regiones de Azure](https://azure.microsoft.com/regions/) siguientes: Centro de EE. UU., Norte de Europa y Sudeste de Asia
 * Rendimiento máximo de 5000 unidades de solicitud por segundo cuando se aprovisionan en el nivel de contenedor.
 * Rendimiento máximo de 20 000 unidades de solicitud por segundo cuando se aprovisionan en el nivel de base de datos.
 * Las suscripciones expiran después de 30 días y se pueden extender hasta un máximo de 31 días.

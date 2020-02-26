@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59e4e527f25a32c8a5274db5eab5d33a7843bc3c
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 1046c11e064e69ed0ddb18c77bf5935ba60fb5aa
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275584"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461290"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>Inicio de sesión único de SAML para aplicaciones en el entorno local con Application Proxy
 
@@ -41,17 +41,15 @@ Los diagramas de protocolos siguientes describen la secuencia de inicio de sesi�
 
 1. En Azure Portal, seleccione **Azure Active Directory > Aplicaciones empresariales** y seleccione **Nueva aplicación**.
 
-2. En la sección **Aplicaciones locales**, seleccione **Incorporación de una aplicación local**.
+2. Escriba el nombre para mostrar de la nueva aplicación, seleccione **Integrar cualquier otra aplicación que no se encuentre en la galería** y, después, seleccione **Crear**.
 
-3. Escriba el nombre para mostrar de la nueva aplicación y seleccione **Agregar**.
+3. En la página **Información general** de la aplicación, seleccione **Inicio de sesión único**.
 
-4. En la página **Información general** de la aplicación, seleccione **Inicio de sesión único**.
+4. Seleccione **SAML** como método de inicio de sesión único.
 
-5. Seleccione **SAML** como método de inicio de sesión único.
+5. En primer lugar, configure el inicio de sesión único de SAML para que funcione en la red corporativa. En la página **Configurar el inicio de sesión único con SAML**, vaya al encabezado **Configuración básica de SAML** y seleccione el icono de **edición** (un lápiz). Siga los pasos descritos en [Especificación de la configuración básica de SAML](configure-single-sign-on-non-gallery-applications.md#step-1-edit-the-basic-saml-configuration) para configurar la autenticación basada en SAML para la aplicación.
 
-6. En primer lugar, configure el inicio de sesión único de SAML para que funcione en la red corporativa. En la página **Configurar el inicio de sesión único con SAML**, vaya al encabezado **Configuración básica de SAML** y seleccione el icono de **edición** (un lápiz). Siga los pasos descritos en [Especificación de la configuración básica de SAML](configure-single-sign-on-non-gallery-applications.md#step-1-edit-the-basic-saml-configuration) para configurar la autenticación basada en SAML para la aplicación.
-
-7. Agregue al menos un usuario a la aplicación y asegúrese de que la cuenta de prueba tenga acceso a la aplicación. Mientras esté conectado a la red corporativa, utilice la cuenta de prueba para ver si tiene inicio de sesión único en la aplicación. 
+6. Agregue al menos un usuario a la aplicación y asegúrese de que la cuenta de prueba tenga acceso a la aplicación. Mientras esté conectado a la red corporativa, utilice la cuenta de prueba para ver si tiene inicio de sesión único en la aplicación. 
 
    > [!NOTE]
    > Después de configurar Application Proxy, volverá y actualizará la **dirección URL de respuesta** de SAML.
@@ -74,7 +72,7 @@ Para proporcionar SSO para aplicaciones en el entorno local, tiene que habilitar
 
 1. Con la aplicación todavía abierta en Azure Portal, seleccione **Inicio de sesión único**. 
 
-2. En la página **Configurar el inicio de sesión único con SAML**, vaya al encabezado **Configuración básica de SAML** y seleccione el icono de **edición** (un lápiz). La **dirección URL externa** que configuró en Application Proxy rellenará automáticamente los campos **Identificador**, **URL de respuesta** y **URL de cierre de sesión**. No edite estas direcciones URL porque son necesarias para que Application Proxy funcione correctamente.
+2. En la página **Configurar el inicio de sesión único con SAML**, vaya al encabezado **Configuración básica de SAML** y seleccione el icono de **edición** (un lápiz). Asegúrese de que la **dirección URL externa** que configuró en Application Proxy rellenará los campos **Identificador**, **URL de respuesta** y **URL de cierre de sesión**. Estas direcciones URL son necesarias para que Application Proxy funcione correctamente. 
 
 3. Edite la **URL de respuesta** configurada anteriormente para que Application Proxy pueda acceder a su dominio. Por ejemplo, si la **dirección URL externa** es `https://contosotravel-f128.msappproxy.net` y la **URL de respuesta** original era `https://contosotravel.com/acs`, deberá actualizar la **URL de respuesta** original a `https://contosotravel-f128.msappproxy.net/acs`. 
 

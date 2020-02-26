@@ -43,7 +43,7 @@
       href: location-condition.md
     - name: Herramienta What if
       href: what-if-tool.md
-    - name: Controles
+    - name: Controles personalizados
       href: controls.md
     - name: Migraciones con directiva clásica
       href: policy-migration.md

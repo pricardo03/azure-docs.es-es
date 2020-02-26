@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c5b9c1d294cd984ca3cf062d3b657239995e5908
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 3361f4723c5a9776cb156417e57d609175d11621
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751873"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446283"
 ---
 Las instantáneas incrementales (versión preliminar) son copias de seguridad en un momento dado de los discos administrados que, cuando se realizan, solo constan de todos los cambios desde la última instantánea. Al intentar descargar o usar una instantánea incremental, se utiliza el VHD completo. Esta nueva funcionalidad para las instantáneas de discos administrados puede permitir que sean más rentables, ya que no es necesario almacenar todo el disco con cada instantánea individual a menos que decida hacerlo expresamente. Al igual que las instantáneas normales, las instantáneas incrementales se pueden usar para crear un disco administrado completo o para realizar una instantánea normal.
 
@@ -23,7 +23,7 @@ Las instantáneas incrementales también ofrecen una funcionalidad diferencial, 
 
 ## <a name="restrictions"></a>Restricciones
 
-- Actualmente, las instantáneas incrementales solo están disponibles en las regiones Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU.,Centro-oeste de EE. UU., Este de Canadá, Centro de Canadá y Norte de Europa.
+- Actualmente, las instantáneas incrementales solo están disponibles en las regiones Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU.,Centro-oeste de EE. UU., Este de Canadá, Centro de Canadá, Norte de Europa y Sudeste Asiático.
 - Actualmente, las instantáneas incrementales no se pueden crear después de cambiar el tamaño de un disco.
 - Las instantáneas incrementales no se pueden mover entre suscripciones.
 - En este momento, solo se pueden generar URI de SAS de hasta cinco instantáneas de una determinada familia de instantáneas en un momento dado.

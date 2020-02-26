@@ -5,17 +5,17 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 68a830f344023967f07ab809d67833f99e4e2958
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 2/18/2020
+ms.openlocfilehash: 0e2eb4ab13319779ae209e58253c6a5f2ccb75da
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977614"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462435"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Use Azure Portal para configurar alertas métricas en Azure Database for PostgreSQL - Hiperescala (Citus)
 
-En este artículo se explica cómo configurar alertas de Azure Database for PostgreSQL mediante Azure Portal. Puede recibir una alerta basada en las métricas de supervisión para los servicios de Azure.
+En este artículo se explica cómo configurar alertas de Azure Database for PostgreSQL mediante Azure Portal. Puede recibir una alerta basada en las [métricas de supervisión](concepts-hyperscale-monitoring.md) para los servicios de Azure.
 
 Configuraremos una alerta que se active cuando el valor de una métrica específica cruce un umbral. La alerta se activa cuando se cumple la condición por primera vez y continúa después.
 
@@ -81,13 +81,31 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 
     En cuestión de minutos, se activa la alerta y se desencadena tal como se describió anteriormente.
 
-## <a name="manage-your-alerts"></a>Administración de alertas
+### <a name="managing-alerts"></a>Administración de alertas
 
 Una vez que haya creado una alerta, puede seleccionarla y realizar las siguientes acciones:
 
 * Ver un gráfico que muestre el umbral de las métricas y los valores reales del día anterior en relación con esta alerta.
 * **Editar** o **eliminar** la regla de alerta.
 * **Deshabilitar** o **habilitar** la alerta, si quiere detener temporalmente o reanudar la recepción de notificaciones.
+
+## <a name="suggested-alerts"></a>Alertas sugeridas
+
+### <a name="disk-space"></a>Espacio en disco
+
+La supervisión y las alertas son importantes para cada grupo de servidores de Hiperescala (Citus) de producción. La base de datos PostgreSQL subyacente requiere espacio libre en disco para funcionar correctamente. Si el disco se llena, el nodo de servidor de bases de datos se desconectará y no se podrá iniciar hasta que haya espacio disponible. En ese momento, requiere una solicitud de soporte técnico de Microsoft para corregir la situación.
+
+Se recomienda establecer alertas de espacio en disco en cada nodo de cada grupo de servidores, incluso para usos de no producción. Las alertas de uso de espacio en disco proporcionan la advertencia de avance necesaria para intervenir y mantener los nodos en buen estado. Para obtener los mejores resultados, pruebe una serie de alertas con un uso del 75 %, 85 % y 95 %. Los porcentajes que se deben elegir dependen de la velocidad de la ingesta de datos, ya que la ingesta de datos rápida llena antes el disco.
+
+A medida que el disco se aproxime al límite de espacio, pruebe estas técnicas para tener más espacio libre:
+
+* Revise la directiva de retención de datos. Mueva los datos más antiguos al almacenamiento en frío, si es factible.
+* Considere la posibilidad de [agregar nodos](howto-hyperscale-scaling.md#add-worker-nodes) al grupo de servidores y reequilibrar las particiones. El reequilibrio distribuye los datos entre más equipos.
+* Considere la posibilidad de [aumentar la capacidad](howto-hyperscale-scaling.md#increase-vcores) de los nodos de trabajo. Cada trabajo puede tener hasta 2 TiB de almacenamiento. Sin embargo, se deben intentar agregar nodos antes de cambiar el tamaño de los nodos, ya que la adición de nodos se completa más rápidamente.
+
+### <a name="cpu-usage"></a>Uso de CPU
+
+La supervisión del uso de CPU resulta útil para establecer una base de referencia para el rendimiento. Por ejemplo, puede observar que el uso de CPU suele ser de, aproximadamente, entre 40-60 %. Si, de repente, el uso de CPU empieza a rondar el 95 %, puede reconocer una anomalía. El uso de CPU puede reflejar el crecimiento orgánico, pero también puede revelar una consulta aislada. Al crear una alerta de CPU, defina una granularidad de agregación larga para capturar los aumentos prolongados e ignorar los picos momentáneos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre cómo [configurar webhooks en las alertas](../azure-monitor/platform/alerts-webhooks.md).

@@ -6,20 +6,15 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 66897263ff9c7d71c64d04fcc6860b96bf59588c
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: d943213814b999f101a541abb0195a9fdd5a7423
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668494"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459181"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Habilitación de la sincronización sin conexión con aplicaciones móviles iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-
-> [!NOTE]
-> Visual Studio App Center admite servicios integrados de un extremo a otro fundamentales para el desarrollo de aplicaciones móviles. Los desarrolladores pueden usar los servicios de **compilación**, **prueba** y **distribución** para configurar la canalización de integración y entrega continuas. Una vez que se ha implementado la aplicación, los desarrolladores pueden supervisar el estado y el uso de su aplicación con los servicios de **análisis** y **diagnóstico**, e interactuar con los usuarios que utilizan el servicio de **Push** (inserción). Además, los desarrolladores pueden aprovechar **Auth** para autenticar a los usuarios y el servicio de **datos** para almacenar y sincronizar los datos de la aplicación en la nube.
->
-> Si está pensando en integrar servicios en la nube en su aplicación para dispositivos móviles, regístrese en [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoy mismo.
 
 ## <a name="overview"></a>Información general
 En este tutorial, se trata la sincronización sin conexión con la característica Mobile Apps de Azure App Service para iOS. Con la sincronización sin conexión, los usuarios finales pueden interactuar con una aplicación móvil para ver, agregar o modificar datos, incluso si carecen de conexión a red. Los cambios se almacenan en una base de datos local. Una vez que el dispositivo se vuelve a conectar, los cambios se sincronizan con el back-end remoto.
@@ -156,7 +151,7 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 
 ![Atributos de la tabla MS_TableOperations][defining-core-data-tableoperations-entity]
 
-| Atributo | type |
+| Atributo | Tipo |
 | --- | --- |
 | id | Integer 64 |
 | itemId | String |
@@ -169,7 +164,7 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 
  ![Atributos de la tabla MS_TableOperationErrors][defining-core-data-tableoperationerrors-entity]
 
-| Atributo | type |
+| Atributo | Tipo |
 | --- | --- |
 | id |String |
 | operationId |Integer 64 |
@@ -180,7 +175,7 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 
  ![][defining-core-data-tableconfig-entity]
 
-| Atributo | type |
+| Atributo | Tipo |
 | --- | --- |
 | id |String |
 | key |String |
@@ -192,7 +187,7 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 
 **TodoItem**
 
-| Atributo | type | Nota: |
+| Atributo | Tipo | Nota: |
 | --- | --- | --- |
 | id | String, marcado obligatorio |Clave principal en almacén remoto |
 | complete | Boolean | Campo de tarea pendiente |
@@ -269,7 +264,7 @@ Cuando el almacén local se sincroniza con el servidor, se usa el método **MSSy
 
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Sincronización de datos sin conexión en Mobile Apps]
-* [Cloud Cover: sincronización sin conexión en Azure Mobile Services] \(El vídeo trata sobre Mobile Services, pero la sincronización sin conexión de Mobile Apps funciona de forma similar.\)
+* [Cloud Cover: Sincronización sin conexión en Azure Mobile Services] \(El vídeo trata sobre Mobile Services, pero la sincronización sin conexión de Mobile Apps funciona de forma similar.\)
 
 <!-- URLs. -->
 

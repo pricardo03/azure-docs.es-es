@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 21a11863bd2bc9882d4336f5c5d2bf1d7b7f49da
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 49ef78ac5a7d58d86583d91bf072f0f3131796fe
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133764"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444101"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Configuración de un laboratorio centrado en el aprendizaje profundo en el procesamiento de lenguaje natural mediante Azure Lab Services
 En este artículo se muestra cómo configurar un laboratorio centrado en el aprendizaje profundo en el procesamiento de lenguaje natural (NLP) mediante Azure Lab Services. El procesamiento de lenguaje natural (NLP) es una forma de inteligencia artificial (AI) que permite a los equipos utilizar la traducción, el reconocimiento de voz y otras capacidades de comprensión de lenguajes.  
@@ -32,7 +32,7 @@ Después de crear la cuenta de laboratorio, habilite la siguiente configuración
 
 | Configuración de la cuenta de laboratorio | Instructions |
 | ----------- | ------------ |  
-| Imágenes de Marketplace | Habilite la imagen de Data Science Virtual Machine para Linux (Ubuntu) para usarla en su cuenta de laboratorio.  Para ver las instrucciones pertinentes, consulte los siguientes artículos: [Especificación de las imágenes de Marketplace disponibles para los creadores de laboratorios](how-to-configure-lab-accounts.md#specify-marketplace-images-available-to-lab-creators). | 
+| Imágenes de Marketplace | Habilite la imagen de Data Science Virtual Machine para Linux (Ubuntu) para usarla en su cuenta de laboratorio.  Para obtener instrucciones, vea el siguiente artículo: [Especificación de las imágenes de Marketplace disponibles para los creadores de laboratorios](specify-marketplace-images.md). | 
 
 Siga [este tutorial](tutorial-setup-classroom-lab.md) para crear un laboratorio y aplique la configuración siguiente:
 

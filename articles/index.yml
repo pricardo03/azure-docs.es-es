@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/24/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 76f0570108a7e730d841b0fc0810e465b11cecdb
-  ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+  ms.openlocfilehash: 9615b3df4c48ef073413ce0ecdec93264a0b9711
+  ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 02/25/2020
-  ms.locfileid: "77598959"
+  ms.lasthandoff: 02/26/2020
+  ms.locfileid: "77622631"
 highlightedContent:
   items:
   - title: Guía de introducción para desarrolladores de Azure
@@ -484,7 +484,7 @@ productDirectory:
     - containers
     - mobile
     - web
-    url: app-service-mobile/index.md
+    url: app-service-mobile/index.yml
   - title: SAP HANA en Azure (instancias grandes)
     summary: Ejecute las cargas de trabajo de SAP HANA más grandes de cualquier proveedor en la nube de hiperescala
     imageSrc: https://static.docs.com/ui/media/product/azure/sap.svg
