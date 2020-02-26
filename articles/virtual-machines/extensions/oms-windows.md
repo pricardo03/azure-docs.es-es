@@ -1,5 +1,5 @@
 ---
-title: Extensión de máquina virtual de Azure Monitor para Windows
+title: Extensión de máquina virtual de Log Analytics para Windows
 description: Implemente el agente de Log Analytics en la máquina virtual Windows con una extensión de máquina virtual.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,29 +14,27 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/30/2020
 ms.author: akjosh
-ms.openlocfilehash: 604be42ec74f75e3aa9c790092ed83aee4ad25e1
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 85b97f31e77736603bd0dc7003d4dbfb91a694dc
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76907013"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470707"
 ---
-# <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Azure Monitor para Windows
+# <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Log Analytics para Windows
 
-Azure Monitor proporciona funcionalidades de supervisión de recursos locales y en la nube. Microsoft, como editor de la extensión de máquina virtual del agente de Log Analytics para Windows, es quien presta los servicios de soporte técnico para esta solución. La extensión instala el agente de Log Analytics en Azure Virtual Machines e inscribe las máquinas virtuales en un área de trabajo de Log Analytics. En este documento se especifican las plataformas, las configuraciones y las opciones de implementación admitidas de la extensión de máquina virtual de Azure Monitor para Windows.
+Los registros de Azure Monitor proporcionan funcionalidades de supervisión de recursos locales y en la nube. Microsoft, como editor de la extensión de máquina virtual del agente de Log Analytics para Windows, es quien presta los servicios de soporte técnico para esta solución. La extensión instala el agente de Log Analytics en Azure Virtual Machines e inscribe las máquinas virtuales en un área de trabajo de Log Analytics. En este documento se especifican las plataformas compatibles, configuraciones y opciones de implementación de la extensión de máquina virtual de Log Analytics para Windows.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
-
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="operating-system"></a>Sistema operativo
 
 Para obtener más información acerca de los sistemas operativos Windows admitidos, consulte el artículo de [información general del agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems).
 
 ### <a name="agent-and-vm-extension-version"></a>Versión de extensión de agente y máquina virtual
-En la tabla siguiente se proporciona una asignación de la versión de la extensión de máquina virtual de Azure Monitor para Windows y el conjunto de productos del agente de Log Analytics para cada versión. 
+En la tabla siguiente se proporciona una asignación de la versión de la extensión de VM de Windows Log Analytics y el paquete del agente de Log Analytics para cada versión. 
 
-| Versión del conjunto de productos Windows para Log Analytics | Versión de la extensión de máquina virtual Windows para Azure Monitor | Fecha de la versión | Notas de la versión |
+| Versión del conjunto de productos Windows para Log Analytics | Versión de extensión de VM Windows de Log Analytics | Fecha de la versión | Notas de la versión |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
 | 10.20.18018 | 1.0.18018 | Octubre de 2019 | <ul><li> Correcciones de errores menores y mejoras de estabilización </li></ul> |
 | 10.20.18011 | 1.0.18011 | Julio de 2019 | <ul><li> Correcciones de errores menores y mejoras de estabilización </li><li> Aumento de MaxExpressionDepth a 10 000 </li></ul> |
@@ -96,7 +94,8 @@ En el siguiente JSON se muestra el esquema para la extensión del agente de Log 
 
 \* El identificador del área de trabajo se denomina identificador de consumidor en la API de Log Analytics.
 
-> [NORA] Para obtener más propiedades, vea [Conexión de equipos Windows a Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
+> [!NOTE]
+> Para obtener más propiedades, vea [Conexión de equipos Windows a Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows) de Azure.
 
 ## <a name="template-deployment"></a>Implementación de plantilla
 
@@ -107,7 +106,7 @@ Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Reso
 
 El JSON de una extensión de máquina virtual puede estar anidada en el recurso de máquina virtual, o colocada en la raíz o un nivel superior de una plantilla JSON de Resource Manager. La colocación de la plantilla JSON afecta al valor del nombre y tipo del recurso. Para obtener más información, consulte el artículo sobre cómo [establecer el nombre y el tipo de recursos secundarios](../../azure-resource-manager/templates/child-resource-name-type.md). 
 
-En el siguiente ejemplo se da por supuesto que la extensión de Azure Monitor está anidada dentro del recurso de máquina virtual. Cuando se anidan los recursos de extensión, la plantilla JSON se coloca en el objeto `"resources": []` de la máquina virtual.
+En el siguiente ejemplo se da por supuesto que la extensión de Log Analytics está anidada dentro de los recursos de máquina virtual. Cuando se anidan los recursos de extensión, la plantilla JSON se coloca en el objeto `"resources": []` de la máquina virtual.
 
 
 ```json

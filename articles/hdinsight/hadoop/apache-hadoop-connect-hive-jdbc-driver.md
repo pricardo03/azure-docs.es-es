@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.openlocfilehash: 2250e41bffc26bd9ae59dfc652a06d08016d227a
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.date: 02/17/2020
+ms.openlocfilehash: 016107248399e84b7a82a656c9d590c3cbe0cdbe
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053804"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77466933"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Consulta de Apache Hive mediante el controlador JDBC en HDInsight
 
@@ -23,9 +23,9 @@ Aprenda a usar el controlador JDBC desde una aplicación Java para enviar consul
 
 Para obtener más información sobre la interfaz JDBC de Hive, consulte [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Un clúster de Hadoop de HDInsight: Para crear uno, vea [Introducción a HDInsight de Azure](apache-hadoop-linux-tutorial-get-started.md).
+* Un clúster de Hadoop de HDInsight: Para crear uno, vea [Introducción a HDInsight de Azure](apache-hadoop-linux-tutorial-get-started.md). Asegúrese de que el servicio HiveServer2 está en ejecución.
 * [Kit para desarrolladores de Java (JDK), versión 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html) o posterior.
 * [SQL SQuirreL](http://squirrel-sql.sourceforge.net/). SQuirreL es una aplicación de cliente JDBC.
 
@@ -71,9 +71,9 @@ SQL SQuirreL es un cliente JDBC que puede utilizarse para ejecutar consultas de 
 
 5. En el cuadro de diálogo Add driver (agregar controlador), agregue la siguiente información:
 
-    |Propiedad | Valor |
+    |Propiedad | Value |
     |---|---|
-    |NOMBRE|Hive|
+    |Nombre|Hive|
     |Example URL (URL de ejemplo)|jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2|
     |Extra Class Path (Ruta de acceso de clase adicional):|use el botón **Add** (Agregar) para agregar todos los archivos .jar que se descargaron anteriormente.|
     |Class Name (Nombre de clase)|org.apache.hive.jdbc.HiveDriver|
@@ -88,12 +88,12 @@ SQL SQuirreL es un cliente JDBC que puede utilizarse para ejecutar consultas de 
 
 7. Use los siguientes valores en el cuadro de diálogo **Add Alias** (Agregar alias).
 
-    |Propiedad |Valor |
+    |Propiedad |Value |
     |---|---|
-    |NOMBRE|Hive en HDInsight|
+    |Nombre|Hive en HDInsight|
     |Controlador|Use la lista desplegable para seleccionar el controlador **Hive**.|
     |URL|jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2. Reemplace **CLUSTERNAME** por el nombre del clúster de HDInsight.|
-    |User Name|nombre de la cuenta de inicio de sesión del clúster de HDInsight. El valor predeterminado es **admin**.|
+    |Nombre de usuario|nombre de la cuenta de inicio de sesión del clúster de HDInsight. El valor predeterminado es **admin**.|
     |Contraseña|contraseña para la cuenta de inicio de sesión del clúster.|
 
     ![cuadro de diálogo para agregar alias con parámetros](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-addalias-dialog.png)
@@ -119,7 +119,7 @@ SQL SQuirreL es un cliente JDBC que puede utilizarse para ejecutar consultas de 
 
 Hay un ejemplo del uso de un cliente de Java para consultar Hive en HDInsight disponible en [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc). Siga las instrucciones del repositorio para crear y ejecutar el ejemplo.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 ### <a name="unexpected-error-occurred-attempting-to-open-an-sql-connection"></a>Error inesperado al intentar abrir una conexión SQL
 
@@ -133,7 +133,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 **Causa**: este error lo causa un archivo commons-codec.jar de una versión anterior que está incluido en SQuirreL.
 
-**Resolución**: para corregir este error, siga estos pasos:
+**Solución:** para corregir este error, siga estos pasos:
 
 1. Salga de SQuirreL y vaya al directorio donde está instalado SQuirreL en el sistema, por ejemplo, `C:\Program Files\squirrel-sql-4.0.0\lib`. En el directorio de SQuirreL, bajo el directorio `lib` , reemplace el archivo commons-codec.jar existente por el descargado desde el clúster de HDInsight.
 

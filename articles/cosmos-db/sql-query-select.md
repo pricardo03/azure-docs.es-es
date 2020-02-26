@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: girobins
-ms.openlocfilehash: b90fc6f1f50ec2ea75619188cca36f78061f28df
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 013ebdcdbac41825c10a1362f73ab4c94052400d
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326786"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469942"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>Cláusula SELECT en Azure Cosmos DB
 
-Todas las consultas constan de una cláusula SELECT y cláusulas [FROM](sql-query-from.md) y [WHERE](sql-query-where.md) opcionales, según los estándares SQL ANSI. Normalmente, se enumera el origen en la cláusula FROM, y la cláusula WHERE aplica un filtro en el origen para recuperar un subconjunto de elementos JSON. La cláusula SELECT luego proyecta los valores JSON solicitados en la lista seleccionada.
+Todas las consultas constan de una cláusula SELECT y cláusulas [FROM](sql-query-from.md) y [WHERE](sql-query-where.md) opcionales, según los estándares SQL ANSI. Normalmente, se enumera el origen en la cláusula FROM y la cláusula WHERE aplica un filtro en el origen para recuperar un subconjunto de elementos JSON. La cláusula SELECT luego proyecta los valores JSON solicitados en la lista seleccionada.
 
 ## <a name="syntax"></a>Sintaxis
 
@@ -58,7 +58,7 @@ SELECT <select_specification>
 
   Expresión que representa el valor que hay que calcular. Consulte la sección [Expresiones escalares](sql-query-scalar-expressions.md) para más información.  
 
-## <a name="remarks"></a>Comentarios
+## <a name="remarks"></a>Observaciones
 
 La sintaxis `SELECT *` solo es válida si la cláusula FROM ha declarado exactamente un alias. `SELECT *` proporciona una proyección de identidad, que puede resultar útil si no se necesitan proyecciones. SELECT * solo es válida si se especifica cláusula FROM y se introdujo solo un origen de entrada.  
   
@@ -78,7 +78,7 @@ La sintaxis `SELECT *` solo es válida si la cláusula FROM ha declarado exactam
   
 ## <a name="examples"></a>Ejemplos
 
-El siguiente ejemplo de consulta SELECT devuelve `address` desde `Families` cuyo `id` coincide con `AndersenFamily`:
+El siguiente ejemplo de consulta SELECT devuelve `address` de `Families` cuyo `id` coincide con `AndersenFamily`:
 
 ```sql
     SELECT f.address
@@ -99,7 +99,7 @@ Los resultados son:
 ```
 
 ### <a name="quoted-property-accessor"></a>Descriptor de acceso de propiedad entre comillas
-Puede acceder a las propiedades mediante el operador de la propiedad entre comillas []. Por ejemplo, `SELECT c.grade` and `SELECT c["grade"]` son equivalentes. Esta sintaxis es útil para crear una secuencia de escape para una propiedad que contiene espacios en blanco, caracteres especiales o que tiene el mismo nombre que una palabra clave SQL o una palabra reservada.
+Puede acceder a las propiedades mediante el operador de la propiedad entre comillas []. Por ejemplo, `SELECT c.grade` and `SELECT c["grade"]` son equivalentes. Esta sintaxis es útil para crear una secuencia de escape para una propiedad que contiene espacios en blanco, caracteres especiales o que tiene el mismo nombre que una palabra clave SQL o una palabra reservada.
 
 ```sql
     SELECT f["lastName"]
@@ -168,6 +168,50 @@ Los resultados son:
         "name": "AndersenFamily"
       }
     }]
+```
+## <a name="reserved-keywords-and-special-characters"></a>Palabras clave reservadas y caracteres especiales
+
+Si los datos contienen propiedades con los mismos nombres como palabras clave reservadas, como, por ejemplo, "pedido" o "Grupo", las consultas realizadas en estos documentos producirán error de sintaxis. Debe incluir explícitamente la propiedad en el carácter `[]` para ejecutar la consulta correctamente.
+
+Por ejemplo, a continuación se muestra un documento con una propiedad denominada `order` y una propiedad `price($)` que contiene caracteres especiales:
+
+```json
+{
+  "id": "AndersenFamily",
+  "order": [
+     {
+         "orderId": "12345",
+         "productId": "A17849",
+         "price($)": 59.33
+     }
+  ],
+  "creationDate": 1431620472,
+  "isRegistered": true
+}
+```
+
+Si ejecuta una consulta que incluya la propiedad `order` o `price($)`, recibirá un error de sintaxis.
+
+```sql
+SELECT * FROM c where c.order.orderid = "12345"
+```
+```sql
+SELECT * FROM c where c.order.price($) > 50
+```
+El resultado es el siguiente:
+
+`
+Syntax error, incorrect syntax near 'order'
+`
+
+Debe volver a escribir las mismas consultas como se indica a continuación:
+
+```sql
+SELECT * FROM c WHERE c["order"].orderId = "12345"
+```
+
+```sql
+SELECT * FROM c WHERE c["order"]["price($)"] > 50
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 11/07/2019
+ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: e9d5a137247c072516c0b25d7f6147ef48fec248
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 1cf4cc9cf4d98dfca59e01cc264549af3a4d5cb4
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839789"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471795"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Uso de programaciones de mantenimiento para administrar las actualizaciones del servicio y el mantenimiento
 
@@ -55,7 +55,7 @@ De forma predeterminada, todas las instancias de Azure SQL Data Warehouse recié
 
 Para ver la programación de mantenimiento que se ha aplicado al almacenamiento de datos, complete los siguientes pasos:
 
-1.  Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1.  Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2.  Seleccione el almacenamiento de datos que quiere ver. 
 3.  El almacenamiento de datos seleccionado se abre en la hoja de información general. La programación de mantenimiento que se aplica al almacén de datos se mostrará debajo de **Programación de mantenimiento**.
 
@@ -71,9 +71,9 @@ Una programación de mantenimiento puede actualizarse o cambiarse en cualquier m
 Las ventanas principales y secundarias deben tener intervalos de días independientes. Un ejemplo es una ventana principal de martes a jueves, y otra secundaria de sábado a domingo.
 
 Para cambiar la programación de mantenimiento del almacenamiento de datos, complete los siguientes pasos:
-1.  Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1.  Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2.  Seleccione el almacenamiento de datos que quiere actualizar. La página se abre en la hoja de información general. 
-3.  Abra la página de configuración de la programación de mantenimiento seleccionando el vínculo de **resumen de la Programación de mantenimiento (versión preliminar)** en la hoja de información general. O bien, seleccione la opción **Programación de mantenimiento** en el menú de recursos del lado izquierdo.  
+3.  Abra la página de configuración de la programación de mantenimiento seleccionando el vínculo de **resumen de la Programación de mantenimiento** en la hoja de información general. O bien, seleccione la opción **Programación de mantenimiento** en el menú de recursos del lado izquierdo.  
 
     ![Opciones de la hoja Información general](media/sql-data-warehouse-maintenance-scheduling/maintenance-change-option.png)
 

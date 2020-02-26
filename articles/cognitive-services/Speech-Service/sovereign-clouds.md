@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 1/14/2020
 ms.author: cbasoglu
-ms.openlocfilehash: 3b96ded52aa2148df9e96d6f1e878d50b821abab
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 00617fc09f471eaf3dc13a5aa691c4aab2e1e2ec
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170458"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77424922"
 ---
 # <a name="speech-services-with-sovereign-clouds"></a>Servicios de voz con nubes soberanas
 
 ## <a name="azure-government-united-states"></a>Azure Government (Estados Unidos)
 
 Solo los gobiernos federales, estatales, locales y tribales y sus asociados tienen acceso a esta instancia dedicada con operaciones controladas por ciudadanos autorizados de EE. UU.
-- Regiones: Gobierno de EE. UU. - Virginia
+- Regiones: US Gov - Virginia
 - SR en SpeechSDK:*config.FromHost("wss://virginia.stt.speech.azure.us", "\<su-clave\>");*
 - TTS en SpeechSDK: *config.FromHost("https[]()://virginia.tts.speech.azure.us", "\<su-clave\>");*
 - Tokens de autenticación: https[]()://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
@@ -54,7 +54,7 @@ Se ubica en China, un centro de datos de Azure con acceso directo a China Mobile
 - Regiones: Este de China 2 (Shanghái)
 - SR en SpeechSDK: *config.FromHost("wss://chinaeast2.stt.speech.azure.cn", "\<su-clave\>");*
 - TTS en SpeechSDK:  *config.FromHost("https[]()://chinaeast2.tts.speech.azure.cn", "\<su-clave\>");*
-- Tokens de autenticación: https[]()://chinaeast2.api.cognitive.microsoft.cn/sts/v1.0/issueToken
+- Tokens de autenticación: https[]()://chinaeast2.api.cognitive.azure.cn/sts/v1.0/issueToken
 - Azure Portal: https://portal.azure.cn
 - Portal de Custom Speech: https://chinaeast2.cris.azure.cn/Home/CustomSpeech
 - SKU disponibles: S0

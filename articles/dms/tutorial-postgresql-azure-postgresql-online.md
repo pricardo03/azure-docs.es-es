@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Migración de PostgreSQL en línia a Azure Database for PostgreSQL'
+title: 'Tutorial: Migración de PostgreSQL a Azure Database for PostgreSQL en línea a través de la CLI de Azure'
 titleSuffix: Azure Database Migration Service
-description: Aprenda a realizar una migración en línea de PostgreSQL local a Azure Database for PostgreSQL mediante Azure Database Migration Service.
+description: Aprenda a realizar una migración en línea de PostgreSQL local a Azure Database for PostgreSQL mediante Azure Database Migration Service a través de la CLI.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -11,15 +11,15 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/08/2020
-ms.openlocfilehash: ee5863497ce067d2ff056c3fc1c64b00d3004cd8
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/17/2020
+ms.openlocfilehash: c9cea6041c7f4d91295072121c62ba028e5ad937
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76903925"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470945"
 ---
-# <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Tutorial: Migración de PostgreSQL a Azure Database for PostgreSQL en línea mediante DMS
+# <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Tutorial: Migración de PostgreSQL a Azure DB for PostgreSQL en línea mediante DMS a través de la CLI de Azure
 
 Puede usar Azure Database Migration Service para migrar las bases de datos de una instancia de PostgreSQL local a [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) con un tiempo de inactividad mínimo. En otras palabras, la migración se puede completar con un tiempo de inactividad mínimo para la aplicación. En este tutorial, va a migrar la base de datos de ejemplo **DVD Rental** de una instancia local de PostgreSQL 9.6 a Azure Database for PostgreSQL mediante la actividad de migración en línea de Azure Database Migration Service.
 
@@ -38,7 +38,7 @@ En este tutorial, aprenderá a:
 > [!IMPORTANT]
 > Para disfrutar de una experiencia de migración óptima, Microsoft recomienda crear una instancia de Azure Database Migration Service en la misma región de Azure que la base de datos de destino. Si los datos se transfieren entre diferentes regiones o ubicaciones geográficas, el proceso de migración puede verse afectado y pueden producirse errores.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesita:
 
@@ -46,7 +46,7 @@ Para completar este tutorial, necesita:
 
     Además, la versión de PostgreSQL local debe coincidir con la base de datos de Azure Database for PostgreSQL. Por ejemplo, PostgreSQL 9.5.11.5 solo puede migrarse a Azure Database for PostgreSQL 9.5.11 y no a la versión 9.6.7.
 
-* [Creación de una instancia en Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).  
+* [Cree una instancia de Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) o [cree una instancia de Azure Database for PostgreSQL: servidor de Hiperescala (Citus)](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal).
 * Cree una instancia de Azure Virtual Network para Azure Database Migration Service mediante el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local mediante [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Para más información sobre la creación de una red virtual, consulte la documentación de [Virtual Network](https://docs.microsoft.com/azure/virtual-network/)y, especialmente, los artículos de inicio rápido con detalles paso a paso.
 
     > [!NOTE]
@@ -100,7 +100,7 @@ Para completar todos los objetos de base de datos como esquemas de tabla, índic
 
 2. Cree una base de datos vacía en el entorno de destino, que es Azure Database for PostgreSQL.
 
-    Consulte el artículo [Inicio rápido: Creación de un servidor de Azure Database for PostgreSQL mediante Azure Portal](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) para más información sobre cómo crear una base de datos y conectarse a ella.
+    Para más información sobre cómo crear una base de datos y conectarse a ella, consulte el artículo [Inicio rápido: Creación de un servidor de Azure Database for PostgreSQL en Azure Portal](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) o [Inicio rápido: Creación de una instancia de Hiperescala (Citus) de Azure Database for PostgreSQL en Azure Portal](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal).
 
 3. Importe el esquema en la base de datos de destino que creó restaurando el archivo de volcado de esquema.
 
@@ -189,6 +189,9 @@ Para completar todos los objetos de base de datos como esquemas de tabla, índic
        ---------------  ------
        whl              dms
        ```
+
+      > [!IMPORTANT]
+      > Asegúrese de que la versión de la extensión es posterior a la 0.11.0.
 
    * En cualquier momento, vea todos los comandos admitidos en DMS ejecutando:
 
@@ -374,7 +377,7 @@ Para completar todos los objetos de base de datos como esquemas de tabla, índic
 
 En el archivo de salida, hay varios parámetros que indican el progreso de la migración. Por ejemplo, vea el archivo de salida siguiente:
 
-    ```
+  ```
     "output": [                                 Database Level
           {
             "appliedChanges": 0,        //Total incremental sync applied after full load
@@ -449,7 +452,7 @@ En el archivo de salida, hay varios parámetros que indican el progreso de la mi
       },
       "resourceGroup": "PostgresDemo",
       "type": "Microsoft.DataMigration/services/projects/tasks"
-    ```
+  ```
 
 ## <a name="cutover-migration-task"></a>Tarea de migración total
 

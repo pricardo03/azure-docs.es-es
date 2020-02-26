@@ -1,5 +1,6 @@
 ---
-title: Solución de problemas de carga de datos en Azure Data Box Disk con registros | Microsoft Docs
+title: Solución de problemas de cargas de datos mediante registros
+titleSuffix: Azure Data Box Disk
 description: Se describe cómo utilizar los registros y solucionar problemas al cargar datos en Azure Data Box Disk.
 services: databox
 author: alkohli
@@ -8,12 +9,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: alkohli
-ms.openlocfilehash: deaa9a220ee4d765650779b40742225e300ffdb7
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 7c14988706ef193ef5da868c55f6c4f55e7d98f9
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807497"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471982"
 ---
 # <a name="understand-logs-to-troubleshoot-data-upload-issues-in-azure-data-box-disk"></a>Descripción de registros para solucionar incidencias de carga de datos en Azure Data Box Disk
 
@@ -155,7 +156,7 @@ Los estados de nivel de archivo están en `BlobStatus`, que describe las accione
 
 En la tabla siguiente se resumen los errores generados al cargar los datos en Azure.
 
-| Código de error | DESCRIPCIÓN                   |
+| Código de error | Descripción                   |
 |-------------|------------------------------|
 |`None` |  Se completó correctamente.           |
 |`Renamed` | El nombre del blob se cambió correctamente.   |

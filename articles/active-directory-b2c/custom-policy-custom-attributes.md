@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 04cc45956fc5aedc4c14dfb138be5db02ddec500
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c2361192a612cfd92003b1e3c36e85dbbd9090bb
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850499"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482775"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: uso de los atributos personalizados en una directiva de edición de perfil personalizada
 
@@ -24,7 +24,7 @@ ms.locfileid: "76850499"
 
 En este artículo se creará un atributo personalizado en el directorio de Azure Active Directory B2C (Azure AD B2C). Este atributo nuevo se usará como notificación personalizada en el recorrido del usuario de la edición de perfil.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Siga los pasos que aparecen en el artículo [Azure Active Directory B2C: introducción a las directivas personalizadas](custom-policy-get-started.md).
 
@@ -34,7 +34,7 @@ El directorio de Azure AD B2C viene con un conjunto integrado de atributos. Algu
 * Un proveedor de identidades tiene un identificador de usuario único como **uniqueUserGUID** que se debe guardar.
 * Un recorrido del usuario personalizado debe persistir en un estado de un usuario como **migrationStatus**.
 
-Azure AD B2C extiende el conjunto de atributos almacenado en cada cuenta de usuario. También puede leer y escribir estos atributos mediante [Graph API de Azure AD](manage-user-accounts-graph-api.md).
+Azure AD B2C extiende el conjunto de atributos almacenado en cada cuenta de usuario. También puede leer y escribir estos atributos mediante [Microsoft Graph API](manage-user-accounts-graph-api.md).
 
 Las propiedades de extensión extienden el esquema de los objetos de usuario en el directorio. En el contexto de este artículo, los términos *propiedad de extensión*, *atributo personalizado* y *notificación personalizada* se refieren a lo mismo. El nombre varía según el contexto, como aplicación, objeto o directiva.
 
@@ -297,7 +297,7 @@ El token del identificador que se devuelve a la aplicación incluirá la nueva p
 
 ## <a name="reference"></a>Referencia
 
-Para más información sobre las propiedades de extensión, consulte el artículo [Extensiones de esquema de directorio | Conceptos de Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
+Para más información sobre las propiedades de extensión, consulte el artículo [Incorporación de datos personalizados a recursos mediante extensiones](https://docs.microsoft.com/graph/extensibility-overview).
 
 > [!NOTE]
 > * **TechnicalProfile** es un tipo de elemento (o función) que define el nombre, los metadatos y el protocolo de un punto de conexión. **TechnicalProfile** detalla el intercambio de notificaciones que realiza el Marco de experiencia de identidad. Cuando se llama a esta función en un paso de la orquestación o desde otra instancia de **TechnicalProfile**, quien realiza la llamada especifica **InputClaims** y **OutputClaims** como parámetros.

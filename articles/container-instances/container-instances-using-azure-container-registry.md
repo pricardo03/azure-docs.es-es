@@ -1,23 +1,23 @@
 ---
 title: Implementación de una imagen de contenedor de Azure Container Registry
-description: Obtenga información acerca de cómo implementar contenedores en Azure Container Instances mediante imágenes de contenedor de Azure Container Registry.
+description: Obtenga información acerca de cómo implementar contenedores en Azure Container Instances mediante la extracción de imágenes de contenedor de Azure Container Registry.
 services: container-instances
 ms.topic: article
-ms.date: 12/30/2019
+ms.date: 02/18/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0d39c83646357cf9426239d28e445c4791ddceb0
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bcb1b02b8a2605a42acbe7f33973bef315ca6f54
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981685"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468922"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implementación en Azure Container Instances desde Azure Container Registry
 
-[Azure Container Registry](../container-registry/container-registry-intro.md) es un servicio de registro de contenedores administrado basado en Azure que se usa para almacenar imágenes de contenedor de Docker privadas. En este artículo se describe cómo implementar imágenes de contenedor almacenadas en una instancia de Azure Container Registry en Azure Container Instances.
+[Azure Container Registry](../container-registry/container-registry-intro.md) es un servicio de registro de contenedores administrado basado en Azure que se usa para almacenar imágenes de contenedor de Docker privadas. En este artículo se describe cómo extraer imágenes de contenedor almacenadas en una instancia de Azure Container Registry al implementarlas en Azure Container Instances. Un método recomendado para configurar el acceso al registro consiste en crear una entidad de servicio y una contraseña de Azure Active Directory, así como almacenar las credenciales de inicio de sesión en Azure Key Vault.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 **Azure Container Registry**: se necesita una instancia de Azure Container Registry, y al menos una imagen de contenedor en el registro, para completar los pasos descritos en este artículo. Si necesita un registro, consulte [Creación de un registro de contenedor con la CLI de Azure](../container-registry/container-registry-get-started-azure-cli.md).
 
@@ -28,6 +28,9 @@ ms.locfileid: "75981685"
 En un escenario de producción donde se brinda acceso a servicios y aplicaciones "sin periféricos", se recomienda configurar el acceso al registro mediante una [entidad de servicio](../container-registry/container-registry-auth-service-principal.md). Una entidad de servicio permite proporcionar [control de acceso basado en rol](../container-registry/container-registry-roles.md) a las imágenes de contenedor. Por ejemplo, puede configurar una entidad de servicio con acceso de solo extracción a un registro.
 
 Azure Container Registry ofrece [opciones de autenticación](../container-registry/container-registry-authentication.md) adicionales.
+
+> [!NOTE]
+> No se puede autenticar en Azure Container Registry para extraer imágenes durante la implementación del grupo de contenedores mediante una [identidad administrada](container-instances-managed-identity.md) configurada en el mismo grupo de contenedores.
 
 En la siguiente sección, cree un almacén de claves de Azure y una entidad de servicio, y almacene las credenciales de la entidad de servicio en el almacén. 
 
