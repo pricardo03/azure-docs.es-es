@@ -2,18 +2,15 @@
 title: 'Tutorial de Kubernetes en Azure: Implementación de una aplicación'
 description: En este tutorial de Azure Kubernetes Service (AKS), implemente una aplicación con varios contenedores en el clúster mediante una imagen personalizada que se almacena en Azure Container Registry.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: cc01b12e493f3e0d3cd63786c27819d4704f97f4
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 3b614fcb6692f35884af2fc4e19210267ab8ab04
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263878"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593281"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Ejecución de aplicaciones en Azure Kubernetes Service (AKS)
 
