@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 8913c956554fa7bf1d0362b44dc6f8031ffd74f9
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 429c221609005136663d5e64a1b8650027cba411
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77429136"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588746"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-the-azure-portal"></a>Inicio rápido: Creación de una puerta de enlace de NAT mediante Azure Portal
 
@@ -30,11 +30,7 @@ En este inicio rápido se muestra cómo usar el servicio NAT de Azure Virtual Ne
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-> [!IMPORTANT]
-> Cuando haya [habilitado la versión preliminar](./nat-overview.md#enable-preview) de Virtual Network NAT en su suscripción, use https://aka.ms/natportal para acceder al portal.
-
-Inicie sesión en [Azure Portal](https://aka.ms/natportal).
-
+Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 ### <a name="create-a-virtual-network"></a>Creación de una red virtual
 
@@ -69,7 +65,7 @@ Ahora se va a crear una máquina virtual para usar el servicio NAT. Esta máquin
    - **Cuenta de administrador** > **Tipo de autenticación**: Seleccione **Contraseña**.
    - **Cuenta de administrador**> escriba la información de **Nombre de usuario**, **Contraseña** y **Confirmar contraseña**.
    - **Reglas de puerto de entrada** > **Puertos de entrada públicos**: Seleccione **Permitir los puertos seleccionados**.
-   - **Reglas de puerto de entrada** > **Seleccionar puertos de entrada**: seleccione **SSH (22)** .
+   - **Reglas de puerto de entrada** > **Seleccionar puertos de entrada**: Seleccione **SSH (22)** .
    - Seleccione la pestaña **Redes** o seleccione **Siguiente: Discos** y, después, **Siguiente: Redes**.
 
 3. En la pestaña **Redes**, asegúrese de que está seleccionado lo siguiente:
@@ -178,14 +174,14 @@ Cuando ya no los necesite, elimine el grupo de recursos, la puerta de enlace de 
 
 En este tutorial, ha creado una puerta de enlace de NAT y una máquina virtual para usarla. 
 
-Revise las métricas de Azure Monitor para ver el funcionamiento del servicio NAT. Diagnostique problemas, como el agotamiento de recursos de los puertos SNAT disponibles.  El agotamiento de recursos de los puertos SNAT se soluciona agregando recursos de dirección IP pública o recursos de prefijo de dirección IP pública adicionales (o ambos).
+Revise las métricas de Azure Monitor para ver el funcionamiento del servicio NAT. Diagnostique problemas como el agotamiento de recursos de los puertos SNAT disponibles.  El agotamiento de recursos de los puertos SNAT se soluciona agregando recursos de dirección IP pública o recursos de prefijo de dirección IP pública adicionales (o ambos).
 
 
-- Más información sobre [NAT de Azure Virtual Network](./nat-overview.md).
+- Obtenga más información sobre [Azure Virtual Network NAT](./nat-overview.md).
 - Más información sobre [recursos de puerta de enlace de NAT](./nat-gateway-resource.md).
-- Inicio rápido para implementar [recursos de puerta de enlace de NAT con la CLI de Azure](./quickstart-create-nat-gateway-cli.md).
-- Inicio rápido para implementar [recursos de puerta de enlace de NAT con PowerShell](./quickstart-create-nat-gateway-powershell.md).
-- Inicio rápido para implementar [recursos de puerta de enlace de NAT con Azure Portal](./quickstart-create-nat-gateway-portal.md).
+- Inicio rápido para la implementación de [recursos de puerta de enlace de NAT con la CLI de Azure](./quickstart-create-nat-gateway-cli.md).
+- Inicio rápido para la implementación de [recursos de puerta de enlace de NAT con PowerShell](./quickstart-create-nat-gateway-powershell.md).
+- Inicio rápido para la implementación de [recursos de puerta de enlace de NAT con Azure Portal](./quickstart-create-nat-gateway-portal.md).
 - [Proporcione comentarios sobre la versión preliminar pública](https://aka.ms/natfeedback).
 > [!div class="nextstepaction"]
 

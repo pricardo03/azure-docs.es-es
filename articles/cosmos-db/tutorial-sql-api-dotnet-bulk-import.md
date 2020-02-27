@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 79771e082a4a6ffae15f33f636b0300e93bcdaba
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 40dd7066d959b56f4554ea9d0390e8b1eb41e77f
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896273"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587573"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Importación masiva de datos a la cuenta de SQL API de Azure Cosmos DB mediante el SDK para .NET
 
@@ -27,7 +27,7 @@ Esta tutorial abarca lo siguiente:
 > * Conexión a una cuenta de Azure Cosmos con compatibilidad para la ejecución en bloque habilitada
 > * Realización de una importación de datos mediante operaciones simultáneas de creación
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de seguir las instrucciones del presente artículo, asegúrese de tener los siguientes recursos:
 
@@ -81,7 +81,7 @@ Mientras sigue en el directorio de aplicaciones, instale el paquete de la biblio
 
 La aplicación de ejemplo debe autenticarse para la cuenta de Azure Cosmos. Para realizar la autenticación, debe pasar las credenciales de cuenta de Azure Cosmos a la aplicación. Para obtener las credenciales de cuenta de Azure Cosmos, siga estos pasos:
 
-1.  Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1.  Inicie sesión en [Azure Portal](https://portal.azure.com/).
 1.  Vaya a la cuenta de Azure Cosmos.
 1.  Abra el panel **Claves** y copia el **URI** y la **CLAVE PRINCIPAL** de la cuenta.
 
@@ -120,13 +120,13 @@ Comencemos por sobrescribir el método `Main` predeterminado y definir las varia
 
 Dentro del método `Main`, agregue el siguiente código para inicializar el objeto CosmosClient:
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=CreateClient)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="CreateClient":::
 
 Una vez habilitada la ejecución en bloque, CosmosClient agrupa internamente las operaciones simultáneas en llamadas de servicio únicas. De este modo, optimiza el uso de la capacidad de proceso, ya que distribuye las llamadas de servicio entre las particiones y, por último, asigna los resultados individuales a los llamadores originales.
 
 Después, se puede crear un contenedor para almacenar todos los elementos.  Defina `/pk` como la clave de partición, 50 000 RU/s como capacidad de proceso aprovisionada y una directiva de indexación personalizada que excluya todos los campos para optimizar el proceso de escritura. Agregue el siguiente código después de la instrucción de inicialización de CosmosClient:
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Initialize)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Initialize":::
 
 ## <a name="step-6-populate-a-list-of-concurrent-tasks"></a>Paso 6: Rellenado de una lista de tareas simultáneas
 
@@ -141,22 +141,22 @@ En primer lugar, agregue el paquete Bogus a la solución mediante el comando dot
 
 Establezca la definición de los elementos que desea guardar. Debe definir la clase `Item` en el archivo `Program.cs`:
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Model)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Model":::
 
 A continuación, cree una función auxiliar dentro de la clase `Program`. Esta función auxiliar obtendrá el número de elementos que definió para insertar y generará datos aleatorios:
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Bogus)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Bogus":::
 
 Lea los elementos y serialícelos en instancias de flujo mediante el uso de la clase `System.Text.Json`. Debido a la naturaleza de los datos generados automáticamente, los datos se serializan como flujos. También puede usar la instancia del elemento directamente, pero si las convierte en flujos, puede aprovechar el rendimiento de las API de flujo de CosmosClient. Por lo general, los datos se pueden usar directamente siempre y cuando se conozca la clave de partición. 
 
 
 Para convertir los datos en instancias de flujo, en el método `Main`, agregue el siguiente código justo después de crear el contenedor:
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Operations)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Operations":::
 
 A continuación, use los flujos de datos para crear tareas simultáneas y rellenar la lista de tareas de modo que se inserten los elementos en el contenedor. Para realizar esta operación, agregue el siguiente código a la clase `Program`:
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=ConcurrentTasks)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="ConcurrentTasks":::
 
 Todas estas operaciones de punto simultáneas se ejecutarán juntas (es decir, en bloque) tal como se describe en la sección de introducción.
 
