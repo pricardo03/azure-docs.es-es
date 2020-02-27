@@ -143,6 +143,8 @@
           href: availability-zones.md
         - name: Uso de grupos de varios nodos
           href: use-multiple-node-pools.md
+        - name: Uso de grupos de nodos puntuales (versión preliminar)
+          href: spot-node-pool.md
         - name: Implementación de AKS con Terraform
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
           maintainContext: true

@@ -4,7 +4,7 @@ description: Aprenda a implementar software de SAP en máquinas virtuales Linux 
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: gwallace
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: sedusch
-ms.openlocfilehash: e7a61cc64ae72adfcbeb347ddd076065ccc3a321
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 19dc9f25cc7355eb540b68f009a77b1ca1e5fb86
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645861"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614896"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implementación de Azure Virtual Machines para SAP NetWeaver
 
@@ -315,7 +315,7 @@ Azure Virtual Machines es la solución para organizaciones que necesitan recurso
 
 En este artículo, trataremos los pasos a seguir para implementar aplicaciones de SAP en máquinas virtuales en Azure, incluidas las opciones de implementación alternativas y solución de problemas. Este artículo se basa en la información de [Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver][planning-guide]. También complementa la documentación sobre la instalación de SAP y las notas de SAP, que son los recursos principales para la instalación e implementación de software de SAP.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 

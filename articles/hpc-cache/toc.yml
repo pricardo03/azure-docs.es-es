@@ -8,9 +8,9 @@
   items:
     - name: Planeamiento del espacio de nombres agregado
       href: hpc-cache-namespace.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
-    - name: Requisitos previos
+    - name: Prerrequisitos
       href: hpc-cache-prereqs.md
     - name: Creación de la caché
       href: hpc-cache-create.md
@@ -42,6 +42,8 @@
       href: hpc-cache-support-ticket.md
     - name: Solución alternativa para la configuración del firewall de la cuenta de Blob Storage
       href: hpc-cache-blob-firewall-fix.md
+    - name: Solución de problemas de creación de destinos de almacenamiento de NFS
+      href: troubleshoot-nas.md
     - name: Recuperación de una interrupción regional
       href: hpc-region-recovery.md
     - name: Uso de Azure NetApp Files con Azure HPC Cache

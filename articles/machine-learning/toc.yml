@@ -329,23 +329,18 @@
           href: how-to-deploy-existing-model.md
         - name: Solución de problemas y depuración
           href: how-to-troubleshoot-deployment.md
-    - name: Consumo de servicios web
-      items:
-        - name: Consumo en tiempo real
+        - name: Creación de clientes
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
-        - name: Predicciones por lotes del diseñador
-          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-          href: how-to-run-batch-predictions-designer.md
-    - name: Supervisión de modelos
-      items:
-        - name: Recopilación y evaluación de datos del modelo
-          displayName: track production
-          href: how-to-enable-data-collection.md
-        - name: Detección del desfase de datos
-          href: how-to-monitor-data-drift.md
-        - name: Supervisión con Application Insights
-          href: how-to-enable-app-insights.md
+        - name: Supervisión de modelos
+          items:
+            - name: Recopilación y evaluación de datos del modelo
+              displayName: track production
+              href: how-to-enable-data-collection.md
+            - name: Detección del desfase de datos
+              href: how-to-monitor-data-drift.md
+            - name: Supervisión con Application Insights
+              href: how-to-enable-app-insights.md
     - name: Compilación y uso de canalizaciones de Machine Learning
       displayName: pipelines
       items:
@@ -372,6 +367,9 @@
         - name: Depuración y solución de problemas de paso de ejecución en paralelo
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
+        - name: Predicciones por lotes del diseñador
+          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+          href: how-to-run-batch-predictions-designer.md
     - name: Administración de cuotas de recursos
       displayName: limits
       href: how-to-manage-quotas.md

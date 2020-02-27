@@ -195,6 +195,8 @@
           href: setup-cicd-vs-code.md
         - name: Exploración de trabajos
           href: visual-studio-code-explore-jobs.md
+        - name: Campos de JobConfig.json
+          href: job-config-json.md
     - name: Solución de problemas
       items:
         - name: Entrada

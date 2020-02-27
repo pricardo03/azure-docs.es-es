@@ -54,18 +54,20 @@
         - name: Lanzamientos
           href: threat-modeling-tool-releases.md
           items:
-            - name: 'Threat Modeling Tool, versión de disponibilidad general 7.1.5091.2: 12 de septiembre de 2018'
+            - name: "Threat Modeling Tool, versión de disponibilidad general\_7.1.5091.2: 12 de septiembre de 2018"
               href: threat-modeling-tool-releases-71509112.md
-            - name: 'Threat Modeling Tool, versión actualizada 7.1.51023.1: 1 de noviembre de 2018'
+            - name: "Threat Modeling Tool, versión actualizada\_7.1.51023.1: 1 de noviembre de 2018"
               href: threat-modeling-tool-releases-71510231.md
-            - name: 'Threat Modeling Tool, versión actualizada 7.1.60126.1: 29 de enero de 2019'
+            - name: "Threat Modeling Tool, versión actualizada\_7.1.60126.1: 29 de enero de 2019"
               href: threat-modeling-tool-releases-71601261.md
-            - name: 'Threat Modeling Tool, versión actualizada 7.1.60408.1: 9 de abril de 2019'
+            - name: "Threat Modeling Tool, versión actualizada\_7.1.60408.1: 9 de abril de 2019"
               href: threat-modeling-tool-releases-71604081.md
-            - name: 'Threat Modeling Tool, versión actualizada 7.1.60702.1: 02 de julio de 2019'
+            - name: "Threat Modeling Tool, versión actualizada\_7.1.60702.1: 2 de julio de 2019"
               href: threat-modeling-tool-releases-71607021.md
-            - name: 'Threat Modeling Tool, versión actualizada 7.1.61015.1: 16 de octubre de 2019'
+            - name: "Threat Modeling Tool, versión actualizada\_7.1.61015.1: 16 de octubre de 2019"
               href: threat-modeling-tool-releases-71610151.md
+            - name: "Threat Modeling Tool, versión actualizada\_7.3.00206.1: 11 de febrero de 2020"
+              href: threat-modeling-tool-releases-73002061.md
         - name: Mitigaciones
           href: threat-modeling-tool-mitigations.md
           items:
@@ -79,7 +81,7 @@
               href: threat-modeling-tool-communication-security.md
             - name: Administración de configuración
               href: threat-modeling-tool-configuration-management.md
-            - name: Criptografía
+            - name: Cryptography
               href: threat-modeling-tool-cryptography.md
             - name: Administración de excepciones
               href: threat-modeling-tool-exception-management.md

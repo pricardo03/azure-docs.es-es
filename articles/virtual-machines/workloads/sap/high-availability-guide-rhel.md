@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/13/2020
+ms.date: 02/21/2020
 ms.author: radeltch
-ms.openlocfilehash: f3b540fb9122655d0b2c12c90995daa181dd227f
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 8f2de656473d52c7a40bef83237bf2aed563e111
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212792"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566172"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux
 
@@ -575,6 +575,7 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
       
    sudo pcs constraint colocation add g-<b>NW1</b>_AERS with g-<b>NW1</b>_ASCS -5000
    sudo pcs constraint order g-<b>NW1</b>_ASCS then g-<b>NW1</b>_AERS kind=Optional symmetrical=false
+   sudo pcs constraint order start g-<b>NW1</b>_ASCS then stop g-<b>NW1</b>_AERS symmetrical=false
    
    sudo pcs node unstandby <b>nw1-cl-0</b>
    sudo pcs property set maintenance-mode=false
@@ -904,7 +905,7 @@ Siga estos pasos para instalar un servidor de aplicaciones de SAP.
    <pre><code>[root@nw1-cl-0 ~]# pgrep ms.sapNW1 | xargs kill -9
    </code></pre>
 
-   Si solo termina el servidor de mensajes una vez, se reiniciará mediante sapstart. Si lo termina con bastante frecuencia, Pacemaker acabará moviendo la instancia de ASCS al otro nodo. Ejecute los siguientes comandos como raíz para limpiar el estado del recurso de la instancia de ASCS y ERS después de la prueba.
+   Si solo termina el servidor de mensajes una vez, se reiniciará mediante `sapstart`. Si lo termina con bastante frecuencia, Pacemaker acabará moviendo la instancia de ASCS al otro nodo. Ejecute los siguientes comandos como raíz para limpiar el estado del recurso de la instancia de ASCS y ERS después de la prueba.
 
    <pre><code>[root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ASCS00
    [root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ERS02
@@ -990,7 +991,7 @@ Siga estos pasos para instalar un servidor de aplicaciones de SAP.
    <pre><code>[root@nw1-cl-1 ~]# pgrep er.sapNW1 | xargs kill -9
    </code></pre>
 
-   Si solo ejecuta el comando una vez, sapstart reiniciará el proceso. Si lo ejecuta con bastante frecuencia, sapstart no reiniciará el proceso y el recurso estará en estado detenido. Ejecute los siguientes comandos como raíz para limpiar el estado del recurso de la instancia de ERS después de la prueba.
+   Si solo ejecuta el comando una vez, `sapstart` reiniciará el proceso. Si lo ejecuta con bastante frecuencia, `sapstart` no reiniciará el proceso y el recurso estará en estado detenido. Ejecute los siguientes comandos como raíz para limpiar el estado del recurso de la instancia de ERS después de la prueba.
 
    <pre><code>[root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ERS02
    </code></pre>

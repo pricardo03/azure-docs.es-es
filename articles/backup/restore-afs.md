@@ -48,7 +48,7 @@ Puede usar esta opción para restaurar el recurso compartido de archivos complet
 
 1. Seleccione la opción **Restaurar recurso compartido** en el panel **Elemento de copia de seguridad** que aparece después de seleccionar el recurso compartido de archivos que quiere restaurar en el paso 5 de la sección [Selección del recurso compartido de archivos que se va a restaurar](#select-the-file-share-to-restore).
 
-   ![Selección de Restaurar recurso compartido](./media/restore-afs/restore-share.png)
+   ![Selección de Restaurar el recurso compartido](./media/restore-afs/restore-share.png)
 
 1. Después de seleccionar **Restaurar recurso compartido**, se abre la hoja **Restaurar** con el menú **Punto de restauración**, que muestra la lista de puntos de restauración disponibles para el recurso compartido de archivos seleccionado.
 
@@ -144,7 +144,7 @@ Puede usar esta opción para restaurar archivos o carpetas en la ubicación orig
 1. Después de elegir **Seleccionar archivo**, el panel de recursos compartidos de archivos muestra el contenido del punto de recuperación del recurso compartido de archivos que ha seleccionado para la restauración.
 1. Active la casilla correspondiente al archivo o carpeta que quiere restaurar y elija **Seleccionar**.
 
-    ![Selección del destino de recuperación](./media/restore-afs/recovery-destination.png)
+    ![Selección del destino de la recuperación](./media/restore-afs/recovery-destination.png)
 
 1. Repita los pasos del 6 al 8 para seleccionar varios archivos o carpetas para la restauración.
 1. Después de seleccionar todos los elementos que quiere restaurar, seleccione **Aceptar**.

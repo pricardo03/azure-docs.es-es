@@ -42,9 +42,9 @@
     - name: 13 - Administración de la seguridad de máquinas virtuales
       href: tutorial-azure-security.md
     - name: 14a - Compilación con Jenkins
-      href: tutorial-jenkins-github-docker-cicd.md
+      href: ../../jenkins/tutorial-jenkins-github-docker-cicd.md
     - name: 14b - Integración de Jenkins con Azure DevOps
-      href: tutorial-build-deploy-jenkins.md
+      href: ../../jenkins/tutorial-build-deploy-jenkins.md
     - name: 15A - DevOps para IaaS y PaaS en Azure
       href: tutorial-devops-azure-pipelines-classic.md
     - name: 15 - CI/CD con Azure Pipelines (YAML)
@@ -91,8 +91,8 @@
               href: ../av2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Ampliables de la serie B
               href: ../sizes-b-series-burstable.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-            - name: Serie DC
-              href: ../dc-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Serie DCv2
+              href: ../dcv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Series Dv2 y DSv2
               href: ../dv2-dsv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Series Dv3 y DSv3
@@ -534,7 +534,7 @@
             - name: Escalado con agentes de máquina virtual
               href: ../../jenkins/jenkins-azure-vm-agents.md
             - name: Publicación de artefactos en Storage
-              href: ../../storage/common/storage-java-jenkins-continuous-integration-solution.md
+              href: ../../jenkins/storage-java-jenkins-continuous-integration-solution.md
             - name: Seguridad de Jenkins
               href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
     - name: Ejecución de contenedores

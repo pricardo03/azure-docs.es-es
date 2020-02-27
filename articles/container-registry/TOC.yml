@@ -141,15 +141,17 @@
       items:
         - name: Automatización de compilaciones de imágenes de contenedor
           items:
-            - name: Compilación a partir del contexto de origen
+            - name: 1 - Compilación a partir del contexto de origen
               href: container-registry-tutorial-quick-task.md
-            - name: Compilación al confirmar el código
+            - name: 2a - Compilación al confirmar el código
               href: container-registry-tutorial-build-task.md
-            - name: Tarea con varios pasos al confirmar el código
+            - name: 2b - Tarea de varios pasos al confirmar el código
               href: container-registry-tutorial-multistep-task.md
-            - name: Compilación al actualizar una imagen base
+            - name: 3a - Compilación al actualizar una imagen base
               href: container-registry-tutorial-base-image-update.md
-            - name: Programación de una tarea
+            - name: 3b - Compilación al actualizar una imagen base privada
+              href: container-registry-tutorial-private-base-image-update.md
+            - name: 4 - Compilación en función de una programación
               href: container-registry-tasks-scheduled.md
     - name: Ejemplos
       expanded: false
@@ -160,6 +162,8 @@
       items:
         - name: Tareas de varios pasos
           href: container-registry-tasks-multi-step.md
+        - name: Actualizaciones de imagen base
+          href: container-registry-tasks-base-images.md
     - name: Guías paso a paso
       expanded: false
       items:

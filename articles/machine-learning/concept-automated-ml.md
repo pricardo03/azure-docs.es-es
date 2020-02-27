@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: 2869384d4f4072e1e71ab0a69af81edc68e7a5b7
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 2ef3cbc83cd67647709a53fee2c32b444c5d86f4
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77366251"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526134"
 ---
 # <a name="what-is-automated-machine-learning"></a>Descripción del aprendizaje automático
 
@@ -215,7 +215,7 @@ Con Azure Machine Learning, puede usar Machine Learning para generar un modelo d
 
 Azure Machine Learning ofrece dos experiencias para trabajar con aprendizaje automático automatizado
 
-* Para clientes con experiencia en código, [SDK de Python de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azureml-sdk/?view=azure-ml-py) 
+* Para clientes con experiencia en código, [SDK de Python de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
 
 * Para clientes con poca experiencia en código o ninguna, Azure Machine Learning Studio en [https://ml.azure.com](https://ml.azure.com/)  
 

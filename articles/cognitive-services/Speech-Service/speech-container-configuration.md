@@ -130,7 +130,7 @@ Reemplace {_argument_name_} por sus propios valores:
 
 En los siguientes ejemplos de Docker encontrará el contenedor de Speech.
 
-## <a name="speech-to-texttabstt"></a>[Voz a texto](#tab/stt)
+## <a name="speech-to-text"></a>[Voz a texto](#tab/stt)
 
 ### <a name="basic-example-for-speech-to-text"></a>Ejemplo básico de Conversión de voz a texto
 
@@ -153,7 +153,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-## <a name="custom-speech-to-texttabcstt"></a>[Conversión de voz a texto personalizada](#tab/cstt)
+## <a name="custom-speech-to-text"></a>[Conversión de voz a texto personalizada](#tab/cstt)
 
 ### <a name="basic-example-for-custom-speech-to-text"></a>Ejemplo básico de Conversión de voz a texto personalizada
 
@@ -180,7 +180,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-## <a name="text-to-speechtabtss"></a>[Texto a voz](#tab/tss)
+## <a name="text-to-speech"></a>[Texto a voz](#tab/tss)
 
 ### <a name="basic-example-for-text-to-speech"></a>Ejemplo básico de Conversión de texto a voz
 
@@ -203,7 +203,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-## <a name="custom-text-to-speechtabctts"></a>[Conversión de texto a voz personalizada](#tab/ctts)
+## <a name="custom-text-to-speech"></a>[Conversión de texto a voz personalizada](#tab/ctts)
 
 ### <a name="basic-example-for-custom-text-to-speech"></a>Ejemplo básico de Conversión e texto a voz personalizada
 

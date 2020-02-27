@@ -62,10 +62,14 @@
       href: load-balancer-security-controls.md
 - name: Procedimientos
   items:
-    - name: Actualizar la versión Basic del equilibrador de carga público a la versión Estándar
-      href: upgrade-basic-standard.md
-    - name: Actualización de la versión Básica del equilibrador de carga interno a la versión Estándar
-      href: upgrade-basicInternal-standard.md
+    - name: Actualización de la versión Básico de un equilibrador de carga a la versión Estándar
+      items:
+        - name: Actualización de la versión Básico de un equilibrador de carga público
+          href: upgrade-basic-standard.md
+        - name: 'Actualización de la versión Básico de un equilibrador de carga público: no se requiere una conexión de salida'
+          href: upgrade-basicInternal-standard.md
+        - name: 'Actualización de la versión Básico de un equilibrador de carga público: se requiere una conexión de salida'
+          href: upgrade-InternalBasic-To-PublicStandard.md
     - name: Configuración de reglas de salida
       items:
         - name: Portal de Azure

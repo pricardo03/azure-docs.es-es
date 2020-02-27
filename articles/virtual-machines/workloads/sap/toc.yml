@@ -120,6 +120,11 @@
       href: sap-deployment-checklist.md
     - name: Planeación e implementación de SAP NetWeaver en Azure
       href: planning-guide.md
+      items:
+        - name: Carga de trabajo de SAP en escenarios admitidos en máquinas virtuales de Azure
+          href: sap-planning-supported-configurations.md
+        - name: ¿Qué software de SAP es compatible con las implementaciones de Azure?
+          href: sap-supported-product-on-azure.md
     - name: Guía de implementación de SAP NetWeaver
       href: deployment-guide.md
     - name: Guías de implementación de DBMS para la carga de trabajo de SAP
