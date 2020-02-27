@@ -3,12 +3,12 @@ title: Uso de la configuración de diagnósticos para almacenes de Recovery Serv
 description: Un artículo que describe cómo usar los eventos de diagnóstico antiguos y nuevos para Azure Backup
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 875adb82aeeb56b378a84ca01e716c7189abc64f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7abf8873aafeb996476d818376057bfd8732d906
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280994"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583952"
 ---
 # <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>Uso de la configuración de diagnósticos para almacenes de Recovery Services
 
@@ -21,14 +21,15 @@ Puede configurar los valores de diagnóstico para un almacén de Recovery Servic
 ## <a name="diagnostics-events-available-for-azure-backup-users"></a>Eventos de diagnóstico disponibles para usuarios de Azure Backup
 
 Azure Backup proporciona los siguientes eventos de diagnóstico, cada uno de los cuales proporciona datos detallados sobre un conjunto específico de artefactos relacionados con la copia de seguridad:
+
 * CoreAzureBackup
 * AddonAzureBackupAlerts
 * AddonAzureBackupProtectedInstance
 * AddonAzureBackupJobs
 * AddonAzureBackupPolicy
-* AddonAzureBackupStorage 
+* AddonAzureBackupStorage
 
-[Modelo de datos para eventos de diagnóstico de Azure Backup](https://aka.ms/diagnosticsdatamodel)
+[Modelo de datos para eventos de diagnóstico de Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)
 
 Los datos de estos eventos se pueden enviar a una cuenta de almacenamiento, al área de trabajo o a un centro de eventos. Si va a enviar estos datos a un área de trabajo de Log Analytics, debe seleccionar el botón de alternancia **Específico del recurso** alternancia en la pantalla **Configuración de diagnóstico** (consulte más información en las secciones siguientes).
 
@@ -37,6 +38,7 @@ Los datos de estos eventos se pueden enviar a una cuenta de almacenamiento, al �
 Para coordinarse con el mapa de ruta de Log Analytics de Azure, Azure Backup ahora permite enviar datos de diagnóstico de almacén a las tablas de Log Analytics dedicadas para Backup. Estas se conocen como [tablas específicas de recursos](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#resource-specific).
 
 Para enviar los datos de diagnóstico del almacén a Log Analytics:
+
 1.  Navegue hasta el almacén y haga clic en **Configuración de diagnóstico**. Haga clic en **+ Agregar configuración de diagnóstico**.
 2.  Asigne un nombre a la configuración de diagnóstico.
 3.  Marque la casilla **Enviar a Log Analytics** y seleccione un área de trabajo de Log Analytics.
@@ -84,4 +86,4 @@ La imagen siguiente muestra el ejemplo de un usuario que tiene tres configuracio
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Obtenga información sobre el modelo de datos de Log Analytics para eventos de diagnóstico](https://aka.ms/diagnosticsdatamodel)
+[Obtenga información sobre el modelo de datos de Log Analytics para eventos de diagnóstico](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)

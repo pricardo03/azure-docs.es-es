@@ -1,5 +1,6 @@
 ---
 title: 'Inicio rápido: Creación de una instancia de Data Science Virtual Machine para Geo AI'
+titleSuffix: Azure Data Science Virtual Machine
 description: Configure y cree una instancia de Data Science Virtual Machine para Geo AI en Azure para realizar análisis geoespacial y aprendizaje automático.
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -7,12 +8,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/13/2019
-ms.openlocfilehash: 6b32d1f76091d7bbb8f870402020d0ac247d425b
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: f3ff9bd64f54d8f83fd1889078e8a4c01827d135
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170722"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525896"
 ---
 # <a name="quickstart-set-up-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Inicio rápido: Configuración de una instancia de Geo Artificial Intelligence Virtual Machine en Azure 
 
@@ -41,7 +42,7 @@ Para crear una instancia de Geo AI Data Science VM, siga estos pasos:
 
 **Aspectos básicos**:
 
-- **Nombre**: El nombre del servidor de ciencia de datos que está creando.
+- **Name**: El nombre del servidor de ciencia de datos que está creando.
     
 - **Nombre de usuario**: identificador de inicio de sesión de la cuenta de administración.
     
@@ -51,7 +52,7 @@ Para crear una instancia de Geo AI Data Science VM, siga estos pasos:
     
 - **Grupo de recursos**: puede crear uno nuevo o usar un grupo de recursos **vacío** existente de Azure en su suscripción.
     
-- **Ubicación**: seleccione el centro de datos más adecuado. Normalmente, es el que tiene la mayor parte de los datos o el que esté más cerca de su ubicación física para disfrutar de un acceso más rápido a la red. Si planea ejecutar aprendizaje profundo en una GPU, debe elegir una de las ubicaciones de Azure que tenga instancias de máquina virtual de GPU de la serie NC. Actualmente esas ubicaciones son: **Este de EE. UU., Centro y norte de EE. UU., Centro y sur de EE. UU., Oeste de EE. UU. 2, Europa del Norte, Europa Occidental**. Para obtener la lista más reciente, compruebe la página [Productos de Azure por región](https://azure.microsoft.com/regions/services/) y busque **Serie NC** en **Proceso**. 
+- **Ubicación**: seleccione el centro de datos más adecuado. Normalmente, es el que tiene la mayor parte de los datos o el que esté más cerca de su ubicación física para disfrutar de un acceso más rápido a la red. Si planea ejecutar aprendizaje profundo en una GPU, debe elegir una de las ubicaciones de Azure que tenga instancias de máquina virtual de GPU de la serie NC. Actualmente esas ubicaciones son: **Este de EE. UU., Centro y norte de EE. UU., Centro y sur de EE. UU., Oeste de EE. UU. 2, Norte de Europa, Oeste de Europa**. Para obtener la lista más reciente, compruebe la página [Productos de Azure por región](https://azure.microsoft.com/regions/services/) y busque **Serie NC** en **Proceso**. 
     
     
 **Configuración**: si tiene previsto ejecutar aprendizaje profundo en una GPU en su instancia de Geo-DSVM, seleccione un tamaño de máquina virtual de GPU de la serie NC. En caso contrario, puede elegir una de las instancias basadas en CPU. Cree una cuenta de almacenamiento para su máquina virtual. 

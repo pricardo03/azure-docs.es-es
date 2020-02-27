@@ -3,22 +3,22 @@ title: Configuración de la conectividad desde la red virtual hasta SAP HANA en 
 description: Configuración de la conectividad desde la red virtual para usar SAP HANA en Azure (instancias grandes).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/25/2019
-ms.author: rclaus
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fbcc6ace4923d8aa2d938cd9fffe7a16c4fc1ff
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f7ac8e69c4e149fdd0f365e19f7a0282a547af43
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74206740"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617199"
 ---
 # <a name="connect-a-virtual-network-to-hana-large-instances"></a>Conexión de una red virtual a instancias grandes de HANA
 
@@ -127,11 +127,11 @@ New-AzVirtualNetworkGatewayConnection -Name $myConnectionName `
 Para habilitar la funcionalidad ExpressRoute Fast Path, es importante agregar el último parámetro como se mostró anteriormente.
 
 
-## <a name="expressroute-global-reach"></a>ExpressRoute Global Reach
+## <a name="expressroute-global-reach"></a>Global Reach de ExpressRoute
 Puede que quiera habilitar Global Reach en uno de estos dos casos, o en ambos:
 
- - Replicación del sistema HANA sin firewalls ni servidores proxy adicionales.
- - Copia de seguridad entre unidades de instancia grande de HANA en dos regiones diferentes para realizar copias o actualizaciones del sistema.
+ - La replicación del sistema HANA sin firewalls ni servidores proxy adicionales.
+ - La copia de seguridad entre las unidades de HANA (Instancias grandes) en dos regiones diferentes para realizar copias o actualizaciones del sistema.
 
 Debe tener en cuenta lo siguiente:
 

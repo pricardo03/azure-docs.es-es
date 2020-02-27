@@ -3,8 +3,8 @@ title: Creación de una configuración de varios SID de SAP en Azure | Microsoft
 description: Guía de alta disponibilidad para la configuración de varios SID de SAP NetWeaver en máquinas virtuales Windows
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
-ms.author: rclaus
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff01bd0d6586cf75dcfdb7277c34120c6ec22894
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d7938f7db22f004a0bf6cdf2e22dc8e103896719
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647499"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617392"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Creación de una configuración de varios SID de SAP NetWeaver
 
@@ -55,7 +55,7 @@ En este artículo nos centraremos en cómo pasar de una sola instalación ASCS/S
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Ya ha configurado un clúster de WSFC que se usa para una instancia de ASCS/SCS de SAP, tal como se describe en la [guía de alta disponibilidad SAP NetWeaver en máquinas virtuales Windows][sap-ha-guide] y se muestra en este diagrama.
 
 ![Instancia de ASCS/SCS de SAP de alta disponibilidad][sap-ha-guide-figure-6001]

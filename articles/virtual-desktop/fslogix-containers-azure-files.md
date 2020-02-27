@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 7b67569ee821fee837f4fa63a1d71e622a0370a5
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 49a63be8e8ac3752006d531f4541cb3c2904c3e3
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472475"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539627"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contenedores de perfiles de FSLogix y archivos de Azure
 
@@ -87,7 +87,7 @@ Windows Virtual Desktop ofrece un control total sobre el tamaño, el tipo y el n
 Para asegurarse de que su entorno de Windows Virtual Desktop sigue los procedimientos recomendados:
 
 - La cuenta de almacenamiento de Azure Files debe estar en la misma región que las máquinas virtuales del host de sesión.
-- Los permisos de Azure Files deben coincidir con los permisos descritos en [Requisitos - Contenedores de perfiles](/fslogix/overview#requirements).
+- Los permisos de Azure Files deben coincidir con los permisos descritos en [Requisitos - Contenedores de perfiles](/fslogix/fslogix-storage-config-ht).
 - Cada grupo host debe estar creado con una máquina virtual del mismo tipo y tamaño basada en la misma imagen maestra.
 - Cada máquina virtual de grupo host debe encontrarse en el mismo grupo de recursos para facilitar la administración, el escalado y la actualización.
 - Para obtener un rendimiento óptimo, la solución de almacenamiento y el contenedor de perfiles de FSLogix deben estar en la misma ubicación del centro de datos.

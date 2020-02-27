@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 215ecc1e392f8e7051173fb6f589fb940c26f17d
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 3487de958df100cd43d4191028d0a15d7007067a
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872254"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604996"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Arquitecturas basadas en eventos sin servidor con Azure Cosmos DB y Azure Functions
 
@@ -20,7 +20,7 @@ Azure Functions proporciona la manera más sencilla de conectarse a la [fuente d
 
 ![Funciones basadas en eventos sin servidor que funcionan con el desencadenador de Azure Functions para Cosmos DB](./media/change-feed-functions/functions.png)
 
-Con el [desencadenador de Azure Functions para Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger), puede aprovechar el escalado del [procesador de fuente de cambios](./change-feed-processor.md) y la funcionalidad de detección de eventos confiable sin necesidad de mantener ninguna [infraestructura de trabajo](./change-feed-processor.md). Céntrese en la lógica de Azure Functions sin preocuparse por el resto de la canalización de origen de eventos. Incluso puede combinar el desencadenador con cualquier otro [enlace de Azure Functions](../azure-functions/functions-triggers-bindings.md#supported-bindings).
+Con el [desencadenador de Azure Functions para Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md), puede aprovechar el escalado del [procesador de fuente de cambios](./change-feed-processor.md) y la funcionalidad de detección de eventos confiable sin necesidad de mantener ninguna [infraestructura de trabajo](./change-feed-processor.md). Céntrese en la lógica de Azure Functions sin preocuparse por el resto de la canalización de origen de eventos. Incluso puede combinar el desencadenador con cualquier otro [enlace de Azure Functions](../azure-functions/functions-triggers-bindings.md#supported-bindings).
 
 > [!NOTE]
 > Actualmente, el uso del desencadenador de Azure Functions para Cosmos DB se admite solo con Core (SQL) API.
@@ -30,7 +30,7 @@ Con el [desencadenador de Azure Functions para Cosmos DB](../azure-functions/fu
 Para implementar un flujo basado en eventos sin servidor, necesita:
 
 * **El contenedor supervisado**: el contenedor supervisado es el contenedor de Azure Cosmos que se está supervisando y almacena los datos a partir de los cuales se genera la fuente de cambios. Todas las inserciones y actualizaciones realizadas en el contenedor supervisado se reflejan en la fuente de cambios del contenedor.
-* **El contenedor de concesión**: el contenedor de concesión mantiene el estado entre instancias de Azure Functions sin servidor múltiples y dinámicas, y permite un escalado dinámico. Este contenedor de concesión se puede crear manual o automáticamente mediante el desencadenador de Azure Functions para Cosmos DB. Para crear automáticamente el contenedor de concesión, establezca la marca *CreateLeaseCollectionIfNotExists* en la [configuración](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration). Los contenedores de concesión con particiones deben tener una definición de clave de partición `/id`.
+* **El contenedor de concesión**: el contenedor de concesión mantiene el estado entre instancias de Azure Functions sin servidor múltiples y dinámicas, y permite un escalado dinámico. Este contenedor de concesión se puede crear manual o automáticamente mediante el desencadenador de Azure Functions para Cosmos DB. Para crear automáticamente el contenedor de concesión, establezca la marca *CreateLeaseCollectionIfNotExists* en la [configuración](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration). Los contenedores de concesión con particiones deben tener una definición de clave de partición `/id`.
 
 ## <a name="create-your-azure-functions-trigger-for-cosmos-db"></a>Creación del desencadenador de Azure Functions para Cosmos DB
 

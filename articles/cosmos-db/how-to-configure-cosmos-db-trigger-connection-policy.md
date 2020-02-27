@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 6e4c50e5dcc35450463d02bbed040754ea778e70
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 953121a9a15d4fef56d381e3aab85329fadacce2
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093616"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604971"
 ---
 # <a name="how-to-configure-the-connection-policy-used-by-azure-functions-trigger-for-cosmos-db"></a>Configuración de la directiva de conexión que utiliza el desencadenador de Azure Functions para Cosmos DB
 
@@ -23,7 +23,7 @@ Existen dos modos de conexión: modo directo y modo de puerta de enlace. Para m�
 
 ## <a name="changing-the-connection-mode-and-protocol"></a>Cambio del modo y protocolo de conexión
 
-Hay dos valores de configuración clave disponibles para configurar la directiva de conexión de cliente: el **modo de conexión** y el **protocolo de conexión**. Tanto el modo de conexión como el protocolo predeterminados que usa el desencadenador de Azure Functions para Cosmos DB se pueden cambiar, al igual que todos los [enlaces de Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#output). Para cambiar la configuración predeterminada, es preciso localizar el archivo `host.json` en el proyecto de Azure Functions o en la aplicación de Azure Functions y agregar el siguiente [valor extra](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings):
+Hay dos valores de configuración clave disponibles para configurar la directiva de conexión de cliente: el **modo de conexión** y el **protocolo de conexión**. Tanto el modo de conexión como el protocolo predeterminados que usa el desencadenador de Azure Functions para Cosmos DB se pueden cambiar, al igual que todos los [enlaces de Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2-output.md). Para cambiar la configuración predeterminada, es preciso localizar el archivo `host.json` en el proyecto de Azure Functions o en la aplicación de Azure Functions y agregar el siguiente [valor extra](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings):
 
 ```js
 {

@@ -2,17 +2,14 @@
 title: 'Procedimientos recomendados de operador: características avanzadas del programador en Azure Kubernetes Service (AKS)'
 description: Conozca las prácticas recomendadas de operador de clúster para usar características avanzadas de programador como taints y tolerations, los selectores de nodo y la afinidad o falta de afinidad entre pods en Azure Kubernetes Service (AKS).
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: mlearned
-ms.openlocfilehash: 2ac66e46d449100fcdd004627820252473f6e2f3
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 546c1d6ae25a33c6df93469ccf8c230b4b1c474b
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293664"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594998"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para características avanzadas del programador en Azure Kubernetes Service (AKS)
 

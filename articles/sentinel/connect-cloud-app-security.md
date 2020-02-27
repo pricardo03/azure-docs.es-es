@@ -3,7 +3,7 @@ title: Conexión de datos de Cloud App Security a Azure Sentinel | Microsoft Doc
 description: Aprenda a conectar datos de Cloud App Security a Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: 32e7e79465b68caca9a636019f65b9f08284fc72
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.author: yelevin
+ms.openlocfilehash: 348576fbbdd1037f9e2e792218b96bbbecf36668
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928212"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588372"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Conectar datos de Microsoft Cloud App Security 
 
@@ -27,7 +27,7 @@ ms.locfileid: "73928212"
 
 Se pueden transmitir registros desde [Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) a Azure Sentinel con tan solo un clic. Esta conexión permite transmitir las alertas de Cloud App Security a Azure Sentinel. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Un usuario que sea administrador global o que tenga permisos de administrador de seguridad
 - Para transmitir registros de Cloud Discovery a Azure Sentinel, [habilite Azure Sentinel como SIEM en Microsoft Cloud App Security](https://aka.ms/AzureSentinelMCAS).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: 57d47712fe20fac0bf370a9a100a07a37d7aa753
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 40352b7ae1f3fb6b1178f2dfe70cdca9871c76b7
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996670"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603772"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Refuerce su seguridad con Azure Security Center
 Este artículo le ayuda a reforzar la seguridad. Use las funcionalidades de supervisión de Azure Security Center para asegurarse de que la seguridad de los recursos es tan estricta como sea posible y para supervisar que cumple con las directivas establecidas.
@@ -45,11 +45,9 @@ Para más información sobre cómo aplicar las recomendaciones, lea [Implementac
 
 
 
-## <a name="see-also"></a>Otras referencias
-En este artículo, aprendió a usar las funcionalidades de supervisión en Azure Security Center. Para obtener más información sobre el Centro de seguridad de Azure, consulte los siguientes recursos:
+## <a name="see-also"></a>Consulte también
+En este artículo, aprendió a usar las funcionalidades de supervisión en Azure Security Center. Para obtener más información sobre Azure Security Center, consulte los siguientes recursos:
 
 * [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): Aprenda a configurar opciones de seguridad en Azure Security Center.
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): Aprenda a administrar y responder a las alertas de seguridad.
 * [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): Aprenda cómo supervisar el estado de mantenimiento de las soluciones de sus asociados.
-* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): Preguntas más frecuentes acerca del uso del servicio.
-* [Blog de seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/): Encuentre artículos de blog sobre el cumplimiento y la seguridad de Azure.

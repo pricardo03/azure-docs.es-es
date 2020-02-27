@@ -4,12 +4,12 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 08/09/2019
 ms.author: jroth
-ms.openlocfilehash: 17d6947efcbaf8a01aeca70bf7a88dcc7b65cd0a
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 83bf357fff8fd3cfb8c0e69af92b36710287898f
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548238"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586738"
 ---
 | Resource | Gratuito | Compartido | Básica | Estándar | Premium (v2) | Aislado </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -35,7 +35,6 @@ ms.locfileid: "76548238"
 | [Copias de seguridad programadas](../articles/app-service/manage-backup.md) | | | | Copias de seguridad programadas cada 2 horas, con un máximo de 12 copias de seguridad al día (manuales y programadas). | Copias de seguridad programadas cada hora, con un máximo de 50 copias de seguridad al día (manuales y programadas). | Copias de seguridad programadas cada hora, con un máximo de 50 copias de seguridad al día (manuales y programadas). |
 | [Autoscale](../articles/app-service/manage-scale-up.md) | | | |X |X |X |
 | [WebJobs](../articles/app-service/webjobs-create.md)<sup>11</sup> |X |X |X |X |X |X |
-| [Compatibilidad con Azure Scheduler](https://azure.microsoft.com/services/scheduler/) | |X |X |X |X |X |
 | [Supervisión de extremos](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
 | [Espacios de ensayo](../articles/app-service/deploy-staging-slots.md) | | | |5 |20 |20 |
 | Contrato de nivel de servicio | |  |99,95 %|99,95 %|99,95 %|99,95 %|  
@@ -50,4 +49,4 @@ ms.locfileid: "76548238"
 <sup>8</sup> Las conexiones IP máximas se realizan por instancia y dependen del tamaño de la instancia: 1920 por instancia B1/S1/P1V2, 3968 por instancia B2/S2/P2V2, 8064 por instancia B3/S3/P3V2.  
 <sup>9</sup> El límite de cuota de App Service Certificate por suscripción se puede aumentar a través de una solicitud de soporte técnico hasta un límite máximo de 200.  
 <sup>10</sup>Las SKU de App Service aislado pueden tener equilibrio de carga interno (ILB) con Azure Load Balancer, lo que significa que no hay conectividad pública desde Internet. Como resultado, algunas características de un App Service aislado con ILB deben usarse desde máquinas que tienen acceso directo al punto de conexión de red del ILB.  
-<sup>11</sup> Ejecute scripts o archivos ejecutables personalizados bajo demanda, según una programación o de manera continua como tarea en segundo plano dentro de su instancia de App Service. Siempre disponible se requiere para la ejecución continua de Trabajos web. Se requiere Azure Scheduler de nivel Gratis o Estándar para Trabajos web programados. No hay ningún límite predefinido en el número de trabajos web que se pueden ejecutar en una instancia de App Service. Hay límites prácticos que dependen de lo que el código de aplicación intente hacer.  
+<sup>11</sup> Ejecute scripts o archivos ejecutables personalizados bajo demanda, según una programación o de manera continua como tarea en segundo plano dentro de su instancia de App Service. Siempre disponible se requiere para la ejecución continua de Trabajos web. No hay ningún límite predefinido en el número de trabajos web que se pueden ejecutar en una instancia de App Service. Hay límites prácticos que dependen de lo que el código de aplicación intente hacer.  

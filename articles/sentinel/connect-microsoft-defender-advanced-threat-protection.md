@@ -3,7 +3,7 @@ title: Conexión de datos de ATP de Microsoft Defender con Azure Sentinel | Micr
 description: Aprenda a conectar los datos de Protección contra amenazas avanzada de Microsoft Defender con Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
-ms.author: rkarlin
-ms.openlocfilehash: 19d496ebb61a3ceb47f69f661e30ab529dc64f3d
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.author: yelevin
+ms.openlocfilehash: ee2c917d02a442ebabc0e1b40bc245982af794f8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72257309"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588219"
 ---
 # <a name="connect-alerts-from-microsoft-defender-advanced-threat-protection"></a>Conexión de alertas desde Protección contra amenazas avanzada de Microsoft Defender 
 
@@ -32,7 +32,7 @@ ms.locfileid: "72257309"
 
 Se pueden transmitir registros desde [Protección contra amenazas avanzada de Microsoft Defender](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) a Azure Sentinel con tan solo un clic. Esta conexión permite transmitir las alertas de Protección contra amenazas avanzada de Microsoft Defender a Azure Sentinel. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una licencia válida para Protección contra amenazas avanzada de Microsoft Defender habilitada, tal como se describe en [Validación del aprovisionamiento de licencias y configuración completa para Protección contra amenazas avanzada de Microsoft Defender](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/licensing). 
 - Debe ser un administrador o un administrador de seguridad en el inquilino de Azure Sentinel.

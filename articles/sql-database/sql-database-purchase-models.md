@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/01/2020
-ms.openlocfilehash: aa7197dc631ea281bd5616b572f4ca01aeb9d45c
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 0b2eafeec27cb92ccb191ec902e8bf1d581a3b4a
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964777"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587301"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Elija entre los modelos de compra de núcleo virtual y de DTU
 
@@ -77,7 +77,7 @@ El modelo de compra basado en núcleo virtual le permite elegir los recursos de 
 
 > [!IMPORTANT]
 > Los recursos de proceso, E/S y el almacenamiento de datos y registros se cobran por base de datos o grupo elástico. El almacenamiento de copia de seguridad se cobra por cada base de datos. Para más información sobre los cargos de instancia administrada, consulte [Instancias administradas](sql-database-managed-instance.md).
-> **Limitaciones regionales:** Para conocer la lista actual de regiones admitidas, consulte [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Para crear una instancia administrada en una región que no se admita actualmente, [envíe una solicitud de soporte técnico a través de Azure Portal](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
+> **Limitaciones regionales:** Para conocer la lista actual de regiones admitidas, consulte [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Para crear una instancia administrada en una región que no se admita actualmente, [envíe una solicitud de soporte técnico a través de Azure Portal](quota-increase-request.md).
 
 Si la base de datos única o el grupo elástico consume más de 300 DTU, la conversión al modelo de compra basado en núcleo virtual puede reducir los costos. Puede realizar la conversión mediante la API de su elección o usar Azure Portal, sin experimentar tiempo de inactividad. Sin embargo, la conversión no es obligatoria y no se realiza automáticamente. Si el modelo de compra basado en DTU satisface sus requisitos de rendimiento y empresariales, debe seguir usándolo.
 

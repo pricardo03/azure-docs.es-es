@@ -3,12 +3,12 @@ title: Matriz de compatibilidad para copias de seguridad de máquinas virtuales 
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para realizar copias de seguridad de máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 5d83d3426a80acc12c2a53051dcfd7b889f47f02
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: d4d5168ee7f2f8c71b3a63fea64873a8dd71658b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77469007"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602206"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 
@@ -105,12 +105,12 @@ Puntos de recuperación en disco DPM/MABS | 64 para servidores de archivos y 448
 
 ## <a name="supported-restore-methods"></a>Métodos de restauración admitidos
 
-**Método de restauración** | **Detalles**
+**Opción de restauración** | **Detalles**
 --- | ---
-Creación de una máquina virtual nueva | Puede crear una máquina virtual durante el proceso de restauración. <br/><br/> Esta opción pone en marcha una máquina virtual básica. Puede especificar el nombre de la máquina virtual, el grupo de recursos, la red virtual, la subred y el almacenamiento.  
-Restauración de un disco | Puede restaurar un disco y usarlo para crear una máquina virtual.<br/><br/> Cuando se selecciona esta opción, Azure Backup copia datos desde el almacén a una cuenta de almacenamiento que seleccione. El trabajo de restauración genera una plantilla. Puede descargar esta plantilla y usarla para especificar la configuración personalizada de una máquina virtual y crear una máquina virtual.<br/><br/> Esta opción permite especificar más opciones de configuración que la opción anterior para crear una máquina virtual.<br/><br/>
-Reemplazar un disco existente | Puede restaurar un disco y, después, usar el disco restaurado para reemplazar un disco que se encuentra actualmente en una máquina virtual.
-Restauración de archivos | Puede recuperar archivos desde un punto de recuperación seleccionado. Descargue un script para montar el disco de máquina virtual a partir del punto de recuperación. A continuación, examine los volúmenes de disco para buscar los archivos o carpetas que desea recuperar y desmonte el disco cuando haya terminado.
+**Crear una máquina virtual** | Crea y pone en funcionamiento rápidamente una máquina virtual básica a partir de un punto de restauración.<br/><br/> Puede especificar un nombre para la máquina virtual, seleccionar el grupo de recursos y la red virtual (VNet) en que se va a colocar y especificar una cuenta de almacenamiento para la máquina virtual restaurada. La nueva máquina virtual debe crearse en la misma región que la máquina virtual de origen.
+**Restaurar disco** | Restaura un disco de máquina virtual, que luego se puede usar para crear una máquina virtual.<br/><br/> Azure Backup proporciona una plantilla para ayudar a personalizar y crear una máquina virtual. <br/><br> El trabajo de restauración genera una plantilla que puede descargar y usar para especificar la configuración de una máquina virtual personalizada y crear una máquina virtual.<br/><br/> Los discos se copian en el grupo de recursos que especifique.<br/><br/> Como alternativa, puede conectar el disco a una máquina virtual existente o crear una máquina virtual mediante PowerShell.<br/><br/> Esta opción es útil si desea personalizar la máquina virtual, agregar la configuración que no existía en el momento de la copia de seguridad o agregar valores que deben configurarse mediante la plantilla o PowerShell.
+**Reemplazar el existente** | Puede restaurar un disco y usarlo para reemplazar un disco en la máquina virtual existente.<br/><br/> La máquina virtual actual debe existir. Si se ha eliminado, esta opción no se puede usar.<br/><br/> Azure Backup toma una instantánea de la máquina virtual existente antes de reemplazar el disco, y la almacena en la ubicación de almacenamiento provisional especificada. Los discos existentes conectados a la máquina virtual se reemplazan por el punto de restauración seleccionado.<br/><br/> La instantánea se copia en el almacén y se conserva de acuerdo con la directiva de retención. <br/><br/> Después de la operación de reemplazo de disco, el disco original se conserva en el grupo de recursos. Puede optar por eliminar manualmente los discos originales si no son necesarios. <br/><br/>Esta opción es compatible con máquinas virtuales administradas no cifradas. No se admite para discos no administrados, [máquinas virtuales generalizadas](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) o para máquinas virtuales [creadas con imágenes personalizadas](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> Si el punto de restauración tiene más o menos discos que la máquina virtual actual, el número de discos del punto de restauración solo reflejará la configuración de la máquina virtual.<br><br> El reemplazo de un disco existente no es compatible con las VM con recursos vinculados (como una [identidad administrada asignada por el usuario](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) o [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)) porque la aplicación cliente de copia de seguridad no tiene permisos en estos recursos mientras realiza la restauración.
+**Entre regiones (región secundaria)** | La restauración entre regiones puede usarse para restaurar VM de Azure en la región secundaria, que es una [región emparejada de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#what-are-paired-regions).<br><br> Puede restaurar todas las VM de Azure del punto de recuperación seleccionado si la copia de seguridad se realiza en la región secundaria.<br><br> Esta característica está disponible para las opciones siguientes:<br> * [Crear una VM](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-vm) <br> * [Restaurar discos](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) <br><br> Actualmente no se admite la opción [Reemplazar los discos existentes](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#replace-existing-disks).<br><br> Permisos<br> La operación de restauración en la región secundaria pueden llevarla a cabo los administradores de copias de seguridad y los administradores de aplicaciones.
 
 ## <a name="support-for-file-level-restore"></a>Compatibilidad con restauración de nivel de archivo
 

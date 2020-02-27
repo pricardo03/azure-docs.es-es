@@ -3,12 +3,12 @@ title: Copia de seguridad y restauración de VM de Azure cifradas
 description: Se describe cómo realizar una copia de seguridad de máquinas virtuales de Azure cifradas, y cómo restaurarlas, con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 754a0899d25f2672c6a66eeafe5013f98b7a8f4d
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 3719f26211677a1b726d3c3dc1d217fb58db1fb2
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513786"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583181"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Copia de seguridad y restauración de máquinas virtuales de Azure cifradas
 
@@ -30,7 +30,7 @@ Azure Backup puede realizar copias de seguridad de máquinas virtuales de Azure,
 **No administrado** | Sí | Sí
 **Administrado**  | Sí | Sí
 
-- Aprenda más sobre [ADE](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/key-vault-overview.md) y [KEK](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/).
+- Aprenda más sobre [ADE](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/key-vault-overview.md) y [KEK](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek/).
 - Lea las [preguntas más frecuentes](../security/azure-security-disk-encryption-faq.md) sobre el cifrado de discos de máquina virtual de Azure.
 
 ### <a name="limitations"></a>Limitaciones

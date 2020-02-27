@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: fdcaa7d8eec0065ad9acd76df9918ed7bccc081b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 07537d3d67e41f7e1179a709ffa19f3d84aa4539
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895871"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565832"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Reproducción de contenido con existentes
 Azure Media Services admite muchos formatos de streaming populares como Smooth Streaming, HTTP Live Streaming y MPEG-Dash. Este tema remite a reproductores existentes que puede usar para probar sus transmisiones.
@@ -65,9 +65,6 @@ Para probar las direcciones URL de HLS también puede utilizar:
 
 * **Safari** en un dispositivo iOS o
 * **3ivx HLS Player** en Windows.
-
-## <a name="developing-video-players"></a>Desarrollo de reproductores de vídeo
-Para obtener información sobre cómo desarrollar sus propios reproductores, consulte [Desarrollo de reproductores de vídeo](media-services-develop-video-players.md)
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

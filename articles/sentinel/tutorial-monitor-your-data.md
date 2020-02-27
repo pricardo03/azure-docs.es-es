@@ -3,7 +3,7 @@ title: Visualización de datos mediante paneles basados en libros de Azure Moni
 description: Use este tutorial para aprender a visualizar los datos mediante paneles basados en libros de Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/01/2020
-ms.author: rkarlin
-ms.openlocfilehash: 7baf8cf2e954d773376b7c3c989bce01f60ae0a6
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: b4461ac43e9356536914b345ef28f5de62fc9f82
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610461"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585227"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Tutorial: Visualizar y supervisar los datos
 
@@ -33,7 +33,7 @@ Este tutorial lo ayudará a visualizar los datos en Azure Sentinel.
 > * Uso de libros integrados
 > * Creación de libros
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Debe tener al menos permisos de lector de libros o de colaborador de libros en el grupo de recursos del área de trabajo de Azure Sentinel.
 

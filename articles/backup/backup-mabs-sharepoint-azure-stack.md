@@ -3,12 +3,12 @@ title: Copia de seguridad de una granja de SharePoint en Azure Stack
 description: Use Azure Backup Server para crear una copia de seguridad de los datos de SharePoint y restaurarlos en Azure Stack. En este artículo se proporciona la información sobre cómo configurar la granja de SharePoint para almacenar los datos deseados en Azure. Puede restaurar los datos protegidos de SharePoint desde disco o desde Azure.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: 06d64be4f09c6fb6ed9dee34a0c7ba0b1bd785e6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: c503ac7a76872e71d1920765656610dd462d4db3
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172490"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583221"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Copia de seguridad de una granja de SharePoint en Azure Stack
 
@@ -26,13 +26,13 @@ Azure Backup para MABS admite los siguientes escenarios:
 
 Antes de realizar una copia de seguridad de una granja de SharePoint en Azure, hay algunas cuantas cosas que debe confirmar.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 Antes de continuar, asegúrese de que ha [instalado y preparado Azure Backup Server](backup-mabs-install-azure-stack.md) para proteger las cargas de trabajo.
 
 ### <a name="protection-agent"></a>Agente de protección
 
-El agente de Azure Backup debe instalarse en el servidor que ejecuta SharePoint, en los servidores que ejecutan SQL Server y en todos los demás servidores que forman parte de la granja de SharePoint. Para obtener más información sobre cómo configurar el agente de protección, consulte [Programa de instalación del agente de protección](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  La única excepción es que solo instale al agente en un único servidor web front-end (WFE). Azure Backup Server necesita el agente en un servidor WFE con el único fin de servir como punto de entrada para la protección.
+El agente de Azure Backup debe instalarse en el servidor que ejecuta SharePoint, en los servidores que ejecutan SQL Server y en todos los demás servidores que forman parte de la granja de SharePoint. Para obtener más información sobre cómo configurar el agente de protección, consulte [Programa de instalación del agente de protección](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019).  La única excepción es que solo instale al agente en un único servidor web front-end (WFE). Azure Backup Server necesita el agente en un servidor WFE con el único fin de servir como punto de entrada para la protección.
 
 ### <a name="sharepoint-farm"></a>Granja de SharePoint
 
@@ -233,10 +233,10 @@ En el ejemplo siguiente, el *elemento de recuperación de SharePoint* se elimin�
 ## <a name="faqs"></a>Preguntas más frecuentes
 
 P: ¿Puedo recuperar un elemento de SharePoint en la ubicación original si SharePoint está configurado con SQL AlwaysOn (con protección en disco)?<br>
-R: Sí, se puede recuperar el elemento en el sitio de SharePoint original.
+A. Sí, se puede recuperar el elemento en el sitio de SharePoint original.
 
 P: ¿Puedo recuperar una base de datos de SharePoint en la ubicación original si SharePoint está configurada con SQL AlwaysOn?<br>
-R: Como las bases de datos de SharePoint están configuradas en SQL AlwaysOn, no se pueden modificar a menos que se quite el grupo de disponibilidad. En consecuencia, MABS no puede restaurar la base de datos en la ubicación original. Puede recuperar una base de datos SQL Server en otra instancia de SQL Server.
+A. Como las bases de datos de SharePoint están configuradas en SQL AlwaysOn, no se pueden modificar a menos que se quite el grupo de disponibilidad. En consecuencia, MABS no puede restaurar la base de datos en la ubicación original. Puede recuperar una base de datos SQL Server en otra instancia de SQL Server.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

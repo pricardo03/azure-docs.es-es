@@ -3,8 +3,8 @@ title: Alta disponibilidad con varios identificadores de seguridad de instancia 
 description: Alta disponibilidad con varios identificadores de seguridad para la instancia SAP ASCS/SCS con los clústeres de conmutación por error de Windows Server y los recursos compartidos de archivos en Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/03/2019
-ms.author: rclaus
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5638d71748c485c593dde8d9876400a40821ca28
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 2c12372dbc47548755c0680b0acb7a93360a0987
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75643158"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617481"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -217,7 +217,7 @@ En este artículo nos centraremos en cómo pasar de una sola instalación ASCS/S
 
 Para más información sobre los límites del equilibrador de carga, consulte la sección sobre la dirección IP privada de front-end por equilibrador de carga en [Límites de redes: Azure Resource Manager][networking-limits-azure-resource-manager]. Considere también el uso de la [SKU de Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) en lugar de la SKU básica de Azure Load Balancer.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Ya ha configurado un clúster de WSFC que se utiliza para una instancia de ASCS/SCS de SAP con un **recurso compartido de archivos**, tal y como se muestra en este diagrama.
 

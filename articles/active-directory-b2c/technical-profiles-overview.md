@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/11/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f3a9265c1f9a5c6c63931798718e4d0679cd126b
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 3b0e59912d740e30b0e29fb882542f1995ab6f54
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77136259"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505660"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los perfiles técnicos en las directivas personalizadas de Azure Active Directory B2C
 
@@ -39,7 +39,7 @@ Un perfil técnico posibilita estos tipos de escenarios:
 - [SAML2](saml-technical-profile.md) : federación con cualquier proveedor de identidades del protocolo SAML.
 - [Autoaserción](self-asserted-technical-profile.md): interacción con el usuario. Por ejemplo, recopilar las credenciales del usuario para iniciar sesión, representar la página de registro o restablecer la contraseña.
 - [Administración de sesiones](custom-policy-reference-sso.md): administración de distintos tipos de sesiones.
-- **Application Insights**
+- [Application Insights](../azure-monitor/app/usage-overview.md)
 - [Contraseña de un solo uso](one-time-password-technical-profile.md): proporciona compatibilidad para administrar la generación y verificación de una contraseña de un solo uso. 
 
 ## <a name="technical-profile-flow"></a>Flujo del perfil técnico

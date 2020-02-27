@@ -5,12 +5,12 @@ author: jeffj6123
 ms.topic: conceptual
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: b4ddc5bb52aeef622a33ace7b3ffad4694d7c072
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 46c5e1ed0a1d0db100c3415c40f59d46f62b21f9
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904824"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587624"
 ---
 # <a name="azure-service-fabric-cli"></a>CLI de Azure Service Fabric
 
@@ -18,7 +18,7 @@ La interfaz de línea de comandos (CLI) de Azure Service Fabric es una utilidad 
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de la instalación, asegúrese de que el entorno tiene Python y pip instalados. Para más información, consulte la [documentación de inicio rápido de pip](https://pip.pypa.io/en/latest/quickstart/) y la [documentación oficial de instalación de Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
@@ -41,7 +41,7 @@ La CLI de Service Fabric debería ser compatible con la versión más reciente d
 
 También puede especificar la versión de destino de la CLI que se va a instalar. Para ello debe usar `==<version>` delante del comando `pip install`. Por ejemplo, en el caso de la versión 1.1.0 la sintaxis sería:
 
-```
+```shell
 pip install -I sfctl==1.1.0
 ```
 
@@ -67,14 +67,14 @@ Para Windows 10, Windows Server 2016 y Windows Server 2012 R2, siga las instrucc
 
 Ahora puede abrir una nueva ventana de comandos y obtener la versión de Python y pip.
 
-```bat
+```shell
 python --version
 pip --version
 ```
 
 Después, ejecute el siguiente comando para instalar la CLI de Azure Service Fabric (sfctl) y ver la página de ayuda de la CLI:
 
-```bat
+```shell
 pip install sfctl
 sfctl -h
 ```
@@ -103,7 +103,7 @@ Asegúrese de que se puede acceder a `~/.local/bin` desde `$PATH`:
 
 ```bash
 export PATH=$PATH:~/.local/bin
-echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+echo "export PATH=$PATH:~/.local/bin" >> .shellrc
 ```
 
 Si se produce un error en la instalación en el subsistema de Windows para Linux debido a que los permisos de carpeta no son correctos, es posible que sea necesario volver a intentarlo con permisos superiores:
@@ -148,7 +148,7 @@ Los comandos siempre tienen el prefijo `sfctl`. Para obtener información genera
 
 Los comandos siguen una estructura repetible, con el destino del comando precediendo al verbo o la acción.
 
-```azurecli
+```shell
 sfctl <object> <action>
 ```
 
@@ -161,7 +161,7 @@ Para poder realizar cualquier operación, es preciso seleccionar un clúster al 
 > [!WARNING]
 > No utilice clústeres de Service Fabric que no sean seguros en entornos de producción.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint http://testcluster.com:19080
 ```
 
@@ -169,7 +169,7 @@ El punto de conexión del clúster debe ir precedido por el prefijo `http` o `ht
 
 Para clústeres que están protegidos con un certificado, puede especificar un certificado PEM codificado. El certificado se puede especificar como un único archivo o como un par de certificado y clave. Si es un certificado autofirmado sin firma de una entidad de certificación, puede pasar la opción `--no-verify` para omitir la comprobación de la entidad de certificación.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
@@ -181,7 +181,7 @@ La información de la conexión del clúster se mantiene en varias sesiones de l
 
 Por ejemplo, para obtener el estado del clúster de Service Fabric, use el siguiente comando:
 
-```azurecli
+```shell
 sfctl cluster health
 ```
 
@@ -218,13 +218,13 @@ Sugerencias y consejos para resolver problemas comunes.
 
 La CLI de Service Fabric admite certificados de cliente como archivos PEM (extensión .pem). Si utiliza los archivos PFX de Windows, debe convertir esos certificados al formato PEM. Para convertir un archivo PFX en uno PEM, use el comando siguiente:
 
-```bash
+```shell
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
 Análogamente, para convertir un archivo PEM en uno PFX, puede usar el siguiente comando (la contraseña no se proporciona aquí):
 
-```bash
+```shell
 openssl  pkcs12 -export -out Certificates.pfx -inkey Certificates.pem -in Certificates.pem -passout pass:'' 
 ```
 
@@ -246,13 +246,13 @@ Los registros detallados suelen ser útiles para depurar o notificar un problema
 
 Para obtener ayuda con un comando específico o un grupo de comandos, use la marca `-h`.
 
-```azurecli
+```shell
 sfctl application -h
 ```
 
 Este es otro ejemplo:
 
-```azurecli
+```shell
 sfctl application create -h
 ```
 
@@ -260,7 +260,7 @@ sfctl application create -h
 
 Para actualizar la CLI de Service Fabric, ejecute los siguientes comandos (reemplace `pip` con `pip3`, según lo que especificara durante la instalación original):
 
-```bash
+```shell
 pip uninstall sfctl
 pip install sfctl
 ```

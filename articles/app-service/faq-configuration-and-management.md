@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 598fdd5e3682226253ef8f2611ede2bbeba596f7
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: afa3b0f3ed345ccc7f4c627ec485351838ab2bee
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190436"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649285"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre la configuración y administración de Web Apps en Azure
 
@@ -199,7 +199,7 @@ Actualmente, no puede tener conexiones VPN de punto a sitio a una red virtual qu
 
 Actualmente, no se admite la conexión de una aplicación web de App Service a una red virtual que tenga una puerta de enlace de enrutamiento estático (basado en directivas). Si su red virtual de destino ya existe, debe tener habilitada la VPN de punto a sitio, con una puerta de enlace de enrutamiento dinámico, para poder conectarse a una aplicación. Si la puerta de enlace está configurada para el enrutamiento estático, no podrá habilitar una VPN de punto a sitio. 
 
-Para más información, consulte [Integración de su aplicación con una red virtual de Azure](web-sites-integrate-with-vnet.md#getting-started).
+Para más información, consulte [Integración de su aplicación con una red virtual de Azure](web-sites-integrate-with-vnet.md).
 
 ## <a name="in-my-app-service-environment-why-can-i-create-only-one-app-service-plan-even-though-i-have-two-workers-available"></a>En App Service Environment, ¿por qué solo se puede crear un plan de App Service si tengo dos trabajos disponibles?
 

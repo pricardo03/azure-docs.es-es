@@ -4,12 +4,12 @@ description: Aprenda a usar las características de seguridad de Azure Backup pa
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: c3c62f8ea7813c14fa6e19d825a5253de18f6639
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 7213f26493a118c2cb32f8f9935b4954176b99a2
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172680"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586400"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup
 
@@ -88,7 +88,7 @@ Como parte de la adición de una capa de autenticación adicional para las opera
 
 Para recibir este PIN:
 
-1. Inicie sesión en el Portal de Azure.
+1. Inicie sesión en Azure Portal.
 2. Vaya al **almacén de Recovery Services** > **Configuración** > **Propiedades**.
 3. En **PIN de seguridad**, haga clic en **Generar**. Se abrirá una hoja que contiene el PIN que se va a escribir en la interfaz de usuario del agente de Azure Recovery Services.
     Este PIN solo es válido durante cinco minutos y se genera automáticamente después de ese período.
@@ -108,17 +108,17 @@ Normalmente, al realizarse una operación crítica, se envía una notificación 
 
 Las características de seguridad que se mencionan en este artículo proporcionan mecanismos de defensa contra ataques dirigidos. Lo que es más importante, en caso de producirse un ataque, es que estas características permiten recuperar los datos.
 
-## <a name="troubleshooting-errors"></a>Solución de errores
+## <a name="troubleshooting-errors"></a>Solucionar errores
 
-| Operación | Detalles del error | Resolución |
+| Operación | Detalles del error | Solución |
 | --- | --- | --- |
 | Cambio de directiva |No se ha podido modificar la directiva de copia de seguridad. Error: No se pudo realizar la operación actual debido a un error de servicio interno [0x29834]. Vuelva a intentar la operación más tarde. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft. |**Causa:**<br/>Este error se genera cuando está habilitada la configuración de seguridad, intenta reducir la duración de retención por debajo de los valores mínimos especificados anteriormente y se encuentra en una versión no admitida (las versiones admitidas se especifican en la primera nota de este artículo). <br/>**Acción recomendada:**<br/> En este caso, debe establecer el período de retención por encima del período de retención mínimo especificado (siete días para un valor diario, cuatro semanas para uno semanal, tres semanas para mensual o un año para la copia anual) para continuar con las actualizaciones relacionadas con la directiva. Si lo desea, el enfoque preferido sería actualizar el agente de copia de seguridad y Azure Backup Server o DPM UR para aprovechar todas las actualizaciones de seguridad. |
 | Cambiar la frase de contraseña |El PIN de seguridad escrito no es correcto. (Id.: 100130) Proporcione el PIN de seguridad correcto para completar esta operación. |**Causa:**<br/> Este error se genera cuando se escribe un PIN de seguridad no válido o caducado mientras se realiza una operación crítica (por ejemplo, cambiar la frase de contraseña). <br/>**Acción recomendada:**<br/> Para completar la operación, debe escribir un PIN de seguridad válido. Para obtener el PIN, inicie sesión en Azure Portal y navegue hasta Almacén de Recovery Services > Configuración > Propiedades > Generar PIN de seguridad. Use este código PIN para cambiar la frase de contraseña. |
-| Cambiar la frase de contraseña |Error en la operación Id.: 120002 |**Causa:**<br/>Este error se genera cuando está habilitada la configuración de seguridad, intenta cambiar la frase de contraseña y se encuentra en una versión no compatible (las versiones válidas se especifican en la primera nota de esta artículo).<br/>**Acción recomendada:**<br/> Para cambiar la frase de contraseña, primero debe actualizar el agente de copia de seguridad a la versión mínima 2.0.9052, Azure Backup Server a la actualización mínima 1 o DPM a la actualización mínima DPM 2012 R2 UR12 o DPM 2016 UR2 (los enlaces de descarga se encuentran después) y, finalmente escriba el PIN de seguridad válido. Para obtener el PIN, inicie sesión en Azure Portal y navegue hasta Almacén de Recovery Services > Configuración > Propiedades > Generar PIN de seguridad. Use este código PIN para cambiar la frase de contraseña. |
+| Cambiar la frase de contraseña |No se pudo realizar la operación. Id.: 120002 |**Causa:**<br/>Este error se genera cuando está habilitada la configuración de seguridad, intenta cambiar la frase de contraseña y se encuentra en una versión no compatible (las versiones válidas se especifican en la primera nota de esta artículo).<br/>**Acción recomendada:**<br/> Para cambiar la frase de contraseña, primero debe actualizar el agente de copia de seguridad a la versión mínima 2.0.9052, Azure Backup Server a la actualización mínima 1 o DPM a la actualización mínima DPM 2012 R2 UR12 o DPM 2016 UR2 (los enlaces de descarga se encuentran después) y, finalmente escriba el PIN de seguridad válido. Para obtener el PIN, inicie sesión en Azure Portal y navegue hasta Almacén de Recovery Services > Configuración > Propiedades > Generar PIN de seguridad. Use este código PIN para cambiar la frase de contraseña. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Comience a usar el almacén de Azure Recovery Services](backup-azure-vms-first-look-arm.md) para habilitar estas características.
 - [Descargue la versión más reciente del agente de Azure Recovery Services](https://aka.ms/azurebackup_agent) para proteger los equipos con Windows y los datos de copia de seguridad frente a ataques.
-- [Descargue la versión más reciente de Azure Backup Server](https://aka.ms/latest_azurebackupserver) para proteger las cargas de trabajo y los datos de copia de seguridad frente a ataques.
+- [Descargue la versión más reciente de Azure Backup Server](https://support.microsoft.com/help/4457852/microsoft-azure-backup-server-v3) para proteger las cargas de trabajo y los datos de copia de seguridad frente a ataques.
 - [Descargue UR12 para System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) o [descargue UR2 para System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) para proteger las cargas de trabajo y los datos de copia de seguridad frente a ataques.

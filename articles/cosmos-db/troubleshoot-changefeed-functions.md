@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f3af350c96d1dd9eaf4773db503acb10d8a08a8f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f382406d164aa7378631753c2cfc85bc69003a4f
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441118"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605074"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnóstico y solución de problemas al usar el desencadenador de Azure Functions para Azure Cosmos DB
 
@@ -66,7 +66,7 @@ Este escenario puede tener varias causas y todas deben comprobarse:
 
 1. ¿La función de Azure se implementa en la misma región que su cuenta de Azure Cosmos? Para que la latencia de red se a óptima, la función de Azure y su cuenta de Azure Cosmos deben estar colocadas en la misma región de Azure.
 2. ¿Se producen los cambios en el contenedor de Azure Cosmos de forma continua o esporádica?
-Si ocurre lo segundo, podría haber algún retraso entre los cambios que se almacenan y el momento en que la función de Azure los recoge. Esto se debe a que, internamente, cuando el desencadenador comprueba si hay cambios en el contenedor de Azure Cosmos y no encuentra ninguno pendientes para leerse, se suspende durante un periodo (5 segundos, de forma predeterminada) configurable antes de comprobar si hay nuevos cambios (para evitar un consumo elevado de RU). Puede configurar este tiempo de suspensión en la opción `FeedPollDelay/feedPollDelay` de la [configuración](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) del desencadenador (el valor debe especificarse en milisegundos).
+Si ocurre lo segundo, podría haber algún retraso entre los cambios que se almacenan y el momento en que la función de Azure los recoge. Esto se debe a que, internamente, cuando el desencadenador comprueba si hay cambios en el contenedor de Azure Cosmos y no encuentra ninguno pendientes para leerse, se suspende durante un periodo (5 segundos, de forma predeterminada) configurable antes de comprobar si hay nuevos cambios (para evitar un consumo elevado de RU). Puede configurar este tiempo de suspensión en la opción `FeedPollDelay/feedPollDelay` de la [configuración](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) del desencadenador (el valor debe especificarse en milisegundos).
 3. El contenedor de Azure Cosmos podría tener una [velocidad limitada](./request-units.md).
 4. Puede usar el atributo `PreferredLocations` en el desencadenador para especificar una lista separada por comas de las regiones de Azure y definir un orden personalizado preferido de conexión.
 
@@ -93,10 +93,10 @@ Una manera fácil de solucionar esta situación es aplicar un `LeaseCollectionPr
 Para volver a procesar todos los elementos de un contenedor desde el principio:
 1. Detenga la función de Azure si se está ejecutando actualmente. 
 1. Elimine los documentos de la colección de concesiones (o elimine y vuelva a crear la colección de concesiones para que esté vacía)
-1. Establezca el atributo CosmosDBTrigger de [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) de la función en True. 
+1. Establezca el atributo CosmosDBTrigger de [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) de la función en True. 
 1. Reinicie la función de Azure. Ahora se leerán y procesarán todos los cambios desde el principio. 
 
-Cuando se establece [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) en True, indica a la función de Azure que comience a leer los cambios desde el principio del historial de la colección en lugar de desde la hora actual. Esto solo funciona cuando no hay concesiones ya creadas (es decir, documentos en la colección de concesiones). Establecer esta propiedad en True cuando hay concesiones ya creadas no tiene ningún efecto; en este escenario, cuando una función se detiene y se reinicia, comenzará a leer desde el último punto de control, tal y como se define en la colección de concesiones. Para volver a procesar desde el principio, siga los pasos anteriores del 1 al 4.  
+Cuando se establece [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) en True, indica a la función de Azure que comience a leer los cambios desde el principio del historial de la colección en lugar de desde la hora actual. Esto solo funciona cuando no hay concesiones ya creadas (es decir, documentos en la colección de concesiones). Establecer esta propiedad en True cuando hay concesiones ya creadas no tiene ningún efecto; en este escenario, cuando una función se detiene y se reinicia, comenzará a leer desde el último punto de control, tal y como se define en la colección de concesiones. Para volver a procesar desde el principio, siga los pasos anteriores del 1 al 4.  
 
 ### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>Solo se puede realizar el enlace con IReadOnlyList\<Document> o JArray
 
@@ -106,7 +106,7 @@ Para solucionar esta situación, quite la referencia manual de NuGet que se ha a
 
 ### <a name="changing-azure-functions-polling-interval-for-the-detecting-changes"></a>Cambio del intervalo de sondeo de Azure Functions para detectar cambios
 
-Como se explicó anteriormente en [Mis cambios tardan demasiado en recibirse](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-to-be-received), la función de Azure se suspenderá durante un período configurable (5 segundos, de forma predeterminada) antes de comprobar si hay nuevos cambios (para evitar un consumo elevado de RU). Puede configurar este tiempo de suspensión en la opción `FeedPollDelay/feedPollDelay` de la [configuración](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) del desencadenador (el valor debe especificarse en milisegundos).
+Como se explicó anteriormente en [Mis cambios tardan demasiado en recibirse](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-to-be-received), la función de Azure se suspenderá durante un período configurable (5 segundos, de forma predeterminada) antes de comprobar si hay nuevos cambios (para evitar un consumo elevado de RU). Puede configurar este tiempo de suspensión en la opción `FeedPollDelay/feedPollDelay` de la [configuración](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) del desencadenador (el valor debe especificarse en milisegundos).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

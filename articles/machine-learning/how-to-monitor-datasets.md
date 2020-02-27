@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/04/2019
-ms.openlocfilehash: 4efdc47e65f0f29f74f1477b02efdc6b8767ffb2
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 401019c537cb0eb51fa6002637e170a79210f7d2
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264770"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617634"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detección del desfase de datos (versión preliminar) en los conjuntos de datos
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ Se pueden encontrar métricas e información detallada a través del recurso de 
 > [!Important]
 > Tenga en cuenta que la supervisión del desfase de datos con el SDK está disponible en todas las ediciones, mientras que hacerlo a través Studio en la web solo lo está en la edición Enterprise.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para crear y trabajar con conjuntos de datos, necesita:
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
@@ -131,10 +131,10 @@ Esta tabla contiene la configuración básica usada para el monitor de conjunto 
 
 | Configuración | Descripción | Sugerencias | Mutable | 
 | ------- | ----------- | ---- | ------- | 
-| Nombre | Nombre del monitor del conjunto de datos. | | No |
-| Conjunto de datos de referencia | Conjunto de datos tabular que se usará como referencia para la comparación del conjunto de datos de destino a lo largo del tiempo. | El conjunto de datos de referencia debe compartir características con el conjunto de datos de destino. Por lo general, la referencia debe establecerse en el conjunto de datos de entrenamiento del modelo o en un segmento del conjunto de datos de destino. | No |
-| Conjunto de datos de destino | Conjunto de datos tabular con columna de marca de tiempo especificada, que se analizará para el desfase de datos. | El conjunto de datos de destino debe compartir características con el de referencia y debe ser un conjunto de datos de `timeseries` al que se anexan los nuevos datos. Los datos históricos del conjunto de datos de destino se pueden analizar o se pueden supervisar nuevos datos. | No | 
-| Frecuencia | Frecuencia que se usará para programar el trabajo de canalización y analizar los datos históricos si se ejecuta una reposición. Puede ser diario, semanal o mensual. | Ajuste esta opción para incluir un tamaño comparable de los datos en la referencia. | No | 
+| Nombre | Nombre del monitor del conjunto de datos. | | Sin |
+| Conjunto de datos de referencia | Conjunto de datos tabular que se usará como referencia para la comparación del conjunto de datos de destino a lo largo del tiempo. | El conjunto de datos de referencia debe compartir características con el conjunto de datos de destino. Por lo general, la referencia debe establecerse en el conjunto de datos de entrenamiento del modelo o en un segmento del conjunto de datos de destino. | Sin |
+| Conjunto de datos de destino | Conjunto de datos tabular con columna de marca de tiempo especificada, que se analizará para el desfase de datos. | El conjunto de datos de destino debe compartir características con el de referencia y debe ser un conjunto de datos de `timeseries` al que se anexan los nuevos datos. Los datos históricos del conjunto de datos de destino se pueden analizar o se pueden supervisar nuevos datos. | Sin | 
+| Frecuencia | Frecuencia que se usará para programar el trabajo de canalización y analizar los datos históricos si se ejecuta una reposición. Puede ser diario, semanal o mensual. | Ajuste esta opción para incluir un tamaño comparable de los datos en la referencia. | Sin | 
 | Características | Lista de características que se analizarán para el desfase de datos a lo largo del tiempo. | Establézcalas en las características de salida de un modelo para medir el desfase del concepto. No incluya características que se desfasan de forma natural a lo largo del tiempo (mes, año, índice, etc.). Puede reposicionar el monitor de desfase de datos existente después de ajustar la lista de características. | Sí | 
 | Destino de proceso | Destino de proceso de Azure Machine Learning para ejecutar los trabajos del monitor de conjunto de datos. | | Sí | 
 
@@ -145,7 +145,7 @@ Esta configuración es para la canalización del monitor de conjunto de datos pr
 | Configuración | Descripción | Sugerencias | Mutable | 
 | ------- | ----------- | ---- | ------- |
 | Habilitar | Habilitar o deshabilitar la programación en la canalización del monitor de conjunto de datos | Deshabilite esta programación para analizar los datos históricos con la configuración de reposición. Se puede habilitar una vez creado el monitor de conjunto de datos. | Sí | 
-| Latencia | Tiempo, en horas, para que lleguen los datos en el conjunto de datos. Por ejemplo, si los datos tardan tres días en llegar a la instancia de SQL DB en la que se encapsula el conjunto de datos, establezca la latencia en 72. | No se puede cambiar una vez creado el monitor de conjunto de datos | No | 
+| Latencia | Tiempo, en horas, para que lleguen los datos en el conjunto de datos. Por ejemplo, si los datos tardan tres días en llegar a la instancia de SQL DB en la que se encapsula el conjunto de datos, establezca la latencia en 72. | No se puede cambiar una vez creado el monitor de conjunto de datos | Sin | 
 | Direcciones de correo | Direcciones de correo para alertas en función de la brecha del umbral de porcentaje del desfase de datos. | Los correos se envían a través de Azure Monitor. | Sí | 
 | Umbral | Umbral de porcentaje de desfase de datos para alertas de correo. | Se pueden establecer más alertas y eventos en muchas otras métricas del recurso de Application Insights asociado del área de trabajo. | Sí | 
 
@@ -326,6 +326,6 @@ Las columnas, o características, del conjunto de datos se clasifican como categ
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Vaya a [Azure Machine Learning Studio](https://ml.azure.com) o al [cuaderno de Python](https://aka.ms/datadrift-notebook) para configurar un monitor de conjunto de datos.
+* Vaya a [Azure Machine Learning Studio](https://ml.azure.com) o al [cuaderno de Python](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datadrift-tutorial/datadrift-tutorial.ipynb) para configurar un monitor de conjunto de datos.
 * Vea cómo configurar un desfase de datos en los [modelos implementados en Azure Kubernetes Service](how-to-monitor-data-drift.md).
 * Configure los monitores de desfase de un conjunto de datos con [Event Grid](how-to-use-event-grid.md). 

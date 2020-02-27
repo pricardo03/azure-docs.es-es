@@ -2,17 +2,14 @@
 title: Visualización de los registros de controlador de Azure Kubernetes Service (AKS)
 description: Aprenda a habilitar y ver los registros del nodo maestro de Kubernetes en Azure Kubernetes Service (AKS).
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.author: mlearned
-ms.openlocfilehash: dc72a8d448a189918def35da0250d83c81da7fa0
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: f759f15cf98546cb95ba0adb5890885f85ca6aa1
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812817"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592795"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Habilitación y revisión de los registros del nodo maestro de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -107,7 +104,7 @@ Para más información acerca de cómo consultar y filtrar datos de registro, co
 
 Para ayudar a analizar los datos de registro, en la tabla siguiente se describe el esquema usado para cada evento:
 
-| Nombre del campo               | DESCRIPCIÓN |
+| Nombre del campo               | Descripción |
 |--------------------------|-------------|
 | *resourceId*             | Recursos de Azure que generó el registro |
 | *time*                   | Marca de tiempo de cuando se cargó el registro |
@@ -120,7 +117,7 @@ Para ayudar a analizar los datos de registro, en la tabla siguiente se describe 
 
 ## <a name="log-roles"></a>Roles de registro
 
-| Role                     | DESCRIPCIÓN |
+| Role                     | Descripción |
 |--------------------------|-------------|
 | *aksService*             | El nombre para mostrar en el registro de auditoría de la operación de plano de control (desde hcpService). |
 | *masterclient*           | El nombre para mostrar en el registro de auditoría de MasterClientCertificate, el certificado que obtiene desde az aks get-credentials. |

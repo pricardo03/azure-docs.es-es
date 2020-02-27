@@ -14,12 +14,12 @@ ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7d096f721869e43e9a860733d0f6893f224a6776
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: bd9622d3e34198402bc45e5d855d05b0c8e35eb8
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772567"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605458"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Cambio en contexto de la edición de SQL Server de la máquina virtual de Azure
 
@@ -29,13 +29,13 @@ La edición de SQL Server viene determinada por la clave de producto y se espec
 
 Una vez que se ha cambiado internamente la edición de SQL Server a la máquina virtual con SQL Server, debe actualizar la propiedad de edición de SQL Server en Azure Portal para que se refleje en la facturación. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para hacer un cambio local de la edición de SQL Server, necesita lo siguiente: 
 
 - Una [suscripción de Azure](https://azure.microsoft.com/free/).
 - Una [VM con SQL Server en Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registrada en el [proveedor de recursos de máquina virtual de SQL](virtual-machines-windows-sql-register-with-resource-provider.md).
-- Soporte de instalación con la **edición deseada** de SQL Server. Los clientes que tengan [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) pueden obtener el soporte de instalación en el [centro de licencias por volumen](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Los clientes que no tengan Software Assurance pueden usar el soporte de instalación de una imagen de máquina virtual con SQL Server de Azure Marketplace que tenga la edición deseada (ubicada normalmente en `c:\SQLInstalls`). 
+- Soporte de instalación con la **edición deseada** de SQL Server. Los clientes que tengan [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) pueden obtener el soporte de instalación en el [centro de licencias por volumen](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Los clientes que no tengan Software Assurance pueden usar el soporte de instalación de una imagen de máquina virtual con SQL Server de Azure Marketplace que tenga la edición deseada (ubicada normalmente en `C:\SQLServerFull`). 
 
 
 ## <a name="upgrade-an-edition"></a>Actualización de una edición

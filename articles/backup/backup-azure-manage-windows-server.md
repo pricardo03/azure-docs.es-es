@@ -3,12 +3,12 @@ title: Administración de almacenes y servidores de Azure Recovery Services
 description: En este artículo se explica cómo usar el panel de información general del almacén de Recovery Services para supervisar y administrar los almacenes de Recovery Services.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: f043d50a2b0e4efbda957a9c4ccb8f1d472dce15
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 5ae875b2e767768e90a9fbc6ff4ecfc6efb239c5
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173040"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586451"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Supervisión y administración de almacenes de Recovery Services
 
@@ -272,4 +272,4 @@ El icono Almacenamiento de copia de seguridad del panel muestra el almacenamient
 
 * [Restauración de Windows Server o el cliente de Windows desde Azure](backup-azure-restore-windows-server.md)
 * Para obtener más información sobre Azure Backup, consulte [Información general de Azure Backup](backup-introduction-to-azure-backup.md)
-* Visite el [Foro de Azure Backup](https://go.microsoft.com/fwlink/p/?LinkId=290933)
+

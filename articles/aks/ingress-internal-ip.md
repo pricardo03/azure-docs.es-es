@@ -2,17 +2,14 @@
 title: Creación de un controlador de entrada para una red interna en Azure Kubernetes Service (AKS)
 description: Aprenda a instalar y configurar un controlador de entrada NGINX en una red interna y privada de un clúster de Azure Kubernetes Service (AKS).
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.author: mlearned
-ms.openlocfilehash: 935b96bd553c9ae73b55086483baa0ea7c4aeaa4
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 8c3eeaf2f9a92f1be9c691091d8e33d09a60b22d
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67615467"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595661"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Creación de un controlador de entrada para una red virtual interna en Azure Kubernetes Service (AKS)
 
@@ -25,7 +22,7 @@ También puede:
 - [Creación de un controlador de entrada básico con conectividad de red externa][aks-ingress-basic]
 - [Habilitación del complemento de enrutamiento de aplicación HTTP][aks-http-app-routing]
 - [Crear un controlador de entrada que usa sus propios certificados TLS][aks-ingress-own-tls]
-- Crear un controlador de entrada que usa Let's Encrypt para generar automáticamente certificados TLS [con una dirección IP pública dinámica][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
+- Creación de un controlador de entrada que use Let's Encrypt para generar certificados TLS de forma automática [con una dirección IP pública dinámica][aks-ingress-tls] o [con una dirección IP pública estática][aks-ingress-static-tls]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 

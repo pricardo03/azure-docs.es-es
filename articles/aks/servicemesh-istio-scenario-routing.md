@@ -2,17 +2,16 @@
 title: Enrutamiento inteligente y versiones de valor controlado con Istio en Azure Kubernetes Service (AKS)
 description: Obtenga información sobre cómo usar Istio para proporcionar enrutamiento inteligente e implementar versiones de valor controlado en un clúster de Azure Kubernetes Service (AKS).
 author: paulbouwer
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 48daf2be4a05922982479a86e6574f3aa85d2130
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 4c29658473aaa50168175c76234dfca34fcdad83
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529800"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594170"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Uso del enrutamiento inteligente y de las versiones de valor controlado con Istio en Azure Kubernetes Service (AKS)
 
@@ -20,7 +19,7 @@ ms.locfileid: "72529800"
 
 En este artículo se explica cómo usar la funcionalidad de administración de tráfico de Istio. Se usa una aplicación de votación de AKS de ejemplo para explorar el enrutamiento inteligente y las versiones de valor controlado.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Implementación de la aplicación

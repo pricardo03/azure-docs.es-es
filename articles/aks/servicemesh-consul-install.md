@@ -2,17 +2,16 @@
 title: Instalación de Consul en Azure Kubernetes Service (AKS)
 description: Aprenda cómo instalar y usar Consul para crear una malla de servicio en un clúster de Azure Kubernetes Service (AKS).
 author: dstrebel
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: d5d0a575c3fb662df034b66a48135ac33393f95c
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 06ca2327b2859ffb0f5b314d7b92082d5a83dc48
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885406"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594292"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Instalación y uso de Consul en Azure Kubernetes Service (AKS)
 
@@ -25,7 +24,7 @@ En este artículo se explica cómo instalar Consul. Los componentes de Consul se
 >
 > Las versiones `1.6.x` de Consul se pueden ejecutar en las versiones `1.13+` de Kubernetes. Puede encontrar versiones de Consul adicionales en [GitHub: versiones de Consul][consul-github-releases] e información sobre cada una de las versiones en [Consul: notas de la versión][consul-release-notes].
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Instalar los componentes de Consul en AKS

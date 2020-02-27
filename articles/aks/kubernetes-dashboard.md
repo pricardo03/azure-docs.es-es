@@ -2,17 +2,14 @@
 title: Administración de un clúster de Azure Kubernetes Service con el panel web
 description: Obtenga información sobre cómo usar el panel integrado de la interfaz de usuario web de Kubernetes para administrar un clúster de Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
-ms.author: mlearned
-ms.openlocfilehash: f150103c8e9534bfd1bb93d20e3d65d715767184
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 15fcf765be0a754575713eebcdaa7d68e1c299b9
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996961"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595355"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Acceso al panel web de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -80,7 +77,7 @@ After you choose a method to sign in, the Kubernetes dashboard is displayed. If 
 
 ![Página de información general del panel web de Kubernetes](./media/kubernetes-dashboard/dashboard-overview.png)
 
-## <a name="create-an-application"></a>Creación de una aplicación
+## <a name="create-an-application"></a>Crear una aplicación
 
 Para ver cómo el panel de Kubernetes puede reducir la complejidad de las tareas de administración, vamos a crear una aplicación. Puede crear una aplicación desde el panel de Kubernetes, ya sea proporcionando la entrada de texto, un archivo YAML o mediante un asistente gráfico.
 

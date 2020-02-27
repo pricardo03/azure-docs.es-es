@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: b20b3c1e4216fe8065fbc8ac24c7d8097903fc5a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5aaaf539c07a7ba2c2463d5bfd1f452853f52379
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686367"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603695"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatización de la incorporación de Azure Security Center mediante PowerShell
 
@@ -41,7 +41,7 @@ En este ejemplo, se habilitará Security Center en una suscripción con el ident
 
 6. Asigne [directivas de seguridad predeterminadas](tutorial-security-policy.md) de Security Center.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Estos pasos deben realizarse antes de ejecutar los cmdlets de Security Center:
 
@@ -97,7 +97,7 @@ Ya puede usar estos cmdlets de PowerShell con scripts de automatización para re
 
 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 Para más información sobre cómo puede usar PowerShell para automatizar la incorporación a Security Center, consulte el artículo siguiente:
 
 * [Az.Security](https://docs.microsoft.com/powershell/module/az.security).
@@ -106,4 +106,3 @@ Para más información sobre Security Center, consulte el siguiente artículo:
 
 * [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) : obtenga información sobre cómo administrar y responder a alertas de seguridad.
-* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.

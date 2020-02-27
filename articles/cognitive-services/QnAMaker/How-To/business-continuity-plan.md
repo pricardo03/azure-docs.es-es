@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: a31076d17ebaf8020fe4b3f82594b98a7c3bde74
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f920a789f1ec631c5d70863b10d8364b3eb81b6c
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977461"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650476"
 ---
 # <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>Cómo crear un plan de continuidad empresarial para el servicio QnA Maker
 
@@ -40,4 +40,4 @@ La idea de alto nivel como se representa anteriormente es la siguiente:
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Elegir capacidad para la implementación de QnA Maker](../Tutorials/choosing-capacity-qnamaker-deployment.md)
+> [Selección de la capacidad](./improve-knowledge-base.md)

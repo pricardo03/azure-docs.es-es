@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: af5399a6e1a76a6020448b2e91d76a1d2e1f0ed8
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: d74fd2e3f6b5cc090c6313aba67a1e139c713b85
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186950"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598058"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guía de introducción para desarrolladores de Azure
 
@@ -33,7 +33,7 @@ Esta guía es una introducción a la plataforma Azure para desarrolladores de ap
 
 ## <a name="where-do-i-start"></a>¿Por dónde empiezo?
 
-Con todos los servicios que Azure ofrece, averiguar qué servicios necesita para su arquitectura de soluciones puede resultar abrumador. En esta sección se resaltan los servicios de Azure que normalmente utilizan los desarrolladores. Para obtener una lista de todos los servicios de Azure, consulte la [documentación de Azure](../../index.md).
+Con todos los servicios que Azure ofrece, averiguar qué servicios necesita para su arquitectura de soluciones puede resultar abrumador. En esta sección se resaltan los servicios de Azure que normalmente utilizan los desarrolladores. Para obtener una lista de todos los servicios de Azure, consulte la [documentación de Azure](../../index.yml).
 
 En primer lugar, debe decidir cómo hospedará su aplicación en Azure. ¿Necesita administrar toda la infraestructura como una máquina virtual (VM)? ¿Puede usar las funciones de administración de plataforma que proporciona Azure? ¿Tal vez necesite un entorno sin servidor para ejecutar código host únicamente?
 

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 009a480add9d808115f24a69a400118fec7cb293
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 458012982531e228f7c4968f29e79e8b2e29aa48
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790575"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651445"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Automated Backup v2 para Azure Virtual Machines (Resource Manager)
 
@@ -31,7 +31,7 @@ Automated Backup v2 configura automáticamente [Automated Backup para Microsoft 
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Para utilizar Automated Backup v2, revise los siguientes requisitos previos:
 
 **Sistema operativo**:
@@ -57,21 +57,21 @@ Para utilizar Automated Backup v2, revise los siguientes requisitos previos:
 > Automated Backup se basa en la **Extensión Agente de IaaS de SQL Server**. Las imágenes actuales de la galería de máquinas virtuales de SQL agregan esta extensión de manera predeterminada. Para más información, consulte la [extensión Agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
 ## <a name="settings"></a>Configuración
-En la siguiente tabla se describen las opciones que pueden configurarse para Automated Backup v2. Los pasos de configuración reales varían si usa el Portal de Azure o comandos de Windows PowerShell de Azure.
+En la siguiente tabla se describen las opciones que pueden configurarse para Automated Backup v2. Los pasos de configuración reales varían si usa Azure Portal o comandos de Windows PowerShell de Azure.
 
 ### <a name="basic-settings"></a>Configuración básica
 
-| Configuración | Intervalo (valor predeterminado) | DESCRIPCIÓN |
+| Configuración | Intervalo (valor predeterminado) | Descripción |
 | --- | --- | --- |
 | **Automated Backup** | Habilitar/deshabilitar (deshabilitado) | Habilita o deshabilita Automated Backup para una máquina virtual de Azure que ejecuta SQL Server 2016/2017 Developer, Standard o Enterprise. |
 | **Período de retención** | 1-30 días (30 días) | El número de días para retener copias de seguridad. |
-| **Storage Account** | Cuenta de Azure Storage | Una cuenta de almacenamiento de Azure que usar para almacenar archivos de Automated Backup en el almacenamiento de blobs. Se crea un contenedor en esta ubicación para guardar todos los archivos de copia de seguridad. La convención de nomenclatura de los archivos de copia de seguridad agrega la fecha, la hora y el GUID de base de datos. |
+| **Storage Account** | Cuenta de almacenamiento de Azure | Una cuenta de almacenamiento de Azure que usar para almacenar archivos de Automated Backup en el almacenamiento de blobs. Se crea un contenedor en esta ubicación para guardar todos los archivos de copia de seguridad. La convención de nomenclatura de los archivos de copia de seguridad agrega la fecha, la hora y el GUID de base de datos. |
 | **Cifrado** |Habilitar/deshabilitar (deshabilitado) | Habilita o deshabilita el cifrado. Cuando se habilita el cifrado, los certificados usados para restaurar la copia de seguridad se ubican en la cuenta de almacenamiento especificada. Usa el mismo contenedor **automatic backup** con la misma convención de nomenclatura. Si la contraseña cambia, se genera un nuevo certificado con esa contraseña, pero el certificado antiguo permanece para restaurar copias de seguridad anteriores. |
 | **Contraseña** |Texto de contraseña | Una contraseña para claves de cifrado. Esta contraseña solo es necesaria si se habilita el cifrado. Para restaurar una copia de seguridad cifrada, debe disponer de la contraseña correcta y del certificado relacionado que se usó en el momento en el que se realizó la copia de seguridad. |
 
 ### <a name="advanced-settings"></a>Configuración avanzada
 
-| Configuración | Intervalo (valor predeterminado) | DESCRIPCIÓN |
+| Configuración | Intervalo (valor predeterminado) | Descripción |
 | --- | --- | --- |
 | **Copias de seguridad de bases de datos del sistema** | Habilitar/deshabilitar (deshabilitado) | Cuando se habilita, esta característica realiza también una copia de seguridad de las bases de datos del sistema: maestra, MSDB y modelo. Para las bases de datos MSDB y modelo, verifique que están en modo de recuperación completa si desea que se realicen copias de seguridad de registros. Nunca se realizan copias de seguridad de registros para las bases de datos maestras. Tampoco se realizan copias de seguridad para TempDB. |
 | **Programación de copia de seguridad** | Manual/Automatizado (Automatizado) | De forma predeterminada, la programación de copias de seguridad se determina automáticamente en función del crecimiento de los registros. La programación manual de copias de seguridad permite al usuario especificar el período de tiempo para las copias de seguridad. En este caso, las copias de seguridad siempre se realizan con la frecuencia especificada y durante el período de tiempo especificado de un día determinado. |
@@ -118,11 +118,7 @@ Posteriormente, se vuelve a realizar la copia de seguridad completa de todas las
 > [!IMPORTANT]
 > Al programar copias de seguridad diarias, se recomienda programar un período de tiempo amplio para asegurarse de se puede realizar la copia de seguridad de todas las bases de datos durante ese período. Esto es especialmente importante en el caso de que tenga una gran cantidad de datos de los que realizar una copia de seguridad.
 
-## <a name="configure-in-the-portal"></a>Configurar en el portal
-
-Puede usar Azure Portal para configurar Automated Backup v2 durante el aprovisionamiento o para las máquinas virtuales existentes de SQL Server 2016/2017.
-
-## <a name="configure-for-new-vms"></a>Configuración de máquinas virtuales nuevas
+## <a name="configure-new-vms"></a>Configuración de máquinas virtuales nuevas
 
 Use Azure Portal para configurar la opción Automated Backup v2 cuando cree una nueva máquina virtual con SQL Server 2016 o 2017 en el modelo de implementación de Resource Manager.
 

@@ -12,12 +12,12 @@ ms.date: 12/08/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 1bc2c3a17aef232df184926dca5f70eac61b03ac
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 23433c816fc7b002c3426a0aac7c0aade8cdb338
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698771"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585856"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedimientos: Proporcionar notificaciones opcionales a la aplicación de Azure AD
 
@@ -207,7 +207,7 @@ Si lo admite una notificación concreta, también puede modificar el comportamie
 | `additionalProperties` | Colección (Edm.String) | Propiedades adicionales de la notificación. Si existe una propiedad en esta colección, modifica el comportamiento de la notificación opcional especificada en la propiedad name.                                                                                                                                               |
 ## <a name="configuring-directory-extension-optional-claims"></a>Configuración de notificaciones opcionales de extensión de directorio
 
-Además del conjunto de notificaciones opcionales estándar, también se pueden configurar tokens para incluir las extensiones. Para obtener más información, vea [Agregar datos personalizados a los recursos mediante extensiones](https://docs.microsoft.com/graph/extensibility-overview). Esta característica es útil para adjuntar información de usuario adicional que puede usar la aplicación, por ejemplo, un identificador adicional o la opción de configuración importante que el usuario haya establecido. Vea la parte inferior de esta página para obtener un ejemplo.
+Además del conjunto de notificaciones opcionales estándar, también se pueden configurar tokens para incluir las extensiones. Esta característica es útil para adjuntar información de usuario adicional que puede usar la aplicación, por ejemplo, un identificador adicional o la opción de configuración importante que el usuario haya establecido. Vea la parte inferior de esta página para obtener un ejemplo.
 
 > [!NOTE]
 > - Las extensiones de esquema de directorio son una característica exclusiva de Azure AD, por lo que si el manifiesto de aplicación solicita una extensión personalizada y un usuario de MSA inicia sesión en la aplicación, estas extensiones no se devolverán.

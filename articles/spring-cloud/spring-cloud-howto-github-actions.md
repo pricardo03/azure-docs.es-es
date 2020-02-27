@@ -6,18 +6,18 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/15/2019
-ms.openlocfilehash: 303f24ef6d934c0382bd8917833e3ec545f2a540
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 559c894a2212466761de820de7486ae203337802
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776129"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77538471"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>CI/CD de Azure Spring Cloud con Acciones de GitHub
 
 Acciones de GitHub admite un flujo de trabajo del ciclo de vida de desarrollo de software automatizado. Con Acciones de GitHub para Azure Spring Cloud puede crear flujos de trabajo en el repositorio para compilar, probar, empaquetar, publicar e implementar en Azure. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 En este ejemplo se requiere la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="set-up-github-repository-and-authenticate"></a>Configuración y autenticación de repositorios de GitHub
@@ -79,6 +79,7 @@ Cree el archivo de `.github/workflow/main.yml` en el repositorio:
 
 ```
 name: AzureSpringCloud
+on: push
 
 env:
   GROUP: <resource group name>
@@ -125,6 +126,7 @@ El comando az `run` usará la versión más reciente de la CLI de Azure. Si hay 
 Cree el archivo .github/workflow/main.yml en el repositorio:
 ```
 name: AzureSpringCloud
+on: push
 
 jobs:
   build-and-deploy:
@@ -165,6 +167,7 @@ Otra opción es usar el [complemento Maven](https://docs.microsoft.com/azure/spr
 
 ```
 name: AzureSpringCloud
+on: push
 
 jobs:
   build-and-deploy:

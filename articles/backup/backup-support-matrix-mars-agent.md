@@ -3,12 +3,12 @@ title: Matriz de compatibilidad para el agente de MARS
 description: En este artículo se resume la compatibilidad con Azure Backup al realizar copias de seguridad de máquinas que ejecutan el agente de Microsoft Azure Recovery Services (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8f5ce33b5057b11caa33c0ae80cf72e1b13da5d0
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: ef57688dd7b5ccee4e71ac0a54138ac567320aa2
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425024"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582643"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de compatibilidad para la copia de seguridad con el agente de Microsoft Azure Recovery Services (MARS)
 
@@ -66,6 +66,29 @@ Y a estas direcciones IP:
 - 40.126.0.0/18
 
 El acceso a todas las direcciones URL y direcciones IP enumeradas anteriormente usa el protocolo HTTPS en el puerto 443.
+
+### <a name="azure-expressroute-support"></a>Compatibilidad con Azure ExpressRoute
+
+Puede realizar una copia de seguridad de los datos mediante Azure ExpressRoute con emparejamiento público (disponible para circuitos antiguos) y emparejamiento de Microsoft. La copia de seguridad por emparejamiento privado no se admite.
+
+Con el emparejamiento público: asegúrese de tener acceso a los siguientes dominios y direcciones:
+
+- `http://www.msftncsi.com/ncsi.txt`
+- `microsoft.com`
+- `.WindowsAzure.com`
+- `.microsoftonline.com`
+- `.windows.net`
+
+Con el emparejamiento de Microsoft, seleccione los siguientes servicios o regiones y los valores de comunidad correspondientes:
+
+- Azure Active Directory (12076:5060)
+- Región de Microsoft Azure (según la ubicación del almacén de Recovery Services)
+- Azure Storage (según la ubicación del almacén de Recovery Services)
+
+Para obtener más información, consulte los [requisitos de enrutamiento de ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+
+>[!NOTE]
+>El emparejamiento público está en desuso para circuitos nuevos.
 
 ### <a name="throttling-support"></a>Limitaciones de compatibilidad
 

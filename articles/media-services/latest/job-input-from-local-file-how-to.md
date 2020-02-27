@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: juliako
-ms.openlocfilehash: a91305f1c5bfb50e0354dc0054d1a149182d921f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c5acda0ccec409ec06d0f3f2226b9819e3f130c7
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888451"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77538420"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>Creación de una entrada de trabajo a partir de un archivo local
 
@@ -34,7 +34,7 @@ En el código siguiente se muestra cómo crear un recurso de entrada y usarlo co
 
 En el fragmento de código siguiente se crea un recurso de salida si aún no existe:
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAssetAsync)]
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
 El siguiente fragmento de código envía un trabajo de codificación:
 

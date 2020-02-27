@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 18cf43ba137c92fc00d5f8e82e13501d03b4b6a3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1c2b79f8d0641b1a1386329a2add14ded766bf5a
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445402"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623396"
 ---
 # <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>Almacenamiento transaccional y analítico distribuido globalmente para contenedores de Azure Cosmos
 
@@ -30,7 +30,7 @@ El motor de almacenamiento transaccional está respaldado por discos SSD locales
 |Característica  |Almacenamiento transaccional  |Almacenamiento analítico |
 |---------|---------|---------|
 |Almacenamiento máximo por contenedor de Azure Cosmos |   Sin límite      |    Sin límite     |
-|Almacenamiento máximo por clave de partición lógica   |   10 GB      |   Sin límite      |
+|Almacenamiento máximo por clave de partición lógica   |   20 GB      |   Sin límite      |
 |Codificación de almacenamiento  |   Orientado a filas con formato interno.   |   Orientado a columnas con formato Parquet de Apache. |
 |Localidad de almacenamiento |   Almacenamiento replicado respaldado por discos SSD locales o dentro del clúster. |  Almacenamiento replicado respaldado por discos SSD de clúster remotos o fuera del clúster.       |
 |Durabilidad.  |    99,99999 (7-9 s)     |  99,99999 (7-9 s)       |

@@ -2,17 +2,14 @@
 title: Creación dinámica y uso de un volumen persistente con discos de Azure en Azure Kubernetes Service (AKS)
 description: Aprenda a crear de forma dinámica un volumen persistente con discos de Azure en Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.author: mlearned
-ms.openlocfilehash: 1c7a406f0b06b94aaa6d8b4af63b1416b11c7c56
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 37fea36567866af69e832a1f7e3caff2a68477a9
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847329"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596970"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Creación dinámica y uso de un volumen persistente con discos de Azure en Azure Kubernetes Service (AKS)
 
@@ -88,7 +85,7 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## <a name="use-the-persistent-volume"></a>Uso del volumen persistente
 
-Una vez que se haya creado la notificación de volumen persistente y tras el aprovisionamiento correcto del disco, se puede crear un pod con acceso al disco. El siguiente manifiesto crea un pod NGINX básico que utiliza la notificación de volumen persistente *azure-managed-disk* para montar el disco de Azure en la ruta de acceso `/mnt/azure`. Para los contenedores de Windows Server (actualmente en versión preliminar en AKS), especifique un elemento *mountPath* utilizando la convención de ruta de acceso de Windows, como *"D:"* .
+Una vez que se haya creado la notificación de volumen persistente y tras el aprovisionamiento correcto del disco, se puede crear un pod con acceso al disco. El siguiente manifiesto crea un pod NGINX básico que utiliza la notificación de volumen persistente *azure-managed-disk* para montar el disco de Azure en la ruta de acceso `/mnt/azure`. Para los contenedores de Windows Server (actualmente en versión preliminar en AKS), especifique un elemento *mountPath* con la convención de ruta de acceso de Windows, como *"D:"* .
 
 Cree un archivo denominado `azure-pvc-disk.yaml` y cópielo en el siguiente código manifiesto.
 

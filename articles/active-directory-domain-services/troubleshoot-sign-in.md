@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: aa03e388019bf696324ea7af6062ec98386df5fa
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 0585ced3bc53f216ab203b4686b5800b5e14bbbd
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827047"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612747"
 ---
 # <a name="troubleshoot-account-sign-in-problems-with-an-azure-ad-domain-services-managed-domain"></a>Solución de problemas del inicio de sesión de cuentas con un dominio administrado de Azure AD Domain Services
 
@@ -59,7 +59,7 @@ Los dominios administrados de Azure AD DS sin sincronización en el entorno lo
     * [Cambie la contraseña de la cuenta][enable-user-accounts] para generar los valores hash de contraseña necesarios y espere 15 minutos antes de intentar volver a iniciar sesión.
     * Si deshabilita Azure AD DS y, a continuación, vuelve a habilitarlo, cada cuenta debe seguir los pasos de nuevo para cambiar su contraseña y generar los valores hash de contraseña necesarios.
 * **Sí, la contraseña se ha cambiado.**
-    * Pruebe a iniciar sesión con el formato *UPN*, por ejemplo `driley@contoso.com`, en lugar de *SAMAccountName* como `CONTOSO\deeriley`.
+    * Pruebe a iniciar sesión con el formato *UPN*, por ejemplo `driley@aaddscontoso.com`, en lugar de *SAMAccountName* como `AADDSCONTOSO\deeriley`.
     * El atributo *SAMAccountName* puede generarse automáticamente para los usuarios cuyo prefijo UPN sea demasiado largo o coincida con el de otro usuario del dominio administrado. El formato *UPN* garantiza que sea único dentro de un inquilino de Azure AD.
 
 ## <a name="the-account-is-locked-out"></a>La cuenta está bloqueada.

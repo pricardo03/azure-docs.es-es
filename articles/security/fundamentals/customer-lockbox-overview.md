@@ -1,19 +1,19 @@
 ---
-title: Caja de seguridad del cliente para Microsoft Azure
+title: Caja de seguridad del cliente de Microsoft Azure
 description: Introducción técnica de la Caja de seguridad del cliente de Microsoft Azure, que proporciona control sobre el acceso de proveedor en la nube cuando Microsoft necesite tener acceso a los datos del cliente.
-author: cabailey
+author: TerryLanfear
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.author: cabailey
-manager: barbkess
+ms.author: terrylan
+manager: rkarlin
 ms.date: 11/04/2019
-ms.openlocfilehash: 7c0409d48876a0f830366381c2a46821c4aa03a0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: abc16ae7f7ab8bf15173248a6e7668e689e127de
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466409"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561976"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Caja de seguridad del cliente de Microsoft Azure
 
@@ -42,37 +42,37 @@ Los siguientes pasos describen un flujo de trabajo típico para una solicitud de
     - El ámbito del recurso
     - Si el solicitante es una identidad aislada o si usa autenticación multifactor.
     - Niveles de permisos
-    
+
     De acuerdo con la regla JIT, esta solicitud también puede incluir una aprobación de los aprobadores internos de Microsoft. Por ejemplo, el aprobador podría ser el líder del soporte técnico al cliente o el encargado de DevOps.
 
 6. Cuando la solicitud requiere obtener acceso directo a los datos del cliente, se inicia una solicitud de Caja de seguridad del cliente. Por ejemplo, se obtiene acceso desde el escritorio remoto a la máquina virtual de un cliente.
-    
+
     La solicitud se encuentra ahora en un estado de **Cliente notificado**, según el cual se espera la aprobación del cliente antes de conceder el acceso.
 
 7. En la organización del cliente, el usuario que tiene el [rol de propietario](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles) de la suscripción de Azure recibe un correo electrónico de Microsoft para notificarle sobre la solicitud de acceso pendiente. Para las solicitudes de la Caja de seguridad del cliente, esta persona es el aprobador designado.
-    
+
     Correo electrónico de ejemplo:
-    
+
     ![Caja de seguridad del cliente de Azure: notificaciones por correo electrónico](./media/customer-lockbox-overview/customer-lockbox-email-notification.png)
 
 8. La notificación por correo electrónico proporciona un enlace a la hoja **Caja de seguridad del cliente** en Azure Portal. Al usar este enlace, el aprobador designado inicia sesión en Azure Portal para ver las solicitudes pendientes que su organización tiene para la Caja de seguridad del cliente:
-    
+
     ![Caja de seguridad del cliente Azure: página de aterrizaje](./media/customer-lockbox-overview/customer-lockbox-landing-page.png)
-    
+
    La solicitud permanece en la cola del cliente durante cuatro días. Transcurrido ese tiempo, la solicitud de acceso expira automáticamente y no se concede acceso a los ingenieros de Microsoft.
 
 9. Para obtener los detalles de la solicitud pendiente, el aprobador designado puede seleccionar la solicitud de la caja de seguridad desde **Solicitudes pendientes**:
-    
+
     ![Caja de seguridad del cliente de Azure: ver la solicitud pendiente](./media/customer-lockbox-overview/customer-lockbox-pending-requests.png)
 
 10. El aprobador designado también puede seleccionar el **ID DE SOLICITUD DE SERVICIO** para ver la solicitud de la incidencia de soporte técnico que creó el usuario original. Esta información proporciona un contexto para el motivo por el cual el Soporte técnico de Microsoft está involucrado y el historial del problema informado. Por ejemplo:
-    
+
     ![Caja de seguridad del cliente de Azure: ver la incidencia de soporte técnico](./media/customer-lockbox-overview/customer-lockbox-support-ticket.png)
 
 11. Después de revisar la solicitud, el aprobador designado selecciona **Aprobar** o **Denegar**:
-    
+
     ![Caja de seguridad del cliente de Azure: seleccionar Aprobar o Denegar](./media/customer-lockbox-overview/customer-lockbox-approval.png)
-    
+
     Como resultado de la selección:
     - **Aprobar**:  Se concede acceso al ingeniero de Microsoft. El acceso se concede durante un período predeterminado de ocho horas.
     - **Denegar**: La solicitud de acceso con privilegios elevados del ingeniero de Microsoft se rechaza y no se realiza ninguna otra acción.
@@ -113,13 +113,13 @@ En cuanto a los escenarios que usan el acceso al escritorio remoto, puede usar l
 
 Los siguientes servicios están actualmente en versión preliminar para Caja de seguridad del cliente:
 
-- Azure Storage 
+- Azure Storage
 
-- Azure SQL DB 
+- Azure SQL DB
 
-- Explorador de datos de Azure 
+- Explorador de datos de Azure
 
-- Máquinas virtuales (que ahora también abarcan el acceso a volcados de memoria y discos administrados) 
+- Máquinas virtuales (que ahora también abarcan el acceso a volcados de memoria y discos administrados)
 
 - Transferencias de suscripciones de Azure
 

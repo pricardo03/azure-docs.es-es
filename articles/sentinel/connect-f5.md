@@ -3,7 +3,7 @@ title: Conexión de datos de F5 con Azure Sentinel | Microsoft Docs
 description: Aprenda a conectar datos F5 a Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 0001cad6-699c-4ca9-b66c-80c194e439a5
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: cf6dc6977ff066b646beac4db5562ae8d97ab066
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: 6f33cecca1c67f91d0f2be64ab156f45ee500521
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610563"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588270"
 ---
 # <a name="connect-f5-to-azure-sentinel"></a>Conexión de F5 a Azure Sentinel
 
@@ -37,12 +37,12 @@ En este artículo se explica cómo conectar el dispositivo F5 a Azure Sentinel. 
 
 1. Para usar el esquema correspondiente en Log Analytics para los eventos CEF, busque `CommonSecurityLog`.
 
-1. Diríjase al [PASO 3: Validación de conectividad](connect-cef-verify.md).
+1. Vaya al [PASO 3: Validación de conectividad](connect-cef-verify.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a conectar F5 a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
 - Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats.md).
-- [Use libros](tutorial-monitor-your-data.md) para supervisar sus datos.
+- [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
 

@@ -7,27 +7,25 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9bbeda33f25aec15124bacb605513a3c52c3f07e
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 2656716560b981481273c3032fc0c7b1a06be8a2
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699266"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597650"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Administración de servidores registrados con Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello, transforma los servidores de Windows Server en una caché rápida del recurso compartido de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
 
 En el artículo siguiente se ilustra cómo registrar y administrar un servidor con un servicio de sincronización de almacenamiento. Para más información sobre cómo implementar Azure File Sync de un extremo a otro, vea [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md) (Implementación de Azure Files Sync).
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Registro y anulación del registro de un servidor con el servicio de sincronización de almacenamiento
 Al registrar un servidor con Azure File Sync se establece una relación de confianza entre Windows Server y Azure. A continuación, se puede usar esta relación para crear *puntos de conexión de servidor* en el servidor, que representan carpetas concretas que deben sincronizarse con un recurso compartido de archivos de Azure (también conocido como *punto de conexión de nube*). 
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 Para registrar un servidor con un servicio de sincronización de almacenamiento, debe preparar el servidor con los requisitos previos necesarios:
 
-* El servidor debe ejecutar una versión compatible de Windows Server. Para más información, consulte [Requisitos del sistema de Azure File Sync e interoperabilidad](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
+* El servidor debe ejecutar una versión compatible de Windows Server. Para más información, consulte [Requisitos del sistema de Azure File Sync e interoperabilidad](storage-sync-files-planning.md#windows-file-server-considerations).
 * Asegúrese de que se ha implementado un servicio de sincronización de almacenamiento. Para más información sobre cómo implementar un servicio de sincronización de almacenamiento, vea [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md) (Implementación de Azure Files Sync).
 * Asegúrese de que el servidor está conectado a Internet y que se puede acceder a Azure.
 * Deshabilite la configuración de seguridad mejorada de IE para administradores con la interfaz de usuario del Administrador del servidor.
@@ -125,7 +123,7 @@ Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 Antes de anular el registro del servidor en el servicio de sincronización de almacenamiento, se deben quitar todos los puntos de conexión de servidor de ese servidor. Esta acción también se puede hacer mediante Azure Portal:
 
 1. Vaya al servicio de sincronización de almacenamiento donde está registrado el servidor.
-2. Quite todos los puntos de conexión de servidor de este servidor en cada grupo de sincronización del servicio de sincronización de almacenamiento. Para ello, haga clic con el botón derecho en el punto de conexión de servidor que le interese en el panel de grupos de sincronización.
+2. Quite todos los puntos de conexión de servidor de este servidor en cada grupo de sincronización del servicio de sincronización de almacenamiento. Para ello, haga clic con el botón derecho en el punto de conexión de servidor que le interese en el panel Grupo de sincronización.
 
     ![Eliminación de un punto de conexión de servidor de un grupo de sincronización](media/storage-sync-files-server-registration/sync-group-server-endpoint-remove-1.png)
 
@@ -187,7 +185,7 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 ### <a name="use-windows-server-storage-qos"></a>Uso de la calidad de servicio de almacenamiento de Windows Server 
 Cuando Azure File Sync se hospeda en una máquina virtual que se ejecuta en un host de virtualización de Windows Server, puede usar la calidad de servicio de almacenamiento (QoS de almacenamiento) para regular el consumo de E/S de almacenamiento. La directiva de QoS de almacenamiento puede establecerse como un valor máximo (o límite, como el límite StorageSyncNetwork aplicado anteriormente) o como un valor mínimo (o reserva). Al establecer un mínimo en lugar de un máximo, Azure File Sync puede usar el ancho de banda de almacenamiento disponible si otras cargas de trabajo no lo están utilizando. Para más información, consulte [Calidad de servicio de almacenamiento](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 - [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md)
 - [Implementación de Azure File Sync](storage-sync-files-deployment-guide.md)
 - [Supervisión de Azure File Sync](storage-sync-files-monitoring.md)

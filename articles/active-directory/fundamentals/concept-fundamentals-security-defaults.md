@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 023a52f373844e026de0e588e9cd46323abdcf34
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 73de446513915bbc5cba9d8b9cf23d08d18cc362
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77149837"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585992"
 ---
 # <a name="what-are-security-defaults"></a>¿Cuáles son los valores de seguridad predeterminados?
 
@@ -95,7 +95,8 @@ Después de habilitar los valores de seguridad predeterminados en el inquilino, 
 
 Si el usuario no está registrado para Multi-Factor Authentication, deberá registrarse con la aplicación Microsoft Authenticator para poder continuar. No se proporcionará un periodo de registro de 14 días en Multi-Factor Authentication.
 
-Los inquilinos de Exchange Online anteriores a 2017 tienen la autenticación moderna deshabilitada de forma predeterminada. Para evitar la posibilidad de que se produzca un bucle de inicio de sesión durante la autenticación a través de estos inquilinos, debe [habilitar la autenticación moderna](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
+> [!NOTE]
+> Los inquilinos de Exchange Online anteriores a 2017 tienen la autenticación moderna deshabilitada de forma predeterminada. Para evitar la posibilidad de que se produzca un bucle de inicio de sesión durante la autenticación a través de estos inquilinos, debe [habilitar la autenticación moderna](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
 > [!NOTE]
 > La cuenta de sincronización de Azure AD Connect se excluye de los valores predeterminados de seguridad y no se le pedirá que se registre ni que realice la autenticación multifactor. Las organizaciones no deben usar esta cuenta para otros fines.

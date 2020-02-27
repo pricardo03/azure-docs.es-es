@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: memildin
-ms.openlocfilehash: 96efe5271b91f87e30ba26aabe69a0de76e1a791
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b8b8b05f703a3eb05936ca95e2047a13650914cf
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202397"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604264"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Descripción de las recomendaciones sobre contenedores de Azure Security Center
 
@@ -42,7 +42,7 @@ Azure Security Center proporciona las siguientes funcionalidades para ayudarle a
 ## <a name="recommendations"></a>Recomendaciones
 Utilice las tablas siguientes como referencia para comprender la disponibilidad de los contenedores hospedados en máquinas IaaS Linux y la evaluación de seguridad de sus configuraciones de Docker.
 
-| Recomendación | DESCRIPCIÓN | Corrección |
+| Recomendación | Descripción | Corrección |
 | --- | --- | --- |
 |Corrección de vulnerabilidades en las configuraciones de seguridad de contenedores |Corrección de vulnerabilidades en las configuraciones de seguridad de contenedores en función de las prácticas recomendadas de configuración.| Para corregir vulnerabilidades en las configuraciones de seguridad de contenedores:<br>1. Revise la lista de reglas erróneas.<br>2. Corrija cada una de las reglas según las instrucciones especificadas.|
 
@@ -59,5 +59,3 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 * [Protección de las aplicaciones y las máquinas en Azure Security Center](security-center-virtual-machine-protection.md)
 * [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) : obtenga información sobre cómo administrar y responder a alertas de seguridad.
-* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.
-

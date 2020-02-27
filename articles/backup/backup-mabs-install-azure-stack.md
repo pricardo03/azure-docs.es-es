@@ -3,12 +3,12 @@ title: Instalación de Azure Backup Server en Azure Stack
 description: En este artículo, aprenderá a usar Azure Backup Server para proteger cargas de trabajo o realizar una copia de seguridad de ellas en Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 396621b43db2500ca9107979fca9d4d2c0646e6d
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b78e5a662bdcf23ad38cb33292658d4d2455e579
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172393"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583442"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalación de Azure Backup Server en Azure Stack
 
@@ -91,7 +91,7 @@ La máquina virtual de Azure Backup Server debe unirse a un dominio. El usuario 
 
 Al elegir un servidor para Azure Backup Server, empiece con una imagen de la galería de Windows Server 2012 R2 Datacenter o Windows Server 2016 Datacenter. En el artículo [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Creación de la primera máquina virtual de Windows en Azure Portal), se proporciona un tutorial de introducción a la máquina virtual recomendada. Los requisitos mínimos recomendados para la máquina virtual servidor deben ser: A2 estándar con 2 núcleos y 3,5 GB de RAM.
 
-La protección de cargas de trabajo con Azure Backup Server tiene muchos matices. El artículo [Instalación de DPM como una máquina virtual de Azure](https://technet.microsoft.com/library/jj852163.aspx)le ayudará a comprender estos matices. Lea este artículo completamente antes de implementar la máquina.
+La protección de cargas de trabajo con Azure Backup Server tiene muchos matices. El artículo [Instalación de DPM como una máquina virtual de Azure](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj852163(v=sc.12))le ayudará a comprender estos matices. Lea este artículo completamente antes de implementar la máquina.
 
 > [!NOTE]
 > Azure Backup Server está diseñado para ejecutarse en una máquina virtual dedicada para un único objetivo. No se puede instalar Azure Backup Server en:
@@ -121,7 +121,7 @@ Para editar la configuración de replicación de almacenamiento:
 Hay dos formas de descargar el instalador de Azure Backup Server. Puede descargar el instalador de Azure Backup Server del [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=55269). También puede descargarlo mientras configura un almacén de Recovery Services. Los pasos siguientes lo guiarán por el proceso de descarga del instalador desde Azure Portal mientras configura un almacén de Recovery Services.
 
 1. En la máquina virtual de Azure Stack, [inicie sesión en su suscripción de Azure en Azure Portal](https://portal.azure.com/).
-2. En el menú de la izquierda, seleccione **Todos los servicios**.
+2. En el menú izquierdo, seleccione **Todos los servicios**.
 
     ![Elija la opción Todos los servicios en el menú principal](./media/backup-mabs-install-azure-stack/click-all-services.png)
 
@@ -243,7 +243,7 @@ Azure Backup Server comparte código con Data Protection Manager. En el instalad
 
     ![Requisitos previos de Microsoft Azure Backup2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
-    La ubicación temporal es un requisito para crear copias de seguridad en Azure. Asegúrese de que el tamaño de la ubicación temporal sea equivalente al menos al 5 % de los datos cuya copia de seguridad planea hacer en Azure. Para la protección de disco, deben configurarse discos independientes una vez completada la instalación. Para obtener más información acerca de los grupos de almacenamiento, consulte [Configuración de bloques de almacenamiento y almacenamiento en disco](https://technet.microsoft.com/library/hh758075.aspx).
+    La ubicación temporal es un requisito para crear copias de seguridad en Azure. Asegúrese de que el tamaño de la ubicación temporal sea equivalente al menos al 5 % de los datos cuya copia de seguridad planea hacer en Azure. Para la protección de disco, deben configurarse discos independientes una vez completada la instalación. Para obtener más información acerca de los grupos de almacenamiento, consulte [Configuración de bloques de almacenamiento y almacenamiento en disco](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12)).
 
 6. En la pantalla **Configuración de seguridad**, escriba una contraseña segura para las cuentas de usuario locales con permisos restringidos y haga clic en **Siguiente**.
 
@@ -327,11 +327,11 @@ Una vez que conozca el estado de la conectividad y suscripción de Azure, puede 
 | Estado de conectividad | Suscripción de Azure | Copia de seguridad en Azure | Copia de seguridad en disco | Restauración desde Azure | Restauración desde disco |
 | --- | --- | --- | --- | --- | --- |
 | Conectado |Active |Permitida |Permitida |Permitida |Permitida |
-| Conectado |Expirada |Stopped |Stopped |Permitida |Permitida |
-| Conectado |Desaprovisionada |Stopped |Stopped |Detenida y puntos de recuperación de Azure eliminados |Stopped |
-| Pérdida de conectividad > 15 días |Active |Stopped |Stopped |Permitida |Permitida |
-| Pérdida de conectividad > 15 días |Expirada |Stopped |Stopped |Permitida |Permitida |
-| Pérdida de conectividad > 15 días |Desaprovisionada |Stopped |Stopped |Detenida y puntos de recuperación de Azure eliminados |Stopped |
+| Conectado |Expirada |Detenido |Detenido |Permitida |Permitida |
+| Conectado |Desaprovisionada |Detenido |Detenido |Detenida y puntos de recuperación de Azure eliminados |Detenido |
+| Pérdida de conectividad > 15 días |Active |Detenido |Detenido |Permitida |Permitida |
+| Pérdida de conectividad > 15 días |Expirada |Detenido |Detenido |Permitida |Permitida |
+| Pérdida de conectividad > 15 días |Desaprovisionada |Detenido |Detenido |Detenida y puntos de recuperación de Azure eliminados |Detenido |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperación de una pérdida de conectividad
 
@@ -352,7 +352,7 @@ Es posible cambiar una suscripción de Azure desde un estado *Expirado* o *Desap
 - Mientras el estado de la suscripción es *Desaprovisionado*, pierde funcionalidad. Al restaurar el estado de la suscripción a *Activo* revive la funcionalidad de copia de seguridad/restauración. Si los datos de copia de seguridad en el disco local se mantuvieron durante un período de retención lo suficientemente amplio, se pueden recuperar. No obstante, los datos de copia de seguridad de Azure se pierden irremediablemente una vez que la suscripción pasa al estado *Desaprovisionado*.
 - Mientras el estado de la suscripción es *Desaprovisionado*, pierde funcionalidad. Las copias de seguridad programadas no se ejecutan mientras una suscripción tiene el estado *Expirado*.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Si Microsoft Azure Backup Server presenta un error durante la fase de configuración (o copia de seguridad o restauración), consulte el [documento de códigos de error](https://support.microsoft.com/kb/3041338).
 También puede consultar [Azure Backup - Preguntas más frecuentes](backup-azure-backup-faq.md)

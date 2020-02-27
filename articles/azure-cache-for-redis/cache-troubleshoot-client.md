@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
-ms.openlocfilehash: abb73f93116fae217f527e0a9faaf61e2b42ba6c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ace953fcb278604cb64eef463753f0f2622d3d24
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433374"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523346"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Solución de problemas del lado cliente de Redis Cache
 
@@ -51,7 +51,7 @@ En la excepción anterior, hay varias incidencias que son interesantes:
 - Observe que en la sección `IOCP` y la sección `WORKER` tiene un valor de `Busy` que es mayor que el valor de `Min`. Esta diferencia significa que es necesario ajustar la configuración de `ThreadPool`.
 - También puede ver `in: 64221`. Este valor indica que se han recibido 64 211 bytes en la capa de sockets del kernel del cliente, pero que la aplicación aún no los ha leído. Esta diferencia normalmente significa que la aplicación (por ejemplo, StackExchange.Redis) no está leyendo los datos de la red con la rapidez con la que el servidor se los envía.
 
-Puede [configurar las opciones de `ThreadPool`](https://gist.github.com/JonCole/e65411214030f0d823cb) para asegurarse de que su grupo de subprocesos se escala verticalmente a gran velocidad en escenarios de ráfaga.
+Puede [configurar las opciones de `ThreadPool`](cache-faq.md#important-details-about-threadpool-growth) para asegurarse de que su grupo de subprocesos se escala verticalmente a gran velocidad en escenarios de ráfaga.
 
 ## <a name="high-client-cpu-usage"></a>Uso elevado de la CPU del cliente
 

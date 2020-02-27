@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 02/25/2020
 ms.author: dapine
-ms.openlocfilehash: 5d9ab7d12bd6c5fe59bf521aff2c07446ac2f038
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9a3456eb4d30aa8d163488f558b571dd97c73bf4
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76717299"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605120"
 ---
 # <a name="deploy-the-form-recognizer-container-to-azure-container-instances"></a>Implementar un contenedor de Form Recognizer en Azure Container Instances
 
@@ -28,7 +28,7 @@ Aprenda a implementar el contenedor de [Form Recognizer](form-recognizer-contain
 
 ## <a name="request-access-to-the-container-registry"></a>Solicitud de acceso al registro de contenedor
 
-Primero debe completar y enviar el [formulario de solicitud de acceso a contenedores de Form Recognizer de Cognitive Services](https://aka.ms/FormRecognizerRequestAccess) para solicitar acceso al contenedor. Esto también le registra en Computer Vision. No es necesario registrarse mediante el formulario de solicitud de Computer Vision por separado. 
+Primero debe completar y enviar el [formulario de solicitud de acceso a contenedores de Form Recognizer de Cognitive Services](https://aka.ms/FormRecognizerContainerRequestAccess) para solicitar acceso al contenedor. Esto también le registra en Computer Vision. No es necesario registrarse mediante el formulario de solicitud de Computer Vision por separado. 
 
 [!INCLUDE [Request access](../../../includes/cognitive-services-containers-request-access-only.md)]
 

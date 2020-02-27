@@ -4,12 +4,12 @@ description: Aprenda a administrar y supervisar las copias de seguridad del agen
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: b7e947e7fd473ec787d49ffe82532ffd5b6a98d1
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: 26ed6fefdf95281429a8c91057195785db4f5589
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75496974"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617600"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Administración de copias de seguridad del agente de Microsoft Azure Recovery Services (MARS) con el servicio Azure Backup
 
@@ -172,4 +172,4 @@ Una frase de contraseña se usa para cifrar y descifrar los datos durante la cop
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información sobre los escenarios admitidos y las limitaciones, consulte la [matriz de compatibilidad para el agente de MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
-- Obtenga más información acerca del [comportamiento de retención de la directiva de copia de seguridad a petición](backup-configure-vault.md#on-demand-backup-policy-retention-behavior).
+- Obtenga más información acerca del [comportamiento de retención de la directiva de copia de seguridad a petición](backup-configure-vault.md#set-up-on-demand-backup-policy-retention-behavior).

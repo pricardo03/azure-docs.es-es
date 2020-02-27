@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: memildin
-ms.openlocfilehash: 32cc4b01d68ee7a15ae7cfa2259d234cbcd143c4
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: ef1684f11349696c22a290c90469a8d94f922e58
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202051"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603995"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>Investigación de incidentes y alertas en Azure Security Center (retirado)
 Este documento le ayuda a utilizar la característica de investigación (versión preliminar) de Azure Security Center para investigar alertas e incidentes de seguridad.
@@ -47,7 +47,7 @@ El usuario puede desplazarse de una entidad a otra haciendo clic en ella en el g
 ### <a name="investigation-path"></a>Ruta de acceso de investigación
 Mientras el usuario se desplaza a distintas entidades, la ruta de acceso de investigación ayuda a mantener el seguimiento del contexto de la investigación y permite navegar rápidamente. El incidente que contiene los resultados de la investigación siempre es el incidente del extremo izquierdo en la ruta de acceso de investigación.
 
-![Ruta de acceso](./media/security-center-investigation/security-center-investigation-fig2.png)
+![Path](./media/security-center-investigation/security-center-investigation-fig2.png)
 
 ### <a name="general-information"></a>Información general
 Cuando una entidad se presenta en el gráfico, las pestañas muestran información adicional sobre ella. La pestaña **Información** presenta información general sobre la entidad de diversas fuentes disponibles.
@@ -112,12 +112,9 @@ Una investigación puede partir de un incidente de seguridad o de una alerta; la
 
 A partir de aquí, puede explorar las entidades que estuvieron implicadas en este incidente y explorar más detalles sobre cada una de ellas.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 En este documento, ha aprendido a utilizar la característica de investigación de Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Aprenda a administrar las alertas y responder a incidentes de seguridad en Security Center.
 * [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md). Aprenda a supervisar el estado de los recursos de Azure.
 * [Comprensión de las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Obtenga información acerca de los distintos tipos de alertas de seguridad.
-* [Guía de solución de problemas de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Obtenga información acerca de cómo solucionar problemas comunes en Security Center.
-* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md). Preguntas más frecuentes acerca del uso del servicio.
-* [Blog de seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/). Encuentre artículos de blog sobre el cumplimiento y la seguridad de Azure.

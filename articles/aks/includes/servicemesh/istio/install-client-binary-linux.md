@@ -1,17 +1,16 @@
 ---
 author: paulbouwer
-ms.service: container-service
 ms.topic: include
 ms.date: 11/15/2019
 ms.author: pabouwer
-ms.openlocfilehash: e2dd45f778bd5e596b5bcc91c63984742237ad4c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b310de560f9791e1fc49d54dfbf0789c38d37f57
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74170822"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594016"
 ---
-## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Descarga e instalación del binario de cliente istioctl de Istio
+## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Descargar e instalar el binario de cliente istioctl de Istio
 
 En un shell basado en Bash en Linux o en el [Subsistema de Windows para Linux][install-wsl], use `curl` para descargar la versión de Istio y, a continuación, realice la extracción con `tar`, tal como se indica a continuación:
 

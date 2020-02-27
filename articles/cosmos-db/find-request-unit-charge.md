@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: thweiss
-ms.openlocfilehash: c5699bb851bd0a818a987228155c62683e93f51a
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 86e9854cb5a522a56cca09a6e1ea155fd8a62f14
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240785"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585907"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Búsqueda del cargo de unidad de solicitud en Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Si usa la API de SQL, tiene varias opciones para buscar el consumo de RU para un
 
 Actualmente, puede buscar el cargo de solicitud solo en Azure Portal para una consulta SQL.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 1. [Cree una cuenta de Azure Cosmos](create-sql-api-dotnet.md#create-account) y suminístrele datos, o seleccione una cuenta existente de Azure Cosmos que ya contenga datos.
 
@@ -79,7 +79,7 @@ while (query.HasMoreResults)
 
 Los objetos que se devuelven desde el [SDK de .NET v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) exponen una propiedad `RequestCharge`:
 
-[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/CustomDocsSampleCode.cs?name=GetRequestCharge)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/CustomDocsSampleCode.cs" id="GetRequestCharge":::
 
 Para más información, consulte [Inicio rápido: Cree una aplicación web .NET con una cuenta de SQL API en Azure Cosmos DB](create-sql-api-dotnet.md).
 
@@ -172,7 +172,7 @@ El cargo de RU se expone mediante un [comando de base de datos](https://docs.mon
 
 Actualmente, puede buscar el cargo de solicitud solo en Azure Portal para una consulta.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 1. [Cree una cuenta de Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account) y suminístrele datos, o seleccione una cuenta existente que ya contenga datos.
 

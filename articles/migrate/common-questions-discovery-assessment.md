@@ -3,12 +3,12 @@ title: 'Preguntas comunes: detección, valoración y análisis de dependencias e
 description: Obtenga respuestas a preguntas comunes sobre detección, valoración y análisis de dependencias en Azure Migrate.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 2ae534e50cbee3ebd17d703f957aa7200460dbfe
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 179be4f5b39806c717e94789c9fe52842d2a07d8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77426299"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589239"
 ---
 # <a name="common-questions-about-discovery-assessment-and-dependency-analysis"></a>Preguntas comunes sobre detección, valoración y análisis de dependencias
 
@@ -92,7 +92,7 @@ No necesita estos agentes a menos que esté usando la visualización de dependen
 
 ## <a name="can-i-use-an-existing-workspace"></a>¿Puedo usar un área de trabajo existente?
 
-Sí, puede asociar un área de trabajo existente al proyecto de migración y usarla para la visualización de dependencias. [Más información](concepts-dependency-visualization.md#how-does-it-work).
+Sí, puede asociar un área de trabajo existente al proyecto de migración y usarla para la visualización de dependencias. 
 
 ## <a name="can-i-export-the-dependency-visualization-report"></a>¿Puedo exportar el informe de visualización de dependencias?
 

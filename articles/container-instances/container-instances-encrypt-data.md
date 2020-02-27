@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: 14a51ce103d831bcf1dfd52c892102f72531a4c8
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 41c7fc7380ca2b58326c4a35a3b5fdab1c64c4a3
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934316"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77544324"
 ---
 # <a name="encrypt-deployment-data"></a>Cifrado de datos de implementación
 
@@ -89,7 +89,7 @@ La directiva de acceso debe mostrarse ahora en las directivas de acceso del alma
 > El cifrado de datos de implementación con una clave administrada por el cliente está disponible en la versión más reciente de la API (2019-12-01) que se está implementando actualmente. Especifique esta versión de API en la plantilla de implementación. Si tiene algún problema con este valor, póngase en contacto con el soporte técnico de Azure.
 
 Una vez configuradas la clave del almacén de claves y la directiva de acceso, agregue las siguientes propiedades a la plantilla de implementación de ACI. Obtenga más información sobre la implementación de recursos de ACI con una plantilla en el [Tutorial: Implementación de un grupo con varios contenedores con una plantilla de Resource Manager](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
-* En `resources`, establezca `apiVersion` en `2012-12-01`.
+* En `resources`, establezca `apiVersion` en `2019-12-01`.
 * En la sección Propiedades del grupo de contenedores de la plantilla de implementación, agregue un elemento `encryptionProperties` con los siguientes valores:
   * `vaultBaseUrl`: nombre DNS del almacén de claves, que se puede encontrar en la hoja de Información general del recurso de almacén de claves en el portal.
   * `keyName`: nombre de la clave generada anteriormente.

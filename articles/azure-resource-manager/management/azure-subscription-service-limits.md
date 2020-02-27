@@ -3,13 +3,13 @@ title: Límites y cuotas de suscripción de Azure
 description: Se proporciona una lista de límites, cuotas y restricciones de suscripción y servicio comunes de Azure. Este artículo incluye información acerca de cómo aumentar los límites junto con los valores máximos.
 tags: billing
 ms.topic: conceptual
-ms.date: 02/11/2020
-ms.openlocfilehash: 4b36fcf8d3630ffd9008ad9deee8d0945f901f9b
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/24/2020
+ms.openlocfilehash: 1987d444c49bb5e53950c26c43c1607c8a87be6d
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153900"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592442"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 
@@ -294,10 +294,6 @@ La tabla siguiente se aplica a v1, v2 y estándar y a SKU de WAF, a menos que se
 ## <a name="role-based-access-control-limits"></a>Límites de control de acceso basado en rol
 
 [!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control-limits.md)]
-
-## <a name="scheduler-limits"></a>Límites de Scheduler
-
-[!INCLUDE [scheduler-limits-table](../../../includes/scheduler-limits-table.md)]
 
 ## <a name="service-bus-limits"></a>Límites de Service Bus
 

@@ -3,8 +3,8 @@ title: Instalación de alta disponibilidad para SAP NetWeaver en un clúster de 
 description: Descubra cómo realizar una instalación de alta disponibilidad para SAP NetWeaver en un clúster de conmutación por error de Windows y un disco compartido para una instancia de ASCS/SCS de SAP.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
-ms.author: rclaus
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfbff1f95eaad41813ee0741a6b133dccdae181d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: e50733c843dfd21e35572f00fc6690e1e84aba97
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647533"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617370"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Instalación de alta disponibilidad para SAP NetWeaver en un clúster de conmutación por error de Windows y un disco compartido para una instancia de ASCS/SCS de SAP en Azure
 
@@ -148,7 +148,7 @@ ms.locfileid: "75647533"
 
 Este artículo describe cómo instalar y configurar un sistema SAP de alta disponibilidad en Azure mediante el uso de un clúster de conmutación por error de Windows Server y un disco compartido de clúster para agrupar en clústeres una instancia de SAP ASCS/SCS.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar la instalación, consulte estos documentos:
 

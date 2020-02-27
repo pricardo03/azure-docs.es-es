@@ -4,12 +4,12 @@ description: En este artículo se incluye información general sobre la protecci
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 1750270b3383e815b9255273923b50d2879fdba6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b766c0401dde10fdc257044e004de3dbf8a7b84c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173334"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586485"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Realización de una copia de seguridad de una granja de SharePoint en Azure con DPM
 
@@ -27,13 +27,13 @@ Azure Backup para DPM admite los siguientes escenarios:
 
 Antes de realizar una copia de seguridad de una granja de SharePoint en Azure, hay algunas cuantas cosas que debe confirmar.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 Antes de continuar, asegúrese de que se cumplen todos los [requisitos previos para usar Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites-and-limitations) para proteger las cargas de trabajo. Algunas de las tareas que son requisito previo incluyen: crear un almacén de copia de seguridad, descargar las credenciales de almacén, instalar el agente de copia de seguridad de Azure y registrar Azure Backup Server y el servidor DPM con el almacén.
 
 ### <a name="dpm-agent"></a>Agente de DPM
 
-El agente de DPM debe instalarse en el servidor que ejecuta SharePoint, en los servidores que ejecutan SQL Server y en todos los demás servidores que forman parte de la granja de SharePoint. Para obtener más información sobre cómo configurar el agente de protección, consulte [Programa de instalación del agente de protección](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  La única excepción es que solo instale al agente en un único servidor web front-end (WFE). DPM necesita el agente en un servidor WFE con el único fin de servir como punto de entrada para la protección.
+El agente de DPM debe instalarse en el servidor que ejecuta SharePoint, en los servidores que ejecutan SQL Server y en todos los demás servidores que forman parte de la granja de SharePoint. Para obtener más información sobre cómo configurar el agente de protección, consulte [Programa de instalación del agente de protección](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019).  La única excepción es que solo instale al agente en un único servidor web front-end (WFE). DPM necesita el agente en un servidor WFE con el único fin de servir como punto de entrada para la protección.
 
 ### <a name="sharepoint-farm"></a>Granja de SharePoint
 
@@ -102,7 +102,7 @@ Después de que haya configurado DPM y la granja de SharePoint tal y como se ha 
     ![Seleccionar método de protección de datos](./media/backup-azure-backup-sharepoint/select-data-protection-method1.png)
 
    > [!NOTE]
-   > El método de protección en disco ayuda a cumplir objetivos de tiempo de recuperación corto. Azure es un destino de protección a largo plazo económico, si se compara con las cintas. Para más información, consulte [Usar Azure Backup para cambiar su infraestructura de cintas](https://azure.microsoft.com/documentation/articles/backup-azure-backup-cloud-as-tape/)
+   > El método de protección en disco ayuda a cumplir objetivos de tiempo de recuperación corto. Azure es un destino de protección a largo plazo económico, si se compara con las cintas. Para más información, consulte [Usar Azure Backup para cambiar su infraestructura de cintas](./backup-azure-backup-cloud-as-tape.md)
    >
    >
 5. En la pantalla **Especificar objetivos a corto plazo**, seleccione su **intervalo de retención** preferido y especifique cuándo quiere que se creen las copias de seguridad.
@@ -243,5 +243,5 @@ En el ejemplo siguiente, el *elemento de recuperación de SharePoint* se elimin�
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Más información sobre la protección de SharePoint con DPM; vea [Serie de vídeos: protección de SharePoint con DPM](https://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)
-* Vea [Notas de la versión de System Center 2012: Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
-* Vea [Notas de la versión de Data Protection Manager en System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)
+* Vea [Notas de la versión de System Center 2012: Data Protection Manager](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj860415(v=sc.12)?redirectedfrom=MSDN)
+* Vea [Notas de la versión de Data Protection Manager en System Center 2012 SP1](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj860394(v=sc.12)?redirectedfrom=MSDN)

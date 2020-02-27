@@ -1,19 +1,19 @@
 ---
 title: 'Integración de Time Series Insights con Supervisión remota: Azure | Microsoft Docs'
 description: En este tema de procedimientos obtendrá información sobre cómo configurar Time Series Insights para una solución de Supervisión remota existente que aún no incluya Time Series Insights.
-author: aditidugar
+author: Philmea
 manager: timlt
-ms.author: adugar
+ms.author: philmea
 ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 4cc9b0051eaa12eee07f067352126ad159107a83
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 752529454a5b6293d9cbfdf8378b46947aed5a0e
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61443032"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77564651"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integración de Azure Time Series Insights con Supervisión remota
 
@@ -24,7 +24,7 @@ El acelerador de soluciones de supervisión remota proporciona ahora la implemen
 > [!NOTE]
 > Time Series Insights actualmente no está disponible en la nube de Azure China. Las nuevas implementaciones del acelerador de soluciones de supervisión remota en la nube de Azure China usan Cosmos DB para todo el almacenamiento.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este procedimiento, es preciso ya haber implementado una solución de Supervisión remota:
 
@@ -49,7 +49,7 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
 A continuación, implemente Time Series Insights como recurso adicional en la solución de Supervisión remota y conéctelo a la instancia de IoT Hub.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 1. Seleccione **Crear un recurso** > **Internet de las cosas** > **Time Series Insights**.
 
@@ -57,18 +57,18 @@ A continuación, implemente Time Series Insights como recurso adicional en la so
 
 1. Para crear el entorno de Time Series Insights, use los valores de la tabla siguiente:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Nombre del entorno | En la captura de pantalla siguiente se usa el nombre **contorosrmtsi**. Elija un nombre exclusivo de su elección al completar este paso. |
     | Subscription | Seleccione la suscripción de Azure en el menú desplegable. |
-    | Grupos de recursos | **Usar existente**. Seleccione el nombre de su grupo de recursos de Supervisión remota existente. |
-    | Ubicación | Se usa **Este de EE. UU**. Cree el entorno en la misma región que la solución de Supervisión remota, si es posible. |
+    | Resource group | **Usar existente**. Seleccione el nombre de su grupo de recursos de Supervisión remota existente. |
+    | Location | Se usa **Este de EE. UU**. Cree el entorno en la misma región que la solución de Supervisión remota, si es posible. |
     | SKU |**S1** |
     | Capacity | **1** |
 
     ![Creación del entorno de Time Series Insights](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights-create.png)
 
-1. Haga clic en **Create**(Crear). El entorno puede tardar unos instantes en crearse.
+1. Haga clic en **Crear**. El entorno puede tardar unos instantes en crearse.
 
 ## <a name="create-event-source"></a>Creación de un origen de eventos
 
@@ -86,10 +86,10 @@ Cree un origen del evento para conectarlo a IoT Hub. Asegúrese de utilizar el g
 
 1. Para configurar el centro de IoT como un nuevo origen del evento, use los valores de la tabla siguiente:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Nombre de origen de eventos | En la captura de pantalla siguiente se usa el nombre **contosorm-iot-hub**. Use un nombre exclusivo de su elección al completar este paso. |
-    | Origen | **IoT Hub** |
+    | Source | **IoT Hub** |
     | Opción de importación | **Usar IoT Hub desde suscripciones disponibles** |
     | Id. de suscripción | Seleccione la suscripción de Azure en el menú desplegable. |
     | Nombre de IoT Hub | **contosorma57a6**. Use el nombre del centro de IoT de la solución de supervisión remota. |
@@ -101,7 +101,7 @@ Cree un origen del evento para conectarlo a IoT Hub. Asegúrese de utilizar el g
 
     ![Creación de un origen del evento](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
 
-1. Haga clic en **Create**(Crear).
+1. Haga clic en **Crear**.
 
 ## <a name="configure-the-data-access-policy"></a>Configuración de la directiva de acceso de datos
 
@@ -121,7 +121,7 @@ Para asegurarse de que todos los usuarios que tienen acceso a la solución de Su
 
 1. En la lista desplegable **Rol**, seleccione un rol como **Lector** y **Colaborador**.
 
-1. En la lista **Seleccionar**, seleccione un usuario, grupo o aplicación. Si no ve la entidad de seguridad en la lista, puede escribir en el cuadro **Seleccionar** para nombres para mostrar, direcciones de correo electrónico e identificadores de objeto en el directorio.
+1. En la lista **Seleccionar**, seleccione un usuario, grupo o aplicación. Si no ve la entidad de seguridad en la lista, puede escribir en el cuadro **Seleccionar** para buscar nombres para mostrar, direcciones de correo electrónico e identificadores de objeto en el directorio.
 
 1. Seleccione **Guardar** para crear la asignación de roles. Transcurridos unos instantes, a la entidad de seguridad se le asigna el rol en las directivas de acceso a datos.
 

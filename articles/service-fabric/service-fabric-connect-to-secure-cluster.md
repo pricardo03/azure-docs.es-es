@@ -3,12 +3,12 @@ title: Conexión segura a un clúster de Azure Service Fabric
 description: Se describe cómo autenticar el acceso de cliente a un clúster de Service Fabric y cómo proteger la comunicación entre los clientes y un clúster.
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 89d9f67ba1a202b3830df7a5b960c6ef01091bf2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a1f4abbabe428a09492efefca4a8da9801b9f68d
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458276"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587063"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Conexión a un clúster seguro
 
@@ -24,7 +24,7 @@ Puede conectarse a un clúster con el comando `sfctl cluster select`.
 
 Los certificados de cliente se pueden especificar de dos maneras diferentes, como un par de clave y certificado o como un archivo PFX único. Para archivos PEM protegidos mediante contraseña, se le solicitará automáticamente que escriba la contraseña. Si obtuvo el certificado de cliente como un archivo PFX, convierta primero el archivo PFX en un archivo PEM con el comando siguiente. 
 
-```bash
+```shell
 openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pass:your-pfx-password
 ```
 
@@ -32,7 +32,7 @@ Si el archivo .pfx no está protegido con contraseña, use -passin pass: para el
 
 Para especificar el certificado de cliente como un archivo pem, especifique la ruta de acceso de archivo en el argumento `--pem`. Por ejemplo:
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
 ```
 
@@ -40,7 +40,7 @@ Los archivos pem protegidos mediante contraseña le solicitarán una contraseña
 
 Para especificar un certificado, el par de claves usa los argumentos `--cert` y `--key` para especificar las rutas de acceso de archivo en cada archivo correspondiente.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
@@ -49,13 +49,13 @@ A veces los certificados utilizados para proteger clústeres de prueba o desarro
 > [!WARNING]
 > No utilice la opción `no-verify` al conectarse a clústeres de Service Fabric de producción.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
 Además, puede especificar rutas de acceso a directorios de certificados de entidad emisora de certificados de confianza y certificados individuales. Para especificar estas rutas de acceso, use el argumento `--ca`. Por ejemplo:
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
 ```
 

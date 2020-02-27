@@ -3,12 +3,12 @@ title: Novedades de Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server proporciona funcionalidades mejoradas de copia de seguridad para proteger máquinas virtuales, archivos y carpetas, cargas de trabajo, etc. Aprenda a instalar o actualizar Azure Backup Server V3.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 564b11ebf14652166733c226485dfab94e69dfbb
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 61430ce06d3e441fcfe0443eaaf5de3755b04624
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172223"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582813"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Novedades de Microsoft Azure Backup Server
 
@@ -18,7 +18,7 @@ Las siguientes características se incluyen en MABS V3:
 
 ## <a name="volume-to-volume-migration"></a>Migración de volumen a volumen
 
-Con Modern Backup Storage (MBS) en MABS V2, anunciábamos almacenamiento con reconocimiento de la carga de trabajo, donde se configuran determinadas cargas de trabajo para la copia de seguridad en almacenamiento específico, según las propiedades de almacenamiento. Sin embargo, después de la configuración, puede que tenga la necesidad de mover copias de seguridad de algunos orígenes de datos a otro almacenamiento para la utilización optimizada de los recursos. MABS V3 le ofrece la funcionalidad de migrar las copias de seguridad y configurarlas para su almacenamiento en un volumen diferente en [tres pasos](https://blogs.technet.microsoft.com/dpm/2017/10/24/storage-migration-with-dpm-2016-mbs/).
+Con Modern Backup Storage (MBS) en MABS V2, anunciábamos almacenamiento con reconocimiento de la carga de trabajo, donde se configuran determinadas cargas de trabajo para la copia de seguridad en almacenamiento específico, según las propiedades de almacenamiento. Sin embargo, después de la configuración, puede que tenga la necesidad de mover copias de seguridad de algunos orígenes de datos a otro almacenamiento para la utilización optimizada de los recursos. MABS V3 le ofrece la funcionalidad de migrar las copias de seguridad y configurarlas para su almacenamiento en un volumen diferente en [tres pasos](https://techcommunity.microsoft.com/t5/system-center-blog/sc-2016-dpm-ur4-migrate-backup-storage-in-3-simple-steps/ba-p/351842).
 
 ## <a name="prevent-unexpected-data-loss"></a>Evitar la pérdida inesperada de datos
 

@@ -7,12 +7,12 @@ tags: azure-resource-manager
 ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 01/21/2020
-ms.openlocfilehash: 12c2b0b089702b9e56ae099abbefd85769bc1d21
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 1203e1ebe42d95ec57a3ea884591ba262dc95c1a
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549548"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587913"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-azure-resource-manager-template"></a>Inicio rápido: Creación de una instancia de Azure Cosmos DB y un contenedor mediante una plantilla de Resource Manager
 
@@ -22,7 +22,7 @@ La [plantilla de Resource Manager](../azure-resource-manager/templates/overview.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Una suscripción a Azure o una cuenta de evaluación gratuita de Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Una suscripción a Azure o una cuenta de evaluación gratuita de Azure Cosmos DB
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-create/).
 
-[!code-json[<Resource Manager template create Azure Cosmos DB>](~/quickstart-templates/101-cosmosdb-create/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-create/azuredeploy.json":::
 
 En la plantilla se definen tres recursos de Azure:
 
@@ -78,7 +78,7 @@ Azure Portal se usa para implementar la plantilla. Además de Azure Portal, tamb
 
 Puede usar Azure Portal para comprobar la cuenta de Azure Cosmos, la base de datos y el contenedor o usar el siguiente script de la CLI de Azure o Azure PowerShell para enumerar el secreto que ha creado.
 
-# <a name="clitabcli"></a>[CLI](#tab/CLI)
+# <a name="cli"></a>[CLI](#tab/CLI)
 
 ```azurecli-interactive
 echo "Enter your Azure Cosmos account name:" &&
@@ -88,7 +88,7 @@ read resourcegroupName &&
 az cosmosdb show -g $resourcegroupName -n $cosmosAccountName
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name where your Azure Cosmos account exists"
@@ -103,7 +103,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the resource group name where your
 Si tiene pensado seguir trabajando en otros tutoriales, considere la posibilidad de dejar estos recursos activos.
 Cuando ya no lo necesite, elimine el grupo de recursos; de este modo, se eliminarán también la cuenta y los recursos relacionados de Azure Cosmos. Para eliminar el grupo de recursos mediante Azure PowerShell o la CLI de Azure:
 
-# <a name="clitabcli"></a>[CLI](#tab/CLI)
+# <a name="cli"></a>[CLI](#tab/CLI)
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -112,7 +112,7 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"

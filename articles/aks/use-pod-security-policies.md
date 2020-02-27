@@ -2,17 +2,14 @@
 title: Protección del clúster con directivas de seguridad de pod en Azure Kubernetes Service (AKS)
 description: Aprenda a controlar las admisiones de pods mediante PodSecurityPolicy en Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
-ms.author: mlearned
-ms.openlocfilehash: 5aec645c19ee5f813fdefb57d728c14688da8712
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: bc22a577777e50724fbafa04cf01f28362113cc7
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926406"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592839"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Versión preliminar: Protección del clúster con directivas de seguridad de pod en Azure Kubernetes Service (AKS)
 
@@ -47,7 +44,7 @@ az extension update --name aks-preview
 Para crear o actualizar un clúster de AKS para que use directivas de seguridad de pod, habilite primero una marca de características en su suscripción. Para registrar la marca de características *PodSecurityPolicyPreview*, use el comando [az feature register][az-feature-register] tal como se muestra en el siguiente ejemplo:
 
 > [!CAUTION]
-> Actualmente, al registrar una característica en una suscripción, no se puede anular el proceso. Después de habilitar algunas características en vista previa, se pueden usar los valores predeterminados en todos los clústeres de AKS y, luego, se pueden crear en la suscripción. No habilite características en vista previa en las suscripciones de producción. Use una suscripción independiente para probar las características en vista previa y recopilar comentarios.
+> Actualmente, al registrar una característica en una suscripción, no se puede anular el registro de esa característica. Después de habilitar algunas características en vista previa, se pueden usar los valores predeterminados en todos los clústeres de AKS y, luego, se pueden crear en la suscripción. No habilite características en vista previa en las suscripciones de producción. Use una suscripción independiente para probar las características en vista previa y recopilar comentarios.
 
 ```azurecli-interactive
 az feature register --name PodSecurityPolicyPreview --namespace Microsoft.ContainerService

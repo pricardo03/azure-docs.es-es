@@ -3,12 +3,12 @@ title: Restauración de recursos compartidos de archivos de Azure
 description: Aprenda a usar Azure Portal para restaurar un recurso compartido de archivos completo o archivos específicos desde un punto de restauración creado por Azure Backup.
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.openlocfilehash: 8ecb5850c90e5a92e59d17f7949bd5b6cd6205f5
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: c22078ebd89f5f6f8299e1424d4d9e21edce8b92
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76930963"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586958"
 ---
 # <a name="restore-azure-file-shares"></a>Restauración de recursos compartidos de archivos de Azure
 
@@ -21,6 +21,7 @@ En este artículo, aprenderá a:
 * Seguimiento del estado de la operación de restauración.
 
 ## <a name="steps-to-perform-a-restore-operation"></a>Pasos para realizar una operación de restauración
+
 Para realizar una operación de restauración, siga estos pasos.
 
 ### <a name="select-the-file-share-to-restore"></a>Selección del recurso compartido de archivos que se va a restaurar
@@ -110,7 +111,7 @@ Puede usar esta opción para restaurar archivos o carpetas en la ubicación orig
 
     ![Ubicación original de la recuperación en el nivel de elementos](./media/restore-afs/original-location-item-level.png)
 
-2. Seleccione **Seleccionar archivo** para elegir los archivos o carpetas que quiere restaurar.
+1. Seleccione **Seleccionar archivo** para elegir los archivos o carpetas que quiere restaurar.
 
     ![Elegir Seleccionar archivo](./media/restore-afs/select-file.png)
 

@@ -4,14 +4,14 @@ ms.service: azure-cdn
 ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
-ms.openlocfilehash: f21a768733456a6c00e5a87612f3055dd76d416c
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 41f2d4540f665137d34d262546cdc1a2edfbae3a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594140"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77608728"
 ---
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Antes de escribir el código de administración de la red CDN, tiene que realizar algunos preparativos para habilitar el código para que interactúe con Azure Resource Manager. Para hacer esta preparación, deberá:
 
 * Crear un grupo de recursos que contenga el perfil de CDN creado en este tutorial.
@@ -41,7 +41,7 @@ Para crear una entidad de servicio, se siguen varios pasos, incluida la creació
 >
 > Cuando llegue al paso denominado Configuración de aplicación multiinquilino, seleccione **No**.
 >
-> Cuando llegue al paso [Asignación de aplicación a un rol](../articles/active-directory/develop/howto-create-service-principal-portal.md#assign-the-application-to-a-role), use el grupo de recursos que creó antes (*CdnConsoleTutorial*), pero en lugar del rol **Lector**, asigne el rol **Colaborador de perfil de CDN**.  Después de asignar la aplicación al rol **CDN Profile Contributor** (Colaborador de perfil de CDN) en el grupo de recursos, vuelva a este tutorial. 
+> Cuando llegue al paso [Asignación de aplicación a un rol](../articles/active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application), use el grupo de recursos que creó antes (*CdnConsoleTutorial*), pero en lugar del rol **Lector**, asigne el rol **Colaborador de perfil de CDN**.  Después de asignar la aplicación al rol **CDN Profile Contributor** (Colaborador de perfil de CDN) en el grupo de recursos, vuelva a este tutorial. 
 >
 >
 

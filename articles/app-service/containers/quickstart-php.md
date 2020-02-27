@@ -5,12 +5,12 @@ ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: feab990f1d9b0e26ff134a7232a358fd2bca7cc2
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 7608c10f2d101a3c24209a5e09bccc6dc31401ca
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687545"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524111"
 ---
 # <a name="create-a-php-app-in-app-service-on-linux"></a>Creación de una aplicación PHP en App Service en Linux
 
@@ -26,7 +26,7 @@ Estos pasos se pueden realizar en este artículo con una máquina Mac, Windows o
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar esta guía de inicio rápido:
 

@@ -2,17 +2,16 @@
 title: Instalación de Linkerd en Azure Kubernetes Service (AKS)
 description: Aprenda a instalar y usar Linkerd para crear una malla de servicio en un clúster de Azure Kubernetes Service (AKS).
 author: paulbouwer
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: f70052a62152a20f808c1e491a663d1406fbd407
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 419b61527b68299c82dec4f2f5da6b0220859cc1
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747715"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593751"
 ---
 # <a name="install-linkerd-in-azure-kubernetes-service-aks"></a>Instalación de Linkerd en Azure Kubernetes Service (AKS)
 
@@ -25,7 +24,7 @@ En este artículo se explica cómo instalar Linkerd. El binario de cliente `link
 >
 > Las versiones `stable-2.6.x` de Linkerd se pueden ejecutar en las versiones `1.13+` de Kubernetes. Puede encontrar versiones estables y preliminares de Linkerd en [GitHub - Linkerd Releases][linkerd-github-releases] (GitHub: Linkerd > Versiones).
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Descarga e instalación del binario de cliente linkerd de Linkerd

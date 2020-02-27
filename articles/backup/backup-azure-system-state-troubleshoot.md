@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a solucionar problemas relacionados c
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: fde5fd9f2464c2aff9a7a34ffa440ab9a6a1ca51
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: f311de435d813cb0e6f8a2c3d932e05d695603f3
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665037"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583306"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Solución de problemas en la copia de seguridad del estado del sistema
 
@@ -20,11 +20,11 @@ En este artículo se describen soluciones para problemas que puede encontrar al 
 Antes de empezar a solucionar problemas de copia de seguridad del estado del sistema, se recomienda realizar la validación siguiente:
 
 - [Asegúrese de que el agente de Microsoft Azure Recovery Services (MARS) esté actualizado](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409).
-- [Asegúrese de que haya conectividad de red entre el agente de MARS y Azure](https://aka.ms/AB-A4dp50)
+- [Asegúrese de que haya conectividad de red entre el agente de MARS y Azure](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
 - Asegúrese de que se ejecuta Microsoft Azure Recovery Services (en la consola del servicio). Si es necesario, reinicie y vuelva a intentar la operación.
-- [Asegúrese de que haya disponible entre un 5 % y un 10 % en la ubicación de la carpeta temporal](https://aka.ms/AB-AA4dwtt)
-- [Compruebe si otro proceso o software antivirus interfiere con Azure Backup](https://aka.ms/AB-AA4dwtk)
-- [Se produce un error en las copias de seguridad programadas pero no en las copias de seguridad manuales](https://aka.ms/ScheduledBackupFailManualWorks)
+- [Asegúrese de que haya disponible entre un 5 % y un 10 % en la ubicación de la carpeta temporal](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#whats-the-minimum-size-requirement-for-the-cache-folder)
+- [Compruebe si otro proceso o software antivirus interfiere con Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)
+- [Se produce un error en las copias de seguridad programadas pero no en las copias de seguridad manuales](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#backups-dont-run-according-to-schedule)
 - Asegúrese de que su sistema operativo tiene las actualizaciones más recientes.
 - [Asegúrese de excluir de la copia de seguridad las unidades no compatibles y los archivos con atributos no compatibles](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
 - Asegúrese de que el **reloj del sistema** del sistema protegido está configurado con la zona horaria correcta <br>
@@ -33,14 +33,14 @@ Antes de empezar a solucionar problemas de copia de seguridad del estado del sis
   - Asegúrese de que el agente no está instalado en el servidor y de que se ha eliminado del portal. <br>
   - Utilice la misma frase de contraseña que se usó inicialmente para registrar el servidor. <br>
 - Si es una copia de seguridad sin conexión, asegúrese de que la versión 3.7.0 de Azure PowerShell esté instalada en el equipo de origen y de copia antes de comenzar la operación de copia de seguridad sin conexión.
-- [Consideración cuando el agente de copia de seguridad se ejecuta en una máquina virtual de Azure](https://aka.ms/AB-AA4dwtr)
+- [Consideración cuando el agente de copia de seguridad se ejecuta en una máquina virtual de Azure](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-backup-agent-running-on-an-azure-virtual-machine)
 
 ### <a name="limitation"></a>Limitación
 
 - Microsoft no recomienda la recuperación en un hardware diferente mediante la recuperación de estado del sistema.
 - La copia de seguridad del estado del sistema admite actualmente servidores de Windows "locales". Esta funcionalidad no está disponible para las máquinas virtuales de Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de solucionar problemas de copia de seguridad del estado del sistema con Azure Backup, realice la comprobación de los requisitos previos siguientes.  
 

@@ -6,12 +6,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: fda0e8072984a25b33731a775780231538e92e3d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 106085c4c528e42d4f559b92585be2f4e0a2f98a
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898684"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498661"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Inicio rápido: Adición de marcas de características a una aplicación web de ASP.NET Core
 
@@ -19,7 +19,7 @@ En este inicio rápido, va a crear una implementación de un extremo a otro de a
 
 Las bibliotecas de administración de características de .NET Core amplían la plataforma con una compatibilidad completa con las marcas de características. Estas bibliotecas se compilan sobre el sistema de configuración de .NET Core. Se integran sin problemas con App Configuration a través de su proveedor de configuración de .NET Core.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 - [SDK de .NET Core](https://dotnet.microsoft.com/download).
@@ -57,7 +57,7 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
 1. Abra el archivo *.csproj*.
 1. Agregue un elemento `UserSecretsId` como se muestra en el ejemplo siguiente y reemplace su valor por el suyo propio, que suele ser un GUID:
 
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
 
@@ -73,7 +73,7 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
 
     </Project>
     ```
-    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
     
@@ -89,14 +89,14 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
 
 1. Agregue una referencia a los paquetes NuGet `Microsoft.Azure.AppConfiguration.AspNetCore` y `Microsoft.FeatureManagement.AspNetCore`, para lo que debe ejecutar los siguientes comandos:
 
-    ```
-    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 3.0.0-preview-011100002-1192
+    ```dotnetcli
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
     dotnet add package Microsoft.FeatureManagement.AspNetCore --version 2.0.0-preview-010610001-1263
     ```
 
 1. Ejecute el siguiente comando para restaurar los paquetes para el proyecto:
 
-    ```
+    ```dotnetcli
     dotnet restore
     ```
 
@@ -106,7 +106,7 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
 
     Este comando debe ejecutarse en el mismo directorio que el archivo *.csproj*.
 
-    ```
+    ```dotnetcli
     dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
     ```
 
@@ -119,7 +119,7 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
     > [!IMPORTANT]
     > `CreateHostBuilder` reemplaza a `CreateWebHostBuilder` en .NET Core 3.0.  Seleccione la sintaxis correcta en función de su entorno.
 
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
     
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -135,7 +135,7 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
             .UseStartup<Startup>();
     ```
 
-    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
     
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -161,7 +161,7 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
 
 1. Actualice el método `ConfigureServices` para agregar compatibilidad con la marca de características mediante una llamada al método `services.AddFeatureManagement()`. También tiene la opción de incluir cualquier filtro para usar con las marcas de características mediante la llamada a `services.AddFeatureFilter<FilterType>()`:
 
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
@@ -169,7 +169,7 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
         services.AddFeatureManagement();
     }
     ```
-    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
     ```csharp    
     public void ConfigureServices(IServiceCollection services)
     {
@@ -181,7 +181,7 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
 
 1. Actualice el método `Configure` para agregar un middleware que permita actualizar los valores de marca de la característica en un intervalo periódico mientras la aplicación web de ASP.NET Core sigue recibiendo solicitudes.
     
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
@@ -193,7 +193,7 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-            
+
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseAzureAppConfiguration();
@@ -205,7 +205,7 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
             });
     }
     ```
-    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {

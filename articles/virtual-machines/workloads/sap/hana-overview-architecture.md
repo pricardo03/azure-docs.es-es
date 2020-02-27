@@ -3,8 +3,8 @@ title: Introducción a SAP HANA en Azure (instancias grandes) | Microsoft Docs
 description: Introducción a la implementación de SAP HANA en Azure (instancias grandes).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ea337101a5fe44e42ce85c17fec32028c75d3b85
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 39fcf5d0fe2273c4debd3ae5ebe5fd1190ddc959
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101181"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616948"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>¿Qué es SAP HANA en Azure (instancias grandes)?
 
@@ -39,9 +39,9 @@ A partir de julio de 2019, diferenciamos entre dos revisiones distintas de los s
 - "Revisión 3" (Rev 3): se trata de los sellos que se pusieron a disposición del cliente para su implementación antes de julio de 2019
 - "Revisión 4" (Rev 4): nuevo diseño de sello que se implementa cerca de los hosts de máquina virtual de Azure y que hasta ahora se publicaban en las siguiente regiones:
     -  Oeste de EE. UU. 2 
-    -  East US 
-    -  Europa occidental
-    -  Europa del Norte
+    -  Este de EE. UU. 
+    -  Oeste de Europa
+    -  Norte de Europa
 
 
 Este documento es uno de varios documentos que tratan sobre SAP HANA en Azure (instancias grandes). Este documento presenta la arquitectura básica, las responsabilidades y los servicios proporcionados por la solución. También se describen las funcionalidades de alto nivel de la solución. Para la mayoría de otras áreas, como redes y conectividad, otros cuatro documentos tratan detalles e información en profundidad. La documentación de SAP HANA en Azure (instancias grandes) no aborda aspectos de la instalación de SAP NetWeaver ni de las implementaciones de SAP NetWeaver en máquinas virtuales. SAP NetWeaver en Azure se trata en documentos independientes disponibles en el mismo contenedor de documentación de Azure. 

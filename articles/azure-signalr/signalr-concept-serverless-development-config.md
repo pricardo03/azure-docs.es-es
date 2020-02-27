@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.openlocfilehash: f86a63315798d982f7e78fd1ff293061daf50132
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e1157a695d34c75b237391427b37365421366ef8
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786782"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523177"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Desarrollo y configuración de Azure Functions con Azure SignalR Service
 
@@ -40,7 +40,7 @@ Una aplicación cliente requiere un token de acceso válido para conectarse a Az
 
 Use una función de Azure desencadenada por HTTP y el enlace de entrada *SignalRConnectionInfo* para generar el objeto de información de conexión. La función debe tener una ruta HTTP que termina en `/negotiate`.
 
-Para más información sobre cómo crear la función de negociación, consulte la [*SignalRConnectionInfo*de referencia del enlace de entrada](../azure-functions/functions-bindings-signalr-service.md#input)
+Para más información sobre cómo crear la función de negociación, consulte la [*SignalRConnectionInfo*de referencia del enlace de entrada](../azure-functions/functions-bindings-signalr-service-input.md)
 
 Para aprender a crear un token autenticado, consulte [Uso de la autenticación de App Service](#using-app-service-authentication).
 
@@ -50,7 +50,7 @@ Use el enlace de salida *SignalR* para enviar mensajes a los clientes conectados
 
 Se pueden agregar usuarios a uno o más grupos. También puede usar el enlace de salida de *SignalR* para agregar o quitar usuarios en los grupos.
 
-Para más información, consulte la [*SignalR* de referencia del enlace de salida](../azure-functions/functions-bindings-signalr-service.md#output).
+Para más información, consulte la [*SignalR* de referencia del enlace de salida](../azure-functions/functions-bindings-signalr-service-output.md).
 
 ### <a name="signalr-hubs"></a>Concentradores de SignalR
 

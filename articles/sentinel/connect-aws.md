@@ -3,7 +3,7 @@ title: Conectar datos de AWS CloudTrail a Azure Sentinel | Microsoft Docs
 description: Aprenda a conectar datos de AWS CloudTrail a Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: 2913ef93d610b1d6a0ea57d79b27aee329838d25
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: 5cbef1f31ea7088d4fab4888f5630af1b765a910
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610750"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588661"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Conectar Azure Sentinel con AWS CloudTrail
 
 Utilice el conector de AWS para transmitir todos los eventos de AWS CloudTrail a Azure Sentinel. Este proceso de conexión delega el acceso de Azure Sentinel en los registros de recursos de AWS, lo que crea una relación de confianza entre AWS CloudTrail y Azure Sentinel. Para ello, en AWS se crea un rol que concede a Azure Sentinel el permiso necesario para acceder a los registros de AWS.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Debe tener permiso de escritura en el área de trabajo de Azure Sentinel.
 

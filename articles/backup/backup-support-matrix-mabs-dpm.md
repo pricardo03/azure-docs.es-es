@@ -3,12 +3,12 @@ title: Matriz de compatibilidad de MABS y System Center DPM
 description: En este artículo se resume la compatibilidad de Azure Backup al usar Microsoft Azure Backup Server (MABS) o System Center DPM para realizar copias de seguridad de recursos locales y de VM de Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9441f7ce9069cd85475877f37abe669f3c4fd516
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 6664f7b226b75b364fd1c83f2abc56b5a275eff9
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444033"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582660"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de compatibilidad para copia de seguridad con Microsoft Azure Backup Server o System Center DPM
 
@@ -113,11 +113,34 @@ Puede implementar MABS en una máquina virtual de Azure Stack para poder adminis
 
 El servidor DPM/MABS también necesita acceder a estas direcciones URL:
 
-- http://www.msftncsi.com/ncsi.txt
+- `http://www.msftncsi.com/ncsi.txt`
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.microsoftonline.com
 - \* .windows.net
+
+### <a name="azure-expressroute-support"></a>Compatibilidad con Azure ExpressRoute
+
+Puede realizar una copia de seguridad de los datos mediante Azure ExpressRoute con emparejamiento público (disponible para circuitos antiguos) y emparejamiento de Microsoft. La copia de seguridad por emparejamiento privado no se admite.
+
+Con el emparejamiento público: asegúrese de tener acceso a los siguientes dominios y direcciones:
+
+* `http://www.msftncsi.com/ncsi.txt`
+* `microsoft.com`
+* `.WindowsAzure.com`
+* `.microsoftonline.com`
+* `.windows.net`
+
+Con el emparejamiento de Microsoft, seleccione los siguientes servicios o regiones y los valores de comunidad correspondientes:
+
+* Azure Active Directory (12076:5060)
+* Región de Microsoft Azure (según la ubicación del almacén de Recovery Services)
+* Azure Storage (según la ubicación del almacén de Recovery Services)
+
+Para obtener más información, consulte los [requisitos de enrutamiento de ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+
+>[!NOTE]
+>El emparejamiento público está en desuso para circuitos nuevos.
 
 ### <a name="dpmmabs-connectivity-to-azure-backup"></a>Conectividad DPM/MABS a Azure Backup
 

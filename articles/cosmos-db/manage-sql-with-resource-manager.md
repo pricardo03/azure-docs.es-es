@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: ce9ca202ee57fe9c42906ebeb62a44c724bd1a52
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 72a87c3b23e0eed6cfbf1614388702443f4e99d0
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978725"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588794"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-with-azure-resource-manager-templates"></a>Administración de recursos de SQL (Core) API de Azure Cosmos DB con plantillas de Azure Resource Manager
 
@@ -39,7 +39,7 @@ Para crear los recursos de Azure Cosmos DB, copie la siguiente plantilla de eje
 > * Los nombres de cuenta están limitados a 44 caracteres, todo en minúsculas.
 > * Para cambiar los valores de rendimiento, vuelva a enviar la plantilla con las RU/s actualizadas.
 
-[!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json":::
 
 > [!NOTE]
 > Para crear un contenedor con una clave de partición de gran tamaño, modifique la plantilla anterior para incluir la propiedad `"version":2` en el objeto `partitionKey`.
@@ -136,7 +136,7 @@ Copie la plantilla de ejemplo siguiente e impleméntela como se describe, median
 * Opcionalmente, puede visitar la [galería de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-sprocs/) e implementar la plantilla desde Azure Portal.
 * También puede descargar la plantilla en el equipo local o crear una nueva plantilla y especificar la ruta de acceso local con el parámetro `--template-file`.
 
-[!code-json[create-cosmosdb-sql-sprocs](~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json":::
 
 ### <a name="deploy-with-powershell"></a>Implementación con PowerShell
 

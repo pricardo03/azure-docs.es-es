@@ -2,11 +2,8 @@
 title: 'Inicio rápido: Implementación de un clúster de Azure Kubernetes Service'
 description: Aprenda a crear rápidamente un clúster de Kubernetes, implementar una aplicación y supervisar el rendimiento en Azure Kubernetes Service (AKS) mediante la CLI de Azure.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: quickstart
 ms.date: 09/13/2019
-ms.author: mlearned
 ms.custom:
 - H1Hack27Feb2017
 - mvc
@@ -14,12 +11,12 @@ ms.custom:
 - seo-javascript-september2019
 - seo-javascript-october2019
 - seo-python-october2019
-ms.openlocfilehash: f7e7804b2fc60976ef0ec9af9dcd22e2a2bd9db0
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 3b4e09bb74b80f10bbc3cf497798f0c31fe51691
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929114"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595295"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service mediante la CLI de Azure
 
@@ -42,7 +39,7 @@ Si decide instalar y usar la CLI localmente, para este inicio rápido es preciso
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Un grupo de recursos de Azure es un grupo lógico en el que se implementan y se administran los recursos de Azure. Cuando se crea un grupo de recursos, se le pide que especifique una ubicación. Dicha ubicación es donde se almacenan los metadatos del grupo de recursos, así como el lugar en el que los recursos se ejecutan en Azure si no se especifica otra región al crear los recursos. Cree un grupo de recursos con el comando [az group create][az-group-create].
+Un grupo de recursos de Azure es un grupo lógico en el que se implementan y administran recursos de Azure. Cuando se crea un grupo de recursos, se le pide que especifique una ubicación. Dicha ubicación es donde se almacenan los metadatos del grupo de recursos, así como el lugar en el que los recursos se ejecutan en Azure si no se especifica otra región al crear los recursos. Cree un grupo de recursos con el comando [az group create][az-group-create].
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
 
@@ -78,7 +75,7 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 
 
 Transcurridos unos minutos, el comando se completa y devuelve información en formato JSON sobre el clúster.
 
-## <a name="connect-to-the-cluster"></a>Conexión al clúster
+## <a name="connect-to-the-cluster"></a>Conectarse al clúster
 
 Para administrar un clúster de Kubernetes, usará [kubectl][kubectl], el cliente de línea de comandos de Kubernetes. Si usa Azure Cloud Shell, `kubectl` ya está instalado. Para instalar `kubectl` localmente, use el comando [az aks install-cli][az-aks-install-cli]:
 
@@ -92,7 +89,7 @@ Para configurar `kubectl` para conectarse a su clúster de Kubernetes, use el co
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Para comprobar la conexión con el clúster, use el comando [kubectl get][kubectl-get] para que devuelva una lista de los nodos del clúster.
+Para comprobar la conexión al clúster, use el comando [kubectl get][kubectl-get] para devolver una lista de los nodos del clúster.
 
 ```azurecli-interactive
 kubectl get nodes

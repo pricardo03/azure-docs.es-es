@@ -2,17 +2,14 @@
 title: 'Procedimientos recomendados de operador: características básicas del programador en Azure Kubernetes Service (AKS)'
 description: Conozca las prácticas recomendadas para utilizar características básicas del programador, como las cuotas de recursos y los presupuestos de interrupciones de pods en Azure Kubernetes Service (AKS).
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: mlearned
-ms.openlocfilehash: 3661f435b5c2dd88aa8e17ca396f9af43aea5224
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: cccc476a944b28d24c53a947e434d465c94f94ee
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293613"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594658"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para características básicas del programador en Azure Kubernetes Service (AKS)
 

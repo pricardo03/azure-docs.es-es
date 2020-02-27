@@ -4,12 +4,12 @@ description: Explicación detallada para restaurar el estado de sistema de Windo
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 08/18/2017
-ms.openlocfilehash: 8e256fbac0651b4c237c540151b3377927989d36
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 6d46a091a4e620e26d05735f12a201009663e65d
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172821"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602456"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restauración del estado del sistema a Windows Server
 
@@ -159,7 +159,7 @@ Una vez que haya recuperado el estado del sistema como archivos con el agente de
 La copia de seguridad del estado del sistema incluye datos de Active Directory. Siga estos pasos para restaurar Active Directory Domain Services (AD DS) de su estado actual a un estado anterior.
 
 1. Reinicie el controlador de dominio en Modo de restauración de servicios de directorio (DSRM).
-2. Siga los pasos que aparecen [aquí](https://technet.microsoft.com/library/cc794755(v=ws.10).aspx) para usar cmdlets de Copias de seguridad de Windows Server para recuperar AD DS.
+2. Siga los pasos que aparecen [aquí](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) para usar cmdlets de Copias de seguridad de Windows Server para recuperar AD DS.
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Solución de problemas en la restauración del estado del sistema
 

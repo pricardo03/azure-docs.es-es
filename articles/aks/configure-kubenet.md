@@ -2,18 +2,15 @@
 title: Configuración de redes kubenet en Azure Kubernetes Service (AKS)
 description: Aprenda a configurar una red kubenet (básica) en Azure Kubernetes Service (AKS) para implementar un clúster de AKS en una red virtual existente y en una subred.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 06/26/2019
-ms.author: mlearned
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 382895c1b5a4cb2bc88ff2371cec59267ea4e176
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9931c752d5ce33beb41dc00194c27d06b9469807
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442939"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595900"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Uso de redes kubenet con intervalos de direcciones IP propios en Azure Kubernetes Service (AKS)
 
@@ -23,7 +20,7 @@ Con [Azure Container Networking Interface (CNI)][cni-networking], cada pod obtie
 
 En este artículo se muestra cómo usar las redes *kubenet* para crear y usar la subred de una red virtual con un clúster de AKS. Para más información sobre las opciones y consideraciones de red, consulte el artículo sobre los [conceptos de red para Kubernetes y AKS][aks-network-concepts].
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * La red virtual del clúster AKS debe permitir la conectividad saliente de Internet.
 * No cree más de un clúster AKS en la misma subred.

@@ -1,16 +1,16 @@
 ---
 title: Uso de Acciones de GitHub para crear actualizaciones de código en Azure Functions
 description: Obtenga información sobre cómo usar Acciones de GitHub para definir un flujo de trabajo para crear e implementar proyectos de Azure Functions en GitHub.
-author: ahmedelnably
+author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/16/2019
-ms.author: aelnably
-ms.openlocfilehash: c34847577b7e83228fafad431f541497be9a21ae
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.author: cshoe
+ms.openlocfilehash: dd74fd5c38e5a8800d2092afc1db1b412b126861
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769156"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649915"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega continua con Acciones de GitHub
 
@@ -69,7 +69,7 @@ Ahora GitHub puede autenticarse en su aplicación de funciones de Azure.
 
 La configuración del entorno se realiza mediante una acción de configuración de publicación específica del lenguaje.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 En el ejemplo siguiente se muestra la parte del flujo de trabajo que usa la acción `actions/setup-node` para configurar el entorno:
 
@@ -84,7 +84,7 @@ En el ejemplo siguiente se muestra la parte del flujo de trabajo que usa la acci
         node-version: '10.x'
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 En el ejemplo siguiente se muestra la parte del flujo de trabajo que usa la acción `actions/setup-python` para configurar el entorno:
 
@@ -99,7 +99,7 @@ En el ejemplo siguiente se muestra la parte del flujo de trabajo que usa la acci
         python-version: 3.6
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 En el ejemplo siguiente se muestra la parte del flujo de trabajo que usa la acción `actions/setup-dotnet` para configurar el entorno:
 
@@ -114,7 +114,7 @@ En el ejemplo siguiente se muestra la parte del flujo de trabajo que usa la acci
         dotnet-version: '2.2.300'
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 En el ejemplo siguiente se muestra la parte del flujo de trabajo que usa la acción `actions/setup-java` para configurar el entorno:
 
@@ -138,7 +138,7 @@ Esto depende del lenguaje y, para los lenguajes admitidos por Azure Functions, e
 
 En el ejemplo siguiente se muestra la parte del flujo de trabajo que compila la aplicación de funciones, que es específica del lenguaje:
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```yaml
     - name: 'Run npm'
@@ -153,7 +153,7 @@ En el ejemplo siguiente se muestra la parte del flujo de trabajo que compila la 
         popd
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 ```yaml
     - name: 'Run pip'
@@ -167,7 +167,7 @@ En el ejemplo siguiente se muestra la parte del flujo de trabajo que compila la 
         popd
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```yaml
     - name: 'Run dotnet build'
@@ -180,7 +180,7 @@ En el ejemplo siguiente se muestra la parte del flujo de trabajo que compila la 
         popd
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```yaml
     - name: 'Run mvn'

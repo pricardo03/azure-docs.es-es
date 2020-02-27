@@ -3,7 +3,7 @@ title: Conectar datos de Azure AD a Azure Sentinel | Microsoft Docs
 description: Aprenda a conectar datos de Azure Active Directory a Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 0a8f4a58-e96a-4883-adf3-6b8b49208e6a
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: f08cd731e40b204d042e5df418b03626b9082c3b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.author: yelevin
+ms.openlocfilehash: be9241a6156621d3f90dbab2da5bebeb463b4232
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894659"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588627"
 ---
 # <a name="connect-data-from-azure-active-directory"></a>Conectar datos desde Azure Active Directory
 
@@ -28,7 +28,7 @@ ms.locfileid: "74894659"
 
 Azure Sentinel permite recopilar datos de [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) y transmitirlos a Azure Sentinel. Puede elegir si transmitir [registros de inicio de sesión](../active-directory/reports-monitoring/concept-sign-ins.md) y [registros de auditoría](../active-directory/reports-monitoring/concept-audit-logs.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Si quiere exportar datos de inicio de sesión desde Active Directory, debe tener una licencia de Azure AD P1 o P2.
 
@@ -43,7 +43,7 @@ Azure Sentinel permite recopilar datos de [Azure Active Directory](../active-dir
 
 1. Haga clic en **Connect** (Conectar) junto a los registros que quiere transmitir a Azure Sentinel.
 
-1. Puede seleccionar si desea que las alertas de Azure AD generen incidentes automáticamente en Azure Sentinel. En **Creación de incidentes** seleccione **Habilitar** para habilitar la regla analítica predeterminada que crea incidentes automáticamente a partir de alertas generadas en el servicio de seguridad conectado. A continuación, puede editar esta regla en **Análisis** y, a continuación, **Activar reglas**.
+1. Puede seleccionar si desea que las alertas de Azure AD generen incidentes automáticamente en Azure Sentinel. En **Creación de incidentes** seleccione **Habilitar** para habilitar la regla analítica predeterminada que crea incidentes automáticamente a partir de alertas generadas en el servicio de seguridad conectado. Luego, puede editar esta regla en **Analytics** (Análisis) y **Active rules** (Reglas activas).
 
 1. Para usar el esquema correspondiente en Log Analytics para encontrar alertas de Azure AD, busque **SigninLogs** y **AuditLogs**.
 

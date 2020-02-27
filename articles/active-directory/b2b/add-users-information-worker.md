@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37dc4a618f01022f4963a14aba921edcce9f4b60
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: abb5c6939d8c88db35a776aa8f2c075a4bdcc609
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74268846"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565424"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>¿Cómo pueden los usuarios de la organización invitar a usuarios invitados a una aplicación?
 
@@ -73,7 +73,7 @@ Después de configurar una aplicación para el autoservicio, los propietarios de
 7. Seleccione **Agregar** para enviar automáticamente la invitación al usuario invitado. Después de enviar la invitación, la cuenta de usuario se agrega automáticamente al directorio como invitado.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 La administración de autoservicio de aplicaciones requiere algo de configuración inicial por parte de un administrador global y un administrador de Azure AD. Como parte de esta configuración, deberá configurar la aplicación para el autoservicio y asignar un grupo a la aplicación que pueda administrar el propietario de la misma. También puede configurar el grupo para permitir que cualquier persona solicite la pertenencia, pero requiere la aprobación del propietario del grupo. (Más información acerca de la [administración de grupos de autoservicio](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management)). 
 
@@ -105,7 +105,7 @@ La administración de autoservicio de aplicaciones requiere algo de configuraci�
 2. En el panel de navegación, seleccione **Azure Active Directory**.
 3. En **Administrar**, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
 4. En la lista de aplicaciones, busque y abra la aplicación.
-5. En **Administrar**, seleccione **Inicio de sesión único** y configure la aplicación para el inicio de sesión único. (Para más información, consulte [Administración del inicio de sesión único para aplicaciones empresariales](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal)).
+5. En **Administrar**, seleccione **Inicio de sesión único** y configure la aplicación para el inicio de sesión único. (Para más información, consulte [Administración del inicio de sesión único para aplicaciones empresariales](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications)).
 6. En **Administrar**, seleccione **Autoservicio** y configure el acceso a la aplicación de autoservicio. (Para más información, consulte [Uso del acceso de autoservicio a las aplicaciones](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to)). 
 
     > [!NOTE]

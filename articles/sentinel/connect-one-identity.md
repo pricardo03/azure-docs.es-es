@@ -3,7 +3,7 @@ title: Conexión de One Identity Safeguard a Azure Sentinel | Microsoft Docs
 description: Aprenda a conectar One Identity Safeguard a Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: cabailey
-ms.openlocfilehash: 7e33580c253c98279644e10305557a7e60701c90
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: 849087cbbe91be799c51929353b9f020859c85b8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610512"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588151"
 ---
 # <a name="connect-one-identity-safeguard"></a>Conexión de One Identity Safeguard
 El conector de datos de One Identity Safeguard mejora el conector de formato de evento común (CEF) estándar con protección para los paneles específicos de las sesiones privilegiadas. Use este conector para empezar a usar fácilmente los eventos generados por el dispositivo para su visualización, alertas, investigaciones, etc.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Permisos de lectura y escritura en el área de trabajo de Azure Sentinel.
 

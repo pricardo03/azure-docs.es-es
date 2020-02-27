@@ -1,16 +1,16 @@
 ---
 title: Actualización continua del código de aplicación de funciones mediante Azure DevOps
 description: Aprenda a configurar una canalización de Azure DevOps con Azure Functions como destino.
-author: ahmedelnably
+author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/18/2019
-ms.author: aelnably
-ms.openlocfilehash: e6ea7edb16aa28428754cbe920e1d350aded0cff
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.author: cshoe
+ms.openlocfilehash: 1d627329a6d5f4c283a4480c1b0b1077a8e856cf
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834020"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649949"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Entrega continua con Azure DevOps
 
@@ -29,7 +29,7 @@ Para crear una canalización basada en YAML, compile primero la aplicación y lu
 
 La compilación de la aplicación en Azure Pipelines depende del lenguaje de programación de la aplicación. Cada lenguaje tiene pasos de compilación específicos que crean un artefacto de implementación. Se usa un artefacto de implementación para implementar la aplicación de funciones en Azure.
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 Puede utilizar el ejemplo siguiente con el fin de crear el archivo YAML para compilar la aplicación de .NET:
 
@@ -60,7 +60,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Puede utilizar el ejemplo siguiente con el fin de crear el archivo YAML para compilar la aplicación de JavaScript:
 
@@ -88,7 +88,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Puede usar uno de los ejemplos siguientes con el fin de crear un archivo YAML para crear una aplicación para una versión específica de Python. Python solo es compatible con las aplicaciones de funciones que se ejecutan en Linux.
 
@@ -150,7 +150,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Puede utilizar el ejemplo siguiente con el fin de crear el archivo YAML para compilar la aplicación de PowerShell. PowerShell solo es compatible con Linux Azure Functions.
 

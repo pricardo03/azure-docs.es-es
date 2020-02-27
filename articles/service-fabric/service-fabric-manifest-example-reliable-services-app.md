@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: pepogors
-ms.openlocfilehash: d5a03629a134a0b2c7d6ee95dba9ea3ad06e99ba
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: f40e54f5260f827f0b18c833d23d1f57b5ebc3a3
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75609832"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617467"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Ejemplos de manifiesto de servicio y de aplicación de servicios confiables
 Los siguientes son ejemplos de los manifiestos de aplicación y de servicio para una aplicación de Service Fabric con un front-end web de ASP.NET Core y un back-end con estado. El propósito de estos ejemplos es mostrar qué opciones están disponibles y cómo usarlas. Estos manifiestos de aplicación y de servicio se basan en los manifiestos de la [Guía de inicio rápido de Service Fabric .NET](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/).
@@ -69,7 +69,7 @@ Consulte [Elementos del manifiesto de aplicación](#application-manifest-element
                                 MemorySwapInMB="[MemorySwapInMB]"/>
 
       <!-- Share the data package across multiple instances of the VotingData service-->
-      <PackageSharingPolicy PackageRef="VotingDataPkg.Data"/>
+      <PackageSharingPolicy PackageRef="Data"/>
 
       <!-- Give read rights on the "DataEndpoint" endpoint to the Customer2 account.-->
       <SecurityAccessPolicy GrantRights="Read" PrincipalRef="Customer2" ResourceRef="DataEndpoint" ResourceType="Endpoint"/>         

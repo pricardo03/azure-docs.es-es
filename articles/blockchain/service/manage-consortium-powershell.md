@@ -4,18 +4,18 @@ description: Aprenda a administrar los miembros de un consorcio de Azure Blockc
 ms.date: 10/14/2019
 ms.topic: article
 ms.reviewer: zeyadr
-ms.openlocfilehash: 4eb35838394d3324f460b5e83cfbcb47b8114221
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: e819dd39481b58d446384a5e2253c548ce0c267c
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455546"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505985"
 ---
 # <a name="manage-consortium-members-in-azure-blockchain-service-using-powershell"></a>Administración de los miembros del consorcio en Azure Blockchain Service mediante PowerShell
 
 Puede usar PowerShell para administrar los miembros del consorcio de una cadena de bloques para Azure Blockchain Service. Los miembros que tienen privilegios de administrador pueden invitar, agregar, quitar y cambiar los roles para todos los participantes en el consorcio de la cadena de bloques. Los miembros que tienen privilegios de usuario pueden ver a todos los participantes en el consorcio de la cadena de bloques y cambiar su nombre para mostrar miembros.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Cree un miembro de la cadena de bloques con [Azure Portal](create-member.md).
 * Para obtener más información acerca de los consorcios, los miembros y los nodos, consulte [Consorcio de Azure Blockchain Service](consortium.md).
@@ -59,7 +59,7 @@ Reemplace la *\<contraseña de la cuenta de miembro\>* con la contraseña de cue
 
 Busque los otros valores registrados en Azure Portal:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Vaya a su página de **Introducción** del miembro del servicio Blockchain predeterminado.
 
     ![Información general sobre miembros](./media/manage-consortium-powershell/member-overview.png)
@@ -83,7 +83,7 @@ Use este cmdlet para conectarse a los contratos inteligentes de la administraci�
 
 `Import-ConsortiumManagementContracts -RootContractAddress <String> -Web3Client <IClient>`
 
-| Parámetro | DESCRIPCIÓN | Obligatorio |
+| Parámetro | Descripción | Obligatorio |
 |-----------|-------------|:--------:|
 | RootContractAddress | Dirección de contrato raíz de los contratos inteligentes de la administración del consorcio | Sí |
 | Web3Client | Objeto Web3Client obtenido de New-Web3Connection | Sí |
@@ -100,7 +100,7 @@ Use este cmdlet para crear un objeto y contener la información de la cuenta de 
 
 `Import-Web3Account -ManagedAccountAddress <String> -ManagedAccountPassword <String>`
 
-| Parámetro | DESCRIPCIÓN | Obligatorio |
+| Parámetro | Descripción | Obligatorio |
 |-----------|-------------|:--------:|
 | ManagedAccountAddress | Dirección de la cuenta del miembro de la cadena de bloques | Sí |
 | ManagedAccountPassword | Contraseña de la dirección de la cuenta | Sí |
@@ -117,7 +117,7 @@ Use este cmdlet para establecer una conexión con el punto de conexión RPC de u
 
 `New-Web3Connection [-RemoteRPCEndpoint <String>]`
 
-| Parámetro | DESCRIPCIÓN | Obligatorio |
+| Parámetro | Descripción | Obligatorio |
 |-----------|-------------|:--------:|
 | RemoteRPCEndpoint | Dirección del punto de conexión del miembro de la cadena de bloques | Sí |
 
@@ -137,9 +137,9 @@ Use este cmdlet para obtener detalles de los miembros o enumerar los miembros de
 
 `Get-BlockchainMember [[-Name] <String>] -Members <IContract> -Web3Client <IClient>`
 
-| Parámetro | DESCRIPCIÓN | Obligatorio |
+| Parámetro | Descripción | Obligatorio |
 |-----------|-------------|:--------:|
-| NOMBRE | El nombre del miembro de Blockchain Service cuyos detalles se desea recuperar. Cuando se escribe un nombre, devuelve los detalles del miembro. Si se omite un nombre, devuelve una lista de todos los miembros del consorcio. | Sin |
+| Nombre | El nombre del miembro de Blockchain Service cuyos detalles se desea recuperar. Cuando se escribe un nombre, devuelve los detalles del miembro. Si se omite un nombre, devuelve una lista de todos los miembros del consorcio. | Sin |
 | Members | Objeto Members obtenido de Import-ConsortiumManagementContracts | Sí |
 | Web3Client | Objeto Web3Client obtenido de New-Web3Connection | Sí |
 
@@ -168,9 +168,9 @@ Use este cmdlet para quitar a un miembro de la cadena de bloques.
 
 `Remove-BlockchainMember -Name <String> -Members <IContract> -Web3Account <IAccount> -Web3Client <IClient>`
 
-| Parámetro | DESCRIPCIÓN | Obligatorio |
+| Parámetro | Descripción | Obligatorio |
 |-----------|-------------|:--------:|
-| NOMBRE | Nombre del miembro que quitar | Sí |
+| Nombre | Nombre del miembro que quitar | Sí |
 | Members | Objeto Members obtenido de Import-ConsortiumManagementContracts | Sí |
 | Web3Account | Objeto Web3Account obtenido de Import-Web3Account | Sí |
 | Web3Client | Objeto Web3Client obtenido de New-Web3Connection | Sí |
@@ -194,9 +194,9 @@ Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <St
  -Members <IContract> -Web3Account <IAccount> -Web3Client <IClient>
 ```
 
-| Parámetro | DESCRIPCIÓN | Obligatorio |
+| Parámetro | Descripción | Obligatorio |
 |-----------|-------------|:--------:|
-| NOMBRE | Nombre de un miembro de la cadena de bloques | Sí |
+| Nombre | Nombre de un miembro de la cadena de bloques | Sí |
 | DisplayName | Nuevo nombre para mostrar | Sin |
 | AccountAddress | Dirección de la cuenta | Sin |
 | Members | Objeto Members obtenido de Import-ConsortiumManagementContracts | Sí |
@@ -224,7 +224,7 @@ New-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members 
  -Web3Account <IAccount> -Web3Client <IClient>
 ```
 
-| Parámetro | DESCRIPCIÓN | Obligatorio |
+| Parámetro | Descripción | Obligatorio |
 |-----------|-------------|:--------:|
 | SubscriptionId | Identificador de suscripción de Azure del miembro que desea invitar | Sí |
 | Role | Rol del consorcio. Los valores pueden ser ADMIN o USER. ADMIN es el rol de administrador del consorcio. USER es el rol de miembro del consorcio. | Sí |
@@ -246,7 +246,7 @@ Use este cmdlet para recuperar o enumerar el estado de la invitación de un miem
 
 `Get-BlockchainMemberInvitation [[-SubscriptionId] <String>] -Members <IContract> -Web3Client <IClient>`
 
-| Parámetro | DESCRIPCIÓN | Obligatorio |
+| Parámetro | Descripción | Obligatorio |
 |-----------|-------------|:--------:|
 | SubscriptionId | Identificador de suscripción de Azure del miembro que desea invitar. Si se proporciona el identificador de la suscripción, devuelve los detalles de la invitación de dicho identificador. Si el identificador de suscripción se omite, devuelve una lista de todas las invitaciones de miembros. | Sin |
 | Members | Objeto Members obtenido de Import-ConsortiumManagementContracts | Sí |
@@ -257,7 +257,7 @@ Use este cmdlet para recuperar o enumerar el estado de la invitación de un miem
 [Establezca una conexión Web3](#establish-a-web3-connection) para definir la variable $ContractConnection.
 
 ```powershell-interactive
-$ContractConnection | Get-BlockchainMemberInvitation – SubscriptionId <Azure subscription ID>
+$ContractConnection | Get-BlockchainMemberInvitation –SubscriptionId <Azure subscription ID>
 ```
 
 #### <a name="example-output"></a>Salida de ejemplo
@@ -277,7 +277,7 @@ Remove-BlockchainMemberInvitation -SubscriptionId <String> -Members <IContract> 
  -Web3Client <IClient>
 ```
 
-| Parámetro | DESCRIPCIÓN | Obligatorio |
+| Parámetro | Descripción | Obligatorio |
 |-----------|-------------|:--------:|
 | SubscriptionId | Identificador de suscripción de Azure del miembro que desea revocar | Sí |
 | Members | Objeto Members obtenido de Import-ConsortiumManagementContracts | Sí |
@@ -301,7 +301,7 @@ Set-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members 
  -Web3Account <IAccount> -Web3Client <IClient>
 ```
 
-| Parámetro | DESCRIPCIÓN | Obligatorio |
+| Parámetro | Descripción | Obligatorio |
 |-----------|-------------|:--------:|
 | SubscriptionId | Identificador de suscripción de Azure del miembro que desea invitar | Sí |
 | Role | Nuevo rol del consorcio para la invitación. Los valores pueden ser **USER** o **ADMIN**. | Sí |

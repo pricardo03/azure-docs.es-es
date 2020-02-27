@@ -4,14 +4,14 @@ ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 87dd3680aae3e87f78ab2dbe70c44b2008706747
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 09fa612e7e5c681da16bf19e94c626ae14a3b8a1
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186336"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77590719"
 ---
-Al agregar discos de datos a una máquina virtual Linux, puede encontrar errores si un no existe un disco en LUN 0. Si va a agregar un disco manualmente mediante el comando `azure vm disk attach-new` y especifica un LUN (`--lun`), en lugar de permitir que la plataforma Azure determine el LUN adecuado, asegúrese de que un disco existe o existirá en LUN 0. 
+Al agregar discos de datos a una máquina virtual Linux, puede encontrar errores si un no existe un disco en LUN 0. Si va a agregar un disco manualmente mediante el comando `az vm disk attach -new` y especifica un LUN (`--lun`), en lugar de permitir que la plataforma Azure determine el LUN adecuado, asegúrese de que un disco existe o existirá en LUN 0. 
 
 Considere el ejemplo siguiente que muestra un fragmento de código de salida de `lsscsi`:
 

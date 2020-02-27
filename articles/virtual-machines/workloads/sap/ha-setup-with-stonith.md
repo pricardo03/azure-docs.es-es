@@ -4,7 +4,7 @@ description: Establecimiento de alta disponibilidad para SAP HANA en Azure (inst
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: gwallace
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0f23fe2aa17934b967e7aecf41687cc555b9552c
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 4060dbe936af8ff1f9dd8c958f64834cb06525de
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71212534"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615080"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configuración de alta disponibilidad en SUSE mediante STONITH
 Este documento proporciona instrucciones paso a paso para configurar la alta disponibilidad en el sistema operativo SUSE mediante el dispositivo STONITH.
@@ -341,7 +341,7 @@ Ahora, detenga el servicio Pacemaker en el **nodo 2** y los recursos con conmuta
 ![crm-mon-after-failover.png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
 
 
-## <a name="9-troubleshooting"></a>9. solución de problemas
+## <a name="9-troubleshooting"></a>9. Solución de problemas
 En esta sección se describen algunos escenarios de error, que pueden producirse durante la configuración. No tendrá que enfrentarse necesariamente a estos problemas.
 
 ### <a name="scenario-1-cluster-node-not-online"></a>Escenario 1: Nodo de clúster no en línea

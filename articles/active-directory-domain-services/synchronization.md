@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: b2a1bcedcc459a21bbc8a461ba9c8d9a8d65aebe
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 7e0e904b182a57a51b5d76f0acebc13bce5902b2
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132200"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612918"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Procedimiento para sincronizar objetos y credenciales en un dominio administrado de Azure AD Domain Services
 
@@ -47,9 +47,9 @@ En la tabla siguiente se enumeran algunos atributos comunes y se describe cómo 
 | Historial de SID de usuarios y grupos | SID de usuarios y grupos primarios locales | El atributo *SidHistory* de usuarios y grupos en Azure AD DS se establece para que coincida con el SID principal de grupos o usuarios correspondiente de un entorno de AD DS. Gracias a esta característica, le resultará más sencillo migrar mediante lift-and-shift aplicaciones locales a Azure AD DS, ya que no tendrá que volver a incluir los recursos en listas ACL. |
 
 > [!TIP]
-> **Inicie sesión en el dominio administrado con el formato de UPN**: el atributo *SAMAccountName*, como `CONTOSO\driley`, puede generarse automáticamente en algunas cuentas de usuario de un dominio administrado de Azure AD DS. Los atributos *SAMAccountName* de los usuarios generados automáticamente pueden ser distintos de sus prefijos de UPN, por lo que no es siempre una manera fiable de iniciar sesión.
+> **Inicie sesión en el dominio administrado con el formato de UPN**: el atributo *SAMAccountName*, como `AADDSCONTOSO\driley`, puede generarse automáticamente en algunas cuentas de usuario de un dominio administrado de Azure AD DS. Los atributos *SAMAccountName* de los usuarios generados automáticamente pueden ser distintos de sus prefijos de UPN, por lo que no es siempre una manera fiable de iniciar sesión.
 >
-> Por ejemplo, si varios usuarios tienen el mismo atributo *mailNickname* o prefijos UPN excesivamente largos, el atributo *SAMAccountName* para estos usuarios puede generarse automáticamente. Use el formato UPN, como `driley@contoso.com`, para iniciar sesión de forma fiable en un dominio administrado de Azure AD DS.
+> Por ejemplo, si varios usuarios tienen el mismo atributo *mailNickname* o prefijos UPN excesivamente largos, el atributo *SAMAccountName* para estos usuarios puede generarse automáticamente. Use el formato UPN, como `driley@aaddscontoso.com`, para iniciar sesión de forma fiable en un dominio administrado de Azure AD DS.
 
 ### <a name="attribute-mapping-for-user-accounts"></a>Asignación de atributos para cuentas de usuario
 

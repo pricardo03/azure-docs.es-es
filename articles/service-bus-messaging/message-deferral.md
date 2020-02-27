@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 249cf7414143f59540d198bb460d8b215f6a7664
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 5e32c461902c1e340c6cece22669a59847e660cd
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756358"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77538403"
 ---
 # <a name="message-deferral"></a>Aplazamiento de mensajes
 
@@ -36,7 +36,7 @@ La API es [BrokeredMessage.Defer](/dotnet/api/microsoft.servicebus.messaging.bro
 
 Los mensajes aplazados permanecen en la cola principal junto con todos los demás mensajes activos (a diferencia de los mensajes fallidos que están activos en una subcola), pero que ya no se reciben mediante las funciones Receive/ReceiveAsync normales. Los mensajes aplazados se pueden detectar a través de la [exploración de mensajes](message-browsing.md) si una aplicación pierde su pista.
 
-Para recuperar un mensaje aplazado, su propietario es responsable de recordar la propiedad [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) cuando se aplaza. El receptor que conoce el número de secuencia de un mensaje aplazado puede recibir después el mensaje explícitamente con `Receive(sequenceNumber)`. En las colas puede usar [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient); las suscripciones a temas usan [SubscriptionClient](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient).
+Para recuperar un mensaje aplazado, su propietario es responsable de recordar la propiedad [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) cuando se aplaza. El receptor que conoce el número de secuencia de un mensaje aplazado puede recibir después el mensaje explícitamente con `Receive(sequenceNumber)`.
 
 Si no se puede procesar un mensaje porque un recurso concreto para controlar ese mensaje no está disponible temporalmente, pero el procesamiento de mensajes no debe suspenderse sumariamente, una forma de apartar ese mensaje durante unos minutos es recordar la propiedad **SequenceNumber** de un [mensaje programado](message-sequencing.md) que se vaya a publicar en unos minutos y volver a recuperar el mensaje aplazado cuando llega el mensaje programado. Tenga en cuenta que, si un controlador de mensajes depende de una base de datos para todas las operaciones y esa base de datos no está disponible temporalmente, esta no debe usar el aplazamiento, sino que, en su lugar, debe suspender la recepción de mensajes por completo hasta que la base de datos vuelva a estar disponible.
 

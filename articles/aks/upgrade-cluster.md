@@ -2,17 +2,14 @@
 title: Actualización de un clúster de Azure Kubernetes Service (AKS)
 description: Aprenda a actualizar clústeres de Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: mlearned
-ms.openlocfilehash: e1ef87471c81fbf0d242837bd94fdc17f686387f
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 4520297e83f96f95b10ecafd5af52a913dc5f450
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889404"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621973"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Actualización de un clúster de Azure Kubernetes Service (AKS)
 
@@ -25,7 +22,7 @@ Para los clústeres de AKS que usan varios grupos de nodos o nodos de Windows S
 Para este artículo es preciso usar la versión 2.0.65 de la CLI de Azure, o cualquier versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
 
 > [!WARNING]
-> Una actualización del clúster de AKS desencadena un acordonamiento y purga de los nodos. Si tiene una cuota de proceso baja disponible, se puede producir un error en la actualización.  Consulte el [aumento de cuotas](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request?branch=pr-en-us-83289) para más información.
+> Una actualización del clúster de AKS desencadena un acordonamiento y purga de los nodos. Si tiene una cuota de proceso baja disponible, se puede producir un error en la actualización. Consulte el [aumento de cuotas](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) para más información.
 > Si está ejecutando su propia implementación del escalador automático del clúster, deshabilítela (puede escalarla a cero réplicas) durante la actualización, ya que existe la posibilidad de que interfiera con el proceso de actualización. El escalador administrado lo controla automáticamente. 
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Compruebe las actualizaciones disponibles del clúster de AKS

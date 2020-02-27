@@ -3,12 +3,12 @@ title: Realización de una copia de seguridad de una granja de SharePoint en Azu
 description: Uso del Azure Backup Server para hacer copia de seguridad de los datos de SharePoint y restaurarlos. En este artículo se proporciona la información sobre cómo configurar la granja de SharePoint para almacenar los datos deseados en Azure. Puede restaurar los datos protegidos de SharePoint desde disco o desde Azure.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: a48afd84f6c4e1ec80015696dc4b14beea8ebfa4
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: ba9d79270da839cf99574322d68ccdba27fe2d93
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173205"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77584258"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Realización de una copia de seguridad de una granja de SharePoint en Azure con MABS
 
@@ -26,13 +26,13 @@ Azure Backup para DPM admite los siguientes escenarios:
 
 Antes de realizar una copia de seguridad de una granja de SharePoint en Azure, hay algunas cuantas cosas que debe confirmar.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 Antes de continuar, asegúrese de que ha [instalado y preparado Azure Backup Server](backup-azure-microsoft-azure-backup.md) para proteger las cargas de trabajo.
 
 ### <a name="protection-agent"></a>Agente de protección
 
-El agente de Azure Backup debe instalarse en el servidor que ejecuta SharePoint, en los servidores que ejecutan SQL Server y en todos los demás servidores que forman parte de la granja de SharePoint. Para obtener más información sobre cómo configurar el agente de protección, consulte [Programa de instalación del agente de protección](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  La única excepción es que solo instale al agente en un único servidor web front-end (WFE). Azure Backup Server necesita el agente en un servidor WFE con el único fin de servir como punto de entrada para la protección.
+El agente de Azure Backup debe instalarse en el servidor que ejecuta SharePoint, en los servidores que ejecutan SQL Server y en todos los demás servidores que forman parte de la granja de SharePoint. Para obtener más información sobre cómo configurar el agente de protección, consulte [Programa de instalación del agente de protección](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019).  La única excepción es que solo instale al agente en un único servidor web front-end (WFE). Azure Backup Server necesita el agente en un servidor WFE con el único fin de servir como punto de entrada para la protección.
 
 ### <a name="sharepoint-farm"></a>Granja de SharePoint
 

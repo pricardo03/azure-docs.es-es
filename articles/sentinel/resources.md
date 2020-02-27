@@ -3,7 +3,7 @@ title: Recursos útiles al trabajar con Azure Sentinel | Microsoft Docs
 description: En este documento encontrará una lista de recursos de gran utilidad al trabajar con Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 9b4c8e38-c986-4223-aa24-a71b01cb15ae
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
-ms.author: rkarlin
-ms.openlocfilehash: 2ce8b9e82907402538ca2d14b864c02bb8bc2d82
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.author: yelevin
+ms.openlocfilehash: 2110d3319cebf693ef06deec26a29fa655e35035
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548006"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585278"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Recursos útiles al trabajar con Azure Sentinel
 

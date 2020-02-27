@@ -2,16 +2,15 @@
 title: Introducción a Linkerd
 description: Obtenga información general sobre Linkerd.
 author: paulbouwer
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
-ms.openlocfilehash: 9d0a65f2cf557120ec5a551494e697c876ad5c59
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 3181be62a14ec1b3450bd181172b5323ca176427
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529776"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593774"
 ---
 # <a name="linkerd"></a>Linkerd
 
@@ -19,7 +18,7 @@ ms.locfileid: "72529776"
 
 [Linkerd][linkerd] es una malla de servicio ligera y fácil de usar.
 
-## <a name="architecture"></a>Arquitectura
+## <a name="architecture"></a>Architecture
 
 Linkerd proporciona un plano de datos que se compone de sidecars de proxy ultraligeros y especializados de [Linkerd][linkerd-proxy]. Estos proxies inteligentes controlan todo el tráfico de red de entrada y salida de las aplicaciones y cargas de trabajo en malla. Los proxies también exponen métricas a través de puntos de conexión de métricas de [Prometheus][prometheus].
 

@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9220d3adb31005551b6358034207f1071065b1a7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: da06112b0990898227191c919b209c8a95d15197
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692386"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616530"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Diseño de tablas en Azure SQL Data Warehouse
 
@@ -41,10 +41,10 @@ CREATE SCHEMA wwi;
 
 Para mostrar la organización de las tablas en SQL Data Warehouse, puede utilizar fact, dim e int como prefijos para los nombres de tabla. En la tabla siguiente se muestran algunos de los nombres de esquema y tabla para WideWorldImportersDW.  
 
-| Tabla WideWorldImportersDW  | Tipo de tabla | SQL Data Warehouse |
+| Tabla WideWorldImportersDW  | Tipo de tabla. | SQL Data Warehouse |
 |:-----|:-----|:------|:-----|
-| City | Dimension Data | wwi.DimCity |
-| Orden | Fact | wwi.FactOrder |
+| City | Dimensión | wwi.DimCity |
+| Pedido de | Fact | wwi.FactOrder |
 
 
 ## <a name="table-persistence"></a>Persistencia de tabla 
@@ -91,8 +91,8 @@ La categoría de tabla a menudo determina qué opción elegir para distribuir la
 
 | Categoría de tabla | Opción de distribución recomendada |
 |:---------------|:--------------------|
-| Hechos           | Utilice la distribución por hash con el índice de almacén de columnas agrupado. El rendimiento mejora cuando se combinan dos tablas hash en la misma columna de distribución. |
-| Dimension Data      | Use la distribución replicada para tablas más pequeñas. Si las tablas son demasiado grandes para almacenar en cada nodo de proceso, utilice la distribución por hash. |
+| Fact           | Utilice la distribución por hash con el índice de almacén de columnas agrupado. El rendimiento mejora cuando se combinan dos tablas hash en la misma columna de distribución. |
+| Dimensión      | Use la distribución replicada para tablas más pequeñas. Si las tablas son demasiado grandes para almacenar en cada nodo de proceso, utilice la distribución por hash. |
 | Ensayo        | Use round robin para la tabla de almacenamiento provisional. La carga con CTAS es rápida. Una vez que los datos estén en la tabla de almacenamiento provisional, use INSERT... SELECT para mover los datos a las tablas de producción. |
 
 ## <a name="table-partitions"></a>Particiones de tabla
@@ -116,7 +116,7 @@ PRIMARY KEY solo se admite cuando se usan NONCLUSTERED y NOT ENFORCED.  Solo se 
 ## <a name="commands-for-creating-tables"></a>Comandos para la creación de tablas
 Puede crear una tabla como una nueva tabla vacía. También puede crear y rellenar una tabla con los resultados de una instrucción SELECT. A continuación se muestran los comandos de T-SQL para crear una tabla.
 
-| Instrucción de T-SQL | DESCRIPCIÓN |
+| Instrucción T-SQL | Descripción |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | Crea una tabla vacía mediante la definición de todas las opciones y columnas de la tabla. |
 | [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) | Crea una tabla externa. La definición de la tabla se almacena en SQL Data Warehouse. Los datos de la tabla se almacenan en Azure Blob Storage o Azure Data Lake Store. |
@@ -213,6 +213,7 @@ LEFT OUTER JOIN (select * from sys.pdw_column_distribution_properties where dist
 LEFT OUTER JOIN sys.columns c
     ON cdp.[object_id] = c.[object_id]
     AND cdp.[column_id] = c.[column_id]
+WHERE pn.[type] = 'COMPUTE'
 )
 , size
 AS

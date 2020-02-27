@@ -3,21 +3,21 @@ title: 'Powershell: Migración de SQL Server a SQL Database'
 titleSuffix: Azure Database Migration Service
 description: Aprenda a migrar de SQL Server local a Azure SQL Database mediante Azure PowerShell con Azure Database Migration Service.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/08/2020
-ms.openlocfilehash: f67572adc3b40115b2c6d4618718867eacf8c95e
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 02/20/2020
+ms.openlocfilehash: f63f79402b457017257f1762c6ddc7e04c0ee1af
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746306"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650697"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-using-azure-powershell"></a>Migración de SQL Server local a Azure SQL Database mediante Azure PowerShell
 
@@ -31,7 +31,7 @@ En este artículo aprenderá a:
 > * Crear un proyecto de migración en una instancia de Azure Database Migration Service.
 > * Ejecutar la migración.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar estos pasos, necesitará lo siguiente:
 
@@ -69,7 +69,7 @@ Puede crear una instancia nueva de Azure Database Migration Service mediante el 
 
 * *Nombre del grupo de recursos de Azure*. Puede usar el comando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) para crear el grupo de recursos de Azure como se mostró anteriormente y proporcionar su nombre como un parámetro.
 * *Nombre del servicio*. Cadena que se corresponde con el nombre de servicio único para Azure Database Migration Service. 
-* *Ubicación*. Especifica la ubicación del servicio. Especifique una ubicación de centro de datos de Azure, por ejemplo, Oeste de EE. UU. o Sudeste Asiático.
+* *Ubicación*. Especifica la ubicación del servicio. Especifique una ubicación de centro de datos de Azure, por ejemplo, Oeste de EE. UU. o Sudeste de Asia.
 * *SKU*. Este parámetro corresponde al nombre de SKU de DMS. El nombre de SKU admitido actualmente es *GeneralPurpose_4vCores*.
 * *Identificador de subred virtual*. Puede usar el cmdlet [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) para crear una subred. 
 

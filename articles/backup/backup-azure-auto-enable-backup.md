@@ -3,12 +3,12 @@ title: Habilitación automática de la copia de seguridad al crear máquinas vir
 description: Un artículo en el que se describe cómo usar Azure Policy para habilitar automáticamente la copia de seguridad de todas las máquinas virtuales creadas en un ámbito determinado
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 7a3b526d654936d4e7ec89127a9074146c1b0179
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1d423371788f87155328e8f5c9334e47349a68e8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450133"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77584275"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Habilitación automática de la copia de seguridad al crear máquinas virtuales mediante Azure Policy
 
@@ -16,9 +16,9 @@ Una de las principales responsabilidades de un administrador de copia de segurid
 
 Actualmente, Azure Backup proporciona una directiva integrada (mediante Azure Policy) que se puede asignar a **todas las máquinas virtuales de Azure de una ubicación especificada dentro de una suscripción o un grupo de recursos**. Cuando esta directiva se asigna a un ámbito determinado, todas las máquinas virtuales nuevas creadas en ese ámbito se configuran automáticamente para que se cree su copia de seguridad en un **almacén existente en la misma ubicación y suscripción**. El usuario puede especificar el almacén y la directiva de retención a la que se deben asociar las máquinas virtuales de las que se ha creado una copia de seguridad.
 
-## <a name="supported-scenarios"></a>Escenarios admitidos 
+## <a name="supported-scenarios"></a>Escenarios admitidos
 
-* La directiva integrada solo se admite actualmente para máquinas virtuales de Azure. Los usuarios deben tener cuidado para asegurarse de que la directiva de retención especificada durante la asignación sea una directiva de retención de máquinas virtuales. Consulte [este documento](https://aka.ms/PolicySupportedSKUs) para ver todas las SKU de máquina virtual que admite esta directiva.
+* La directiva integrada solo se admite actualmente para máquinas virtuales de Azure. Los usuarios deben tener cuidado para asegurarse de que la directiva de retención especificada durante la asignación sea una directiva de retención de máquinas virtuales. Consulte [este documento](https://docs.microsoft.com/azure/backup/backup-azure-policy-supported-skus) para ver todas las SKU de máquina virtual que admite esta directiva.
 
 * La directiva se puede asignar a una única ubicación y suscripción a la vez. Para habilitar la copia de seguridad de máquinas virtuales entre ubicaciones y suscripciones, es necesario crear varias instancias de la asignación de directiva, una para cada combinación de ubicación y suscripción.
 

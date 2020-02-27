@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 0ba1e1cc4f470e24922fc3cf3be2bf6833696982
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 07fd984f72628ac4f6d6736bf0ab903619e96c72
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118843"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525165"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary"></a>Inicio rápido: Búsqueda de palabras con un diccionario bilingüe
 
@@ -25,33 +25,23 @@ En este inicio rápido aprenderá a obtener posibles traducciones alternativas d
 En esta guía de inicio rápido, se requiere una [cuenta de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con un recurso de Translator Text. Si no tiene una cuenta, puede usar la [evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/) para obtener una clave de suscripción.
 
 ::: zone pivot="programming-language-csharp"
-
 [!INCLUDE [C# quickstart](includes/dictionary-csharp.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-java"
-
-[!INCLUDE [Java quickstart](includes/dictionary-java.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-[!INCLUDE [Python quickstart](includes/dictionary-python.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-nodejs"
-
-[!INCLUDE [Node.js quickstart](includes/dictionary-nodejs.md)]
-
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-
 [!INCLUDE [Go quickstart](includes/dictionary-go.md)]
+::: zone-end
 
+::: zone pivot="programming-language-java"
+[!INCLUDE [Java quickstart](includes/dictionary-java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Node.js quickstart](includes/dictionary-nodejs.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Python quickstart](includes/dictionary-python.md)]
 ::: zone-end
 
 ## <a name="see-also"></a>Consulte también

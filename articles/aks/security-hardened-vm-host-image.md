@@ -3,17 +3,16 @@ title: Protección de la seguridad en hosts de máquina virtual de AKS
 description: Más información sobre la protección de la seguridad en el sistema operativo de los hosts de máquina virtual de AKS
 services: container-service
 author: saudas
-ms.service: container-service
 ms.topic: article
 ms.date: 09/11/2019
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 8b7e50fdc02ab47c50cecb95073f1b51393db898
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d4105a9fba3c40c563198040afb811625727ead0
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885645"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594387"
 ---
 # <a name="security-hardening-in-aks-virtual-machine-hosts"></a>Protección de la seguridad en hosts de máquina virtual de AKS 
 

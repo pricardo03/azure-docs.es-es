@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b05eefb2a0e516772390f898c22e723b08973338
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 3f07105c14d4dafeb689eaaf7d679f93e5f235fe
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484458"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605336"
 ---
 # <a name="protected-web-api-code-configuration"></a>API web protegida: Configuración del código
 
@@ -109,7 +109,7 @@ El middleware se agrega a la API web mediante esta instrucción:
 
 ```csharp
  services.AddAuthentication(AzureADDefaults.JwtBearerAuthenticationScheme)
-         .AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
+         .AddAzureADBearer(options => Configuration.Bind("AzureAd", options));
 ```
 
  Actualmente, las plantillas de ASP.NET Core crean API web de Azure Active Directory (Azure AD) a las que se conectan usuarios dentro de su organización o de cualquier organización. No inician la sesión de los usuarios con cuentas personales. Sin embargo, puede agregar el código siguiente al archivo Startup.cs para cambiar las plantillas de modo que usen el punto de conexión de la plataforma de identidad de Microsoft:

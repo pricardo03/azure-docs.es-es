@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 709ac3a9f5e7cf0bd13a6e387f0b80caf2608fe0
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 10ea15168d61d5e73aff976ef641e07b6327dbca
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748463"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604570"
 ---
 # <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Validación de alertas (archivo de prueba EICAR) en Azure Security Center
 Este documento le ayuda a comprobar si el sistema está configurado correctamente para las alertas de Azure Security Center.
@@ -79,5 +79,4 @@ En este artículo se explicó el proceso de validación de las alertas. Ahora qu
 * [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): obtenga información sobre cómo supervisar el mantenimiento de los recursos de Azure.
 * [Comprender las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type): obtenga información sobre los distintos tipos de alertas de seguridad.
 * [Guía de solución de problemas de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide): aprenda a solucionar problemas comunes en Security Center.
-* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
 * [Blog de Azure Security](https://blogs.msdn.com/b/azuresecurity/): busque entradas de blog sobre el cumplimiento y la seguridad en Azure.

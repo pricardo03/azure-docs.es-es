@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 71a256b0350742f0e7a7b95519fafff5bc32f58b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a2b775afcd9e603a11b560bb7c42d6cf76be9b34
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928785"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597922"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Inicio rápido: Creación de una factoría de datos y una canalización con SDK de .NET
 
@@ -48,7 +48,7 @@ En las secciones de *Instrucciones: Uso del portal para crear una aplicación de
 1. En [Crear una aplicación de Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application), cree una aplicación que represente la aplicación .NET que se va a crear en este tutorial. Para la dirección URL de inicio de sesión, puede proporcionar una dirección URL ficticia, tal como se muestra en el artículo (`https://contoso.org/exampleapp`).
 2. En [Obtener valores para iniciar sesión](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in), obtenga el **identificador de aplicación** y el **identificador de inquilino** y tome nota de estos valores que se usa más adelante en este tutorial. 
 3. En [Certificados y secretos](../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets), obtenga la **clave de autenticación** y tome nota de este valor que se usa más adelante en este tutorial.
-4. En [Asignar la aplicación a un rol](../active-directory/develop/howto-create-service-principal-portal.md#assign-the-application-to-a-role), asigne la aplicación al rol **Colaborador** en el nivel de suscripción para que la aplicación pueda crear factorías de datos en la suscripción.
+4. En [Asignar la aplicación a un rol](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application), asigne la aplicación al rol **Colaborador** en el nivel de suscripción para que la aplicación pueda crear factorías de datos en la suscripción.
 
 ## <a name="create-a-visual-studio-project"></a>Creación de un proyecto de Visual Studio
 
@@ -175,7 +175,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(
 
 ## <a name="create-a-dataset"></a>Crear un conjunto de datos
 
-Agregue el código siguiente al método **main** que crea un **conjunto de datos de blob de Azure**.
+Agregue el código siguiente al método **Main** que crea un **conjunto de datos de blob de Azure**.
 
 Se define un conjunto de datos que representa los datos que se copian de un origen a un receptor. En este ejemplo, este conjunto de datos de blob hace referencia al servicio vinculado de Azure Storage que creó en el paso anterior. En el conjunto de datos se usa un parámetro cuyo valor se establece en una actividad que consume el conjunto de datos. El parámetro se usa para construir la ruta "folderPath" que apunta a la ubicación o al almacén de los datos.
 

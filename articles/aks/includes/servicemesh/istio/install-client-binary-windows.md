@@ -1,17 +1,16 @@
 ---
 author: paulbouwer
-ms.service: container-service
 ms.topic: include
 ms.date: 11/15/2019
 ms.author: pabouwer
-ms.openlocfilehash: a1a608b4f4e1afe4a3cf99229561a91cc3f9fa96
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 562382cc1cfb6adb7e65d76e717df4c4e2962ba7
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74170803"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594004"
 ---
-## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Descarga e instalación del binario de cliente istioctl de Istio
+## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Descargar e instalar el binario de cliente istioctl de Istio
 
 En un shell basado en PowerShell en Windows, use `Invoke-WebRequest` para descargar la versión de Istio y, a continuación, realice la extracción con `Expand-Archive`, como se indica a continuación:
 

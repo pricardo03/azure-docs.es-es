@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d989a515a1a3c1dc12ca357a3ab2126e78800ffa
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f04bd7788a9cc9657e14aedfb153182d6e53eb95
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024414"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562248"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>Visualización de asignación de roles personalizados en Azure Active Directory
 
@@ -85,7 +85,7 @@ La solicitud HTTP para obtener una asignación de roles para una definición de 
 GET
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal&$filter=roleDefinitionId eq ‘<object-id-or-template-id-of-role-definition>’
+https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments&$filter=roleDefinitionId eq ‘<object-id-or-template-id-of-role-definition>’
 ```
 
 Response

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a01ebde09517cbe7f093dd56a8a4116e76e64e38
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 987c3ee7c90eb0bb793b96eb2771efbb258f16a4
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736769"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565509"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Uso compartido de cuentas con Azure AD
 
@@ -51,7 +51,7 @@ Los usuarios inician sesión una sola vez con sus cuentas profesionales. Estas c
 
 Las cuentas compartidas no solo aumentan la supervisión y mejoran la facilidad de uso, también optimizan la seguridad. Los usuarios con permisos para usar las credenciales no ven la contraseña compartida, sino que obtienen permiso para usar la contraseña como parte de un flujo de autenticación orquestado. Además, algunas aplicaciones de SSO con contraseña le ofrecen la opción de usar Azure AD para sustituir (actualizar) periódicamente las contraseñas. El sistema usa contraseñas largas y complejas, lo que aumenta la seguridad de la cuenta. Gracias a ello, el administrador puede conceder o revocar fácilmente el acceso a una aplicación y saber quién tiene acceso a la cuenta y quién ha accedido a ella previamente.
 
-Azure AD admite las cuentas compartidas de cualquier usuario de Enterprise Mobility Suite (EMS) o plan de licencias Azure AD Premium en todos los tipos de aplicaciones de inicio de sesión único con contraseña. Puede compartir las cuentas de las miles de aplicaciones previamente integradas en la galería de aplicaciones y puede agregar su propia aplicación de autenticación mediante contraseña con [aplicaciones de inicio de sesión único personalizadas](../manage-apps/configure-single-sign-on-portal.md).
+Azure AD admite las cuentas compartidas de cualquier usuario de Enterprise Mobility Suite (EMS) o plan de licencias Azure AD Premium en todos los tipos de aplicaciones de inicio de sesión único con contraseña. Puede compartir las cuentas de las miles de aplicaciones previamente integradas en la galería de aplicaciones y puede agregar su propia aplicación de autenticación mediante contraseña con [aplicaciones de inicio de sesión único personalizadas](../manage-apps/configure-single-sign-on-non-gallery-applications.md).
 
 Entre las características de Azure AD que permiten el uso compartido de las cuentas se incluyen las siguientes:
 

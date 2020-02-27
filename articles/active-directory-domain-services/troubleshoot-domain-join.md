@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: 73a76c4442bb8af70168e54a294f2cb100ff653c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 286e2ad460e98cfeceab52a3ac21bcba8da2cc7f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703652"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612811"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-ad-domain-services-managed-domain"></a>Solución de problemas de unión a un dominio administrado de Azure AD Domain Services
 
@@ -32,7 +32,7 @@ Si la máquina virtual no puede encontrar el dominio administrado de Azure AD 
 
 1. Asegúrese de que la máquina virtual está conectada a la misma red virtual, o a una del mismo nivel, que la subred que está habilitada para Azure AD DS. De lo contrario, la máquina virtual no podrá encontrar el dominio al que debe unirse ni establecer conexión con él.
     * Si la máquina virtual no está conectada a la misma red virtual, asegúrese de que el emparejamiento de red virtual o la conexión VPN esté *activa* o *conectada* para que el tráfico pueda fluir correctamente.
-1. Intente hacer ping al dominio utilizando el nombre del dominio administrado de Azure AD DS (por ejemplo, `ping aadds.contoso.com`).
+1. Intente hacer ping al dominio utilizando el nombre del dominio administrado de Azure AD DS (por ejemplo, `ping aaddscontoso.com`).
     * Si hay algún error en la respuesta de ping, intente hacer ping a las direcciones IP del dominio que aparecen en la página de información general del portal del dominio administrado de Azure AD DS; por ejemplo, `ping 10.0.0.4`.
     * Si puede hacer ping correctamente a la dirección IP pero no al dominio, es posible que DNS no esté configurado correctamente. Asegúrese de que ha configurado los servidores DNS del dominio administrado de Azure AD DS de la red virtual.
 1. Intente vaciar la memoria caché de resolución DNS de la máquina virtual; por ejemplo, `ipconfig /flushdns`.
@@ -53,7 +53,7 @@ Si aparece un cuadro de diálogo que le pide las credenciales para unirse al dom
 
 Para solucionar los problemas relacionados con las credenciales, consulte los siguientes pasos:
 
-1. Pruebe a usar el formato UPN para especificar las credenciales, por ejemplo `dee@contoso.onmicrosoft.com`. Asegúrese de que el UPN esté configurado correctamente en Azure AD.
+1. Pruebe a usar el formato UPN para especificar las credenciales, por ejemplo `dee@aaddscontoso.onmicrosoft.com`. Asegúrese de que el UPN esté configurado correctamente en Azure AD.
     * El atributo *SAMAccountName* de su cuenta se puede generar automáticamente si hay varios usuarios con el mismo prefijo UPN en el inquilino o si el prefijo UPN es demasiado largo. Por lo tanto, el formato del atributo *SAMAccountName* de su cuenta puede que no sea el que espera o el que usa en su dominio local.
 1. Pruebe a utilizar las credenciales de una cuenta de usuario que pertenezca al grupo *Administradores de DC de AAD* para unir máquinas virtuales al dominio administrado de Azure AD DS.
 1. Asegúrese de que la [sincronización de contraseñas esté habilitada][enable-password-sync] y espere el tiempo suficiente hasta que la sincronización inicial se complete.

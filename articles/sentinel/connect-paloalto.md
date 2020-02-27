@@ -3,7 +3,7 @@ title: Conexión de datos de Palo Alto Networks con Azure Sentinel | Microsoft D
 description: Aprenda a conectar datos de Palo Alto Networks a Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: a4b21d67-1a72-40ec-bfce-d79a8707b4e1
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: bfdf961906626b485f07ddd29da9b8509dc53cc0
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: a79b7a1448e1decb377aa0072261df068c366567
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610529"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588134"
 ---
 # <a name="connect-palo-alto-networks-to-azure-sentinel"></a>Conexión de Palo Alto Networks a Azure Sentinel
 
@@ -54,6 +54,6 @@ Configure Palo Alto Networks para reenviar mensajes de Syslog en formato CEF a s
 En este documento, ha aprendido a conectar dispositivos de Palo Alto Networks a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
 - Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use libros](tutorial-monitor-your-data.md) para supervisar sus datos.
+- [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
 
 

@@ -4,7 +4,7 @@ description: Guía de inicio rápido para la instalación manual de una única i
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 630f094ffc6c57a0137d1abc46476f5abe64f616
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 0090ffe977dee3e493d726c9eb4d151bcbeb503f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750380"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617244"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-virtual-machines"></a>Inicio rápido: Instalación manual de una única instancia de SAP HANA en Azure Virtual Machines
 ## <a name="introduction"></a>Introducción
@@ -29,7 +29,7 @@ Esta guía de inicio rápido le ayuda a configurar una instancia única de SAP H
 > [!NOTE]
 > En ella se describen las implementaciones de SAP HANA en máquinas virtuales de Azure. Para más información sobre cómo implementar SAP HANA en instancias grandes de HANA, consulte [Uso de SAP en Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started).
  
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 En esta guía se da por supuesto que está familiarizado con los conceptos básicos de la infraestructura como servicio (IaaS), por ejemplo:
  * Cómo implementar máquinas virtuales (VM) o redes virtuales mediante Azure Portal o PowerShell.
  * La interfaz de línea de comandos (CLI) multiplataforma de Azure, que incluye la opción para usar plantillas de notificación de objetos JavaScript (JSON).
@@ -85,7 +85,7 @@ Para más información sobre la supervisión de SAP en Azure:
 ### <a name="azure-vm-types"></a>Tipos de máquina virtual de Azure
 Los tipos de máquina virtual de Azure y los escenarios de carga de trabajo admitidos por SAP y que se usan con SAP HANA se documentan en [SAP certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html) (Plataformas IaaS certificadas por SAP). 
 
-Los tipos de máquina virtual de Azure que están certificadas por SAP para SAP NetWeaver o la capa de aplicación de S/4HANA se documentan en [SAP Note 1928533: SAP applications on Azure: Supported products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533/E) (Nota de SAP 1928533: Aplicaciones SAP en Azure: productos admitidos y tipos de máquina virtual de Azure).
+Los tipos de máquina virtual de Azure que están certificadas por SAP para SAP NetWeaver o la capa de aplicación de S/4HANA se documentan en [SAP Note 1928533: SAP applications on Azure: Supported products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533/E). (Nota de SAP 1928533: Aplicaciones de SAP en Azure: productos y tipos de máquina virtual de Azure admitidos)
 
 > [!NOTE]
 > La integración SAP-Linux-Azure no se admite en el modelo de implementación clásica, solo en Azure Resource Manager. 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 1bdd6552c3d418d761ffaf1df4ebb769421693f5
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: b27baed20d8e36bf5790036e2fdc0804a94a4ea1
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485002"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589443"
 ---
 # <a name="what-is-virtual-network-nat-public-preview"></a>¿Qué es Virtual Network NAT (versión preliminar pública)?
 
@@ -140,9 +140,6 @@ NAT está disponible actualmente en estas regiones:
 
 Las suscripciones deben estar registradas para permitir la participación en la versión preliminar pública.  La participación requiere un proceso de dos pasos y a continuación se proporcionan instrucciones tanto para la CLI de Azure como para Azure PowerShell.  La activación puede tardar varios minutos en completarse.
 
-> [!IMPORTANT]
-> Cuando haya [habilitado la versión preliminar](./nat-overview.md#enable-preview) de Virtual Network NAT en su suscripción, use https://aka.ms/natportal para acceder al portal.
-
 ### <a name="azure-cli"></a>Azure CLI
 
 1. Registre la suscripción a la versión preliminar pública
@@ -168,7 +165,7 @@ Las suscripciones deben estar registradas para permitir la participación en la 
 2. Active el registro
 
     ```azurepowershell-interactive
-      Register-AzProviderFeature -ProviderNamespace Microsoft.Network
+      Register-AzResourceProvider -ProviderNamespace Microsoft.Network
     ```
 
 ## <a name="pricing"></a>Precios
@@ -197,7 +194,6 @@ Queremos saber cómo podemos mejorar el servicio. Comparta sus [comentarios sobr
 
 - NAT es compatible con la dirección IP pública de la SKU estándar, el prefijo de IP pública y los recursos del equilibrador de carga.   Ni los recursos básicos (por ejemplo, el equilibrador de carga básico) ni los productos derivados de ellos son compatibles con NAT.  Los recursos básicos se deben colocar en una subred que no esté configurada con NAT.
 - Se admite la familia de direcciones IPv4.  NAT no interactúa con la familia de direcciones IPv6.
-- No se admiten grupos de seguridad de red en la subred ni NIC para flujos de salida a puntos de conexión públicos mediante NAT.
 - El registro de flujos de grupos de seguridad de red no se admite cuando se usa NAT.
 - NAT no puede abarcar varias redes virtuales.
 

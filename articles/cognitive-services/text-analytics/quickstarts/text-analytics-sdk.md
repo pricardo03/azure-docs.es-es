@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 01/23/2020
+ms.date: 02/24/2020
 ms.author: aahi
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 87cf5f226a8b2d1efcc0ee967d84f6e0002cb03d
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: c6883b9b79adfc4f91af354147d45ea27d806d78
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76987934"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614488"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Inicio rápido: Uso de la biblioteca cliente de Text Analytics
 
@@ -37,17 +37,6 @@ La biblioteca cliente de Text Analytics se puede usar para realizar las siguient
 > * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. En escenarios de producción, se recomienda usar los métodos asincrónicos por lotes para mayor rendimiento y escalabilidad. Para más información, consulte la siguiente documentación de referencia.
 
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-> [!IMPORTANT]
-> * La versión preliminar más reciente de Text Analytics API es `3.0-preview`, la cual incluye una versión preliminar pública de las funcionalidades mejoradas [Análisis de sentimiento](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) y [Reconocimiento de entidades con nombre (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). La versión estable más reciente es `2.1`.
->    * Asegúrese de seguir únicamente las instrucciones de la versión que está usando.
-> * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. En escenarios de producción, se recomienda usar los métodos asincrónicos por lotes para mayor rendimiento y escalabilidad. Para más información, consulte la siguiente documentación de referencia. 
-
-[!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
 
 ::: zone-end
 
@@ -73,6 +62,17 @@ La biblioteca cliente de Text Analytics se puede usar para realizar las siguient
 
 ::: zone-end
 
+::: zone pivot="programming-language-python"
+
+> [!IMPORTANT]
+> * La versión preliminar más reciente de Text Analytics API es `3.0-preview`, la cual incluye una versión preliminar pública de las funcionalidades mejoradas [Análisis de sentimiento](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) y [Reconocimiento de entidades con nombre (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). La versión estable más reciente es `2.1`.
+>    * Asegúrese de seguir únicamente las instrucciones de la versión que está usando.
+> * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. En escenarios de producción, se recomienda usar los métodos asincrónicos por lotes para mayor rendimiento y escalabilidad. Para más información, consulte la siguiente documentación de referencia. 
+
+[!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
+
+::: zone-end
+
 ::: zone pivot="programming-language-other"
 
 ## <a name="additional-language-support"></a>Compatibilidad para lenguajes adicionales
@@ -81,8 +81,8 @@ Si ha hecho clic en esta pestaña, es probable que no vea un inicio rápido en s
 
 | Idioma | Versión disponible | 
 |----------|------------------------|
-| Ruby     | [Versión 2.1](ruby-sdk.md)          | 
-| Go       | [Versión 2.1](go-sdk.md)          | 
+| Ruby     | [Versión 2.1](ruby-sdk.md) | 
+| Go       | [Versión 2.1](go-sdk.md) | 
 
 ::: zone-end
 

@@ -2,17 +2,14 @@
 title: Limitación del acceso a kubeconfig en Azure Kubernetes Service (AKS)
 description: Aprenda a controlar el acceso al archivo de configuración de Kubernetes (kubeconfig) de los administradores y los usuarios de los clústeres
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 01/28/2020
-ms.author: mlearned
-ms.openlocfilehash: 8b9b1bf2a24002d606659c81e6fc426614fd5fd6
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: 25c710cce2855d6af985d3f46082f47573bbc101
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114200"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595882"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Uso de los controles de acceso basados en roles de Azure para definir el acceso al archivo de configuración de Kubernetes en Azure Kubernetes Service (AKS)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
-ms.openlocfilehash: c389fd72d9b185bc920ffeefdfb84e05b3d13001
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 10e1081c7a91c65c21ffcb3da66930fb7c6e73bb
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200714"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603453"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Informe de inteligencia frente a amenazas de Azure Security Center
 En este documento se explica cómo los informes de inteligencia frente a amenazas de Azure Security Center pueden ayudarle a aprender más sobre una amenaza que ha generado una alerta de seguridad.
@@ -65,11 +65,9 @@ Puede revisar las alertas actuales en el icono **Alertas de seguridad** . Abra A
 
 Desde aquí puede descargar el PDF de este informe y leer más sobre el problema de seguridad que se ha detectado para actuar en función de la información proporcionada.
 
-## <a name="see-also"></a>Otras referencias
-En este documento, ha aprendido cómo los informes de inteligencia frente a amenazas de Azure Security Center pueden ayudar durante una investigación sobre alertas de seguridad. Para obtener más información sobre el Centro de seguridad de Azure, consulte los siguientes recursos:
+## <a name="see-also"></a>Consulte también
+En este documento, ha aprendido cómo los informes de inteligencia frente a amenazas de Azure Security Center pueden ayudar durante una investigación sobre alertas de seguridad. Para obtener más información sobre Azure Security Center, consulte los siguientes recursos:
 
-* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md). Preguntas más frecuentes acerca del uso del servicio.
 * [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md). Aprenda a planificar y entender las consideraciones de diseño para adoptar Azure Security Center.
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md). Aprenda a administrar y responder a las alertas de seguridad.
 * [Control de incidentes de seguridad en Azure Security Center](security-center-incident.md)
-* [Blog de seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/). Encuentre artículos de blog sobre el cumplimiento y la seguridad de Azure.

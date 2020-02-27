@@ -7,26 +7,26 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3ce754a67643f4506fa825f0780969dc4a06f826
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 38339defc9d06f3e809bc24f957ebbb30abb46d3
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299587"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598789"
 ---
 # <a name="how-to-deploy-azure-files"></a>Implementación de Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el protocolo SMB estándar. Este artículo le mostrará cómo implementar de forma práctica Azure Files dentro de su organización.
 
 Se recomienda encarecidamente leer [Planning for an Azure Files deployment](storage-files-planning.md) (Planear una implementación de Azure Files) antes de seguir los pasos descritos en este artículo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 En este artículo se supone que ya ha completado los siguientes pasos:
 
 - Ha creado una cuenta de Azure Storage con las opciones de resistencia y cifrado deseadas en la región que quería. Consulte [Acerca de las cuentas de almacenamiento de Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obtener instrucciones paso a paso sobre cómo crear una cuenta de almacenamiento.
 - Ha creado un recurso compartido de archivos de Azure con su cuota deseada en su cuenta de almacenamiento. Consulte [Creación de un recurso compartido de archivos en Azure File Storage](storage-how-to-create-file-share.md) para obtener instrucciones paso a paso sobre cómo crear un recurso compartido de archivos.
 
 ## <a name="transfer-data-into-azure-files"></a>Transferencia de datos a Azure Files
-Puede migrar los recursos compartidos de archivos existentes, como los almacenados localmente, al nuevo recurso compartido de archivos de Azure. En esta sección se mostrará cómo mover datos a un recurso compartido de archivos de Azure mediante varios métodos populares que se detallan en la [guía de planeamiento](storage-files-planning.md#data-transfer-method).
+Puede migrar los recursos compartidos de archivos existentes, como los almacenados localmente, al nuevo recurso compartido de archivos de Azure. En esta sección se mostrará cómo mover datos a un recurso compartido de archivos de Azure mediante varios métodos populares que se detallan en la [guía de planeamiento](storage-files-planning.md#migration).
 
 ### <a name="azure-file-sync"></a>Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello, transforma los servidores de Windows Server en una caché rápida del recurso compartido de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
@@ -88,7 +88,7 @@ Los pasos siguientes importarán datos desde una ubicación local a un recurso c
 7. [Cree un trabajo de importación](../common/storage-import-export-data-to-files.md#step-2-create-an-import-job).
     
 ### <a name="robocopy"></a>Robocopy
-Robocopy es una herramienta de copia conocida que se incluye con Windows y Windows Server. Robocopy puede utilizarse para transferir datos a Azure Files montando el recurso compartido de archivos localmente y luego utilizando la ubicación montada como destino en el comando Robocopy. El uso de Robocopy es bastante sencillo:
+Robocopy es una herramienta de copia conocida que se incluye con Windows y Windows Server. Robocopy puede usarse para transferir datos a Azure Files al montar el recurso compartido de archivos localmente y luego usar la ubicación montada como destino en el comando de Robocopy. El uso de Robocopy es bastante sencillo:
 
 1. [Monte un recurso compartido de archivos de Azure](storage-how-to-use-files-windows.md). Para obtener un rendimiento óptimo, es aconsejable montar el recurso compartido de archivos de Azure localmente, en el servidor que contiene los datos. En algunos casos, por ejemplo, cuando el servidor de archivos que proporciona los datos es un dispositivo NAS, esto puede no ser posible. En ese caso, es totalmente aceptable montar el recurso compartido de archivos de Azure en un equipo. En este ejemplo, `net use` se utiliza en la línea de comandos para montar el recurso compartido de archivos:
 

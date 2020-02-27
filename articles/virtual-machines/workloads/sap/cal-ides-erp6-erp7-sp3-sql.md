@@ -4,7 +4,7 @@ description: Implementación de SAP IDES EHP7 SP3 para SAP ERP 6.0 en Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.openlocfilehash: 66921280403027d1723b27f104b42d2c83271213
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3efd92226b7c69590f3960458ffec49b63b8364f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100063"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616707"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Implementación de SAP IDES EHP7 SP3 para SAP ERP 6.0 en Azure
 En este artículo se describe cómo implementar un sistema SAP IDES que se ejecuta con SQL Server y el sistema operativo Windows en Azure por medio de SAP Cloud Appliance Library (SAP CAL) 3.0. Las capturas de pantalla muestran el proceso paso a paso. Para implementar otra solución, siga los mismos pasos.
@@ -105,7 +105,7 @@ Ha creado correctamente una cuenta de SAP CAL que puede:
 
     ![SAP CAL Basic Mode: Create Instance](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
 
-1. Haga clic en **Create**(Crear). Después de un tiempo, y en función del tamaño y la complejidad de la solución (SAP CAL ofrece una estimación), el estado pasa mostrarse como activo y listo para usarse: 
+1. Haga clic en **Crear**. Después de un tiempo, y en función del tamaño y la complejidad de la solución (SAP CAL ofrece una estimación), el estado pasa mostrarse como activo y listo para usarse: 
 
     ![Instancias de SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic12a.png)
 

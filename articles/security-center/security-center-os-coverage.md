@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 6ec818ff77664fcc038412f79fffc1e3e05b82f0
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 089fcc89f330e47a09187b5338176bf23fd801bb
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294259"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603755"
 ---
 # <a name="supported-platforms"></a>Plataformas compatibles 
 
@@ -127,5 +127,3 @@ También se admite la protección para las máquinas virtuales que residan en Az
 - Aprenda a [planear y entender las consideraciones de diseño para adoptar Azure Security Center](security-center-planning-and-operations-guide.md).
 - Obtenga información [sobre las características disponibles para los diferentes entornos de nube](security-center-services.md).
 - Obtenga más información sobre la [detección de amenazas en VM y servidores en Azure Security Center](security-center-alerts-iaas.md).
-- Consulte las [preguntas más frecuentes sobre Azure Security Center](security-center-faq.md).
-- Encuentre [artículos de blog sobre el cumplimiento y la seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/).

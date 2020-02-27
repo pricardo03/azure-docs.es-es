@@ -2,18 +2,15 @@
 title: 'Inicio rápido: Creación de un clúster de Azure Kubernetes Service (AKS)'
 description: Aprenda a crear rápidamente un clúster de Kubernetes con una plantilla de Azure Resource Manager y a implementar una aplicación en Azure Kubernetes Service (AKS).
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
-ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 307074618cae75ba57be219b4f975e2aec279682
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 5fe82dbce2069b0ae1a88599d020f4ba6b116027
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255502"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595338"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS) con una plantilla de Azure Resource Manager
 
@@ -29,7 +26,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Si decide instalar y usar la CLI localmente, para este inicio rápido es preciso ejecutar la CLI de Azure versión 2.0.61 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para crear un clúster de AKS con una plantilla de Resource Manager, proporcione una clave pública SSH y la entidad de servicio de Azure Active Directory. Si necesita cualquiera de estos recursos, consulte la siguiente sección; de lo contrario, vaya a la sección [Create an AKS cluster](#create-an-aks-cluster) (Creación de un clúster de AKS).
 
@@ -96,7 +93,7 @@ La plantilla que se usa en este inicio rápido es para [implementar un clúster 
 
 El clúster de AKS tarda unos minutos en crearse. Espere a que el clúster se implemente correctamente para pasar al siguiente paso.
 
-## <a name="connect-to-the-cluster"></a>Conexión al clúster
+## <a name="connect-to-the-cluster"></a>Conectarse al clúster
 
 Para administrar un clúster de Kubernetes, usará [kubectl][kubectl], el cliente de línea de comandos de Kubernetes. Si usa Azure Cloud Shell, `kubectl` ya está instalado. Para instalar `kubectl` localmente, use el comando [az aks install-cli][az-aks-install-cli]:
 
@@ -110,7 +107,7 @@ Para configurar `kubectl` para conectarse a su clúster de Kubernetes, use el co
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Para comprobar la conexión con el clúster, use el comando [kubectl get][kubectl-get] para que devuelva una lista de los nodos del clúster.
+Para comprobar la conexión al clúster, use el comando [kubectl get][kubectl-get] para devolver una lista de los nodos del clúster.
 
 ```azurecli-interactive
 kubectl get nodes

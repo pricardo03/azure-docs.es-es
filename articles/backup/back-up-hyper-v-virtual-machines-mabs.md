@@ -3,12 +3,12 @@ title: Copia de seguridad de máquinas virtuales de Hyper-V con MABS
 description: Este artículo contiene los procedimientos para realizar copias de seguridad y recuperar máquinas virtuales mediante Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: 69e415b5aef179c2b64bb04e933593010c8b47d3
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: e23a3a5ad57e07f95958d8a21e091d663a5c1185
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444067"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586519"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Copia de seguridad de máquinas virtuales de Hyper-V con Azure Backup Server
 
@@ -145,7 +145,7 @@ Para configurar la protección para la migración en vivo:
 
 3. Asigne la cuenta MABSMachineName$ como una cuenta de administrador de solo lectura en el servidor de administración VMM.
 
-4. Conecte todos los servidores host de Hyper-V a todos los servidores MABS con el cmdlet `Set-DPMGlobalProperty` de PowerShell. El cmdlet acepta varios nombres de servidor MABS. Utilice el formato: `Set-DPMGlobalProperty -dpmservername <MABSservername> -knownvmmservers <vmmservername>`. Para más información, vea [Set-DPMGlobalProperty](https://technet.microsoft.com/library/hh881752.aspx).
+4. Conecte todos los servidores host de Hyper-V a todos los servidores MABS con el cmdlet `Set-DPMGlobalProperty` de PowerShell. El cmdlet acepta varios nombres de servidor MABS. Utilice el formato: `Set-DPMGlobalProperty -dpmservername <MABSservername> -knownvmmservers <vmmservername>`. Para más información, vea [Set-DPMGlobalProperty](https://docs.microsoft.com/powershell/module/dataprotectionmanager/set-dpmglobalproperty?view=systemcenter-ps-2019).
 
 5. Una vez detectadas en VMM todas las máquinas virtuales que se ejecutan en los hosts de Hyper-V de las nubes de VMM, configure un grupo de protección y agregue las máquinas virtuales que quiera proteger. Las comprobaciones de coherencia automáticas deben estar habilitadas en el nivel de grupo de protección para la protección en escenarios de movilidad de máquinas virtuales.
 

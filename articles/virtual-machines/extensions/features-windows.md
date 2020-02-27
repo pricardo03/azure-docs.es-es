@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 69d08af9fd34728860343db3578f7283802f1611
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 4eb212cb6122803f78b13e6c17a55bac5bc48286
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544759"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587879"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Características y extensiones de las máquinas virtuales para Windows
 
@@ -36,13 +36,13 @@ Varias extensiones de máquina virtual de Azure diferentes están disponibles, c
 
 - Aplique configuraciones de estado deseado de PowerShell a una máquina virtual con la extensión DSC para Windows. Para obtener más información, consulte la sección sobre la [extensión de configuración de estado deseado de Azure](dsc-overview.md).
 - Configure la supervisión de una máquina virtual con la extensión de máquina virtual del agente de Log Analytics. Para más información, consulte el artículo sobre la [conexión de máquinas virtuales de Azure a registros de Azure Monitor](../../log-analytics/log-analytics-azure-vm-extension.md).
-- Configure una máquina virtual de Azure con Chef. Para más información, consulte el artículo sobre [automatización de la implementación de máquinas virtuales de Azure con Chef](../windows/chef-automation.md).
+- Configure una máquina virtual de Azure con Chef. Para más información, consulte el artículo sobre [automatización de la implementación de máquinas virtuales de Azure con Chef](../../chef/chef-automation.md).
 - Configure la supervisión de su infraestructura de Azure con la extensión de Datadog. Para obtener más información, consulte el [blog de Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 
 Además de las extensiones específicas de proceso, una extensión de script personalizado está disponible tanto para máquinas virtuales Windows como para máquinas virtuales Linux. La extensión de script personalizado para Windows permite que se ejecute cualquier script de PowerShell en una máquina virtual. Los scripts personalizados resultan útiles para diseñar implementaciones de Azure que requieren una configuración más allá de lo que las herramientas de Azure nativas pueden proporcionar. Para obtener más información, consulte la sección sobre la [extensión de script personalizado de máquina virtual Windows](custom-script-windows.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para controlar la extensión en la VM, debe tener instalado el Agente Windows de Azure. Algunas extensiones individuales tienen requisitos previos, como el acceso a los recursos o las dependencias.
 

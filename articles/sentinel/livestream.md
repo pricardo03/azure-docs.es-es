@@ -3,7 +3,7 @@ title: Use el streaming en vivo de búsqueda de Azure Sentinel para detectar ame
 description: En este artículo se describe cómo usar el streaming en vivo de búsqueda de Azure Sentinel para llevar un seguimiento de los datos.
 services: sentinel
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -14,13 +14,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2019
-ms.author: cabailey
-ms.openlocfilehash: 5b347848c9c6a58a70ab1093a6f9c70b62f3f769
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.author: yelevin
+ms.openlocfilehash: b392644e504fa8187e637278bef8718c9c2caa3f
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900454"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582133"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Uso del streaming en vivo de búsqueda de Azure Sentinel para detectar amenazas
 

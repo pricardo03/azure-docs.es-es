@@ -11,24 +11,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: d1e34a493b747383ce479bcad638098b41e59d2b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 363e5705e9ccf4aa207ff7e5cafb615bc01bc7d3
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73587057"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77538947"
 ---
 # <a name="dashboard-for-classroom-labs"></a>Panel para laboratorios educativos
 En este artículo se describe la vista de panel de un laboratorio educativo en Azure Lab Services. 
 
-![panel](../media/use-dashboard/dashboard.png)
+![Panel](../media/use-dashboard/dashboard.png)
 
 ## <a name="costs-and-billing-tile"></a>Icono de costos y facturación
 En este icono se proporcionan los siguientes detalles de la estimación de costos:
 
-| Configuración | Valor | 
+| Configuración | Value | 
 | ------- | ----- | 
 | Horas de cuota | El número máximo de horas que un usuario puede usar la máquina virtual fuera de las horas programadas. |
 | Horas programadas | Horas en las que se incurrirá en función de la programación establecida en el laboratorio. Este valor solo está disponible si se ha establecido una fecha en formato desde/hasta en todos los eventos de programación. |

@@ -2,7 +2,7 @@
 title: Conexión de datos de inteligencia sobre amenazas con Azure Sentinel | Microsoft Docs
 description: Obtenga información sobre cómo conectar datos de inteligencia sobre amenazas a Azure Sentinel.
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: security-center
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
-ms.author: cabailey
-ms.openlocfilehash: 33edeb04e88a01efafaf69b850ed87120671ed11
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.author: yelevin
+ms.openlocfilehash: 5c79642d287224cd15531701d7cc87ebfd72eb69
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384134"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588049"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Conectar datos de proveedores de inteligencia sobre amenazas
 
@@ -54,13 +54,13 @@ Puede transmitir los indicadores de amenazas a Azure Sentinel mediante uno de lo
 
 ## <a name="connect-azure-sentinel-to-your-threat-intelligence-platform"></a>Conexión de Azure Sentinel a su plataforma de inteligencia sobre amenazas
 
-## <a name="prerequisites"></a>Requisitos previos  
+## <a name="prerequisites"></a>Prerrequisitos  
 
 - Rol de Azure AD de administrador global o de administrador de seguridad para conceder permisos al producto TIP o a la aplicación personalizada que usa integración directa con Microsoft Graph Security tiIndicators API.
 
 - Permisos de lectura y escritura en el área de trabajo de Azure Sentinel para almacenar los indicadores de amenazas.
 
-## <a name="instructions"></a>Instrucciones
+## <a name="instructions"></a>Instructions
 
 1. [Registre una aplicación](/graph/auth-v2-service#1-register-your-app) en Azure Active Directory para obtener un identificador de aplicación, un secreto de aplicación y un identificador de inquilino de Azure Active Directory. Necesitará estos valores para cuando configure el producto TIP o la aplicación integrada que usa la integración directa con Microsoft Graph Security tiIndicators API.
 
@@ -84,13 +84,13 @@ Puede transmitir los indicadores de amenazas a Azure Sentinel mediante uno de lo
 
 ## <a name="connect-azure-sentinel-to-taxii-servers"></a>Conexión de Azure Sentinel con servidores TAXII
 
-## <a name="prerequisites"></a>Requisitos previos  
+## <a name="prerequisites"></a>Prerrequisitos  
 
 - Permisos de lectura y escritura en el área de trabajo de Azure Sentinel para almacenar los indicadores de amenazas.
 
 - Identificador de colección y URI del servidor TAXII 2.0.
 
-## <a name="instructions"></a>Instrucciones
+## <a name="instructions"></a>Instructions
 
 1. En Azure Portal, vaya a **Azure Sentinel** > **Data connectors** (Conectores de datos) y, a continuación, seleccione el conector **Inteligencia sobre amenazas: TAXII (versión preliminar)** .
 

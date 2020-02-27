@@ -3,7 +3,7 @@ title: Conectar datos de Fortinet a Azure Sentinel| Microsoft Docs
 description: Aprenda a conectar datos de Fortinet a Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: add92907-0d7c-42b8-a773-f570f2d705ff
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: 3ed83f794cdb92f709cbf5c0ea236a5a9b4c187b
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: aabc95fcb8d3b32b89bb83f4f6892c3d40b03417
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610546"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588202"
 ---
 # <a name="connect-fortinet-to-azure-sentinel"></a>Conexión de Fortinet a Azure Sentinel
 
@@ -39,7 +39,6 @@ Configure Fortinet para reenviar mensajes de Syslog en formato CEF a su área de
         config log syslogd setting
         set format cef
         set port 514
-        set reliable disable
         set server <ip_address_of_Receiver>
         set status enable
         end
@@ -60,6 +59,6 @@ Configure Fortinet para reenviar mensajes de Syslog en formato CEF a su área de
 En este artículo, ha aprendido a conectar dispositivos Fortinet a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
 - Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use libros](tutorial-monitor-your-data.md) para supervisar sus datos.
+- [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
 
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 11754e8e98e13cffefaf4a8c1fa08bc60d650105
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 7dd49df782115c8c328eed819395209ee7217fd3
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69016543"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566070"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Introducción a la entrega de contenido a petición mediante .NET SDK  
 
@@ -27,7 +27,7 @@ ms.locfileid: "69016543"
 
 Este tutorial le guiará por los pasos necesarios para implementar un servicio básico de entrega de contenido de vídeo bajo demanda (VoD) con la aplicación de Azure Media Services (AMS) mediante el SDK de .NET para Azure Media Services.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Estos son los requisitos previos para completar el tutorial.
 
@@ -49,7 +49,7 @@ Este tutorial incluye las siguientes tareas:
 ## <a name="overview"></a>Información general
 Este tutorial le guiará por los pasos necesarios para implementar una aplicación de entrega de contenido de vídeo a petición (VoD) con el SDK de Azure Media Services (AMS) para .NET.
 
-Presenta el flujo de trabajo básico de Media Services y la mayoría de los objetos y tareas de programación más comunes necesarios para el desarrollo de servicios multimedia. Al término del tutorial, podrá transmitir o cargar progresivamente un archivo multimedia de ejemplo que cargó, codificó y descargó.
+Presenta el flujo de trabajo básico de Media Services y la mayoría de los objetos y tareas de programación más comunes necesarios para el desarrollo de Media Services. Al término del tutorial, podrá transmitir o cargar progresivamente un archivo multimedia de ejemplo que cargó, codificó y descargó.
 
 ### <a name="ams-model"></a>Modelo AMS
 
@@ -152,7 +152,7 @@ La función **Main** llama a métodos que se definirán más adelante en esta se
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>Creación de un nuevo recurso y carga de un archivo de vídeo
 
-En Media Services, cargará (o especificará) los archivos digitales en un recurso. La entidad **Recurso** puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos acerca de estos archivos).  Una vez cargados los archivos, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming. Los archivos del recurso se denominan **archivos de recursos**.
+En Media Services, cargará (o ingerirá) los archivos digitales en un recurso. La entidad **Recurso** puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos acerca de estos archivos).  Una vez cargados los archivos, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming. Los archivos del recurso se denominan **archivos de recursos**.
 
 El método **UploadFile** definido a continuación llama a **CreateFromFile** (definido en las extensiones del SDK para .NET). **CreateFromFile** crea un nuevo recurso en el que se carga el archivo de origen especificado.
 
@@ -238,7 +238,7 @@ Agregue el método siguiente a la clase Program
 
 ## <a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>Publicación del recurso y obtención de direcciones URL para streaming y descarga progresiva
 
-Para transmitir o descargar un recurso, necesita "publicarlo" mediante la creación de un localizador. Los localizadores proporcionan acceso a los archivos contenidos en el recurso. Media Services admite dos tipos de localizadores: OnDemandOrigin, utilizados para transmitir contenido (por ejemplo, MPEG DASH, HLS o Smooth Streaming) y localizadores de firma de acceso (SAS), que se usan para descargar archivos multimedia.
+Para transmitir o descargar un recurso, necesita "publicarlo" mediante la creación de un localizador. Los localizadores proporcionan acceso a los archivos contenidos en el recurso. Media Services admite dos tipos de localizadores: OnDemandOrigin, usados para transmitir contenido (por ejemplo, MPEG DASH, HLS o Smooth Streaming) y localizadores de firma de acceso (SAS), que se usan para descargar archivos multimedia.
 
 ### <a name="some-details-about-url-formats"></a>Algunos detalles sobre los formatos de direcciones URL
 
@@ -254,7 +254,7 @@ Una vez creados los localizadores, puede generar las direcciones URL que se van 
 
 #### <a name="a-streaming-url-for-smooth-streaming-has-the-following-format"></a>Una dirección URL de streaming de Smooth Streaming tiene el formato siguiente:
 
-{nombre de punto de conexión de streaming-nombre de cuenta de Media Services}.streaming.mediaservices.windows.net/{Id. de localizador}/{nombre de archivo}.ism/Manifest
+{nombre de extremo de streaming-nombre de cuenta de servicios multimedia}.streaming.mediaservices.windows.net/{Id. de localizador}/{filename}.ism/Manifest
 
 
 #### <a name="a-sas-url-used-to-download-files-has-the-following-format"></a>Una dirección URL de SAS utilizada para descargar archivos tiene el formato siguiente:
@@ -375,10 +375,9 @@ Para transmitir el vídeo, copie la dirección URL en el cuadro de texto URL de 
 
 Para probar la descarga progresiva, pegue una dirección URL en un explorador (por ejemplo, Internet Explorer, Chrome o Safari).
 
-Para obtener más información, consulte los temas siguientes:
+Para obtener más información, vea los temas siguientes:
 
 - [Reproducir contenido con reproductores existentes](media-services-playback-content-with-existing-players.md)
-- [Desarrollo de aplicaciones para reproductor de vídeo](media-services-develop-video-players.md)
 - [Incrustación de un vídeo de streaming adaptativo MPEG-DASH en una aplicación HTML5 con DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 
 ## <a name="download-sample"></a>Descarga de un ejemplo

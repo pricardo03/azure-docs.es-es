@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 64df1188692ae9f1b6200ad880a2bf1eafd98844
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: b53405d199072211304e21b681de646c4e41243c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77483234"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585635"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Administrar cuentas de usuario de Azure AD B2C con Microsoft Graph
 
@@ -39,7 +39,7 @@ Las siguientes operaciones de administración de usuarios están disponibles en 
 - [Obtención de una lista de usuarios](https://docs.microsoft.com/graph/api/user-list)
 - [Creación de un usuario](https://docs.microsoft.com/graph/api/user-post-users)
 - [Obtención de un usuario](https://docs.microsoft.com/graph/api/user-get)
-- [Actualización de un usuario](https://docs.microsoft.com/graph/api/user-update)
+- [Actualizar usuario](https://docs.microsoft.com/graph/api/user-update)
 - [Eliminar un usuario](https://docs.microsoft.com/graph/api/user-delete)
 
 ## <a name="user-properties"></a>Propiedades de usuario
@@ -180,7 +180,7 @@ public static async Task ListUsers(GraphServiceClient graphClient)
 }
 ```
 
-El documento [Realizar llamadas API con los SDK de Microsoft Graph](https://docs.microsoft.comgraph/sdks/create-requests) incluye información sobre cómo leer y escribir información de Microsoft Graph, usar `$select` para controlar las propiedades devueltas, proporcionar parámetros de consulta personalizados y usar los parámetros de consulta `$filter` y `$orderBy`.
+El documento [Realizar llamadas API con los SDK de Microsoft Graph](https://docs.microsoft.com/graph/sdks/create-requests) incluye información sobre cómo leer y escribir información de Microsoft Graph, usar `$select` para controlar las propiedades devueltas, proporcionar parámetros de consulta personalizados y usar los parámetros de consulta `$filter` y `$orderBy`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

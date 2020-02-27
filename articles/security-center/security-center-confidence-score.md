@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: memildin
-ms.openlocfilehash: ca2afaa9f4e01ac56657681ce71e32e3c5375fdf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8aa17f473c550c99d91862754e6a746575aca202
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355645"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604385"
 ---
 # <a name="alert-confidence-score-preview"></a>Puntuación de confianza de la alerta (versión preliminar)
 
@@ -47,14 +47,6 @@ Para ver los datos que han contribuido a la confianza de Security Center en una 
   ![Puntuación de confianza sospechosa][2]
 
 Use la puntuación de confianza de Security Center para clasificar por orden de prioridad las alertas del entorno. La puntuación de confianza le permite ahorrar tiempo y esfuerzos mediante la investigación automática de las alertas, la aplicación de procedimientos recomendados del sector y algoritmos inteligentes y la actuación como analista virtual para determinar qué amenazas son reales y en cuáles debe centrar su atención.
-
-
-## <a name="next-steps"></a>Pasos siguientes
-En este artículo se explica cómo usar la puntuación de confianza para clasificar por orden de prioridad la investigación de las alertas. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
-
-* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
-* [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): aprenda a supervisar el estado de los recursos de Azure.
-
 
 
 <!--Image references-->

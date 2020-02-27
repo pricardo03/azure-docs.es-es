@@ -3,16 +3,15 @@ title: 'Procedimientos recomendados para desarrolladores: Administración de rec
 description: Obtenga más información acerca de los procedimientos recomendados para desarrolladores de aplicaciones para la administración de recursos en Azure Kubernetes Services (AKS).
 services: container-service
 author: zr-msft
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: e98a1f49ebf0fd8811be8efe8d001d450959369a
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 66676c90e73d1886c86d8afda8cbbecce239a005
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549247"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596035"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para desarrolladores de aplicaciones para administrar recursos en Azure Kubernetes Services (AKS)
 

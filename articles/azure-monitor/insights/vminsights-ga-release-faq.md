@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
-ms.openlocfilehash: 673cda4005d9c985d8d6ee5ef1d28a3d8c241ac0
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 883f24e529f9479f0c6ee6597c1324a0089ece7b
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482891"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620374"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Monitor para VM disponible de forma general (GA): preguntas más frecuentes
 
@@ -25,8 +25,6 @@ Se ha publicado una nueva versión de Azure Monitor para VM. Los clientes que ha
 Con esta actualización, los datos de rendimiento de Azure Monitor para VM se almacenan en la misma tabla *InsightsMetrics* que [Azure Monitor para contenedores](container-insights-overview.md), lo que facilita la consulta de los dos conjuntos de datos. Además, puede almacenar conjuntos de datos más diversos que no podíamos almacenar en la tabla utilizada anteriormente. 
 
 Ahora nuestras vistas de rendimiento usan los datos que almacenamos en la tabla *InsightsMetrics*.  Si aún no ha llevado a cabo la actualización para usar la solución de VMInsights más reciente en el área de trabajo, los gráficos ya no mostrarán información.  Puede actualizar desde nuestra página **Get Started** como se describe a continuación.
-
-Con esta actualización, los datos de rendimiento de Azure Monitor para VM se almacenan en la misma tabla *InsightsMetrics* que [Azure Monitor para contenedores](container-insights-overview.md), lo que facilita la consulta de los dos conjuntos de datos. Además, puede almacenar conjuntos de datos más diversos que no podíamos almacenar en la tabla utilizada anteriormente. 
 
 Sabemos que pedir a los clientes existentes que realicen la actualización provoca una interrupción en su flujo de trabajo. Ese es el motivo por el que hemos decidido hacerlo ahora en versión preliminar pública, en lugar de hacerlo cuando lleguemos a la disponibilidad general.
 

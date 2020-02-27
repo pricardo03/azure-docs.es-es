@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8b64d933057b3ddb07f5f99889c7d7c23c74f545
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 6b7ceca196831484e8f49482b8a18ac8648cac6e
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873665"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585482"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Aprovisionamiento del rendimiento en una base de datos de Azure Cosmos DB
 
@@ -21,9 +21,9 @@ En este artículo se explica cómo aprovisionar el rendimiento en una base de da
 
 ### <a id="portal-sql"></a>SQL API (Core)
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-1. [Cree una cuenta de Azure Cosmos](create-sql-api-dotnet.md#create-account) o seleccione una ya existente.
+1. [Cree una cuenta de Azure Cosmos](create-sql-api-dotnet.md#create-account) o seleccione una ya existente.
 
 1. Abra el panel de **Data Explorer** y seleccione **Nueva base de datos**. Especifique los detalles siguientes:
 
@@ -48,7 +48,7 @@ Para crear una base de datos con capacidad de procesamiento compartida, consulte
 
 ### <a id="dotnet-all"></a>Todas las API
 
-### <a name="net-v2-sdk"></a>SDK para .NET V2
+### <a name="net-v2-sdk"></a>SDK de .NET V2
 
 ```csharp
 //set the throughput for the database
@@ -63,9 +63,9 @@ await client.CreateDatabaseIfNotExistsAsync(
     options);
 ```
 
-### <a name="net-v3-sdk"></a>SDK para .NET V3
+### <a name="net-v3-sdk"></a>SDK de .NET V3
 
-[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/DatabaseDocsSampleCode.cs?name=DatabaseCreateWithThroughput)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/DatabaseDocsSampleCode.cs" id="DatabaseCreateWithThroughput":::
 
 ### <a id="dotnet-cassandra"></a>Cassandra API
 Se pueden ejecutar comandos similares a través de cualquier controlador compatible con CQL. 

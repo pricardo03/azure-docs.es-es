@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: 0435198af09b087e1449541df078b47758148d42
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 6ab54e56368e7e26e807e4d1dc0592536dc9374a
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980561"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588766"
 ---
 # <a name="manage-azure-cosmos-db-table-api-resources-using-azure-resource-manager-templates"></a>Administrar recursos de Table API de Azure Cosmos DB con plantillas de Azure Resource Manager
 
@@ -25,7 +25,7 @@ Cree recursos de Azure Cosmos DB con una plantilla de Azure Resource Manager. Es
 > Los nombres de cuenta deben estar en minúsculas y tener un máximo de 44 caracteres.
 > Para actualizar las RU/s, vuelva a enviar la plantilla con los valores de propiedad de rendimiento actualizados.
 
-[!code-json[create-cosmos-table](~/quickstart-templates/101-cosmosdb-table/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-table/azuredeploy.json":::
 
 ### <a name="deploy-via-powershell"></a>Implementación mediante PowerShell
 

@@ -4,20 +4,20 @@ description: Guía de copia de seguridad para SAP HANA proporciona dos posibilid
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
-ms.author: rclaus
-ms.openlocfilehash: 05a4b8e8034e1c354a4209244694aeb2fc2c6007
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: hermannd
+ms.openlocfilehash: 8de83cbb7060e6ca5390720a4a241be71bb9dc92
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078742"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617429"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guía de copia de seguridad de SAP HANA en Azure Virtual Machines
 
@@ -131,7 +131,7 @@ La guía de administración de HANA proporciona una lista de ejemplo. Sugiere qu
 2. Copia de seguridad diferencial
 3. Copia de seguridad incremental 1
 4. Copia de seguridad incremental 2
-5. Copias de seguridad de registro
+5. Copias de seguridad de registros
 
 No es posible proporcionar una directriz general respecto a una programación exacta de como cuándo y con qué frecuencia debe realizarse un tipo de copia de seguridad específica. Depende mucho del cliente y de la cantidad de cambios de datos que se realicen en el sistema. Una recomendación básica del lado de SAP, que se puede ver como guía general, es realizar una copia de seguridad de HANA completa una vez a la semana.
 Con respecto a las copias de seguridad de registro, vea la documentación de SAP HANA [Copias de seguridad de registro](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/bb7e33bb571014a03eeabba4e37541/content.htm).

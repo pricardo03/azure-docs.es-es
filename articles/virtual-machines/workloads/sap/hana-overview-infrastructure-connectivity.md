@@ -3,8 +3,8 @@ title: Infraestructura y conectividad con SAP HANA en Azure (instancias grandes)
 description: Configure la infraestructura de conectividad necesaria para usar SAP HANA en Azure (instancias grandes).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 36f0b78f563bb4dda76f192259541d1c2b1fa060
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cea89087742f1987f693b8bfb627bd71038a0c14
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224670"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616918"
 ---
 # <a name="sap-hana-large-instances-deployment"></a>Implementación de SAP HANA (instancias grandes) 
 
@@ -31,7 +31,7 @@ Microsoft requiere la siguiente información para implementar unidades de instan
 - Información del contacto de la empresa (incluida la dirección de correo electrónico y el número de teléfono).
 - Información del contacto técnico (incluida la dirección de correo electrónico y el número de teléfono).
 - Información del contacto técnico de red (incluida la dirección de correo electrónico y el número de teléfono).
-- Región de implementación de Azure (por ejemplo, Oeste de EE. UU., Este de Australia o Europa del Norte).
+- Región de implementación de Azure (por ejemplo, Oeste de EE. UU., Este de Australia o Norte de Europa).
 - SKU de SAP HANA en Azure (instancias grandes) (configuración).
 - Para cada región de implementación de Azure:
     - Un intervalo de direcciones IP /29 para conexiones ER-P2P para conectar redes virtuales de Azure con HANA (instancias grandes).

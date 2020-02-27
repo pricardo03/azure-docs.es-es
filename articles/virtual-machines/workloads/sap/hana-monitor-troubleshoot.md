@@ -3,22 +3,22 @@ title: Solución de problemas y supervisión desde el lado de HANA en SAP HANA e
 description: Realice la solución problemas y supervisión desde el lado de HANA en SAP HANA en Azure (instancias grandes).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
-ms.author: rclaus
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2c596a876817f0a501025c37e463a7eebb55cf2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 047ea4d07f2b497ac8c7deb90c056d63976094f4
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099836"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617076"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Supervisión y solución de problemas en el lado HANA
 

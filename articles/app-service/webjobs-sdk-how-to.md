@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 715415929afaad36e4854e75a2b7b5360d22a6bf
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: c606f6e60b1c906a0d5c29992287d126aaa37b7b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486349"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602942"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Uso del SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -395,7 +395,7 @@ static async Task Main()
 }
 ```
 
-Para más información, consulte el artículo [Enlaces de Azure CosmosDB](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings).
+Para más información, consulte el artículo [Enlaces de Azure CosmosDB](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings).
 
 ### <a name="event-hubs-trigger-configuration-version-3x"></a>Configuración de desencadenador de Event Hubs (versión 3.*x*)
 
@@ -423,7 +423,7 @@ static async Task Main()
 }
 ```
 
-Para más información, consulte el artículo [Enlace de Event Hubs](../azure-functions/functions-bindings-event-hubs.md#hostjson-settings).
+Para más información, consulte el artículo [Enlace de Event Hubs](../azure-functions/functions-bindings-event-hubs-output.md#hostjson-settings).
 
 ### <a name="queue-storage-trigger-configuration"></a>Configuración del desencadenador de Queue Storage
 

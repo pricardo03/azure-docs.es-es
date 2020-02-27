@@ -2,17 +2,14 @@
 title: Creación de nodos virtuales mediante la CLI de Azure en Azure Kubernetes Service (AKS)
 description: Aprenda a usar la CLI de Azure para crear un clúster de Azure Kubernetes Service (AKS) que usa los nodos virtuales para ejecutar pods.
 services: container-service
-author: mlearned
 ms.topic: conceptual
-ms.service: container-service
 ms.date: 05/06/2019
-ms.author: mlearned
-ms.openlocfilehash: 2133d1aefe3363a2fb2af73c004e22ba0a0239ca
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 2b726dff1e2c23b94118a11fb6b6ccf1f9622d4d
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901511"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592751"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Creación y configuración de un clúster de Azure Kubernetes Service (AKS) para usar nodos virtuales mediante la CLI de Azure
 
@@ -54,7 +51,7 @@ Se admiten las siguientes regiones para las implementaciones de nodos virtuales:
 * Este de EE. UU. 2 (eastus2)
 * Japón Oriental (japaneast)
 * Norte de Europa (northeurope)
-* Sudeste Asiático (southeastasia)
+* Sudeste de Asia (southeastasia)
 * Centro-oeste de EE. UU. (westcentralus)
 * Oeste de Europa (westeurope)
 * Oeste de EE. UU. (westus)

@@ -3,7 +3,7 @@ title: Uso de varios inquilinos en Azure Sentinel para proveedores de servicios 
 description: Uso de varios inquilinos en Azure Sentinel para proveedores de servicios de MSSP
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: 34997fb3cd91e4540c76ecdd781d21e2ed1bdb07
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.author: yelevin
+ms.openlocfilehash: caa79b572d0024b93abd2d32ca99d92cc2a8b4bb
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241248"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582082"
 ---
 # <a name="work-with-multiple-tenants-in-azure-sentinel"></a>Uso de varios inquilinos en Azure Sentinel 
 
 Si es un proveedor de servicios de seguridad administrada (MSSP) y está usando [Azure Lighthouse](../lighthouse/overview.md) para administrar los centros de operaciones de seguridad (SOC) de sus clientes, podrá administrar los recursos de Azure Sentinel de sus clientes sin necesidad de conectarse directamente al inquilino del cliente, desde su propio inquilino de Azure. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 - [Incorporación de Azure Lighthouse](../lighthouse/how-to/onboard-customer.md)
 - Para que esto funcione correctamente, el inquilino debe estar registrado en el proveedor de recursos de Azure Sentinel en al menos una suscripción. Si tiene una cuenta de Azure Sentinel registrada en el inquilino, está listo para empezar. Si no es así, en Azure Portal, seleccione **Suscripciones** seguido de **Proveedores de recursos** y, después, busque `Microsoft.Security.Insights` y seleccione **Registrar**.
    ![Comprobar los proveedores de recursos](media/multiple-tenants-service-providers/check-resource-provider.png)

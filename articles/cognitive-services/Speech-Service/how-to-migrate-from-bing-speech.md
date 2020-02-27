@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 01/21/2020
 ms.author: nitinme
-ms.openlocfilehash: c0e1cc2fc1b3d4aed82c5442d2d3e23a1272fab5
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: d6d9cb4dda93523b1136c8cc4cd307ae82c8b674
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805950"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560940"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migración de Bing Speech al servicio de voz
 
@@ -61,7 +61,7 @@ El servicio de voz usa un modelo de precios basado en el tiempo (en lugar de un 
 
 ## <a name="migration-strategies"></a>Estrategias de migración
 
-Si su organización o usted tienen aplicaciones en desarrollo o producción que usan la API Bing Speech, deben actualizarlas para que usen el servicio de voz tan pronto como sea posible. Vea la [documentación del servicio de voz](index.md) para información sobre los SDK disponibles, ejemplos de código y tutoriales.
+Si su organización o usted tienen aplicaciones en desarrollo o producción que usan la API Bing Speech, deben actualizarlas para que usen el servicio de voz tan pronto como sea posible. Vea la [documentación del servicio de voz](index.yml) para información sobre los SDK disponibles, ejemplos de código y tutoriales.
 
 Las [API REST](rest-apis.md) del servicio de voz son compatibles con las API Bing Speech. Si actualmente usa las API REST Bing Speech, solo debe cambiar el punto de conexión de REST y cambiar a una clave de suscripción del servicio de voz.
 
@@ -92,7 +92,7 @@ Para información sobre compatibilidad de API, SDK y el servicio de voz, visite 
 * [Prueba gratuita del servicio de voz](get-started.md)
 * [Inicio rápido: Reconocimiento de voz en una aplicación de UWP mediante el SDK de Voz](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 * [Notas de la versión del servicio de voz](releasenotes.md)
 * [¿Qué es el servicio Voz?](overview.md)
 * [Documentación del servicio de voz y del SDK de voz](speech-sdk.md#get-the-sdk)
