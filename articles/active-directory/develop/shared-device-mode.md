@@ -92,7 +92,7 @@ Las siguientes diferencias se aplican en función de si la aplicación se ejecut
 
 ## <a name="why-you-may-want-to-only-support-single-account-mode"></a>¿Por qué es posible que desee admitir solo el modo de una sola cuenta?
 
-Si va a escribir una aplicación que solo utilizarán los trabajadores de primera línea mediante un dispositivo compartido, se recomienda escribirla para que admita únicamente el modo de una sola cuenta. Esto incluye a la mayoría de las aplicaciones que se centran en tareas, como las de registros médicos, facturas y la mayor parte de las de línea de negocio. Solo admitir el modo de una sola cuenta simplifica el desarrollo porque no necesitará implementar las características adicionales que forman parte de las aplicaciones de varias cuentas.
+Si va a escribir una aplicación que solo utilizarán los trabajadores de primera línea mediante un dispositivo compartido, se recomienda escribirla para que admita únicamente el modo de una sola cuenta. Esto incluye la mayoría de las aplicaciones que se centran en tareas, como las de registros médicos, facturas y la mayor parte de las de línea de negocio. Solo admitir el modo de una sola cuenta simplifica el desarrollo porque no necesitará implementar las características adicionales que forman parte de las aplicaciones de varias cuentas.
 
 ## <a name="what-happens-when-the-device-mode-changes"></a>¿Qué ocurre cuando el modo del dispositivo cambia?
 

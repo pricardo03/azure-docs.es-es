@@ -49,7 +49,7 @@
           href: azure-container-registry-integration.md
         - name: Integración con Azure Kubernetes Service
           href: azure-kubernetes-service-integration.md
-    - name: Alertas e incidentes de detección de amenazas
+    - name: Protección contra amenazas y alertas de seguridad
       items:
         - name: Introducción a las alertas de seguridad
           href: security-center-alerts-overview.md
@@ -59,16 +59,8 @@
           href: security-center-managing-and-responding-alerts.md
         - name: Administración de incidentes de seguridad
           href: security-center-incident.md
-        - name: Detección de amenazas para máquinas virtuales y servidores
-          href: security-center-alerts-iaas.md
-        - name: Detección de amenazas para aplicaciones y contenedores en la nube
-          href: security-center-alerts-compute.md
-        - name: Detección de amenazas para Data Services
-          href: security-center-alerts-data-services.md
-        - name: Detección de amenazas para capas de servicios de Azure
-          href: security-center-alerts-service-layer.md
-        - name: Alertas de detección de amenazas desde Azure WAF y Azure DDoS Protection
-          href: security-center-alerts-integration.md
+        - name: Protección contra amenazas en Azure Security Center
+          href: threat-protection.md
         - name: Correlación de alertas inteligentes en la nube (incidentes)
           href: security-center-alerts-cloud-smart.md
         - name: Mapa de alertas de seguridad e información sobre amenazas

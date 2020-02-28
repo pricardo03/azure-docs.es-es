@@ -105,8 +105,8 @@
               href: developer-best-practices-pod-security.md
     - name: Cuotas y límites regionales
       href: quotas-skus-regions.md
-    - name: Migración de ACS a AKS
-      href: acs-aks-migration.md
+    - name: Migración a AKS
+      href: aks-migration.md
     - name: Versión compatible de Kubernetes
       href: supported-kubernetes-versions.md
     - name: Protección de la seguridad en el sistema operativo del host

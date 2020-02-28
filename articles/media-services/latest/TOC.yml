@@ -54,11 +54,13 @@
         - name: Cuenta de almacenamiento
           href: storage-account-concept.md
           displayName: Storage side encryption
-    - name: Carga
+    - name: Recursos
       items:
         - name: Recursos
           href: assets-concept.md
-          displayName: 'name, naming, file name'
+        - name: Administración de recursos
+          href: manage-asset-concept.md
+          displayName: 'name, naming, file name, upload, output, download'
     - name: Procesamiento de archivos
       items:
         - name: Transformaciones y trabajos
@@ -300,6 +302,8 @@
       items:
         - name: 'Publicación de un recurso: CLI'
           href: cli-publish-asset.md
+        - name: Descarga de resultados
+          href: download-results-howto.md
         - name: Audio descriptivo de señal
           href: signal-descriptive-audio-howto.md
 - name: Referencia
