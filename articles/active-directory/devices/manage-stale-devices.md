@@ -41,7 +41,7 @@ Dado que un dispositivo obsoleto se define como un dispositivo registrado que no
 
 ## <a name="how-is-the-value-of-the-activity-timestamp-managed"></a>¿Cómo es el valor de la marca de tiempo de actividad administrada?  
 
-La evaluación de la marca de tiempo de actividad se activa mediante un intento de autenticación de un dispositivo. Azure AD evalúa la marca de tiempo de la actividad:
+La evaluación de la marca de tiempo de actividad se activa mediante un intento de autenticación de un dispositivo. Azure AD evalúa la marca de tiempo de la actividad cuando:
 
 - Se ha desencadenado una directiva de acceso condicional que requiere [dispositivos administrados](../conditional-access/require-managed-devices.md) o [aplicaciones cliente aprobadas](../conditional-access/app-based-conditional-access.md).
 - Los dispositivos de Windows 10 que están unidos a Azure AD o a Azure AD híbrido están activos en la red. 
