@@ -1,5 +1,5 @@
 ---
-title: Tutorial para copiar datos a Azure Data Box Heavy Blob Storage mediante API REST | Microsoft Docs
+title: 'Tutorial: Copia de datos a Azure Data Box Blob Storage mediante API REST'
 description: Obtenga información sobre cómo copiar datos a Azure Data Box Heavy Blob Storage mediante API REST
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: adc48acbadaef56958587dc79be377b76a21fdc0
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 43f6404a483cad8377e70591f5454180f0dd07a6
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606292"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560344"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutorial: Copia de datos a Azure Data Box Blob Storage mediante API REST  
 
@@ -22,11 +22,11 @@ En este tutorial se describen los procedimientos para conectarse a Azure Data Bo
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Requisitos previos
+> * Prerrequisitos
 > * Conexión a Data Box Blob Storage mediante *http* o *https*
 > * Copia de datos a Data Box Heavy
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar, asegúrese de que:
 
@@ -104,7 +104,7 @@ En esta sección se menciona información específica para algunas aplicaciones.
 
 Siga estos pasos para importar el archivo `.cer` en el almacén raíz de un cliente de Windows o Linux. En un sistema Windows, puede usar Windows PowerShell o la interfaz de usuario de Windows Server para importar e instalar el certificado en el sistema.
 
-#### <a name="use-windows-powershell"></a>Uso de Windows PowerShell
+#### <a name="use-windows-powershell"></a>Use Windows PowerShell
 
 1. Iniciar una sesión de Windows PowerShell como administrador.
 2. En el símbolo del sistema, escriba:
@@ -241,7 +241,7 @@ El siguiente paso consiste en preparar el dispositivo para el envío.
 En este tutorial, ha obtenido información acerca de varios temas relacionados con Azure Data Box, como:
 
 > [!div class="checklist"]
-> * Requisitos previos
+> * Prerrequisitos
 > * Conexión a Data Box Blob Storage mediante *http* o *https*
 > * Copia de datos a Data Box Heavy
 

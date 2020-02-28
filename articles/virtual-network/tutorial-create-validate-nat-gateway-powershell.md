@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: d734553dd8eaf51d42cc31304f6a42c9cad5bbcd
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: bb75631beed73a6ebd9d1cf2c00c375726fed387
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77429086"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586995"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-powershell-and-test-the-nat-service"></a>Tutorial: Creación de una puerta de enlace de NAT mediante Azure PowerShell y prueba del servicio NAT
 
@@ -35,8 +35,6 @@ Puede realizar este tutorial con Azure Cloud Shell o ejecutar los comandos respe
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-> [!IMPORTANT]
-> Cuando haya [habilitado la versión preliminar](./nat-overview.md#enable-preview) de Virtual Network NAT en su suscripción, use https://aka.ms/natportal para acceder al portal.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -492,7 +490,7 @@ En este tutorial, ha creado una puerta de enlace de NAT y una máquina virtual d
 
 Revise las métricas de Azure Monitor para ver el funcionamiento del servicio NAT. Diagnostique problemas, como el agotamiento de recursos de los puertos SNAT disponibles.  El agotamiento de los recursos de los puertos SNAT se soluciona fácilmente agregando recursos de dirección IP pública o recursos de prefijo de dirección IP pública adicionales (o ambos).
 
-- Más información sobre [Virtual Network NAT](./nat-overview.md).
+- Obtenga más información sobre [Virtual Network NAT](./nat-overview.md).
 - Obtenga más información sobre [recursos de puerta de enlace de NAT](./nat-gateway-resource.md).
 - Inicio rápido para la implementación de [recursos de puerta de enlace de NAT con la CLI de Azure](./quickstart-create-nat-gateway-cli.md).
 - Inicio rápido para la implementación de [recursos de puerta de enlace de NAT con PowerShell](./quickstart-create-nat-gateway-powershell.md).

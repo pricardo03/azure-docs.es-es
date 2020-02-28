@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: bc815281a005f750072176015a937547ff6d4670
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 26a427baddc99fa702b638c36b5378750364c849
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77429076"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587029"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>Tutorial: Creación de una puerta de enlace de NAT mediante la CLI de Azure y prueba del servicio NAT
 
@@ -34,8 +34,6 @@ Puede realizar este tutorial con Azure Cloud Shell o ejecutar los comandos respe
 
 Si elige ejecutar estos comandos de forma local, debe instalar la CLI.  En este tutorial es necesario ejecutar la versión 2.0.71 de la CLI de Azure o cualquier versión posterior. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
-> [!IMPORTANT]
-> Cuando haya [habilitado la versión preliminar](./nat-overview.md#enable-preview) de Virtual Network NAT en su suscripción, use https://aka.ms/natportal para acceder al portal.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -422,11 +420,11 @@ En este tutorial, ha creado una puerta de enlace de NAT y una máquina virtual d
 
 Revise las métricas de Azure Monitor para ver el funcionamiento del servicio NAT. Diagnostique problemas, como el agotamiento de recursos de los puertos SNAT disponibles.  El agotamiento de los recursos de los puertos SNAT se soluciona fácilmente agregando recursos de dirección IP pública o recursos de prefijo de dirección IP pública adicionales (o ambos).
 
-- Más información sobre [Virtual Network NAT](./nat-overview.md).
-- Más información sobre [recursos de puerta de enlace de NAT](./nat-gateway-resource.md).
-- Inicio rápido para implementar [recursos de puerta de enlace de NAT con la CLI de Azure](./quickstart-create-nat-gateway-cli.md).
-- Inicio rápido para implementar [recursos de puerta de enlace de NAT con PowerShell](./quickstart-create-nat-gateway-powershell.md).
-- Inicio rápido para implementar [recursos de puerta de enlace de NAT con Azure Portal](./quickstart-create-nat-gateway-portal.md).
+- Obtenga más información sobre [Virtual Network NAT](./nat-overview.md).
+- Obtenga más información sobre [recursos de puerta de enlace de NAT](./nat-gateway-resource.md).
+- Inicio rápido para la implementación de [recursos de puerta de enlace de NAT con la CLI de Azure](./quickstart-create-nat-gateway-cli.md).
+- Inicio rápido para la implementación de [recursos de puerta de enlace de NAT con PowerShell](./quickstart-create-nat-gateway-powershell.md).
+- Inicio rápido para la implementación de [recursos de puerta de enlace de NAT con Azure Portal](./quickstart-create-nat-gateway-portal.md).
 - [Proporcione comentarios sobre la versión preliminar pública](https://aka.ms/natfeedback).
 
 > [!div class="nextstepaction"]

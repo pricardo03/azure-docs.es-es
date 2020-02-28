@@ -1,21 +1,21 @@
 ---
 title: Realización de un análisis de causas principales en una alerta - Azure | Microsoft Docs
 description: En este tutorial aprenderá a realizar un análisis de causas principales en una alerta con Azure Time Series Insights.
-author: aditidugar
-ms.author: adugar
+author: Philmea
+ms.author: philmea
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 70d29359d4a4bcf9f5badbbf0c553d7bed88a02b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c3cb940583677d813873c07fbfa679fdcc1dff59
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284577"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565475"
 ---
-# <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Tutorial: realización de un análisis de causas principales en una alerta
+# <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Tutorial: Realización de un análisis de causas principales en una alerta
 
 En este tutorial, obtendrá información sobre cómo usar el acelerador de solución de supervisión remota para diagnosticar la causa principal de una alerta. Verá que una alerta se ha activado en el panel de solución de supervisión remota y, a continuación, usará el explorador de Azure Time Series Insights para investigar la causa principal.
 

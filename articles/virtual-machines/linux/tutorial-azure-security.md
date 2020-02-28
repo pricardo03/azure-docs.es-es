@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4046aac5e8362bf315eca11d9cd96a6e862e2c55
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 5c5a8bc06c676121c20f6e1f83a26dd9343e6847
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034605"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605522"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Tutorial: Uso de Azure Security Center para supervisar las máquinas virtuales Linux
 
@@ -129,10 +129,10 @@ En este tutorial, configurará Azure Security Center y, luego, revisó las máqu
 > * Configuración de una recolección de datos
 > * Configurar directivas de seguridad
 > * Ver y corregir problemas de estado de la configuración
-> * Revisar las amenazas detectadas
+> * Revisar las amenazas que se detecten
 
 Avance hasta el siguiente tutorial para obtener más información cómo crear una canalización de CI/CD con Jenkins, GitHub y Docker.
 
 > [!div class="nextstepaction"]
-> [Creación de una infraestructura de CI/CD con Jenkins, GitHub y Docker](tutorial-jenkins-github-docker-cicd.md)
+> [Creación de una infraestructura de CI/CD con Jenkins, GitHub y Docker](../../jenkins/tutorial-jenkins-github-docker-cicd.md)
 

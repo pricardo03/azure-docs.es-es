@@ -2,18 +2,16 @@
 title: Centro de implementación para Azure Kubernetes
 description: En Azure DevOps, el centro de implementación simplifica la configuración de una canalización de implementación sólida de Azure DevOps para su aplicación
 ms.author: puagarw
-ms.prod: devops
-ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
 monikerRange: vsts
-ms.openlocfilehash: 5384180720d391c6b4ae830f9316a70e80003063
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 84e5533a17dc70fb5c835089f3a3cec1a86e35bf
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972973"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596086"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Centro de implementación para Azure Kubernetes
 
@@ -27,9 +25,9 @@ En este tutorial, aprenderá lo siguiente:
 > * Examine la canalización de entrega continua (CD).
 > * Limpie los recursos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción de Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+* Suscripción a Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
 * Un clúster de Azure Kubernetes Service (AKS).
 

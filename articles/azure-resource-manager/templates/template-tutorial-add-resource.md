@@ -2,21 +2,21 @@
 title: 'Tutorial: Adición de un recurso a una plantilla'
 description: Describe los pasos para crear su primera plantilla de Azure Resource Manager. Obtendrá información sobre la sintaxis del archivo de plantilla y cómo implementar una cuenta de almacenamiento.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 02/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8686b15501e267ab23efe654d28a3e67369a8d03
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: af571b6503f04c809b62c530f6d6254082b838be
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765586"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586689"
 ---
 # <a name="tutorial-add-a-resource-to-your-resource-manager-template"></a>Tutorial: Adición de un recurso a una plantilla de Azure Resource Manager
 
 En el [tutorial anterior](template-tutorial-create-first-template.md), aprendió a crear una plantilla en blanco y a implementarla. Ya está listo para implementar un recurso. En este tutorial, agregará una cuenta de almacenamiento. Este tutorial se realiza en unos **9 minutos**.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Aunque no es obligatorio, se recomienda realizar el [tutorial de introducción a las plantillas](template-tutorial-create-first-template.md).
 
@@ -26,7 +26,10 @@ Debe tener Visual Studio Code con la extensión Herramientas de Resource Manage
 
 Para agregar una definición de cuenta de almacenamiento a la plantilla existente, examine el código JSON resaltado en el ejemplo siguiente. En lugar de intentar copiar secciones de la plantilla, copie todo el archivo y reemplace su plantilla por su contenido.
 
-Reemplace **{provide-unique-name}** por un nombre único de cuenta de almacenamiento. El nombre de la cuenta de almacenamiento debe ser único en Azure. El nombre debe tener solo letras minúsculas o números. No debe superar los 24 caracteres. Para el nombre, puede probar a utilizar **store1** como prefijo y, a continuación, agregar sus iniciales y la fecha del día. Por ejemplo, podría usar el nombre **store1abc09092019**.
+Reemplace **{provide-unique-name}** por un nombre único de cuenta de almacenamiento.
+
+> [!IMPORTANT]
+> El nombre de la cuenta de almacenamiento debe ser único en Azure. El nombre debe tener solo letras minúsculas o números. No debe superar los 24 caracteres. Para el nombre, puede probar a utilizar **store1** como prefijo y, a continuación, agregar sus iniciales y la fecha del día. Por ejemplo, podría usar el nombre **store1abc09092019**.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json" range="1-19" highlight="5-17":::
 
@@ -58,7 +61,7 @@ Puede implementar la plantilla para crear la cuenta de almacenamiento. Asigne un
 
 Si no ha creado el grupo de recursos, consulte [Creación del grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). En el ejemplo se supone que ha establecido la variable **templateFile** en la ruta de acceso al archivo de plantilla, como se muestra en el [primer tutorial](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -67,7 +70,7 @@ New-AzResourceGroupDeployment `
   -TemplateFile $templateFile
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 ```azurecli
 az group deployment create \

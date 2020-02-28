@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 582646b6e1c50c8e6835fafaa8a27c7386b4695c
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: a314af3d53936a58f9dfb3694ec1114ecdc3d521
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77429066"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587012"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal-and-test-the-nat-service"></a>Tutorial: Creación de una puerta de enlace de NAT mediante Azure Portal y prueba del servicio NAT
 
@@ -30,10 +30,7 @@ En este tutorial, creará una puerta de enlace de NAT para proporcionar conectiv
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-> [!IMPORTANT]
-> Cuando haya [habilitado la versión preliminar](./nat-overview.md#enable-preview) de Virtual Network NAT en su suscripción, use https://aka.ms/natportal para acceder al portal.
-
-Inicie sesión en [Azure Portal](https://aka.ms/natportal).
+Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 ## <a name="prepare-the-source-for-outbound-traffic"></a>Preparación del origen para el tráfico saliente
 
@@ -74,7 +71,7 @@ Como ejercicio, también puede crear esta máquina virtual sin una dirección IP
    - **Detalles de instancia** > **Nombre de máquina virtual**: escriba **myVMsource**.
    - **Detalles de instancia** > **Región** > seleccione **Este de EE. UU. 2**.
    - **Cuenta de administrador** > **Autenticación**: Seleccione **Contraseña**.
-   - **Cuenta de administrador** > escriba la información de **Nombre de usuario**, **Contraseña** y **Confirmar contraseña**.
+   - **Cuenta de administrador**> escriba la información de **Nombre de usuario**, **Contraseña** y **Confirmar contraseña**.
    - **Reglas de puerto de entrada** > **Puertos de entrada públicos**: Seleccione **Permitir los puertos seleccionados**.
    - **Reglas de puerto de entrada** > **Seleccionar puertos de entrada**: Seleccione **SSH (22)** .
    - Seleccione la pestaña **Redes** o seleccione **Siguiente: Discos** y, después, **Siguiente: Redes**.
@@ -98,7 +95,7 @@ Como ejercicio, también puede crear esta máquina virtual sin una dirección IP
 Puede usar uno o varios recursos de dirección IP pública o prefijos de IP pública (o ambos) con la puerta de enlace de NAT. Se agregará un recurso de IP pública, un prefijo de dirección IP pública y un recurso de puerta de enlace de NAT.
 
 En esta sección se detalla cómo crear y configurar los componentes siguientes del servicio NAT mediante el recurso de puerta de enlace de NAT:
-  - Un grupo de direcciones IP públicas y un prefijo de IP pública que se usarán en los flujos salientes traducidos por el recurso de puerta de enlace de NAT.
+  - Un grupo de direcciones IP públicas y un prefijo de dirección IP pública que se usarán en los flujos salientes traducidos por el recurso de puerta de enlace de NAT.
   - Cambie el tiempo de espera de inactividad de 4 (el valor predeterminado) a 10 minutos.
 
 ### <a name="create-a-public-ip-address"></a>Crear una dirección IP pública
@@ -126,7 +123,7 @@ En esta sección se detalla cómo crear y configurar los componentes siguientes 
    - **Suscripción** > **Grupo de recursos**: Seleccione **myResourceGroupNAT**>.
    - **Detalles de instancia** > **Nombre**: escriba **myPublicIPprefixsource**.
    - **Detalles de instancia** > **Región**: Seleccione **Este de EE. UU. 2**.
-   - **Detalles de instancia** > **Tamaño del prefijo**: Seleccione **/31 (2 direcciones)** .
+   - **Detalles de instancia** > **Tamaño del prefijo**: seleccione **/31 (2 direcciones)** .
 
 3. Deje el resto de valores predeterminados y seleccione **Revisar y crear**.
 
@@ -191,7 +188,7 @@ Antes de implementar una máquina virtual como destino, es necesario crear una r
    - **Detalles de instancia** > **Nombre de máquina virtual**: escriba **myVMdestination**.
    - **Detalles de instancia** > **Región** > seleccione **Este de EE. UU. 2**.
    - **Cuenta de administrador** > **Autenticación**: Seleccione **Contraseña**.
-   - **Cuenta de administrador** > escriba la información de **Nombre de usuario**, **Contraseña** y **Confirmar contraseña**.
+   - **Cuenta de administrador**> escriba la información de **Nombre de usuario**, **Contraseña** y **Confirmar contraseña**.
    - **Reglas de puerto de entrada** > **Puertos de entrada públicos**: Seleccione **Permitir los puertos seleccionados**.
    - **Reglas de puerto de entrada** > **Seleccionar puertos de entrada**: Seleccione **SSH (22)** y **HTTP (80)** .
    - Seleccione la pestaña **Redes** o seleccione **Siguiente: Discos** y, después, **Siguiente: Redes**.
@@ -224,7 +221,7 @@ En primer lugar, es necesario detectar la dirección IP de la máquina virtual d
 
 ### <a name="sign-in-to-destination-vm"></a>Inicio de sesión en la máquina virtual de destino
 
-Abra [Azure Cloud Shell](https://shell.azure.com) en el explorador. Use la dirección IP recuperada en el paso anterior para conectarse mediante SSH a la máquina virtual.
+Abra [Azure Cloud Shell](https://shell.azure.com) en el explorador. Use la dirección IP recuperada en el paso anterior para conectarse a la máquina virtual mediante SSH.
 
 ```azurecli-interactive
 ssh <username>@<ip-address-destination>
@@ -291,9 +288,9 @@ Ahora está listo para probar el servicio NAT.
 
 ## <a name="validate-nat-service"></a>Validación del servicio NAT
 
-Mientras ha iniciado sesión en la máquina virtual de origen, puede usar **Curl** y **Hey** para generar solicitudes a la dirección IP de destino.
+Mientras ha iniciado sesión en la máquina virtual de origen, puede usar **cURL** y **Hey** para generar solicitudes a la dirección IP de destino.
 
-Use Curl para recuperar el archivo 100 Kbytes.  Reemplace **\<ip-address-destination>** en el ejemplo siguiente por la dirección IP de destino que ha copiado anteriormente.  El parámetro **--output** indica que se descartará el archivo recuperado.
+Use cURL para recuperar el archivo de 100 Kbytes.  Reemplace **\<ip-address-destination>** en el ejemplo siguiente por la dirección IP de destino que ha copiado anteriormente.  El parámetro **--output** indica que se descartará el archivo recuperado.
 
 ```bash
 curl http://<ip-address-destination>/100k --output /dev/null
@@ -309,18 +306,18 @@ Este comando generará 100 solicitudes, 10 de ellas a vez, con un tiempo de espe
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no los necesite, elimine el grupo de recursos, la puerta de enlace de NAT y todos los recursos relacionados. Seleccione el grupo de recursos **myResourceGroupNAT** que contiene la puerta de enlace de NAT y, a continuación, seleccione **Eliminar**.
+Cuando ya no los necesite, elimine el grupo de recursos, la puerta de enlace de NAT y todos los recursos relacionados. Seleccione el grupo de recursos **myResourceGroupNAT** que contiene la puerta de enlace de NAT y, luego, seleccione **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, ha creado una puerta de enlace de NAT, ha creado una máquina virtual de origen y de destino y, finalmente, ha probado la puerta de enlace de NAT.
+En este tutorial, ha creado una puerta de enlace de NAT y una máquina virtual de origen y destino y, luego, ha probado la puerta de enlace de NAT.
 
-Revise las métricas de Azure Monitor para ver el funcionamiento del servicio NAT. Diagnostique problemas como el agotamiento de recursos de los puertos SNAT disponibles.  El agotamiento de los recursos de los puertos SNAT se soluciona fácilmente agregando recursos de direcciones IP públicas adicionales o recursos de prefijos de dirección IP pública o ambos.
+Revise las métricas de Azure Monitor para ver el funcionamiento del servicio NAT. Diagnostique problemas, como el agotamiento de recursos de los puertos SNAT disponibles.  El agotamiento de los recursos de los puertos SNAT se soluciona fácilmente agregando recursos de dirección IP pública o recursos de prefijo de dirección IP pública adicionales (o ambos).
 
 - Obtenga más información sobre [Virtual Network NAT](./nat-overview.md).
-- Obtenga más información sobre un [recurso de puerta de enlace de NAT](./nat-gateway-resource.md).
-- Inicio rápido para la implementación de un [recurso de puerta de enlace de NAT con la CLI de Azure](./quickstart-create-nat-gateway-cli.md).
-- Inicio rápido para la implementación de un [recurso de puerta de enlace de NAT con PowerShell](./quickstart-create-nat-gateway-powershell.md).
-- Inicio rápido para la implementación de un [recurso de puerta de enlace de NAT con Azure Portal](./quickstart-create-nat-gateway-portal.md).
+- Obtenga más información sobre [recursos de puerta de enlace de NAT](./nat-gateway-resource.md).
+- Inicio rápido para la implementación de [recursos de puerta de enlace de NAT con la CLI de Azure](./quickstart-create-nat-gateway-cli.md).
+- Inicio rápido para la implementación de [recursos de puerta de enlace de NAT con PowerShell](./quickstart-create-nat-gateway-powershell.md).
+- Inicio rápido para la implementación de [recursos de puerta de enlace de NAT con Azure Portal](./quickstart-create-nat-gateway-portal.md).
 - [Proporcione comentarios sobre la versión preliminar pública](https://aka.ms/natfeedback).
 
 > [!div class="nextstepaction"]
