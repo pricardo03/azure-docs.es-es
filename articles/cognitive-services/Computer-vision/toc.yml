@@ -5,6 +5,8 @@
   items:
     - name: ¿Qué es Computer Vision?
       href: Home.md
+    - name: Novedades
+      href: whats-new.md
 - name: Guías de inicio rápido
   items:
     - name: Uso del SDK de cliente

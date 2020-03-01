@@ -1,6 +1,7 @@
 - name: Documentación de Content Moderator
   href: index.yml
 - name: Información general
+  expanded: true
   items:
     - name: ¿Qué es Content Moderator?
       href: overview.md
@@ -37,7 +38,7 @@
       href: Review-Tool-User-Guide/human-in-the-loop.md
     - name: 'Revisiones, flujos de trabajo y trabajos'
       href: review-api.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Moderación del contenido
       items:

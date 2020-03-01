@@ -6,17 +6,17 @@ metadata:
   description: Azure Form Recognizer es un servicio cognitivo que utiliza tecnología de aprendizaje automático para identificar y extraer pares clave-valor, así como datos de tablas de los documentos de formularios. A continuación, genera datos estructurados que incluyen las relaciones del fichero original. El aprendizaje sin supervisión permite que el modelo conozca tanto el diseño como los datos de los campos sin necesidad de un etiquetado manual de los datos o de una codificación intensiva. El aprendizaje supervisado también se puede realizar con datos etiquetados manualmente. Los modelos entrenados con datos etiquetados no solo pueden funcionar mejor, sino que también pueden trabajar con documentos más complicados.
   services: cognitive-services
   ms.service: cognitive-services
-  ms.subservice: form-recognizer
+  ms.subservice: forms-recognizer
   ms.topic: landing-page
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 1fe0aee8967a0072a7ae01abc5791e7a3fd0834d
-  ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+  ms.openlocfilehash: de869fd9beb66a4122c1204648d17cff480e4b7f
+  ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 01/13/2020
-  ms.locfileid: "75921485"
+  ms.lasthandoff: 03/01/2020
+  ms.locfileid: "78206493"
 landingContent:
 - title: Acerca de Form Recognizer
   linkLists:
