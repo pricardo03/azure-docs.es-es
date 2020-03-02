@@ -25,9 +25,9 @@ ms.locfileid: "77500071"
 Aprenderá a:
 
 > [!div class="checklist"]
-> * Crear una base de datos Azure SQL Database
+> * Crear una base de datos SQL Database en Azure
 > * Conectar una aplicación .NET Core a SQL Database
-> * Implementación de la aplicación en Azure
+> * Implementar la aplicación en Azure
 > * Actualizar el modelo de datos y volver a implementar la aplicación
 > * Transmitir registros de diagnóstico desde Azure
 > * Administrar la aplicación en Azure Portal
@@ -49,7 +49,7 @@ En este paso, configurará el proyecto .NET Core local.
 
 En la ventana del terminal, use `cd` para cambiar a un directorio de trabajo.
 
-Ejecute los comandos siguientes para clonar el repositorio de ejemplo y cambia a su raíz.
+Ejecute los comandos siguientes para clonar el repositorio de ejemplo y cambiar a su raíz.
 
 ```bash
 git clone https://github.com/azure-samples/dotnetcore-sqldb-tutorial
@@ -60,7 +60,7 @@ El proyecto de ejemplo contiene una aplicación básica CRUD (crear, leer, actua
 
 ### <a name="run-the-application"></a>Ejecución de la aplicación
 
-Ejecute los comandos siguientes para instalar los paquetes necesarios, ejecute las migraciones de bases de datos e inicie la aplicación.
+Ejecute los comandos siguientes para instalar los paquetes necesarios, ejecutar las migraciones de bases de datos e iniciar la aplicación.
 
 ```bash
 dotnet restore
@@ -90,7 +90,7 @@ Para SQL Database, en este tutorial se usa [Azure SQL Database](/azure/sql-datab
 
 En Cloud Shell, cree un servidor lógico de SQL Database con el comando [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create).
 
-Reemplace el marcador de posición *\<server_name>* con un nombre de SQL Database único. Este nombre se usa como parte del punto de conexión de SQL Database, `<server_name>.database.windows.net`, por lo que el nombre debe ser único para todos los servidores lógicos en Azure. El nombre debe contener solo letras minúsculas, números y el carácter de guión (-), y debe tener una longitud de entre 3 y 50 caracteres. Además, reemplace *\<db_username>* y *\<db_password>* por un nombre de usuario y una contraseña de su elección. 
+Reemplace el marcador de posición *\<server_name>* con un nombre de SQL Database único. Este nombre se usa como parte del punto de conexión de SQL Database, `<server_name>.database.windows.net`, por lo que el nombre debe ser único para todos los servidores lógicos en Azure. El nombre debe contener solo letras minúsculas, números y el carácter de guion (-), y debe tener una longitud de entre 3 y 50 caracteres. Además, reemplace *\<db_username>* y *\<db_password>* por un nombre de usuario y una contraseña de su elección. 
 
 
 ```azurecli-interactive
@@ -147,7 +147,7 @@ Server=tcp:<server_name>.database.windows.net,1433;Database=coreDB;User ID=<db_u
 
 Esta es la cadena de conexión de la aplicación .NET Core. Cópiela para usarla más adelante.
 
-## <a name="deploy-app-to-azure"></a>Implementación de aplicación en Azure
+## <a name="deploy-app-to-azure"></a>Implementación de la aplicación en Azure
 
 En este paso, va a implementar la aplicación .NET Core conectada a SQL Database en App Service.
 
@@ -419,9 +419,9 @@ De manera predeterminada, el portal muestra la página **Información general** 
 ¿Qué ha aprendido?
 
 > [!div class="checklist"]
-> * Crear una base de datos Azure SQL Database
+> * Crear una base de datos SQL Database en Azure
 > * Conectar una aplicación .NET Core a SQL Database
-> * Implementación de la aplicación en Azure
+> * Implementar la aplicación en Azure
 > * Actualizar el modelo de datos y volver a implementar la aplicación
 > * Transmitir registros desde Azure a un terminal
 > * Administrar la aplicación en Azure Portal

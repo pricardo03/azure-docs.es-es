@@ -144,7 +144,7 @@ La siguiente configuración es necesaria para habilitar SSPR junto con los valor
 
 | Área | Configuración | Value |
 | --- | --- | --- |
-| **Propiedades de SSPR** | Se habilitó el restablecimiento de contraseña del autoservicio | Grupo **Seleccionado** para piloto/**Todos** para producción |
+| **Propiedades de SSPR** | Se habilitó el autoservicio de restablecimiento de contraseña | Grupo **Seleccionado** para piloto/**Todos** para producción |
 | **Métodos de autenticación** | Authentication methods required to register (Métodos de autenticación requeridos para registrarse) | Siempre 1 más de los necesarios para el restablecimiento |
 |   | Authentication methods required to reset (Métodos de autenticación requeridos para restablecer) | Uno o dos |
 | **Registro** | Exigir a los usuarios que se registren al iniciar sesión | Sí |
