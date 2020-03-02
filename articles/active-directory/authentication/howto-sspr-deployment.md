@@ -149,7 +149,7 @@ La siguiente configuración es necesaria para habilitar SSPR junto con los valor
 |   | Authentication methods required to reset (Métodos de autenticación requeridos para restablecer) | Uno o dos |
 | **Registro** | Exigir a los usuarios que se registren al iniciar sesión | Sí |
 |   | Número de días que pasan hasta que se pide a los usuarios que vuelvan a confirmar su información de autenticación | De 90 a 180 días |
-| **Notifications** | ¿Quiere notificar a los usuarios los restablecimientos de contraseña? | Sí |
+| **Notificaciones** | ¿Quiere notificar a los usuarios los restablecimientos de contraseña? | Sí |
 |   | ¿Quiere notificar a todos los administradores cuando otros administradores restablezcan su contraseña? | Sí |
 | **Personalización** | Personalizar el vínculo del departamento de soporte técnico | Sí |
 |   | Dirección URL o correo electrónico del departamento de soporte técnico personalizados | Dirección de correo electrónico o sitio de soporte técnico |
@@ -183,7 +183,7 @@ Establezca **Número de días que pasan hasta que se pide a los usuarios que vue
 
 ### <a name="notifications-settings"></a>Configuración de notificaciones
 
-Configurar tanto **¿Quiere notificar a los usuarios los restablecimientos de contraseña?** como **¿Quiere notificar a todos los administradores cuando otros administradores restablezcan su contraseña?** en **Sí**. Al seleccionar **Sí** en ambos se aumenta la seguridad asegurándose de que los usuarios son conscientes de que se restablece la contraseña. También garantiza que todos los administradores son conscientes de que un administrador cambia una contraseña. Si los usuarios o administradores reciben una notificación y no han comenzado el cambio, pueden denunciar de inmediato un problema de seguridad potencial.
+Configure tanto **¿Quiere notificar a los usuarios los restablecimientos de contraseña?** como **¿Quiere notificar a todos los administradores cuando otros administradores restablezcan su contraseña?** en **Sí**. Al seleccionar **Sí** en ambos se aumenta la seguridad asegurándose de que los usuarios son conscientes de que se restablece la contraseña. También garantiza que todos los administradores son conscientes de que un administrador cambia una contraseña. Si los usuarios o administradores reciben una notificación y no han comenzado el cambio, pueden denunciar de inmediato un problema de seguridad potencial.
 
 ### <a name="customization-settings"></a>Configuración de personalización
 

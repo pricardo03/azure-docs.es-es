@@ -211,7 +211,7 @@ else
 services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
 ```
 
-Si este código detecta que se ejecuta en producción (lo que indica el entorno de Azure), usa la cadena de conexión que configuró para conectarse a SQL Database.
+Si este código detecta que se está ejecutando en producción (lo que indica el entorno de Azure), usa la cadena de conexión que configuró para conectarse a SQL Database.
 
 La llamada de `Database.Migrate()` le ayuda cuando se ejecuta en Azure, porque crea automáticamente las bases de datos que necesita la aplicación .NET Core según su configuración de migración. 
 
