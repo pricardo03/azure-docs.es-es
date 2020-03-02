@@ -504,6 +504,8 @@
           href: ./kafka/apache-kafka-quickstart-resource-manager-template.md
     - name: Tutoriales
       items:
+        - name: 'Creación de un clúster de Apache Kafka: CLI de Azure'
+          href: ./kafka/tutorial-cli-rest-proxy.md
         - name: Uso de Producer y Consumer API de Apache Kafka
           href: ./kafka/apache-kafka-producer-consumer-api.md
         - name: Desarrollo de una aplicación con Streams API de Apache Kafka
@@ -548,8 +550,6 @@
               href: ./kafka/apache-kafka-mirroring.md
             - name: Análisis de registros de Apache Kafka
               href: ./kafka/apache-kafka-log-analytics-operations-management.md
-            - name: Bring Your Own Key
-              href: ./kafka/apache-kafka-byok.md
             - name: Cifrado y autenticación de SSL
               href: ./kafka/apache-kafka-ssl-encryption-authentication.md
         - name: Solución de problemas

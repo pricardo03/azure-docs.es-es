@@ -181,6 +181,8 @@
           href: display-feature-information-android.md
         - name: Adición de una capa de icono
           href: how-to-add-tile-layer-android-map.md
+        - name: Mostrar datos del tráfico
+          href: how-to-show-traffic-android.md
     - name: Proporcionar comentarios sobre datos
       href: how-to-use-feedback-tool.md
 - name: Referencia

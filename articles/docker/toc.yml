@@ -3,14 +3,12 @@
 - name: Guía de inicio rápido
   expanded: true
   items:
-    - name: Plantilla de Marketplace de Docker
-      href: 'https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS'
+    - name: Implementación de una máquina virtual Ubuntu con Docker
+      href: 'https://azure.microsoft.com/resources/templates/docker-simple-on-ubuntu/'
 - name: Tutoriales
   items:
     - name: Aplicación web Python con Docker y PostgreSQL
       href: ../app-service/containers/tutorial-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
-    - name: Integración y entrega continuas con Docker Swarm y Azure DevOps
-      href: /azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine
     - name: 'Integración y entrega continuas con Docker, Jenkins y Linux'
       href: /azure/jenkins/tutorial-jenkins-github-docker-cicd
 - name: Guías paso a paso

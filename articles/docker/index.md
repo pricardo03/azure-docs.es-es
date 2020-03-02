@@ -10,12 +10,12 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: gwallace
-ms.openlocfilehash: 4f4849139f0e5c5a8672b9364f7acc03cff6c948
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 429494b829d1307b4f89dbf746d24135a4322a97
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605572"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164464"
 ---
 <div class="content">
    <h1>Docker en Azure</h1>   
@@ -31,9 +31,8 @@ Docker es una conocida plataforma de creación de imágenes y administración de
 <h2>Tutoriales paso a paso</h2>
 <p>Obtenga información sobre cómo usar Docker en su aplicación y como parte de la canalización de integración y entrega continuas:</p>
 <ol>
-  <li><a href="/azure/app-service/containers/tutorial-python-postgresql-app">Compilación de Python y PostgreSQL con Docker</a></li>
-  <li><a href="/azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine">Integración y entrega continuas con Docker Swarm y Azure DevOps Services</a></li>
-  <li><a href="/azure/jenkins/tutorial-jenkins-github-docker-cicd">Integración de Docker, Jenkins y máquinas virtuales Linux</a></li>
+  <li><a href="/azure/app-service/containers/tutorial-python-postgresql-app">Ejecución de una aplicación web Python (Django) con PostgreSQL en Azure App Service</a></li>
+  <li><a href="/azure/jenkins/tutorial-jenkins-github-docker-cicd">Creación de una infraestructura de desarrollo en una máquina virtual Linux en Azure con Jenkins, GitHub y Docker</a></li>
 </ol>
 <h2>Recursos</h2>
 <p>Consulte los vínculos siguientes para obtener materiales de referencia y herramientas adicionales para trabajar con Docker en Azure.</p>

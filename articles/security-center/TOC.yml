@@ -6,8 +6,16 @@
       href: security-center-intro.md
     - name: Plataformas compatibles
       href: security-center-os-coverage.md
-    - name: Características admitidas
-      href: security-center-services.md
+    - name: Características de Security Center
+      items:
+        - name: Cobertura de características para máquinas virtuales
+          href: security-center-services.md
+        - name: Cobertura de características para los recursos de PaaS de Azure
+          href: features-paas.md
+    - name: Recomendaciones de seguridad
+      href: recommendations-reference.md
+    - name: Alertas de seguridad y la cadena de terminación de intenciones
+      href: alerts-reference.md
 - name: Guías de inicio rápido
   expanded: true
   items:
