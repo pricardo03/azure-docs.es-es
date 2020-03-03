@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/14/2020
 ms.author: allensu
-ms.openlocfilehash: 341bfddb86885df225874100400a854cf12120db
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: aab6a4de7be57df1f691861533a4528a0bcae571
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76757806"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605637"
 ---
 # <a name="load-balancer-components-and-limitations"></a>Componentes y limitaciones de Load Balancer
 Azure Load Balancer contiene varios componentes clave para su funcionamiento.  Estos componentes se pueden configurar en la suscripción mediante Azure Portal, la CLI de Azure o Azure PowerShell.  
@@ -73,7 +73,9 @@ Para más información, consulte [Configurar el modo de distribución para Azure
 
 En la siguiente imagen se muestra la distribución basada en hash:
 
-  ![Distribución basada en hash](./media/load-balancer-overview/load-balancer-distribution.png)
+<p align="center">
+  <img src="./media/load-balancer-overview/load-balancer-distribution.svg" width="512" title="Distribución basada en hash">
+</p>
 
   *Ilustración: distribución basada en hash*
 
@@ -132,9 +134,11 @@ Una Load Balancer pública asigna la dirección IP pública y el puerto del trá
 
 En la ilustración siguiente se muestra un punto de conexión con equilibrio de carga para el tráfico web que se comparte entre tres máquinas virtuales para el puerto público y TCP 80. Estas tres máquinas virtuales se encuentran en un conjunto con equilibrio de carga.
 
-![Ejemplo de equilibrador de carga público](./media/load-balancer-overview/IC727496.png)
+<p align="center">
+  <img src="./media/load-balancer-overview/load-balancer-http.svg" width="256" title="Equilibrador de carga público">
+</p>
 
-*Ilustración: Equilibrio del tráfico web mediante un Load Balancer público*
+*Ilustración: Equilibrio del tráfico web mediante un equilibrador de carga público*
 
 Los clientes de Internet envían solicitudes de páginas web a la dirección IP pública de una aplicación web en el puerto TCP 80. Azure Load Balancer distribuye las solicitudes entre las tres máquinas virtuales del conjunto de carga equilibrada. Para más información sobre los algoritmos de Load Balancer, consulte [Conceptos de Load Balancer](concepts-limitations.md#load-balancer-concepts).
 
@@ -151,7 +155,10 @@ Un equilibrador de carga interno permite los siguientes tipos de equilibrio de c
 * **En aplicaciones de niveles múltiples**: Equilibrio de carga para aplicaciones de niveles múltiples accesibles desde Internet en las que los niveles de back-end no son accesibles desde Internet. Los niveles de back-end requieren un equilibrio de carga de tráfico en el nivel accesible desde Internet. Consulte la ilustración siguiente.
 * **En aplicaciones de línea de negocio**: equilibrio de carga para las aplicaciones de línea de negocio hospedadas en Azure sin requerir hardware ni software adicional de equilibrador de carga. Este escenario incluye servidores locales que se encuentran en el conjunto de equipos cuyo tráfico tiene equilibrio de carga.
 
-![Ejemplo de equilibrador de carga interno](./media/load-balancer-overview/IC744147.png)
+
+<p align="center">
+  <img src="./media/load-balancer-overview/load-balancer.svg" width="256" title="Equilibrador de carga público">
+</p>
 
 *Ilustración: Equilibrar las aplicaciones de niveles múltiples mediante Load Balancer público e interno*
 

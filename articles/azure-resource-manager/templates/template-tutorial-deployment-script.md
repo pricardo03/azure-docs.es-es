@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5454d2f80d1febccb0c57ecf2e80d930bb5cb761
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 21725e64bb359b2f11086baceb186605f010b796
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988811"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561466"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutorial: Uso de scripts de implementación para crear un certificado autofirmado (versión preliminar)
 
@@ -39,7 +39,7 @@ En este tutorial se describen las tareas siguientes:
 > * Depuración del script con errores
 > * Limpieza de recursos
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este artículo, necesitará lo siguiente:
 
@@ -266,13 +266,13 @@ El script de implementación agrega un certificado al almacén de claves. Config
     * **timeout**: especifique el tiempo máximo de ejecución de scripts permitido en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). El valor predeterminado es **P1D**.
     * **arguments**: Especifique los valores de los parámetros. Los valores se separan con espacios.
     * **scriptContent**: especifica el contenido del script. Para ejecutar un script externo, use **primaryScriptURI** en su lugar. Para más información, consulte [Uso de scripts externos](./deployment-script-template.md#use-external-scripts).
-        Solo es necesario declarar **$DeploymentScriptOutputs** al probar el script en una máquina local. La declaración de la variable permite que el script se ejecute en una máquina local y en un recurso deploymentScript sin tener que realizar cambios. El valor asignado a $DeploymentScriptOutputs está disponible como salidas en las implementaciones. Para más información, consulte [Trabajo con salidas de los scripts de implementación](./deployment-script-template.md#work-with-outputs-from-deployment-scripts).
+        Solo es necesario declarar **$DeploymentScriptOutputs** al probar el script en una máquina local. La declaración de la variable permite que el script se ejecute en una máquina local y en un recurso deploymentScript sin tener que realizar cambios. El valor asignado a $DeploymentScriptOutputs está disponible como salidas en las implementaciones. Para más información, consulte [Trabajo con salidas de los scripts de implementación de PowerShell](./deployment-script-template.md#work-with-outputs-from-powershell-script) o [Trabajo con salidas de los scripts de implementación de la CLI](./deployment-script-template.md#work-with-outputs-from-cli-script).
     * **cleanupPreference**: especifica la preferencia sobre cuándo se deben eliminar los recursos del script de implementación.  El valor predeterminado es **Always**, lo que significa que los recursos del script de implementación se eliminan independientemente del estado terminal (Succeeded, Failed, Canceled). En este tutorial se usa **OnSuccess** para que pueda ver los resultados de la ejecución del script.
     * **retentionInterval**: especifica el tiempo durante el cual el servicio guarda los recursos del script una vez alcanzado el estado terminal. Los recursos se eliminarán cuando expire este periodo. La duración se basa en la norma ISO 8601. En este tutorial se usa P1D, es decir, un día.  Esta propiedad se usa cuando **cleanupPreference** se establece en **OnExpiration**. Esta propiedad no está habilitada actualmente.
 
     El script de implementación toma tres parámetros: el nombre del almacén de claves, el nombre del certificado y el nombre de la persona.  Se crea un certificado y se agrega el certificado al almacén de claves.
 
-    **$DeploymentScriptOutputs** se utiliza para almacenar el valor de salida.  Para más información, consulte [Trabajo con salidas de los scripts de implementación](./deployment-script-template.md#work-with-outputs-from-deployment-scripts).
+    **$DeploymentScriptOutputs** se utiliza para almacenar el valor de salida.  Para más información, consulte [Trabajo con salidas de los scripts de implementación de PowerShell](./deployment-script-template.md#work-with-outputs-from-powershell-script) o [Trabajo con salidas de los scripts de implementación de la CLI](./deployment-script-template.md#work-with-outputs-from-cli-script).
 
     Puede encontrar la plantilla rellena [aquí](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json).
 

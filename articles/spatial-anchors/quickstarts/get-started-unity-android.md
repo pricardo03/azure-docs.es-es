@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e6fbf0e4cbfc44692292c33fc46d9ea0eccec89d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7acff7f0249cdedcebd367fc315be92cafb9ab78
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75370277"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615438"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Inicio rápido: Creación de una aplicación para Unity Android con Azure Spatial Anchors
 
@@ -30,11 +30,11 @@ Aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar esta guía de inicio rápido, asegúrese de que dispone de lo siguiente:
 
-- Un equipo con Windows o macOS con <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1+</a>, incluidos los módulos Android Build Support y Android SDK & NDK Tools.
+- Una máquina con Windows o macOS con <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 o 2019.2</a>, incluidos los módulos Android Build Support y Android SDK & NDK Tools.
   - Si se ejecuta en Windows, también necesitará <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a> y <a href="https://git-lfs.github.com/">Git LFS</a>.
   - Si se ejecuta en macOS, instale Git a través de HomeBrew. Escriba el siguiente comando en una sola línea de Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. A continuación, ejecute `brew install git` y `brew install git-lfs`.
 - Un dispositivo Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">habilitado para el desarrollo</a> y <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">preparado para ARCore</a>.
@@ -68,7 +68,13 @@ Siga las instrucciones de la aplicación para colocar y recuperar un delimitador
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
+### <a name="rendering-issues"></a>Problemas de representación
+
 Cuando se ejecuta la aplicación, si no ve la cámara como fondo (en cambio ve, por ejemplo, una textura negra, azul o de otro tipo), es probable que deba volver a importar los recursos en Unity. Detenga la aplicación. En el menú superior de Unity, elija **Assets -> Reimport all** (Recursos -> Volver a importar todo). Luego, vuelva a ejecutar la aplicación.
+
+### <a name="unity-20193"></a>Unity 2019.3
+
+Debido a cambios importantes, Unity 2019.3 no se admite actualmente. Use Unity 2019.1 o 2019.2.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

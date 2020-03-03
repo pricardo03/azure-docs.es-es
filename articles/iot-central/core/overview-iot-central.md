@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: a16ed6ac942dd4a9fa521cc813a92e6767a98328
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 71d595ecb3a6900da3df79651ee2dddda594b9de
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024133"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589424"
 ---
 # <a name="what-is-azure-iot-central"></a>¿Qué es Azure IoT Central?
 
@@ -39,8 +39,12 @@ Para IoT Central, en este artículo se describe lo siguiente:
 - Los trabajos no admiten tipos complejos.
 - No se admiten los tipos de esquema de matriz.
 - Solo se admiten el SDK de dispositivos de C y los SDK de dispositivos y servicios de Node.js.
-- Solo disponible en ubicaciones de Estados Unidos y Europa.
+- Solo está disponible en las ubicaciones Estados Unidos, Europa, Asia Pacífico y Australia.
 - Los modelos de funcionalidad del dispositivo deben tener todas las interfaces definidas insertadas en el mismo archivo.
+- La compatibilidad con [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) se encuentra en versión preliminar y solo se admite en determinadas regiones.
+
+    > [!NOTE]
+    > Póngase en contacto con el equipo de soporte técnico para acceder a la creación de una aplicación de versión preliminar compatible con los dispositivos con IoT Plug and Play.
 
 ## <a name="personas"></a>Personas
 

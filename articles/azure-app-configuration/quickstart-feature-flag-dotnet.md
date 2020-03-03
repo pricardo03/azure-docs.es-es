@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: bdb00bfbadec68fa110f747858d264a2c34f8bd1
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 5ea9749c07aadc7037e753160e9b053992bebae2
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76120876"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619310"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Inicio rápido: Agregar marcas de características a una aplicación en .NET Framework
 
@@ -27,15 +27,22 @@ En este inicio rápido, incorporará Azure App Configuration en una aplicación 
 
 Las bibliotecas de administración de características de .NET amplían la plataforma con una amplia compatibilidad con las marcas de características. Estas bibliotecas se compilan a partir del sistema de configuración de .NET. Se integran sin problemas con App Configuration mediante su proveedor de configuración de .NET.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
-- [.NET Framework 4.7.2](https://dotnet.microsoft.com/download)
+- [.NET Framework 4.8](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>Creación de un almacén de App Configuration
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. Seleccione **Administrador de características** >  **+Agregar** para agregar una marca de características denominada `Beta`.
+
+    > [!div class="mx-imgBorder"]
+    > ![Habilitación de la marca de característica denominada Beta](media/add-beta-feature-flag.png)
+
+    Deje `label` sin definir por ahora.
 
 ## <a name="create-a-net-console-app"></a>Creación de una aplicación de consola de .NET
 
@@ -43,7 +50,7 @@ Las bibliotecas de administración de características de .NET amplían la plata
 
 1. En **Crear un proyecto**, filtre por el tipo de proyecto **Consola** y haga clic en **Aplicación de consola (.NET Framework)** . Haga clic en **Next**.
 
-1. En **Configurar el nuevo proyecto**, asígnele al proyecto un nombre. En **Marco**, seleccione **.NET Framework 4.7.1** o una versión posterior. Haga clic en **Crear**.
+1. En **Configurar el nuevo proyecto**, asígnele al proyecto un nombre. En **Marco**, seleccione **.NET Framework 4.8** o una versión posterior. Haga clic en **Crear**.
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conexión a un almacén de App Configuration
 
@@ -67,13 +74,8 @@ Las bibliotecas de administración de características de .NET amplían la plata
 1. Actualice el método `Main` para conectarse a App Configuration y especifique la opción `UseFeatureFlags` para que se recuperen las marcas de características. A continuación, muestre un mensaje si la marca de característica `Beta` está habilitada.
 
     ```csharp
-        public static void Main(string[] args)
-        {
-            AsyncMain().Wait();
-        }
-
-        private static async Task AsyncMain()
-        {
+        public static async Task Main(string[] args)
+        {         
             IConfigurationRoot configuration = new ConfigurationBuilder()
                 .AddAzureAppConfiguration(options =>
                 {

@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: Supervisión de Key Vault con Azure Event Grid'
-description: 'Tutorial: Uso de Azure Event Grid para suscribirse a eventos de Key Vault'
-services: media-services
+title: Supervisión de Key Vault con Azure Event Grid
+description: Uso de Azure Event Grid para suscribirse a eventos de Key Vault
+services: key-vault
 author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5771af365b763d2152eea4ef4f662e08769b378c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 2424fbac3c95c1c60e6ef61cba53e481f4bb478a
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133348"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650748"
 ---
-# <a name="tutorial-monitoring-key-vault-with-azure-event-grid-preview"></a>Tutorial: Supervisión de Key Vault con Azure Event Grid (versión preliminar)
+# <a name="monitoring-key-vault-with-azure-event-grid-preview"></a>Supervisión de Key Vault con Azure Event Grid (versión preliminar)
 
 La integración de Key Vault con Event Grid se encuentra actualmente en versión preliminar. Permite a los usuarios recibir una notificación cuando cambia el estado de un secreto almacenado en el almacén de claves. Un cambio de estado se define como un secreto que está a punto de expirar (en un plazo de 30 días antes de la fecha de expiración), un secreto que ha expirado o un secreto que tiene una nueva versión disponible. Se admiten las notificaciones para los tres tipos de secretos (clave, certificado y secreto).
 
@@ -27,10 +27,10 @@ Event Grid usa las [suscripciones a eventos](../event-grid/concepts.md#event-sub
 
 Para más información, consulte el [esquema de eventos de Key Vault](../event-grid/event-schema-key-vault.md).
 
-> [!NOTE]
-> Los eventos solo se desencadenan para las versiones secretas (los tres tipos) que se crearon una vez establecida la suscripción.
->
-> En el caso de los secretos existentes, debe generar nuevas versiones.
+> [!WARNING]
+> Los eventos de notificación solo se desencadenan en las nuevas versiones de secretos, claves y certificados y primero debe suscribirse al evento en el almacén de claves para recibir estas notificaciones.
+> 
+> Recibirá eventos de notificación sobre certificados solo cuando el certificado se renueve automáticamente según la directiva que haya especificado para el certificado.
 
 ## <a name="practices-for-consuming-events"></a>Prácticas para consumir eventos
 
@@ -45,7 +45,7 @@ Las aplicaciones que controlan los eventos de Key Vault deben seguir algunos pro
 
 - [Introducción a Azure Key Vault](key-vault-overview.md)
 - [Introducción a Azure Event Grid](../event-grid/overview.md)
-- Procedimientos para: [Enrutar eventos de Key Vault eventos al Runbook de Automation (versión preliminar)](event-grid-tutorial.md).
-- Procedimientos para: [Recibir un correo electrónico al cambiar un secreto del almacén de claves](event-grid-logicapps.md)
+- Procedimientos: [Enrutar eventos de Key Vault eventos al Runbook de Automation (versión preliminar)](event-grid-tutorial.md).
+- Procedimientos: [Recibir un correo electrónico al cambiar un secreto del almacén de claves](event-grid-logicapps.md)
 - [Esquema de eventos de Azure Event Grid para Azure Key Vault (versión preliminar)](../event-grid/event-schema-key-vault.md)
 - [Información general sobre Azure Automation](../automation/index.yml)

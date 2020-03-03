@@ -1,5 +1,6 @@
 ---
 title: 'Inicio rápido: Creación de una instancia de Data Science Virtual Machine de CentOS'
+titleSuffix: Azure Data Science Virtual Machine
 description: Configure y cree una instancia de Data Science Virtual Machine para Linux (CentOS) para realizar análisis y aprendizaje automático.
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -7,18 +8,18 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/13/2019
-ms.openlocfilehash: 1761673198b3d8ffc3740d64f525c9e70bda9e3e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 73541b31125ee6e99dc2351e26f6a564a1603487
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204181"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526032"
 ---
 # <a name="quickstart-set-up-a-centos-linux-data-science-virtual-machine-in-azure"></a>Inicio rápido: Configuración de una instancia de Data Science Virtual Machine de CentOS (Linux) en Azure
 
 Empiece a trabajar con una instancia de Data Science Virtual Machine basada en CentOS.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para crear una instancia de Data Science Virtual Machine de CentOS, debe tener una **suscripción a Azure**. [Cree una suscripción gratuita](https://azure.com/free).
 
@@ -33,7 +34,7 @@ Estos son los pasos necesarios para crear una instancia de Data Science Virtual 
 
 1. En la ventana siguiente, seleccione **Crear**.
 
-    [![](media/linux-dsvm-intro/create-centos.png "Botón para crear un equipo con CentOS")](media/linux-dsvm-intro/create-centos-expanded.png#lightbox)
+    [![](media/linux-dsvm-intro/create-centos.png "Button to create a CentOS machine")](media/linux-dsvm-intro/create-centos-expanded.png#lightbox)
 
 1. Debería ser redirigido a la hoja "Crear una máquina virtual".
    
@@ -48,7 +49,7 @@ Estos son los pasos necesarios para crear una instancia de Data Science Virtual 
        * **Nombre de la máquina virtual**: escriba el nombre de la máquina virtual. Así es como aparecerá en Azure Portal.
        * **Región**: seleccione el centro de datos más adecuado. Para disfrutar de un acceso más rápido a la red, elija el centro de datos que tenga la mayoría de los datos o el que esté más cerca de su ubicación física. Más información sobre las [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/).
        * **Imagen**: Deje el valor predeterminado.
-       * **Tamaño**: debería rellenarse automáticamente con un tamaño adecuado para cargas de trabajo generales. Obtenga más información sobre los [tamaños de las máquinas virtuales Linux en Azure](../../virtual-machines/linux/sizes.md).
+       * **Size**: debería rellenarse automáticamente con un tamaño adecuado para cargas de trabajo generales. Obtenga más información sobre los [tamaños de las máquinas virtuales Linux en Azure](../../virtual-machines/linux/sizes.md).
        * **Tipo de autenticación**: para que la configuración sea más rápida, seleccione "Contraseña". 
          
          > [!NOTE]
@@ -142,7 +143,7 @@ c.Spawner.default_url = '/lab'
 A continuación, mostramos cómo puede continuar con las tareas de aprendizaje y exploración:
 
 * En el tutorial [Ciencia de datos en Data Science Virtual Machine para Linux](linux-dsvm-walkthrough.md) se muestra cómo llevar a cabo varias tareas comunes de ciencia de datos con la instancia de DSVM de Linux aprovisionada aquí. 
-* Pruebe las herramientas descritas en este artículo para explorar las distintas herramientas de ciencia de datos de la instancia de DSVM. También puede ejecutar `dsvm-more-info` en el shell de la máquina virtual para obtener un introducción básica y referencias para consultar más información sobre las herramientas instaladas en la instancia de DSVM.  
+* Pruebe las herramientas descritas en este artículo para conocer las distintas herramientas de ciencia de datos de la instancia de DSVM. También puede ejecutar `dsvm-more-info` en el shell de la máquina virtual para obtener un introducción básica y referencias para consultar más información sobre las herramientas instaladas en la instancia de DSVM.  
 * Aprenda a crear soluciones analíticas completas mediante el uso sistemático del [proceso de ciencia de datos en equipo](https://aka.ms/tdsp).
 * Visite la [Azure AI Gallery](https://gallery.azure.ai/) para ver ejemplos de aprendizaje automático y análisis de datos donde se usan los servicios de Azure AI.
 * Consulte la [documentación de referencia](./reference-centos-vm.md) adecuada para esta máquina virtual.

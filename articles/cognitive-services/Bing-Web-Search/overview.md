@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 12/05/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 6615f166ced4a93115f9cbaae1c6ce5b57cf57bc
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: a7b2627b5837a124ebbcd76783bb49679cbe6313
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892998"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650289"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>¿Qué es Bing Web Search API?
 
@@ -30,7 +30,7 @@ Esta API es óptima para aplicaciones que necesitan acceso a todo el contenido q
 
 Bing Web Search solo no proporciona acceso a las respuestas instantáneas. También ofrece características y funcionalidad adicionales que le permiten personalizar los resultados de búsqueda de sus usuarios.
 
-| Característica | DESCRIPCIÓN |
+| Característica | Descripción |
 |---------|-------------|
 | [Sugerencia de términos de búsqueda en tiempo real](../bing-autosuggest/get-suggested-search-terms.md) | Mejore su experiencia con las aplicaciones mediante Bing Autosuggest API para mostrar términos de búsqueda sugeridos a medida que se escriben. |
 | [Filtrado y restricción de resultados por tipo de contenido](filter-answers.md) | Personalice y refine los resultados de búsqueda con filtros y parámetros de consulta para páginas web, imágenes, vídeos, búsqueda segura y más. |
@@ -40,7 +40,7 @@ Bing Web Search solo no proporciona acceso a las respuestas instantáneas. Tambi
 
 ## <a name="workflow"></a>Flujo de trabajo
 
-Bing Web Search API es fácil de llamar desde cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar respuestas JSON. El servicio es accesible mediante la [API REST](quickstarts/python.md) o los [SDK de Bing Web Search](web-sdk-python-quickstart.md).
+Bing Web Search API es fácil de llamar desde cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar respuestas JSON. El servicio es accesible mediante la [API REST](quickstarts/python.md) o las [bibliotecas cliente de Bing Web Search](./quickstarts/client-libraries.md).
 
 1. [Cree un recurso de Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para Bing Search API. Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).  
 2. Envíe una [solicitud a Bing Web Search API](quickstarts/python.md).
@@ -48,7 +48,7 @@ Bing Web Search API es fácil de llamar desde cualquier lenguaje de programació
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Use nuestra [guía de inicio rápido de Python](quickstarts/python.md) para realizar la primera llamada a Bing Web Search API.  
+* Use nuestra [guía de inicio rápido de Python](./quickstarts/client-libraries.md?pivots=programming-language-python) para realizar la primera llamada a Bing Web Search API.  
 * [Compile una aplicación web de una sola página](tutorial-bing-web-search-single-page-app.md).
 * Revise la documentación de [referencia de Web Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference).  
 * Más información sobre [cómo usar y mostrar los requisitos](UseAndDisplayRequirements.md) de Bing Web Search.  

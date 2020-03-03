@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/29/2019
+ms.date: 02/25/2020
 ms.author: aahi
-ms.openlocfilehash: 027e6ec829e9de9956451e48e5f9e1cdd749f9f7
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 560f34d21a68cecc4950db5dcceb9c8ef7b05a49
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689329"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614433"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Ejemplos de escenarios de usuario de Text Analytics API
 
@@ -29,7 +29,7 @@ Procese las respuestas de texto sin formato mediante el Análisis de sentimiento
 
 ## <a name="analyze-recorded-inbound-customer-calls"></a>Analizar las llamadas entrantes grabadas de los clientes
 
-Extraiga estadísticas de las llamadas de los servicios al cliente mediante texto a voz, Análisis de sentimiento y Extracción de frases clave. Muestre los resultados en el panel de Power BI o un portal para comprender mejor a los clientes, resalte las tendencias del servicio al cliente y aumente la involucración del cliente. Envíe solicitudes a la API en forma de lote para generar informes o en tiempo real para la intervención. Vea el código de ejemplo [en GitHub](https://github.com/rlagh2/callcenteranalytics).
+Extraiga estadísticas de las llamadas de los servicios al cliente mediante texto a voz, Análisis de sentimiento y Extracción de frases clave. Muestre los resultados en el panel de Power BI o un portal para comprender mejor a los clientes, resalte las tendencias del servicio al cliente y aumente la involucración del cliente. Envíe solicitudes a la API en forma de lote para generar informes o en tiempo real para la intervención. Consulte el código de ejemplo [en GitHub](https://github.com/rlagh2/callcenteranalytics).
 
 ![Imagen que describe cómo automatizar la obtención de estadísticas de llamadas del servició al cliente mediante el análisis de sentimiento](media/use-cases/azure-inbound.svg)
 
@@ -44,6 +44,12 @@ Use la Extracción de frases clave y el reconocimiento de entidades para procesa
 Supervise los comentarios de los usuarios sobre productos en la página de Twitter o Facebook de su producto. Use los datos para analizar el sentimiento del cliente acerca del lanzamiento de nuevos productos, extraiga frases clave sobre características y solicitudes de características, o bien aborde las quejas de los clientes a medida que surgen. Consulte el ejemplo de la [plantilla de Microsoft Flow](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/).
 
 ![Imagen que describe cómo supervisar los comentarios sobre su empresa y producto en las redes sociales mediante la Extracción de frases clave](media/use-cases/social-feed.svg)
+
+## <a name="classify-and-redact-documents-that-have-sensitive-information"></a>Clasificación y redacción de documentos con información confidencial
+
+Use el reconocimiento de entidades con nombre para identificar información personal y confidencial en los documentos. Use los datos para clasificar o redactar documentos para compartirlos de forma segura.
+
+![Imagen en la que se describe cómo usar NER para detectar información personal, y clasificar y redactar documentos](media/use-cases/sensitive-docs.jpg)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

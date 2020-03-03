@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
-ms.openlocfilehash: e50d0772eaf706772aa89418a1ad25bf406945b5
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 166ec4db2a2891d25a1e80526f8c1bd9770f9eef
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134312"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592227"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configuración de un laboratorio educativo 
 En este tutorial, se va a configurar un laboratorio de clase con las máquinas virtuales que van a utilizar los estudiantes de la clase.  
@@ -72,7 +72,7 @@ En este paso, creará un laboratorio para su clase en Azure.
     4. **Detenga** la plantilla de máquina virtual.  
 
 ## <a name="publish-the-template-vm"></a>Publicación de la plantilla de máquina virtual
-En este paso, publicará la plantilla de máquina virtual. El proceso de publicación crea máquinas virtuales de laboratorio que son básicamente copias de la plantilla de máquina virtual. 
+En este paso, publicará la plantilla de máquina virtual. Al publicar una plantilla, Azure Lab Services crea las máquinas virtuales en el laboratorio mediante esta. Todas las máquinas virtuales tienen la misma configuración que la plantilla.
 
 1. En la página **Template** (Plantilla), seleccione **Publish** (Publicar) en la barra de herramientas. 
 
@@ -89,6 +89,9 @@ En este paso, publicará la plantilla de máquina virtual. El proceso de publica
 4. Espere a que se complete la publicación y, a continuación, cambie a la página **Virtual machine pool** (Grupo de máquinas virtuales), para lo que debe seleccionar **Virtual machines** (Máquinas virtuales) en el menú izquierdo o el icono de las **máquinas virtuales**. Confirme que ve las máquinas virtuales que están en el estado **Sin asignar**. Estas máquinas virtuales no están asignadas a los alumnos todavía. Deberían estar en estado **Detenida**. En esta pagina, puede iniciar una máquina virtual de un alumno, conectarse a la máquina virtual, detener la máquina virtual y eliminar la máquina virtual. Puede iniciarlas en esta página o dejar que los alumnos inicien las máquinas virtuales. 
 
     ![Máquinas virtuales en estado detenido](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)   
+
+    > [!NOTE]
+    > Cuando un profesor encienda la máquina virtual de un alumno, la cuota del alumno no sufrirá cambios. La cuota de los usuarios especifica el número de horas de laboratorio disponibles para ellos fuera del tiempo de clase programado. Para más información sobre las cuotas, vea [Establecimiento de cuotas para los usuarios](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## <a name="set-a-schedule-for-the-lab"></a>Configuración de una programación para el laboratorio
 Cree un evento programado para el laboratorio de modo que las máquinas virtuales que este contiene se inicien o se detengan automáticamente en momentos concretos. La cuota de usuario (valor predeterminado: 10 horas) que especificó anteriormente es el tiempo adicional asignado a cada usuario fuera de esta hora programada. 

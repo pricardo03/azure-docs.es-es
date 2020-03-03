@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/27/2020
-ms.openlocfilehash: 1797654f290d751eb5c1cb65a77aaa7ca7a35aa1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 837174b3ccc08a74583587cb9efd34f8f720aec5
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772886"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589460"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Tutorial: Ejecución de Azure Functions desde trabajos de Azure Stream Analytics 
 
@@ -191,11 +191,16 @@ Siga el tutorial [Detección de fraudes en tiempo real](stream-analytics-real-ti
 
 Si se produce algún error al enviar eventos a Azure Functions, Stream Analytics reintentará la mayoría de las operaciones. Todas las excepciones HTTP se reintentan hasta que se ejecutan correctamente con la excepción del error HTTP 413 (la entidad es demasiado grande). Un error de que una entidad demasiado grande se trata como un error de datos, que está sujeto a la [directiva de reintento o de eliminación](stream-analytics-output-error-policy.md).
 
+> [!NOTE]
+> El tiempo de espera de las solicitudes HTTP de Stream Analytics a Azure Functions se establece en 100 segundos. Si la aplicación de Azure Functions tarda más de 100 segundos en procesar un lote, Stream Analytics genera un error.
+
 ## <a name="known-issues"></a>Problemas conocidos
 
 En Azure Portal, al intentar restablecer el valor de Tamaño máximo de lotes o Número máximo de lotes en valor vacío (predeterminado), el valor vuelve a cambiar al valor especificado anteriormente al guardar. Especifique manualmente los valores predeterminados para estos campos en este caso.
 
 El uso de [enrutamiento HTTP](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp) en Azure Functions actualmente no es compatible con Stream Analytics.
+
+No está habilitada la compatibilidad con la conexión a Azure Functions hospedado en una red virtual.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

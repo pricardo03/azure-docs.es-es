@@ -1,23 +1,23 @@
 ---
-title: Filtrado del tráfico de entrada con la DNAT de Azure Firewall mediante el portal
+title: Filtrado del tráfico de entrada de Internet con la DNAT de Azure Firewall mediante el portal
 description: En este tutorial, aprenderá a implementar y configurar la DNAT de Azure Firewall mediante Azure Portal.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 02/26/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2f390f3ad540a2a25055dfcc97cc3af1f22c2b73
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 1528087ced54ddcab2e3dd44b65fb3411cae3004
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195732"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621780"
 ---
-# <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutorial: Filtro del tráfico entrante con la DNAT de Azure Firewall mediante Azure Portal
+# <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutorial: Filtrado del tráfico de entrada de Internet con la DNAT de Azure Firewall mediante Azure Portal
 
-La traducción de direcciones de red de destino (DNAT) de Azure Firewall se puede configurar para traducir y filtrar el tráfico que entra a las subredes. Al configurar DNAT, en la acción de colección de la regla NAT se selecciona **DNAT**. Luego, todas las reglas de la colección de reglas NAT pueden usarse para traducir la dirección IP y el puerto públicos del firewall a una dirección IP y puerto privados. Las reglas DNAT agregan implícitamente una regla de red correspondiente implícita para permitir el tráfico traducido. Para invalidar este comportamiento, agregue explícitamente una colección de reglas de red con reglas de denegación que coinciden con el tráfico traducido. Para más información acerca de la lógica de procesamiento de reglas Azure Firewall, consulte [Lógica de procesamiento de reglas de Azure Firewall](rule-processing.md).
+La traducción de direcciones de red de destino (DNAT) de Azure Firewall se puede configurar para traducir y filtrar el tráfico de Internet que entra a las subredes. Al configurar DNAT, en la acción de colección de la regla NAT se selecciona **DNAT**. Luego, todas las reglas de la colección de reglas NAT pueden usarse para traducir la dirección IP y el puerto públicos del firewall a una dirección IP y puerto privados. Las reglas DNAT agregan implícitamente una regla de red correspondiente implícita para permitir el tráfico traducido. Para invalidar este comportamiento, agregue explícitamente una colección de reglas de red con reglas de denegación que coinciden con el tráfico traducido. Para más información acerca de la lógica de procesamiento de reglas Azure Firewall, consulte [Lógica de procesamiento de reglas de Azure Firewall](rule-processing.md).
 
 En este tutorial, aprenderá a:
 
@@ -42,7 +42,7 @@ En este tutorial se crearán dos redes virtuales emparejadas:
 3. En **Nombre del grupo de recursos**, escriba **RG-DNAT-Test**.
 4. En **Suscripción**, seleccione la suscripción.
 5. En **Ubicación del grupo de recursos**: seleccione una ubicación. Todos los recursos posteriores que cree deben estar en la misma ubicación.
-6. Haga clic en **Create**(Crear).
+6. Haga clic en **Crear**.
 
 ## <a name="set-up-the-network-environment"></a>Configuración del entorno de red
 
@@ -114,7 +114,7 @@ Crear una máquina virtual de cargas de trabajo y colóquela en la subred **SN-W
 2. En **Compute**, haga clic en **Máquinas virtuales**.
 3. Haga clic en **Agregar** y haga clic en **Windows Server**, haga clic en **Windows Server 2016 Datacenter** y, finalmente, haga clic en **Crear**.
 
-**Aspectos básicos**
+**Conceptos básicos**
 
 1. En **Nombre**, escriba **Srv-Workload**.
 5. Escriba un nombre de usuario y una contraseña.
@@ -149,9 +149,9 @@ Al finalizar la implementación, anote la dirección IP privada de la máquina v
 3. Haga clic en **Firewall** y, luego, en **Crear**. 
 4. En la página **Creación de un firewall**, utilice la tabla siguiente para configurar el firewall:
 
-   |Configuración  |Valor  |
+   |Configuración  |Value  |
    |---------|---------|
-   |NOMBRE     |FW-DNAT-test|
+   |Nombre     |FW-DNAT-test|
    |Subscription     |\<su suscripción\>|
    |Resource group     |**Usar existente**: RG-DNAT-Test |
    |Location     |Seleccione la misma ubicación que usó anteriormente.|
@@ -176,7 +176,7 @@ En la subred **SN-Workload**, configure la ruta predeterminada de salida para qu
 5. En **Suscripción**, seleccione la suscripción.
 6. En **Grupo de recursos**, seleccione **Usar existente** y, después, **RG-DNAT-Test**.
 7. En **Ubicación**, seleccione la misma ubicación que usó anteriormente.
-8. Haga clic en **Create**(Crear).
+8. Haga clic en **Crear**.
 9. Haga clic en **Actualizar**y, luego, haga clic en la tabla de rutas **RT-FWroute**.
 10. Haga clic en **Subredes** y en **Asociar**.
 11. Haga clic en **Red virtual**y seleccione **VN-Spoke**.
@@ -218,7 +218,7 @@ Puede conservar los recursos relacionados con el firewall para el siguiente tuto
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Configurar un entorno de red de prueba

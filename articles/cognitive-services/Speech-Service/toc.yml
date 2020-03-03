@@ -33,7 +33,7 @@
           href: how-to-specify-source-language.md
         - name: Elección del modo de reconocimiento de voz
           href: how-to-choose-recognition-mode.md
-        - name: Mejora de la precisión con Custom Speech
+        - name: Mejora de la precisión con Habla personalizada
           href: how-to-custom-speech.md
         - name: Mejora de la precisión con listas de frases
           href: how-to-phrase-lists.md
@@ -193,6 +193,10 @@
           items:
             - name: Text-to-speech REST API
               href: rest-text-to-speech.md
+        - name: Uso de aparatos telefónicos
+          items:
+            - name: Uso de aparatos telefónicos con Speech API (SAPI)
+              href: sapi-phoneset-usage.md
     - name: Recursos
       items:
         - name: Preguntas más frecuentes sobre la conversión de texto a voz
@@ -513,7 +517,7 @@
   items:
     - name: Desde Bing Speech
       href: how-to-migrate-from-bing-speech.md
-    - name: Desde Custom Speech Service
+    - name: Desde el servicio Habla personalizada
       href: how-to-migrate-from-custom-speech-service.md
     - name: Desde Translator Speech API
       href: how-to-migrate-from-translator-speech-api.md

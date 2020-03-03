@@ -5,13 +5,13 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: overview
-ms.date: 02/24/2019
-ms.openlocfilehash: 67a76d3b347ef750b639225a009cc6968cb84c6f
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.date: 02/19/2020
+ms.openlocfilehash: 1f1cec68813d33e7fa19a414a30adfc9a41df91f
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467562"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523482"
 ---
 # <a name="what-is-azure-app-configuration"></a>¿Qué es Azure App Configuration?
 
@@ -19,9 +19,9 @@ Azure App Configuration proporciona un servicio para administrar la configuraci�
 
 ## <a name="why-use-app-configuration"></a>Razones para usar App Configuration
 
-Las aplicaciones basadas en la nube a menudo se ejecutan en varias máquinas virtuales o contenedores de varias regiones y emplean varios servicios externos. Crear una aplicación distribuida de este tipo que sea sólida y escalable constituye un reto.
+Las aplicaciones basadas en la nube a menudo se ejecutan en varias máquinas virtuales o contenedores de varias regiones y emplean varios servicios externos. La creación de una aplicación sólida y escalable en un entorno distribuido supone un desafío importante.
 
-Varias metodologías de programación ayudan a los desarrolladores a abordar el aumento en la complejidad de la creación de estas aplicaciones. Por ejemplo, en [The Twelve-Factor App](https://12factor.net/) se describen muchos patrones arquitectónicos bien comprobados y procedimientos recomendados para usarlos con aplicaciones en la nube. Una de las recomendaciones principales de esta guía es separar la configuración del código. En este caso, la configuración de una aplicación se debería mantener de forma externa a su archivo ejecutable y leerse desde su entorno de ejecución o desde un origen externo.
+Varias metodologías de programación ayudan a los desarrolladores a abordar el aumento en la complejidad de la creación de estas aplicaciones. Por ejemplo, en [The Twelve-Factor App](https://12factor.net/) se describen muchos patrones arquitectónicos bien comprobados y procedimientos recomendados para usarlos con aplicaciones en la nube. Una de las recomendaciones principales de esta guía es separar la configuración del código. La configuración de una aplicación debería mantenerse de forma externa a su archivo ejecutable y leerse desde su entorno de ejecución o desde un origen externo.
 
 Aunque todas las aplicaciones pueden usar App Configuration, los siguientes ejemplos son los tipos de aplicaciones que mejor aprovechan su uso:
 
@@ -38,7 +38,7 @@ App Configuration ofrece las siguientes ventajas:
 * Interfaz de usuario dedicada para la administración de marcas de características
 * Comparación de dos conjuntos de configuraciones en dimensiones definidas de forma personalizada
 * Seguridad mejorada mediante las identidades administradas de Azure
-* Cifrado de datos completo, en reposo o en tránsito
+* Cifrado de información confidencial en reposo y en tránsito
 * Integración nativa con plataformas conocidas
 
 App Configuration complementa [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), que se usa para almacenar secretos de aplicación. App Configuration facilita la implementación de los siguientes escenarios:
@@ -49,7 +49,7 @@ App Configuration complementa [Azure Key Vault](https://azure.microsoft.com/serv
 
 ## <a name="use-app-configuration"></a>Uso de App Configuration
 
-La forma más fácil de agregar un almacén de App Configuration a una aplicación es mediante una biblioteca de cliente que Microsoft proporciona. Según el lenguaje y la plataforma de programación, los siguientes son los mejores métodos disponibles.
+La forma más fácil de agregar un almacén de App Configuration a la aplicación es mediante una biblioteca de cliente que Microsoft proporciona. Los siguientes métodos están disponibles para conectarse con la aplicación según el lenguaje y el marco elegidos
 
 | Lenguaje y plataforma de programación | Conexión |
 |---|---|

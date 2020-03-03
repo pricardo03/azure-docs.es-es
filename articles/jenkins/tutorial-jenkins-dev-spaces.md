@@ -3,12 +3,12 @@ title: Uso del complemento de Azure Dev Spaces para Jenkins con Azure Kubernetes
 description: Aprenda a usar el complemento de Azure Dev Spaces en una canalización de integración continua.
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: 9dba0307db8ebbf07422fd770ea336b2abc031bd
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 10dfbdb7d89d6f3870ec3b9dbd87d4d315360815
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209668"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619994"
 ---
 # <a name="tutorial-using-the-azure-dev-spaces-plug-in-for-jenkins-with-azure-kubernetes-service"></a>Tutorial: Uso del complemento de Azure Dev Spaces para Jenkins con Azure Kubernetes Service 
 
@@ -26,7 +26,7 @@ En este tutorial va a completar estas tareas:
 
 En este tutorial se supone que tiene un conocimiento intermedio de los servicios básicos de Azure, AKS, ACR, Azure Dev Spaces, las [canalizaciones](https://jenkins.io/doc/book/pipeline/) y los complementos de Jenkins y GitHub. También resulta útil tener un conocimiento básico de herramientas de apoyo, como kubectl y Helm.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una cuenta de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -409,16 +409,5 @@ az group delete -y --no-wait -n MyResourceGroup
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido a usar el complemento de Azure Dev Spaces para Jenkins y el complemento de Azure Container Registry para compilar código e implementarlo en un espacio de desarrollo.
-
-La siguiente lista de recursos proporciona más información sobre Azure Dev Spaces, ACR Tasks y CI/CD con Jenkins.
-
-Azure Dev Spaces:
-* [How Azure Dev Spaces works and is configured](https://docs.microsoft.com/azure/dev-spaces/how-dev-spaces-works) (Cómo funciona Azure Dev Spaces y cómo está configurado)
-
-ACR Tasks:
-* [Automatización de la aplicación de revisiones de sistema operativo y marco con ACR Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview)
-* [Compilación automática al confirmar el código](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview)
-
-CI/CD con Jenkins en Azure:
-* [Implementación continua de Jenkins](https://docs.microsoft.com/azure/aks/jenkins-continuous-deployment)
+> [!div class="nextstepaction"]
+> [CI/CD con Jenkins en Azure](jenkins-continuous-deployment.md)

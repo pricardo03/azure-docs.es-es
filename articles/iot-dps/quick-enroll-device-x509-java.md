@@ -9,36 +9,26 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: a2787a0d5f372562f32c4d8adca3ed195d1befd5
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 534956a53615cfafeffa611127bc8c3cc4493753
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461975"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604907"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Inicio rápido: Inscripción de dispositivos X.509 en el servicio Device Provisioning mediante Java
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-Esta guía de inicio rápido muestra cómo usar Java para inscribir mediante programación un grupo de dispositivos simulados X.509 en el servicio Azure IoT Hub Device Provisioning Service. Los dispositivos se inscriben en una instancia de Device Provisioning Service mediante la creación de un [grupo de inscripción](concepts-service.md#enrollment-group) o de una [inscripción individual](concepts-service.md#individual-enrollment). Esta guía de inicio rápido le muestra cómo crear ambos tipos de inscripciones. Las inscripciones se crean mediante el [SDK del servicio Java](https://azure.github.io/azure-iot-sdk-java/service/) con la ayuda de una aplicación de Java de ejemplo. 
-
-En esta guía de inicio rápido se asume que ya ha creado un centro de IoT y una instancia de Device Provisioning Service. Si aún no ha creado estos recursos, complete la guía de inicio rápido [Configuración del servicio Azure IoT Hub Device Provisioning con Azure Portal](./quick-setup-auto-provision.md) antes de continuar con este artículo.
-
-Aunque el SDK del servicio de Java funciona en máquinas Windows y Linux, este artículo usa una máquina de desarrollo de Windows para guiarle por el proceso de inscripción.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Este inicio rápido va a usar Java para inscribir mediante programación un grupo de dispositivos simulados X.509 en el servicio Azure IoT Hub Device Provisioning Service. Los dispositivos se inscriben en una instancia de Device Provisioning Service mediante la creación de un grupo de inscripción o de una inscripción individual. En este inicio rápido se muestra cómo crear ambos tipos de inscripciones mediante el SDK del servicio de Java y una aplicación Java de ejemplo.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Instale [Java SE Development Kit 8](https://aka.ms/azure-jdks).
-* Instale [Maven 3](https://maven.apache.org/download.cgi). Para comprobar su versión actual de Maven haga lo siguiente:
-
-    ```cmd/sh
-    mvn --version
-    ```
-
-* Instale [Git](https://git-scm.com/download/).
-
+- Haber leído [Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal](./quick-setup-auto-provision.md).
+- Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Java SE Development Kit 8](https://aka.ms/azure-jdks). En este inicio rápido se instala el [SDK de servicio de Java](https://azure.github.io/azure-iot-sdk-java/service/) siguiente. Funciona tanto en Windows como en Linux. En este inicio rápido se usa Windows.
+- [Maven 3](https://maven.apache.org/download.cgi).
+- [Git](https://git-scm.com/download/).
 
 <a id="javasample"></a>
 
@@ -51,7 +41,7 @@ En esta sección se usa un certificado X.509 autofirmado, así que es importante
 
 Los siguientes pasos muestran cómo agregar los detalles de aprovisionamiento del dispositivo X.509 al código de ejemplo. 
 
-1. Abra un símbolo del sistema. Clone el repositorio de GitHub para código de ejemplo de inscripción de dispositivos mediante el SDK del servicio de Java:
+1. Abra un símbolo del sistema. Clone el repositorio de GitHub para código de ejemplo de inscripción de dispositivos mediante el [SDK del servicio de Java](https://azure.github.io/azure-iot-sdk-java/service/):
     
     ```cmd\sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -140,6 +130,13 @@ Los siguientes pasos muestran cómo agregar los detalles de aprovisionamiento de
 <a id="runjavasample"></a>
 
 ## <a name="build-and-run-sample-group-enrollment"></a>Compilación y ejecución de la inscripción de grupo de ejemplo
+
+Azure IoT Hub Device Provisioning Service admite dos tipos de inscripciones:
+
+- [Grupos de inscripción](concepts-service.md#enrollment-group): usados para inscribir varios dispositivos relacionados.
+- [Inscripciones individuales](concepts-service.md#individual-enrollment): usadas para inscribir un solo dispositivo.
+
+Este procedimiento utiliza un grupo de inscripción. En la sección siguiente se usa una inscripción individual.
 
 1. Abra una ventana de comandos y navegue hasta la carpeta **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** .
 

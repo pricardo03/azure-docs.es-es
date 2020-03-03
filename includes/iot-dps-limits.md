@@ -4,12 +4,12 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: a306a05899a644f2ee8ea738789b84ee98221531
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2b8d60da507aa1eb312d1a8505f756ff337085ff
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75392351"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592443"
 ---
 En la tabla siguiente se enumeran los límites que se aplican a los recursos de Azure IoT Hub Device Provisioning Service.
 
@@ -25,6 +25,9 @@ En la tabla siguiente se enumeran los límites que se aplican a los recursos de 
 
 > [!NOTE]
 > Para aumentar el número de inscripciones y registros del servicio de aprovisionamiento, póngase en contacto con [Soporte técnico de Microsoft](https://azure.microsoft.com/support/options/).
+
+> [!NOTE]
+> No se puede aumentar el número máximo de entidades de certificación.
 
 El servicio de aprovisionamiento de dispositivos limita las solicitudes cuando se superan las cuotas siguientes.
 

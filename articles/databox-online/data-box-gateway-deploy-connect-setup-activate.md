@@ -1,5 +1,5 @@
 ---
-title: Conexión, configuración y activación de Azure Data Box Gateway en Azure Portal | Microsoft Docs
+title: Conexión, configuración y activación de Azure Data Box Gateway en Azure Portal
 description: Este tercer tutorial para implementar Data Box Gateway proporciona instrucciones para conectar, configurar y activar el dispositivo virtual.
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 898cb63f8868ce2abaee8784214322edf9a56997
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 33333f8df1e4809a330815e34074d1bca556cd14
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000324"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561840"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Tutorial: Conexión, configuración y activación de Azure Data Box Gateway
 
@@ -29,7 +29,7 @@ En este tutorial, aprenderá a:
 > * Conectarse a un dispositivo virtual
 > * Configuración y activación del dispositivo virtual
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de instalar y configurar Data Box Gateway, asegúrese de que:
 
@@ -67,7 +67,7 @@ El panel muestra los distintos valores necesarios para configurar y registrar el
 
 1. En el panel izquierdo, seleccione **Nombre de dispositivo** y escriba un nombre descriptivo para el dispositivo. Dicho nombre debe contener entre 1 y 15 caracteres, así como letras, números y guiones.
 
-    ![Página de "Nombre del dispositivo" de la interfaz de usuario web local](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
+    ![Página de "Nombre de dispositivo" de la interfaz de usuario web local](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
 
 2. (Opcional) En el panel izquierdo, seleccione **Configuración de red** y configure los distintos valores. En el dispositivo virtual verá al menos una interfaz de red o más, en función de cuántas se configuraron en la máquina virtual subyacente. La página **Configuración de red** de un dispositivo virtual con una interfaz de red habilitada es como la que se muestra a continuación.
     
@@ -134,7 +134,7 @@ La instalación del dispositivo está completa. Ahora puede agregar recursos com
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Conectarse a un dispositivo virtual

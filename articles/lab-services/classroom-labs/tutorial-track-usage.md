@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 55c7e2f30324fe7878e38f1129c63c6e0c51a75f
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: a1a3e62646fedd468a02eac7b1a48d0b2d00fd74
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134815"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591989"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Tutorial: Seguimiento del uso de un laboratorio en Azure Lab Services
 Este tutorial muestra cómo un creador o propietario de un laboratorio puede realizar un seguimiento de su uso.
@@ -41,7 +41,7 @@ En este tutorial realizará lo siguiente:
 
     ![Usuarios registrados](../media/tutorial-track-usage/registered-users.png)
 
-    Para obtener más información sobre cómo agregar y administrar usuarios para el laboratorio, vea [Incorporación y administración de usuarios de laboratorio](how-to-configure-student-usage.md).
+    Para más información sobre cómo agregar y administrar usuarios para el laboratorio, consulte [Incorporación y administración de usuarios de laboratorio](how-to-configure-student-usage.md).
 
 ## <a name="view-the-usage-of-vms"></a>Visualización del uso de máquinas virtuales
 
@@ -53,9 +53,12 @@ En este tutorial realizará lo siguiente:
 ## <a name="manage-student-vms"></a>Administración de máquinas virtuales de estudiantes 
 En esta página, puede iniciar, detener o restablecer las máquinas virtuales de los alumnos mediante los controles de la columna **Estado** o de la barra de herramientas.
 
-![Controles de máquinas virtuales](../media/tutorial-track-usage/vm-controls.png)
+![Acciones de la máquina virtual](../media/tutorial-track-usage/vm-controls.png)
 
-Para obtener más información sobre cómo administrar el grupo de máquinas virtuales para el laboratorio, consulte [Configuración y administración del grupo de máquinas virtuales](how-to-set-virtual-machine-passwords.md).
+Para más información sobre cómo administrar el grupo de máquinas virtuales para el laboratorio, consulte [Configuración y administración del grupo de máquinas virtuales](how-to-set-virtual-machine-passwords.md).
+
+> [!NOTE]
+> Cuando un profesor encienda la máquina virtual de un alumno, la cuota del alumno no sufrirá cambios. La cuota de los usuarios especifica el número de horas de laboratorio disponibles para ellos fuera del tiempo de clase programado. Para más información sobre las cuotas, vea [Establecimiento de cuotas para los usuarios](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre los laboratorios educativos, consulte los artículos enumerados en [Guías de procedimientos](how-to-manage-lab-accounts.md).

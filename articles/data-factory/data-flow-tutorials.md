@@ -5,17 +5,17 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 02/06/2020
-ms.openlocfilehash: 1449b34a9bbeb5692d25a5f84c4ee38e6c4e0a33
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.date: 02/16/2020
+ms.openlocfilehash: 1d0264a0b7ac4e97d9a2811ba61ab64fcedd6fb9
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77460542"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587556"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Tutoriales en vídeo del flujo de datos de asignación
 
-A continuación se muestra una lista de los tutoriales en vídeo sobre el flujo de datos de asignación creados por el equipo de Azure Data Factory.
+A continuación se muestra una lista de los tutoriales en vídeo sobre el flujo de datos de asignación creados por el equipo de Azure Data Factory. 
 
 Como se realizan actualizaciones constantemente en el producto, se han agregado características a la experiencia de usuario actual de Azure Data Factory o se han cambiado funcionalidades.
 
@@ -32,6 +32,8 @@ Como se realizan actualizaciones constantemente en el producto, se han agregado 
 [Acciones rápidas de vista previa de datos](https://www.youtube.com/watch?v=CP0TnNmaLA0)
 
 [Supervisión y administración del rendimiento del flujo de datos de asignación](https://www.youtube.com/watch?v=fktIWdJiqTk)
+
+[Intervalos entre puntos de referencia](http://youtu.be/6CSbWm4lRhw?hd=1)
 
 ## <a name="transformation-overviews"></a>Resúmenes de las transformaciones
 
@@ -100,6 +102,8 @@ Como se realizan actualizaciones constantemente en el producto, se han agregado 
 [Reducción de los tiempos de inicio](https://youtu.be/FFCbU4ujCiY?t=528)
 
 [Rendimiento de la base de datos SQL](https://youtu.be/iyZT5CY3V_4)
+
+[Registro y auditoría](https://www.youtube.com/watch?v=UC__LOyuf8M)
 
 ## <a name="mapping-data-flow-scenarios"></a>Escenarios del flujo de datos de asignación
 

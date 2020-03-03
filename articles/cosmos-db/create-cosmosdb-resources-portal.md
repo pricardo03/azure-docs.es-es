@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/05/2020
-ms.openlocfilehash: a933caf0b0033cdcd1f27d4f795ba6466f34072a
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: bc7e77cc498958b2f8f0c5b2d5ab2d59db97a235
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210368"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560837"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Inicio rápido: Creación de una base de datos, un contenedor y elementos de Azure Cosmos desde Azure Portal
 
@@ -100,6 +100,12 @@ Agregue datos a una base de datos nueva mediante Data Explorer.
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+
+Si desea eliminar solo la base de datos y usar la cuenta de Azure Cosmos en el futuro, puede eliminar la base de datos con los pasos siguientes:
+
+* Vaya a la cuenta de Azure Cosmos.
+* Abra **Explorador de datos**, haga clic con el botón derecho en la base de datos que desee eliminar y seleccione **Eliminar base de datos**.
+* Escriba el nombre de la base de datos o su identificador para confirmar la eliminación. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

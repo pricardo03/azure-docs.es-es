@@ -8,12 +8,12 @@ ms.date: 2/10/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5f576d28d30907f3834600d0a6a5c152025cf912
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: a5c754373ba9437c631e62acbb5d6d246db4c862
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133489"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650765"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Tutorial: Entrenamiento e implementación de un modelo de Azure Machine Learning
 
@@ -83,7 +83,7 @@ Vamos a revisar los archivos cargados en el proyecto de Azure Notebooks. Las act
 * **01-turbofan\_regression.ipynb:** Este cuaderno usa el área de trabajo de Machine Learning Service para crear y ejecutar un experimento de aprendizaje automático. En líneas generales, el cuaderno realiza los siguientes pasos:
 
   1. Descarga datos de la cuenta de Azure Storage generada por la herramienta de ejecución de dispositivos.
-  1. Explora y prepara los datos para el entrenamiento y el modelo de clasificación de anuncios.
+  1. Explora y prepara los datos, y usa los datos para entrenar el modelo clasificador.
   1. Evalúe el modelo desde el experimento mediante un conjunto de datos de prueba (Test\_FD003.txt).
   1. Publica el mejor modelo de clasificación en el área de trabajo de Machine Learning Service.
 

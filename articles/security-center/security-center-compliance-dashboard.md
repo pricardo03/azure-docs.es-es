@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2019
 ms.author: memildin
-ms.openlocfilehash: 01c0f1199ab8c376fe5bb5e864f81a2730879ed1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 1a6999c05c0b3dbaf572b376412f666c50c23df7
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112317"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604460"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Mejora del cumplimiento normativo
 ---
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para recorrer todas las características que se tratan en este tutorial debe tener el plan de tarifa Estándar de Security Center. Dicho plan se puede probar de forma gratuita.
 Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/). En [Guía de inicio rápido de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-get-started) le explicamos cómo realizar la actualización al plan de tarifa Estándar.
@@ -62,7 +62,7 @@ En la parte superior de la pantalla se ve un panel con información general acer
 
     El informe proporciona un resumen de alto nivel del estado de cumplimiento del estándar seleccionado, para lo que usa los datos de las evaluaciones de Security Center, y se organiza según los controles de dicho estándar concreto. El informe se puede compartir con las partes interesadas competentes y puede servir para proporcionar evidencia a los auditores internos y externos.
 
-    ![descargar](./media/security-center-compliance-dashboard/download-report.png)
+    ![descarga](./media/security-center-compliance-dashboard/download-report.png)
 
 ## <a name="improve-your-compliance-posture"></a>Mejora de su estado de cumplimiento de la norma
 
@@ -103,6 +103,4 @@ Para más información, consulte:
 
 -   [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md): aprenda a usar las recomendaciones de Azure Security Center como ayuda para la protección de los recursos de Azure.
 
--   [Mejora de la puntuación de seguridad en Azure Security Center](security-center-secure-score.md): aprenda a dar prioridad a las vulnerabilidades y recomendaciones de seguridad para mejorar su posición ante la seguridad.
-
--   [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
+-   [Mejora de la puntuación de seguridad de Azure Security Center](security-center-secure-score.md): aprenda a dar prioridad a los puntos vulnerables y las recomendaciones de seguridad para mejorar al máximo su postura ante la seguridad.

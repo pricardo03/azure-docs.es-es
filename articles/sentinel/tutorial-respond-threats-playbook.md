@@ -3,7 +3,7 @@ title: 'Tutorial: Ejecución de un cuaderno de estrategias en Azure Sentinel'
 description: 'Tutorial: En este artículo se describe cómo ejecutar un cuaderno de estrategias en Azure Sentinel.'
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: e4afc5c8-ffad-4169-8b73-98d00155fa5a
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/12/2019
-ms.author: rkarlin
-ms.openlocfilehash: 7e26e901fdee8cac79cfb55aa0999487e87b8a78
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/18/2019
+ms.author: yelevin
+ms.openlocfilehash: f6adcb978dbe540d3bdd352089d4dde407d0fb4c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113910"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585091"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Tutorial: Configuración de respuestas automatizadas frente a amenazas en Azure Sentinel
 
@@ -64,7 +64,7 @@ Para crear un nuevo cuaderno de estrategias de seguridad en Azure Sentinel, siga
 
    ![Aplicación lógica](./media/tutorial-respond-threats-playbook/playbookimg.png)
 
-3. En la página **Azure Sentinel - Cuadernos de estrategias (versión preliminar)** , haga clic en el botón **Agregar**.
+3. En la página **Azure Sentinel - Playbooks** (Azure Sentinel - Cuadernos de estrategias), haga clic en el botón **Add** (Agregar).
 
    ![Creación de la aplicación lógica](./media/tutorial-respond-threats-playbook/create-playbook.png) 
 

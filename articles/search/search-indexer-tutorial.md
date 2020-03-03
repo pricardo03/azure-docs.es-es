@@ -7,138 +7,159 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 1b03f5569386212905cdeb362cfe0a88774eb887
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 02/26/2020
+ms.openlocfilehash: 978587b68e719b79db31ff25adaf2b38d2235095
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754340"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650121"
 ---
-# <a name="tutorial-import-azure-sql-database-in-c-using-azure-cognitive-search-indexers"></a>Tutorial: Importación de una base de datos de Azure SQL en C# mediante los indexadores de Azure Cognitive Search
+# <a name="tutorial-index-azure-sql-data-in-c-using-azure-cognitive-search-indexers"></a>Tutorial: Indexación de datos de Azure SQL en C# mediante los indexadores de Azure Cognitive Search
 
-Aprenda a configurar un indexador para extraer datos que permiten búsquedas de una base de datos de Azure SQL de ejemplo. [Los indexadores](search-indexer-overview.md) son componentes de Azure Cognitive Search que rastrean orígenes de datos externos y rellenan un [índice de búsqueda](search-what-is-an-index.md) con contenido. De todos los indexadores, el más usado es el indexador de Azure SQL Database. 
-
-Tener un profundo conocimiento de la configuración del indexador resulta de utilidad porque simplifica la cantidad de código que se tiene que escribir y mantener. En lugar de preparar e insertar un conjunto de datos JSON conforme a un esquema, puede asociar un indexador a un origen de datos, hacer que el indexador extraiga los datos y los inserte en un índice y, luego, de manera opcional, puede ejecutar el indexador según una programación recurrente para seleccionar los cambios en el origen subyacente.
-
-En este tutorial, se usarán las [bibliotecas cliente .NET de Azure Cognitive Search](https://aka.ms/search-sdk) y una aplicación de consola de .NET Core para realizar las siguientes tareas:
+Utilice C# para configurar un [indexador](search-indexer-overview.md) que extraiga datos que permitan búsquedas de Azure SQL Database y los envíe a un índice de búsqueda. En este tutorial se usan las [bibliotecas cliente .NET de Azure Cognitive Search](https://aka.ms/search-sdk) y una aplicación de consola de .NET Core para realizar las siguientes tareas:
 
 > [!div class="checklist"]
-> * Agregar información del servicio de búsqueda a la configuración de la aplicación
-> * Preparar un conjunto de datos externo en la base de datos de Azure SQL 
-> * Revisar las definiciones de índice e indexador en el código de ejemplo
-> * Ejecutar el código de indexador para importar los datos
-> * Búsqueda en el índice
-> * Ver la configuración del indexador en el portal
+> * Creación de un origen de datos que se conecte a Azure SQL Database
+> * Configuración de un indexador
+> * Ejecución de un indexador para cargar datos en un índice
+> * Consulta de un índice como paso de comprobación
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
-En este inicio rápido se usan los siguientes servicios, herramientas y datos. 
-
-[Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial.
-
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) almacena el origen de datos externo usado por un indexador. La solución de ejemplo proporciona un archivo de datos SQL para crear la tabla. En este tutorial se indican los pasos para crear el servicio y la base de datos.
-
-Se puede usar cualquier edición de [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) para ejecutar la solución de ejemplo. Se han probado código de ejemplo e instrucciones en la edición Community Edition gratuita.
-
-En [Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started) puede encontrar la solución de ejemplo, en el repositorio de GitHub de ejemplos de Azure. Descargue y extraiga la solución. De forma predeterminada, las soluciones son de solo lectura. Haga clic con el botón derecho en la solución y borre el atributo de solo lectura para que se puedan modificar los archivos.
++ [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
++ [Visual Studio](https://visualstudio.microsoft.com/downloads/)
++ [Creación](search-create-service-portal.md) o [búsqueda de un servicio de búsqueda existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
 > [!Note]
-> Si va a usar el servicio gratuito de Azure Cognitive Search, está limitado a tres índices, tres indexadores y tres orígenes de datos. En este tutorial se crea uno de cada uno. Asegúrese de que haya espacio en el servicio para aceptar los nuevos recursos.
+> Puede usar un servicio gratuito para este tutorial. Un servicio de búsqueda gratuito tiene una limitación de tres índices, tres indexadores y tres orígenes de datos. En este tutorial se crea uno de cada uno. Antes de empezar, asegúrese de que haya espacio en el servicio para aceptar los nuevos recursos.
+
+## <a name="download-source-code"></a>Descarga del código fuente
+
+El código fuente de este tutorial se encuentra en la carpeta [DotNetHowToIndexer](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToIndexers) del repositorio [Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started) de GitHub.
 
 ## <a name="get-a-key-and-url"></a>Obtención de una clave y una dirección URL
 
-Las llamadas de REST requieren la dirección URL del servicio y una clave de acceso en cada solicitud. Con ambos se crea un servicio de búsqueda, por lo que, si ha agregado Azure Cognitive Search a su suscripción, siga estos pasos para obtener la información necesaria:
+Las llamadas API requieren la dirección URL del servicio y una clave de acceso. Con ambos se crea un servicio de búsqueda, por lo que, si ha agregado Azure Cognitive Search a su suscripción, siga estos pasos para obtener la información necesaria:
 
 1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y en la página **Introducción** del servicio de búsqueda, obtenga la dirección URL. Un punto de conexión de ejemplo podría ser similar a `https://mydemo.search.windows.net`.
 
 1. En **Configuración** > **Claves**, obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
 
-![Obtención de una clave de acceso y un punto de conexión HTTP](media/search-get-started-postman/get-url-key.png "Obtención de una clave de acceso y un punto de conexión HTTP")
-
-Todas las solicitudes requieren una clave de API en cada solicitud enviada al servicio. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
+   ![Obtención de una clave de acceso y un punto de conexión HTTP](media/search-get-started-postman/get-url-key.png "Obtención de una clave de acceso y un punto de conexión HTTP")
 
 ## <a name="set-up-connections"></a>Configuración de las conexiones
-La información de conexión para los servicios requeridos se especifica en el archivo **appsettings.json** de la solución. 
 
-1. En Visual Studio, abra el archivo **DotNetHowToIndexers.sln**.
+1. Inicie Visual Studio y abra **DotNetHowToIndexers.sln**.
 
-1. En el Explorador de soluciones, abra **appsettings.json** para que pueda rellenar cada valor de configuración.  
+1. En Explorador de soluciones, abra **appsettings.json** y reemplace los valores de los marcadores de posición por la información de conexión al servicio de búsqueda. Si la dirección URL completa es "https://my-demo-service.search.windows.net", el nombre del servicio que se va a proporcionar es "my-demo-service".
 
-Las dos primeras entradas las puede rellenar en este mismo momento mediante las claves de dirección URL y de administrador del servicio Azure Cognitive Search. Dado un punto de conexión de `https://mydemo.search.windows.net`, el nombre del servicio que debe proporcionar es `mydemo`.
-
-```json
-{
-  "SearchServiceName": "Put your search service name here",
-  "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
-  "AzureSqlConnectionString": "Put your Azure SQL database connection string here",
-}
-```
+    ```json
+    {
+      "SearchServiceName": "Put your search service name here",
+      "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
+      "AzureSqlConnectionString": "Put your Azure SQL database connection string here",
+    }
+    ```
 
 La última entrada requiere una base de datos existente. La creará en el paso siguiente.
 
 ## <a name="prepare-sample-data"></a>Preparación de datos de ejemplo
 
-En este paso, creará un origen de datos externo que se pueda rastrear con un indexador. Puede usar Azure Portal y el archivo *hotels.sql* del ejemplo para crear el conjunto de datos en Azure SQL Database. Azure Cognitive Search usa conjuntos de filas planas, como los que se generan a partir de una vista o una consulta. El archivo SQL de la solución de ejemplo crea y rellena una sola tabla.
+En este paso creará un origen de datos externo en Azure SQL Database que se pueda rastrear con un indexador. Puede usar Azure Portal y el archivo *hotels.sql* del ejemplo para crear el conjunto de datos en Azure SQL Database. Azure Cognitive Search usa conjuntos de filas planas, como los que se generan a partir de una vista o una consulta. El archivo SQL de la solución de ejemplo crea y rellena una sola tabla.
 
-En el ejercicio siguiente se da por supuesto que no hay ningún servidor ni base de datos, y se le indica que cree ambos en el paso 2. Opcionalmente, si tiene un recurso existente, puede agregar en él la tabla de hoteles, a partir del paso 4.
+Si tiene un recurso de Azure SQL Database existente, puede agregarle la tabla de hoteles, a partir del paso 4.
 
-1. [Inicie sesión en Azure Portal](https://portal.azure.com/). 
+1. [Inicie sesión en Azure Portal](https://portal.azure.com/).
 
-2. Busque o cree una instancia de **Azure SQL Database** para crear una base de datos, un servidor y un grupo de recursos. Puede usar los valores predeterminados y el plan de tarifa más bajo. Una ventaja de la creación de un servidor es que puede especificar un nombre de usuario y una contraseña de administrador, que son necesarios para crear y cargar las tablas en un paso posterior.
+1. Busque o cree una instancia de **SQL Database**. Puede usar los valores predeterminados y el plan de tarifa más bajo. Una ventaja de la creación de un servidor es que puede especificar un nombre de usuario y una contraseña de administrador, que son necesarios para crear y cargar las tablas en un paso posterior.
 
-   ![Página Nueva base de datos](./media/search-indexer-tutorial/indexer-new-sqldb.png)
+   ![Página de base de datos nueva](./media/search-indexer-tutorial/indexer-new-sqldb.png "Página Nueva base de datos")
 
-3. Haga clic en **Crear** para implementar el nuevo servidor y la nueva base de datos. Espere a que se implementen el servidor y la base de datos.
+1. Haga clic en **Revisar y crear** para implementar el nuevo servidor y la nueva base de datos. Espere a que se implementen el servidor y la base de datos.
 
-4. Abra la página SQL Database de la nueva base de datos, si aún no está abierta. En el nombre del recurso debe poner *SQL Database* y no *SQL Server*.
+1. En el panel de navegación, haga clic en **Editor de consultas (versión preliminar)** y escriba el nombre de usuario y la contraseña del administrador del servidor. 
 
-   ![Página SQL Database](./media/search-indexer-tutorial/hotels-db.png)
+   Si se le deniega el acceso, copie la dirección IP del cliente del mensaje de error y haga clic en el vínculo **Establecer el firewall del servidor** para agregar una regla que permita el acceso desde el equipo cliente, mediante la dirección IP del cliente para el intervalo. Puede que la regla tarde varios minutos en aplicarse.
 
-4. En el panel de navegación, haga clic en **Editor de consultas (versión preliminar)** .
+1. En el editor de consultas, haga clic en **Abrir consulta** y vaya a la ubicación del archivo *hotels.sql* en el equipo local. 
 
-5. Haga clic en **Iniciar sesión** y escriba el nombre de usuario y la contraseña del administrador del servidor.
+1. Seleccione el archivo y haga clic en **Abrir**. El script debe tener un aspecto similar a la siguiente captura de pantalla:
 
-6. Haga clic en **Abrir consulta** y navegue a la ubicación de *hotels.sql*. 
+   ![Script de SQL](./media/search-indexer-tutorial/sql-script.png "Script de SQL")
 
-7. Seleccione el archivo y haga clic en **Abrir**. El script debe tener un aspecto similar a la siguiente captura de pantalla:
+1. Haga clic en **Ejecutar** para ejecutar la consulta. En el panel de resultados, verá un mensaje de consulta correcta, correspondiente a 3 filas.
 
-   ![Script de SQL](./media/search-indexer-tutorial/sql-script.png)
-
-8. Haga clic en **Ejecutar** para ejecutar la consulta. En el panel de resultados, verá un mensaje de consulta correcta, correspondiente a 3 filas.
-
-9. Para devolver un conjunto de filas de esta tabla, puede ejecutar la siguiente consulta como paso de comprobación:
+1. Para devolver un conjunto de filas de esta tabla, puede ejecutar la siguiente consulta como paso de comprobación:
 
     ```sql
-    SELECT HotelId, HotelName, Tags FROM Hotels
+    SELECT * FROM Hotels
     ```
-    La consulta prototipo, `SELECT * FROM Hotels`, no funciona en el Editor de consultas. Los datos de ejemplo incluyen coordenadas geográficas en el campo Ubicación, que no se gestionan en el editor por el momento. Para obtener una lista de otras columnas para consultar, puede ejecutar esta instrucción:`SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
 
-10. Ahora que tiene un conjunto de datos externo, copie la cadena de conexión de ADO.NET correspondiente a la base de datos. En la página SQL Database de la base de datos, vaya a **Configuración** > **Cadenas de conexión** y copie la cadena de conexión de ADO.NET.
- 
-    Una cadena de conexión de ADO.NET se parece al ejemplo siguiente, modificada para usar un nombre de base de datos, un nombre de usuario y una contraseña válidos.
+1. Copie la cadena de conexión ADO.NET correspondiente a la base de datos. En **Configuración** > **Cadenas de conexión**, copie la cadena de conexión ADO.NET, como en el ejemplo siguiente.
 
     ```sql
-    Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+    Server=tcp:{your_dbname}.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
     ```
-11. Pegue la cadena de conexión en "AzureSqlConnectionString" como tercera entrada en el archivo **appsettings.json** en Visual Studio.
+
+1. Pegue la cadena de conexión en "AzureSqlConnectionString" como tercera entrada en el archivo **appsettings.json** en Visual Studio.
 
     ```json
     {
       "SearchServiceName": "<placeholder-Azure-Search-service-name>",
       "SearchServiceAdminApiKey": "<placeholder-admin-key-for-Azure-Search>",
-      "AzureSqlConnectionString": "Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security  Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
+      "AzureSqlConnectionString": "Server=tcp:{your_dbname}.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
     }
     ```
 
-## <a name="understand-the-code"></a>Comprendiendo el código
+1. Escriba la contraseña en la cadena de conexión del archivo **appsettings.json**. La base de datos y los nombres de usuario se copiarán en la cadena de conexión, pero la contraseña debe escribirse manualmente.
 
-Una vez que los valores de configuración y los datos estén en su lugar, el ejemplo de programa de **DotNetHowToIndexers.sln** estará listo para la compilación y la ejecución. Antes de hacerlo, dedique un minuto a estudiar las definiciones de índice e indexador de este ejemplo. El código pertinente aparece en dos archivos:
+## <a name="build-the-solution"></a>Compile la solución
 
-  + **hotel.cs**, que contiene el esquema que define el índice.
-  + **Program.cs**, que contiene las funciones para crear y administrar las estructuras del servicio.
+Presione F5 para compilar la solución. El programa se ejecuta en modo de depuración. Una ventana de consola informa del estado de cada operación.
+
+   ![Salida de consola](./media/search-indexer-tutorial/console-output.png "Salida de consola")
+
+El código se ejecuta localmente en Visual Studio y se conecta al servicio de búsqueda en Azure, que, a su vez, se conecta a Azure SQL Database y recupera el conjunto de datos. Con estas muchas operaciones, hay varios puntos de error posibles. Si recibe un error, compruebe primero las condiciones siguientes:
+
++ La información de conexión del servicio de búsqueda que proporciona está limitada al nombre del servicio en este tutorial. Si escribió la dirección URL completa, las operaciones se detienen durante la creación del índice, con un error de conexión.
+
++ La información de conexión de la base de datos **appsettings.json**. Debe ser la cadena de conexión de ADO.NET obtenida del portal, modificada para incluir un nombre de usuario y una contraseña que sean válidos para la base de datos. La cuenta de usuario debe tener permiso para recuperar datos. Se debe permitir el acceso a la dirección IP del cliente local.
+
++ Los límites de recursos. Recuerde que el nivel Gratis tiene un límite de tres índices, tres indexadores y tres orígenes de datos. Un servicio en el límite máximo no puede crear nuevos objetos.
+
+## <a name="check-results"></a>Comprobar los resultados
+
+Use Azure Portal para comprobar la creación de objetos y use **Explorador de búsqueda** para consultar el índice.
+
+1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y en la página **Información general** del servicio de búsqueda, abra cada lista correspondiente para comprobar que el objeto se ha creado. **Índices**, **Indexadores** y **Orígenes de datos** contendrán "hotels", "azure-sql-indexer" y "azure-sql", respectivamente.
+
+   ![Iconos de indexador y origen de datos](./media/search-indexer-tutorial/tiles-portal.png)
+
+1. Seleccione el índice hotels. En la página de hoteles, **Explorador de búsqueda** es la primera pestaña. 
+
+1. Haga clic en **Buscar** para emitir una consulta vacía. 
+
+   Las tres entradas del índice se devuelven como documentos JSON. El Explorador de búsqueda devuelve documentos en JSON para que pueda ver la estructura completa.
+
+   ![Consulta de un índice](./media/search-indexer-tutorial/portal-search.png "Consultar un índice")
+   
+1. A continuación, escriba una cadena de búsqueda: `search=river&$count=true`. 
+
+   Esta consulta invoca la búsqueda de texto completo en el término `river`, y el resultado incluye un recuento de los documentos coincidentes. Devolver el número de documentos coincidencias es útil en escenarios de pruebas cuando se tiene un índice grande con miles o millones de documentos. En este caso, solo un documento coincide con la consulta.
+
+1. Por último, escriba una cadena de búsqueda que limite la salida JSON a los campos de interés: `search=river&$count=true&$select=hotelId, baseRate, description`. 
+
+   La respuesta de la consulta se reduce a los campos seleccionados, lo que da lugar a una salida más concisa.
+
+## <a name="explore-the-code"></a>Exploración del código
+
+Ahora que sabe lo que crea el código de ejemplo, volvamos a la solución para revisarlo. El código pertinente aparece en dos archivos:
+
+  + **hotel.cs**, que contiene un esquema que define el índice
+  + **Program.cs**, que contiene las funciones para crear y administrar las estructuras del servicio
 
 ### <a name="in-hotelcs"></a>En hotel.cs
 
@@ -152,8 +173,6 @@ public string HotelName { get; set; }
 ```
 
 Un esquema también puede incluir otros elementos, como los perfiles de puntuación para aumentar una puntuación de búsqueda, analizadores personalizados y otras construcciones. Sin embargo, para nuestros fines, el esquema se define de forma dispersa, estando compuesto solo de los campos encontrados en los conjuntos de datos de ejemplo.
-
-En este tutorial, el indexador extrae los datos de un origen de datos. En la práctica, puede asociar varios indexadores al mismo índice y crear un índice de búsqueda consolidado a partir de varios orígenes de datos. Puede usar el mismo par de indexador-índice y variar solo los orígenes de datos, o un índice con varias combinaciones de indexador y origen de datos, según dónde necesite la flexibilidad.
 
 ### <a name="in-programcs"></a>En Program.cs
 
@@ -211,61 +230,17 @@ Los objetos de indexador son independientes de las plataformas, donde la configu
   }
   ```
 
-
-
-## <a name="run-the-indexer"></a>Ejecución del indexador
-
-En este paso, compile y ejecute el programa. 
-
-1. En el Explorador de soluciones, haga clic con el botón derecho en **DotNetHowToIndexers** y seleccione **Compilar**.
-2. De nuevo, haga clic con el botón derecho en **DotNetHowToIndexers**, seguido de **Depurar** > **Iniciar nueva instancia**.
-
-El programa se ejecuta en modo de depuración. Una ventana de consola informa del estado de cada operación.
-
-  ![Script de SQL](./media/search-indexer-tutorial/console-output.png)
-
-El código se ejecuta localmente en Visual Studio y se conecta al servicio de búsqueda en Azure, que, a su vez, usa la cadena de conexión para conectarse a Azure SQL Database y recuperar el conjunto de datos. Con estas muchas operaciones, existen varios posibles puntos de error, pero si recibe un error, compruebe primero las siguientes condiciones:
-
-+ La información de conexión del servicio de búsqueda que proporciona está limitada al nombre del servicio en este tutorial. Si escribió la dirección URL completa, las operaciones se detienen durante la creación del índice, con un error de conexión.
-
-+ La información de conexión de la base de datos **appsettings.json**. Debe ser la cadena de conexión de ADO.NET obtenida del portal, modificada para incluir un nombre de usuario y una contraseña que sean válidos para la base de datos. La cuenta de usuario debe tener permiso para recuperar datos.
-
-+ Los límites de recursos. Recuerde que el nivel Gratis tiene un límite de tres índices, tres indexadores y tres orígenes de datos. Un servicio en el límite máximo no puede crear nuevos objetos.
-
-## <a name="search-the-index"></a>Búsqueda en el índice 
-
-En Azure Portal, en la página Información general del servicio de búsqueda, haga clic en **Explorador de búsqueda** en la parte superior para enviar algunas consultas sobre el nuevo índice.
-
-1. Haga clic en **Cambiar índice** en la parte superior para seleccionar el índice *hotels*.
-
-2. Haga clic en el botón **Buscar** para emitir una búsqueda vacía. 
-
-   Las tres entradas del índice se devuelven como documentos JSON. El Explorador de búsqueda devuelve documentos en JSON para que pueda ver la estructura completa.
-
-3. A continuación, escriba una cadena de búsqueda: `search=river&$count=true`. 
-
-   Esta consulta invoca la búsqueda de texto completo en el término `river`, y el resultado incluye un recuento de los documentos coincidentes. Devolver el número de documentos coincidencias es útil en escenarios de pruebas cuando se tiene un índice grande con miles o millones de documentos. En este caso, solo un documento coincide con la consulta.
-
-4. Por último, escriba una cadena de búsqueda que limite la salida JSON a los campos de interés: `search=river&$count=true&$select=hotelId, baseRate, description`. 
-
-   La respuesta de la consulta se reduce a los campos seleccionados, lo que da lugar a una salida más concisa.
-
-## <a name="view-indexer-configuration"></a>Visualización de la configuración del indexador
-
-Todos los indexadores, incluido el que acaba de crear mediante programación, se muestran en el portal. Puede abrir una definición de indexador y ver su origen de datos, o configurar una programación de actualización para seleccionar las filas nuevas y modificadas.
-
-1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y, en la página **Información general** del servicio de búsqueda, haga clic en los vínculos de **Índices**, **Indexadores** y  **Orígenes de datos**.
-3. Seleccione algún objeto individual para ver sus valores de configuración o modificarlos.
-
-   ![Iconos de indexador y origen de datos](./media/search-indexer-tutorial/tiles-portal.png)
-
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-La manera más rápida de borrar el contenido después de un tutorial es eliminar el grupo de recursos que contenga el servicio Azure Cognitive Search. Para eliminar de forma definitiva todo lo que contenga el grupo de recursos, elimine el grupo. En el portal, el nombre del grupo de recursos está en la página Información general de cada servicio Azure Cognitive Search.
+Cuando trabaje con su propia suscripción, al final de un proyecto, es recomendable eliminar los recursos que ya no necesite. Los recursos que se dejan en ejecución pueden costarle mucho dinero. Puede eliminar los recursos de forma individual o eliminar el grupo de recursos para eliminar todo el conjunto de recursos.
+
+Puede buscar y administrar los recursos en el portal, mediante el vínculo Todos los recursos o Grupos de recursos en el panel de navegación izquierdo.
+
+Si está usando un servicio gratuito, recuerde que está limitado a tres índices, indexadores y orígenes de datos. Puede eliminar elementos individuales en el portal para mantenerse por debajo del límite.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Puede asociar algoritmos de enriquecimiento por IA a una canalización del indexador. Como paso siguiente, continúe con el siguiente tutorial.
+En Azure Cognitive Search, los indexadores están disponibles para varios orígenes de datos de Azure. Como paso siguiente, explore el indexador de Azure Blob Storage.
 
 > [!div class="nextstepaction"]
 > [Indexación de documentos en Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)

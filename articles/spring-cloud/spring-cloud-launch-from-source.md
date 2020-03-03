@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: brendm
-ms.openlocfilehash: 8edadbf946a28239ae4d28d56b3dccd77b451a71
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: b506fdcdec1ae3e98c1a4afe9c5124e284ed4d99
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277153"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589018"
 ---
 # <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>Inicio rápido: Inicio de la aplicación Spring Cloud desde el código fuente
 
@@ -28,7 +28,7 @@ En este inicio rápido aprenderá a:
 > * Implementar cada microservicio
 > * Asignar un punto de conexión público para la aplicación
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 >[!Note]
 > Azure Spring Cloud se ofrece actualmente como versión preliminar pública. Las ofertas de versión preliminar pública permiten a los clientes experimentar con nuevas características antes de su publicación oficial.  Los servicios y las características en versión preliminar pública no están diseñados para su uso en producción.  Para más información sobre el soporte técnico durante las versiones preliminares, revise las [preguntas frecuentes](https://azure.microsoft.com/support/faq/) o envíe una [solicitud de soporte técnico](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) para obtener más información.
@@ -62,10 +62,16 @@ az account list -o table
 az account set --subscription
 ```
 
-Abra una ventana de la CLI de Azure y ejecute los siguientes comandos para aprovisionar una instancia de Azure Spring Cloud. Tenga en cuenta que también le indicamos a Azure Spring Cloud que asigne aquí un dominio público.
+Cree un grupo de recursos que contenga el servicio Azure Spring Cloud. Más información sobre los [grupos de recursos de Azure](../azure-resource-manager/management/overview.md).
 
 ```azurecli
-    az spring-cloud create -n <resource name> -g <resource group name> --is-public true
+az group create --location eastus --name <resource group name>
+```
+
+Ejecute los siguientes comandos para aprovisionar una instancia de Azure Spring Cloud. Prepare un nombre para el servicio Azure Spring Cloud. El nombre debe tener entre 4 y 32 caracteres, y solo puede contener números, letras minúsculas y guiones. El primer carácter del nombre del servicio debe ser una letra y el último debe ser una letra o un número.
+
+```azurecli
+az spring-cloud create -n <resource name> -g <resource group name>
 ```
 
 La instancia de servicio tardará aproximadamente cinco minutos en implementarse.

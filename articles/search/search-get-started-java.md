@@ -8,13 +8,13 @@ ms.author: heidist
 ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: 5e53167a083b5e89bd88a45452929dd40f0868f2
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 02/25/2020
+ms.openlocfilehash: 0b07e934625b09e7f6249dc00865465147f6f0ba
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406728"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624016"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en Java mediante las API REST
 > [!div class="op_single_selector"]
@@ -26,19 +26,19 @@ ms.locfileid: "74406728"
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Cree una aplicación de consola de Java que cree, cargue y consulte un índice de búsqueda de Azure Cognitive Search mediante [IntelliJ](https://www.jetbrains.com/idea/), [SDK de Java 11](/java/azure/jdk/?view=azure-java-stable) y la [API REST de Azure Cognitive Search](/rest/api/searchservice/). En este artículo se proporcionan instrucciones paso a paso para crearla. Como alternativa, puede [descargar y ejecutar la aplicación completa](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
+Cree una aplicación de consola de Java que cree, cargue y consulte un índice de búsqueda mediante Azure Cognitive Search mediante [IntelliJ](https://www.jetbrains.com/idea/), [el SDK de Java 11](/java/azure/jdk/?view=azure-java-stable) y la [API REST de Azure Cognitive Search](/rest/api/searchservice/). Este artículo proporciona instrucciones paso a paso para crear la aplicación. Como alternativa, puede [descargar y ejecutar la aplicación completa](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-Hemos usado el software y servicios siguientes para compilar y probar este ejemplo:
+Hemos usado el software y servicios siguientes para compilar y probar este inicio rápido:
 
 + [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
 + [SDK de Java 11](/java/azure/jdk/?view=azure-java-stable)
 
-+ [Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido.
++ [Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido.
 
 <a name="get-service-info"></a>
 
@@ -56,7 +56,7 @@ Las llamadas al servicio requieren un punto de conexión de URL y una clave de a
 
 Todas las solicitudes enviadas al servicio requieren una clave de API. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
-## <a name="set-up-your-environment"></a>Configuración del entorno
+## <a name="set-up-your-environment"></a>Configurar el entorno
 
 Para comenzar, abra IntelliJ IDEA y configure un nuevo proyecto.
 
@@ -133,7 +133,7 @@ Para comenzar, abra IntelliJ IDEA y configure un nuevo proyecto.
 ### <a name="set-up-the-project-structure"></a>Configuración de la estructura del proyecto
 
 1. Seleccione **File** (Archivo)  > **Project Structure** (Estructura de proyecto).
-1. Seleccione **Modules** (Módulos) y expanda el árbol de origen para acceder al contenido de la carpeta `src`  >  `main`.
+1. Seleccione **Modules** (Módulos) y expanda el árbol de origen para acceder al contenido de la carpeta `src` >  `main`.
 1. En la carpeta `src` >  `main` > `java`, agregue las carpetas `app` y `service`. Para ello, seleccione la carpeta `java`, presione Alt + Insertar y, a continuación, escriba el nombre de la carpeta.
 1. En la carpeta `src` >  `main` >`resources`, agregue las carpetas `app` y `service`.
 

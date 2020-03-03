@@ -1,36 +1,34 @@
 ---
 title: 'Ejemplo de script de la CLI de Azure: trabajo con pares clave-valor en un almacén de Azure App Configuration'
 titleSuffix: Azure App Configuration
-description: Proporciona información sobre cómo trabajar con pares clave-valor en un almacén de Azure App Configuration
+description: Uso de un script de la CLI de Azure para crear, ver, actualizar y eliminar valores de clave en un almacén de App Configuration
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: maiye
-editor: ''
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: azure-app-configuration
-ms.date: 11/08/2019
+ms.date: 02/19/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 931c2f738556404e2d58381f7152acb0613a057b
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 1a4edabe666a554ccd01d110f0f71226221dfc67
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468191"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523663"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Uso de pares clave-valor en un almacén de Azure App Configuration
 
-Este ejemplo de script crea un nuevo par clave-valor en un almacén de Azure App Configuration, enumera todos los pares clave-valor existentes, actualiza el valor de la clave recién creada y, por último, la elimina.
+En este ejemplo de script se muestra cómo realizar lo siguiente:
+* Crear un nuevo par clave-valor.
+* Enumerar todos los pares clave-valor existentes.
+* Actualizar el valor de una clave recién creada.
+* Eliminar el nuevo par clave-valor.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+En este artículo se necesita la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de ejemplo
 
@@ -81,7 +79,7 @@ az appconfig kv list --name $appConfigName
 
 ## <a name="script-explanation"></a>Explicación del script
 
-Este script usa los siguientes comandos para operar en pares clave-valor de un almacén de App Configuration. Cada comando de la tabla crea un vínculo a documentación específica del comando.
+En esta tabla se enumeran los comandos que se usan en el script de ejemplo. 
 
 | Get-Help | Notas |
 |---|---|

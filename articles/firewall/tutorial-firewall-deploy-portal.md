@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/28/2019
+ms.date: 02/21/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 38ee180fa59fec6619010a3ded1f6837a5ca5239
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 064fcf618914bca31ad9e7e60c76df8f599cd8bf
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77371336"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77558882"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal
 
@@ -26,7 +26,7 @@ Una manera de controlar el acceso de red saliente desde una subred de Azure es c
 
 El tráfico está sujeto a las reglas de firewall configuradas cuando enruta el tráfico al firewall como puerta de enlace predeterminada de la subred.
 
-En este tutorial, creará una red virtual única simplificada con tres subredes para facilitar la implementación. Para las implementaciones de producción, se recomienda un [modelo de concentrador y radio](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), en el que el firewall está en su propia red virtual. Los servidores de las cargas de trabajo están en redes virtuales emparejadas en la misma región con una o varias subredes.
+En este tutorial, creará una red virtual única simplificada con tres subredes para facilitar la implementación. Para las implementaciones de producción, se recomienda un [modelo de concentrador y radio](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). El firewall está en su propia red virtual. Los servidores de las cargas de trabajo están en redes virtuales emparejadas en la misma región con una o varias subredes.
 
 * **AzureFirewallSubnet**: el firewall está en esta subred.
 * **Workload-SN**: el servidor de carga de trabajo está en esta subred. El tráfico de red de esta subred va a través del firewall.
@@ -60,7 +60,7 @@ El grupo de recursos contiene todos los recursos necesarios para el tutorial.
 2. En el menú de Azure Portal, seleccione **Grupos de recursos** o busque y seleccione *Grupos de recursos* desde cualquier página. A continuación, seleccione **Agregar**.
 3. En **Nombre del grupo de recursos**, escriba *Test-FW-RG*.
 4. En **Suscripción**, seleccione la suscripción.
-5. En **Ubicación del grupo de recursos**: seleccione una ubicación. Todos los recursos posteriores que cree deben estar en la misma ubicación.
+5. En **Ubicación del grupo de recursos**: seleccione una ubicación. Los demás recursos que cree deben estar en la misma ubicación.
 6. Seleccione **Crear**.
 
 ### <a name="create-a-vnet"></a>Creación de una red virtual
@@ -193,10 +193,11 @@ Se trata de la regla de aplicación que permite el acceso saliente a www.google.
 6. En **Priority**, escriba **200**.
 7. En **Acción**, seleccione **Permitir**.
 8. En **Reglas**, **FQDN de destino**, como **Nombre** escriba **Allow-Google**.
-9. En **Direcciones de origen**, escriba **10.0.2.0/24**.
-10. En **Protocolo:Puerto**, escriba **http, https**.
-11. En **FQDN de destino**, escriba **www.google.com**
-12. Seleccione **Agregar**.
+9. Como **Tipo de origen**, seleccione **Dirección IP**.
+10. Como **Origen**, escriba **10.0.2.0/24**.
+11. En **Protocolo:Puerto**, escriba **http, https**.
+12. En **FQDN de destino**, escriba **www.google.com**
+13. Seleccione **Agregar**.
 
 Azure Firewall incluye una colección de reglas integradas para FQDN de infraestructura que están permitidos de forma predeterminada. Estos FQDN son específicos para la plataforma y no se pueden usar para otros fines. Para más información, consulte [Nombres de dominio completos de infraestructura](infrastructure-fqdns.md).
 
@@ -209,10 +210,11 @@ Se trata de la regla de red que permite el acceso saliente a dos direcciones IP 
 3. En **Nombre**, escriba **Net-Coll01**.
 4. En **Priority**, escriba **200**.
 5. En **Acción**, seleccione **Permitir**.
-6. En **Reglas**, en **Nombre**, escriba **Allow-DNS**.
+6. En **Reglas**, **Direcciones IP**, como **Nombre**, escriba **Allow-DNS**.
 7. En **Protocolo**, seleccione **UDP**.
-8. En **Direcciones de origen**, escriba **10.0.2.0/24**.
-9. Como dirección de destino, escriba **209.244.0.3,209.244.0.4**
+9. Como **Tipo de origen**, seleccione **Dirección IP**.
+1. Como **Origen**, escriba **10.0.2.0/24**.
+2. Como **Dirección de destino**, escriba **209.244.0.3,209.244.0.4**.
 
    Estos son servidores DNS públicos ofrecidos por CenturyLink.
 1. En **Puertos de destino**, escriba **53**.

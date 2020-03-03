@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 97679ec48ee9120005118b6cacaf37e45657db08
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 69acb9152d1dc30d986276939e29e8c183095b18
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906620"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539610"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
@@ -27,12 +27,12 @@ En este tutorial, aprenderá a:
 > * Configurar el hospedaje del sitio web estático
 > * Implementar un sitio web de Hola mundo
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 > [!NOTE] 
-> Asegúrese de crear una cuenta de almacenamiento de uso general v2. Los sitios web estáticos no están disponibles en ningún otro tipo de cuenta de almacenamiento.
+> Asegúrese de crear una cuenta de almacenamiento estándar de uso general v2. Los sitios web estáticos no están disponibles en ningún otro tipo de cuenta de almacenamiento.
 
 En este tutorial se utiliza [Visual Studio Code](https://code.visualstudio.com/download), una herramienta gratuita para programadores, para crear el sitio web estático e implementarlo en una cuenta de Azure Storage.
 

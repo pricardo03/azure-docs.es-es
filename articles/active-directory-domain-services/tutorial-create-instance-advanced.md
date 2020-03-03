@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 5e969ed4f525d0b3d17339b9f9a6111ad81b0125
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: e3f09d4e2500b98a7ce68139cd97a04c0d60d73e
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931637"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612556"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Tutorial: Creación y configuración de una instancia de Azure Active Directory Domain Services con opciones de configuración avanzada
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
@@ -69,17 +69,17 @@ Cuando se crea una instancia de Azure AD DS, se especifica un nombre DNS. Hay 
 * **Sufijos de dominio no enrutables:** por lo general, se recomienda evitar un sufijo de nombre de dominio no enrutable, como *contoso.local*. El sufijo *.local* no es enrutable y puede provocar problemas con la resolución de DNS.
 
 > [!TIP]
-> Si crea un nombre de dominio personalizado, tenga cuidado con los espacios de nombres DNS existentes. Se recomienda incluir un prefijo único para el nombre de dominio. Por ejemplo, si el nombre de la raíz DNS es *contoso. com*, cree un dominio administrado de Azure AD DS con el nombre de dominio personalizado *corp. contoso. com* o *ds.contoso.com*. En un entorno híbrido con un entorno de AD DS local, es posible que estos prefijos ya estén en uso. Use un prefijo único para Azure AD DS.
+> Si crea un nombre de dominio personalizado, tenga cuidado con los espacios de nombres DNS existentes. Se recomienda usar un nombre de dominio independiente de cualquier espacio de nombres de DNS local o de Azure existentes.
 >
-> Puede usar el nombre DNS raíz para el dominio administrado de Azure AD DS, pero puede que tenga que crear algunos registros DNS adicionales para otros servicios de su entorno. Por ejemplo, si ejecuta un servidor web que hospeda un sitio mediante el nombre DNS raíz, puede haber conflictos de nomenclatura que requieran más entradas DNS.
+> Por ejemplo, si tiene un espacio de nombres de DNS existente para *contoso.com*, cree un dominio administrado de Azure AD DS con el nombre de dominio personalizado *aaddscontoso.com*. Si necesita usar LDAP seguro, debe registrar y poseer este nombre de dominio personalizado para generar los certificados necesarios.
 >
-> En estos tutoriales y artículos de procedimientos, el dominio personalizado *aadds.contoso.com* se usa como ejemplo breve. En todos los comandos, especifique su propio nombre de dominio, que puede incluir un prefijo único.
+> Es posible que tenga que crear algunos registros DNS adicionales para otros servicios del entorno o reenviadores DNS condicionales entre los espacios de nombres de DNS existentes en el entorno. Por ejemplo, si ejecuta un servidor web que hospeda un sitio mediante el nombre DNS raíz, puede haber conflictos de nomenclatura que requieran más entradas DNS.
 >
-> Para más información, consulte [Selección de un prefijo de nomenclatura para el dominio][naming-prefix].
+> En estos tutoriales y artículos de procedimientos, el dominio personalizado *aaddscontoso.com* se usa como ejemplo breve. En todos los comandos, especifique su propio nombre de dominio.
 
 También se aplican las siguientes restricciones de nombre DNS:
 
-* **Restricciones de prefijo de dominio:** no se puede crear un dominio administrado con un prefijo de más de 15 caracteres. El prefijo del nombre de dominio especificado (por ejemplo, *contoso* en el nombre de dominio *contoso.com*) debe contener 15 caracteres o menos.
+* **Restricciones de prefijo de dominio:** no se puede crear un dominio administrado con un prefijo de más de 15 caracteres. El prefijo del nombre de dominio especificado (por ejemplo, *aaddscontoso* en el nombre de dominio *aaddscontoso.com*) debe contener 15 caracteres o menos.
 * **Conflictos de nombres de red:** el nombre de dominio DNS del dominio administrado no puede existir ya en la red virtual. Busque, en concreto, los siguientes escenarios que provocarían un conflicto de nombres:
     * Ya tiene un dominio de Active Directory con el mismo nombre de dominio DNS en la red virtual de Azure.
     * La red virtual en la que planea habilitar el dominio administrado tiene una conexión VPN con la red local. En este escenario, asegúrese de que no tiene un dominio con el mismo nombre de dominio DNS de la red local.
@@ -170,7 +170,7 @@ En la página **Resumen** del asistente, revise la configuración del dominio ad
 
     ![Notificación en Azure Portal de la implementación en curso](./media/tutorial-create-instance-advanced/deployment-in-progress.png)
 
-1. Seleccione el grupo de recursos, como *myResourceGroup*, y, a continuación, elija la instancia de Azure AD DS en la lista de recursos de Azure, por ejemplo *aadds.contoso.com*. La pestaña **Información general** muestra que el dominio administrado se está *Implementando*. No se puede configurar el dominio administrado hasta que está totalmente aprovisionado.
+1. Seleccione el grupo de recursos, como *myResourceGroup* y, a continuación, elija la instancia de Azure AD DS en la lista de recursos de Azure, por ejemplo *aaddscontoso.com*. La pestaña **Información general** muestra que el dominio administrado se está *Implementando*. No se puede configurar el dominio administrado hasta que está totalmente aprovisionado.
 
     ![Estado de Domain Services durante el estado de aprovisionamiento](./media/tutorial-create-instance-advanced/provisioning-in-progress.png)
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 4b05b4b44df53846a4880249785c6a5deda62f8a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 0a705ad81925491fe054d846143472c6e4432b69
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846547"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561909"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configuración de una canalización de CI/CD con la tarea de compilación del emulador de Azure Cosmos DB en Azure DevOps
 
@@ -73,7 +73,7 @@ En este tutorial se agregará la tarea al principio para garantizar que el emula
 
 Ahora, se van a configurar las pruebas para usar el emulador. La tarea de compilación del emulador exporta una variable de entorno, 'CosmosDbEmulator.Endpoint', a la que las tareas posteriores de la canalización de compilación pueden realizar solicitudes. 
 
-En este tutorial, se va a usar la tarea [Visual Studio Test](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) para ejecutar pruebas unitarias configuradas mediante un archivo **.runsettings**. Para más información acerca de la configuración de pruebas unitarias, visite la [documentación](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017). El ejemplo de código de aplicación de lista de tareas completo que usa en este documento está disponible en [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)
+En este tutorial, se va a usar la tarea [Visual Studio Test](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) para ejecutar pruebas unitarias configuradas mediante un archivo **.runsettings**. Para más información acerca de la configuración de pruebas unitarias, visite la [documentación](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017). El ejemplo de código de aplicación de lista de tareas completo que usa en este documento está disponible en [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app).
 
 A continuación encontrará un ejemplo de un archivo **.runsettings** que define los parámetros que se van a pasan a las pruebas unitarias de una aplicación. Tenga en cuenta que la variable `authKey` que se usa es la [clave conocida](https://docs.microsoft.com/azure/cosmos-db/local-emulator#authenticating-requests) del emulador. `authKey` es la clave que espera la tarea de compilación del emulador y debe estar definida en el archivo **.runsettings**.
 

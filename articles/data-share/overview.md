@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
-ms.openlocfilehash: d1bfad64175ad5b29e4ec158ebe8d8e982b8b100
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 363feda1409d2bb54e60d1b2168cba38f2a8a41c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964454"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621854"
 ---
 # <a name="what-is-azure-data-share"></a>¿Qué es Azure Data Share?
 
@@ -23,7 +23,7 @@ Azure Data Share permite a las organizaciones compartir datos de forma simple y 
 
 Los proveedores de datos pueden seguir manteniendo el control de sus datos. Para ello, especifican las condiciones de uso de su instancia de Azure Data Share. Quien consuma estos datos debe aceptar dichas condiciones para poder recibirlos. Los proveedores de datos pueden especificar la frecuencia con la que los consumidores de sus datos reciben actualizaciones. El proveedor de datos puede revocar el acceso a las nuevas actualizaciones en cualquier momento. 
 
-Azure Data Share le ayuda a mejorar las conclusiones, ya que facilita la combinación de datos de terceros, con el fin de enriquecer los escenarios de inteligencia artificial y análisis. Use fácilmente las eficacia de las herramientas de análisis de Azure para preparar, procesar y analizar los datos compartidos mediante Azure Data Share. 
+Azure Data Share le ayuda a mejorar las conclusiones, ya que facilita la combinación de datos de terceros, con el fin de enriquecer los escenarios de inteligencia artificial y análisis. Use fácilmente las eficaces herramientas de análisis de Azure para preparar, procesar y analizar los datos compartidos mediante Azure Data Share. 
 
 Tanto el proveedor de datos como el consumidor de datos tienen que tener una suscripción de Azure para compartir y recibir datos. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/).
 

@@ -2,14 +2,14 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/13/2020
+ms.date: 02/19/2020
 ms.author: dacoulte
-ms.openlocfilehash: 1f949a5c13393758d69223fa49e9e84d91e27310
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 21f4e4234025ab4b9bb14a1e1338aa4b748ef1a6
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77370884"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77495238"
 ---
 |Nombre |Descripción |Efectos |Versión |Source |
 |---|---|---|---|
@@ -22,6 +22,8 @@ ms.locfileid: "77370884"
 |[Anexar la etiqueta y su valor del grupo de recursos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9ea02ca2-71db-412d-8b00-7c7ca9fcd32d) |Anexa la etiqueta especificada y su valor del grupo de recursos cuando se crea o se actualiza un recurso que no tiene esta etiqueta. Solo modifica las etiquetas de los recursos creados antes de que se aplicase esta directiva cuando se cambian esos recursos. Hay disponibles nuevas directivas de efecto "modify" que admiten la corrección de etiquetas en recursos existentes (consulte https://aka.ms/modifydoc). |append |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_Append.json)
 |[Heredar una etiqueta del grupo de recursos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcd3aa116-8754-49c9-a813-ad46512ece54) |Agrega o reemplaza la etiqueta y el valor especificados del grupo de recursos primario cuando se crea o actualiza un recurso. Los recursos existentes se pueden corregir con una tarea de corrección. |modify |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_AddOrReplace_Modify.json)
 |[Heredar una etiqueta del grupo de recursos si falta](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea3f2387-9b95-492a-a190-fcdc54f7b070) |Agrega la etiqueta especificada y su valor del grupo de recursos primario cuando se crea o se actualiza un recurso que no tiene esta etiqueta. Los recursos existentes se pueden corregir con una tarea de corrección. Si la etiqueta existe con un valor diferente, no se cambiará. |modify |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_Add_Modify.json)
+|[Heredar una etiqueta de la suscripción](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb27a0cbd-a167-4dfa-ae64-4337be671140) |Agrega o reemplaza la etiqueta y el valor especificados de la suscripción contenedora cuando se crea o actualiza un recurso. Los recursos existentes se pueden corregir con una tarea de corrección. |modify |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_AddOrReplace_FromSubscription.json)
+|[Heredar una etiqueta de la suscripción si falta](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F40df99da-1232-49b1-a39a-6da8d878f469) |Agrega la etiqueta especificada y su valor en la suscripción contenedora cuando se crea o se actualiza un recurso que no tiene esta etiqueta. Los recursos existentes se pueden corregir con una tarea de corrección. Si la etiqueta existe con un valor diferente, no se cambiará. |modify |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_Add_FromSubscription.json)
 |[Solicitar la etiqueta especificada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F871b6d14-10aa-478d-b590-94f262ecfa99) |Requiere que haya una etiqueta. No se aplica a los grupos de recursos. |deny |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/RequireTag_Deny.json)
 |[Solicitar la etiqueta especificada en los grupos de recursos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F96670d01-0a4d-4649-9c89-2d3abc0a5025) |Requiere que se use una etiqueta en los grupos de recursos. |deny |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/ResourceGroupRequireTag_Deny.json)
 |[Requerir etiqueta y su valor](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1e30110a-5ceb-460c-a204-c1c3969c6d62) |Aplica una etiqueta obligatoria y su valor. No se aplica a los grupos de recursos. |deny |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/RequireTagAndValue_Deny.json)

@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 01/30/2020
-ms.openlocfilehash: de9ed700363bd6578ac49f0add0c48dc33356692
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 972f0aa1f6d05c3cc65c62c0991fad87ab4676c4
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982626"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623633"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Predicción del precio de un automóvil con el diseñador (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -260,7 +260,7 @@ Use el módulo **Evaluate Model** (Evaluar modelo) para evaluar la puntuación q
 
 ## <a name="run-the-pipeline"></a>Ejecución de la canalización
 
-Ahora que ya ha configurado la canalización, puede enviar una ejecución de canalización.
+Ahora que ya ha configurado la canalización, puede enviar una ejecución de canalización para entrenar el modelo de Machine Learning. Puede enviar una ejecución de canalización en cualquier momento durante la compilación de canalizaciones en el diseñador. Puede hacerlo para comprobar el trabajo a medida que avanza y comprobar que la canalización funciona según lo previsto.
 
 1. En la parte superior del lienzo, seleccione **Ejecutar**.
 
