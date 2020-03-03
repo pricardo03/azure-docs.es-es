@@ -6,15 +6,15 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 02/24/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce385de408d4b0a8cf1531f762a126a6b9b2c126
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 7955e9bc75b2a27ac42d381df1e686ec8a0ed04b
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199082"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587818"
 ---
 # <a name="understand-your-azure-external-services-charges"></a>Descripción de los gastos de servicios externos de Azure
 Los servicios externos los publican proveedores de software de terceros en Azure Marketplace. Por ejemplo, SendGrid es un servicio externo que puede adquirir en Azure, pero que no está publicado por Microsoft. Algunos productos de Microsoft también se venden a través de Azure Marketplace.
@@ -22,7 +22,7 @@ Los servicios externos los publican proveedores de software de terceros en Azure
 ## <a name="how-external-services-are-billed"></a>Cómo se facturan los servicios externos
 
 - Si tiene un Contrato de cliente de Microsoft (MCA) o un contrato Microsoft Partner Agreement (MPA), los servicios de terceros se facturan con el resto de los servicios de Azure. [Compruebe el tipo de cuenta de facturación ](#check-billing-account-type) para ver si tiene acceso a una MCA o MPA.
-- Si no tiene una MCA o una MPA, los servicios externos se facturan por separado de los servicios de Azure.
+- Si no tiene una MCA o una MPA, los servicios externos se facturan por separado de los servicios de Azure. Recibirá dos facturas por cada período de facturación: una por los servicios de Azure y otra por las compras de Marketplace.
 - Cada servicio externo tiene un modelo de facturación diferente. Algunos servicios se facturan según la modalidad de pago por uso, mientras que otros tienen cargos mensuales fijos.
 - No puede usar créditos mensuales gratuitos para los servicios externos. Si usa una suscripción de Azure que incluye [créditos gratuitos](https://azure.microsoft.com/pricing/spending-limits/), estos no se pueden aplicar a los cargos de los servicios externos. Cuando aprovisiona un nuevo servicio externo o un recurso, aparece una advertencia:
 
@@ -45,23 +45,62 @@ You can view a list of the external services that are on each subscription withi
 
     ![View external services billing history](./media/understand-azure-marketplace-charges/billing-overview-blade.png) -->
 
-## <a name="view-and-download-invoices-for-external-services"></a>Visualización y descarga de facturas de servicios externos
-
-Si tiene un Contrato de cliente de Microsoft (MCA) o un contrato Microsoft Partner Agreement (MPA), los servicios de terceros se facturan con el resto de los servicios de Azure. [Compruebe el tipo de cuenta de facturación ](#check-billing-account-type) para ver si tiene acceso a una MCA o MPA. Si lo tiene, consulte [Visualización y descarga de facturas en Azure Portal](download-azure-invoice.md) para ver los cargos de terceros.
-
-Si no tiene MCA ni MPA, tendrá facturas separadas para los cargos de terceros. Puede ver y descargar las facturas de Azure Marketplace en Azure Portal. Para ello, siga estos pasos:
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Busque **Administración de costos + facturación**.
-1. En el menú de la izquierda, seleccione **Facturas**.
-1. Haga clic en la pestaña **Azure Marketplace and Reservations** (Azure Marketplace y reservas).  ![Imagen de la pestaña Azure Marketplace y reservas](./media/understand-azure-marketplace-charges/invoice-tabs.png)
-1. En la lista desplegable de las suscripciones, seleccione la suscripción que contenga los servicios externos para los que quiere facturas.
-
 ## <a name="external-spending-for-ea-customers"></a>Gastos externos para clientes de EA
 
 Los clientes de EA pueden ver los gastos de los servicios externos y descargar los informes en el portal de EA. Lea el artículo sobre [Azure Marketplace para clientes de EA](https://ea.azure.com/helpdocs/azureMarketplace) para empezar a trabajar.
 
-## <a name="manage-payment-for-external-services"></a>Administración del pago de servicios externos
+## <a name="view-and-download-invoices-for-external-services"></a>Visualización y descarga de facturas de servicios externos
+
+Si tiene un Contrato de cliente de Microsoft (MCA) o un contrato Microsoft Partner Agreement (MPA), los servicios de terceros se facturan con el resto de los servicios de Azure en una única factura. [Compruebe el tipo de cuenta de facturación ](#check-billing-account-type) para ver si tiene acceso a una MCA o MPA. Si lo tiene, consulte [Visualización y descarga de facturas en Azure Portal](download-azure-invoice.md) para ver los cargos de terceros.
+
+Si no tiene MCA ni MPA, tendrá facturas separadas para los cargos de terceros. 
+
+Los cargos de Azure Marketplace se muestran en la moneda local.
+
+Puede ver y descargar las facturas de Azure Marketplace en Azure Portal. Para ello, siga estos pasos:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Busque **Administración de costos + facturación**.
+1. En el menú de la izquierda, seleccione **Facturas**.
+1. En la lista desplegable de suscripciones, seleccione la que está asociada a los servicios de Marketplace.
+1. Revise la columna **Tipo** en la lista de facturas. Si la factura es por un servicio de Marketplace, el tipo será **Azure Marketplace y reservas**. 
+
+    ![Captura de pantalla del tipo de Azure Marketplace en la cuadrícula de facturas](./media/understand-azure-marketplace-charges/marketplace-type-twd.png)
+
+1. Para filtrar por tipo, de modo que solo vea las facturas de Azure Marketplace y reservas, seleccione el filtro **Tipo**. Luego, seleccione **Azure Marketplace y reservas** en el menú desplegable.
+
+    ![Captura de pantalla del filtro Tipo seleccionado, en el que se muestra la opción Azure Marketplace y reservas seleccionada en la lista desplegable](./media/understand-azure-marketplace-charges/type-filter.png)
+
+1. Seleccione el icono de descarga situado a la derecha de la factura que quiere descargar.
+
+    ![Captura de pantalla que muestra el icono de descarga seleccionado de la factura](./media/understand-azure-marketplace-charges/download-icon-marketplace.png)
+
+1. En **Factura**, seleccione el botón azul **Descargar**.
+
+    ![Captura de pantalla que muestra el botón de descarga de la factura en el panel de contexto](./media/understand-azure-marketplace-charges/invoice-download-marketplace.png)
+
+## <a name="pay-for-external-services-in-the-azure-portal"></a>Pago por servicios externos en Azure Portal
+
+Si tiene un Contrato de cliente de Microsoft (MCA) o un contrato Microsoft Partner Agreement (MPA), los servicios de terceros se facturan con el resto de los servicios de Azure. [Compruebe el tipo de cuenta de facturación ](#check-billing-account-type) para ver si tiene acceso a una MCA o MPA. Si lo tiene, puede pagar la factura completa en Azure Portal siguiendo los pasos descritos en [Cómo pagar la factura de Microsoft Azure](pay-bill.md).
+
+Si no tiene una MCA o MPA, puede pagar las facturas de Marketplace en Azure Portal siguiendo estos pasos:
+
+1. Siga los pasos de la sección anterior, [Visualización y descarga de facturas de servicios externos](#view-and-download-invoices-for-external-services) para buscar las facturas de Marketplace.
+1. Seleccione el vínculo azul **Pagar ahora** para la factura que quiere pagar.
+
+    ![Captura de pantalla que muestra el vínculo Pagar ahora seleccionado en la cuadrícula de facturas](./media/understand-azure-marketplace-charges/pay-now-twd.png)
+
+    >[!NOTE]
+    > Solo verá el vínculo **Pagar ahora** si el tipo de la factura es **Azure Marketplace y reservas** y el estado del pago de la factura es vencido.
+
+1. En la nueva página, haga clic en el vínculo azul **Seleccionar método de pago**.
+
+    ![Captura de pantalla que muestra el vínculo Seleccionar método de pago elegido](./media/understand-azure-marketplace-charges/select-payment-method-pay-now-twd.png)
+
+1. Después de seleccionar un método de pago, haga clic en el botón azul **Pagar ahora** en la parte inferior izquierda de la página.
+    ![Captura de pantalla que muestra el botón Pagar ahora seleccionado](./media/understand-azure-marketplace-charges/pay-now-button-twd.png)
+
+## <a name="change-default-payment-for-external-services"></a>Cambio del pago predeterminado de servicios externos
 
 Cuando compra un servicio externo, elige una suscripción de Azure para el recurso. El método de pago de la suscripción de Azure seleccionada se convierte en el método de pago del servicio externo. Para cambiar el método de pago de un servicio externo, debe [cambiar el método de pago de la suscripción de Azure](../manage/change-credit-card.md) asociada a ese servicio externo. Siga estos pasos para saber a qué suscripción está asociado el perdido de servicio externo:
 
@@ -73,25 +112,8 @@ Cuando compra un servicio externo, elige una suscripción de Azure para el recur
     ![captura de pantalla del nombre de la suscripción para el recurso](./media/understand-azure-marketplace-charges/sub-selected.png)
 1. Haga clic en el nombre de la suscripción y [actualice el método de pago activo](../manage/change-credit-card.md).
 
-<!-- Update your payment methods for external service orders from the [Account Center](https://account.windowsazure.com/).
-
-> [!NOTE]
-> If you purchased your subscription with a Work or School account, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to make changes to your payment method.
-
-1. Sign in to the [Account Center](https://account.windowsazure.com/) and [navigate to the **marketplace** tab](https://account.windowsazure.com/Store)
-
-    ![Select marketplace in the account center](./media/understand-azure-marketplace-charges/select-marketplace.png)
-2. Select the external service you want to manage
-
-    ![Select the external service you want to manage](./media/understand-azure-marketplace-charges/select-ext-service.png)
-3. Click **Change payment method** on the right side of the page. This link brings you to a different portal to manage your payment method.
-
-    ![Order summary](./media/understand-azure-marketplace-charges/change-payment.PNG)
-4. Click **Edit info** and follow instructions to update your payment information.
-
-    ![Select edit info](./media/understand-azure-marketplace-charges/edit-info.png) -->
-
 ## <a name="cancel-an-external-service-order"></a>Cancelación de un pedido de servicio externo
+
 Si desea cancelar el pedido de servicio externo, debe eliminar el recurso en [Azure Portal](https://portal.azure.com).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).

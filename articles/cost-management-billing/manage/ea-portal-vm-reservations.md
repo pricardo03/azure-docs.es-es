@@ -3,16 +3,16 @@ title: Instancias reservadas de máquinas virtuales de Azure EA
 description: En este artículo se resume la forma en que las reservas de Azure para las instancias reservadas de máquinas virtuales pueden ayudarle a ahorrar dinero en la inscripción de su empresa.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/14/2020
+ms.date: 02/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 3eceef9dc0bc29f7e105ac0b110bd2550413fa61
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 53af5e69a90eb376c28ef364e7d9c5b29287790c
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200717"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560584"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Instancias reservadas de máquinas virtuales de Azure EA
 
@@ -57,10 +57,12 @@ Puede ver los detalles de la compra de instancias reservadas a través del menú
 
 ### <a name="how-can-i-change-the-subscription-associated-with-reserved-instance-or-transfer-my-reserved-instance-benefits-to-a-subscription-under-the-same-account"></a>¿Cómo puedo cambiar la suscripción asociada a la instancia reservada o transferir las ventajas de la instancia reservada a una suscripción incluida en la misma cuenta?
 
-En cualquier momento dado, solo una suscripción puede recibir las ventajas de las instancias reservadas. Puede cambiar la suscripción que recibe las ventajas de las instancias reservadas del siguiente modo:
+Puede cambiar la suscripción que recibe las ventajas de las instancias reservadas del siguiente modo:
 
 - Inicie sesión en [Azure Portal](https://aka.ms/reservations).
-- Actualice el ámbito de la suscripción aplicada mediante la asociación de una suscripción diferente de la misma cuenta.
+- Actualice el ámbito de la suscripción aplicada; para ello, asocie una suscripción diferente con la misma cuenta.
+
+Para más información sobre cómo cambiar el ámbito de una reserva, consulte [Cambio del ámbito de reserva](../reservations/manage-reserved-vm-instance.md#change-the-reservation-scope).
 
 ### <a name="how-to-view-reserved-instance-usage-details"></a>Visualización de los detalles de uso de las instancias reservadas
 

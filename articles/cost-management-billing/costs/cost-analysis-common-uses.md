@@ -4,16 +4,16 @@ description: En este artículo se explica cómo puede obtener los resultados de 
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 02/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: 2102e3af26c8f5c4ed85543bc19360a923d070f3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 1d9a498185e76f9771ec98656b1cad914b0f3214
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199983"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562588"
 ---
 # <a name="common-cost-analysis-uses"></a>Usos del análisis de costos comunes
 
@@ -83,6 +83,9 @@ El archivo de informe de detalles de uso, en formato CSV, proporciona un desglos
 ## <a name="view-monthly-ea-cost-breakdown"></a>Visualización del desglose mensual del costo de EA
 
 La inscripción de EA acumula los costos de toda la organización. Entender cómo se acumulan los costos y se facturan a lo largo del tiempo ayuda a atraer a las partes interesadas adecuadas para garantizar que se administren de forma responsable.
+
+Solo se muestran los costos de la inscripción activa. Si transfirió una inscripción (inactiva) a una nueva (activa), los costos de la inscripción anterior no se muestran en Cost Management.
+
 
 1. En Azure Portal, vaya a **Administración de costos + facturación** > **Información general**.
 1. Haga clic en **Desglose** para el mes en curso y vea la evolución del compromiso monetario.  

@@ -4,17 +4,17 @@ description: Este artículo le ayudará a comprender mejor qué datos se incluye
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 02/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 39f2aab72491ffdf2b583879181a247d3653647f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 44953a3986b5c03afa9cc4668e2563c5c5cd6c46
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199898"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560616"
 ---
 # <a name="understand-cost-management-data"></a>Descripción de los datos de Cost Management
 
@@ -135,9 +135,9 @@ Estas son algunas sugerencias para trabajar con etiquetas:
 - Use Tag API junto con Query o UsageDetails para obtener todo el costo basado en las etiquetas actuales.
 
 
-**Actualización de evaluación gratuita a pago por uso**
+## <a name="free-trial-to-pay-as-you-go-upgrade"></a>Actualización de evaluación gratuita a pago por uso
 
-Los clientes con una oferta de evaluación gratuita (044P) que se convierte en oferta de pago por uso (003P) pueden ver su uso durante el período de evaluación gratuita. Sin embargo, pierden visibilidad del uso de la evaluación gratuita después de la conversión. Con posterioridad, en Cost Management solo se muestran el uso y los costos de pago por uso.
+Para información sobre la disponibilidad de los servicios de nivel gratuito después de actualizar una evaluación gratuita a los precios de pago, consulte las [preguntas más frecuentes sobre las cuentas gratuitas de Azure](https://azure.microsoft.com/free/free-account-faq/).
 
 ## <a name="rated-usage-data-refresh-schedule"></a>Programación de actualización de datos de uso valorados
 
@@ -157,6 +157,17 @@ Suscripciones de pago por uso: si el mes de facturación termina el 15 de mayo, 
 ### <a name="rerated-data"></a>Nueva valoración de los datos
 
 Si usa las [API de Cost Management](../index.yml), Power BI o Azure Portal para recuperar datos, es posible que los cargos del período de facturación actual se vuelvan a valorar y, consecuentemente, cambien hasta que se cierre la factura.
+
+## <a name="cost-rounding"></a>Redondeo de los costos
+
+Los costos que se muestran en Cost Management se redondean. Los costos devueltos por la API de consulta no se redondean. Por ejemplo:
+
+- Análisis de costos en Azure Portal: los cargos se redondean mediante reglas de redondeo estándar: los valores de más de 0,5 se redondean al alza; de lo contrario, los costos se redondean a la baja. El redondeo solo se produce cuando se muestran valores. El redondeo no se produce durante el procesamiento y la agregación de datos. Por ejemplo, el análisis de costos agrega costos como se indica a continuación:
+  - Cargo 1: 0,004 USD
+  - Carga 2: 0,004 USD
+  - Costo agregado representado: 0,004 + 0,004 = 0,008. El cargo mostrado es 0,01 USD.
+- API de consulta: los cargos se muestran con ocho posiciones decimales y no se realiza el redondeo.
+
 
 ## <a name="usage-data-update-frequency-varies"></a>La frecuencia de actualización de los datos de uso varía.
 

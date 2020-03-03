@@ -8,13 +8,13 @@ ms.author: heidist
 ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: fd8a053eb4ff0805b95dc11db4206e1dd2edb184
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 02/25/2020
+ms.openlocfilehash: cbef6029b93f134f95ee54aa87ce0dd65bcdf50d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406930"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624008"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en Node.js mediante las API REST
 > [!div class="op_single_selector"]
@@ -25,25 +25,30 @@ ms.locfileid: "74406930"
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Cree una aplicación de Node.js que cree, cargue y realice consultas en un índice de Azure Cognitive Search. En este artículo, se muestra cómo crear la aplicación paso a paso. También puede [descargar el código fuente de los datos](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/) y ejecutar la aplicación desde la línea de comandos.
+Cree una aplicación de Node.js que cree, cargue y realice consultas en un índice de Azure Cognitive Search. En este artículo, se muestra cómo crear la aplicación paso a paso. También puede [descargar el código fuente y los datos](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/) y ejecutar la aplicación desde la línea de comandos.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-En este inicio rápido se usan los siguientes servicios, herramientas y datos.
+Hemos usado el software y servicios siguientes para compilar y probar este inicio rápido:
 
-+ [Node.js](https://nodejs.org).
-+ [NPM](https://www.npmjs.com) tiene que instalarse mediante Node.js.
-+ En este artículo, se proporciona una estructura de índice de ejemplo y documentos coincidentes; también puede obtenerlos desde el directorio [**quickstart** del repositorio](https://github.com/Azure-Samples/azure-search-javascript-samples/).
-+ [Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido.
++ [Node.js](https://nodejs.org)
+
++ [NPM](https://www.npmjs.com) tiene que instalarse mediante Node.js
+
++ En este artículo, se proporcionan una estructura de índice de ejemplo y documentos coincidentes; que también se pueden obtener en el directorio [**quickstart** del repositorio](https://github.com/Azure-Samples/azure-search-javascript-samples/)
+
++ [Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido.
 
 Se recomienda:
 
 * [Visual Studio Code](https://code.visualstudio.com)
+
 * Extensiones [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) y [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) para VS Code.
 
 <a name="get-service-info"></a>
+
 ## <a name="get-keys-and-urls"></a>Obtención de claves y direcciones URL
 
 Las llamadas al servicio requieren un punto de conexión de URL y una clave de acceso en cada solicitud. Con ambos se crea un servicio de búsqueda, por lo que, si ha agregado Azure Cognitive Search a su suscripción, siga estos pasos para obtener la información necesaria:
@@ -58,7 +63,7 @@ Las llamadas al servicio requieren un punto de conexión de URL y una clave de a
 
 Todas las solicitudes enviadas al servicio necesitan una clave de API en el encabezado. Una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que la envía y el servicio que se encarga de ella.
 
-## <a name="set-up-your-environment"></a>Configuración del entorno
+## <a name="set-up-your-environment"></a>Configurar el entorno
 
 Para empezar, abra una consola de PowerShell u otro entorno en el que haya instalado Node.js.
 
@@ -108,16 +113,17 @@ Para empezar, abra una consola de PowerShell u otro entorno en el que haya insta
       }
     }
     ```
-Cree un archivo **azure_search_config.json** para guardar los datos del servicio de búsqueda:
 
-```json
-{
-    "serviceName" : "[SERVICE_NAME]",
-    "adminKey" : "[ADMIN_KEY]",
-    "queryKey" : "[QUERY_KEY]",
-    "indexName" : "hotels-quickstart"
-}
-```
+5. Cree un archivo **azure_search_config.json** para guardar los datos del servicio de búsqueda:
+
+    ```json
+    {
+        "serviceName" : "[SEARCH_SERVICE_NAME]",
+        "adminKey" : "[ADMIN_KEY]",
+        "queryKey" : "[QUERY_KEY]",
+        "indexName" : "hotels-quickstart"
+    }
+    ```
 
 Reemplace el valor `[SERVICE_NAME]` por el nombre del servicio de búsqueda. Reemplace `[ADMIN_KEY]` y `[QUERY_KEY]` por los valores de clave que anotó anteriormente. 
 
@@ -403,7 +409,7 @@ El [paquete **nconf**](https://github.com/indexzero/nconf) le permite especifica
 ```javascript
 function getAzureConfiguration() {
     const config = nconf.file({ file: 'azure_search_config.json' });
-    if (config.get('serviceName') === '[SEARCH_SERVICE_NAME' ) {
+    if (config.get('serviceName') === '[SEARCH_SERVICE_NAME]' ) {
         throw new Error("You have not set the values in your azure_search_config.json file. Change them to match your search service's values.");
     }
     return config;
@@ -433,7 +439,7 @@ Por último, especifique y realice una llamada a la función asincrónica princi
 const run = async () => {
     try {
         const cfg = getAzureConfiguration();
-        const client = new AzureSearchClient(cfg.get("serviceName"), cfg.get("adminKey"), cfg.get("queryKey"), cfg.get["serviceName"]);
+        const client = new AzureSearchClient(cfg.get("serviceName"), cfg.get("adminKey"), cfg.get("queryKey"), cfg.get("indexName));
         
         const exists = await client.indexExistsAsync();
         await exists ? client.deleteIndexAsync() : Promise.resolve();
@@ -452,7 +458,7 @@ No se olvide de la llamada final a `run()`. Será el punto de entrada al program
 
 Tenga en cuenta que los elementos `AzureSearchClient.indexExistsAsync()` y `AzureSearchClient.deleteIndexAsync()` no admiten parámetros. Estas funciones llaman al elemento `AzureSearchClient.request()` sin un argumento `bodyJson`. En `AzureSearchClient.request()`, como `bodyJson === null` es `true`, la estructura de `init` se establece para que sea simplemente el verbo HTTP (“GET” para `indexExistsAsync()` y “DELETE” para `deleteIndexAsync()`) y los encabezados, que especifican la clave de la solicitud.  
 
-En cambio, el método `AzureSearchClient.createIndexAsync(indexDefinition)` _sí_ que admite un parámetro. La función `run` en `index.js` pasa el contenido del archivo **hotels_quickstart_index.json** al método `AzureSearchClient.createIndexAsync(indexDefinition)`. El método `createIndexAsync()` pasa esta definición a `AzureSearchClient.request()`. En `AzureSearchClient.request()`, como `bodyJson === null` es ahora `false`, en la estructura de `init` no solo se incluyen el verbo HTTP (“PUT”) y los encabezados, sino que también se establece el elemento `body` en los datos de definición del índice.
+En cambio, el método `AzureSearchClient.createIndexAsync(indexDefinition)`_sí_ que admite un parámetro. La función `run` en `index.js` pasa el contenido del archivo **hotels_quickstart_index.json** al método `AzureSearchClient.createIndexAsync(indexDefinition)`. El método `createIndexAsync()` pasa esta definición a `AzureSearchClient.request()`. En `AzureSearchClient.request()`, como `bodyJson === null` es ahora `false`, en la estructura de `init` no solo se incluyen el verbo HTTP (“PUT”) y los encabezados, sino que también se establece el elemento `body` en los datos de definición del índice.
 
 ### <a name="prepare-and-run-the-sample"></a>Preparación y ejecución del ejemplo
 

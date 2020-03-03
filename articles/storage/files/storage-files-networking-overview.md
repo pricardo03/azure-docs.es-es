@@ -4,15 +4,15 @@ description: Una introducción a las opciones de red para Azure Files.
 author: roygara
 ms.service: storage
 ms.topic: overview
-ms.date: 10/19/2019
+ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 596479652478bffb6d18a90fc53d5972b3839408
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 09d7f93c7a1d8ad9e567ecfe0bb3854d9d54f6e0
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73126541"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597752"
 ---
 # <a name="azure-files-networking-considerations"></a>Consideraciones de redes para Azure Files 
 Puede conectarse a un recurso compartido de archivos de Azure de dos maneras:
@@ -22,65 +22,128 @@ Puede conectarse a un recurso compartido de archivos de Azure de dos maneras:
 
 Este artículo se centra en cómo configurar las funciones de red cuando el caso de uso necesita acceder al recurso compartido de archivos de Azure directamente, en lugar de usar Azure File Sync. Para obtener más información acerca de las consideraciones de red para una implementación de Azure File Sync, consulte [Configuración de los ajustes de proxy y firewall de Azure File Sync](storage-sync-files-firewall-and-proxy.md).
 
-## <a name="storage-account-settings"></a>Configuración de cuentas de almacenamiento
-Una cuenta de almacenamiento es una construcción de administración que representa un grupo compartido de almacenamiento en el que puede implementar varios recursos compartidos de archivos u otros recursos de almacenamiento, como contenedores de blobs o colas. Las cuentas de Azure Storage exponen dos conjuntos básicos de configuraciones para proteger la red: el cifrado en tránsito y los firewalls y redes virtuales.
+La configuración de red de los recursos compartidos de archivos de Azure se realiza en la cuenta de Azure Storage. Una cuenta de almacenamiento es una construcción de administración que representa un grupo compartido de almacenamiento en el que puede implementar varios recursos compartidos de archivos u otros recursos de almacenamiento, como contenedores de blobs o colas. Las cuentas de almacenamiento exponen varias configuraciones que le ayudan a proteger el acceso de red a los recursos compartidos de archivos: puntos de conexión de red, configuración de firewall de la cuenta de almacenamiento y cifrado en tránsito.
 
-### <a name="encryption-in-transit"></a>Cifrado en tránsito
+## <a name="accessing-your-azure-file-shares"></a>Acceso a los recursos compartidos de archivos de Azure
+Cuando se implementa un recurso compartido de archivos de Azure en una cuenta de almacenamiento, este es accesible inmediatamente mediante el punto de conexión público de la cuenta de almacenamiento. Esto significa que las solicitudes autenticadas, como las solicitudes autorizadas por la identidad de inicio de sesión de un usuario, pueden originarse de forma segura dentro o fuera de Azure. 
+
+En muchos entornos de cliente, se producirá un error en el montaje inicial del recurso compartido de archivos de Azure en la estación de trabajo local, aunque los montajes desde las máquinas virtuales de Azure se realicen correctamente. El motivo es que muchas organizaciones y proveedores de servicios de Internet (ISP) bloquean el puerto que usa SMB para comunicarse, el puerto 445. Esta práctica procede de las instrucciones de seguridad sobre las versiones heredadas y en desuso del protocolo SMB. Aunque SMB 3.0 es un protocolo seguro para Internet, las versiones anteriores, especialmente SMB 1.0, no lo son. Solo se puede acceder externamente a recursos compartidos de archivos de Azure por medio de SMB 3.0 y el protocolo FileREST (que también es un protocolo seguro para Internet) a través del punto de conexión público.
+
+Dado que la manera más fácil de acceder al recurso compartido de archivos de Azure desde el entorno local es abrir la red local al puerto 445, Microsoft recomienda los siguientes pasos para quitar SMB 1.0 de su entorno:
+
+1. Asegúrese de que se ha quitado o deshabilitado SMB 1.0 en los dispositivos de la organización. Todas las versiones de Windows y Windows Server compatibles actualmente admiten la eliminación o desactivación de SMB 1.0 y, a partir de Windows 10, versión 1709, SMB 1.0 no se instala en Windows de forma predeterminada. Para obtener más información sobre cómo deshabilitar SMB 1.0, consulte nuestras páginas específicas para cada sistema operativo:
+    - [Protección de Windows y Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server)
+    - [Protección de Linux](storage-how-to-use-files-linux.md#securing-linux)
+2. Asegúrese de que ningún producto de la organización requiere SMB 1.0 y quite los que sí lo requieran. Mantenemos un [Centro de enrutamiento de productos de SMB1](https://aka.ms/stillneedssmb1), que contiene todos los productos propios y de terceros que Microsoft sabe que requieren de SMB 1.0. 
+3. (Opcional) Use un firewall de terceros con la red local de su organización para impedir que el tráfico de SMB 1.0 abandone los límites de la organización.
+
+Si la organización requiere el bloqueo del puerto 445 según las directivas o normativas, o si la organización requiere que el tráfico a Azure siga una ruta de acceso determinista, puede usar Azure VPN Gateway o ExpressRoute para tunelizar el tráfico a los recursos compartidos de archivos de Azure.
+
+> [!Important]  
+> Incluso si decide usar un método alternativo para acceder a los recursos compartidos de archivos de Azure, Microsoft aún recomienda quitar SMB 1.0 del entorno.
+
+### <a name="tunneling-traffic-over-a-virtual-private-network-or-expressroute"></a>Tunelización del tráfico a través de una red privada virtual o de ExpressRoute
+Cuando se establece un túnel de red entre la red local y Azure, se empareja la red local con una o más redes virtuales de Azure. Una [red virtual](../../virtual-network/virtual-networks-overview.md) es similar a una red tradicional que puede usar en el entorno local. Al igual que una cuenta de almacenamiento de Azure o una máquina virtual de Azure, una red virtual es un recurso de Azure que se implementa en un grupo de recursos. 
+
+Azure Files admite los siguientes mecanismos para tunelizar el tráfico entre los servidores y las estaciones de trabajo locales y Azure:
+
+- [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md): Una puerta de enlace de VPN es un tipo específico de puerta de enlace de red virtual que se usa para enviar tráfico cifrado entre una red virtual de Azure y una ubicación alternativa (por ejemplo, en un entorno local) a través de Internet. Una instancia de Azure VPN Gateway es un recurso de Azure que se puede implementar en un grupo de recursos junto con una cuenta de almacenamiento u otros recursos de Azure. Las puertas de enlace de VPN exponen dos tipos de conexión distintos:
+    - Las conexiones de puerta de enlace de [VPN de punto a sitio](../../vpn-gateway/point-to-site-about.md), que son conexiones VPN entre Azure y un cliente individual. Esta solución es especialmente útil para los dispositivos que no forman parte de la red local de su organización, como los trabajadores remotos que quieren montar su recurso compartido de archivos de Azure desde casa, una cafetería o un hotel mientras viajan. Para usar una conexión VPN de punto a sitio con Azure Files, se debe configurar una conexión VPN de punto a sitio para cada cliente que quiera conectarse. Para simplificar la implementación de una conexión VPN P2S, consulte [Configuración de una VPN de punto a sitio (P2S) en Windows para su uso con Azure Files](storage-files-configure-p2s-vpn-windows.md) y [Configuración de una VPN de punto a sitio (P2S) en Linux para su uso con Azure Files](storage-files-configure-p2s-vpn-linux.md).
+    - Las [VPN de sitio a sitio](../../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti), que son conexiones VPN entre Azure y la red de su organización. Una conexión de VPN de sitio a sitio le permite configurar una conexión VPN una vez, para un servidor VPN o un dispositivo hospedado en la red de su organización, en lugar de hacerlo para cada dispositivo cliente que necesite tener acceso al recurso compartido de archivos de Azure. Para simplificar la implementación de una conexión VPN S2S, consulte [Configuración de una VPN de sitio a sitio (S2S) para su uso con Azure Files](storage-files-configure-s2s-vpn.md).
+- [ExpressRoute](../../expressroute/expressroute-introduction.md), que permite crear una ruta definida entre Azure y la red local que no atraviesa Internet. Como ExpressRoute proporciona una ruta de acceso dedicada entre el centro de recursos local y Azure, ExpressRoute puede resultar útil cuando se tiene en cuenta el rendimiento de la red. ExpressRoute también es una buena opción cuando la directiva o los requisitos normativos de la organización requieren una ruta de acceso determinista a los recursos en la nube.
+
+Con independencia del método de tunelización que use para acceder a los recursos compartidos de archivos de Azure, necesita un mecanismo para asegurarse de que el tráfico a su cuenta de almacenamiento atraviese el túnel en lugar de la conexión a Internet normal. Técnicamente es posible enrutarlo al punto de conexión público de la cuenta de almacenamiento; sin embargo, para ello es necesario codificar de forma rígida todas las direcciones IP de los clústeres de almacenamiento de Azure en una región, ya que las cuentas de almacenamiento pueden moverse entre los clústeres de almacenamiento en cualquier momento. También es necesario actualizar en todo momento las asignaciones de direcciones IP, ya que continuamente se agregan nuevos clústeres.
+
+En lugar de codificar de forma rígida la dirección IP de las cuentas de almacenamiento en las reglas de enrutamiento de VPN, se recomienda usar puntos de conexión privados, que proporcionan a la cuenta de almacenamiento una dirección IP del espacio de direcciones de una red virtual de Azure. Dado que la creación de un túnel a Azure establece un emparejamiento entre la red local y una o más redes virtuales, esto permite el enrutamiento correcto de forma duradera.
+
+### <a name="private-endpoints"></a>Puntos de conexión privados
+Además del punto de conexión público predeterminado para una cuenta de almacenamiento, Azure Files ofrece la opción de tener uno o más puntos de conexión privados. Un punto de conexión privado es un punto de conexión que solo es accesible dentro de una red virtual de Azure. Cuando se crea un punto de conexión privado para la cuenta de almacenamiento, esta obtiene una dirección IP privada del espacio de direcciones de la red virtual, de forma muy parecida a cómo un servidor de archivos local o un dispositivo NAS reciben una dirección IP dentro del espacio de direcciones dedicado de la red local. 
+
+Un punto de conexión privado está asociado a una subred de red virtual de Azure específica. Una cuenta de almacenamiento puede tener puntos de conexión privados en más de una red virtual.
+
+El uso de puntos de conexión privados con Azure Files le permite:
+- Conectarse de forma segura a los recursos compartidos de archivos de Azure desde redes locales mediante una conexión VPN o ExpressRoute con emparejamiento privado.
+- Proteger los recursos compartidos de archivos mediante la configuración del firewall de la cuenta de almacenamiento para bloquear todas las conexiones el punto de conexión público. De forma predeterminada, crear un punto de conexión privado no bloquea las conexiones al punto de conexión público.
+- Aumentar la seguridad de la red virtual, al permitirle bloquear la filtración de datos desde la red virtual (y los límites de emparejamiento).
+
+### <a name="private-endpoints-and-dns"></a>Puntos de conexión privados y DNS
+Cuando se crea un punto de conexión privado, de forma predeterminada también se crea una zona DNS privada (o se actualiza una existente) correspondiente al subdominio `privatelink`. En realidad, no es necesario crear una zona DNS privada para usar un punto de conexión privado para la cuenta de almacenamiento, pero se recomienda encarecidamente en general y se requiere de forma explícita al montar el recurso compartido de archivos de Azure con una entidad de seguridad de usuario de Active Directory o al acceder desde la API de FileREST.
+
+> [!Note]  
+> En este artículo se usa el sufijo DNS de la cuenta de almacenamiento para las regiones públicas de Azure `core.windows.net`. Este comentario también se aplica a nubes soberanas de Azure, como la nube de Azure US Government y la nube de Azure China; simplemente sustituya los sufijos adecuados en su entorno. 
+
+En la zona DNS privada, se va a crea un registro D para `storageaccount.privatelink.file.core.windows.net` y un registro CNAME para el nombre normal de la cuenta de almacenamiento, que sigue el patrón `storageaccount.file.core.windows.net`. Como la zona DNS privada de Azure está conectada a la red virtual que contiene el punto de conexión privado, puede observar la configuración de DNS cuando se llama al cmdlet `Resolve-DnsName` desde PowerShell en una máquina virtual de Azure (como alternativa `nslookup` en Windows y Linux):
+
+```powershell
+Resolve-DnsName -Name "storageaccount.file.core.windows.net"
+```
+
+En este ejemplo, la cuenta de almacenamiento `storageaccount.file.core.windows.net` se resuelve en la dirección IP privada del punto de conexión privado, que resulta ser `192.168.0.4`.
+
+```Output
+Name                              Type   TTL   Section    NameHost
+----                              ----   ---   -------    --------
+storageaccount.file.core.windows. CNAME  29    Answer     csostoracct.privatelink.file.core.windows.net
+net
+
+Name       : storageaccount.privatelink.file.core.windows.net
+QueryType  : A
+TTL        : 1769
+Section    : Answer
+IP4Address : 192.168.0.4
+
+
+Name                   : privatelink.file.core.windows.net
+QueryType              : SOA
+TTL                    : 269
+Section                : Authority
+NameAdministrator      : azureprivatedns-host.microsoft.com
+SerialNumber           : 1
+TimeToZoneRefresh      : 3600
+TimeToZoneFailureRetry : 300
+TimeToExpiration       : 2419200
+DefaultTTL             : 300
+```
+
+Si ejecuta el mismo comando en el entorno local, verá que el mismo nombre de cuenta de almacenamiento se resuelve en la dirección IP pública de la cuenta de almacenamiento; `storageaccount.file.core.windows.net` es un registro CNAME para `storageaccount.privatelink.file.core.windows.net`, que, a su vez, es un registro CNAME para el clúster de almacenamiento de Azure que hospeda la cuenta de almacenamiento:
+
+```Output
+Name                              Type   TTL   Section    NameHost
+----                              ----   ---   -------    --------
+storageaccount.file.core.windows. CNAME  60    Answer     storageaccount.privatelink.file.core.windows.net
+net
+storageaccount.privatelink.file.c CNAME  60    Answer     file.par20prdstr01a.store.core.windows.net
+ore.windows.net
+
+Name       : file.par20prdstr01a.store.core.windows.net
+QueryType  : A
+TTL        : 60
+Section    : Answer
+IP4Address : 52.239.194.40
+```
+
+Esto refleja el hecho de que la cuenta de almacenamiento puede exponer el punto de conexión público y uno o varios puntos de conexión privados. Para asegurarse de que el nombre de la cuenta de almacenamiento se resuelve en la dirección IP privada del punto de conexión privado, debe cambiar la configuración en los servidores DNS locales. Esto puede realizarse de varias maneras:
+
+- Modifique el archivo de hosts de los clientes para que `storageaccount.file.core.windows.net` se resuelva en la dirección IP privada del punto de conexión privado deseado. Este método no se recomienda en entornos de producción, ya que estos cambios se deberán realizar en todos los clientes que quieran montar los recursos compartidos de archivos de Azure y los cambios en la cuenta de almacenamiento o en el punto de conexión privado no se administrarán automáticamente.
+- Cree un registro D para `storageaccount.file.core.windows.net` en los servidores DNS locales. Este método tiene la ventaja de que los clientes de su entorno local podrán resolver automáticamente la cuenta de almacenamiento sin necesidad de configurar cada cliente; sin embargo, esta solución es igualmente frágil para modificar el archivo de hosts, ya que los cambios no se reflejan. Aunque esta solución es frágil, puede ser la mejor opción para algunos entornos.
+- Reenvíe la zona `core.windows.net` de los servidores DNS locales a la zona DNS privada de Azure. Se puede acceder al host DNS privado de Azure a través de una dirección IP especial (`168.63.129.16`) que solo es accesible dentro de las redes virtuales que están vinculadas a la zona DNS privada de Azure. Para solucionar esta limitación, puede ejecutar servidores DNS adicionales dentro de la red virtual que reenviarán `core.windows.net` a la zona DNS privada de Azure. Para simplificar esta configuración, se han proporcionado cmdlets de PowerShell que implementarán automáticamente los servidores DNS en la red virtual de Azure y los configurarán según sea necesario.
+
+## <a name="storage-account-firewall-settings"></a>Configuración del firewall de la cuenta de almacenamiento
+Un firewall es una directiva de red que controla qué solicitudes pueden acceder al punto de conexión público de una cuenta de almacenamiento. Con el firewall de la cuenta de almacenamiento, puede restringir el acceso al punto de conexión público de la cuenta de almacenamiento a determinadas direcciones IP o intervalos de direcciones IP o a una red virtual. En general, la mayoría de las directivas de firewall de una cuenta de almacenamiento restringirán el acceso de red a una o varias redes virtuales. 
+
+Existen dos enfoques para restringir el acceso de una cuenta de almacenamiento a una red virtual:
+- Cree uno o varios puntos de conexión privados para la cuenta de almacenamiento y restrinja todo el acceso al punto de conexión público. De esta forma se garantiza que solo el tráfico que se origina en las redes virtuales deseadas pueda acceder a los recursos compartidos de archivos de Azure dentro de la cuenta de almacenamiento.
+- Restrinja el punto de conexión público a una o más redes virtuales. Para ello, se usa una funcionalidad de la red virtual llamada *puntos de conexión de servicio*. Al restringir el tráfico a una cuenta de almacenamiento a través de un punto de conexión de servicio, sigue teniendo acceso a la cuenta de almacenamiento a través de la dirección IP pública.
+
+Para más información sobre cómo configurar el firewall de la cuenta de almacenamiento, consulte [Configuración de los firewalls y las redes virtuales de Azure Storage](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+
+## <a name="encryption-in-transit"></a>Cifrado en tránsito
 De forma predeterminada, todas las cuentas de Azure Storage tienen habilitado el cifrado en tránsito. Esto significa que al montar un recurso compartido de archivos a través de SMB o acceder a él a través del protocolo de FileREST (por ejemplo, a través de Azure Portal, la CLI o PowerShell, o los SDK de Azure), Azure Files solo permitirá la conexión si se realiza con una versión posterior a SMB 3.0 con cifrado o HTTPS. Los clientes que no admiten SMB 3.0, o los clientes que admiten SMB 3.0, pero no al cifrado SMB no podrán montar el recurso compartido de archivos de Azure si está habilitado el cifrado en tránsito. Para obtener más información sobre qué sistemas operativos admiten SMB 3.0 con cifrado, consulte nuestra documentación detallada para [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md) y [Linux](storage-how-to-use-files-linux.md). Todas las versiones actuales de PowerShell, la CLI y los SDK admiten HTTPS.  
 
 Puede deshabilitar el cifrado en tránsito para una cuenta de almacenamiento de Azure. Cuando el cifrado está deshabilitado, Azure Files también permite el uso de SMB 2.1, SMB 3.0 sin cifrado y las llamadas API de FileREST sin cifrar a través de HTTP. La razón principal para deshabilitar el cifrado en tránsito es admitir una aplicación heredada que debe ejecutarse en un sistema operativo anterior, como Windows Server 2008 R2 o una distribución de Linux anterior. Azure Files solo permite conexiones SMB 2.1 dentro de la misma región de Azure del recurso compartido de archivos de Azure. Un cliente SMB 2.1 fuera de la región de Azure del recurso compartido de archivos de Azure (por ejemplo, en un entorno local o en una región de Azure diferente) no podrá acceder al recurso compartido de archivos.
 
 Para obtener más información sobre el cifrado en tránsito, consulte [Requerir transferencia segura en Azure Storage](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-### <a name="firewalls-and-virtual-networks"></a>Firewalls y redes virtuales 
-Un firewall es una directiva de red cuyas solicitudes pueden acceder a los recursos compartidos de archivos de Azure y a otros recursos de almacenamiento de la cuenta de almacenamiento. Cuando se crea una cuenta de almacenamiento con la configuración de red predeterminada, no está restringida a una red específica y, por lo tanto, se puede acceder a ella desde Internet. Esto no significa que cualquier usuario de Internet puede acceder a los datos almacenados en los recursos compartidos de archivos de Azure hospedados en su cuenta de almacenamiento, sino que la cuenta de almacenamiento aceptará las solicitudes autorizadas de cualquier red. Las solicitudes se pueden autorizar con una clave de cuenta de almacenamiento, un token de firma de acceso compartido (SAS) (solo FileREST) o una entidad de seguridad de usuario de Active Directory. 
-
-La directiva de firewall para una cuenta de almacenamiento puede usarse para restringir el acceso a determinadas direcciones IP o intervalos de direcciones, o a una red virtual. En general, la mayoría de las directivas de firewall para una cuenta de almacenamiento restringirán el acceso de red a una red virtual. 
-
-Una [red virtual](../../virtual-network/virtual-networks-overview.md) es similar a la red tradicional en la que puede trabajar en su propio centro de recursos. Permite crear un canal de comunicación seguro para que los recursos de Azure (como los recursos compartidos de archivos de Azure, las máquinas virtuales, las bases de datos SQL, etc.) se comuniquen entre sí. Al igual que una cuenta de almacenamiento de Azure o una máquina virtual de Azure, una red virtual es un recurso de Azure que se implementa en un grupo de recursos. Con la configuración de red adicional, las redes virtuales de Azure también pueden conectarse a sus redes locales.
-
-Cuando se agregan recursos como una máquina virtual de Azure a una red virtual, una interfaz de red virtual conectada a la máquina virtual se restringe de forma concreta a solo esa red virtual. Esto es posible porque las máquinas virtuales de Azure son equipos virtualizados que, por supuesto, tienen interfaces de red virtual. Las máquinas virtuales se ofertan como parte de la línea de productos de infraestructura como servicio, o IaaS, de Azure. Dado que los recursos compartidos de archivos de Azure son recursos compartidos de archivos sin servidor, no tienen una interfaz de red virtual para que la agregue a una red virtual. Dicho de otra forma, Azure Files se oferta como parte de la línea de productos de la plataforma como servicio, o PaaS, de Azure. Para habilitar una cuenta de almacenamiento a fin de que pueda formar parte de una red virtual, Azure admite un concepto de servicios PaaS denominados puntos de conexión de servicio. Un punto de conexión de servicio permite que los servicios PaaS formen parte de una red virtual. Para obtener más información sobre los puntos de conexión de servicio, consulte [Puntos de conexión de servicio de red virtual](../../virtual-network/virtual-network-service-endpoints-overview.md).
-
-Se puede agregar una cuenta de almacenamiento a una o varias redes virtuales. Para obtener más información sobre cómo agregar su cuenta de almacenamiento a una red virtual o cómo configurar otras opciones de firewall, consulte [Configuración de firewalls y redes virtuales de Azure Storage](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
-
-## <a name="azure-networking"></a>Redes de Azure
-De forma predeterminada, se puede acceder a los servicios de Azure, incluido Azure Files, a través de Internet. Dado que, de forma predeterminada, el tráfico a la cuenta de almacenamiento está cifrado (y los montajes de SMB 2.1 nunca se permiten fuera de una región de Azure), el acceso a los recursos compartidos de archivos de Azure a través de Internet no es inseguro en esencia. En función de la directiva de la organización o de los requisitos normativos únicos, es posible que necesite una comunicación más restrictiva con Azure y, por lo tanto, Azure proporciona varias maneras de restringir el modo en que el tráfico fuera de Azure se comunica con Azure Files. Puede proteger aún más las redes al acceder al recurso compartido de archivos de Azure mediante las siguientes ofertas de servicio:
-
-- [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md): Una puerta de enlace de VPN es un tipo específico de puerta de enlace de red virtual que se usa para enviar tráfico cifrado entre una red virtual de Azure y una ubicación alternativa (por ejemplo, en un entorno local) a través de Internet. Una instancia de Azure VPN Gateway es un recurso de Azure que se puede implementar en un grupo de recursos junto con una cuenta de almacenamiento u otros recursos de Azure. Las puertas de enlace de VPN exponen dos tipos de conexión distintos:
-    - Las conexiones de puerta de enlace de [VPN de punto a sitio](../../vpn-gateway/point-to-site-about.md), que son conexiones VPN entre Azure y un cliente individual. Esta solución es especialmente útil para los dispositivos que no forman parte de la red local de su organización, como los trabajadores remotos que quieren montar su recurso compartido de archivos de Azure desde casa, una cafetería o un hotel mientras viajan. Para usar una conexión VPN de punto a sitio con Azure Files, se debe configurar una conexión VPN de punto a sitio para cada cliente que quiera conectarse. 
-    - Las [VPN de sitio a sitio](../../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti), que son conexiones VPN entre Azure y la red de su organización. Una conexión de VPN de sitio a sitio le permite configurar una conexión VPN una vez, para un servidor VPN o un dispositivo hospedado en la red de su organización, en lugar de hacerlo para cada dispositivo cliente que necesite tener acceso al recurso compartido de archivos de Azure.
-- [ExpressRoute](../../expressroute/expressroute-introduction.md), que permite crear una ruta definida entre Azure y la red local que no atraviesa Internet. Como ExpressRoute proporciona una ruta de acceso dedicada entre el centro de recursos local y Azure, ExpressRoute puede resultar útil cuando se tiene en cuenta el rendimiento de la red. ExpressRoute también es una buena opción cuando la directiva o los requisitos normativos de la organización requieren una ruta de acceso determinista a los recursos en la nube.
-
-## <a name="securing-access-from-on-premises"></a>Protección del acceso desde entornos locales 
-Al migrar recursos compartidos de archivos de uso general (por ejemplo, documentos de Office, archivos PDF, documentos CAD, etc.) a Azure Files, los usuarios seguirán necesitando acceder a sus archivos desde dispositivos locales como sus estaciones de trabajo, equipos portátiles y tabletas. La consideración principal para un recurso compartido de archivos de uso general es cómo los usuarios locales pueden acceder de forma segura a sus recursos compartidos de archivos a través de Internet o WAN.
-
-La forma más fácil de acceder al recurso compartido de archivos de Azure desde el entorno local es abrir la red local para el puerto 445 (el que usa SMB) y montar la ruta de acceso UNC proporcionada por Azure Portal. Esto no requiere de ninguna red especial. Muchos clientes son reacios a abrir el puerto 445 debido a las instrucciones de seguridad obsoletas basadas en SMB 1.0, que Microsoft no considera un protocolo seguro de Internet. Azure Files no implementa SMB 1.0. 
-
-SMB 3.0 se diseñó con el requisito explícito de ser un protocolo de recursos compartidos de archivos seguro para Internet. Por lo tanto, cuando se usan versiones posteriores a SMB 3.0, desde el punto de vista de la red del equipo, la apertura del puerto 445 no es diferente de la apertura del puerto 443 (el que se usa para las conexiones HTTPS). En lugar de bloquear el puerto 445 para evitar el tráfico de SMB 1.0 inseguro, Microsoft recomienda los siguientes pasos:
-
-> [!Important]  
-> Incluso si decide dejar el puerto 445 cerrado para el tráfico saliente, Microsoft le recomienda seguir estos pasos para quitar SMB 1.0 de su entorno.
-
-1. Asegúrese de que se ha quitado o deshabilitado SMB 1.0 en los dispositivos de la organización. Todas las versiones de Windows y Windows Server compatibles actualmente admiten la eliminación o desactivación de SMB 1.0 y, a partir de Windows 10, versión 1709, SMB 1.0 no se instala en Windows de forma predeterminada. Para obtener más información sobre cómo deshabilitar SMB 1.0, consulte nuestras páginas específicas para cada sistema operativo:
-    - [Protección de Windows y Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server)
-    - [Protección de Linux](storage-how-to-use-files-linux.md#securing-linux)
-1. Asegúrese de que ningún producto de la organización requiere SMB 1.0 y quite los que sí lo requieran. Mantenemos un [Centro de enrutamiento de productos de SMB1](https://aka.ms/stillneedssmb1), que contiene todos los productos propios y de terceros que Microsoft sabe que requieren de SMB 1.0. 
-1. (Opcional) Use un firewall de terceros con la red local de su organización para evitar el tráfico SMB 1.0.
-
-Si su organización requiere que el puerto 445 se bloquee debido a directivas o reglas, puede usar Azure VPN Gateway o ExpressRoute para tunelizar el tráfico en el puerto 443. Para obtener más información sobre los pasos específicos de implementación, consulte nuestras páginas de instrucciones específicas:
-- [Configuración de una VPN de sitio a sitio (S2S) para su uso con Azure Files](storage-files-configure-s2s-vpn.md)
-- [Configuración de una VPN de punto a sitio (P2S) en Windows para su uso con Azure Files](storage-files-configure-p2s-vpn-windows.md)
-- [Configuración de una VPN de punto a sitio (P2S) en Linux para su uso con Azure Files](storage-files-configure-p2s-vpn-linux.md)
-
-Su organización puede tener el requisito adicional de que el tráfico saliente desde el sitio local debe seguir una ruta de acceso determinista hacia los recursos en la nube. De ser así, ExpressRoute es capaz de cumplir este requisito.
-
-## <a name="securing-access-from-cloud-resources"></a>Protección del acceso desde recursos en la nube
-Por lo general, cuando una aplicación local se transfiere mediante lift-and-shift a la nube, la aplicación y los datos de la aplicación se mueven al mismo tiempo. Esto significa que la consideración principal de una migración mediante lift-and-shift es bloquear el acceso al recurso compartido de archivos de Azure para las máquinas virtuales o servicios de Azure específicos que requieren de dicho acceso para funcionar. 
-
-Quizá quiera usar redes virtuales para limitar qué máquinas virtuales u otros recursos de Azure pueden realizar conexiones de red (montajes SMB o llamadas de API REST a su recurso compartido de archivos de Azure). Siempre se recomienda colocar el recurso compartido de archivos de Azure en una red virtual si permite el flujo de tráfico no cifrado hacia la cuenta de almacenamiento. De lo contrario, independientemente de si usa redes virtuales o no, se trata de una decisión que debe basarse en los requisitos empresariales y la directiva de la organización.
-
-La razón principal para permitir el tráfico no cifrado hacia el recurso compartido de archivos de Azure es la compatibilidad con Windows Server 2008 R2, Windows 7 u otro sistema operativo anterior que acceda al recurso compartido de archivos de Azure mediante SMB 2.1 (o SMB 3.0 sin cifrado para algunas distribuciones de Linux). No se recomienda usar SMB 2.1 o SMB 3.0 sin cifrado en los sistemas operativos que admiten las versiones posteriores a SMB 3.0 con cifrado.
-
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 - [Introducción a Azure Files](storage-files-introduction.md)
 - [Planeamiento de una implementación de Azure Files](storage-files-planning.md)

@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 02/24/2020
 ms.author: banders
-ms.openlocfilehash: 2689bdeb003cec0050141374165142a62f9ea337
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 77d663fa01e24acf63acd68d0b8d7cf4cc741055
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200408"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587097"
 ---
 # <a name="purchase-reservations-with-monthly-payments"></a>Compra de reservas con pagos mensuales
 
@@ -62,7 +62,7 @@ Al igual que otras reservas, con la facturación mensual se pueden reembolsar o 
 
 Al cambiar una reserva pagada mensualmente, el costo total de la nueva compra debe ser mayor que los pagos restantes que se cancelan de la reserva devuelta. No hay ningún otro límite ni tarifa por los cambios. Puede cambiar una reserva pagada por adelantado para comprar una nueva que se facture mensualmente. Sin embargo, el valor de la duración de la nueva reserva debe ser mayor que el prorrateado de la reserva que se va a devolver.
 
-Si se cancela una reserva de pago mensual, es posible que Microsoft aplique un precio de cancelación a los pagos futuros que se hayan cancelado. Los pagos restantes confirmados se acumulan en el límite de reembolso de 50 000 USD.
+Si cancela una reserva de pago mensual, es posible que Microsoft aplique una cuota de cancelación del 12 % a los pagos confirmados cancelados. Sin embargo, Microsoft no cobra actualmente la penalización. Los pagos confirmados cancelados se acumulan en el límite de reembolso de 50 000 USD. Si se cobra una penalización por cancelación, el límite de reembolso no resulta afectado.
 
 Para más información sobre los cambios y los reembolsos, consulte [Autoservicio de cambios y reembolsos de reservas de Azure](exchange-and-refund-azure-reservations.md).
 

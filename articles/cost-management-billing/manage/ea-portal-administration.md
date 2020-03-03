@@ -3,16 +3,16 @@ title: Administración del portal del Contrato Enterprise de Azure
 description: En este artículo se explican las tareas comunes que un administrador lleva a cabo en el portal del Contrato Enterprise de Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 02/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 142ef421599cef4083efdf8b9ed700d2baa152b3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 1da26b3a1c028a49655b9089ac0119e3274e37a4
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199779"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598398"
 ---
 # <a name="azure-ea-portal-administration"></a>Administración del portal del Contrato Enterprise de Azure
 
@@ -118,6 +118,8 @@ La oferta Desarrollo/pruebas no es aplicable a los clientes de Azure Gov en este
 
 Una transferencia de cuenta mueve un propietario de la cuenta de una inscripción a otra. Todas las suscripciones relacionadas en el propietario de la cuenta se moverán a la inscripción de destino. Esto se realiza cuando tiene varias inscripciones activas y solo desea trasladar a los propietarios de la cuenta seleccionada.
 
+Esta sección tiene solo carácter informativo, ya que el administrador de la empresa no puede realizar la acción. Para transferir una cuenta de empresa a una nueva inscripción, se necesita una solicitud de soporte técnico.
+
 Tenga en cuenta los puntos siguientes cuando transfiera una cuenta de empresa a una nueva inscripción:
 
 - Solo se transfieren las cuentas especificadas en la solicitud. Si se eligen todas las cuentas, se transfieren todas.
@@ -147,6 +149,8 @@ Una transferencia de inscripción se tiene en cuenta cuando:
 - El plazo de compromiso de la inscripción actual ha llegado a su fin.
 - Una inscripción está en estado expirado o extendido y se negocia un nuevo contrato.
 - Si tiene varias inscripciones y desea consolidar todas las cuentas y la facturación en una sola inscripción.
+
+Esta sección tiene solo carácter informativo, ya que el administrador de la empresa no puede realizar la acción. Para transferir una inscripción de empresa a una nueva, se necesita una solicitud de soporte técnico.
 
 Cuando se solicita la transferencia de una inscripción empresarial completa a una inscripción, se producen las siguientes acciones:
 
