@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 7ffab200b50a7c4d1af60a230f237b18e8afc621
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 8d905da733ea0573b91b289da43684ed8083c804
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754229"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616381"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Características compatibles disponibles en Azure Security Center
 
@@ -33,15 +33,15 @@ En las secciones siguientes se muestran las características disponibles en Secu
 
 ## Características admitidas de las máquinas virtuales y el servidor <a name="vm-server-features"></a>
 
-### <a name="windowstabfeatures-windows"></a>[Windows](#tab/features-windows)
+### <a name="windows"></a>[Windows](#tab/features-windows)
 
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 ||**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Máquinas que no son de Azure**|**Precios**
 |[Integración de ATP de Microsoft Defender](security-center-wdatp.md)|✔ (en versiones compatibles)|✔ (en versiones compatibles)|✔|Estándar|
-|[Alertas de detección de amenazas de análisis de comportamiento de máquinas virtuales](security-center-alerts-iaas.md)|✔|✔|✔|Detección de amenazas de recomendaciones (gratis) (Estándar)|
+|[Alertas de detección de amenazas de análisis de comportamiento de máquinas virtuales](threat-protection.md)|✔|✔|✔|Detección de amenazas de recomendaciones (gratis) (Estándar)|
 |[Alertas de detección de amenazas sin archivo](alerts-reference.md#alerts-windows)|✔|✔|✔|Estándar|
-|[Alertas de detección de amenazas basadas en red](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Estándar|
+|[Alertas de detección de amenazas basadas en red](threat-protection.md#network-layer)|✔|✔|-|Estándar|
 |[Acceso de máquina virtual Just-In-Time](security-center-just-in-time.md)|✔|-|-|Estándar|
 |[Evaluación de vulnerabilidades nativa](built-in-vulnerability-assessment.md)|✔|-|-|Estándar|
 |[Supervisión de la integridad de los archivos](security-center-file-integrity-monitoring.md)|✔|✔|✔|Estándar|
@@ -59,7 +59,7 @@ En las secciones siguientes se muestran las características disponibles en Secu
 |[Evaluación de la seguridad de red](security-center-network-recommendations.md)|✔|✔|-|Gratuito|
 
 
-### <a name="linuxtabfeatures-linux"></a>[Linux](#tab/features-linux)
+### <a name="linux"></a>[Linux](#tab/features-linux)
 
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
@@ -67,7 +67,7 @@ En las secciones siguientes se muestran las características disponibles en Secu
 |[Integración de ATP de Microsoft Defender](security-center-wdatp.md)|-|-|-|Estándar|
 |[Alertas de detección de amenazas de análisis de comportamiento de máquinas virtuales](security-center-alerts-iaas.md)|✔ (en versiones compatibles)|✔ (en versiones compatibles)|✔|Detección de amenazas de recomendaciones (gratis) (Estándar)|
 |[Alertas de detección de amenazas sin archivo](alerts-reference.md#alerts-windows)|-|-|-|Estándar|
-|[Alertas de detección de amenazas basadas en red](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Estándar|
+|[Alertas de detección de amenazas basadas en red](threat-protection.md#network-layer)|✔|✔|-|Estándar|
 |[Acceso de máquina virtual Just-In-Time](security-center-just-in-time.md)|✔|-|-|Estándar|
 |[Evaluación de vulnerabilidades nativa](built-in-vulnerability-assessment.md)|✔|-|-|Estándar|
 |[Supervisión de la integridad de los archivos](security-center-file-integrity-monitoring.md)|✔|✔|✔|Estándar|
@@ -99,11 +99,11 @@ Para más información sobre cuándo se generan recomendaciones para cada una de
 |------|------|-----|-----|
 | Windows Defender (Microsoft Antimalware)| Windows Server 2016| No, se integra en el sistema operativo.| Sí |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (consulte la nota que hay a continuación) | Mediante extensión | Sí |
-| Trend Micro: todas las versiones* | Familia de Windows Server  | No | Sí |
-| Symantec v12.1.1100+| Familia de Windows Server  | No | Sí |
-| McAfee v10 o posterior | Familia de Windows Server  | No | Sí |
-| McAfee v10 o posterior | Familia de Linux Server  | No | Sí **\*** |
-| Sophos V9+| Familia de Linux Server  | No | Sí **\***  |
+| Trend Micro: todas las versiones* | Familia de Windows Server  | Sin | Sí |
+| Symantec v12.1.1100+| Familia de Windows Server  | Sin | Sí |
+| McAfee v10 o posterior | Familia de Windows Server  | Sin | Sí |
+| McAfee v10 o posterior | Familia de Linux Server  | Sin | Sí **\*** |
+| Sophos V9+| Familia de Linux Server  | Sin | Sí **\***  |
 
  **\*** El estado de cobertura y los datos auxiliares solo están disponibles en el área de trabajo de Log Analytics asociada con las suscripciones protegidas. No se refleja en el portal de Azure Security Center.
 
@@ -159,5 +159,5 @@ Los siguientes recursos de PaaS de Azure son compatibles con Azure Security Ce
 - Aprenda a [planear y entender las consideraciones de diseño para adoptar Azure Security Center](security-center-planning-and-operations-guide.md).
 - Revise las [plataformas compatibles con Security Center](security-center-os-coverage.md).
 - Obtenga más información sobre la [detección de amenazas en VM y servidores en Azure Security Center](security-center-alerts-iaas.md).
-- Consulte las [preguntas más frecuentes sobre Azure Security Center](security-center-faq.md).
+- Consulte las [preguntas más frecuentes sobre Azure Security Center](faq-general.md).
 - Encuentre [artículos de blog sobre el cumplimiento y la seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/).

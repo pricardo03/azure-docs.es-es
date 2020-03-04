@@ -3,8 +3,8 @@ title: Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver | Micros
 description: Guía de alta disponibilidad para SAP NetWeaver en Azure Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: msjuergent
-manager: patfilot
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9fb093312365ce965c6baf3c9f50d74359cec0a7
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: aa0810818bf7cfea21f925ee639b4b5a50dcb23b
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647703"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615876"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure
 
@@ -721,7 +721,7 @@ _**Figura 11:** Configuración de los parámetros de Azure Resource Manager para
 >
 
 ### <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Implementación de máquinas virtuales con conectividad de red corporativa (entre locales) para uso en producción
-Para los sistemas de producción de SAP, implemente máquinas virtuales de Azure con [conectividad de red corporativa (entre locales)][planning-guide-2.2] mediante el uso de VPN de sitio a sitio de Azure o Azure ExpressRoute.
+Para los sistemas de producción de SAP, implemente máquinas virtuales de Azure con conectividad de red corporativa mediante el uso de VPN de sitio a sitio de Azure o Azure ExpressRoute.
 
 > [!NOTE]
 > Puede usar la instancia de Azure Virtual Network. La red virtual y la subred ya se crearon y están preparadas.
@@ -865,7 +865,7 @@ Para configurar las direcciones IP de DNS que se requieren, realice los pasos si
 
 1. En Azure Portal, en la hoja **Servidores DNS**, asegúrese de que la opción **Servidores DNS** de la red virtual está establecida en **DNS personalizado**.
 2. Seleccione la configuración según el tipo de red que tiene. Para obtener más información, consulte los siguientes recursos:
-   * [Conectividad de red corporativa (entre locales)][planning-guide-2.2]: agregue las direcciones IP de los servidores DNS locales.  
+   * agregue las direcciones IP de los servidores DNS locales.  
    Puede extender los servidores DNS locales a las máquinas virtuales que se ejecutan en Azure. En ese escenario, puede agregar las direcciones IP de las máquinas virtuales de Azure en las que ejecuta el servidor DNS.
    * Para implementaciones aisladas en Azure: implemente una máquina virtual adicional en la misma instancia de Virtual Network que actúa como servidor DNS. Agregue las direcciones IP de las máquinas virtuales de Azure que configuró para ejecutar el servicio DNS.
 

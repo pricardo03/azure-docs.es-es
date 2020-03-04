@@ -3,43 +3,43 @@ title: SKU para SAP HANA en Azure (instancias grandes) | Microsoft Docs
 description: SKU para SAP HANA en Azure (instancias grandes).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/03/2019
+ms.date: 02/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5ed903eefea3a8c13bb9e43f5ef71063b453d93
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: aad4e3ff3df8b4aeecbbbee7883ba383b9fd0d9c
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806650"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617260"
 ---
 # <a name="available-skus-for-hli"></a>SKU disponibles para HLI
 
 El servicio de SAP HANA en Azure (instancias grandes) basado en sellos de la revisión 3 está disponible en varias configuraciones en las siguientes regiones de Azure:
 
 - Oeste de EE. UU.
-- East US
+- Este de EE. UU.
 - Este de Australia
 - Sudeste de Australia
-- Europa occidental
-- Europa del Norte
-- Este de Japón
-- Oeste de Japón
+- Oeste de Europa
+- Norte de Europa
+- Japón Oriental
+- Japón Occidental
 
 El servicio de SAP HANA en Azure (instancias grandes) basado en sellos de la revisión 4 está disponible en varias configuraciones en las siguientes regiones de Azure:
 
 - Oeste de EE. UU. 2
-- East US
-- Centro-Sur de EE. UU
-- Europa occidental
-- Europa del Norte
+- Este de EE. UU.
+- Centro-sur de EE. UU.
+- Oeste de Europa
+- Norte de Europa
 
 
 
@@ -55,6 +55,7 @@ El servicio de SAP HANA en Azure (instancias grandes) basado en sellos de la rev
 | Optimizado para OLTP: SAP Business Suite<br /> en SAP HANA o S/4HANA (OLTP),<br /> OLTP genérico | SAP HANA en Azure S72m<br /> – 2 procesadores Intel® Xeon® E7-8890 v3<br /> 36 núcleos de CPU y 72 subprocesos de CPU |  1,5 TB |  6 TB | No disponible |
 |---| SAP HANA en Azure S144m<br /> – 4 procesadores Intel® Xeon® E7-8890 v3<br /> 72 núcleos de CPU y 144 subprocesos de CPU |  3,0 TB |  12 TB | No disponible |
 |---| SAP HANA en Azure S192m<br /> – 4 procesadores Intel® Xeon® E7-8890 v4<br /> 96 núcleos de CPU y 192 subprocesos de CPU  |  4,0 TB |  16 TB | No disponible |
+| --- | SAP HANA en Azure S224m<br /> – 4 procesadores Intel® Xeon® Platinum 8276 (conocidos como Cascade lake)<br /> 112 núcleos de CPU y 224 subprocesos de CPU |  6,0 TB |  10,5 TB | Disponible en sellos de la revisión 3 y la revisión 4  |
 |---| SAP HANA en Azure S384m<br /> – 8 procesadores Intel® Xeon® E7-8890 v4<br /> 192 núcleos de CPU y 384 subprocesos de CPU |  6,0 TB |  18 TB | Disponible en sellos de la revisión 4|
 |---| SAP HANA en Azure S384xm<br /> – 8 procesadores Intel® Xeon® E7-8890 v4<br /> 192 núcleos de CPU y 384 subprocesos de CPU |  8,0 TB |  22 TB |  Disponible en sellos de la revisión 4 |
 |---| SAP HANA en Azure S576m<br /> – 12 procesadores Intel® Xeon® E7-8890 v4<br /> 288 núcleos de CPU y 576 subprocesos de CPU |  12,0 TB |  28 TB | Disponible en sellos de la revisión 4|
@@ -90,14 +91,14 @@ Las configuraciones específicas que se elijan dependen de la carga de trabajo, 
 
 La base de hardware para las ofertas, excepto las unidades para proyectos de tamaño especifico del cliente, cuentan con la certificación de TDI para SAP HANA. Dos clases diferentes de hardware dividen las SKU en:
 
-- S72, S72m, S96, S144, S144m, S192, S192m, S192xm y S224, a las que se hace referencia como "clase Tipo I" de SKU.
+- S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224 y S224m, a las que se hace referencia como "clase Tipo I" de SKU.
 - S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm y S960m, a los que se hace referencia como "clase Tipo II" de SKU.
 - Si está interesado en otras SKU S224 de 4,5 TB a 9 TB con Optane, póngase en contacto con el equipo de su cuenta de Microsoft para más información. 
 
 
 Una demarcación completa de HANA (instancias grandes) no está asignada exclusivamente para que la use un único cliente. Esto se aplica también a los bastidores de recursos de procesos y almacenamiento conectados mediante un tejido de red implementado en Azure. La infraestructura de HANA (instancias grandes), como Azure, implementa &quot;inquilinos&quot; de clientes diferentes que están aislados entre sí en los tres niveles siguientes:
 
-- **Red**: aislamiento a través de redes virtuales dentro de la demarcación de HANA (instancias grandes).
+- **Network** (Red): aislamiento a través de redes virtuales dentro de la demarcación de HANA (instancias grandes).
 - **Almacenamiento**: aislamiento a través de máquinas virtuales de almacenamiento que tienen volúmenes de almacenamiento asignados y aíslan los volúmenes de almacenamiento entre inquilinos.
 - **Proceso**: asignación dedicada de las unidades de servidor a un único inquilino. Sin particiones de hardware ni de software de las unidades de servidor. Sin uso compartido de una sola unidad de host o servidor entre los inquilinos. 
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/28/2019
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a09478bd2e32a1ab484b85fec33ae03878ebb10c
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 8e38f422189ce001063276ddc7c7f82b2acb5929
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951027"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585771"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates y PredicateValidations
 
@@ -36,44 +36,44 @@ El elemento **Predicados** debe aparecer directamente después del elemento **Cl
 
 El elemento **Predicates** contiene el elemento siguiente:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | Predicate | 1:n | Una lista de predicados. |
 
 El elemento **Predicate** contiene los siguientes atributos:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| Id | Sí | Un identificador que se usa para el predicado. Hay otros elementos que pueden usar este identificador en la directiva. |
+| Identificador | Sí | Un identificador que se usa para el predicado. Hay otros elementos que pueden usar este identificador en la directiva. |
 | Método | Sí | El tipo de método que se usará para la validación. Valores posibles: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** o **IsDateRange**. El valor **IsLengthRange** comprueba si la longitud de un valor de notificación de cadena está dentro del intervalo de parámetros mínimos y máximos especificados. El valor **MatchesRegex** comprueba si un valor de notificación de cadena coincide con una expresión regular. El valor **IncludesCharacters** comprueba si un valor de notificación de cadena contiene un juego de caracteres. El valor **IsDateRange** comprueba si un valor de notificación de fecha se encuentra dentro de un intervalo de parámetros mínimos y máximos especificados. |
+| HelpText | Sin | S se produce un error en la comprobación, un mensaje de error para los usuarios. Esta cadena se puede localizar con la [personalización de idioma](localization.md). |
 
 El elemento **Predicate** contiene los siguientes elementos:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
-| UserHelpText | 1:1 | S se produce un error en la comprobación, un mensaje de error para los usuarios. Esta cadena se puede localizar con la [personalización de idioma](localization.md). |
+| UserHelpText | 0:1 | (En desuso) Un mensaje de error para los usuarios si se produce un error en la comprobación. |
 | Parámetros | 1:1 | Parámetros para el tipo de método de la validación de cadenas. |
 
 El elemento **Parameters** contiene los siguientes elementos:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | Parámetro | 1:n | Parámetros para el tipo de método de la validación de cadenas. |
 
 El elemento **Parameter** contiene los siguientes atributos:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
-| Id | 1:1 | Identificador del parámetro. |
+| Identificador | 1:1 | Identificador del parámetro. |
 
 En el ejemplo siguiente se muestra un método `IsLengthRange` con los parámetros `Minimum` y `Maximum` que especifican el intervalo de longitud de la cadena:
 
 ```XML
-<Predicate Id="IsLengthBetween8And64" Method="IsLengthRange">
-  <UserHelpText>The password must be between 8 and 64 characters.</UserHelpText>
-    <Parameters>
-      <Parameter Id="Minimum">8</Parameter>
-      <Parameter Id="Maximum">64</Parameter>
+<Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
+  <Parameters>
+    <Parameter Id="Minimum">8</Parameter>
+    <Parameter Id="Maximum">64</Parameter>
   </Parameters>
 </Predicate>
 ```
@@ -81,8 +81,7 @@ En el ejemplo siguiente se muestra un método `IsLengthRange` con los parámetro
 En el ejemplo siguiente se muestra un método `MatchesRegex` con el parámetro `RegularExpression` que especifica una expresión regular:
 
 ```XML
-<Predicate Id="PIN" Method="MatchesRegex">
-  <UserHelpText>The password must be numbers only.</UserHelpText>
+<Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be numbers only.">
   <Parameters>
     <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
   </Parameters>
@@ -92,8 +91,7 @@ En el ejemplo siguiente se muestra un método `MatchesRegex` con el parámetro `
 En el ejemplo siguiente se muestra un método `IncludesCharacters` con el parámetro `CharacterSet` que especifica un juego de caracteres:
 
 ```XML
-<Predicate Id="Lowercase" Method="IncludesCharacters">
-  <UserHelpText>a lowercase letter</UserHelpText>
+<Predicate Id="Lowercase" Method="IncludesCharacters" HelpText="a lowercase letter">
   <Parameters>
     <Parameter Id="CharacterSet">a-z</Parameter>
   </Parameters>
@@ -137,58 +135,58 @@ El elemento **PredicateValidations** debe aparecer directamente después del ele
 
 El elemento **PredicateValidations** contiene el elemento siguiente:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | PredicateValidation | 1:n | Una lista de validación de predicados. |
 
 El elemento **PredicateValidation** contiene el atributo siguiente:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| Id | Sí | Un identificador que se usa para la validación del predicado. El elemento **ClaimType** puede usar este identificador en la directiva. |
+| Identificador | Sí | Un identificador que se usa para la validación del predicado. El elemento **ClaimType** puede usar este identificador en la directiva. |
 
 El elemento **PredicateValidation** contiene el elemento siguiente:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | PredicateGroups | 1:n | Una lista de grupos de predicados. |
 
 El elemento **PredicateGroups** contiene el elemento siguiente:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | PredicateGroup | 1:n | Una lista de predicados. |
 
 El elemento **PredicateGroup** contiene el atributo siguiente:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| Id | Sí | Un identificador que se usa para el grupo de predicados.  |
+| Identificador | Sí | Un identificador que se usa para el grupo de predicados.  |
 
 El elemento **PredicateGroup** contiene los elementos siguientes:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
-| UserHelpText | 1:1 |  Una descripción del predicado que puede ser útil para que los usuarios sepan qué valor deben introducir. |
+| UserHelpText | 0:1 |  Una descripción del predicado que puede ser útil para que los usuarios sepan qué valor deben introducir. |
 | PredicateReferences | 1:n | Una lista de referencias de predicados. |
 
 El elemento **PredicateReferences** contiene los siguientes atributos:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| MatchAtLeast | Sin | Especifica que el valor debe coincidir por lo menos con ese número de definiciones de predicado para que la entrada se acepte. |
+| MatchAtLeast | Sin | Especifica que el valor debe coincidir por lo menos con ese número de definiciones de predicado para que la entrada se acepte. Si no se especifica, el valor debe coincidir con todas las definiciones de predicado. |
 
 El elemento **PredicateReferences** contiene los siguientes elementos:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | PredicateReference | 1:n | Una referencia a un predicado. |
 
 El elemento **PredicateReference** contiene los siguientes atributos:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| Id | Sí | Un identificador que se usa para la validación del predicado.  |
+| Identificador | Sí | Un identificador que se usa para la validación del predicado.  |
 
 
 ## <a name="configure-password-complexity"></a>Configurar la complejidad de la contraseña
@@ -206,58 +204,50 @@ Con **Predicates** y **PredicateValidationsInput** puede controlar los requisito
 
 ```XML
 <Predicates>
-  <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange">
-    <UserHelpText>The password must be between 8 and 64 characters.</UserHelpText>
+  <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
     <Parameters>
       <Parameter Id="Minimum">8</Parameter>
       <Parameter Id="Maximum">64</Parameter>
     </Parameters>
   </Predicate>
 
-  <Predicate Id="Lowercase" Method="IncludesCharacters">
-    <UserHelpText>a lowercase letter</UserHelpText>
+  <Predicate Id="Lowercase" Method="IncludesCharacters" HelpText="a lowercase letter">
     <Parameters>
       <Parameter Id="CharacterSet">a-z</Parameter>
     </Parameters>
   </Predicate>
 
-  <Predicate Id="Uppercase" Method="IncludesCharacters">
-    <UserHelpText>an uppercase letter</UserHelpText>
+  <Predicate Id="Uppercase" Method="IncludesCharacters" HelpText="an uppercase letter">
     <Parameters>
       <Parameter Id="CharacterSet">A-Z</Parameter>
     </Parameters>
   </Predicate>
 
-  <Predicate Id="Number" Method="IncludesCharacters">
-    <UserHelpText>a digit</UserHelpText>
+  <Predicate Id="Number" Method="IncludesCharacters" HelpText="a digit">
     <Parameters>
       <Parameter Id="CharacterSet">0-9</Parameter>
     </Parameters>
   </Predicate>
 
-  <Predicate Id="Symbol" Method="IncludesCharacters">
-    <UserHelpText>a symbol</UserHelpText>
+  <Predicate Id="Symbol" Method="IncludesCharacters" HelpText="a symbol">
     <Parameters>
       <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\\:',.?/`~"();!</Parameter>
     </Parameters>
   </Predicate>
 
-  <Predicate Id="PIN" Method="MatchesRegex">
-    <UserHelpText>The password must be numbers only.</UserHelpText>
+  <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be numbers only.">
     <Parameters>
       <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
     </Parameters>
   </Predicate>
 
-  <Predicate Id="AllowedAADCharacters" Method="MatchesRegex">
-    <UserHelpText>An invalid character was provided.</UserHelpText>
+  <Predicate Id="AllowedAADCharacters" Method="MatchesRegex" HelpText="An invalid character was provided.">
     <Parameters>
       <Parameter Id="RegularExpression">(^([0-9A-Za-z\d@#$%^&amp;*\-_+=[\]{}|\\:',?/`~"();! ]|(\.(?!@)))+$)|(^$)</Parameter>
     </Parameters>
   </Predicate>
 
-  <Predicate Id="DisallowedWhitespace" Method="MatchesRegex">
-    <UserHelpText>The password must not begin or end with a whitespace character.</UserHelpText>
+  <Predicate Id="DisallowedWhitespace" Method="MatchesRegex" HelpText="The password must not begin or end with a whitespace character.">
     <Parameters>
       <Parameter Id="RegularExpression">(^\S.*\S$)|(^\S+$)|(^$)</Parameter>
     </Parameters>
@@ -361,8 +351,7 @@ Con los elementos **Predicates** y **PredicateValidations** puede controlar los 
 
 ```XML
 <Predicates>
-  <Predicate Id="DateRange" Method="IsDateRange">
-    <UserHelpText>The date must be between 01-01-1980 and today.</UserHelpText>
+  <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 01-01-1980 and today.">
     <Parameters>
       <Parameter Id="Minimum">1980-01-01</Parameter>
       <Parameter Id="Maximum">Today</Parameter>

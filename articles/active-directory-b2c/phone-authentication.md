@@ -1,24 +1,24 @@
 ---
-title: Registro e inicio de sesión en el teléfono con directivas personalizadas
+title: Registro e inicio de sesión en el teléfono con directivas personalizadas (versión preliminar)
 titleSuffix: Azure AD B2C
-description: Aprenda a enviar contraseñas de un solo uso en mensajes de texto a los teléfonos de los usuarios de la aplicación con directivas personalizadas en Azure Active Directory B2C.
+description: Envíe contraseñas de un solo uso (OTP) en mensajes de texto a los teléfonos de los usuarios de la aplicación con directivas personalizadas en Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 02/25/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8cb0340d9e04db2bfbf088bce9505351d7588cd9
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 50e7d66fef67e2728c95790947393de8d58398c2
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840339"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647523"
 ---
-# <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Configuración del registro y el inicio de sesión en el teléfono con directivas personalizadas en Azure AD B2C
+# <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c-preview"></a>Configuración del registro y el inicio de sesión en el teléfono con directivas personalizadas en Azure AD B2C (versión preliminar)
 
 El registro y el inicio de sesión en el teléfono en Azure Active Directory B2C (Azure AD B2C) permite a los usuarios registrarse e iniciar sesión en las aplicaciones mediante una contraseña de un solo uso (OTP) enviada en un mensaje de texto a su teléfono. Las contraseñas de un solo uso pueden ayudar a reducir el riesgo de que los usuarios olviden sus contraseñas o estas se vean comprometidas.
 
@@ -26,7 +26,13 @@ Siga los pasos de este artículo para usar las directivas personalizadas y permi
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="pricing"></a>Precios
+
+Las contraseñas de un solo uso se envían a los usuarios mediante mensajes de texto SMS, y es posible que se le cobre por cada mensaje enviado. Puede encontrar información sobre precios en la sección **Cargos aparte** de la página [Precios de Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+
+## <a name="prerequisites"></a>Prerrequisitos
+
+Antes de configurar OTP, necesita tener los siguientes recursos:
 
 * [Inquilino de Azure AD B2C](tutorial-create-tenant.md)
 * [Aplicación web registrada](tutorial-register-applications.md) en el inquilino
@@ -69,6 +75,22 @@ A medida que carga cada archivo, Azure agrega el prefijo `B2C_1A_`.
 1. En **Seleccionar dirección URL de respuesta**, elija `https://jwt.ms`.
 1. Seleccione **Ejecutar ahora** y regístrese con una dirección de correo electrónico o un número de teléfono.
 1. Seleccione **Ejecutar ahora** de nuevo e inicie sesión con la misma cuenta para confirmar que tiene la configuración correcta.
+
+## <a name="get-user-account-by-phone-number"></a>Obtención de una cuenta de usuario por número de teléfono
+
+Los usuarios que se registran con un número de teléfono pero que no proporcionan una dirección de correo electrónico de recuperación usan dicho número de teléfono como nombre de inicio de sesión para registrarse en el directorio de Azure AD B2C. Si luego el usuario quiere cambiar su número de teléfono, el departamento de soporte técnico o el equipo de soporte técnico deben encontrar primero su cuenta y, luego, actualizar su número de teléfono.
+
+Puede buscar un usuario por su número de teléfono (nombre de inicio de sesión) mediante [Microsoft Graph](manage-user-accounts-graph-api.md):
+
+```http
+GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+{phone number}' and c/issuer eq '{tenant name}.onmicrosoft.com')
+```
+
+Por ejemplo:
+
+```http
+GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+450334567890' and c/issuer eq 'contosob2c.onmicrosoft.com')
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

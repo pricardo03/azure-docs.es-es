@@ -4,14 +4,14 @@ description: Requisitos previos para usar Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 02/20/2020
 ms.author: rohogue
-ms.openlocfilehash: 135c231f84d95ea2418fab4647d715473378e41c
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 40d282ad30a800a5e5a36a8d2211ec8da7ce63ec
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251964"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651073"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Requisitos previos para Azure HPC Cache
 
@@ -95,7 +95,9 @@ Si usa un sistema de almacenamiento NFS (por ejemplo, un sistema NAS de hardware
 > [!NOTE]
 > Se producirá un error en la creación del destino de almacenamiento si la memoria caché no tiene acceso suficiente al sistema de almacenamiento NFS.
 
-* **Conectividad de red:** Azure HPC Cache necesita un acceso de red de alto ancho de banda entre la subred de la memoria caché y el centro de datos del sistema NFS. Se recomienda el acceso [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) o similar. Si usa una VPN, es posible que deba configurarla para fijar TCP MSS en 1350 para asegurarse de que no se bloqueen los paquetes grandes.
+Se puede encontrar más información en [Solución de problemas de configuración de NAS y destinos de almacenamiento de NFS](troubleshoot-nas.md).
+
+* **Conectividad de red:** Azure HPC Cache necesita un acceso de red de alto ancho de banda entre la subred de la memoria caché y el centro de datos del sistema NFS. Se recomienda el acceso [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) o similar. Si usa una VPN, es posible que deba configurarla para fijar TCP MSS en 1350 para asegurarse de que no se bloqueen los paquetes grandes. Lea [Restricciones de tamaño de paquetes de VPN](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) como ayuda adicional para solucionar problemas de configuración de VPN.
 
 * **Acceso a puertos:** La memoria caché necesita acceso a determinados puertos TCP/UDP en el sistema de almacenamiento. Los distintos tipos de almacenamiento tienen distintos requisitos de puertos.
 
@@ -108,6 +110,8 @@ Si usa un sistema de almacenamiento NFS (por ejemplo, un sistema NAS de hardware
     ```bash
     rpcinfo -p <storage_IP> |egrep "100000\s+4\s+tcp|100005\s+3\s+tcp|100003\s+3\s+tcp|100024\s+1\s+tcp|100021\s+4\s+tcp"| awk '{print $4 "/" $3 " " $5}'|column -t
     ```
+
+  Asegúrese de que todos los puertos devueltos por la consulta ``rpcinfo`` permitan tráfico sin restricciones desde la subred de Azure HPC Cache.
 
   * Además de los puertos devueltos por el comando `rpcinfo`, asegúrese de que estos puertos usados comúnmente permitan el tráfico entrante y saliente:
 
@@ -126,11 +130,15 @@ Si usa un sistema de almacenamiento NFS (por ejemplo, un sistema NAS de hardware
   > [!NOTE]
   > Si el sistema de almacenamiento NFS usa el sistema operativo ONTAP 9.2 de NetApp, **no habilite `showmount`** . [Póngase en contacto con los servicios y el soporte técnico de Microsoft](hpc-cache-support-ticket.md) para obtener ayuda.
 
+  Aprenda más sobre el acceso a la lista de directorios en el [artículo de solución de problemas](troubleshoot-nas.md#enable-export-listing) del destino de almacenamiento.
+
 * **Acceso a la raíz:** La memoria caché se conecta al sistema back-end como el ID. de usuario 0. Compruebe esta configuración en el sistema de almacenamiento:
   
   * Habilite `no_root_squash`. Esta opción garantiza que el usuario raíz remoto pueda tener acceso a los archivos que pertenecen a la raíz.
 
   * Consulte las directivas de exportación para asegurarse de que no incluyan restricciones al acceso a la raíz desde la subred de la memoria caché.
+
+  * Si el almacenamiento tiene exportaciones que son subdirectorios de otra exportación, asegúrese de que la caché tenga acceso raíz al segmento más bajo de la ruta de acceso. Para más información, lea [Acceso raíz en las rutas de acceso de directorio](troubleshoot-nas.md#allow-root-access-on-directory-paths) en el artículo de solución de problemas de destino de almacenamiento de NFS.
 
 * El almacenamiento de back-end de NFS debe ser una plataforma de hardware o software compatible. Póngase en contacto con el equipo de Azure HPC Cache para más información.
 

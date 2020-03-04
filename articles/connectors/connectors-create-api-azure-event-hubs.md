@@ -7,18 +7,18 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
-ms.openlocfilehash: a0ba747fcc3015df961aa40de794071828d73a33
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 32fa54ef0d8eccaf8745ee37cb028d4f3c6d73eb
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446166"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650885"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Supervisión, recepción y envío de eventos con Azure Event Hubs y Azure Logic Apps
 
 En este artículo se muestra cómo puede supervisar y administrar eventos enviados a [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) desde una aplicación lógica con el conector de Azure Event Hubs. De esta forma, puede crear aplicaciones lógicas que automatizan las tareas y los flujos de trabajo para comprobar, enviar y recibir eventos desde su centro de eventos. Para obtener información técnica específica del conector, consulte la [referencia sobre el conector de Azure Event Hubs](https://docs.microsoft.com/connectors/eventhubs/)</a>.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
 
@@ -77,9 +77,9 @@ En este ejemplo se muestra cómo puede iniciar un flujo de trabajo de aplicacion
    | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
    | **Nombre del centro de eventos** | Sí | Nombre del centro de eventos que quiere supervisar. |
-   | **Tipo de contenido** | No | Tipo de contenido del evento. El valor predeterminado es `application/octet-stream`. |
-   | **Nombre del grupo de consumidores** | No | [Nombre del grupo de consumidores del centro de eventos](../event-hubs/event-hubs-features.md#consumer-groups) para leer los eventos. Si no se especifica, se utiliza el grupo de consumidores predeterminado. |
-   | **Número máximo de eventos**. | No | Número máximo de eventos. El desencadenador devuelve entre uno y el número de eventos que especifica esta propiedad. |
+   | **Tipo de contenido** | Sin | Tipo de contenido del evento. El valor predeterminado es `application/octet-stream`. |
+   | **Nombre del grupo de consumidores** | Sin | [Nombre del grupo de consumidores del centro de eventos](../event-hubs/event-hubs-features.md#consumer-groups) para leer los eventos. Si no se especifica, se utiliza el grupo de consumidores predeterminado. |
+   | **Número máximo de eventos**. | Sin | Número máximo de eventos. El desencadenador devuelve entre uno y el número de eventos que especifica esta propiedad. |
    | **Intervalo** | Sí | Entero positivo que describe la frecuencia con la que se ejecuta el flujo de trabajo. |
    | **Frecuencia** | Sí | Unidad de tiempo que se usa para la periodicidad. |
    ||||
@@ -88,11 +88,11 @@ En este ejemplo se muestra cómo puede iniciar un flujo de trabajo de aplicacion
 
    | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
-   | **Esquema de contenido** | No | Esquema de contenido JSON para los eventos que se leerán desde el centro de eventos. Por ejemplo, si especifica el esquema de contenido, puede desencadenar la aplicación lógica solo para los eventos que coinciden con el esquema. |
-   | **Clave de partición mínima** | No | Escriba el identificador de la [partición](../event-hubs/event-hubs-features.md#partitions) mínima que va a leer. De forma predeterminada, se leen todas las particiones. |
-   | **Clave de partición máxima** | No | Escriba el identificador de la [partición](../event-hubs/event-hubs-features.md#partitions) máxima que va a leer. De forma predeterminada, se leen todas las particiones. |
-   | **Zona horaria** | No | Solo se aplica cuando se especifica una hora de inicio porque este desencadenador no acepta diferencia horaria con UTC. Seleccione la zona horaria que desea aplicar. <p>Para obtener más información, consulte [Creación y ejecución de tareas y flujos de trabajo repetitivos con Azure Logic Apps](../connectors/connectors-native-recurrence.md). |
-   | **Hora de inicio** | No | Proporcione una hora de inicio con este formato: <p>AAAA-MM-DDThh:mm:ss si selecciona una zona horaria<p>O bien<p>AAAA-MM-DDThh:mm:ssZ si no selecciona una zona horaria<p>Para obtener más información, consulte [Creación y ejecución de tareas y flujos de trabajo repetitivos con Azure Logic Apps](../connectors/connectors-native-recurrence.md). |
+   | **Esquema de contenido** | Sin | Esquema de contenido JSON para los eventos que se leerán desde el centro de eventos. Por ejemplo, si especifica el esquema de contenido, puede desencadenar la aplicación lógica solo para los eventos que coinciden con el esquema. |
+   | **Clave de partición mínima** | Sin | Escriba el identificador de la [partición](../event-hubs/event-hubs-features.md#partitions) mínima que va a leer. De forma predeterminada, se leen todas las particiones. |
+   | **Clave de partición máxima** | Sin | Escriba el identificador de la [partición](../event-hubs/event-hubs-features.md#partitions) máxima que va a leer. De forma predeterminada, se leen todas las particiones. |
+   | **Zona horaria** | Sin | Solo se aplica cuando se especifica una hora de inicio porque este desencadenador no acepta diferencia horaria con UTC. Seleccione la zona horaria que desea aplicar. <p>Para obtener más información, consulte [Creación y ejecución de tareas y flujos de trabajo repetitivos con Azure Logic Apps](../connectors/connectors-native-recurrence.md). |
+   | **Hora de inicio** | Sin | Proporcione una hora de inicio con este formato: <p>AAAA-MM-DDThh:mm:ss si selecciona una zona horaria<p>O bien<p>AAAA-MM-DDThh:mm:ssZ si no selecciona una zona horaria<p>Para obtener más información, consulte [Creación y ejecución de tareas y flujos de trabajo repetitivos con Azure Logic Apps](../connectors/connectors-native-recurrence.md). |
    ||||
 
 1. Cuando esté listo, elija **Guardar** en la barra de herramientas del diseñador.
@@ -133,9 +133,9 @@ En la lista de acciones, seleccione esta acción: **Send event - Event Hubs** (E
    | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
    | **Nombre del centro de eventos** | Sí | Centro de eventos donde quiere enviar el evento. |
-   | **Contenido** | No | El contenido del evento que quiere enviar |
-   | **Propiedades** | No | Las propiedades de la aplicación y los valores para enviar |
-   | **Clave de partición** | No | Identificador de la [partición](../event-hubs/event-hubs-features.md#partitions) a la que se va a enviar el evento. |
+   | **Contenido** | Sin | El contenido del evento que quiere enviar |
+   | **Propiedades** | Sin | Las propiedades de la aplicación y los valores para enviar |
+   | **Clave de partición** | Sin | Identificador de la [partición](../event-hubs/event-hubs-features.md#partitions) a la que se va a enviar el evento. |
    ||||
 
    Por ejemplo, puede enviar la salida desde el desencadenador de Event Hubs a otro centro de eventos:
@@ -173,8 +173,11 @@ En la lista de acciones, seleccione esta acción: **Send event - Event Hubs** (E
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener datos técnicos, como los desencadenadores, las acciones y los límites, tal como lo describe el archivo OpenAPI (antes Swagger) del conector, consulte la [página de referencia del conector](/connectors/eventhubs/).
+Para obtener datos técnica, como los desencadenadores, las acciones y los límites, tal como lo describe el archivo Swagger del conector, consulte la [página de referencia del conector](https://docs.microsoft.com/connectors/eventhubs/).
+
+> [!NOTE]
+> En el caso de las aplicaciones lógicas de un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versión con la etiqueta ISE de este conector usa en su lugar los [límites de mensajes de ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)
+* Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)
