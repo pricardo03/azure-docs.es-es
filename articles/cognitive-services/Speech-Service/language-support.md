@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 02/25/2020
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 20b99cfffdaa0d942ccd4d954909810342cbfcb8
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 13d12bfbf64af9e19b66e63c88c9d7e0534571f3
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935341"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617276"
 ---
 # <a name="language-and-region-support-for-the-speech-service"></a>Compatibilidad con idiomas y regiones para el servicio de voz
 
@@ -36,12 +36,12 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
  Configuración regional | Idioma | Compatible | Personalizaciones
 ------|------------|-----------|-------------
-`ar-AE` | Árabe (Emiratos Árabes Unidos) | Sí | No
-`ar-BH` | Árabe (Bahréin) | Sí | Modelo de lenguaje
-`ar-EG` | Árabe (Egipto), estándar moderno | Sí | Modelo de lenguaje
-`ar-KW` | Árabe (Kuwait) | Sí | No
-`ar-QA` | Árabe (Qatar) | Sí | No
-`ar-SA` | Árabe (Arabia Saudí) | Sí | No
+`ar-AE` | Árabe (Emiratos Árabes Unidos) | Sí | Sin
+`ar-BH` | Árabe (Bahréin), estándar moderno | Sí | Modelo de lenguaje
+`ar-EG` | Árabe (Egipto) | Sí | Modelo de lenguaje
+`ar-KW` | Árabe (Kuwait) | Sí | Sin
+`ar-QA` | Árabe (Qatar) | Sí | Sin
+`ar-SA` | Árabe (Arabia Saudí) | Sí | Sin
 `ca-ES` | Catalán | Sí | Modelo de lenguaje
 `da-DK` | Danés (Dinamarca) | Sí | Modelo de lenguaje
 `de-DE` | Alemán (Alemania) | Sí | Modelo acústico<br>Modelo de lenguaje<br>Pronunciación
@@ -70,9 +70,9 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 `ru-RU` | Ruso (Rusia) | Sí | Modelo acústico<br>Modelo de lenguaje
 `sv-SE` | Sueco (Suecia) | Sí | Modelo de lenguaje
 `ta-IN` | Tamil (India) | Sí | Modelo de lenguaje
-`te-IN` | Telugu (India) | Sí | No
-`th-TH` | Tailandés (Tailandia) | Sí | No
-`tr-TR` | Turco (Turquía) | Sí | No
+`te-IN` | Telugu (India) | Sí | Sin
+`th-TH` | Tailandés (Tailandia) | Sí | Sin
+`tr-TR` | Turco (Turquía) | Sí | Sin
 `zh-CN` | Chino (mandarín, simplificado) | Sí | Modelo acústico<br>Modelo de lenguaje
 `zh-HK` | Chino (cantonés, tradicional) | Sí | Modelo de lenguaje
 `zh-TW` | Chino (mandarín, Taiwán) | Sí | Modelo de lenguaje
@@ -95,9 +95,10 @@ Para más información acerca de la disponibilidad regional, consulte las [regio
 Configuración regional | Idioma | Sexo | Asignación de nombre de servicio completo | Nombre corto de voz
 --------|----------|--------|---------|------------
 `de-DE` | Alemán (Alemania) | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, KatjaNeural)" | "de-DE-KatjaNeural"
-`en-US` | Inglés (EE. UU.) | Male | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" | "en-US-GuyNeural"
 `en-US` | Inglés (EE. UU.) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" | "en-US-JessaNeural"
+`en-US` | Inglés (EE. UU.) | Male | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" | "en-US-GuyNeural"
 `it-IT` | Italiano (Italia) | Female |"Microsoft Server Speech Text to Speech Voice (it-IT, ElsaNeural)" | "it-IT-ElsaNeural"
+`pt-BR` | Portugués (Brasil) | Female | "Microsoft Server Speech Text to Speech Voice (pt-BR, FranciscaNeural)" | "pt-BR-FranciscaNeural"
 `zh-CN` | Chino (continental) | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)" | "zh-CN-XiaoxiaoNeural"
 
 Para obtener información sobre cómo configurar y ajustar las voces neuronales, consulte [Lenguaje de marcado de síntesis de voz](speech-synthesis-markup.md#adjust-speaking-styles).

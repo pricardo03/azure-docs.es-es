@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 3637a11724c1f0bab049077c5abbd817e168bd44
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 5620d1cdc7dc71bdac17057b9a13a74150b12d5c
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931228"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612525"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Tutorial: creación de una confianza de bosque de salida en un dominio local en Azure Active Directory Domain Services (versión preliminar)
 
@@ -89,7 +89,7 @@ Para configurar la confianza de entrada en el dominio de AD DS local, complete l
    > [!NOTE]
    > Si no ve la opción de menú **Confianzas**, compruebe bajo **Propiedades** el *Tipo de bosque*. Solo los bosques de *recursos* pueden crear confianzas. Si el bosque es de tipo *Usuario*, no se pueden crear confianzas. Actualmente no hay ninguna manera de cambiar el tipo de bosque de un dominio administrado de Azure AD DS. Debe eliminar y volver a crear el dominio administrado como un bosque de recursos.
 
-1. Escriba el nombre en el nombre de dominio de Azure AD DS, como *aadds.contoso.com*, y después seleccione **Siguiente**.
+1. Escriba el nombre en el nombre de dominio de Azure AD DS, por ejemplo, *aaddscontoso.com* y, después, seleccione **Siguiente**.
 1. Seleccione la opción para crear una **Confianza de bosque** y, a continuación, para crear una confianza **Unidireccional: de entrada**.
 1. Elija la opción para crear la confianza **Solo para este dominio**. En el paso siguiente, creará la confianza en Azure Portal para el dominio administrado de Azure AD DS.
 1. Elija usar **Autenticación en todo el bosque** y después escriba y confirme una contraseña de confianza. Esta misma contraseña también se escribe en Azure Portal en la sección siguiente.
@@ -102,7 +102,7 @@ Con el dominio local de AD DS configurado para resolver el dominio administrado 
 
 Para crear la confianza de salida para el dominio administrado de Azure AD DS en Azure Portal, realice los pasos siguientes:
 
-1. En Azure Portal, busque y seleccione **Azure AD Domain Services** y después seleccione el dominio administrado, como *aadds.contoso.com*.
+1. En Azure Portal, busque y seleccione **Azure AD Domain Services** y después seleccione el dominio administrado, como *aaddscontoso.com*.
 1. En el menú del lado izquierdo del dominio administrado de Azure AD DS, seleccione **Confianzas** y, a continuación, elija **+ Agregar** una confianza.
 1. Escriba un nombre para mostrar que identifique la confianza y, después, el nombre DNS del bosque de confianza local, como *onprem.contoso.com*.
 1. Proporcione la misma contraseña de confianza que usó al configurar la confianza de bosque de entrada para el dominio local de AD DS en la sección anterior.
@@ -194,7 +194,7 @@ Con la máquina virtual de Windows Server unida al bosque de recursos de Azure A
 #### <a name="validate-cross-forest-authentication-to-a-resource"></a>Validación de la autenticación entre bosques en un recurso
 
 1. Inicie sesión en un equipo Windows unido a su entorno local de Active Directory mediante una cuenta de usuario del entorno local de Active Directory.
-1. Con el **Explorador de Windows**, conéctese al recurso compartido que creó. Para ello, use el nombre de host completo y el recurso compartido, como en `\\fs1.aadds.contoso.com\CrossforestShare`.
+1. Con el **Explorador de Windows**, conéctese al recurso compartido que creó. Para ello, use el nombre de host completo y el recurso compartido, como en `\\fs1.aaddscontoso.com\CrossforestShare`.
 1. Para validar el permiso de escritura, haga clic con el botón derecho en la carpeta, elija **Nuevo** y después seleccione **Documento de texto**. Use el nombre predeterminado **Nuevo documento de texto**.
 
     Si los permisos de escritura están configurados correctamente, se crea un nuevo documento de texto. Los pasos siguientes abrirán, editarán y eliminarán el archivo según corresponda.

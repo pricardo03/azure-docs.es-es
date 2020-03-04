@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/26/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c5beef98f03c52ca022a7ab8047d3b392755c0bf
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 34a6d15090cd13a775ad3faa694718ec58738471
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212201"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620632"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definición de transformaciones de notificaciones de número de teléfono en Azure AD B2C
 
@@ -26,9 +26,39 @@ En este artículo se proporcionan referencias y ejemplos de uso de las transform
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
+## <a name="convertphonenumberclaimtostring"></a>ConvertPhoneNumberClaimToString
+
+Convierte un tipo de datos `phoneNumber` en un tipo de datos `string`.
+
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | phoneNumber | phoneNumber |  El valor ClaimType que se va a convertir en cadena. |
+| OutputClaim | phoneNumberString | string | El valor ClaimType que se genera después de que se haya invocado esta transformación de notificaciones. |
+
+En este ejemplo, la notificación cellPhoneNumber con un tipo de valor de `phoneNumber` se convierte en una notificación cellPhone con un tipo de valor de `string`.
+
+```XML
+<ClaimsTransformation Id="PhoneNumberToString" TransformationMethod="ConvertPhoneNumberClaimToString">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="cellPhoneNumber" TransformationClaimType="phoneNumber" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="cellPhone" TransformationClaimType="phoneNumberString" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Ejemplo
+
+- Notificaciones de entrada:
+  - **phoneNumber**: + 11234567890 (phoneNumber)
+- Notificaciones de salida:
+  - **phoneNumberString**: +11234567890 (string)
+
+
 ## <a name="convertstringtophonenumberclaim"></a>ConvertStringToPhoneNumberClaim
 
-Esta notificación valida el formato del número de teléfono. Si se encuentra en un formato válido, cámbielo a un formato estándar utilizado por Azure AD B2C. Si el número de teléfono proporcionado no tiene un formato válido, se devuelve un mensaje de error.
+Esta transformación de notificación valida el formato del número de teléfono. Si se encuentra en un formato válido, cámbielo a un formato estándar utilizado por Azure AD B2C. Si el número de teléfono proporcionado no tiene un formato válido, se devuelve un mensaje de error.
 
 | Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
@@ -68,10 +98,10 @@ El perfil técnico autoafirmado que llama al perfil técnico de validación que 
 ### <a name="example-1"></a>Ejemplo 1
 
 - Notificaciones de entrada:
-  - **phoneNumberString**: 045 456-7890
+  - **phoneNumberString**: 033 456-7890
   - **country**: DK
 - Notificaciones de salida:
-  - **outputClaim**: +450546148120
+  - **outputClaim**: +450334567890
 
 ### <a name="example-2"></a>Ejemplo 2
 
@@ -79,6 +109,7 @@ El perfil técnico autoafirmado que llama al perfil técnico de validación que 
   - **phoneNumberString**: +1 (123) 456-7890
 - Notificaciones de salida: 
   - **outputClaim**: +11234567890
+
 
 ## <a name="getnationalnumberandcountrycodefromphonenumberstring"></a>GetNationalNumberAndCountryCodeFromPhoneNumberString
 

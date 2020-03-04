@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: iainfou
-ms.openlocfilehash: 93cb200751c1c107ae844ffd274d83dd997293de
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 1be9134ee217cb91461e89c9908b889a14ec0c3a
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712601"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613800"
 ---
 # <a name="join-a-red-hat-enterprise-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Unión de una máquina virtual Red Hat Enterprise Linux a un dominio administrado de Azure AD Domain Services
 
@@ -24,7 +24,7 @@ Para que los usuarios puedan iniciar sesión en máquinas virtuales (VM) en Azur
 
 Este artículo muestra cómo unir una máquina virtual Red Hat Enterprise Linux (RHEL) a un dominio administrado de Azure AD DS.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
@@ -63,13 +63,13 @@ sudo vi /etc/hosts
 
 En el archivo *hosts*, actualice la dirección *localhost*. En el ejemplo siguiente:
 
-* *aadds.contoso.com* es el nombre de dominio DNS del dominio administrado de Azure AD DS.
+* *aaddscontoso.com* es el nombre de dominio DNS del dominio administrado de Azure AD DS.
 * *rhel* es el nombre de host de la máquina virtual RHEL que se va a unir al dominio administrado.
 
 Actualice estos nombres con sus propios valores:
 
 ```console
-127.0.0.1 rhel rhel.aadds.contoso.com
+127.0.0.1 rhel rhel.aaddscontoso.com
 ```
 
 Cuando haya terminado, guarde y salga del archivo *hosts* mediante el comando `:wq` del editor.
@@ -96,30 +96,30 @@ Ahora que los paquetes necesarios están instalados en la máquina virtual, una 
 
 ### <a name="rhel-7"></a>RHEL 7
 
-1. Use el comando `realm discover` para detectar el dominio administrado de Azure AD DS. En el ejemplo siguiente se detecta el dominio Kerberos *AADDS.CONTOSO.COM*. Especifique su propio nombre de dominio administrado de Azure AD DS CON TODAS LAS LETRAS EN MAYÚSCULAS:
+1. Use el comando `realm discover` para detectar el dominio administrado de Azure AD DS. En el ejemplo siguiente se detecta el dominio kerberos *AADDSCONTOSO.COM*. Especifique su propio nombre de dominio administrado de Azure AD DS CON TODAS LAS LETRAS EN MAYÚSCULAS:
 
     ```console
-    sudo realm discover AADDS.CONTOSO.COM
+    sudo realm discover AADDSCONTOSO.COM
     ```
 
    Si el comando `realm discover` no se puede encontrar en el dominio administrado de Azure AD DS, repase los siguientes pasos de solución de problemas:
 
-    * Asegúrese de que el dominio sea accesible desde la máquina virtual. Pruebe `ping aadds.contoso.com` para ver si se devuelve una respuesta positiva.
+    * Asegúrese de que el dominio sea accesible desde la máquina virtual. Pruebe `ping aaddscontoso.com` para ver si se devuelve una respuesta positiva.
     * Compruebe que la máquina virtual se ha implementado en la misma red virtual (o en otra emparejada) en la que el dominio administrado de Azure AD DS está disponible.
     * Confirme que se ha actualizado la configuración del servidor DNS de la red virtual para que apunte a los controladores de dominio del dominio administrado de Azure AD DS.
 
 1. Ahora, inicialice Kerberos mediante el comando `kinit`. Especifique un usuario que pertenezca al grupo *Administradores del controlador de dominio de AAD*. Si es necesario, [agregue una cuenta de usuario a un grupo en Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
-    Una vez más, el nombre del dominio administrado de Azure AD DS se debe escribir CON TODAS LAS LETRAS EN MAYÚSCULAS. En el ejemplo siguiente, la cuenta denominada `contosoadmin@aadds.contoso.com` se usa para inicializar Kerberos. Escriba su propia cuenta de usuario que sea miembro del grupo *Administradores del controlador de dominio de AAD*:
+    Una vez más, el nombre del dominio administrado de Azure AD DS se debe escribir CON TODAS LAS LETRAS EN MAYÚSCULAS. En el ejemplo siguiente, la cuenta denominada `contosoadmin@aaddscontoso.com` se usa para inicializar Kerberos. Escriba su propia cuenta de usuario que sea miembro del grupo *Administradores del controlador de dominio de AAD*:
 
     ```console
-    kinit contosoadmin@AADDS.CONTOSO.COM
+    kinit contosoadmin@AADDSCONTOSO.COM
     ```
 
-1. Por último, una la máquina al dominio administrado de Azure AD DS con el comando `realm join`. Use la misma cuenta de usuario que sea miembro del grupo *Administradores del controlador de dominio de AAD* que especificó en el comando `kinit` anterior, como `contosoadmin@AADDS.CONTOSO.COM`:
+1. Por último, una la máquina al dominio administrado de Azure AD DS con el comando `realm join`. Use la misma cuenta de usuario que sea miembro del grupo *Administradores del controlador de dominio de AAD* que especificó en el comando `kinit` anterior, como `contosoadmin@AADDSCONTOSO.COM`:
 
     ```console
-    sudo realm join --verbose AADDS.CONTOSO.COM -U 'contosoadmin@AADDS.CONTOSO.COM'
+    sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM'
     ```
 
 La máquina virtual tarda unos segundos en unirse al dominio administrado de Azure AD DS. La siguiente salida de ejemplo muestra que la máquina virtual se ha unido correctamente al dominio administrado de Azure AD DS:
@@ -130,26 +130,26 @@ Successfully enrolled machine in realm
 
 ### <a name="rhel-6"></a>RHEL 6
 
-1. Use el comando `adcli info` para detectar el dominio administrado de Azure AD DS. En el ejemplo siguiente se detecta el dominio Kerberos *ADDDS.CONTOSO.COM*. Especifique su propio nombre de dominio administrado de Azure AD DS CON TODAS LAS LETRAS EN MAYÚSCULAS:
+1. Use el comando `adcli info` para detectar el dominio administrado de Azure AD DS. En el ejemplo siguiente se detecta el dominio kerberos *ADDDSCONTOSO.COM*. Especifique su propio nombre de dominio administrado de Azure AD DS CON TODAS LAS LETRAS EN MAYÚSCULAS:
 
     ```console
-    sudo adcli info aadds.contoso.com
+    sudo adcli info aaddscontoso.com
     ```
 
    Si el comando `adcli info` no se puede encontrar en el dominio administrado de Azure AD DS, repase los siguientes pasos de solución de problemas:
 
-    * Asegúrese de que el dominio sea accesible desde la máquina virtual. Pruebe `ping aadds.contoso.com` para ver si se devuelve una respuesta positiva.
+    * Asegúrese de que el dominio sea accesible desde la máquina virtual. Pruebe `ping aaddscontoso.com` para ver si se devuelve una respuesta positiva.
     * Compruebe que la máquina virtual se ha implementado en la misma red virtual (o en otra emparejada) en la que el dominio administrado de Azure AD DS está disponible.
     * Confirme que se ha actualizado la configuración del servidor DNS de la red virtual para que apunte a los controladores de dominio del dominio administrado de Azure AD DS.
 
 1. En primer lugar, únase al dominio utilizando el comando `adcli join`. Este comando también creará un archivo keytab para autenticar la máquina. Utilice una cuenta de usuario que sea miembro del grupo *Administradores de DC de AAD*.
 
     ```console
-    sudo adcli join aadds.contoso.com -U contosoadmin
+    sudo adcli join aaddscontoso.com -U contosoadmin
     ```
 
-1. Ahora, configure el archivo `/ect/krb5.conf` y cree el archivo `/etc/sssd/sssd.conf` para que use el dominio `aadds.contoso.com` de Active Directory.
-   No olvide cambiar `AADDS.CONTOSO.COM` por el nombre de su dominio:
+1. Ahora, configure el archivo `/ect/krb5.conf` y cree el archivo `/etc/sssd/sssd.conf` para que use el dominio `aaddscontoso.com` de Active Directory.
+   No olvide cambiar `AADDSCONTOSO.COM` por el nombre de su dominio:
 
     Abra el archivo `/ect/krb5.conf` en un editor:
 
@@ -166,7 +166,7 @@ Successfully enrolled machine in realm
      admin_server = FILE:/var/log/kadmind.log
     
     [libdefaults]
-     default_realm = AADDS.CONTOSO.COM
+     default_realm = AADDSCONTOSO.COM
      dns_lookup_realm = true
      dns_lookup_kdc = true
      ticket_lifetime = 24h
@@ -174,14 +174,14 @@ Successfully enrolled machine in realm
      forwardable = true
     
     [realms]
-     AADDS.CONTOSO.COM = {
-     kdc = AADDS.CONTOSO.COM
-     admin_server = AADDS.CONTOSO.COM
+     AADDSCONTOSO.COM = {
+     kdc = AADDSCONTOSO.COM
+     admin_server = AADDSCONTOSO.COM
      }
     
     [domain_realm]
-     .CONTOSO.COM = AADDS.CONTOSO.COM
-     CONTOSO.COM = AADDS.CONTOSO.COM
+     .AADDSCONTOSO.COM = AADDSCONTOSO.COM
+     AADDSCONTOSO.COM = AADDSCONTOSO.COM
     ```
     
    Cree el archivo `/etc/sssd/sssd.conf`:
@@ -196,9 +196,9 @@ Successfully enrolled machine in realm
     [sssd]
      services = nss, pam, ssh, autofs
      config_file_version = 2
-     domains = AADDS.CONTOSO.COM
+     domains = AADDSCONTOSO.COM
     
-    [domain/AADDS.CONTOSO.COM]
+    [domain/AADDSCONTOSO.COM]
     
      id_provider = ad
     ```
@@ -273,11 +273,11 @@ Para conceder privilegios administrativos a los miembros del grupo *Administrado
     sudo visudo
     ```
 
-1. Agregue la siguiente entrada al final del archivo */etc/sudoers*. El grupo *Administradores del controlador de dominio de AAD* contiene un espacio en blanco en el nombre, por lo que debe incluir el carácter de escape de barra diagonal inversa en el nombre del grupo. Agregue su propio nombre de dominio como, por ejemplo, *aadds.contoso.com*:
+1. Agregue la siguiente entrada al final del archivo */etc/sudoers*. El grupo *Administradores del controlador de dominio de AAD* contiene un espacio en blanco en el nombre, por lo que debe incluir el carácter de escape de barra diagonal inversa en el nombre del grupo. Agregue su propio nombre de dominio, por ejemplo, *aaddscontoso.com*:
 
     ```console
     # Add 'AAD DC Administrators' group members as admins.
-    %AAD\ DC\ Administrators@aadds.contoso.com ALL=(ALL) NOPASSWD:ALL
+    %AAD\ DC\ Administrators@aaddscontoso.com ALL=(ALL) NOPASSWD:ALL
     ```
 
     Cuando haya terminado, guarde y salga del editor mediante el comando `:wq`.
@@ -286,10 +286,10 @@ Para conceder privilegios administrativos a los miembros del grupo *Administrado
 
 Para comprobar que la máquina virtual se ha unido correctamente al dominio administrado de Azure AD DS, inicie una nueva conexión SSH con una cuenta de usuario de dominio. Confirme que se ha creado un directorio particular y que se ha aplicado la pertenencia a grupos del dominio.
 
-1. Cree una nueva conexión SSH desde la consola. Use una cuenta de dominio que pertenezca al dominio administrado mediante el comando `ssh -l` como, por ejemplo, `contosoadmin@aadds.contoso.com` y, a continuación, escriba la dirección de la máquina virtual, por ejemplo: *rhel.aadds.contoso.com*. Si usa Azure Cloud Shell, use la dirección IP pública de la máquina virtual en lugar del nombre DNS interno.
+1. Cree una nueva conexión SSH desde la consola. Use una cuenta de dominio que pertenezca al dominio administrado mediante el comando `ssh -l`, por ejemplo, `contosoadmin@aaddscontoso.com` y, a continuación, escriba la dirección de la VM, por ejemplo: *rhel.aaddscontoso.com*. Si usa Azure Cloud Shell, use la dirección IP pública de la máquina virtual en lugar del nombre DNS interno.
 
     ```console
-    ssh -l contosoadmin@AADDS.CONTOSO.com rhel.contoso.com
+    ssh -l contosoadmin@AADDSCONTOSO.com rhel.aaddscontoso.com
     ```
 
 1. Cuando se haya conectado correctamente a la máquina virtual, compruebe que el directorio particular se ha inicializado correctamente:

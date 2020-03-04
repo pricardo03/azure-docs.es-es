@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
-ms.openlocfilehash: c5c8a41aef92876ceaa66fb23c01c6ece1609f91
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: e313048986beca1991e38ce2e65ea12f954170d2
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484815"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598279"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Uso de cuadernos de Apache Zeppelin con un clúster Apache Spark en Azure HDInsight
 
@@ -150,6 +150,25 @@ Los cuadernos de Zeppelin Notebook se guardan en los nodos principales del clús
 ![Descarga del cuaderno](./media/apache-spark-zeppelin-notebook/zeppelin-download-notebook.png "Descarga del cuaderno")
 
 De este modo, el cuaderno se guarda como un archivo JSON en la ubicación de descarga.
+
+## <a name="use-shiro-to-configure-access-to-zeppelin-interpreters-in-enterprise-security-package-esp-clusters"></a>Uso de Shiro para configurar el acceso a los intérpretes de Zeppelin en clústeres de Enterprise Security Package (ESP)
+Como se indicó anteriormente, el intérprete `%sh` no se admite desde HDInsight 4.0 en adelante. Además, dado que el intérprete `%sh` introduce posibles problemas de seguridad, como el acceso a keytabs mediante comandos de shell, se ha quitado también de los clústeres de ESP de HDInsight 3.6. Es decir, el intérprete `%sh` no está disponible cuando se hace clic en **Crear nueva nota** ni en la interfaz de usuario del intérprete de forma predeterminada. 
+
+Los usuarios de dominio con privilegios pueden emplear el archivo `Shiro.ini` para controlar el acceso a la interfaz de usuario del intérprete. Por lo tanto, solo estos usuarios pueden crear nuevos intérpretes `%sh` y establecer permisos en cada nuevo intérprete `%sh`. Para controlar el acceso mediante el archivo `shiro.ini`, siga estos pasos:
+
+1. Defina un nuevo rol con un nombre de grupo de dominio existente. En el ejemplo siguiente, `adminGroupName` es un grupo de usuarios con privilegios de AAD. No utilice caracteres especiales ni espacios en blanco en el nombre del grupo. Los caracteres después de `=` conceden los permisos para este rol. `*` significa que el grupo tiene permisos completos.
+
+    ```
+    [roles]
+    adminGroupName = *
+    ```
+
+2. Agregue el nuevo rol para el acceso a los intérpretes de Zeppelin. En el ejemplo siguiente, a todos los usuarios de `adminGroupName` se les concede acceso a los intérpretes de Zeppelin y pueden crear nuevos intérpretes. Puede colocar varios roles entre corchetes en `roles[]`, separados por comas. A continuación, los usuarios que tienen los permisos necesarios pueden acceder a los intérpretes de Zeppelin.
+
+    ```
+    [urls]
+    /api/interpreter/** = authc, roles[adminGroupName]
+    ```
 
 ## <a name="livy-session-management"></a>Administración de sesiones de Livy
 

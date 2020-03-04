@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 6737b75a955bb12072722f274ac589cb6d525ffb
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 216fdeca9893f4e290474512617f13382d22890f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772537"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614016"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Configuración de la delegación restringida de Kerberos (KCD) en Azure Active Directory Domain Services
 
@@ -24,7 +24,7 @@ A medida que se ejecutan las aplicaciones, puede haber una necesidad de que acce
 
 En este artículo se muestra cómo configurar la delegación restringida de Kerberos basada en recursos en un dominio administrado de Azure AD DS.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este artículo, necesita los siguientes recursos:
 
@@ -56,7 +56,7 @@ La KCD basada en recursos se configura mediante PowerShell. Se usan los cmdlets 
 
 ## <a name="configure-resource-based-kcd-for-a-computer-account"></a>Configuración de la KCD basada en recursos para una cuenta de equipo
 
-En este escenario, supongamos que tiene una aplicación web que se ejecuta en el equipo denominado *contoso-webapp.aadds.contoso.com*. La aplicación web necesita acceder a una API web que se ejecuta en el equipo denominado *contoso-api.aadds.contoso.com* en el contexto de los usuarios del dominio. Haga lo siguiente para configurar este escenario:
+En este escenario, supongamos que tiene una aplicación web que se ejecuta en el equipo denominado *contoso-webapp.aaddscontoso.com*. La aplicación web necesita acceder a una API web que se ejecuta en el equipo denominado *contoso-api.aaddscontoso.com* en el contexto de los usuarios del dominio. Haga lo siguiente para configurar este escenario:
 
 1. [Cree una UO personalizada](create-ou.md). Puede delegar los permisos para administrar esta unidad organizativa personalizada en los usuarios dentro del dominio administrado de Azure AD DS.
 1. [Una las máquinas virtuales][create-join-windows-vm], tanto la que ejecuta la aplicación web como la que ejecuta la API web, al dominio administrado de Azure AD DS. Cree estas cuentas de equipo en la unidad organizativa personalizada del paso anterior.
@@ -67,8 +67,8 @@ En este escenario, supongamos que tiene una aplicación web que se ejecuta en el
 1. Por último, configure la KCD basada en recursos mediante el cmdlet [Set-ADComputer][Set-ADComputer] de PowerShell. En la máquina virtual de administración unida a un dominio y en la que se ha iniciado sesión con una cuenta de usuario miembro del grupo *Administradores de Azure AD DC*, ejecute los siguientes cmdlets. Proporcione sus propios nombres de equipo según sea necesario:
     
     ```powershell
-    $ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.aadds.contoso.com
-    Set-ADComputer contoso-api.aadds.contoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
+    $ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.aaddscontoso.com
+    Set-ADComputer contoso-api.aaddscontoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
     ```
 
 ## <a name="configure-resource-based-kcd-for-a-user-account"></a>Configuración de la KCD basada en recursos para una cuenta de usuario

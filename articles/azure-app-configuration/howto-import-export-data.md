@@ -1,51 +1,46 @@
 ---
-title: Importación o exportación de datos con Azure App Configuration | Microsoft Docs
+title: Importación o exportación de datos con Azure App Configuration
 description: Obtenga información sobre cómo importar o exportar datos a o desde Azure App Configuration
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: balans
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 02/24/2019
+ms.date: 02/25/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 64fcc8396fc1b771d0095ee595fd177d7fe99b58
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 2c074cbd99620a482b18cbe2dfcce8f987d78bd5
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899513"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619213"
 ---
 # <a name="import-or-export-configuration-data"></a>Importación o exportación de datos de configuración
 
-Azure App Configuration admite las operaciones de importación y exportación. Use estas operaciones para trabajar con datos de configuración de forma masiva e intercambiar datos entre el almacén de App Configuration y el proyecto de código. Por ejemplo, puede configurar un almacén de App Configuration para pruebas y otro para producción. A continuación, puede copiar la configuración de la aplicación de uno a otro a través de un archivo para que no tenga que escribir los datos dos veces.
+Azure App Configuration admite las operaciones de importación y exportación. Use estas operaciones para trabajar con datos de configuración de forma masiva e intercambiar datos entre el almacén de App Configuration y el proyecto de código. Por ejemplo, puede configurar un almacén de App Configuration para pruebas y otro para producción. Puede copiar la configuración de la aplicación de uno a otro para no tener que escribir los datos dos veces.
 
 En este artículo se proporciona una guía para importar y exportar los datos con App Configuration.
 
 ## <a name="import-data"></a>Importar datos
 
-La importación trae los datos de configuración de un almacén de App Configuration desde un origen existente, en lugar de tener que escribirlos manualmente. Use la función de importación para migrar los datos a un almacén de App Configuration o para agregar datos de varios orígenes. App Configuration admite la importación desde un archivo JSON, YAML o de propiedades.
+La importación trae los datos de configuración de un almacén de App Configuration desde un origen existente. Use la función de importación para migrar los datos a un almacén de App Configuration o para agregar datos de varios orígenes. App Configuration admite la importación desde un archivo JSON, YAML o de propiedades.
 
 Importe los datos con [Azure Portal](https://portal.azure.com) o con la [CLI de Azure](./scripts/cli-import.md). En Azure Portal, haga lo siguiente:
 
-1. Vaya a su almacén de App Configuration y seleccione **Importar/Exportar**.
+1. Vaya a su almacén de App Configuration y seleccione **Importar/Exportar** del menú **Operaciones**.
 
-2. En la pestaña **Importar**, seleccione **Servicio de origen** > **Archivo de configuración**.
+1. En la pestaña **Importar**, seleccione **Servicio de origen** > **Archivo de configuración**.
 
-3. Seleccione **Para el idioma** > **Tipo de archivo**.
+1. Seleccione **Para el idioma** y seleccione el tipo de entrada que desee.
 
-4. Seleccione el icono **Carpeta** y busque el archivo para importar.
+1. Seleccione el icono **Carpeta** y busque el archivo para importar.
 
     ![Importación del archivo](./media/import-file.png)
 
-5. Seleccione un **Separador** y, si lo desea, escriba un **Prefijo** para usarlo con los nombres de clave importados.
+1. Seleccione un **Separador** y, si lo desea, escriba un **Prefijo** para usarlo con los nombres de clave importados.
 
-6. Si lo desea, seleccione una **Etiqueta**.
+1. Si lo desea, seleccione una **Etiqueta**.
 
-7. Seleccione **Aplicar** para finalizar la importación.
+1. Seleccione **Aplicar** para finalizar la importación.
 
     ![Importación de archivo finalizada](./media/import-file-complete.png)
 
@@ -57,13 +52,13 @@ Para exportar los datos, use [Azure Portal](https://portal.azure.com) o la [CLI 
 
 1. Vaya a su almacén de App Configuration y seleccione **Importar/Exportar**.
 
-2. En la pestaña **Exportar**, seleccione **Servicio de destino** > **Archivo de configuración**.
+1. En la pestaña **Exportar**, seleccione **Servicio de destino** > **Archivo de configuración**.
 
-3. Si lo desea, escriba un **Prefijo** y seleccione una **Etiqueta** y un momento dado para las claves que se exportarán.
+1. Si lo desea, escriba un **Prefijo** y seleccione una **Etiqueta** y un momento dado para las claves que se exportarán.
 
-4. Seleccione un **Tipo de archivo** > **Separador**.
+1. Seleccione un **Tipo de archivo** > **Separador**.
 
-5. Seleccione **Aplicar** para finalizar la exportación.
+1. Seleccione **Aplicar** para finalizar la exportación.
 
     ![Exportación de archivo finalizada](./media/export-file-complete.png)
 

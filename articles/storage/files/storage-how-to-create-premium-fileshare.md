@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4b3e51b5e8d0ee9b62a7e7bc39955396f327c7e7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 237846ec3adda208126aeb22e7900cbf5118ee95
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209551"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598670"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Procedimientos para crea un recurso compartido de archivos de Azure premium
 Los recursos compartidos de archivos Premium se ofrecen en medios de almacenamiento de discos de estado sólido (SSD) y son útiles para cargas de trabajo de E/S intensiva, incluido el hospedaje de bases de datos y de informática de alto rendimiento (HPC). Los recursos compartidos de archivos Premium se hospedan en un tipo de cuenta de almacenamiento de propósito especial denominada cuenta FileStorage. Los recursos compartidos de archivos Premium están diseñados para aplicaciones de alto rendimiento y escala empresarial, que proporcionan recursos compartidos coherentes de baja latencia, IOPS alta y alto rendimiento.
 
 En este artículo se muestra cómo crear este nuevo tipo de cuenta con [Azure Portal](https://portal.azure.com/), Azure PowerShell y la CLI de Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para acceder a recursos de Azure, como los recursos compartidos de archivos de Azure Premium, necesitará una suscripción de Azure. Si todavía no tiene una suscripción, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -27,13 +27,13 @@ Para acceder a recursos de Azure, como los recursos compartidos de archivos de A
 
 ### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ### <a name="create-a-filestorage-storage-account"></a>Creación de una cuenta de almacenamiento FileStorage
 
 Ahora ya está listo para crear la cuenta de almacenamiento.
 
-Cada cuenta de almacenamiento debe pertenecer a un grupo de recursos de Azure. Un grupo de recursos es un contenedor lógico para agrupar servicios de Azure. Al crear una cuenta de almacenamiento, puede elegir entre crear un grupo de recursos o usar uno existente. En este artículo se muestra cómo crear un grupo de recursos.
+Cada cuenta de almacenamiento debe pertenecer a un grupo de recursos de Azure. Un grupo de recursos es un contenedor lógico para agrupar servicios de Azure. Al crear una cuenta de almacenamiento, puede elegir entre crear un grupo de recursos o usar uno existente. En este artículo se muestra cómo crear un nuevo grupo de recursos.
 
 1. En Azure Portal, seleccione **Cuentas de almacenamiento** en el menú de la izquierda.
 
@@ -113,7 +113,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 ### <a name="create-a-filestorage-storage-account"></a>Creación de una cuenta de almacenamiento FileStorage
 
-Para crear una cuenta de almacenamiento FileStorage desde PowerShell, use el comando [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount):
+Para crear una cuenta de almacenamiento de FileStorage desde PowerShell, use el comando [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount):
 
 ```powershell
 $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
@@ -211,4 +211,4 @@ az group delete --name myResourceGroup
 En este artículo, ha creado un recurso compartido de archivos Premium. Para obtener información sobre el rendimiento que ofrece esta cuenta, continúe a la sección sobre niveles de rendimiento de la guía de plan.
 
 > [!div class="nextstepaction"]
-> [Niveles de rendimiento de un recurso compartido de archivos](storage-files-planning.md#file-share-performance-tiers)
+> [Niveles recursos compartidos de archivos](storage-files-planning.md#storage-tiers)

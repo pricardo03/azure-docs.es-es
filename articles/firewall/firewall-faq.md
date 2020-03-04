@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: 39c08a568a60c905394eec23dd27d5dd32ff0112
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 4792c0bce7d9119f5198490d62f49f000e1567d3
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77460474"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621958"
 ---
 # <a name="azure-firewall-faq"></a>Preguntas frecuentes sobre Azure Firewall
 
@@ -50,11 +50,11 @@ Hay tres tipos de colecciones de reglas:
 
 * *Reglas de aplicación*: configurar los nombres de dominio completo (FQDN) a los que se puede acceder desde una subred.
 * *Reglas de red*: configurar reglas que contienen direcciones de origen, protocolos, puertos de destino y direcciones de destino.
-* *Reglas NAT*: configurar reglas DNAT para permitir conexiones entrantes.
+* *Reglas NAT*: Configurar reglas DNAT para permitir conexiones de Internet entrantes.
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>¿Admite Azure Firewall el filtrado del tráfico de entrada?
 
-Azure Firewall es compatible con el filtrado entrante y saliente. La protección entrante suele usarse para los protocolos que no son HTTP/S. Por ejemplo, los protocolos RDP, SSH y FTP. Para obtener la mejor protección HTTP/S de entrada, use un firewall de aplicaciones web, como [Firewall de aplicaciones web de Azure en Azure Application Gateway](../web-application-firewall/ag/ag-overview.md).
+Azure Firewall es compatible con el filtrado entrante y saliente. La protección entrante suele usarse para los protocolos que no son HTTP/S. Por ejemplo, los protocolos RDP, SSH y FTP. Para obtener la mejor protección HTTP/S de entrada, use un firewall de aplicaciones web, como [Firewall de aplicaciones web (WAF) de Azure](../web-application-firewall/overview.md).
 
 ## <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>¿Qué servicios de registro y análisis son compatibles con Azure Firewall?
 
@@ -137,9 +137,9 @@ Si la configuración requiere tunelización forzada a una red local y puede dete
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>¿Existe alguna restricción de grupo de recursos de firewall?
 
-Sí. El firewall, la subred, la red virtual y la dirección IP pública deben estar en el mismo grupo de recursos.
+Sí. El firewall, la red virtual y la dirección IP pública deben estar en el mismo grupo de recursos.
 
-## <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Al configurar DNAT para el tráfico de red entrante, ¿es necesario que también configure una regla de red correspondiente para permitir ese tráfico?
+## <a name="when-configuring-dnat-for-inbound-internet-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Al configurar DNAT para el tráfico de Internet entrante, ¿es necesario que también configure una regla de red correspondiente para permitir ese tráfico?
 
 No. Las reglas NAT agregan de forma implícita una regla de red correspondiente implícita para permitir el tráfico traducido. Para invalidar este comportamiento, agregue explícitamente una colección de reglas de red con reglas de denegación que coinciden con el tráfico traducido. Para más información acerca de la lógica de procesamiento de reglas Azure Firewall, consulte [Lógica de procesamiento de reglas de Azure Firewall](rule-processing.md).
 
@@ -168,11 +168,11 @@ No. Azure Firewall no necesita una subred mayor que /26.
 
 ## <a name="how-can-i-increase-my-firewall-throughput"></a>¿Cómo puedo aumentar el rendimiento del firewall?
 
-La capacidad de rendimiento inicial de Azure Firewall es de 2,5-3 Gbps. Actualmente, la escalabilidad horizontal se basa en el uso de CPU y en el rendimiento. En algunos casos, un firewall con reglas de red no se escala verticalmente para aumentar el rendimiento, ya que las reglas de red no afectan significativamente al uso de la CPU. Si necesita un mayor rendimiento para el firewall, póngase en contacto con el soporte técnico para aumentar la capacidad de rendimiento inicial del firewall.
+La capacidad de rendimiento inicial de Azure Firewall es de 2,5 a 3 Gbps, y se escala horizontalmente hasta 30 Gbps. La escalabilidad horizontal se basa en el uso de CPU y en el rendimiento. Póngase en contacto con Soporte técnico para aumentar la capacidad de rendimiento del firewall si este no se escala horizontalmente para satisfacer sus necesidades y necesita una mayor capacidad de procesamiento.
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>¿Cuánto tiempo tarda Azure Firewall en escalar horizontalmente?
 
-Actualmente, Azure Firewall tarda entre cinco y siete minutos en escalar horizontalmente. Si tiene ráfagas que requieren una escalabilidad automática más rápida, póngase en contacto con el soporte técnico para aumentar la capacidad de rendimiento inicial del firewall.
+Azure Firewall tarda entre cinco y siete minutos en escalar horizontalmente. Póngase en contacto con Soporte técnico para aumentar la capacidad de rendimiento inicial del firewall si tiene ráfagas que requieren una escalabilidad automática más rápida.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>¿Permite Azure Firewall el acceso a Active Directory de forma predeterminada?
 

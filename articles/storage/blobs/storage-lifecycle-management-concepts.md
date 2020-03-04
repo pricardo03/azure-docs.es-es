@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: fdc98991134e0857d24575d22962a52e43266cbe
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 238c12baf55b525a24107a727d09588ef06a6bef
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939237"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598313"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Administración del ciclo de vida de Azure Blob Storage
 
@@ -58,7 +58,7 @@ Una directiva se puede leer o escribir en su totalidad. No se admiten las actual
 
 En este artículo se muestra cómo administrar la directiva mediante el portal y los métodos de PowerShell.  
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Hay dos formas de agregar una directiva en Azure Portal. 
 
@@ -128,7 +128,7 @@ Hay dos formas de agregar una directiva en Azure Portal.
 
 6. Para obtener más información sobre este ejemplo JSON, consulte las secciones [Directiva](#policy) y [Reglas](#rules).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 El siguiente script de PowerShell puede usarse para agregar una directiva a la cuenta de almacenamiento. La variable `$rgname` se debe inicializar con el nombre del grupo de recursos. La variable `$accountName` se debe inicializar con el nombre de la cuenta de almacenamiento.
 
@@ -158,7 +158,7 @@ $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Fi
 $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 ```
 
-# <a name="templatetabtemplate"></a>[Plantilla](#tab/template)
+# <a name="template"></a>[Plantilla](#tab/template)
 
 Puede definir la administración del ciclo de vida mediante plantillas de Azure Resource Manager. Aquí tiene una plantilla de ejemplo para implementar una cuenta de almacenamiento de RA-GRS GPv2 con una directiva de administración del ciclo de vida.
 
@@ -292,7 +292,7 @@ Entre los filtros están los siguientes:
 | Nombre de filtro | Tipo de filtro | Notas | Es obligatorio |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Una matriz de valores de enumeración predefinidos. | La versión actual admite `blockBlob`. | Sí |
-| prefixMatch | Una matriz de cadenas de prefijos con los que debe hacer coincidencias. Cada regla puede definir hasta 10 prefijos. Una cadena de prefijos debe comenzar con el nombre de un contenedor. Por ejemplo, si quiere que todos los blobs de `https://myaccount.blob.core.windows.net/container1/foo/...` coincidan en una regla, prefixMatch es `container1/foo`. | Si no define prefixMatch, la regla se aplica a todos los blobs de la cuenta de almacenamiento.  | No |
+| prefixMatch | Una matriz de cadenas de prefijos con los que debe hacer coincidencias. Cada regla puede definir hasta 10 prefijos. Una cadena de prefijos debe comenzar con el nombre de un contenedor. Por ejemplo, si quiere que todos los blobs de `https://myaccount.blob.core.windows.net/container1/foo/...` coincidan en una regla, prefixMatch es `container1/foo`. | Si no define prefixMatch, la regla se aplica a todos los blobs de la cuenta de almacenamiento.  | Sin |
 
 ### <a name="rule-actions"></a>Acciones de regla
 
@@ -438,7 +438,7 @@ En el caso de los datos que se modifican y a los que se accede con regularidad a
 La plataforma ejecuta la directiva del ciclo de vida una vez al día. Una vez que configure una directiva, algunas acciones pueden tardar hasta 24 horas en ejecutarse por primera vez.  
 
 **Si actualizo una directiva existente, ¿cuánto tiempo tardan en ejecutarse las acciones?**  
-La directiva actualizada tarda hasta 24 horas en entrar en vigor. Una vez que la directiva está en vigor, las acciones pueden tardar hasta 24 horas en ejecutarse. Por lo tanto, la directiva puede tardar hasta 48 horas en ejecutarse.   
+La directiva actualizada tarda hasta 24 horas en entrar en vigor. Una vez que la directiva está en vigor, las acciones pueden tardar hasta 24 horas en ejecutarse. Por lo tanto, las acciones de la directiva pueden tardar hasta 48 horas en completarse.   
 
 **He rehidratado manualmente un blob archivado, ¿cómo evito que vuelva temporalmente al nivel de archivo?**  
 Cuando se mueve un blob desde un nivel de acceso a otro, su hora de última modificación no cambia. Si rehidrata manualmente un blob archivado al nivel de acceso frecuente, el motor de administración del ciclo de vida podría devolverlo al nivel de archivo. Deshabilite la regla que afecte temporalmente a este blob para impedir que se vuelva a archivar. Vuelva a habilitar la regla cuando el blob se pueda volver a mover con seguridad al nivel de archivo. También puede copiar el blob en otra ubicación si necesita permanecer en el nivel de acceso frecuente o esporádico de forma permanente.

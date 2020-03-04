@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 00187051eec27ee7b6b2d4927510a2ab9dee442e
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 09e55abcd97317b87f8a272afa51c6b4ace572e8
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708264"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598092"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Solucionar problemas de rendimiento de Azure Files
 
@@ -22,7 +22,7 @@ En este artículo se enumeran algunos problemas habituales relacionados con los 
 
 ### <a name="cause-1-share-experiencing-throttling"></a>Causa 1: El recurso compartido está experimentando limitación
 
-La cuota predeterminada en un recurso compartido Premium es de 100 GiB, que proporciona 100 IOPS de base de referencia (con un potencial para aumentar hasta 300 durante una hora). Para más información sobre el aprovisionamiento y su relación con IOPS, consulte la sección [Recursos compartidos aprovisionados](storage-files-planning.md#provisioned-shares) de la guía de planificación.
+La cuota predeterminada en un recurso compartido Premium es de 100 GiB, que proporciona 100 IOPS de base de referencia (con un potencial para aumentar hasta 300 durante una hora). Para más información sobre el aprovisionamiento y su relación con IOPS, consulte la sección [Recursos compartidos aprovisionados](storage-files-planning.md#understanding-provisioning-for-premium-file-shares) de la guía de planificación.
 
 Para confirmar si se está limitando el recurso compartido, puede aprovechar las métricas de Azure en el portal.
 
@@ -102,7 +102,7 @@ Se trata de un problema conocido relacionado con la implementación del cliente 
 
 - Distribuir la carga entre varias máquinas virtuales.
 - En la misma máquina virtual, use varios puntos de montaje con la opción **nosharesock** y propague la carga entre estos puntos de montaje.
-- En Linux, intente montar la opción **nostrictsync** para evitar forzar el vaciado de SMB en cada llamada a fsync. Para Azure Files, esta opción no afecta a la coherencia de los datos, pero puede producir metadatos de archivos obsoletos en la lista de directorios (comando **ls -l**). La consulta directa de metadatos del archivo (comando **stat**) devolverá los metadatos de archivo más recientes.
+- En Linux, intente montar la opción **nostrictsync** para evitar forzar el vaciado de SMB en cada llamada a **fsync**. Para Azure Files, esta opción no afecta a la coherencia de los datos, pero puede producir metadatos de archivos obsoletos en la lista de directorios (comando **ls -l**). La consulta directa de metadatos del archivo (comando **stat**) devolverá los metadatos de archivo más recientes.
 
 ## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Latencias altas para cargas de trabajo con muchos metadatos que implican operaciones de apertura y cierre extensas.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 3dc7ebe224f1edb1b0fabc40441bd399fda6c133
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 482154a37334b056719a18355f87b467d4fe95c7
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355588"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604242"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Administración entre inquilinos en Security Center
 
@@ -46,7 +46,7 @@ En la barra de menús superior, haga clic en el icono de filtro y seleccione las
 Las vistas y acciones son básicamente las mismas. Estos son algunos ejemplos:
 
 - **Administrar directivas de seguridad**: desde una vista, administre la posición de seguridad de muchos recursos con las [directivas](tutorial-security-policy.md), haga acciones con las recomendaciones de seguridad y recopile y administre los datos relacionados con la seguridad.
-- **Mejorar la puntuación segura y la posición de cumplimiento**: la visibilidad entre inquilinos le permite ver la posición de seguridad general de todos los inquilinos y dónde y cómo mejorar más la [puntuación segura](security-center-secure-score.md) y la [posición de cumplimiento](security-center-compliance-dashboard.md) de cada uno de ellos.
+- **Mejorar la puntuación de seguridad y la posición de cumplimiento**: La visibilidad entre inquilinos le permite ver la posición de seguridad general de todos los inquilinos y dónde y cómo mejorar más la [puntuación de seguridad](security-center-secure-score.md) y la [posición de cumplimiento](security-center-compliance-dashboard.md) de cada uno de ellos.
 - **Corrección de recomendaciones**: supervise y corrija una [recomendación](security-center-recommendations.md) para varios recursos de varios inquilinos de una sola vez. Luego, puede abordar de inmediato las vulnerabilidades que presentan el riesgo más alto en todos los inquilinos.
 - **Administrar alertas**: detecte [alertas](security-center-alerts-overview.md) en los distintos inquilinos. Tome medidas en los recursos que no cumplen con los [pasos de corrección](security-center-managing-and-responding-alerts.md) accionables.
 
@@ -56,5 +56,5 @@ Las vistas y acciones son básicamente las mismas. Estos son algunos ejemplos:
 En este artículo se explica cómo funciona la administración entre inquilinos en Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
 * [Refuerce su seguridad con Azure Security Center](security-center-monitoring.md): descubra cómo supervisar el estado de sus recursos de Azure.
-* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
+* [Preguntas más frecuentes sobre Azure Security Center](faq-general.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
 * [Obtenga información acerca de Azure Lighthouse en escenarios empresariales](https://docs.microsoft.com/azure/lighthouse/concepts/enterprise): conozca cómo Azure Lighthouse puede simplificar la administración entre inquilinos en empresas que usan varios inquilinos de Azure AD.

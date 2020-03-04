@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 02/20/2020
 ms.author: diberry
-ms.openlocfilehash: c2aec0db2d1f9865188f2749a0eeb765a14d04ed
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: ce85c2d264b2b4849a4a36ed757150292fdf39f0
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73952993"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622775"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Análisis del bucle de aprendizaje con una evaluación sin conexión
 
@@ -25,45 +25,40 @@ Las evaluaciones sin conexión le permiten medir la eficacia de Personalizer en 
 
 Consulte [Evaluaciones sin conexión](concepts-offline-evaluation.md) para más información.
 
-
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un bucle de Personalizer configurado.
 * El bucle de Personalizer debe tener una cantidad de datos representativa: como valor aproximado, recomendamos al menos 50 000 eventos en sus registros para obtener resultados de evaluación significativos. Opcionalmente, también puede haber exportado previamente archivos de la  _directiva de aprendizaje_ que puede comparar y probar en la misma evaluación.
 
-## <a name="steps-to-start-a-new-offline-evaluation"></a>Pasos para iniciar una nueva evaluación sin conexión
+## <a name="run-an-offline-evaluation"></a>Ejecución de una evaluación sin conexión
 
-1. En [Azure Portal](https://azure.microsoft.com/free/), busque el recurso de personalización.
+1. En [Azure Portal](https://azure.microsoft.com/free/), busque el recurso de Personalizer.
 1. En Azure Portal, vaya a la sección **Evaluaciones** y seleccione **Crear evaluación**.
     ![En Azure Portal, vaya a la sección **Evaluaciones** y seleccione **Crear evaluación**.](./media/offline-evaluation/create-new-offline-evaluation.png)
 1. Configure los valores siguientes:
 
     * Un nombre de evaluación.
-    * Fecha de inicio y finalización: son fechas en el pasado, que especifican el intervalo de datos que se va a utilizar en la evaluación. Estos datos deben estar presentes en los registros, como se especifica en el valor [Retención de datos](how-to-settings.md).
-    * Detección de optimización establecida en **sí**.
+    * Fecha de inicio y finalización: son fechas que especifican el intervalo de datos que se va a utilizar en la evaluación. Estos datos deben estar presentes en los registros, como se especifica en el valor [Retención de datos](how-to-settings.md).
+    * Detección de optimización establecida en **Sí**.
 
-    ![Elección de la configuración de evaluación sin conexión](./media/offline-evaluation/create-an-evaluation-form.png)
+    > [!div class="mx-imgBorder"]
+    > ![Elección de la configuración de evaluación sin conexión](./media/offline-evaluation/create-an-evaluation-form.png)
 
-1. Seleccione **Aceptar** para iniciar la evaluación. 
+1. Seleccione **Aceptar** para iniciar la evaluación.
 
-## <a name="results"></a>Results
+## <a name="review-the-evaluation-results"></a>Revisión de los resultados de la evaluación
 
 Las evaluaciones pueden tardar mucho tiempo en ejecutarse, según la cantidad de datos que se vayan a procesar, el número de directivas de aprendizaje que se vayan a comparar y si se ha solicitado una optimización.
 
-Una vez completado, puede seleccionar la evaluación en la lista de evaluaciones. 
+Una vez completada, puede seleccionar la evaluación en la lista de evaluaciones y, a continuación, seleccionar **Comparar la puntuación de la aplicación con otras configuraciones de aprendizaje potenciales**. Seleccione esta característica cuando desee ver cómo funciona la directiva de aprendizaje actual en comparación con una nueva directiva.
 
-Las comparaciones de directivas de aprendizaje incluyen:
+1. Revise el rendimiento de las [directivas de aprendizaje](concepts-offline-evaluation.md#discovering-the-optimized-learning-policy).
 
-* **Directiva en línea**: la directiva de aprendizaje actual utilizada en Personalizer.
-* **Línea de base**: el valor predeterminado de la aplicación (según lo determinado por la primera acción que se envía en las llamadas de Rank).
-* **Directiva aleatoria**: un comportamiento de Rank imaginario que siempre devuelve la selección aleatoria de las acciones de las proporcionadas.
-* **Directivas personalizadas**: directivas de aprendizaje adicionales que se cargan al iniciar la evaluación.
-* **Directiva optimizada**: Si la evaluación se inició con la opción de detectar una directiva optimizada, también se comparará, y podrá descargarla o convertirla en la directiva de aprendizaje en línea, por el reemplazo de la actual.
+    > [!div class="mx-imgBorder"]
+    > [![Revisión de los resultados de la evaluación](./media/offline-evaluation/evaluation-results.png)](./media/offline-evaluation/evaluation-results.png#lightbox)
 
-![Gráfico de resultados de configuración de evaluación sin conexión](./media/offline-evaluation/evaluation-results.png)
-
-Eficacia de las [características](concepts-features.md) para las acciones y el contexto.
+1. Seleccione **Aplicar** para aplicar la directiva que mejore más el modelo según sus datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Aprenda cómo [trabajan las evaluaciones sin conexión](concepts-offline-evaluation.md).
+* Más información sobre [cómo funcionan las evaluaciones sin conexión](concepts-offline-evaluation.md).

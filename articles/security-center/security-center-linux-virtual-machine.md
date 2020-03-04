@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
-ms.openlocfilehash: 0c7ca6236adc5a476fbcf2bfbd54f4cc283bd607
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 7d382ace16305d38b9a65b3a857fd27dfa9e3a2b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201975"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603870"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Azure Security Center y Azure Virtual Machines con Linux
 [Azure Security Center](https://azure.microsoft.com/services/security-center/) ayuda a evita y a detectar las amenazas, además de a responder a ellas. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
@@ -41,12 +41,12 @@ Además de ayudarle a proteger las máquinas virtuales de Azure, Security Center
 > 
 > 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Para empezar a trabajar con Azure Security Center, debe conocer y tener en cuenta lo siguiente:
 
 * Debe disponer de una suscripción a Microsoft Azure. Para más información sobre los niveles Gratis y Estándar de Security Center, consulte [Precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 * Planee la adopción de Security Center. Para ello, consulte la [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md) para más información sobre consideraciones de este tipo.
-* Para más información sobre la compatibilidad del sistema operativo, consulte [Preguntas más frecuentes (P+F) sobre Azure Security Center](security-center-faq.md). 
+* Para más información sobre la compatibilidad del sistema operativo, consulte [Preguntas más frecuentes (P+F) sobre Azure Security Center](faq-vms.md). 
 
 ## <a name="set-security-policy"></a>Establecimiento de directivas de seguridad
 Se debe habilitar la recopilación de datos para que Azure Security Center pueda recopilar la información que necesita para proporcionar recomendaciones y alertas que se generarán en función de la directiva de seguridad que configure. En la ilustración siguiente, puede ver que **la recopilación de datos** se ha **activado**.
@@ -64,7 +64,7 @@ El Centro de seguridad analiza el estado de seguridad de los recursos de Azure. 
 
 Después de establecer una directiva de seguridad, el Centro de seguridad analiza el estado de seguridad de los recursos, con el fin de identificar vulnerabilidades potenciales. Las recomendaciones aparecen en un formato de tabla, donde cada línea representa una recomendación determinada. En la tabla siguiente se proporcionan algunos ejemplos de recomendaciones para máquinas virtuales de Azure que ejecutan el sistema operativo Linux y lo que sucede si se aplica cada una de ellas. Cuando selecciona una recomendación, se le proporciona información que muestra cómo implementar la recomendación en Security Center.
 
-| Recomendación | DESCRIPCIÓN |
+| Recomendación | Descripción |
 | --- | --- |
 | Habilitar la colección de datos de las suscripciones|Recomienda activar la recopilación de datos en la directiva de seguridad para cada una de las suscripciones y para todas las máquinas virtuales de la suscripción. |
 | Corrección de vulnerabilidades del SO|Recomienda armonizar las configuraciones del SO con las reglas de configuración recomendadas; por ejemplo, no permitir guardar las contraseñas. |
@@ -100,10 +100,10 @@ Si hace clic en esta recomendación, verá más detalles sobre las acciones espe
 ![Estado de la seguridad 2](./media/security-center-linux-virtual-machine/security-center-linux-virtual-machine-fig5.png)
 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
 * [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) : obtenga información sobre cómo administrar y responder a alertas de seguridad.
-* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.
+* [Preguntas más frecuentes sobre máquinas virtuales](faq-vms.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
 

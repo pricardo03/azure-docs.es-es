@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f4e8450593b8ff0f73c09f236f17eb4ef09334c
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: e4581ab89f74425682f569425f62714ead2c27c5
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75549510"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620947"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Instalación del agente de aprovisionamiento en la nube de Azure AD Connect
 Este documento le guiará en el proceso de instalación del agente de aprovisionamiento de Azure Active Directory (Azure AD) Connect y en el modo de configurarlo inicialmente en Azure Portal.
@@ -96,7 +96,7 @@ Para comprobar que el agente se ejecuta, siga estos pasos.
     ![Pantalla de servicios](media/how-to-troubleshoot/troubleshoot1.png)
 
 >[!IMPORTANT]
->El agente se ha instalado, pero debe configurarse y habilitarse antes de que empiece a sincronizar a los usuarios. Para configurar un agente nuevo, consulte [Configuración del nuevo agente de aprovisionamiento en la nube de Azure AD Connect](how-to-configure.md).
+>El agente se ha instalado, pero debe configurarse y habilitarse antes de que empiece a sincronizar a los usuarios. Para configurar un nuevo agente, consulte [Creación de una nueva configuración para el aprovisionamiento basado en la nube de Azure AD Connect](how-to-configure.md).
 
 
 

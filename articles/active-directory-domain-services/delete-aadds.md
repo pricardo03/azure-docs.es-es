@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: ee4c41ca3179eead0e4fd470a02a5cdfa4a6d43a
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: e1836f91b8afc1bb4f5b7e141949f3724c57c857
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705237"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614041"
 ---
 # <a name="delete-an-azure-active-directory-domain-services-managed-domain-using-the-azure-portal"></a>Obtenga información para deshabilitar o eliminar Azure Active Directory Domain Services mediante Azure Portal
 
@@ -35,7 +35,7 @@ Si ya no necesita un dominio administrado, puede eliminar una instancia de Azure
 Para eliminar un dominio administrado de Azure AD DS, realice los siguientes pasos:
 
 1. En Azure Portal, busque y seleccione **Azure AD Domain Services**.
-1. Seleccione el nombre del dominio administrado de Azure AD DS como, por ejemplo, *aadds.contoso.com*.
+1. Seleccione el nombre del dominio administrado de Azure AD DS como, por ejemplo, *aaddscontoso.com*.
 1. En la página **Información general**, seleccione **Eliminar**. Para confirmar la eliminación, escriba de nuevo el nombre de dominio del dominio administrado y seleccione **Eliminar**.
 
 La eliminación del dominio administrado de Azure AD DS puede tardar entre 15 y 20 minutos o más.

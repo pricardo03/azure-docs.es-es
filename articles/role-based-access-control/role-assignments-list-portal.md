@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 099cf74dd27f39a4289397d5178511125d9ebf6f
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 63aef8d2036e442659145e031d384e9677c779a1
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720742"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598075"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Lista de asignaciones de roles con RBAC de Azure y Azure Portal
 
@@ -116,7 +116,7 @@ Para mostrar el acceso de un usuario, grupo, entidad de servicio o identidad adm
 
 ## <a name="list-role-assignments-for-a-user-assigned-managed-identity"></a>Lista de asignaciones de roles para una identidad administrada asignada por el usuario
 
-1. En Azure Portal, abra una identidad administrada asignada por el sistema.
+1. En Azure Portal, abra una identidad administrada asignada por el usuario.
 
 1. Haga clic en **Recursos de Azure**.
 

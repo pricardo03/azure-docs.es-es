@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: c781c5e12f3f678ef640c6017a768e7ac14448f9
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 551703b5dcca082904197010366ee059998dde4b
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871999"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621880"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Creación de particiones en Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Para obtener más información sobre cómo Azure Cosmos DB administra las parti
 
 A continuación, encontrará una guía clara para elegir una clave de partición:
 
-* En una única partición lógica se admite un límite máximo de 10 GB de almacenamiento.  
+* En una única partición lógica se admite un límite máximo de 20 GB de almacenamiento.  
 
 * Los contenedores de Azure Cosmos tienen un rendimiento mínimo de 400 unidades de solicitud por segundo (RU/s). Cuando el rendimiento se aprovisiona en una base de datos, el valor mínimo de RU por contenedor es de cien unidades de solicitud por segundo (RU/s). Las solicitudes a la misma clave de partición no pueden exceder el rendimiento asignado a una partición. Si las solicitudes superan el rendimiento asignado, tendrá la velocidad limitada. Por tanto, es importante elegir una clave de partición que no dé como resultado "zonas activas" dentro de la aplicación.
 

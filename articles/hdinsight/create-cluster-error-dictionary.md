@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/19/2019
-ms.openlocfilehash: 6e5ed996a0f44bae6c37027bc01f30be85d164f9
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 979e83c0eeaac4555fc5144bca479f0b5656cd28
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905486"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617538"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: Errores de creación de clúster
 
@@ -172,7 +172,7 @@ No proporcionó los permisos necesarios para administrar la identidad. La identi
 1. Abra Azure Portal.
 1. Vaya a la cuenta de almacenamiento.
 1. Mire en **Access Control (IAM)** .
-1. Asegúrese de que el rol de colaborador o de propietario de datos de blob de almacenamiento tenga acceso "asignado" a la identidad administrada asignada por el usuario en la suscripción.
+1. Asegúrese de que el usuario tenga asignado el rol de colaborador de datos de blob de almacenamiento o el rol de propietario de datos de blob de almacenamiento.
 
 Para más información, vea [Configuración de permisos para la identidad administrada en la cuenta de Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 

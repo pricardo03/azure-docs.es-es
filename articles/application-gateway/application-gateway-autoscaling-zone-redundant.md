@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/09/2019
+ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: 8fe38870f593dd57d8e4dad5601ea404e99c3d10
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 39b7e94747f556b61f661968f7126d122156d9cf
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031567"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622011"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Escalabilidad automática y Application Gateway con redundancia de zona v2 
 
@@ -26,8 +26,8 @@ La nueva SKU v2 incluye las siguientes mejoras:
   La redundancia de zona están disponibles solo donde estén disponibles las zonas de Azure. En otras regiones, se admiten todas las demás características. Para más información, consulte [¿Qué son las zonas de disponibilidad en Azure?](../availability-zones/az-overview.md#services-support-by-region)
 - **VIP estática**: la SKU v2 de Application Gateway admite ahora exclusivamente el tipo de IP virtual estática. Con esto se garantiza que la IP virtual asociada a la puerta de enlace de aplicaciones no cambia durante la vigencia de la implementación, ni siquiera tras un reinicio.  No hay una IP virtual estática en la v1, por lo que debe usar la URL de la puerta de enlace de aplicaciones en lugar de la dirección IP para el enrutamiento del nombre de dominio a App Services a través de la puerta de enlace de aplicaciones.
 - **Reescritura de encabezados**: Application Gateway permite agregar, quitar o actualizar los encabezados de solicitud y respuesta HTTP con la SKU v2. Para más información, consulte [Rescritura de encabezados HTTP con Application Gateway](rewrite-http-headers.md).
-- **Integración de Key Vault (versión preliminar)** : Application Gateway v2 admite la integración con Key Vault (en versión preliminar pública) para certificados de servidor que se adjuntan a los clientes de escucha con HTTPS habilitado. Para obtener más información, consulte [Terminación SSL con certificados de Key Vault](key-vault-certs.md).
-- **Controlador de entrada de Azure Kubernetes Service (AKS) (versión preliminar)** : El controlador de entrada de Application Gateway v2 permite que Azure Application Gateway se utilice como entrada para una instancia de Azure Kubernetes Service (AKS) llamada clúster AKS. Para obtener más información, consulte la [página de documentación](https://azure.github.io/application-gateway-kubernetes-ingress/).
+- **Integración de Key Vault**: Application Gateway v2 admite la integración con Key Vault para certificados de servidor adjuntos a clientes de escucha con HTTPS habilitado. Para obtener más información, consulte [Terminación SSL con certificados de Key Vault](key-vault-certs.md).
+- **Controlador de entrada de Azure Kubernetes Service (AKS)** : El controlador de entrada de Application Gateway v2 permite que Azure Application Gateway se utilice como entrada para una instancia de Azure Kubernetes Service (AKS) llamada clúster AKS. Para más información, consulte [¿Qué es el controlador de entrada de Application Gateway?](ingress-controller-overview.md)
 - **Mejoras de rendimiento**: la SKU v2 ofrece un rendimiento cinco veces superior en la descarga de SSL en comparación con la SKU Standard/WAF.
 - **Menores tiempos de implementación y actualización**: la SKU v2 proporciona menores tiempos de implementación y actualización en comparación con la SKU Standard/WAF. Esto también incluye los cambios de configuración en WAF.
 
@@ -35,7 +35,7 @@ La nueva SKU v2 incluye las siguientes mejoras:
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-La SKU Standard_v2 y WAF_v2 está disponible en las siguientes regiones: Centro-norte de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Norte de Europa, Oeste de Europa, Sudeste Asiático, Centro de Francia, Oeste de Reino Unido, Japón Oriental, Japón Occidental, Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, Asia Oriental, Centro de Corea del Sur, Sur de Corea del Sur, Sur de Reino Unido, Centro de la India, Oeste de la India, India del Sur.
+La SKU Standard_v2 y WAF_v2 está disponible en las siguientes regiones: Centro-norte de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Norte de Europa, Oeste de Europa, Sudeste de Asia, Centro de Francia, Oeste de Reino Unido, Este de Japón, Oeste de Japón, Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, Este de Asia, Centro de Corea del Sur, Sur de Corea del Sur, Sur de Reino Unido, Centro de la India, Oeste de la India, Sur de la India.
 
 ## <a name="pricing"></a>Precios
 

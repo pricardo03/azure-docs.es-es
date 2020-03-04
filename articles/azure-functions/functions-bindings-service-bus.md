@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: b505a90057a213d7f64d4d168a6a70da0ff03c2f
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 44e4114b328701d5de363e91f5562f1daad351c6
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485308"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621068"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Enlaces de Azure Service Bus en Azure Functions
 
@@ -24,17 +24,17 @@ Azure Functions se integra con [Azure Service Bus](https://azure.microsoft.com/
 
 ## <a name="add-to-your-functions-app"></a>Adición a la aplicación de Functions
 
-### <a name="functions-2x-and-higher"></a>Functions 2.x y superior
+### <a name="functions-2x-and-higher"></a>Functions 2.x y superiores
 
-Para trabajar con el desencadenador y los enlaces es necesario hacer referencia al paquete adecuado. En las bibliotecas de clases de .NET se usa el paquete de NuGet, mientras que en los demás tipos de aplicaciones se emplea el conjunto de extensiones.
+Para trabajar con el desencadenador y los enlaces, es necesario hacer referencia al paquete adecuado. En las bibliotecas de clases de .NET se usa el paquete NuGet, mientras que en los demás tipos de aplicaciones se emplea el conjunto de extensiones.
 
 | Idioma                                        | Agregar mediante...                                   | Observaciones 
 |-------------------------------------------------|---------------------------------------------|-------------|
-| C#                                              | Instalación del [Paquete NuGet], versión 3.x | |
-| Script de C#, Java, JavaScript, Python, PowerShell | Registro del [conjunto de extensiones]          | Se recomienda usar la [extensión Azure Tools] con Visual Studio Code. |
+| C#                                              | Instalación del [paquete NuGet], versión 4.x | |
+| Script de C#, Java, JavaScript, Python, PowerShell | Registro de [conjunto de extensiones]          | Se recomienda usar la [extensión Azure Tools] con Visual Studio Code. |
 | Script de C# (solo en línea en Azure Portal)         | Adición de un enlace                            | Para actualizar extensiones de enlace existentes sin tener que volver a publicar la aplicación de funciones, consulte [Actualización de las extensiones]. |
 
-[Paquete NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus
+[Paquete NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/
 [core tools]: ./functions-run-local.md
 [conjunto de extensiones]: ./functions-bindings-register.md#extension-bundles
 [Actualización de las extensiones]: ./install-update-binding-extensions-manual.md
@@ -42,7 +42,7 @@ Para trabajar con el desencadenador y los enlaces es necesario hacer referencia 
 
 ### <a name="functions-1x"></a>Functions 1.x
 
-Las aplicaciones de Functions 1.x tienen automáticamente una referencia al paquete de NuGet [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs), versión 2.x.
+Las aplicaciones de Functions 1.x tienen automáticamente una referencia al paquete NuGet [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs), versión 2.x.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
