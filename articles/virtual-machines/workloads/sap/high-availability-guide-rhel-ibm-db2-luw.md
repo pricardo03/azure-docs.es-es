@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/10/2019
+ms.date: 02/13/2020
 ms.author: juergent
-ms.openlocfilehash: 5487b90172788c08a4383a32462ea5a85c1763ee
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c6a230f6abeab45c56aab2db40b8b1defcc06d90
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099675"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598704"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -68,7 +68,7 @@ Las versiones de IBM Db2 admitidas son 10.5 y posteriores, tal como se documenta
 
 Antes de comenzar una instalación, consulte la documentación y notas SAP siguientes:
 
-| Nota de SAP | DESCRIPCIÓN |
+| Nota de SAP | Descripción |
 | --- | --- |
 | [1928533] | SAP applications on Azure: Supported Products and Azure VM types (Nota de SAP 1928533: Aplicaciones SAP en Azure: productos admitidos y tipos de máquina virtual de Azure) |
 | [2015553] | SAP en Azure: Support Prerequisites (Nota de soporte técnico 2015553 de SAP en Microsoft Azure: requisitos previos de soporte técnico) |
@@ -177,7 +177,7 @@ Asegúrese de que el SO seleccionado sea compatible con IBM/SAP para IBM Db2 LUW
     + Seleccione el conjunto de disponibilidad de Azure que creó en el paso 3 o seleccione Zona de disponibilidad (no la misma zona que seleccionó en el paso 3).
 1. Agregue discos de datos a las VM y luego compruebe la recomendación de una configuración de sistema de archivos disponible en el artículo [Implementación de DBMS de Azure Virtual Machines de IBM Db2 para carga de trabajo de SAP][dbms-db2].
 
-## <a name="create-the-pacemaker-cluster"></a>Crear el clúster de Pacemaker
+## <a name="create-the-pacemaker-cluster"></a>Implementar un clúster de Pacemaker
     
 Para crear un clúster básico de Pacemaker para este servidor IBM Db2, consulte  [Configuración de Pacemaker en Red Hat Enterprise Linux en Azure][rhel-pcs-azr]. 
 
@@ -370,7 +370,7 @@ Los siguientes elementos tienen los siguiente prefijos:
 - **[1]** : Aplicable solo al nodo 1 
 - **[2]** : Aplicable solo al nodo 2
 
-**[A]**  Requisitos previos para la configuración de Pacemaker:
+**[A]**  Requisito previo para la configuración de Pacemaker:
 1. Apague ambos servidores de base de datos con user db2\<sid> con db2stop.
 1. Cambie el entorno de shell para el usuario db2\<sid> por */bin/ksh*.
 <pre><code># Install korn shell:
@@ -434,6 +434,11 @@ Daemon Status: corosync: active/disabled pacemaker: active/disabled pcsd: active
 
 ### <a name="configure-azure-load-balancer"></a>Configuración de Azure Load Balancer
 Para configurar Azure Load Balancer, recomendamos usar la [SKU de Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) y luego hacer lo siguiente:
+
+> [!NOTE]
+> La SKU de Standard Load Balancer tiene restricciones para acceder a direcciones IP públicas desde los nodos situados debajo de Load Balancer. En el artículo [Conectividad del punto de conexión público para las máquinas virtuales que usan Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) se describen las distintas formas para habilitar esos nodos y tener acceso a direcciones IP públicas.
+
+
 
 1. Crear un grupo de IP front-end:
 

@@ -1,10 +1,10 @@
 ---
-title: Alta disponibilidad para NFS en máquinas virtuales de Azure en SUSE Linux Enterprise Server | Microsoft Docs
+title: Alta disponibilidad para NFS en máquinas virtuales de Azure en SLES | Microsoft Docs
 description: Alta disponibilidad para NFS en máquinas virtuales de Azure en SUSE Linux Enterprise Server
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: mssedusch
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
-ms.author: sedusch
-ms.openlocfilehash: c20fc2142718d3cc49d4b80c6a5e22e26a350335
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: radeltch
+ms.openlocfilehash: efba617f9aeefa2e9374f5a7551338e003e70f56
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824860"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598738"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidad para NFS en máquinas virtuales de Azure en SUSE Linux Enterprise Server
 
@@ -27,15 +27,15 @@ ms.locfileid: "73824860"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2205917]: https://launchpad.support.sap.com/#/notes/2205917
-[1944799]: https://launchpad.support.sap.com/#/notes/1944799
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
-[1984787]: https://launchpad.support.sap.com/#/notes/1984787
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2205917]:https://launchpad.support.sap.com/#/notes/2205917
+[1944799]:https://launchpad.support.sap.com/#/notes/1944799
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [1410736]:https://launchpad.support.sap.com/#/notes/1410736
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
@@ -120,7 +120,7 @@ Para implementar todos los recursos necesarios, puede usar una de las plantillas
    4. Nombre de usuario y contraseña del administrador  
       Se crea un usuario nuevo que se puede usar para iniciar sesión en la máquina.
    5. Identificador de subred  
-      Si quiere implementar la máquina virtual en una red virtual existente en la que tiene una subred definida a la que se debe asignar la máquina virtual, asigne un nombre al identificador de esa subred específica. El identificador suele tener este aspecto: /subscriptions/ **&lt;id. de suscripción&gt;** /resourceGroups/ **&lt;nombre del grupo de recursos&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;nombre de red virtual&gt;** /subnets/ **&lt;nombre de subred&gt;**
+      Si quiere implementar la máquina virtual en una red virtual existente en la que tiene una subred definida a la que se debe asignar la máquina virtual, asigne un nombre al identificador de esa subred específica. El identificador suele tener este aspecto: /subscriptions/**&lt;id. de suscripción&gt;**/resourceGroups/**&lt;nombre del grupo de recursos&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nombre de red virtual&gt;**/subnets/**&lt;nombre de subred&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Implementación manual de Linux mediante Azure Portal
 
@@ -168,7 +168,7 @@ En primer lugar, debe crear las máquinas virtuales de este clúster NFS. Despu�
          1. Abra el equilibrador de carga, seleccione las reglas de equilibrio de carga y haga clic en Agregar.
          1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **nw1-lb**).
          1. Seleccione la dirección IP de front-end, el grupo de servidores back-end y el sondeo de estado que creó anteriormente (por ejemplo, **nw1-front-end**, **nw1-backend** y **nw1-hp**).
-         1. Seleccione **Puertos de alta disponibilidad**.
+         1. Seleccione **Puertos HA**.
          1. Aumente el tiempo de espera de inactividad a 30 minutos
          1. **Asegúrese de habilitar la dirección IP flotante**
          1. Haga clic en Aceptar
@@ -217,10 +217,10 @@ En primer lugar, debe crear las máquinas virtuales de este clúster NFS. Despu�
             * Repita los pasos anteriores con el puerto 2049 y UDP de NW2.
 
 > [!Note]
-> Cuando las máquinas virtuales sin direcciones IP públicas se colocan en el grupo de back-end de Azure Standard Load Balancer interno (sin dirección IP pública), no habrá conectividad saliente de Internet, a menos que se realice una configuración adicional para permitir el enrutamiento a puntos de conexión públicos. Para obtener más información sobre cómo obtener conectividad saliente, consulte [Conectividad de punto de conexión público para máquinas virtuales con Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+> Cuando las máquinas virtuales sin direcciones IP públicas se colocan en el grupo de back-end de Standard Load Balancer interno (sin dirección IP pública), no hay conectividad saliente de Internet, a menos que se realice una configuración adicional para permitir el enrutamiento a puntos de conexión públicos. Para obtener más información sobre cómo obtener conectividad saliente, vea [Conectividad de punto de conexión público para máquinas virtuales con Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 > [!IMPORTANT]
-> No habilite las marcas de tiempo TCP en VM de Azure que se encuentren detrás de Azure Load Balancer. Si habilita las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** a **0**. Lea [Sondeos de estado de Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) para obtener más información.
+> No habilite las marcas de tiempo TCP en VM de Azure que se encuentren detrás de Azure Load Balancer. Si habilita las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** a **0**. Consulte [Sondeos de estado de Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) para obtener más información.
 
 ### <a name="create-pacemaker-cluster"></a>Creación del clúster de Pacemaker
 
@@ -228,7 +228,7 @@ Siga los pasos de [Configuración de Pacemaker en SUSE Linux Enterprise Server e
 
 ### <a name="configure-nfs-server"></a>Configuración del servidor NFS
 
-Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos, **[1]** : aplicable solo al nodo 1 o **[2]** : aplicable solo al nodo 2.
+Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos, **[1]**: aplicable solo al nodo 1 o **[2]**: aplicable solo al nodo 2.
 
 1. **[A]** Configure la resolución nombres de host
 
@@ -245,7 +245,7 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
    <b>10.0.0.5 nw2-nfs</b>
    </code></pre>
 
-1. **[A]**  Habilite el servidor NFS.
+1. **[A] ** Habilite el servidor NFS.
 
    Cree la entrada de exportación de raíz NFS
 
@@ -302,7 +302,7 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
    sudo lvcreate -l 100%FREE -n <b>NW2</b> vg-<b>NW2</b>-NFS
    </code></pre>
 
-1. **[A]**  Configure drbd.
+1. **[A] ** Configure drbd.
 
    <pre><code>sudo vi /etc/drbd.conf
    </code></pre>
@@ -464,7 +464,7 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
    sudo umount /srv/nfs/NW2
    </code></pre>
 
-1. **[A]**  Configure la detección de cerebro dividido de drbd.
+1. **[A] ** Configure la detección de cerebro dividido de drbd.
 
    Al usar drbd para sincronizar los datos de un host a otro, puede producirse lo que se conoce como cerebro dividido. Un escenario de cerebro dividido es aquel en el que ambos nodos del clúster promovieron el drbd a principal y perdieron la sincronización. Aunque es una situación poco frecuente, debe controlar y resolver un cerebro dividido lo antes posible. Por lo tanto, es importante recibir una notificación cuando suceda una situación así.
 
@@ -474,7 +474,7 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
    
 ### <a name="configure-cluster-framework"></a>Configuración de la plataforma del clúster
 
-1. **[1]**  Agregue los dispositivos drbd de NFS del sistema SAP NW1 a la configuración del clúster.
+1. **[1] ** Agregue los dispositivos drbd de NFS del sistema SAP NW1 a la configuración del clúster.
 
    > [!IMPORTANT]
    > Pruebas recientes han mostrado situaciones en las que netcat deja de responder a las solicitudes debido al trabajo pendiente y a su limitación para controlar solo una conexión. El recurso netcat deja de escuchar las solicitudes del equilibrador de carga de Azure y la dirección IP flotante deja de estar disponible.  
@@ -529,7 +529,7 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
      g-<b>NW1</b>_nfs ms-drbd_<b>NW1</b>_nfs:Master
    </code></pre>
 
-1. **[1]**  Agregue los dispositivos drbd de NFS del sistema SAP NW2 a la configuración del clúster.
+1. **[1] ** Agregue los dispositivos drbd de NFS del sistema SAP NW2 a la configuración del clúster.
 
    <pre><code># Enable maintenance mode
    sudo crm configure property maintenance-mode=true
@@ -574,7 +574,7 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
      g-<b>NW2</b>_nfs ms-drbd_<b>NW2</b>_nfs:Master
    </code></pre>
 
-1. **[1]**  Deshabilite el modo de mantenimiento.
+1. **[1] ** Deshabilite el modo de mantenimiento.
    
    <pre><code>sudo crm configure property maintenance-mode=false
    </code></pre>

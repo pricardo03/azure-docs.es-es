@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/10/2019
+ms.date: 02/25/2020
 ms.author: juergent
-ms.openlocfilehash: e7de3e8026b15342c06eff9718242c08d33a53a4
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: a4b3378909d40fe2b770f70f83054a97f2646bd3
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72783781"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602359"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -60,7 +60,7 @@ Las versiones de IBM Db2 admitidas son 10.5 y posteriores, tal como se documenta
 
 Antes de comenzar una instalación, consulte la documentación y notas SAP siguientes:
 
-| Nota de SAP | DESCRIPCIÓN |
+| Nota de SAP | Descripción |
 | --- | --- |
 | [1928533] | SAP applications on Azure: Supported Products and Azure VM types (Nota de SAP 1928533: Aplicaciones SAP en Azure: productos admitidos y tipos de máquina virtual de Azure) |
 | [2015553] | SAP en Azure: Support Prerequisites (Nota de soporte técnico 2015553 de SAP en Microsoft Azure: requisitos previos de soporte técnico) |
@@ -106,7 +106,7 @@ Para ayudarle a comprender por completo cómo IBM Db2 LUW con HADR y Pacemaker s
 Para implementar una configuración de IBM Db2, deberá seguir estos pasos:
 
   + Planificar el entorno.
-  + Implementar las VM.
+  + Implemente las VM.
   + Actualizar SUSE Linux y configurar los sistemas de archivos.
   + Instalar y configurar Pacemaker.
   + Instalar [NFS de alta disponibilidad][nfs-ha].
@@ -163,7 +163,7 @@ Asegúrese de que el SO seleccionado sea compatible con IBM/SAP para IBM Db2 LUW
     + Seleccione el conjunto de disponibilidad de Azure que creó en el paso 3 o seleccione Zona de disponibilidad (no la misma zona que seleccionó en el paso 3).
 1. Agregue discos de datos a las VM y luego compruebe la recomendación de una configuración de sistema de archivos disponible en el artículo [Implementación de DBMS de Azure Virtual Machines de IBM Db2 para carga de trabajo de SAP][dbms-db2].
 
-## <a name="create-the-pacemaker-cluster"></a>Crear el clúster de Pacemaker
+## <a name="create-the-pacemaker-cluster"></a>Implementar un clúster de Pacemaker
     
 Para crear un clúster de Pacemaker básico para este servidor IBM Db2, consulte  [Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure][sles-pacemaker]. 
 
@@ -348,8 +348,8 @@ Los siguientes elementos tienen los siguiente prefijos:
 ### <a name="pacemaker-configuration"></a>Configuración de pacemaker
 
 > [!IMPORTANT]
-> Las pruebas recientes revelaron situaciones en las que netcat deja de responder a las solicitudes debido al trabajo pendiente y a su limitación de controlar solo una conexión. El recurso netcat deja de escuchar las solicitudes del equilibrador de carga de Azure y la dirección IP flotante deja de estar disponible.  
-> En el caso de los clústeres de Pacemaker existentes, se recomienda reemplazar netcat por socat, siguiendo las instrucciones de [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128) (Protección de la detección del equilibrador de carga de Azure). Tenga en cuenta que el cambio requerirá un breve tiempo de inactividad.  
+> Pruebas recientes han mostrado situaciones en las que netcat deja de responder a las solicitudes debido al trabajo pendiente y a su limitación para controlar solo una conexión. El recurso netcat deja de escuchar las solicitudes del equilibrador de carga de Azure y la dirección IP flotante deja de estar disponible.  
+> En el caso de los clústeres de Pacemaker existentes, se recomienda reemplazar netcat por socat, para lo que deben seguirse las instrucciones del artículo acerca de la [protección de la detección del equilibrador de carga de Azure](https://www.suse.com/support/kb/doc/?id=7024128). Tenga en cuenta que el cambio requerirá un breve tiempo de inactividad.  
 
 **[1]**  Configuración de Pacemaker específico de HADR para IBM Db2:
 <pre><code># Put Pacemaker into maintenance mode
@@ -421,6 +421,9 @@ sudo crm configure property maintenance-mode=false</pre></code>
 
 ### <a name="configure-azure-load-balancer"></a>Configuración de Azure Load Balancer
 Para configurar Azure Load Balancer, recomendamos usar la [SKU de Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) y luego hacer lo siguiente:
+
+> [!NOTE]
+> La SKU de Standard Load Balancer tiene restricciones para acceder a direcciones IP públicas desde los nodos situados debajo de Load Balancer. En el artículo [Conectividad del punto de conexión público para las máquinas virtuales que usan Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) se describen las distintas formas para habilitar esos nodos y tener acceso a direcciones IP públicas.
 
 1. Crear un grupo de IP front-end:
 

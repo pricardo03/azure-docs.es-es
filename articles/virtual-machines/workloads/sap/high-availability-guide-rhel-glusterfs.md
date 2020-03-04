@@ -1,10 +1,10 @@
 ---
-title: GlusterFS en máquinas virtuales de Azure de Red Hat Enterprise Linux para SAP NetWeaver | Microsoft Docs
+title: GlusterFS en máquinas virtuales de Azure en RHEL para SAP NetWeaver | Microsoft Docs
 description: GlusterFS en máquinas virtuales de Azure de Red Hat Enterprise Linux para SAP NetWeaver
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: mssedusch
-manager: timlt
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
-ms.author: sedusch
-ms.openlocfilehash: 2ae9a1419232cca051f7cab4e9bd8c70f885df73
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.author: radeltch
+ms.openlocfilehash: 388a2db2c888be541d89c5f4274bd38b37e4ca28
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749033"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591921"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS en máquinas virtuales de Azure de Red Hat Enterprise Linux para SAP NetWeaver
 
@@ -102,7 +102,7 @@ Para implementar todos los recursos necesarios, puede usar una de las plantillas
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Implementación manual de Linux mediante Azure Portal
 
-En primer lugar, debe crear las máquinas virtuales de este clúster. Después, creará un equilibrador de carga y usará las máquinas virtuales de los grupos de servidores back-end. Se recomienda [Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
+En primer lugar, debe crear las máquinas virtuales de este clúster. Después, creará un equilibrador de carga y usará las máquinas virtuales de los grupos de servidores back-end. Se recomienda que sea un [equilibrador de carga estándar](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
 
 1. Creación de un grupo de recursos
 1. Creación de una red virtual

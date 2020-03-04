@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: iainfou
-ms.openlocfilehash: e63f330d463be21905467869474527fdf9d6abff
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 2daadb539bc08df37f15c187866b735e45309288
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030919"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612785"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Creación de un dominio administrado de Azure Active Directory Domain Services mediante una plantilla de Resource Manager
 
@@ -23,7 +23,7 @@ Azure Active Directory Domain Services (Azure AD DS) proporciona servicios de
 
 En este artículo se muestra cómo habilitar Azure AD DS mediante una plantilla de Azure Resource Manager. Los recursos auxiliares se crean mediante Azure PowerShell.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este artículo, necesita los siguientes recursos:
 
@@ -45,17 +45,17 @@ Cuando se crea una instancia de Azure AD DS, se especifica un nombre DNS. Hay 
 * **Sufijos de dominio no enrutables:** por lo general, se recomienda evitar un sufijo de nombre de dominio no enrutable, como *contoso.local*. El sufijo *.local* no es enrutable y puede provocar problemas con la resolución de DNS.
 
 > [!TIP]
-> Si crea un nombre de dominio personalizado, tenga cuidado con los espacios de nombres DNS existentes. Se recomienda incluir un prefijo único para el nombre de dominio. Por ejemplo, si el nombre de la raíz DNS es *contoso. com*, cree un dominio administrado de Azure AD DS con el nombre de dominio personalizado *corp. contoso. com* o *ds.contoso.com*. En un entorno híbrido con un entorno de AD DS local, es posible que estos prefijos ya estén en uso. Use un prefijo único para Azure AD DS.
+> Si crea un nombre de dominio personalizado, tenga cuidado con los espacios de nombres DNS existentes. Se recomienda usar un nombre de dominio independiente de cualquier espacio de nombres de DNS local o de Azure existentes.
 >
-> Puede usar el nombre DNS raíz para el dominio administrado de Azure AD DS, pero puede que tenga que crear algunos registros DNS adicionales para otros servicios de su entorno. Por ejemplo, si ejecuta un servidor web que hospeda un sitio mediante el nombre DNS raíz, puede haber conflictos de nomenclatura que requieran más entradas DNS.
+> Por ejemplo, si tiene un espacio de nombres de DNS existente para *contoso.com*, cree un dominio administrado de Azure AD DS con el nombre de dominio personalizado *aaddscontoso.com*. Si necesita usar LDAP seguro, debe registrar y poseer este nombre de dominio personalizado para generar los certificados necesarios.
 >
-> En estos tutoriales y artículos de procedimientos, el dominio personalizado *aadds.contoso.com* se usa como ejemplo breve. En todos los comandos, especifique su propio nombre de dominio, que puede incluir un prefijo único.
+> Es posible que tenga que crear algunos registros DNS adicionales para otros servicios del entorno o reenviadores DNS condicionales entre los espacios de nombres de DNS existentes en el entorno. Por ejemplo, si ejecuta un servidor web que hospeda un sitio mediante el nombre DNS raíz, puede haber conflictos de nomenclatura que requieran más entradas DNS.
 >
-> Para más información, consulte [Selección de un prefijo de nomenclatura para el dominio][naming-prefix].
+> En estos tutoriales y artículos de procedimientos, el dominio personalizado *aaddscontoso.com* se usa como ejemplo breve. En todos los comandos, especifique su propio nombre de dominio.
 
 También se aplican las siguientes restricciones de nombre DNS:
 
-* **Restricciones de prefijo de dominio:** no se puede crear un dominio administrado con un prefijo de más de 15 caracteres. El prefijo del nombre de dominio especificado (por ejemplo, *contoso* en el nombre de dominio *contoso.com*) debe contener 15 caracteres o menos.
+* **Restricciones de prefijo de dominio:** no se puede crear un dominio administrado con un prefijo de más de 15 caracteres. El prefijo del nombre de dominio especificado (por ejemplo, *aaddscontoso* en el nombre de dominio *aaddscontoso.com*) debe contener 15 caracteres o menos.
 * **Conflictos de nombres de red:** el nombre de dominio DNS del dominio administrado no puede existir ya en la red virtual. Busque, en concreto, los siguientes escenarios que provocarían un conflicto de nombres:
     * Ya tiene un dominio de Active Directory con el mismo nombre de dominio DNS en la red virtual de Azure.
     * La red virtual en la que planea habilitar el dominio administrado tiene una conexión VPN con la red local. En este escenario, asegúrese de que no tiene un dominio con el mismo nombre de dominio DNS de la red local.
@@ -88,7 +88,7 @@ New-AzureADGroup -DisplayName "AAD DC Administrators" `
 
 Con este grupo creado, agregue un usuario al grupo con el cmdlet [Add-AzureADGroupMember][Add-AzureADGroupMember]. Primero obtendrá el identificador de objeto del grupo *Administradores de controlador de dominio de AAD* con el cmdlet [Get-AzureADGroup][Get-AzureADGroup] y, luego, el identificador de objeto del usuario deseado con el cmdlet [Get-AzureADUser][Get-AzureADUser].
 
-En el ejemplo siguiente, el identificador de objeto de usuario de la cuenta con un UPN de `admin@contoso.onmicrosoft.com`. Reemplace esta cuenta de usuario por el UPN del usuario que quiere agregar al grupo *Administradores de controlador de dominio de AAD*:
+En el ejemplo siguiente, el identificador de objeto de usuario de la cuenta con un UPN de `admin@aaddscontoso.onmicrosoft.com`. Reemplace esta cuenta de usuario por el UPN del usuario que quiere agregar al grupo *Administradores de controlador de dominio de AAD*:
 
 ```powershell
 # First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
@@ -98,7 +98,7 @@ $GroupObjectId = Get-AzureADGroup `
 
 # Now, retrieve the object ID of the user you'd like to add to the group.
 $UserObjectId = Get-AzureADUser `
-  -Filter "UserPrincipalName eq 'admin@contoso.onmicrosoft.com'" | `
+  -Filter "UserPrincipalName eq 'admin@aaddscontoso.onmicrosoft.com'" | `
   Select-Object ObjectId
 
 # Add the user to the 'AAD DC Administrators' group.
@@ -128,12 +128,12 @@ Como parte de la definición de recursos de Resource Manager, son necesarios los
 | notificationSettings    | Si se generan alertas en el dominio administrado de Azure AD DS, se pueden enviar notificaciones por correo electrónico. <br />Los *administradores globales* del inquilino de Azure y los miembros del grupo de *administradores de AAD DC* pueden estar *habilitados* para estas notificaciones.<br /> Si lo prefiere, puede agregar destinatarios adicionales de las notificaciones cuando haya alertas que requieran atención.|
 | domainConfigurationType | De forma predeterminada, un dominio administrado de Azure AD DS se crea como un bosque de *Usuario*. Este tipo de bosque sincroniza todos los objetos de Azure AD, incluidas las cuentas de usuario creadas en un entorno de AD DS local. No es necesario especificar un valor de *domainConfiguration* para crear un bosque de usuarios.<br /> Un bosque de *Recursos* solo sincroniza los usuarios y grupos creados directamente en Azure AD. Los bosques de recursos están actualmente en versión preliminar. Establezca el valor en *ResourceTrusting* para crear un bosque de recursos.<br />Para más información sobre los bosques de *Recursos*, incluido el motivo por el que puede usar uno y cómo crear confianzas de bosque con dominios de AD DS locales, consulte [Introducción a los bosques de recursos de Azure AD DS][resource-forests].|
 
-La siguiente definición de parámetros comprimidos muestra cómo se declaran estos valores. Se crea un bosque de usuarios denominado *aadds.contoso.com* con todos los usuarios de Azure AD sincronizados con el dominio administrado de Azure AD DS:
+La siguiente definición de parámetros comprimidos muestra cómo se declaran estos valores. Se crea un bosque de usuarios denominado *aaddscontoso.com* con todos los usuarios de Azure AD sincronizados con el dominio administrado de Azure AD DS:
 
 ```json
 "parameters": {
     "domainName": {
-        "value": "aadds.contoso.com"
+        "value": "aaddscontoso.com"
     },
     "filteredSync": {
         "value": "Disabled"
@@ -176,7 +176,7 @@ Estos parámetros y el tipo de recurso se pueden usar como parte de una plantill
 
 ## <a name="create-a-managed-domain-using-sample-template"></a>Creación de un dominio administrado mediante una plantilla de ejemplo
 
-La siguiente plantilla de ejemplo completa de Resource Manager crea un dominio administrado de Azure AD DS y las reglas de compatibilidad de red virtual, subred y grupo de seguridad de red. Las reglas del grupo de seguridad de red son necesarias para proteger el dominio administrado y asegurarse de que el tráfico puede fluir correctamente. Se crea un bosque de usuarios con el nombre DNS de *aadds.contoso.com*, con todos los usuarios sincronizados desde Azure AD:
+La siguiente plantilla de ejemplo completa de Resource Manager crea un dominio administrado de Azure AD DS y las reglas de compatibilidad de red virtual, subred y grupo de seguridad de red. Las reglas del grupo de seguridad de red son necesarias para proteger el dominio administrado y asegurarse de que el tráfico puede fluir correctamente. Se crea un bosque de usuarios con el nombre DNS de *aaddscontoso.com*, con todos los usuarios sincronizados desde Azure AD:
 
 ```json
 {
@@ -190,7 +190,7 @@ La siguiente plantilla de ejemplo completa de Resource Manager crea un dominio a
             "value": "FullySynced"
         },
         "domainName": {
-            "value": "aadds.contoso.com"
+            "value": "aaddscontoso.com"
         },
         "filteredSync": {
             "value": "Disabled"

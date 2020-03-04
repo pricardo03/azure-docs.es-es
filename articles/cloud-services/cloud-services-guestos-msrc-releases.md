@@ -10,17 +10,57 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 02/07/2020
+ms.date: 02/20/2020
 ms.author: raiye
-ms.openlocfilehash: cca79946c0537b75335eb2e64ae1fa429f2c8d18
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 5411e47494668341a952a97268affe4157e85a9a
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087235"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77506026"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se realizan para la [familia][family-explain] determinada en la que se introdujeron.
+
+## <a name="february-2020-guest-os"></a>SO invitado de febrero de 2020
+
+>[!NOTE]
+>El sistema operativo invitado de febrero se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Las revisiones siguientes se incluyen en el sistema operativo invitado de febrero. Esta lista está sujeta a cambios.
+
+| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+|  Versión 20-02 |  [4537767]  |  Internet Explorer | 2.85, 3.82, 4.75 | 11 de febrero de 2020 |
+|  Versión 20-02 |  [4537813]  |  Seguridad de Windows | 2,85 | 11 de febrero de 2020 |
+|  Versión 20-02 |  [4537794]  |  Seguridad de Windows | 3.82 | 11 de febrero de 2020 |
+|  Versión 20-02 |  [4537803]  |  Seguridad de Windows | 4.75 | 11 de febrero de 2020 |
+|  Versión 20-02 |  [4537764]  |  Actualización acumulativa más reciente (LCU) | 5.4 | 11 de febrero de 2020 |
+|  Versión 20-02 |  [4532691]  |  Actualización acumulativa más reciente (LCU) | 6.16 | 11 de febrero de 2020 |
+|  Versión 20-02 |  [4534310]  |  Acumulación mensual | 2,85 | 14 de enero de 2020 |
+|  Versión 20-02 |  [4536952]  |  Actualización de la pila de servicio (SSU) | 2,85 | 14 de enero de 2020 |
+|  Versión 20-02 |  [4537829]  |  Actualización de la pila de servicio (SSU) | 2,85 | 11 de febrero de 2020 |
+|  Versión 20-02 |  [4538483]  |  Actualizaciones de seguridad ampliada (ESU) | 2,85 | 11 de febrero de 2020 |
+|  Versión 20-02 |  [4537820]  |  Acumulación mensual | 2,85 | 11 de febrero de 2020 |
+|  Versión 20-02 |  [4537759]  |  Actualización de seguridad (Flash) | 3.82, 4.75 | 11 de febrero de 2020 |
+|  Versión 20-02 |  [4534283]  |  Acumulación mensual | 3.82 | 14 de enero de 2020 |
+|  Versión 20-02 |  [4532920]  |  Actualización de la pila de servicio (SSU) | 3.82 | 10 de diciembre de 2020 |
+|  Versión 20-02 |  [4534297]  |  No relacionada con la seguridad | 4.75 | 14 de enero de 2020 |
+
+[4537767]: https://support.microsoft.com/kb/4537767
+[4537813]: https://support.microsoft.com/kb/4537813
+[4537794]: https://support.microsoft.com/kb/4537794
+[4537803]: https://support.microsoft.com/kb/4537803
+[4537764]: https://support.microsoft.com/kb/4537764
+[4532691]: https://support.microsoft.com/kb/4532691
+[4534310]: https://support.microsoft.com/kb/4534310
+[4536952]: https://support.microsoft.com/kb/4536952
+[4537829]: https://support.microsoft.com/kb/4537829
+[4538483]: https://support.microsoft.com/kb/4538483
+[4537820]: https://support.microsoft.com/kb/4537820
+[4537759]: https://support.microsoft.com/kb/4537759
+[4534283]: https://support.microsoft.com/kb/4534283
+[4532920]: https://support.microsoft.com/kb/4532920
+[4534297]: https://support.microsoft.com/kb/4534297
+
 
 ## <a name="january-2020-guest-os"></a>Sistema operativo invitado de enero de 2020
 

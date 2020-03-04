@@ -1,23 +1,23 @@
 ---
-title: Alta disponibilidad de SAP HANA en máquinas virtuales de Azure en SUSE Linux Enterprise Server | Microsoft Docs
+title: Alta disponibilidad de SAP HANA en máquinas virtuales de Azure en SLES | Microsoft Docs
 description: Alta disponibilidad de SAP HANA en máquinas virtuales de Azure en SUSE Linux Enterprise Server
 services: virtual-machines-linux
 documentationcenter: ''
-author: MSSedusch
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/06/2019
-ms.author: sedusch
-ms.openlocfilehash: ffa2f937a14aa14750480d1c45498fb4c49fcc30
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.author: radeltch
+ms.openlocfilehash: 65ba7c0d8115e7125f1318e7fdca979cfab02474
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721507"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565849"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidad de SAP HANA en máquinas virtuales de Azure en SUSE Linux Enterprise Server
 
@@ -159,20 +159,20 @@ Para implementar la plantilla, siga estos pasos:
       1. Seleccione **TCP** como protocolo y el puerto 625**03**. Mantenga el valor de **Intervalo** en 5 y el valor de **Umbral incorrecto** en 2.
       1. Seleccione **Aceptar**.
    
-   1. A continuación, cree las reglas de equilibrio de carga:
+   1. Luego cree las reglas de equilibrio de carga:
    
       1. Abra el equilibrador de carga, seleccione **Reglas de equilibrio de carga** y haga clic en **Agregar**.
       1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **hana-lb**).
-      1. Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que creó anteriormente (por ejemplo, **hana-frontend**, **hana-backend** y **hana-hp**).
-      1. Seleccione **Puertos de alta disponibilidad**.
+      1. Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que ha creado anteriormente (por ejemplo, **hana-frontend**, **hana-backend** y **hana-hp**).
+      1. Seleccione **Puertos HA**.
       1. Aumente el **tiempo de espera de inactividad** a 30 minutos.
       1. Asegúrese de **habilitar la dirección IP flotante**.
       1. Seleccione **Aceptar**.
 
    > [!Note]
-   > Cuando las máquinas virtuales sin direcciones IP públicas se colocan en el grupo de back-end de Azure Standard Load Balancer interno (sin dirección IP pública), no habrá conectividad saliente de Internet, a menos que se realice una configuración adicional para permitir el enrutamiento a puntos de conexión públicos. Para obtener más información sobre cómo obtener conectividad saliente, consulte [Conectividad de punto de conexión público para máquinas virtuales con Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+   > Cuando las máquinas virtuales sin direcciones IP públicas se colocan en el grupo de back-end de Standard Load Balancer interno (sin dirección IP pública), no hay conectividad saliente de Internet, a menos que se realice una configuración adicional para permitir el enrutamiento a puntos de conexión públicos. Para obtener más información sobre cómo obtener conectividad saliente, vea [Conectividad de punto de conexión público para máquinas virtuales con Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
-1. Como alternativa, si el escenario dicta el uso de un equilibrador de carga básico, siga estos pasos de configuración:
+1. Como alternativa, si el escenario dicta el uso de Basic Load Balancer, siga estos pasos de configuración:
    1. Primero, cree un grupo de direcciones IP de front-end:
    
       1. Abra el equilibrador de carga, seleccione **frontend IP pool** (Grupo de direcciones IP de front-end) y haga clic en **Agregar**.

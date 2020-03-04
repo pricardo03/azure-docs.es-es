@@ -1,5 +1,5 @@
 ---
-title: Implementación de un sistema de escalabilidad horizontal de SAP HANA con nodo en espera en VM de Azure mediante Azure NetApp Files en SUSE Linux Enterprise Server | Microsoft Docs
+title: Escalabilidad horizontal de SAP HANA con modo de espera mediante Azure NetApp Files en SLES | Microsoft Docs
 description: Guía de alta disponibilidad de SAP NetWeaver en SUSE Linux Enterprise Server con Azure NetApp Files para las aplicaciones de SAP
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/10/2020
 ms.author: radeltch
-ms.openlocfilehash: 243bbd431b7332d06a4e14581aa5c02bae2b7cba
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: c594ef3a62d45fb68002ec2b21fb89115f7a30af
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896293"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565815"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Implementación de un sistema de escalabilidad horizontal de SAP HANA con nodo en espera en VM de Azure mediante Azure NetApp Files en SUSE Linux Enterprise Server 
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: iainfou
-ms.openlocfilehash: dddbc15a80fe741b9ad1634aac18cb13819dc235
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: ee85002aea962dfa675ac6c09a6bfbaeba8e9e79
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704425"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613222"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Habilitación de Azure Active Directory Domain Services mediante PowerShell
 
@@ -26,7 +26,7 @@ En este artículo se muestra cómo habilitar Azure AD DS con PowerShell.
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este artículo, necesita los siguientes recursos:
 
@@ -64,7 +64,7 @@ New-AzureADGroup -DisplayName "AAD DC Administrators" `
 
 Con este grupo creado, agregue un usuario al grupo con el cmdlet [Add-AzureADGroupMember][Add-AzureADGroupMember]. Primero obtendrá el identificador de objeto del grupo *Administradores de controlador de dominio de AAD* con el cmdlet [Get-AzureADGroup][Get-AzureADGroup] y, luego, el identificador de objeto del usuario deseado con el cmdlet [Get-AzureADUser][Get-AzureADUser].
 
-En el ejemplo siguiente, el identificador de objeto de usuario de la cuenta con un UPN de `admin@contoso.onmicrosoft.com`. Reemplace esta cuenta de usuario por el UPN del usuario que quiere agregar al grupo *Administradores de controlador de dominio de AAD*:
+En el ejemplo siguiente, el identificador de objeto de usuario de la cuenta con un UPN de `admin@aaddscontoso.onmicrosoft.com`. Reemplace esta cuenta de usuario por el UPN del usuario que quiere agregar al grupo *Administradores de controlador de dominio de AAD*:
 
 ```powershell
 # First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
@@ -74,7 +74,7 @@ $GroupObjectId = Get-AzureADGroup `
 
 # Now, retrieve the object ID of the user you'd like to add to the group.
 $UserObjectId = Get-AzureADUser `
-  -Filter "UserPrincipalName eq 'admin@contoso.onmicrosoft.com'" | `
+  -Filter "UserPrincipalName eq 'admin@aaddscontoso.onmicrosoft.com'" | `
   Select-Object ObjectId
 
 # Add the user to the 'AAD DC Administrators' group.
@@ -128,7 +128,7 @@ $Vnet= New-AzVirtualNetwork `
 
 ## <a name="create-an-azure-ad-ds-managed-domain"></a>Creación de un dominio administrado de Azure AD DS
 
-Ahora vamos a crear un dominio administrado de Azure AD DS. Establezca el identificador de la suscripción de Azure y, luego, proporcione un nombre al dominio administrado, como *aadds.contoso.com*. Puede obtener el identificador de la suscripción con el cmdlet [Get-AzSubscription][Get-AzSubscription].
+Ahora vamos a crear un dominio administrado de Azure AD DS. Establezca el identificador de la suscripción de Azure y luego proporcione un nombre para el dominio administrado, como *aaddscontoso.com*. Puede obtener el identificador de la suscripción con el cmdlet [Get-AzSubscription][Get-AzSubscription].
 
 Si elige una región que admite zonas de disponibilidad, los recursos de Azure AD DS se distribuyen entre las zonas para conseguir redundancia adicional.
 
@@ -138,7 +138,7 @@ No es necesario realizar ninguna configuración para que Azure AD DS se distri
 
 ```powershell
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-$ManagedDomainName = "aadds.contoso.com"
+$ManagedDomainName = "aaddscontoso.com"
 
 # Enable Azure AD Domain Services for the directory.
 New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
@@ -167,12 +167,12 @@ El siguiente script completo de PowerShell combina todas las tareas que se muest
 
 ```powershell
 # Change the following values to match your deployment.
-$AaddsAdminUserUpn = "admin@contoso.onmicrosoft.com"
+$AaddsAdminUserUpn = "admin@aaddscontoso.onmicrosoft.com"
 $ResourceGroupName = "myResourceGroup"
 $VnetName = "myVnet"
 $AzureLocation = "westus"
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-$ManagedDomainName = "aadds.contoso.com"
+$ManagedDomainName = "aaddscontoso.com"
 
 # Connect to your Azure AD directory.
 Connect-AzureAD

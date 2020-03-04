@@ -1,29 +1,27 @@
 ---
 title: 'Archivos de SharePoint: QnA Maker'
-titleSuffix: Azure Cognitive Services
 description: Agregue orígenes de datos protegidos de SharePoint a la base de conocimiento para enriquecerla con preguntas y respuestas que se pueden proteger con Active Directory.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/24/2019
-ms.author: diberry
-ms.openlocfilehash: e28f144c33cbdf253603cb38ca56a4d304afd474
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/20/2020
+ms.openlocfilehash: 402d8239ee9fbac01e64e3624a7e4d8a13f2e7d8
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843299"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650442"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Adición de un origen de datos protegido de SharePoint a la base de conocimiento
 
-Agregue orígenes de datos protegidos de SharePoint a la base de conocimiento para enriquecerla con preguntas y respuestas que se pueden proteger con Active Directory.
+Agregue orígenes de datos basados en la nube de SharePoint protegidos a la base de conocimiento para enriquecerla con preguntas y respuestas que se pueden proteger con Azure Active Directory.
 
 Cuando se agrega un documento protegido de SharePoint a la base de conocimiento, como el Administrador de QnA Maker, debe solicitar permiso de Active Directory para QnA Maker. Una vez que se concede este permiso desde el administrador de Active Directory a QnA Maker para acceder a SharePoint, no se tiene que conceder otra vez. Las adiciones posteriores de documentos a la base de conocimiento no necesitarán autorización si se encuentran en el mismo recurso de SharePoint.
 
 Si el administrador de base de conocimiento de QnA Maker no es el administrador de Active Directory, deberá comunicar con el administrador de Active Directory para finalizar este proceso.
+
+## <a name="prerequisites"></a>Prerrequisitos
+
+* SharePoint basado en la nube: QnA Maker usa Microsoft Graph para los permisos. Si SharePoint es local, no podrá realizar extracciones de SharePoint, porque Microsoft Graph no podrá determinar los permisos.
+* Formato de dirección URL: QnA Maker solo admite direcciones URL de SharePoint que se generan para compartir y tienen el formato https://*.sharepoint.com.
 
 ## <a name="add-supported-file-types-to-knowledge-base"></a>Adición de tipos de archivo compatibles a la base de conocimiento
 

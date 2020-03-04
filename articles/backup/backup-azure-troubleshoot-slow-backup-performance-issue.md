@@ -4,12 +4,12 @@ description: Le proporciona una guía para solucionar problemas que le ayudará 
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 01fff1d970a76d0d4d38c2536b41d58a4db301c8
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: f8988d3df7f61d2fce4c8fa5b49e42e872c185b8
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198630"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603144"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Solución de problemas de lentitud en la copia de seguridad de archivos y carpetas en Azure Backup
 
@@ -44,7 +44,7 @@ También recomendamos encarecidamente que revise el artículo [P+F de servicio d
 
 Los cuellos de botella del equipo en el que se realiza la copia de seguridad pueden provocar retrasos. Por ejemplo, la capacidad del equipo para leer o escribir en el disco, o el ancho de banda disponible para enviar datos a través de la red pueden provocar cuellos de botella.
 
-Windows proporciona una herramienta integrada que se denomina [Monitor de rendimiento de](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Perfmon) para detectar cuellos de botella.
+Windows proporciona una herramienta integrada llamada [Monitor de rendimiento](h https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481) (Perfmon) para detectar estos cuellos de botella.
 
 Estos son algunos contadores de rendimiento e intervalos que pueden resultar útiles para diagnosticar cuellos de botella, con el fin de que las copias de seguridad sean óptimas.
 
