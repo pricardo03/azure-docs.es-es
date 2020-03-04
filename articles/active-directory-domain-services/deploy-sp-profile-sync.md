@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: f51744d79d34b734c9cc24cf72785a076a91a4f5
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 9d983015927d2635f69a327a9c5b168056542519
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509060"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613856"
 ---
 # <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>Configuración de Azure Active Directory Domain Services para admitir la sincronización de perfiles de usuario para SharePoint Server
 
@@ -62,7 +62,7 @@ Desde la máquina virtual de administración de Azure AD DS, realice los sigui
 
 1. En la pantalla Inicio, seleccione **Herramientas administrativas**. Se muestra una lista de las herramientas de administración disponibles que se instalaron en el tutorial para [crear una máquina virtual de administración][tutorial-create-management-vm].
 1. Para administrar la pertenencia a un grupo, seleccione **Centro de administración de Active Directory** de la lista de herramientas administrativas.
-1. En el panel izquierdo, elija el dominio administrado de Azure AD DS como, por ejemplo, *aadds.contoso.com*. Aparecerá una lista de las unidades organizativas y los recursos existentes.
+1. En el panel izquierdo, seleccione el dominio administrado de Azure AD DS, como *aaddscontoso.com*. Aparecerá una lista de las unidades organizativas y los recursos existentes.
 1. Seleccione la unidad organizativa **Usuarios** y elija el grupo de seguridad *AAD DC Service Accounts* (Cuentas de servicio del controlador de dominio de AAD).
 1. Seleccione **Miembros** y elija **Agregar...**
 1. Escriba el nombre de la cuenta de servicio de SharePoint y seleccione **Aceptar**. En el ejemplo siguiente, la cuenta de servicio de SharePoint se denomina *spadmin*:

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: 398da52ba424c08bd1bbdc6f02641109e136f45c
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 0aa62a76727f6f913c277100d8c5b36ed1b00110
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72511522"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77618488"
 ---
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -23,7 +23,7 @@ Un grupo de recursos es un contenedor lógico en el que se implementan y se admi
 
 Cree un grupo de recursos mediante el comando [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) de la CLI de Azure, el comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) de Azure PowerShell o bien desde [Azure Portal](https://portal.azure.com).
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" --location eastus
@@ -44,7 +44,7 @@ Cree un almacén de claves mediante el comando [az keyvault create](/cli/azure/k
 
 Cada instancia de Key Vault debe tener un nombre único. Reemplace <nombre-almacén de claves-único> por el nombre del almacén de claves en los ejemplos siguientes.
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 Al crear un almacén de claves mediante la CLI de Azure, agregue la marca "--enabled-for-disk-encryption".
 
@@ -73,7 +73,7 @@ La plataforma Azure necesita acceso a las claves de cifrado o secretos del almac
 
 Si no ha habilitado el almacén de claves para el cifrado de discos, la implementación o la implementación de plantillas en el momento de la creación (como se muestra en el paso anterior), debe actualizar sus directivas de acceso avanzadas.  
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) para habilitar el cifrado de disco para el almacén de claves. 
 
@@ -143,7 +143,7 @@ Azure Disk Encryption no admite la especificación de números de puerto como pa
   * Dirección URL de almacén de claves aceptable: *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
   * Dirección URL de almacén de claves inaceptable *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 Use el comando [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) de la CLI de Azure para generar una clave de cifrado de claves y almacenarla en el almacén de claves.
 

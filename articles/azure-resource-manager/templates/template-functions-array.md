@@ -3,12 +3,12 @@ title: 'Funciones de plantillas: matrices y objetos'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para trabajar con matrices y objetos.
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: a38ab0fb2ddb15c3e853ae1b249df9a8364c6910
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 1359951c00ba04e641ae84636459a8836924c729
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207373"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591190"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funciones de matriz y de objeto para las plantillas de Azure Resource Manager
 
@@ -1067,7 +1067,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ## <a name="range"></a>range
 
-`range(startingInteger, numberOfElements)`
+`range(startIndex, count)`
 
 Crea una matriz de enteros a partir de un entero de inicio y contiene un número de elementos.
 
@@ -1075,8 +1075,8 @@ Crea una matriz de enteros a partir de un entero de inicio y contiene un número
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
-| startingInteger |Sí |int |El primer entero de la matriz. |
-| numberofElements |Sí |int |El número de enteros en la matriz. |
+| startIndex |Sí |int |El primer entero de la matriz. La suma de startIndex y count no debe ser mayor que 2 147 483 647. |
+| count |Sí |int |El número de enteros en la matriz. Debe ser un entero no negativo de hasta 10 000. |
 
 ### <a name="return-value"></a>Valor devuelto
 

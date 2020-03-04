@@ -6,19 +6,16 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 99ccd00dbcea7f8eaed2e8e51a64b89c1e0b42a2
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: b60a30e5e30ee81cbaca7d5e4691ccedac2462b6
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028835"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598177"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configuración de un dispositivo para servidores físicos
 
 En este artículo se describe cómo configurar el dispositivo de Azure Migrate si está evaluando los servidores físicos con Azure Migrate: Server Assessment.
-
-> [!NOTE]
-> Si aquí se mencionan características que aún no aparecen en el portal de Azure Migrate, espere. Aparecerán aproximadamente la semana siguiente.
 
 El dispositivo de Azure Migrate es un dispositivo ligero que Azure Migrate Server Assessment usa para lo siguiente:
 
@@ -44,7 +41,7 @@ Descargue el archivo comprimido del dispositivo.
 2. En **Detectar máquinas** >  **¿Las máquinas están virtualizadas?** , haga clic en **No virtualizado/Otro**.
 3. Haga clic en **Descargar** para descargar el archivo comprimido.
 
-    ![Descargar máquina virtual](./media/how-to-set-up-appliance-hyper-v/download-appliance-hyperv.png)
+    ![Descargar máquina virtual](./media/tutorial-assess-physical/download-appliance.png)
 
 
 ### <a name="verify-security"></a>Comprobación de la seguridad
@@ -55,12 +52,7 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 2. Ejecute el siguiente comando para generar el código hash del disco duro virtual.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Ejemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  El código hash generado debe coincidir con esta configuración para la versión más reciente del dispositivo.
-
-  **Algoritmo** | **Valor del código hash**
-  --- | ---
-  MD5 | 96fd99581072c400aa605ab036a0a7c0
-  SHA256 | f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
+3.  El código hash generado debe coincidir con esta [configuración](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical#verify-security) en la versión más reciente del dispositivo.
 
 
 
@@ -80,13 +72,16 @@ Ejecute el script como se indica a continuación:
 1. Extraiga el archivo comprimido en la carpeta del servidor que hospedará el dispositivo.
 2. Inicie PowerShell en el servidor anterior con privilegios administrativos (elevados).
 3. Cambie el directorio de PowerShell a la carpeta en la que se ha extraído el contenido del archivo comprimido descargado.
-4. Para ejecutar el script, ejecute el comando siguiente:
+4. Ejecute el script denominado **AzureMigrateInstaller.ps1** ejecutando el comando siguiente:
     ```
-    AzureMigrateInstaller.ps1
+    PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
     ```
 El script iniciará la aplicación web del dispositivo cuando finalice correctamente.
 
+En caso de que surja algún problema, puede acceder a los registros de script en C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log para solucionarlos.
 
+> [!NOTE]
+> No ejecute el script del instalador de Azure Migrate en un dispositivo de Azure Migrate existente.
 
 ### <a name="verify-appliance-access-to-azure"></a>Comprobación de que el dispositivo puede acceder a Azure
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: b2c59fd6ee925d531a5a5ff3bb26fdebea025b83
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: c5acc9637fe5afe8f7dd32d23fbdbb80373b4f61
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513565"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539389"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Acerca de Mobility Service para máquinas virtuales VMware y servidores físicos
 
@@ -21,6 +21,9 @@ Al configurar la recuperación ante desastres para máquinas virtuales VMware y 
 - [Instalación de inserción](#push-installation): Site Recovery instala el agente de movilidad en el servidor al habilitarse la protección a través de Azure Portal.
 - Instalación manual: puede instalar Mobility Service manualmente en cada máquina a través de la [interfaz de usuario](#install-mobility-agent-through-ui) o el [símbolo del sistema](#install-mobility-agent-through-command-prompt).
 - [Implementación automatizada](vmware-azure-mobility-install-configuration-mgr.md): puede automatizar la instalación con herramientas de implementación de software como Configuration Manager.
+
+> [!NOTE]
+> El agente de movilidad usa aproximadamente entre un 6 y un 10 % de memoria en máquinas de origen para máquinas físicas o máquinas virtuales de VMware.
 
 ## <a name="anti-virus-on-replicated-machines"></a>Antivirus en máquinas replicadas
 
@@ -35,7 +38,7 @@ La instalación de inserción es una parte integral del trabajo "[Habilitar repl
 
 Se han descrito detalles del flujo de trabajo de instalación de inserción en las siguientes secciones.
 
-### <a name="from-923-versionhttpssupportmicrosoftcomen-inhelp4494485update-rollup-35-for-azure-site-recovery-onwards"></a>A partir de la [versión 9.23](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery)
+### <a name="from-923-version-onwards"></a>A partir de la [versión 9.23](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery)
 
 Durante la instalación de inserción del agente de movilidad, se realizan los siguientes pasos:
 
@@ -73,7 +76,7 @@ Durante la instalación de inserción del agente de movilidad, se realizan los s
 
     ![Página de registro de Mobility Service](./media/vmware-physical-mobility-service-install-manual/mobility3.png)
 
-5. En **Configuration Server Details** (Detalles del servidor de configuración), especifique la dirección IP y la frase de contraseña que ha configurado.  
+5. En **Configuration Server Details** (Detalles del servidor de configuración), especifique la dirección IP y la frase de contraseña que ha configurado.
 
     ![Página de registro de Mobility Service](./media/vmware-physical-mobility-service-install-manual/mobility4.png)
 

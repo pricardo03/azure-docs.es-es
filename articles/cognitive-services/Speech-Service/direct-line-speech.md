@@ -3,37 +3,37 @@ title: 'Direct Line Speech: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Introducción a las características, las funcionalidades y las restricciones de los asistentes de voz mediante Direct Line Speech con el kit de desarrollo de software (SDK) de Voz.
 services: cognitive-services
-author: trrwilson
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/05/2019
-ms.author: travisw
-ms.openlocfilehash: cec3131d791d591375fd87d1c080294c9034a815
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 01/31/2020
+ms.author: dapine
+ms.openlocfilehash: 230fbd14ce33b52b1e7a1f9cc9cd530ccdec169a
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806225"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562537"
 ---
 # <a name="about-direct-line-speech"></a>Acerca de Direct Line Speech
 
-[Los asistentes de voz](voice-assistants.md) escuchan a los usuarios y realizan una acción en respuesta, lo que a menudo implica una respuesta. Utilizan [conversión de voz en texto](speech-to-text.md) para transcribir la voz del usuario y, a continuación, realizan una acción en función de su comprensión del lenguaje natural del texto. Esta acción suele incluir una respuesta hablada del asistente generada con la [conversión de texto en voz](text-to-speech.md). Los dispositivos se conectan con los asistentes mediante el objeto `DialogServiceConnector` del SDK de Voz.
+**Direct Line Speech** es una solución sólida de un extremo a otro para crear un asistente de voz flexible y extensible. Se basa en la tecnología de Bot Framework y su canal Direct Line Speech, que está optimizado para la interacción de voz de entrada y salida con bots.
 
-**Direct Line Speech** es una solución sólida y completa para crear un asistente de voz flexible y extensible, con la tecnología de Bot Framework y su canal de Direct Line Speech, que está optimizado para la interacción de conversaciones con bots.
+[Los asistentes de voz](voice-assistants.md) escuchan a los usuarios y realizan una acción en respuesta, lo que a menudo implica una respuesta. Utilizan [conversión de voz en texto](speech-to-text.md) para transcribir la voz del usuario y, a continuación, realizan una acción en función de su comprensión del lenguaje natural del texto. Esta acción suele incluir una respuesta hablada del asistente generada con la [conversión de texto en voz](text-to-speech.md).
 
-Direct Line Speech ofrece los niveles más altos de personalización y sofisticación para los asistentes de voz. Es adecuado para escenarios de conversaciones no estructuradas, naturales o híbridas con la finalización de tareas o el uso de comandos y controles. Este alto grado de flexibilidad implica una mayor complejidad y los escenarios que se limitan a tareas bien definidas mediante la entrada de lenguaje natural quizá prefieran considerar los [comandos personalizados (versión preliminar)](custom-commands.md) para una experiencia de solución simplificada.
+Direct Line Speech ofrece los niveles más altos de personalización y sofisticación para los asistentes de voz. Está diseñado para escenarios de conversaciones no estructuradas, naturales o híbridas con finalización de tareas o uso de comandos y controles. Este alto grado de flexibilidad implica una mayor complejidad y los escenarios que se limitan a tareas bien definidas mediante la entrada de lenguaje natural quizá prefieran considerar los [comandos personalizados (versión preliminar)](custom-commands.md) para una experiencia de solución simplificada.
 
 ## <a name="getting-started-with-direct-line-speech"></a>Introducción a Direct Line Speech
 
-Los primeros pasos para crear un asistente de voz con Direct Line Speech son [obtener una clave de suscripción de voz](get-started.md), crear un nuevo bot asociado a esa suscripción y conectar el bot al canal de Direct Line Speech.
+Los primeros pasos para crear un asistente de voz con Direct Line Speech son [obtener una clave de suscripción de voz](get-started.md), crear un nuevo bot asociado a esa suscripción y conectar el bot al canal Direct Line Speech.
 
-   ![Diagrama conceptual del flujo de servicio de orquestación de Direct Line Speech](media/voice-assistants/overview-directlinespeech.png "El flujo del canal de voz")
+   ![Diagrama conceptual del flujo de servicio de orquestación de Direct Line Speech](media/voice-assistants/overview-directlinespeech.png "El flujo de canales de voz")
 
-Para obtener una guía paso a paso completa sobre la creación de un asistente de voz sencillo mediante Direct Line Speech, consulte [el tutorial para habilitar el bot con voz mediante el SDK de voz y el canal de Direct Line Speech](tutorial-voice-enable-your-bot-speech-sdk.md).
+Para obtener una completa guía paso a paso sobre la creación de un asistente de voz sencillo mediante Direct Line Speech, vea [el tutorial para habilitar la voz en un bot mediante el SDK de voz y el canal Direct Line Speech](tutorial-voice-enable-your-bot-speech-sdk.md).
 
-También se ofrecen inicios rápidos diseñados para que ejecute el código en menos de 10 minutos. Esta tabla incluye una lista de inicios rápidos para asistente de voz ordenados por idioma.
+También se ofrecen inicios rápidos diseñados para que ejecute código y conozca las API rápidamente. Esta tabla incluye una lista de inicios rápidos sobre el asistente de voz organizados por idioma y plataforma.
 
 | Guía de inicio rápido | Plataforma | Referencia de API |
 |------------|----------|---------------|
@@ -59,7 +59,7 @@ Direct Line Speech y su funcionalidad asociada para los asistentes de voz consti
 
 ## <a name="reference-docs"></a>Documentos de referencia
 
-* [Speech SDK](speech-sdk-reference.md)
+* [Acerca del SDK de Voz](speech-sdk-reference.md)
 * [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
 
 ## <a name="next-steps"></a>Pasos siguientes

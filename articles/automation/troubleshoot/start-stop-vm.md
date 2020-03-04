@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aa71e1e6b58906953dfa22d08405c05c10c83242
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 44de5878dcc39e09adf24f69b883a29370f00b48
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75966683"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505731"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Solución de problemas de la solución Start/Stop VMs during off-hours
 
@@ -110,7 +110,7 @@ Revise la siguiente lista de posibles soluciones para su problema o para saber d
   * ScheduledStartStop_Parent
   * SequencedStartStop_Parent
 
-* Verifique que su [cuenta de ejecución](../manage-runas-account.md) tiene los permisos adecuados para las máquinas virtuales que intenta iniciar o detener. Para obtener información sobre cómo comprobar los permisos para un recurso, vea [Guía de inicio rápido: Visualización de los roles asignados a un usuario mediante Azure Portal](../../role-based-access-control/check-access.md). Deberá proporcionar el identificador de la aplicación para la entidad de servicio utilizada por la cuenta de ejecución. Para obtener este valor, vaya a la cuenta de Automation en Azure Portal, seleccione **Cuentas de ejecución** en **Configuración de cuenta** y haga clic en la cuenta de ejecución apropiada.
+* Verifique que su [cuenta de ejecución](../manage-runas-account.md) tiene los permisos adecuados para las máquinas virtuales que intenta iniciar o detener. Para obtener información sobre cómo comprobar los permisos para un recurso, vea [Guía de inicio rápido: Visualización de los roles asignados a un usuario mediante Azure Portal](../../role-based-access-control/check-access.md). Debe proporcionar el identificador de aplicación de la entidad de servicio usada por la cuenta de ejecución. Para obtener este valor, vaya a la cuenta de Automation en Azure Portal, seleccione **Cuentas de ejecución** en **Configuración de cuenta** y haga clic en la cuenta de ejecución apropiada.
 
 * Las máquinas virtuales no pueden iniciarse o detenerse en caso de que se hayan excluido de forma explícita. Las máquinas virtuales excluidas se definen en la variable **External_ExcludeVMNames** en la cuenta de Automation en la que está implementada la solución. El ejemplo siguiente, se muestra cómo se puede consultar ese valor con PowerShell.
 
@@ -149,9 +149,9 @@ Revise la siguiente lista de posibles soluciones para su problema o para saber d
   Get-AzureRmAutomationVariable -Name External_ExcludeVMNames -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName> | Select-Object Value
   ```
 
-* Para iniciar y detener máquinas virtuales, la cuenta de ejecución de la cuenta de Automation debe tener los permisos apropiados para la máquina virtual. Para obtener información sobre cómo comprobar los permisos para un recurso, vea [Guía de inicio rápido: Visualización de los roles asignados a un usuario mediante Azure Portal](../../role-based-access-control/check-access.md). Deberá proporcionar el identificador de la aplicación para la entidad de servicio utilizada por la cuenta de ejecución. Para obtener este valor, vaya a la cuenta de Automation en Azure Portal, seleccione **Cuentas de ejecución** en **Configuración de cuenta** y haga clic en la cuenta de ejecución apropiada.
+* Para iniciar y detener máquinas virtuales, la cuenta de ejecución de la cuenta de Automation debe tener los permisos apropiados para la máquina virtual. Para obtener información sobre cómo comprobar los permisos para un recurso, vea [Guía de inicio rápido: Visualización de los roles asignados a un usuario mediante Azure Portal](../../role-based-access-control/check-access.md). Debe proporcionar el identificador de aplicación de la entidad de servicio usada por la cuenta de ejecución. Para obtener este valor, vaya a la cuenta de Automation en Azure Portal, seleccione **Cuentas de ejecución** en **Configuración de cuenta** y haga clic en la cuenta de ejecución apropiada.
 
-* Si la máquina virtual presenta algún problema para iniciarse o desasignarse, este comportamiento puede deberse a algún problema en la propia máquina virtual. Entre algunos ejemplos o posibles problemas destacan la aplicación en curso de alguna actualización al intentar apagar, el bloqueo de un servicio, etc. Vaya al recurso de máquina virtual y consulte los **registros de actividad** para ver si en ellos se ha identificado algún error. También puede intentar iniciar sesión en la máquina virtual para ver si existe algún error en los registros de eventos. Para más información sobre la solución de problemas de la máquina virtual, vea [Solución de problemas de máquinas virtuales de Azure](../../virtual-machines/troubleshooting/index.md)
+* Si la máquina virtual presenta algún problema para iniciarse o desasignarse, este comportamiento puede deberse a algún problema en la propia máquina virtual. Entre algunos ejemplos o posibles problemas destacan la aplicación en curso de alguna actualización al intentar apagar, el bloqueo de un servicio, etc. Vaya al recurso de máquina virtual y consulte los **registros de actividad** para ver si en ellos se ha identificado algún error. También puede intentar iniciar sesión en la máquina virtual para ver si existe algún error en los registros de eventos. Para más información sobre la solución de problemas de la máquina virtual, vea [Solución de problemas de máquinas virtuales de Azure](../../virtual-machines/troubleshooting/index.yml)
 
 * Compruebe los [flujos de trabajo](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) para buscar errores. En Azure Portal, vaya a la cuenta de Automation y seleccione **Trabajos** en **Automatización de procesos**.
 
@@ -207,7 +207,7 @@ Si la cuenta de ejecución está [mal configurada](../manage-runas-account.md#mi
 
 Si el certificado de la cuenta de ejecución ha expirado, siga los pasos de [Renovación de certificado autofirmado](../manage-runas-account.md#cert-renewal) para renovarlo.
 
-El problema puede deberse a la falta de permisos. Para obtener información sobre cómo comprobar los permisos para un recurso, vea [Guía de inicio rápido: Visualización de los roles asignados a un usuario mediante Azure Portal](../../role-based-access-control/check-access.md). Deberá proporcionar el identificador de la aplicación para la entidad de servicio utilizada por la cuenta de ejecución. Para obtener este valor, vaya a la cuenta de Automation en Azure Portal, seleccione **Cuentas de ejecución** en **Configuración de cuenta** y haga clic en la cuenta de ejecución apropiada.
+El problema puede deberse a la falta de permisos. Para obtener información sobre cómo comprobar los permisos para un recurso, vea [Guía de inicio rápido: Visualización de los roles asignados a un usuario mediante Azure Portal](../../role-based-access-control/check-access.md). Debe proporcionar el identificador de aplicación de la entidad de servicio usada por la cuenta de ejecución. Para obtener este valor, vaya a la cuenta de Automation en Azure Portal, seleccione **Cuentas de ejecución** en **Configuración de cuenta** y haga clic en la cuenta de ejecución apropiada.
 
 ## <a name="other"></a>Escenario: Mi problema no se ha indicado anteriormente
 

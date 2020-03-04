@@ -1,6 +1,6 @@
 ---
-title: Creación de redes VLAN y subredes
-description: 'Azure VMware Solutions (AVS): describe cómo crear y administrar redes VLAN y subredes para las nubes privadas de AVS y luego aplicar reglas de firewall.'
+title: 'Creación de redes VLAN y subredes: Azure VMware Solution by CloudSimple'
+description: 'Azure VMware Solution by CloudSimple: se describe cómo crear y administrar redes VLAN y subredes para las nubes privadas y luego aplicar reglas de firewall.'
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -8,26 +8,26 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 249c48500dbcd75f62f856b3345b3a2c02502d1a
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: c0160513eb9abca54adbc3819b982348dc202c90
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024779"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566002"
 ---
-# <a name="create-and-manage-vlanssubnets-for-your-avs-private-clouds"></a>Creación y administración de redes VLAN y subredes para las nubes privadas de AVS
+# <a name="create-and-manage-vlanssubnets-for-your-private-clouds"></a>Creación y administración de redes VLAN y subredes para las nubes privadas
 
-Abra la pestaña VLAN o subredes en la página Red para crear y administrar VLAN o subredes para las nubes privadas de AVS. Después de crear una VLAN o subred, puede aplicar reglas de firewall.
+Abra la pestaña VLANs/Subnets (Redes VLAN o subredes) en la página Network (Red) para crear y administrar VLAN o subredes para las nubes privadas. Después de crear una VLAN o subred, puede aplicar reglas de firewall.
 
 ## <a name="create-a-vlansubnet"></a>Creación de una VLAN o subred
 
-1. [Acceda al portal de AVS](access-cloudsimple-portal.md) y seleccione **Red** en el menú lateral.
+1. [Acceda al portal de CloudSimple](access-cloudsimple-portal.md) y seleccione **Network** (Red) en el menú lateral.
 2. Seleccione **VLANs/subnets** (Redes VLAN o subredes).
 3. Haga clic en **Create VLAN/Subnet** (Crear VLAN o subred).
 
     ![Página VLAN/subnet (VLAN o subred)](media/vlan-subnet-page.png)
 
-4. Seleccione la nube privada de AVS de la nueva VLAN o subred.
+4. Seleccione la nube privada de la nueva VLAN o subred.
 5. Escriba un identificador de VLAN.
 6. Escriba el nombre de la subred.
 7. Para habilitar el enrutamiento en la VLAN (subred), especifique el intervalo de CIDR de la subred. Asegúrese de que el intervalo de CIDR no se superponga con ninguna de las subredes locales, subredes de Azure o subredes de puerta de enlace.
@@ -41,13 +41,13 @@ Abra la pestaña VLAN o subredes en la página Red para crear y administrar VLAN
 
 ## <a name="use-vlan-information-to-set-up-a-distributed-port-group-in-vsphere"></a>Uso de la información de VLAN para configurar un grupo de puertos distribuido en vSphere
 
-Para crear un grupo de puertos distribuido en vSphere, siga las instrucciones del tema de VMware "Agregar un grupo de puertos distribuido" de la <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf" target="_blank">guía de redes de vSphere</a>. Al configurar el grupo de puertos distribuido, proporcione la información de VLAN de la configuración de AVS.
+Para crear un grupo de puertos distribuido en vSphere, siga las instrucciones del tema de VMware "Agregar un grupo de puertos distribuido" de la <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf" target="_blank">guía de redes de vSphere</a>. Al configurar el grupo de puertos distribuido, proporcione la información de VLAN de la configuración de CloudSimple.
 
 ![Grupo de puertos distribuido](media/distributed-port-group.png)
 
 ## <a name="select-a-firewall-table"></a>Selección de una tabla de firewall
 
-Las tablas de firewall y las reglas asociadas se definen en la página **Network > Firewall tables** (Red > Tablas de firewall). Para seleccionar la tabla de firewall que se va a aplicar a la VLAN o subred de una nube privada de AVS, seleccione la VLAN o subred, haga clic en **Datos adjuntos de tabla de firewall** en la página **VLAN o subredes**. Consulte [Tablas de firewall](firewall.md) para obtener instrucciones sobre cómo configurar tablas de firewall y definir reglas.
+Las tablas de firewall y las reglas asociadas se definen en la página **Network > Firewall tables** (Red > Tablas de firewall). Para seleccionar la tabla de firewall que se va a aplicar a la VLAN o subred de una nube privada, seleccione la VLAN o subred, haga clic en **Firewall table attachment** (Datos adjuntos de la tabla de firewall) en la página **VLANs/Subnets** (VLAN o subredes). Consulte [Tablas de firewall](firewall.md) para obtener instrucciones sobre cómo configurar tablas de firewall y definir reglas.
 
 ![Vínculo de tabla de firewall](media/vlan-subnet-firewall-link.png)
 

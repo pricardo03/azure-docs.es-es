@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: d08c0b8817c0008a0ecfbab1a9d38243ec0bea79
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: eacbeca275192e1a68b6682c3036da2d5c09bd54
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705690"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619890"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Preguntas más frecuentes sobre Video Indexer
 
@@ -77,6 +77,14 @@ Sí, puede integrar Video Indexer en tecnologías sin servidor, como Logic Apps,
 
 Puede ver en qué regiones de Azure está disponible Video Indexer en la página [regiones](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all).
 
+### <a name="can-i-customize-video-indexer-models-for-my-specific-use-case"></a>¿Puedo personalizar los modelos de Video Indexer para mi caso de uso concreto? 
+
+Sí. En Video Indexer puede personalizar algunos de los modelos disponibles para que se adapten mejor a sus necesidades. 
+
+Por ejemplo, el modelo Person admite de serie 1 millón de caras de reconocimiento de famosos, pero también puede entrenarlo para que reconozca otras caras que no están en esa base de datos. 
+
+Para obtener detalles, vea los artículos sobre la personalización de los modelos [Person](customize-person-model-overview.md), [Brands](customize-brands-model-overview.md) y [Language](customize-language-model-overview.md). 
+
 ### <a name="what-is-the-sla-for-video-indexer"></a>¿Qué es el Acuerdo de Nivel de Servicio para Video Indexer?
 
 El Acuerdo de Nivel de Servicio de Azure Media Service abarca Video Indexer y se encuentra en la página del [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/media-services/v1_2/). El Acuerdo de Nivel de Servicio solo se aplica a las cuentas de pago de Video Indexer y no a la evaluación gratuita.
@@ -118,6 +126,21 @@ Video Indexer está cubierto por la [declaración de privacidad de Microsoft](ht
 ### <a name="what-certifications-does-video-indexer-have"></a>¿Qué certificaciones tiene Video Indexer?
 
 Video Indexer actualmente tiene la certificación SOC. Para revisar la certificación de Video Indexer, consulte [Microsoft Trust Center](https://www.microsoft.com/trustcenter/compliance/complianceofferings?product=Azure).
+
+### <a name="what-is-the-difference-between-private-and-public-videos"></a>¿Cuál es la diferencia entre los vídeos privados y públicos? 
+
+Cuando se cargan vídeos en Video Indexer, puede elegir entre dos valores de privacidad: privado y público. Los vídeos públicos son accesibles para cualquier usuario, incluidos los usuarios anónimos y no identificados. Los privados están restringidos exclusivamente a los miembros de la cuenta. 
+
+### <a name="i-tried-to-upload-a-video-as-public-and-it-was-flagged-for-inappropriate-or-offensive-content-what-does-that-mean"></a>He intentado cargar un vídeo como público y se ha marcado como contenido inadecuado u ofensivo, ¿qué significa eso? 
+
+Al cargar un vídeo en Video Indexer, los algoritmos y los modelos realizan un análisis de contenido automático con el fin de asegurarse de que no se presente públicamente ningún contenido inadecuado. Si se detecta que un vídeo es sospechoso de tener contenido explícito, no es posible establecerlo como público. Pero los miembros de la cuenta pueden acceder a él como un vídeo privado (verlo, descargar la información y los artefactos extraídos, y realizar otras operaciones disponibles para los miembros de la cuenta).   
+
+Para establecer el vídeo para acceso público, puede: 
+
+* Crear su propia capa de interfaz (como aplicación o sitio web) y usarla para interactuar con el servicio Video Indexer. De este modo, el vídeo sigue siendo privado en el portal y los usuarios pueden interactuar con él a través de su interfaz. Por ejemplo, puede seguir obteniendo la información o permitir la visualización del vídeo en su propia interfaz. 
+* Solicitar una revisión humana del contenido, lo que daría lugar a la eliminación de la restricción siempre que el contenido no sea explícito. 
+
+    Esta opción se puede contemplar si el sitio web de Video Indexer es usado directamente por los usuarios como la capa de interfaz y para visualización pública (sin autenticar). 
 
 ## <a name="api-questions"></a>Preguntas sobre la API
 

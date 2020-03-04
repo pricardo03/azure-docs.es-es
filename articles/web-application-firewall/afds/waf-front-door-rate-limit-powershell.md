@@ -5,22 +5,22 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 08/21/2019
+ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: 831d0876c67aa36248a54f3935e5ce7884c736ef
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: b034159c3d12927f6425b3dc3c5b5609af9b0b76
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186624"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649371"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configuración de una regla de límite de velocidad de Firewall de aplicaciones web con Azure PowerShell
-La regla de limitación de volumen del firewall de aplicaciones web (WAF) de Azure para Azure Front Door controla el número de solicitudes permitidas desde una IP de un solo cliente durante un minuto.
-En este artículo se muestra cómo configurar una regla de limitación de volumen de WAF que controla el número de solicitudes permitidas desde un solo cliente a una aplicación web que contiene */promo*  en la URL mediante Azure PowerShell.
+La regla de límite de frecuencia del firewall de aplicaciones web (WAF) de Azure para Azure Front Door controla el número de solicitudes permitidas desde clientes durante un minuto.
+En este artículo se muestra cómo configurar una regla de límite de frecuencia de WAF que controle el número de solicitudes permitidas desde clientes a una aplicación web que contiene */promo* en la dirección URL mediante Azure PowerShell.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Antes de empezar a configurar una directiva de limitación de velocidad, configure el entorno de PowerShell y cree un perfil de Front Door.
 ### <a name="set-up-your-powershell-environment"></a>Configuración del entorno de PowerShell
 Azure PowerShell ofrece un conjunto de cmdlets que usan el modelo [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para administrar los recursos de Azure. 
@@ -32,7 +32,7 @@ Puede instalar [Azure PowerShell](https://docs.microsoft.com/powershell/azure/ov
 Connect-AzAccount
 
 ```
-Antes de instalar el módulo de Front Door asegúrese de que tiene instalada la última versión de PowerShellGet. Ejecute el comando siguiente y vuelva a abrir PowerShell.
+Antes de instalar el módulo Front Door, asegúrese de tener instalada la versión actual de PowerShellGet. Ejecute el siguiente comando y vuelva a abrir PowerShell.
 
 ```
 Install-Module PowerShellGet -Force -AllowClobber
@@ -69,7 +69,7 @@ Establezca un límite de volumen mediante [New AzFrontDoorWafCustomRuleObject](/
 ```
 
 
-## <a name="configure-a-security-policy"></a>Configuración de la directiva de seguridad
+## <a name="configure-a-security-policy"></a>Configuración de una directiva de seguridad
 
 Busque el nombre del grupo de recursos que contiene el perfil de Front Door que usan `Get-AzureRmResourceGroup`. A continuación, configure una directiva de seguridad con una regla de limitación de volumen personalizada mediante [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) en el grupo de recursos especificado que contiene el perfil de Front Door.
 

@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: 7c4d6a01ccaeffb4042753dc0a904d970631383f
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 9b156193035d87472c462bae37e405e0317d8402
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045189"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650306"
 ---
 # <a name="vcore-model-overview"></a>Introducción al modelo de núcleos virtuales
 
@@ -89,7 +89,7 @@ Para las regiones en las que está disponible la serie Fsv2, consulte la [dispon
 - La serie M es una opción de hardware optimizado para memoria para las cargas de trabajo que exigen más memoria y mayores límites de proceso que los proporcionados por Gen5.
 - La serie M proporciona 29 GB por núcleo virtual y 128 núcleos virtuales, lo que aumenta el límite de memoria con respecto a Gen5 por 8x hasta casi 4 TB.
 
-Para habilitar el hardware de la serie M para una suscripción y región, se debe abrir una solicitud de soporte técnico. Si se aprueba la solicitud de soporte técnico, la experiencia de selección y aprovisionamiento de la serie M sigue el mismo patrón que para otras generaciones de hardware. Para ver las regiones en las que la serie M está disponible, consulte la [disponibilidad de la serie M](#m-series).
+Para habilitar hardware de la serie M para una suscripción y región, se debe abrir una solicitud de soporte técnico. La suscripción debe ser un tipo de oferta de pago, como Pago por uso o Contrato Enterprise (EA).  Si se aprueba la solicitud de soporte técnico, la experiencia de selección y aprovisionamiento de la serie M sigue el mismo patrón que para otras generaciones de hardware. Para ver las regiones en las que la serie M está disponible, consulte la [disponibilidad de la serie M](#m-series).
 
 
 ### <a name="compute-and-memory-specifications"></a>Especificaciones de memoria y proceso
@@ -142,7 +142,7 @@ En la pestaña **Aspectos básicos**, seleccione el vínculo **Configurar base d
   
 **Cambio de la generación de hardware de una instancia administrada existente**
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 En la página de instancia administrada, seleccione el vínculo **Plan de tarifa** situado en la sección Configuración.
 
@@ -150,43 +150,25 @@ En la página de instancia administrada, seleccione el vínculo **Plan de tarifa
 
 En la página **Plan de tarifa** podrá cambiar la generación de hardware como se describe en los pasos anteriores.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Use el siguiente script de PowerShell:
 
 ```powershell-interactive
-$subscriptionId = "**************"
-Select-AzSubscription -Subscription $subscriptionId
-
-$instanceName = "********"
-$resourceGroup = "****"
-
-# THIS IS IMPORTANT PARAMETER:
-$sku = @{name = "GP_Gen5" }
-
-# NOTE: These properties are not necessary, but it would be good to set them to the current values:
-# You might want to change vCores or storage with hardware generation
-# $admin_login = "******"
-# $admin_pass = "******"
-# $location = "***** # for example: ""northeurope"
-# $vCores = 8
-# $maxStorage = 1024
-# $license = "BasePrice"
-# $subnetId = "/subscriptions/****/subnets/*******"
-
-## NOTE: Uncomment some of the properties below if you have set them.
-$properties = New-Object System.Object
-# $properties | Add-Member -type NoteProperty -name subnetId -Value $subnetId
-# $properties | Add-Member -type NoteProperty -name administratorLogin -Value $admin_login
-# $properties | Add-Member -type NoteProperty -name administratorLoginPassword -Value $admin_pass
-# $properties | Add-Member -type NoteProperty -name vCores -Value $vCores
-# $properties | Add-Member -type NoteProperty -name storageSizeInGB -Value $maxStorage
-# $properties | Add-Member -type NoteProperty -name licenseType -Value $license
-
-Set-AzResource -Properties $properties -ResourceName $instanceName -ResourceType "Microsoft.SQL/managedInstances" -Sku $sku -ResourceGroupName $resourceGroup -Force -ApiVersion "2015-05-01-preview"
+Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" -ComputeGeneration Gen5
 ```
 
-Asegúrese de escribir el identificador de la suscripción, el nombre y el grupo de recursos de la instancia administrada.
+Para obtener más detalles, vea el comando [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance).
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Use el siguiente comando de la CLI:
+
+```azurecli-interactive
+az sql mi update -g mygroup -n myinstance --family Gen5
+```
+
+Para obtener más detalles, vea el comando [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update).
 
 ---
 
@@ -194,13 +176,13 @@ Asegúrese de escribir el identificador de la suscripción, el nombre y el grupo
 
 #### <a name="gen4gen5-1"></a> Gen4/Gen5
 
-Las nuevas bases de datos de Gen4 ya no se admiten en las regiones Este de Australia o Sur de Brasil. 
+El hardware de Gen4 está [en proceso de eliminación gradual](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) y ya no está disponible para las nuevas implementaciones. Todas las nuevas bases de datos deben implementarse en hardware de Gen5.
 
 Gen5 está disponible en la mayoría de las regiones de todo el mundo.
 
 #### <a name="fsv2-series"></a>Serie Fsv2
 
-La serie Fsv2 está disponible en las siguientes regiones: Centro de Australia, Centro de Australia 2, Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Asia Oriental, Asia Pacífico, Centro de Francia, Centro de la India, India occidental, Centro de Corea del Sur, Sur de Corea del Sur, Norte de Europa, Norte de Sudáfrica, Asia Suroriental, Sur de Reino Unido, Oeste de Reino Unido, Oeste de Europa, Oeste de Europa 2.
+La serie Fsv2 está disponible en las siguientes regiones: Centro de Australia, Centro de Australia 2, Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Asia, Asia Pacífico, Centro de Francia, Centro de la India, Oeste de la India, Centro de Corea del Sur, Sur de Corea del Sur, Norte de Europa, Norte de Sudáfrica, Sudeste de Asia, Sur de Reino Unido, Oeste de Reino Unido, Oeste de Europa, Oeste de Europa 2.
 
 
 #### <a name="m-series"></a>Serie M

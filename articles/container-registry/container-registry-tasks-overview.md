@@ -2,13 +2,13 @@
 title: Introducción a ACR Tasks
 description: Una introducción a ACR Tasks, un conjunto de características de Azure Container Registry que proporciona compilaciones de imágenes de contenedor, administración y aplicación de revisiones automatizadas y seguras en la nube.
 ms.topic: article
-ms.date: 09/05/2019
-ms.openlocfilehash: f8ab3c3bd259f83a61d0b030a49e158ccd6e2a69
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.date: 01/22/2020
+ms.openlocfilehash: cb5f0a71c31c26d679efd8a17b360dab2ad0862b
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938877"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615952"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatización de compilaciones y mantenimiento de imágenes de contenedor con ACR Tasks
 
@@ -59,7 +59,7 @@ ACR Tasks admite los siguientes desencadenadores cuando establece un repositorio
 | Desencadenador | Habilitado de forma predeterminada |
 | ------- | ------------------ |
 | Commit | Sí |
-| Solicitud de incorporación de cambios | No |
+| Solicitud de incorporación de cambios | Sin |
 
 Para configurar el desencadenador de actualización de código fuente, debe proporcionar un token de acceso personal (PAT) a la tarea para establecer el webhook en el repositorio de GitHub público o privado o el repositorio de Azure DevOps.
 
@@ -70,26 +70,12 @@ Aprenda a desencadenar compilaciones tras la confirmación del código fuente en
 
 ## <a name="automate-os-and-framework-patching"></a>Automatización de aplicación de revisiones de sistema operativo y marco
 
-La eficacia de ACR Tasks para mejorar verdaderamente el flujo de trabajo de compilación del contenedor procede de su capacidad para detectar una actualización de una imagen base. Cuando la imagen base actualizada se inserta en el registro, o una imagen base se actualiza en un repositorio público, como en Docker Hub, ACR Tasks puede compilar automáticamente cualquier imagen de aplicación basada en ella.
+La eficacia de ACR Tasks para mejorar verdaderamente el flujo de trabajo de compilación del contenedor procede de su capacidad para detectar una actualización de una *imagen base*. Una imagen base, que es una característica de la mayoría de las imágenes de contenedor, es una imagen primaria en la que se basan una o varias imágenes de aplicación. Normalmente, las imágenes base contienen el sistema operativo y, a veces, marcos de trabajo de la aplicación. 
 
-Las imágenes de contenedor pueden clasificarse a grandes rasgos en imágenes *base* e imágenes de *aplicación*. Normalmente, las imágenes base incluyen el sistema operativo y los marcos de aplicaciones sobre los que se compila la aplicación, junto con otras personalizaciones. Estas imágenes base se basan normalmente en imágenes ascendentes públicas, por ejemplo: [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet] o [Node.js][base-node]. Algunas de las imágenes de aplicación podrían compartir una imagen base común.
+Puede configurar una instancia de ACR Tasks para realizar el seguimiento de una dependencia de una imagen base al compilar una imagen de aplicación. Cuando la imagen base actualizada se inserta en el registro, o una imagen base se actualiza en un repositorio público, como en Docker Hub, ACR Tasks puede compilar automáticamente cualquier imagen de aplicación basada en ella.
+Gracias a esta detección y recompilación automáticas, ACR Tasks le ahorra tiempo y esfuerzo que normalmente son necesarios para actualizar y realizar el seguimiento de forma manual de cada una de las imágenes de aplicación que hacen referencia a la imagen base actualizada.
 
-Cuando el mantenedor ascendente actualiza una imagen de sistema operativo o marco de aplicación, por ejemplo, con una revisión de seguridad crítica del sistema operativo, también debe actualizar las imágenes base para incluir la corrección crítica. Cada imagen de aplicación se debe entonces volver a compilar para incluir estas correcciones ascendentes ahora incluidas en la imagen base.
-
-Como ACR Tasks detecta dinámicamente las dependencias de la imagen base cuando compila una imagen de contenedor, puede detectar cuándo la imagen base de una aplicación está actualizada. ACR Tasks se sirve de una [tarea de compilación](container-registry-tutorial-base-image-update.md#create-a-task) preconfigurada para **recompilar automáticamente cada imagen de aplicación**. Gracias a esta detección y recompilación automáticas, ACR Tasks le ahorra tiempo y esfuerzo que normalmente son necesarios para actualizar y realizar el seguimiento de forma manual de cada una de las imágenes de aplicación que hacen referencia a la imagen base actualizada.
-
-En el caso de las compilaciones de imágenes de un archivo Dockerfile, una tarea de ACR realiza un seguimiento de una actualización de la imagen base cuando esta se encuentra en una de las ubicaciones siguientes:
-
-* La misma instancia de Azure Container Registry en la que se ejecuta la tarea
-* Otro registro de Azure Container Registry de la misma región 
-* Un repositorio público de Docker Hub
-* Un repositorio público de Microsoft Container Registry
-
-> [!NOTE]
-> * El desencadenador de actualización de la imagen base está habilitado de forma predeterminada en una tarea de ACR. 
-> * Actualmente, ACR Tasks solo realiza un seguimiento de las actualizaciones de las imágenes base de las imágenes de las aplicaciones (*tiempo de ejecución*). No realiza ningún seguimiento de las actualizaciones de las imágenes base de las imágenes intermedias (*tiempo de compilación*) que se usan en los archivos Dockerfile de varias fases. 
-
-Aprenda más sobre la aplicación de revisiones de sistema operativo y plataforma en el tercer tutorial de ACR Tasks, [Automatización de compilaciones de imágenes en la actualización de imagen base con Azure Container Registry Tasks](container-registry-tutorial-base-image-update.md).
+Obtenga más información sobre [desencadenadores de actualización de imágenes base](container-registry-tasks-base-images.md) para ACR Tasks. Además, aprenda a desencadenar una compilación de imagen al insertar una imagen base en un registro de contenedor en el tutorial [Automatización de compilaciones de imágenes de contenedor al actualizarse una imagen base en una instancia de Azure Container Registry](container-registry-tutorial-base-image-update.md).
 
 ## <a name="schedule-a-task"></a>Programación de una tarea
 

@@ -1,6 +1,6 @@
 ---
-title: 'Azure VMware Solutions (AVS): configuración de tablas de firewall y reglas'
-description: Describe cómo configurar tablas de firewall y reglas de nube privada de AVS para restringir el tráfico en las subredes y las redes VLAN.
+title: 'Azure VMware Solution by CloudSimple: configuración de tablas de firewall y reglas'
+description: Se describe cómo configurar tablas de firewall y reglas de nube privada para restringir el tráfico en las subredes y las redes VLAN.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -8,14 +8,14 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d133f4d0ac8cc8b70060563ad07da35e9fdf2d37
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 986f4b0da7254ebac3725a704f32af785c72fbcc
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025289"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565033"
 ---
-# <a name="set-up-firewall-tables-and-rules-for-avs-private-clouds"></a>Configuración de tablas de firewall y reglas para las nubes privadas de AVS
+# <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Configuración de tablas de firewall y reglas para las nubes privadas
 
 Las tablas de firewall y las reglas asociadas permiten aplicar restricciones sobre el tráfico en determinadas subredes y redes VLAN.
 
@@ -24,7 +24,7 @@ Las tablas de firewall y las reglas asociadas permiten aplicar restricciones sob
 
 ## <a name="add-a-new-firewall-table"></a>Adición de una nueva tabla de firewall
 
-1. [Acceda al portal de AVS](access-cloudsimple-portal.md) y seleccione **Red** en el menú lateral.
+1. [Acceda al portal de CloudSimple](access-cloudsimple-portal.md) y seleccione **Network** (Red) en el menú lateral.
 2. Seleccione **Firewall Tables** (Tablas de firewall).
 3. Seleccione **Create firewall table** (Crear tabla de firewall).
 
@@ -51,7 +51,7 @@ Las reglas de firewall determinan cómo trata el firewall determinados tipos de 
 2. Configure la regla de la siguiente manera:
     * **Nombre**. Asigne un nombre a la regla.
     * **Prioridad**. Asigne una prioridad a la regla. Las reglas con números más bajos se ejecutan primero.
-    * **Tipo de tráfico**. Seleccione si la regla es para el tráfico de la nube privada de AVS, Internet o VPN (sin estado) o para una dirección IP pública (con estado).
+    * **Tipo de tráfico**. Seleccione si la regla es para el tráfico de la nube privada, Internet o VPN (sin estado) o para una dirección IP pública (con estado).
     * **Protocolo**. Seleccione el protocolo que se incluye en la regla (TCP, UDP o cualquier otro).
     * **Dirección**. Seleccione si la regla es para el tráfico entrante o saliente. Debe definir reglas independientes para el tráfico entrante y saliente.
     * **Acción**. Seleccione la acción que se realizará si la regla concuerda (permitir o denegar).
@@ -68,12 +68,12 @@ Las reglas de firewall determinan cómo trata el firewall determinados tipos de 
 > [!IMPORTANT]
 > Cada tabla de Firewall puede tener hasta diez reglas de entrada y veinte reglas de salida. Estos límites se pueden incrementar [poniéndose en contacto con soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="attach-vlanssubnets"></a>Asociación de redes VLAN o subredes
+## <a name="attach-vlans-subnet"></a>Asociación de redes VLAN o subredes
 
 Después de definir una tabla de firewall, puede especificar las subredes que están sujetas a las reglas de la tabla.
 
 1. En la página **Network** > **Firewall Tables** (Red > Tablas de firewall), seleccione una tabla de firewall.
 2. Abra la pestaña **Attached VLANs/Subnet** (VLAN o subred asociada).
 3. Haga clic en **Attach to a VLAN/Subnet** (Asociar a VLAN o subred).
-4. Seleccione la nube privada de AVS y la red VLAN. Se muestran el nombre de la subred asociada y el bloque CIDR.
+4. Seleccione la nube privada y la red VLAN. Se muestran el nombre de la subred asociada y el bloque CIDR.
 5. Haga clic en **Enviar**.

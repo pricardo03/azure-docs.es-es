@@ -1,5 +1,5 @@
 ---
-title: Error al crear o eliminar una base de datos o una tabla en el Explorador de datos de Azure
+title: Error al crear o eliminar una base de datos o una tabla en Azure Data Explorer
 description: En este artículo se describen los pasos para solucionar problemas de creación de bases de datos y tablas en el Explorador de datos de Azure.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0d221138914230d5455dc0addbe08cdaaed36a0b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67e4c33498b05884fe667a7977ddb40e647ab4c8
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60826261"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562401"
 ---
 # <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>Solución de problemas: Error al crear o eliminar una base de datos o una tabla en el Explorador de datos de Azure
 

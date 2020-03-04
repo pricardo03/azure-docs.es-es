@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 67b045ff0661e8d0f8e20656a012e85d01e83d7b
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: a9b3ae1ed28fc22d91760a4af3832a604a419a30
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425925"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561738"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-preview-using-portal"></a>Creación y administración de Private Link para Azure Database for MariaDB (versión preliminar) mediante el portal
 
@@ -171,6 +171,9 @@ En esta sección, creará un punto de conexión privado, que agregará al servid
 
     ![Private Link creado](media/concepts-data-access-and-security-private-link/show-mariadb-private-link.png)
 
+    > [!NOTE] 
+    > El FQDN de la configuración de DNS del cliente no se resuelve en la dirección IP privada configurada. Tendrá que configurar una zona DNS para el FQDN configurado, como se muestra [aquí](../dns/dns-operations-recordsets-portal.md).
+
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Conéctese a una máquina virtual mediante Escritorio remoto (RDP)
 
 
@@ -230,7 +233,7 @@ Después de crear **myVm**, conéctese a ella desde Internet como se indica a co
 
 6. (Opcional) Examine las bases de datos del menú izquierdo y cree o consulte información de la base de datos MariaDB
 
-7. Cierre la conexión de Escritorio remoto a myVM.
+7. Cierre la conexión de Escritorio remoto a myVm.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 Cuando haya terminado de usar el punto de conexión privado, el servidor MariaDB y la máquina virtual, elimine el grupo de recursos y todos los recursos que contiene:

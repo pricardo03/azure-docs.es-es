@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 01/03/2020
-ms.openlocfilehash: aeb86823ddb25bbe0340630b55360806faef59e9
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.date: 02/20/2020
+ms.openlocfilehash: d711cc7e58fb055eda62cfc364a5552a7d10f7bd
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186875"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623146"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Uso de Azure Data Lake Storage Gen2 con clústeres de Azure HDInsight
 
@@ -57,7 +57,7 @@ Cree una cuenta de almacenamiento de Azure Data Lake Storage Gen2.
 1. Haga clic en **Crear**.
 1. En la pantalla **Crear la cuenta de almacenamiento**:
     1. Seleccione la suscripción y el grupo de recursos correctos.
-    1. Escriba un nombre para la cuenta de Data Lake Storage Gen2. Para más información sobre las convenciones de nomenclatura de la cuenta de almacenamiento, consulte [Convenciones de nomenclatura para los recursos de Azure](/azure/azure-resource-manager/management/resource-name-rules#microsoftstorage).
+    1. Escriba un nombre para la cuenta de Data Lake Storage Gen2. Para obtener más información sobre las convenciones de nomenclatura de la cuenta de almacenamiento, vea [Convenciones de nomenclatura para los recursos de Azure](/azure/azure-resource-manager/management/resource-name-rules#microsoftstorage).
     1. Haga clic en la pestaña **Avanzado**.
     1. Haga clic en **Habilitado** junto a **Espacio de nombres jerárquico** en **Data Lake Storage Gen2**.
     1. Haga clic en **Revisar + crear**.
@@ -82,20 +82,18 @@ Asigne la identidad administrada al rol **Propietario de datos de Storage Blob**
     ![Captura de pantalla que muestra cómo asignar un rol de RBAC](./media/hdinsight-hadoop-use-data-lake-storage-gen2/add-rbac-role3-window.png)
 
 1. Seleccione **Guardar**. La identidad asignada por el usuario que seleccionó ahora aparece en el rol seleccionado.
-1. Una vez completada la configuración inicial, puede crear un clúster a través del portal. El clúster debe estar en la misma región de Azure que la cuenta de almacenamiento. En la sección **Almacenamiento** del menú de creación del clúster, seleccione estas opciones:
+1. Una vez completada la configuración inicial, puede crear un clúster a través del portal. El clúster debe estar en la misma región de Azure que la cuenta de almacenamiento. En la pestaña **Almacenamiento** del menú de creación del clúster, seleccione las siguientes opciones:
 
     * En **Tipo de almacenamiento principal**, haga clic en **Azure Data Lake Storage Gen2**.
-    * En **Seleccionar una cuenta de almacenamiento**, busque y seleccione la cuenta de almacenamiento de Data Lake Storage Gen2 recién creada.
+    * En **Cuenta de almacenamiento principal**, busque y seleccione la cuenta de almacenamiento de Data Lake Storage Gen2 recién creada.
 
-        ![Configuración de almacenamiento para usar Data Lake Storage Gen2 con Azure HDInsight](./media/hdinsight-hadoop-use-data-lake-storage-gen2/primary-storage-type-adls-gen2.png)
+    * En **Identidad**, seleccione la identidad administrada asignada por el usuario recién creada.
 
-    * En **Identidad**, seleccione la suscripción correcta y la identidad administrada asignada por el usuario recién creada.
+        ![Configuración de almacenamiento para usar Data Lake Storage Gen2 con Azure HDInsight](./media/hdinsight-hadoop-use-data-lake-storage-gen2/azure-portal-cluster-storage-gentwo.png)
 
-        ![Configuración de identidad para usar Data Lake Storage Gen2 con HDInsight](./media/hdinsight-hadoop-use-data-lake-storage-gen2/managed-identity-cluster-creation.png)
-
-> [!NOTE]
-> * Para agregar una cuenta secundaria de Data Lake Storage Gen2 en el nivel de cuenta de almacenamiento, basta con asignar la identidad administrada que ha creado anteriormente a la nueva cuenta de almacenamiento de Data Lake Storage Gen2 que desea agregar. Tenga en cuenta que no se admite la adición de una cuenta secundaria de Data Lake Storage Gen2 mediante la hoja "Cuentas de almacenamiento adicionales" en HDInsight.
-> * Puede habilitar RA-GRS o RA-ZRS en la cuenta de Azure Storage que usa HDInsight. Sin embargo, no se admite la creación de un clúster en el punto de conexión secundario RA-GRS o RA-ZRS.
+    > [!NOTE]
+    > * Para agregar una cuenta secundaria de Data Lake Storage Gen2 en el nivel de cuenta de almacenamiento, basta con asignar la identidad administrada que ha creado anteriormente a la nueva cuenta de almacenamiento de Data Lake Storage Gen2 que desea agregar. Tenga en cuenta que no se admite la adición de una cuenta secundaria de Data Lake Storage Gen2 mediante la hoja "Cuentas de almacenamiento adicionales" en HDInsight.
+    > * Puede habilitar RA-GRS o RA-ZRS en la cuenta de Azure Storage que usa HDInsight. Sin embargo, no se admite la creación de un clúster en el punto de conexión secundario RA-GRS o RA-ZRS.
 
 
 ## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-cli"></a>Creación de un clúster con Data Lake Storage Gen2 mediante la CLI de Azure
@@ -159,7 +157,7 @@ El uso de PowerShell para crear un clúster de HDInsight con Azure Data Lake Sto
 
 Data Lake Storage Gen2 usa un modelo de control de acceso compatible con el control de acceso basado en rol (RBAC) y las listas de control de acceso (ACL) tipo POSIX. Data Lake Storage Gen1 admite las listas de control de acceso solo para controlar el acceso a los datos.
 
-RBAC usa las asignaciones de roles para aplicar de forma eficaz conjuntos de permisos a usuarios, grupos y entidades de servicio para los recursos de Azure. Normalmente, los recursos de Azure están limitados a los recursos de nivel superior (por ejemplo, las cuentas de Azure Storage). En el caso de Azure Storage y también de Data Lake Storage Gen2, este mecanismo se ha ampliado al recurso del sistema de archivos.
+RBAC usa las asignaciones de roles para aplicar de forma eficaz conjuntos de permisos a usuarios, grupos y entidades de servicio para los recursos de Azure. Normalmente, los recursos de Azure están limitados a los recursos de nivel superior (por ejemplo, cuentas de Azure Storage). En el caso de Azure Storage y también de Data Lake Storage Gen2, este mecanismo se ha ampliado al recurso del sistema de archivos.
 
  Para más información sobre los permisos de archivo con RBAC, consulte [Control de acceso basado en rol (RBAC) de Azure](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac).
 
@@ -205,7 +203,7 @@ Los ejemplos se basan en una [conexión SSH](./hdinsight-hadoop-linux-use-ssh-un
 
 #### <a name="a-few-hdfs-commands"></a>Algunos comandos hdfs
 
-1. Crear un archivo simple en el almacenamiento local.
+1. Crear un archivo en el almacenamiento local.
 
     ```bash
     touch testFile.txt

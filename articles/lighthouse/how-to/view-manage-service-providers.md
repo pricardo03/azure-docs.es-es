@@ -1,18 +1,18 @@
 ---
 title: Visualización y administración de proveedores de servicios
 description: Los clientes pueden usar la página proveedores de servicios en Azure Portal para ver información acerca de los proveedores de servicios, ofertas de proveedores de servicios y recursos delegados.
-ms.date: 01/15/2020
+ms.date: 02/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: ff3c37c02c580a833008a65315009d1e42e49043
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 94103c293ffa7ccfb9d7da0a237dc1b1c6540b72
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046129"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649745"
 ---
 # <a name="view-and-manage-service-providers"></a>Visualización y administración de proveedores de servicios
 
-Los clientes pueden usar la página **Proveedores de servicios** de [Azure Portal](https://portal.azure.com) para ver información sobre proveedores de servicios y ofertas de proveedores de servicios, delegar recursos específicos mediante la [administración de recursos delegados de Azure](../concepts/azure-delegated-resource-management.md) y comprar ofertas de proveedores de servicios adicionales. Aunque aquí nos referiremos a los proveedores de servicios y clientes, las empresas que administren varios inquilinos pueden usar el mismo proceso para consolidar su experiencia de administración.
+Los clientes pueden usar la página **Proveedores de servicios** de [Azure Portal](https://portal.azure.com) para ver información sobre proveedores de servicios y ofertas de proveedores de servicios, delegar recursos específicos mediante la [administración de recursos delegados de Azure](../concepts/azure-delegated-resource-management.md) y comprar nuevas ofertas de proveedores de servicios. Aunque aquí nos referiremos a los proveedores de servicios y clientes, las empresas que administren varios inquilinos pueden usar el mismo proceso para consolidar su experiencia de administración.
 
 Para acceder a la página **Proveedores de servicios** de Azure Portal, el cliente puede seleccionar **Todos los servicios** y, a continuación, buscar **Proveedores de servicios** y seleccionar esta opción. También pueden encontrarla escribiendo "Proveedores de servicios" en el cuadro de búsqueda situado cerca de la parte superior de Azure Portal.
 
@@ -23,7 +23,7 @@ Tenga en cuenta que la página **Proveedores de servicios** solo muestra informa
 
 ## <a name="view-service-provider-details"></a>Ver detalles del proveedor de servicios
 
-Para ver información acerca de los proveedores de servicios con los que trabaja un cliente, pueden seleccionar **Ofertas del proveedor** en el lado izquierdo de la página **Proveedores de servicios**.
+Para ver información sobre los proveedores de servicios, el cliente puede seleccionar **Ofertas del proveedor de servicios** en el lado izquierdo de la página **Proveedores de servicios**.
 
 Para cada oferta de proveedor de servicios, el cliente verá el nombre del proveedor de servicios y la oferta asociada a él, junto con el nombre que el cliente especificó durante el proceso de incorporación.
 
@@ -59,12 +59,20 @@ Después de revisar los cambios, el cliente puede optar por actualizar a la nuev
 
 Las delegaciones representan las asignaciones de roles que conceden permisos al proveedor del servicio para los recursos que un cliente ha delegado. Para ver esta información, seleccione **Delegaciones** en el lado izquierdo de la página **Proveedores de servicios**.
 
-Los filtros de la parte superior de la página le permiten ordenar y agrupar la información de delegación o filtrar por clientes, ofertas o palabras clave específicos.
+Los filtros de la parte superior de la página permiten ordenar y agrupar la información de delegación. También puede filtrar por clientes, ofertas o palabras clave específicos.
 
 > [!NOTE]
 > Los clientes no verán estas asignaciones de roles o los usuarios del inquilino de proveedor de servicios a los que se hayan concedido estos roles, cuando [ver la información de asignación de roles para el ámbito delegado en Azure Portal](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) o a través de las API.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="audit-delegations-in-your-environment"></a>Auditoría de delegaciones en el entorno
 
+Es posible que los clientes quieran obtener visibilidad sobre las suscripciones o los grupos de recursos que se han delegado en los proveedores de servicios para la [administración de recursos delegados de Azure](../concepts/azure-delegated-resource-management.md). Esto es especialmente útil para los clientes con un gran número de suscripciones o para los que tienen muchos usuarios que realizan tareas de administración.
+
+Se proporciona una [definición de directiva integrada de Azure Policy](../../governance/policy/samples/built-in-policies.md#lighthouse) para auditar la delegación de ámbitos en un inquilino de administración. Esta directiva se puede asignar a un grupo de administración que incluya todas las suscripciones que quiera auditar. Al comprobar el cumplimiento de esta directiva, las suscripciones o los grupos de recursos delegados (dentro del grupo de administración al que se asigna la directiva) se mostrarán en un estado no conforme. Luego, puede revisar los resultados y confirmar que no hay ninguna delegación inesperada.
+
+Para más información sobre cómo asignar una directiva y ver los resultados del estado de cumplimiento, consulte [Inicio rápido: Creación de una asignación de directiva](../../governance/policy/assign-policy-portal.md).
+
+## <a name="next-steps"></a>Pasos siguientes
+ 
 - Más información acerca de [Azure Lighthouse](../overview.md).
 - Descubra cómo los proveedores de servicios pueden [ver y administrar sus clientes](view-manage-customers.md) desde **Mis clientes** en Azure Portal.

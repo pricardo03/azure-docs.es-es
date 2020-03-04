@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 7c65e1f871fdab2c925f7a5e6747ad23fe8952d9
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 4a5aba6f8a357f33fd921ee12aac7e45f9b581ff
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512783"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613333"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Consideraciones de diseño y opciones de configuración de redes virtuales para Azure AD Domain Services
 
@@ -110,7 +110,7 @@ Las siguientes reglas del grupo de seguridad de red son necesarias para que Azur
 | 443         | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Sí      | Sincronización con el inquilino de Azure AD. |
 | 3389        | TCP      | CorpNetSaw                         | Any         | Allow  | Sí      | Administración del dominio. |
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Sí      | Administración del dominio. |
-| 636         | TCP      | Any                                | Any         | Allow  | No       | Solo se habilita al configurar LDAP seguro (LDAPS). |
+| 636         | TCP      | Any                                | Any         | Allow  | Sin       | Solo se habilita al configurar LDAP seguro (LDAPS). |
 
 > [!WARNING]
 > No edite manualmente estos recursos y configuraciones de red. Cuando se asocia un grupo de seguridad de red mal configurado o una tabla de rutas definida por el usuario con la subred en la que está implementado Azure AD DS, se podría interrumpir la capacidad de Microsoft para atender y administrar el dominio. Además, se interrumpe la sincronización entre el inquilino de Azure AD y el dominio administrado de Azure AD DS.
@@ -146,7 +146,7 @@ Las siguientes reglas del grupo de seguridad de red son necesarias para que Azur
 
 ## <a name="user-defined-routes"></a>Rutas definidas por el usuario
 
-Las rutas definidas por el usuario no se crean de forma predeterminada y no son necesarias para que Azure AD DS funcione correctamente. Si necesita usar tablas de rutas, evite realizar cambios en la ruta *0.0.0.0*. Los cambios en esta ruta pueden interrumpir Azure AD Domain Services.
+Las rutas definidas por el usuario no se crean de forma predeterminada y no son necesarias para que Azure AD DS funcione correctamente. Si necesita usar tablas de rutas, evite realizar cambios en la ruta *0.0.0.0*. Los cambios en esta ruta interrumpen Azure AD Domain Services y colocan el dominio administrado en un estado no admitido.
 
 También debe enrutar el tráfico entrante desde las direcciones IP incluidas en las etiquetas de servicio de Azure respectivas hacia la subred de Azure AD Domain Services. Para obtener más información sobre las etiquetas de servicio y la dirección IP asociada, consulte [Intervalos de direcciones IP de Azure y etiquetas de servicio: nube pública](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 

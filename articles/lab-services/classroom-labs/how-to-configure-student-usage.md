@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 80e8bc47f6e6293d70bbc9fae888abdf5527fe93
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 9fda1295bcdcd44b8a92c101c2aa445197ce6d4a
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169224"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539238"
 ---
 # <a name="add-and-manage-lab-users"></a>Incorporación y administración de usuarios de laboratorio
 En este artículo se describe cómo agregar usuarios al laboratorio, registrarlos en el laboratorio, controlar el número de horas que pueden usar la máquina virtual y mucho más. 
@@ -35,7 +35,7 @@ En este artículo se describe cómo agregar usuarios al laboratorio, registrarlo
     ![Incorporación de direcciones de correo electrónico de usuarios](../media/how-to-configure-student-usage/add-users-email-addresses.png)
 4. Seleccione **Guardar**. Verá las direcciones de correo electrónico de los usuarios y sus estados (registrados o no) en la lista. 
 
-    ![Lista de usuarios](../media/how-to-configure-student-usage/users-list-new.png)
+    ![Lista de usuarios](../media/how-to-configure-student-usage/list-of-added-users.png)
 
     > [!NOTE]
     > Una vez registrados los nombres de los usuarios en el laboratorio, aparecen en la lista. El nombre que se muestra en la lista se construye con el nombre y los apellidos del usuario en Azure Active Directory. 
@@ -101,11 +101,14 @@ También puede obtener el vínculo de registro del portal y enviarlo mediante su
 2. En el cuadro de diálogo **User registration** (Registro de usuarios), seleccione **Done** (Listo). 
 4. Comparta el **vínculo de registro** con un alumno para que este se pueda registrar en la clase. 
 
-## <a name="view-users-registered-with-the-lab"></a>Ver los usuarios registrados en el laboratorio
+## <a name="view-registered-users"></a>Visualización de usuarios registrados
 
-Seleccione **Usuarios** en el menú a la izquierda para ver la lista de usuarios registrados en el laboratorio. 
+1. Vaya al [sitio web de Azure Lab Services](https://labs.azure.com). 
+2. Seleccione **Iniciar sesión** y escriba las credenciales. Azure Lab Services es compatible con cuentas profesionales y cuentas Microsoft.
+3. En la página **My labs** (Mis laboratorios), seleccione el laboratorio de cuyo uso desea realizar un seguimiento. 
+4. Seleccione **Users** (Usuarios) en el menú izquierdo o el icono **Usuarios**. Verá los alumnos que se han registrado en el laboratorio.  
 
-![Lista de usuarios registrados en el laboratorio](../media/how-to-configure-student-usage/students-registered.png)
+    ![Usuarios registrados](../media/tutorial-track-usage/registered-users.png)
 
 ## <a name="set-quotas-for-users"></a>Establecimiento de cuotas para los usuarios
 Puede establecer cuotas por usuario mediante los pasos siguientes: 
@@ -115,7 +118,7 @@ Puede establecer cuotas por usuario mediante los pasos siguientes:
 3. En la página **Quota per user** (Cuota por usuario), especifique el número de horas que quiere dar a cada usuario (alumno) fuera del tiempo de clase programado y, luego, seleccione **Save** (Guardar).
 
     ![Quota per user (Cuota por usuario)](../media/how-to-configure-student-usage/quota-per-user.png)    
-5. Consulte los valores modificados en la barra de herramientas: **Cuota por usuario: \<número de horas**. 
+5. Consulte los valores modificados en la barra de herramientas: **Cuota por usuario: \<número de horas>** y además en la lista de usuarios.
 
     ![Cuota por usuario: después](../media/how-to-configure-student-usage/quot-per-user-after.png)
 

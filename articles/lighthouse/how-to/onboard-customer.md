@@ -3,12 +3,12 @@ title: Incorporación de un cliente a la administración de recursos delegados d
 description: Obtenga información sobre cómo incorporar un cliente a la administración de recursos delegados de Azure, lo que permite administrar sus recursos y acceder a ellos desde su propio inquilino.
 ms.date: 01/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: b3868987fa76d4ce0d4c34e81b46301ea106203d
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 33cf880098e174c2c230a3d78e125ad8df7d894a
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543416"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649796"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Incorporación de un cliente a la administración de recursos delegados de Azure
 
@@ -16,7 +16,7 @@ En este artículo se explica cómo, como proveedor de servicios, puede incorpora
 
 Puede repetir este proceso si está administrando recursos para varios clientes. A continuación, cuando un usuario autorizado inicia sesión en el inquilino, se puede autorizar al usuario en los ámbitos del inquilino del cliente para realizar operaciones de administración sin tener que iniciar sesión en todos los inquilinos de cliente individuales.
 
-Para realizar un seguimiento de su impacto en las involucraciones de clientes y recibir el reconocimiento correspondiente, asocie el identificador de Microsoft Partner Network (MPN) con las suscripciones incorporadas. Para más información, consulte [Vinculación de un Id. de partner a cuentas de Azure](../../billing/billing-partner-admin-link-started.md). Tenga en cuenta que deberá realizar esta asociación en el inquilino del proveedor de servicios.
+Para realizar el seguimiento del impacto en las involucraciones de los clientes y recibir el reconocimiento correspondiente, asocie el identificador de Microsoft Partner Network (MPN) con al menos una cuenta de usuario con acceso a cada una de las suscripciones incorporadas. Tenga en cuenta que deberá realizar esta asociación en el inquilino del proveedor de servicios. Para simplificar, se recomienda crear en el inquilino una cuenta de entidad de servicio asociada al identificador de MPN y concederle acceso de lectura a todos los clientes que incorpore. Para obtener más información, vea [Vinculación de un Id. de partner a cuentas de Azure](../../billing/billing-partner-admin-link-started.md). 
 
 > [!NOTE]
 > Los clientes también se pueden incorporar cuando compran una oferta de servicios administrados (pública o privada) que haya publicado en Azure Marketplace. Para obtener más información, consulte [Publicar ofertas de servicios administrados en Azure Marketplace](publish-managed-services-offers.md). También puede usar el proceso de incorporación que se describe aquí con una oferta publicada en Azure Marketplace.
@@ -120,10 +120,7 @@ Para incorporar el cliente, deberá crear una plantilla de [Azure Resource Manag
 |**managedByTenantId**     |El identificador de inquilino.          |
 |**authorizations**     |Los valores de **principalId** para los usuarios/grupos/SPN del inquilino, cada uno de ellos con un valor de **principalIdDisplayName** para ayudar a su cliente a entender el propósito de la autorización y asignarla a un valor de **roleDefinitionId** integrado para especificar el nivel de acceso.      |
 
-> [!TIP]
-> Asegúrese de que sus entradas **managedByTenantID**, **principalIdDisplayName** y **roleDefinitionId** son idénticas a los valores usados por Azure. No use mayúsculas en estos valores.
-
-El proceso de incorporación requiere una plantilla adecuada de Azure Resource Manager (proporcionada en nuestro [repositorio de ejemplos](https://github.com/Azure/Azure-Lighthouse-samples/) y un archivo de parámetros correspondiente que modifique para que coincida con la configuración y defina sus autorizaciones.
+El proceso de incorporación requiere una plantilla de Azure Resource Manager (proporcionada en el [repositorio de ejemplos](https://github.com/Azure/Azure-Lighthouse-samples/)) y un archivo de parámetros correspondiente que se modifica para que coincida con la configuración y para definir las autorizaciones.
 
 La plantilla que elija dependerá de si se incorpora una suscripción completa, un grupo de recursos o varios grupos de recursos dentro de una suscripción. También proporcionamos una plantilla que se puede usar para los clientes que han adquirido una oferta de servicios administrados que ha publicado en Azure Marketplace, si prefiere incorporar sus suscripciones de esta manera.
 

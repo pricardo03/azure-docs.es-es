@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: juliako
-ms.openlocfilehash: 5c5bfa224b87040f5142663e6adab01072c6e6ba
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 4bbadd7e10f0fd6896932dd79a5ca42d9906d2a2
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619295"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602144"
 ---
 # <a name="azure-storage-accounts"></a>Cuentas de Azure Storage
 
@@ -44,7 +44,7 @@ En Media Services v3, se usan las API de almacenamiento para cargar archivos en 
 
 Para proteger los recursos en reposo, estos se deben cifrar mediante el cifrado del lado de almacenamiento. En la tabla siguiente se muestra cómo funciona el cifrado del lado de almacenamiento en Media Services v3:
 
-|Opción de cifrado|DESCRIPCIÓN|Media Services v3|
+|Opción de cifrado|Descripción|Media Services v3|
 |---|---|---|
 |Cifrado de almacenamiento en Media Services| Cifrado de AES-256, clave administrada por Media Services|Incompatible<sup>(1)</sup>|
 |[Storage Service Encryption para datos en reposo](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Cifrado en el lado del servidor que ofrece Azure Storage, clave administrada por Azure o por el cliente|Compatible|
@@ -62,6 +62,10 @@ Los siguientes son los principales escenarios que darían lugar a una cuenta de 
 |---|---|
 |La cuenta de Media Services o las cuentas de almacenamiento asociadas se han migrado para separar las suscripciones. |Migre las cuentas de almacenamiento o la cuenta de Media Services para que todas estén en la misma suscripción. |
 |La cuenta de Media Services usa una cuenta de almacenamiento asociada en una suscripción diferente ya que se trata de una cuenta en la que anteriormente esto se admitía. Todas las cuentas antiguas de Media Services se convirtieron en cuentas basadas en Azure Resource Manager y tendrán el estado "Desconectado". |Migre la cuenta de almacenamiento o la cuenta de Media Services para que todas estén en la misma suscripción.|
+
+## <a name="azure-storage-firewall"></a>Firewall de Azure Storage
+
+Azure Media Services no admite cuentas de almacenamiento con el firewall de Azure Storage o [puntos de conexión privados](https://docs.microsoft.com/azure/storage/common/storage-network-security) habilitados.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
