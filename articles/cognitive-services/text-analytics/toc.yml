@@ -44,6 +44,12 @@
       href: 'https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis'
     - name: Extracción de información en Excel con Power Automate
       href: tutorials/extract-excel-information.md
+- name: Conceptos
+  items:
+    - name: Tipos de entidades con nombre
+      href: named-entity-types.md
+    - name: Compatibilidad de idioma y región
+      href: language-support.md
 - name: Guías paso a paso
   items:
     - name: Llamada a la API de Text Analytics
@@ -104,16 +110,10 @@
               href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics'
 - name: Recursos
   items:
-    - name: Identifique la opinión de los comentarios de un grupo de Yammer con MS Flow
-      href: 'https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure'
     - name: Contenido externo y de la comunidad
       href: text-analytics-resource-external-community.md
     - name: Preguntas más frecuentes
       href: text-analytics-resource-faq.md
-    - name: Compatibilidad de idioma y región
-      href: language-support.md
-    - name: Tipos de entidades con nombre
-      href: named-entity-types.md
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
     - name: Disponibilidad regional
@@ -122,9 +122,7 @@
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/text-analytics-api'
-    - name: Subscription key
-      href: 'https://azure.microsoft.com/try/cognitive-services/?api=text-analytics'
     - name: ¡Pruébelo!
       href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
-    - name: UserVoice
+    - name: Envío de comentarios
       href: 'https://cognitive.uservoice.com/forums/555922-text-analytics'
