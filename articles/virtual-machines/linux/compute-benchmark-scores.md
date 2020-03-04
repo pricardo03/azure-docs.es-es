@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: 234c4b0493a4f03ed89162318090d57621740cb0
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6662f109f9a8227ec45d44a730abc91ebcd8dd70
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036690"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650851"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Puntuaciones de pruebas comparativas de proceso para máquinas virtuales Linux
 Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimiento de proceso para la alineación de máquinas virtuales de alto rendimiento de Azure con Ubuntu. Las puntuaciones de pruebas comparativas de proceso también están disponibles para las [máquinas virtuales de Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -52,6 +52,8 @@ Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimi
 | Standard_A8m_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 a 2,40 GHz | 8 | 1 | 62,9 | 49 838 | 633 | 1,27 % | 182 |
 | Standard_A8m_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 a 2,30 GHz | 8 | 1 | 62,9 | 49 123 | 2483 | 5,05 % | 259 |
 
+Nota: Las máquinas virtuales de la serie Av2 se pueden implementar en diversos procesadores y tipos de hardware (como se ha visto anteriormente). Las máquinas virtuales de la serie Av2 tienen las configuraciones de memoria y rendimiento de CPU adecuadas para cargas de trabajo de nivel de entrada como desarrollo y pruebas. El tamaño se limita para ofrecer un rendimiento del procesador relativamente coherente para la instancia en ejecución, independientemente del hardware en que esté implementado; sin embargo, el software que aprovecha optimizaciones específicas del procesador nuevo puede ver una variación más significativa en función de los tipos de procesador.
+
 ## <a name="b---burstable"></a>B: ampliables
 (15/03/2019 12:27:08 AM pbi 3897709)
 
@@ -69,6 +71,10 @@ Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimi
 | Standard_B4ms | Intel(R) Xeon(R) CPU E5-2673 v4 a 2,30 GHz | 4 | 1 | 15,7 | 54 051 | 1260 | 2,33 % | 672 |
 | Standard_B8ms | Intel(R) Xeon(R) CPU E5-2673 v3 a 2,40 GHz | 8 | 1 | 31,4 | 111 929 | 1562 | 1,40 % | 35 |
 | Standard_B8ms | Intel(R) Xeon(R) CPU E5-2673 v4 a 2,30 GHz | 8 | 1 | 31,4 | 109 537 | 1354 | 1,24 % | 665 |
+
+Nota: Las máquinas virtuales de la serie B son para cargas de trabajo con requisitos de rendimiento que pueden aumentar. Las instancias de máquina virtual acumulan créditos si se usan menos que su base de referencia. Cuando la máquina virtual ha acumulado crédito, puede superar la base de referencia y llegar a usar el 100 % para cumplir los requisitos de ráfaga corta de la CPU. El tiempo de ráfaga depende de los créditos disponibles, que es una función del tamaño y el tiempo de la máquina virtual.  
+
+CoreMark es una prueba corta que habitualmente finaliza dentro de los créditos de ráfagas disponibles.  Por consiguiente, los números anteriores habitualmente representan el rendimiento de las ráfagas de la máquina virtual, lo que refleja lo que normalmente verá el rendimiento corto, con ráfagas de las cargas de trabajo (típico de la serie B).
 
 ## <a name="dsv3---general-compute--premium-storage"></a>DSv3: proceso general y almacenamiento Premium
 (12/03/2019 6:52:03 PM pbi 3897709)

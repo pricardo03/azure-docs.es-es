@@ -6,7 +6,7 @@ documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a44cf9aa5b3287a01617be6439cd04b9a5caa73
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 3dbe5871a78634d2866ec1a3d1455492762ff2aa
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484237"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619242"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Creación de un punto de conexión de SCIM y configuración del aprovisionamiento de usuarios con Azure Active Directory (Azure AD)
 
@@ -966,6 +966,9 @@ Para hospedar el servicio en Internet Information Services, un desarrollador deb
 
 Las solicitudes de Azure Active Directory incluyen un token de portador de OAuth 2.0.   Cualquier servicio que reciba la solicitud debe autenticar al emisor como Azure Active Directory para el inquilino Azure Active Directory esperado, para el acceso al servicio de Microsoft Graph API.  En el token, el emisor se identifica mediante una notificación de iss; por ejemplo, "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  En este ejemplo, la dirección base del valor de notificación, https://sts.windows.net, identifica a Azure Active Directory como el emisor, mientras que el segmento de la dirección relativa, cbb1a5ac f33b 45fa 9bf5 f37db0fed422, es un identificador único del inquilino de Azure Active Directory para el que se emitió el token. La audiencia del token será el identificador de la plantilla de aplicación de la aplicación en la galería. El identificador de la plantilla de aplicación para todas las aplicaciones personalizadas es 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. El identificador de la plantilla de aplicación de cada aplicación de la galería varía. Póngase en contacto con ProvisioningFeedback@microsoft.com para cuestiones relativas al identificador de la plantilla de aplicación de una aplicación de la galería. Cada una de las aplicaciones registradas en un solo inquilino puede recibir la misma notificación `iss` con las solicitudes SCIM.
 
+   > [!NOTE]
+   > ***No*** se recomienda dejar este campo en blanco y basarse en un token generado por Azure AD. Esta opción está disponible principalmente para fines de prueba.
+
 Los desarrolladores que usan las bibliotecas de CLI proporcionadas por Microsoft para crear un servicio SCIM pueden autenticar las solicitudes de Azure Active Directory mediante el paquete Microsoft.Owin.Security.ActiveDirectory siguiendo estos pasos: 
 
 En primer lugar, en un proveedor, implemente la propiedad Microsoft.SystemForCrossDomainIdentityManagement.IProvider.StartupBehavior; para ello, haga que devuelva un método al que llamar cuando se inicia el servicio: 
@@ -1448,12 +1451,15 @@ Si va a crear una aplicación que usará más de un inquilino, puede hacer que e
 ### <a name="gallery-onboarding-checklist"></a>Lista de comprobación de la incorporación a la galería
 Siga la lista de comprobación siguiente para asegurarse de que la aplicación se incorpora con rapidez y que los clientes tienen una experiencia de implementación sin problemas. La información se recopilará en el momento en que se incorpore a la galería. 
 > [!div class="checklist"]
-> * [Compatibilidad con SCIM 2.0 ](https://tools.ietf.org/html/draft-wahl-scim-profile-00) (obligatorio)
+> * Compatibilidad con un punto de conexión de grupo y de usuario de [SCIM 2.0 ](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-2-understand-the-azure-ad-scim-implementation) (solo se requiere uno, pero se recomiendan los dos)
 > * Admisión de al menos 25 solicitudes por segundo por inquilino (obligatorio)
-> * Compatibilidad con la detección de esquemas (recomendado)
+> * Establecimiento de contactos de ingeniería y soporte técnico para guiar la incorporación de clientes a la galería (obligatorio)
+> * Tres credenciales de prueba sin expiración para la aplicación (obligatorio)
 > * Compatibilidad con la concesión de código de autorización de OAuth o un token de larga duración, tal como se describe a continuación (obligatorio)
 > * Establecimiento de un punto de contacto de ingeniería y soporte técnico para respaldar la incorporación de clientes a la galería (obligatorio)
+> * Compatibilidad con la actualización de varias pertenencias a grupos con una única revisión (recomendado) 
 > * Documentación del punto de conexión de SCIM públicamente (recomendado) 
+> * [Compatibilidad con la detección de esquemas](https://tools.ietf.org/html/rfc7643#section-6) (recomendado)
 
 
 ### <a name="authorization-for-provisioning-connectors-in-the-application-gallery"></a>Autorización para aprovisionar conectores en la galería de aplicaciones

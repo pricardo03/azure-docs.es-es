@@ -1,22 +1,22 @@
 ---
-title: Reacción ante los eventos de pares clave-valor de Azure App Configuration | Microsoft Docs
+title: Reacción ante los eventos de pares clave-valor de Azure App Configuration
 description: Use Azure Event Grid para suscribirse a los eventos de App Configuration.
 services: azure-app-configuration,event-grid
 author: jimmyca
 ms.author: jimmyca
-ms.date: 05/30/2019
+ms.date: 02/20/2020
 ms.topic: article
 ms.service: azure-app-configuration
-ms.openlocfilehash: 5da64155f2823712eee7a60427b1c1e80abec068
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: a4f61d147ba1abf73ada6360b8d0d965d8e063a5
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185292"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523805"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Reacción ante los eventos de Azure App Configuration
 
-Los eventos de Azure App Configuration permiten a las aplicaciones reaccionar ante los cambios en los pares clave-valor. Esto se consigue sin necesidad de código complejo ni de servicios de sondeo costosos e ineficientes. En su lugar, se insertan eventos a través de [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) a los suscriptores como [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), o incluso su propio agente de escucha http personalizado y solo paga por lo que utiliza.
+Los eventos de Azure App Configuration permiten a las aplicaciones reaccionar ante los cambios en los pares clave-valor. Esto se consigue sin necesidad de código complejo ni de servicios de sondeo costosos e ineficientes. En su lugar, se insertan eventos mediante [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) a los suscriptores como [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) o incluso su propio cliente de escucha http. De forma crítica, solo paga por lo que utiliza.
 
 Los eventos de Azure App Configuration se envían a Azure Event Grid, que proporciona servicios de entrega confiables para sus aplicaciones mediante directivas de reintento enriquecidas y la entrega de mensajes fallidos. Para más información, consulte [Entrega y reintento de entrega de mensajes de Event Grid](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
 
@@ -29,7 +29,7 @@ En el artículo de [Enrutamiento de eventos de Azure App Configuration a un punt
 ## <a name="available-azure-app-configuration-events"></a>Eventos de Azure App Configuration disponibles
 Event Grid usa las [suscripciones a eventos](../event-grid/concepts.md#event-subscriptions) para enrutar los mensajes de eventos a los suscriptores. Las suscripciones a eventos de Azure App Configuration pueden incluir dos tipos de eventos:  
 
-> |Nombre del evento|DESCRIPCIÓN|
+> |Nombre del evento|Descripción|
 > |----------|-----------|
 > |`Microsoft.AppConfiguration.KeyValueModified`|Se genera cuando se crea o se sustituye un par clave-valor.|
 > |`Microsoft.AppConfiguration.KeyValueDeleted`|Se genera cuando se elimina un par clave-valor.|
@@ -37,16 +37,16 @@ Event Grid usa las [suscripciones a eventos](../event-grid/concepts.md#event-sub
 ## <a name="event-schema"></a>Esquema del evento
 Los eventos de Azure App Configuration contienen toda la información necesaria para responder a cualquier cambio que se produzca en los datos. Puede identificar un evento de App Configuration porque la propiedad eventType comienza por "Microsoft.AppConfiguration". Puede encontrar información adicional acerca del uso de las propiedades de los eventos de Event Grid en [Esquema de eventos de Event Grid](../event-grid/event-schema.md).  
 
-> |Propiedad|Escriba|DESCRIPCIÓN|
+> |Propiedad|Tipo|Descripción|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |topic|string|Identificador completo de Azure Resource Manager de la instancia de App Configuration que emite el evento.|
 > |subject|string|Dirección URL del par clave-valor asunto del evento.|
 > |eventTime|string|Fecha y hora en que se generó el evento, en formato ISO 8601.|
 > |eventType|string|"Microsoft.AppConfiguration.KeyValueModified" o "Microsoft.AppConfiguration.KeyValueDeleted".|
-> |Id|string|Identificador único de este evento.|
+> |Identificador|string|Identificador único de este evento.|
 > |dataVersion|string|Versión del esquema del objeto de datos.|
 > |metadataVersion|string|Versión del esquema de propiedades de nivel superior.|
-> |data|object|Recopilación de datos de evento específicos de Azure App Configuration.|
+> |datos|object|Recopilación de datos de evento específicos de Azure App Configuration.|
 > |data.key|string|Clave del valor clave que se ha modificado o eliminado.|
 > |data.label|string|Etiqueta, si procede, del valor clave que se ha modificado o eliminado.|
 > |data.etag|string|Para `KeyValueModified`, la etag del nuevo valor clave. Para `KeyValueDeleted`, la etag del valor clave que se ha eliminado.|
@@ -73,11 +73,12 @@ Este es un ejemplo de evento KeyValueModified:
 Para más información, consulte el [esquema de los eventos de Azure App Configuration](../event-grid/event-schema-app-configuration.md).
 
 ## <a name="practices-for-consuming-events"></a>Prácticas para consumir eventos
-Las aplicaciones que controlan los eventos de App Configuration deben seguir algunos procedimientos recomendados:
+Las aplicaciones que administran los eventos de App Configuration deben seguir estos procedimientos recomendados:
 > [!div class="checklist"]
-> * Dado que se pueden configurar varias suscripciones para enrutar eventos al mismo controlador, es importante no suponer que los eventos provienen de un origen determinado, sino comprobar el tema del mensaje para asegurarse de que proviene de la instancia de App Configuration prevista.
-> * De igual forma, compruebe que eventType es uno de los que está preparado para procesar y no asuma que todos los eventos que reciba van a ser los tipos que espera.
-> * Dado que los mensajes pueden llegar desordenados y con cierto retraso, utilice los campos de etag para saber si la información acerca de los objetos sigue estando actualizada.  Además, utilice los campos del secuenciador para conocer el orden de los eventos en cualquier objeto determinado.
+> * Se pueden configurar varias suscripciones para enrutar los eventos al mismo controlador de eventos, por lo que no hay que asumir que los eventos proceden de un origen determinado. En su lugar, consulte el tema del mensaje para asegurarse de cuál es la instancia de App Configuration que envía el evento.
+> * Compruebe el eventType y no asuma que todos los eventos que reciba van a ser de los tipos que espera.
+> * Utilice los campos de la etiqueta de entidad para saber si la información sobre los objetos está aún actualizada.  
+> * Utilice los campos del secuenciador para conocer el orden de los eventos en cualquier objeto determinado.
 > * Utilice el campo del asunto para acceder al par clave-valor que se ha modificado.
 
 

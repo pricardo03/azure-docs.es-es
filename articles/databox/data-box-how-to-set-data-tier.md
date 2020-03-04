@@ -1,5 +1,5 @@
 ---
-title: Uso de Azure Data Box o Azure Data Box Heavy para enviar datos al nivel del blob de acceso frecuente, poco frecuente o de archivo | Microsoft Docs en datos
+title: Envío de datos al nivel de blobs de acceso frecuente, acceso esporádico y de archivo a través de Azure Data Box/Azure Data Box Heavy
 description: Describe cómo usar Azure Data Box o Azure Data Box Heavy para enviar datos a un nivel de almacenamiento de blobs en bloques apropiado, como de acceso frecuente, poco frecuente o de archivo.
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: ea208c395e2ef69ce8f28052351643e963cceb05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 31178284313ad7dafb094b109a75d4550cabd39c
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427877"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560378"
 ---
 # <a name="use-azure-data-box-or-azure-data-box-heavy-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Uso de Azure Data Box o Azure Data Box Heavy para enviar datos al nivel del blob de Azure Storage adecuado
 

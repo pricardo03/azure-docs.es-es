@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 11/27/2019
-ms.openlocfilehash: eed0ed96efdc84697797c50578e11eee37d4d495
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 02/25/2020
+ms.openlocfilehash: 12d457d8d5e57dc4db16d9a191c7795a5f013574
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201737"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605013"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Introducción a los límites de recursos de instancia administrada de Azure SQL Database
 
@@ -74,7 +74,7 @@ Instancia administrada tiene dos niveles de servicio: [De uso general](sql-datab
 | Número máximo de archivos de base de datos por instancia | Hasta 280, a menos que se alcance el límite de tamaño de almacenamiento de instancia o [espacio de almacenamiento de Azure Premium Disk Storage](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | 32 767 archivos por base de datos, a menos que se alcance el límite del tamaño de almacenamiento de la instancia. |
 | Tamaño máximo del archivo de datos | Limitado al tamaño de almacenamiento de instancia disponible actualmente (máximo 2 TB - 8 TB) y el [espacio de asignación Azure Premium Disk Storage](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Limitado al tamaño de almacenamiento de instancias disponible actualmente (hasta 1 TB - 4 TB). |
 | Tamaño máximo del archivo de registro | Limitado a 2 TB y el tamaño de almacenamiento de instancias disponible actualmente. | Limitado a 2 TB y el tamaño de almacenamiento de instancias disponible actualmente. |
-| Datos/IOPS de registro (aproximado) | Hasta 30 000 - 40 000 IOPS por instancia*, 500 - 7500 por archivo<br/>\*[Aumentar el tamaño del archivo para obtener más IOPS](#file-io-characteristics-in-general-purpose-tier)| 5500 - 110 000 (1375 IOPS/núcleo virtual)<br/>Agregue más núcleos virtuales para obtener un mejor rendimiento de E/S. |
+| Datos/IOPS de registro (aproximado) | Hasta 30 000 - 40 000 IOPS por instancia*, 500 - 7500 por archivo<br/>\*[Aumentar el tamaño del archivo para obtener más IOPS](#file-io-characteristics-in-general-purpose-tier)| 10 000 - 200 000 (2500 IOPS/núcleo virtual)<br/>Agregue más núcleos virtuales para obtener un mejor rendimiento de E/S. |
 | Límite de rendimiento de escritura en el registro (por instancia) | 3 MB/s por núcleo virtual<br/>Máx. 22 MB/s | 4 MB/s por núcleo virtual<br/>Máx. 48 MB/s |
 | Rendimiento de datos (aproximado) | 100 - 250 MB/s por archivo<br/>\*[Aumentar el tamaño del archivo para mejorar el rendimiento de E/S](#file-io-characteristics-in-general-purpose-tier) | Sin limitación. |
 | Latencia de E/S de almacenamiento (aproximada) | 5-10 ms | 1-2 ms |
@@ -96,7 +96,7 @@ Instancia administrada tiene dos niveles de servicio: [De uso general](sql-datab
 
 En el nivel de servicio De uso general, cada archivo de base de datos obtiene IOPS y rendimiento dedicados que dependen del tamaño del archivo. Los archivos más grandes obtienen más IOPS y capacidad de rendimiento. En la tabla siguiente se muestran las características de E/S de los archivos de base de datos:
 
-| Tamaño de archivo           | 0 - 128 GiB | 128 - 256 GiB | 256 - 512 GiB | 0,5 - 1 TiB    | 1 - 2 TiB    | 2 - 4 TiB | 4 - 8 TiB |
+| Tamaño de archivo | >=0 y <=128 GiB | > 128 y < = 256 GiB | > 256 y < = 512 GiB | > 0,5 y < = 1 TiB    | > 1 y < = 2 TiB    | > 2 y < = 4 TiB | > 4 y < = 8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
 | IOPS por archivo       | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12 500   |
 | Rendimiento por archivo | 100 MiB/s | 125 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
@@ -107,7 +107,7 @@ También hay límites de nivel de instancia, como el rendimiento de escritura de
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-Las instancias administradas solo se pueden crear en las [regiones admitidas](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Para crear una instancia administrada en una región que no se admita actualmente, puede [enviar una solicitud de soporte técnico a través de Azure Portal](#obtaining-a-larger-quota-for-sql-managed-instance).
+Las instancias administradas solo se pueden crear en las [regiones admitidas](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Para crear una instancia administrada en una región que no se admita actualmente, puede [enviar una solicitud de soporte técnico a través de Azure Portal](quota-increase-request.md).
 
 ## <a name="supported-subscription-types"></a>Tipos de suscripciones admitidos
 
@@ -122,13 +122,13 @@ Actualmente, instancia administrada admite la implementación solo en los siguie
 
 ## <a name="regional-resource-limitations"></a>Limitaciones de recursos regionales
 
-Los tipos de suscripción compatibles pueden contener un número limitado de recursos por región. La instancia administrada tiene dos límites predeterminados por región de Azure (que se pueden aumentar a petición mediante la creación de una [solicitud de soporte técnico especial en Azure Portal](#obtaining-a-larger-quota-for-sql-managed-instance)), dependiendo de un tipo de suscripción:
+Los tipos de suscripción compatibles pueden contener un número limitado de recursos por región. La instancia administrada tiene dos límites predeterminados por región de Azure (que se pueden aumentar a petición mediante la creación de una [solicitud de soporte técnico especial en Azure Portal](quota-increase-request.md)), dependiendo de un tipo de suscripción:
 
 - **Límite de subred**: el número máximo de subredes en que se implementan instancias administradas en una sola región.
 - **Límite de unidades de núcleos virtuales**: el número máximo de unidades de núcleo virtual que se pueden implementar en todas las instancias en una sola región. Un núcleo virtual de GP usa una unidad de núcleo virtual y un núcleo virtual de BC usa 4 unidades de núcleo virtual. El número total de instancias no está limitado, siempre que se encuentre dentro del límite de unidades de núcleo virtual.
 
 > [!Note]
-> Estos límites son opciones de configuración predeterminadas y no limitaciones técnicas. Los límites se pueden aumentar a petición mediante la creación de una [solicitud de soporte técnico especial en Azure Portal](#obtaining-a-larger-quota-for-sql-managed-instance) si necesita más instancias administradas en la región actual. Como alternativa, puede crear nuevas instancias administradas en otra región de Azure sin necesidad de enviar solicitudes de soporte técnico.
+> Estos límites son opciones de configuración predeterminadas y no limitaciones técnicas. Los límites se pueden aumentar a petición mediante la creación de una [solicitud de soporte técnico especial en Azure Portal](quota-increase-request.md) si necesita más instancias administradas en la región actual. Como alternativa, puede crear nuevas instancias administradas en otra región de Azure sin necesidad de enviar solicitudes de soporte técnico.
 
 En la tabla siguiente se muestran los **límites regionales predeterminados** de los tipos de suscripción admitidos (estos límites se pueden ampliar mediante la solicitud de soporte técnico que se describe a continuación):
 
@@ -146,39 +146,9 @@ En la tabla siguiente se muestran los **límites regionales predeterminados** de
 
 \*\* En las regiones siguientes hay más límites de subred y núcleo virtual: Este de Australia, Este de EE. UU., Este de EE. UU. 2, Norte de Europa, Centro-sur de EE. UU., Sudeste de Asia, Sur de Reino Unido, Oeste de Europa, Oeste de EE. UU. 2.
 
-## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Obtención de una cuota mayor para instancia administrada de SQL
+## <a name="request-a-quota-increase-for-sql-managed-instance"></a>Solicitar un aumento de la cuota para una instancia administrada de SQL
 
-Si necesita más instancias administradas en sus regiones actuales, puede enviar una solicitud de soporte técnico para ampliar la cuota a través de Azure Portal.
-Para iniciar el proceso de obtención de una cuota mayor:
-
-1. Abra **Ayuda y soporte técnico** y haga clic en **Nueva solicitud de soporte técnico**.
-
-   ![Ayuda y soporte técnico](media/sql-database-managed-instance-resource-limits/help-and-support.png)
-2. En la pestaña Conceptos básicos de la nueva solicitud de soporte técnico:
-   - En **Tipo de problema**, seleccione **Límites de servicio y suscripción (cuotas)** .
-   - En **Suscripción**, seleccione la suscripción.
-   - En **Tipo de cuota**, seleccione **Instancia administrada de SQL Database**.
-   - En **Plan de soporte técnico**, seleccione un plan de soporte técnico.
-
-     ![Cuota de tipo de problema](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
-
-3. Haga clic en **Next**.
-4. En la **pestaña Problema** de la nueva solicitud de soporte técnico:
-   - En **Gravedad**, seleccione el nivel de gravedad del problema.
-   - En **Detalles**, especifique información adicional acerca del problema, lo que incluye los mensajes de error.
-   - En **Carga de archivos**, adjunte un archivo con más información (hasta 4 MB).
-
-     ![Detalles del problema](media/sql-database-managed-instance-resource-limits/problem-details.png)
-
-     > [!IMPORTANT]
-     > Una solicitud válida debe incluir:
-     > - Región en la que hay que aumentar el límite de la suscripción.
-     > - Número requerido de núcleos virtuales, por nivel de servicio en las subredes existentes después del aumento de la cuota (si cualquiera de las subredes existentes debe expandirse).
-     > - Número requerido de nuevas subredes y número total de núcleos virtuales por nivel de servicio dentro de las nuevas subredes (si tiene que implementar instancias administradas en nuevas subredes).
-
-5. Haga clic en **Next**.
-6. En la pestaña Información de contacto de la nueva solicitud de soporte técnico, especifique el método de contacto preferido (teléfono o correo electrónico) y los detalles de contacto.
-7. Haga clic en **Crear**.
+Si necesita más instancias administradas en sus regiones actuales, puede enviar una solicitud de soporte técnico para ampliar la cuota a través de Azure Portal. Para más información, consulte [Solicitud de aumentos de cuota para Azure SQL Database](quota-increase-request.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

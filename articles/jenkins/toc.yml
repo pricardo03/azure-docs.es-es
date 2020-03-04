@@ -8,13 +8,13 @@
   expanded: true
   items:
     - name: Creación de un servidor de Jenkins
-      href: install-jenkins-solution-template.md
+      href: install-solution-template-quickstart.md
 - name: Tutoriales
   items:
     - name: 1. Instalar
       items:
         - name: Creación de un servidor de Jenkins
-          href: install-jenkins-solution-template.md
+          href: install-solution-template-tutorial.md
     - name: 2. Configuración
       items:
         - name: Escalado con Azure Container Instances

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: memildin
-ms.openlocfilehash: b2ab769fc2595af9fd1ea41f1ef492944cb5e7fa
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 1a6dbaeac5355d50edb93a7f215d7f8e88231e98
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75665775"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615967"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Administración de incidentes de seguridad en Azure Security Center
 
@@ -48,14 +48,20 @@ Para más información sobre las alertas, vea [Administración y respuesta a las
 
 Los temas siguientes le guiarán a través de las diferentes alertas según los tipos de recursos:
 
-* [Alertas de servidores y máquinas virtuales de IaaS](security-center-alerts-iaas.md)
-* [Alertas de procesos nativos](security-center-alerts-compute.md)
-* [Alertas de servicios de datos](security-center-alerts-data-services.md)
+* [Alertas de máquinas Windows con IaaS](threat-protection.md#windows-machines)
+* [Alertas de máquinas Linux con IaaS](threat-protection.md#linux-machines)
+* [Alertas de Azure App Service](threat-protection.md#app-services)
+* [Alertas de contenedores de Azure](threat-protection.md#azure-containers)
+* [Alertas de SQL Database y SQL Data Warehouse](threat-protection.md#data-sql)
+* [Alertas de Azure Storage](threat-protection.md#azure-storage)
+* [Alertas de Cosmos DB](threat-protection.md#cosmos-db)
 
 Los temas siguientes explican cómo Security Center usa los diferentes datos de telemetría que recopila de la integración con la infraestructura de Azure a fin de aplicar capas de protección adicionales para los recursos implementados en Azure:
 
-* [Alertas de la capa de servicios](security-center-alerts-service-layer.md)
-* [Detección de amenazas para Azure WAF y Azure DDoS Protection](security-center-alerts-integration.md)
+* [Alertas de la capa de administración de Azure (Azure Resource Manager) (versión preliminar)](threat-protection.md#management-layer)
+* [Alertas de Azure Key Vault (versión preliminar)](threat-protection.md#azure-keyvault)
+* [Alertas de la capa de red de Azure](threat-protection.md#network-layer)
+* [Alertas de otros servicios](threat-protection.md#alerts-other)
 
 ## <a name="see-also"></a>Consulte también
 En este documento, aprendió a usar la funcionalidad de incidente de seguridad en el Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
@@ -63,5 +69,3 @@ En este documento, aprendió a usar la funcionalidad de incidente de seguridad e
 * [Alertas de seguridad en Azure Security Center](security-center-alerts-overview.md)
 * [Administración de alertas de seguridad](security-center-managing-and-responding-alerts.md)
 * [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md)
-* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
-* [Blog de seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad en Azure.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: f0719542eb693e52f9a7996e28699b7425b0e0fe
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: fa1cba2d791cd40a46f8ad182c123a726143faec
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509145"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614245"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Comprobación del estado de un dominio administrado de Azure Active Directory Domain Services
 
@@ -29,7 +29,7 @@ En este artículo se muestra cómo ver el estado de mantenimiento de Azure AD 
 El estado de mantenimiento de un dominio administrado de Azure AD DS se visualiza mediante Azure Portal. Se puede ver información sobre la hora de la última copia de seguridad y la sincronización con Azure AD, junto con las alertas que indican un problema con el estado del dominio administrado. Para ver el estado de mantenimiento de un dominio administrado de Azure AD DS, complete los pasos siguientes:
 
 1. En Azure Portal, busque y seleccione **Azure AD Domain Services**.
-1. Seleccione el dominio administrado de Azure AD DS, por ejemplo, *aadds.contoso.com*.
+1. Seleccione el dominio administrado de Azure AD DS, por ejemplo, *aaddscontoso.com*.
 1. En el lado izquierdo de la ventana de recursos de Azure AD DS, seleccione **Estado**. En la captura de pantalla de ejemplo siguiente se muestra un dominio administrado de Azure AD DS en buen estado y el estado de la última copia de seguridad y la sincronización de Azure AD:
 
     ![Descripción general de la página de estado en Azure Portal que muestra el estado de Azure Active Directory Domain Services](./media/check-health/health-page.png)

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 02/12/2020
-ms.openlocfilehash: be187e34e3232c0755e2613ffffe0647da70079c
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 02/24/2020
+ms.openlocfilehash: 811e3bc206b4d98106bdbb1ce2655cd69c8585a2
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201669"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589256"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Eliminación de un protector de Cifrado de datos transparente (TDE) con PowerShell
 
@@ -43,11 +43,11 @@ Para la instalación, consulte [Instalación de la CLI de Azure](/cli/azure/inst
 
 En esta guía de procedimientos se describe cómo responder a un protector TDE potencialmente comprometido para una base de datos de Azure SQL o Data Warehouse mediante TDE con claves administradas por el usuario en Azure Key Vault y compatibilidad con Bring Your Own Key (BYOK). Para más información sobre la compatibilidad con BYOK para TDE, consulte la [página de introducción](transparent-data-encryption-byok-azure-sql.md).
 
-Los siguientes procedimientos deben realizarse únicamente en casos extremos o en entornos de prueba. Revise la guía de procedimientos cuidadosamente, ya que si se eliminan protectores TDE que se usan activamente en Azure Key Vault puede dar como resultado la **pérdida de datos**.
+Los siguientes procedimientos deben realizarse únicamente en casos extremos o en entornos de prueba. Lea la guía de procedimientos detenidamente, ya que si se eliminan protectores TDE que se usan activamente en Azure Key Vault la **base de datos dejará de estar disponible**.
 
 Si alguna vez se sospecha que una clave está comprometida, de modo que un servicio o usuario ha tenido acceso no autorizado a la clave, lo mejor es eliminarla.
 
-Tenga en cuenta que cuando se elimina el protector de TDE en Key Vault, **se bloquean todas las conexiones a las bases de datos cifradas en el servidor y estas bases de datos quedarán sin conexión y se eliminarán en 24 horas**. Las copias de seguridad antiguas cifradas con la clave en peligro ya no son accesibles.
+Tenga en cuenta que una vez que el protector de TDE se elimina en Key Vault, en un plazo máximo de 10 minutos todas las bases de datos cifradas comenzarán a denegar todas las conexiones con el mensaje de error correspondiente y su estado cambiará a [Inaccesible](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-byok-azure-sql#inaccessible-tde-protector).
 
 En los siguientes pasos se describe cómo comprobar las huellas digitales de Protector de TDE que los archivos de registro virtual (VLF) de una base de datos determinada siguen utilizando.
 Encontrará la huella digital del protector de TDE actual de la base de datos y el identificador de base de datos al ejecutar lo siguiente:

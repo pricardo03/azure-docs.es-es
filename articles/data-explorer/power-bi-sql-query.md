@@ -1,5 +1,5 @@
 ---
-title: Visualización de datos desde Azure Data Explorer con una consulta de SQL en Power BI
+title: Visualización de datos desde Azure Data Explorer con una consulta SQL de Power BI
 description: 'En este artículo, aprenderá a usar una de las tres opciones de visualización de datos de Power BI: una consulta SQL en un clúster de Azure Data Explorer.'
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: e4e7858a54f3002a511269a2519135d5ac24ed68
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d402d4c1ee77d0f97d2a5c3bdf43d0cc62aac096
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024084"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560480"
 ---
 # <a name="visualize-data-from-azure-data-explorer-using-a-sql-query-in-power-bi"></a>Visualización de datos desde Azure Data Explorer con una consulta de SQL en Power BI
 
@@ -22,7 +22,7 @@ Azure Data Explorer ofrece tres opciones para conectarse a los datos de Power BI
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este artículo, necesitará lo siguiente:
 
@@ -38,7 +38,7 @@ Normalmente se utiliza el lenguaje de consulta nativo con Azure Data Explorer, p
 
 1. En la pestaña **Inicio** de Power BI Desktop, seleccione **Obtener datos** y luego **Más**.
 
-    ![Obtener los datos](media/power-bi-sql-query/get-data-more.png)
+    ![Obtener datos](media/power-bi-sql-query/get-data-more.png)
 
 1. Busque *Azure SQL Database*, seleccione **Azure SQL Database** y, a continuación, **Conectar**.
 
@@ -52,7 +52,7 @@ Normalmente se utiliza el lenguaje de consulta nativo con Azure Data Explorer, p
     |---|---|---|
     | Server | *help.kusto.windows.net* | La dirección URL para el clúster de ayuda (sin *https://* ). Para otros clústeres, la dirección URL tiene el formato *\<NombreClúster\>\<Región\>.kusto.windows.net*. |
     | Base de datos | *Muestras* | La base de datos de ejemplo que se hospeda en el clúster al que se va a conectar. |
-    | Modo Conectividad de datos | *Importaciónación* | Determina si Power BI importa los datos o se conecta directamente al origen de datos. Puede usar cualquiera de las opciones con este conector. |
+    | Modo Conectividad de datos | *Importar* | Determina si Power BI importa los datos o se conecta directamente al origen de datos. Puede usar cualquiera de las opciones con este conector. |
     | Tiempo de espera del comando | Déjelo en blanco | El tiempo que la consulta se puede estar ejecutando antes de lanzar un error de tiempo de expiración. |
     | Instrucción SQL | Copie la consulta que aparece después de esta tabla | La instrucción SQL que Azure Data Explorer traduce en una consulta nativa. |
     | Otras opciones | Deje los valores predeterminados | Las opciones no se aplican a los clústeres de Azure Data Explorer. |
@@ -70,7 +70,7 @@ Normalmente se utiliza el lenguaje de consulta nativo con Azure Data Explorer, p
 
 1. En la pantalla **help.kusto.windows.net: Samples**, seleccione **Cargar**.
 
-    ![Carga de datos](media/power-bi-sql-query/load-data.png)
+    ![Cargar datos](media/power-bi-sql-query/load-data.png)
 
     La tabla se abre en la ventana principal de Power BI, en la vista de informes, donde puede crear informes basados en los datos de ejemplo.
 

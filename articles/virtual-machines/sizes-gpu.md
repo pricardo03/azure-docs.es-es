@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
-ms.openlocfilehash: 9be3c14bb435aaa1cddf008a27389bb3b1fdbc3d
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: d88c76afb3426dce8c68ae4bcda366fe17700aa7
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492549"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566053"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Tamaños de máquinas virtuales optimizadas para GPU
 
@@ -31,15 +31,15 @@ Los tamaños de máquina virtual optimizada para GPU son máquinas virtuales esp
 
 - Los tamaños de las series [NV](nv-series.md) y [NVv3](nvv3-series.md) están optimizados y diseñados para escenarios de visualización remota, streaming, juegos, codificación y VDI mediante marcos como OpenGL y DirectX. Estas máquinas virtuales están respaldadas por la GPU NVIDIA Tesla M60.
 
-- Los tamaños de las máquinas virtuales de la serie [NVv4](nvv4-series.md) están optimizados y diseñados para VDI y la visualización remota. Con las GPU con particiones, NVv4 ofrece el tamaño adecuado para las cargas de trabajo que requieren recursos de GPU más pequeños. Estas máquinas virtuales usan la GPU AMD Radeon Instinct MI25.
+- Los tamaños de las máquinas virtuales de la serie [NVv4](nvv4-series.md) están optimizados y diseñados para VDI y la visualización remota. Con las GPU con particiones, NVv4 ofrece el tamaño adecuado para las cargas de trabajo que requieren recursos de GPU más pequeños. Estas máquinas virtuales usan la GPU AMD Radeon Instinct MI25. Las máquinas virtuales NVv4 actualmente solo admiten el sistema operativo invitado Windows.
 
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operativos y controladores compatibles
 
 Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure, deben instalarse controladores de GPU de NVIDIA.
 
-La [extensión de controlador de GPU de NVIDIA](/extensions/hpccompute-gpu-windows.md) instala los controladores CUDA de NVIDIA o GRID adecuados en una máquina virtual de la serie N. Instale o administre la extensión mediante Azure Portal o con herramientas como las plantillas de Azure PowerShell o Azure Resource Manager. Consulte la [documentación de la extensión de controlador de GPU de NVIDIA](/extensions/hpccompute-gpu-windows.md) para los sistemas operativos compatibles y los pasos de implementación. Para una información general sobre las extensiones de máquina virtual, consulte [Características y extensiones de las máquinas virtuales de Azure](/extensions/overview.md).
+La [extensión de controlador de GPU de NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) instala los controladores CUDA de NVIDIA o GRID adecuados en una máquina virtual de la serie N. Instale o administre la extensión mediante Azure Portal o con herramientas como las plantillas de Azure PowerShell o Azure Resource Manager. Consulte la [documentación de la extensión de controlador de GPU de NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) para los sistemas operativos compatibles y los pasos de implementación. Para una información general sobre las extensiones de máquina virtual, consulte [Características y extensiones de las máquinas virtuales de Azure](/azure/virtual-machines/extensions/overview).
 
-Si decide instalar manualmente los controladores de GPU de NVIDIA, consulte el artículo sobre la [instalación de controladores de GPU de la serie N para Windows](/windows/n-series-driver-setup.md) o el artículo sobre la [instalación de controladores de GPU de la serie N para Linux](/linux/n-series-driver-setup) para obtener información sobre los sistemas operativos compatibles, los controladores, la instalación y los pasos de verificación.
+Si decide instalar manualmente los controladores de GPU de NVIDIA, consulte el artículo sobre la [instalación de controladores de GPU de la serie N para Windows](/azure/virtual-machines/windows/n-series-driver-setup) o el artículo sobre la [instalación de controladores de GPU de la serie N para Linux](/azure/virtual-machines/linux/n-series-driver-setup) para obtener información sobre los sistemas operativos compatibles, los controladores, la instalación y los pasos de verificación.
 
 ## <a name="deployment-considerations"></a>Consideraciones de la implementación
 

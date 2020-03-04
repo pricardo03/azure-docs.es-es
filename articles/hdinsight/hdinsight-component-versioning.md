@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 02/02/2020
-ms.openlocfilehash: 13c064701a5ecae2090a99980249f5daaa8d5395
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 02/26/2020
+ms.openlocfilehash: 9c801f5c039996ac36c4f4479318d64cccdd204d
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198963"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650000"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>¿Cuáles son los componentes y versiones de Apache Hadoop disponibles con HDInsight?
 
@@ -62,6 +62,12 @@ Las versiones de los componentes del ecosistema de Hadoop asociados a las versio
 Consulte [Notas de la versión de HDInsight](hdinsight-release-notes.md) para conocer otras notas de las últimas versiones de HDInsight.
 
 ## <a name="supported-hdinsight-versions"></a>Versiones compatibles de HDInsight
+
+### <a name="support-expiration-and-retirement-for-hdinsight-versions"></a>Expiración de la compatibilidad y retirada de versiones de HDInsight
+
+La **expiración de la compatibilidad** significa que Microsoft ya no admite la versión de HDInsight especificada y dejará de estar disponible en Azure Portal durante la creación del clúster. Sin embargo, estas versiones todavía se pueden crear mediante la CLI de Azure o los diversos SDK. 
+
+La **retirada** de una versión de HDInsight significa que los clústeres existentes seguirán ejecutándose tal cual. Sin embargo, los nuevos clústeres de esta versión no se pueden crear por ningún medio (ni con la CLI ni con los SDK). Otras características del plano de control (como el escalado manual y la escalabilidad automática) puede que tampoco funcionen después de la retirada de la versión. La compatibilidad no está disponible con las versiones retiradas.
 
 Las tablas siguientes enumeran las versiones de HDInsight. Si se conocen, también se proporcionan las fechas de expiración y retirada.
 

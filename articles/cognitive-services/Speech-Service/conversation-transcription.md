@@ -1,23 +1,23 @@
 ---
-title: ¿Qué es la transcripción de conversaciones (versión preliminar)? - Servicio de voz
+title: 'Acerca de la transcripción de conversaciones (versión preliminar): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: La transcripción de conversaciones es una solución de conversión de voz a texto que combina el reconocimiento de voz, la identificación del hablante y la atribución de oraciones a cada hablante (lo que también se conoce como diarización) para proporcionar la transcripción asincrónica o en tiempo real de cualquier conversación.
 services: cognitive-services
-author: markamos
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 07e3e498a3bd2693b72079a8a731c3d139414c90
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 01/31/2020
+ms.author: dapine
+ms.openlocfilehash: 8e36a5c4d9ce2bc38565d6c9c256ed2cc7efe357
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806293"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561075"
 ---
-# <a name="what-is-conversation-transcription-preview"></a>¿Qué es la transcripción de conversaciones (versión preliminar)?
+# <a name="about-conversation-transcription-preview"></a>Acerca de la transcripción de conversaciones (versión preliminar)
 
 La transcripción de conversaciones es una solución de [conversión de voz a texto](speech-to-text.md) que combina el reconocimiento de voz, la identificación del hablante y la atribución de oraciones a cada hablante (lo que también se conoce como _diarización_) para proporcionar la transcripción asincrónica o en tiempo real de cualquier conversación. La transcripción de conversaciones distingue a los hablantes de una conversación para determinar quién dijo qué y cuándo, y facilita a los desarrolladores la tarea de agregar conversión de voz a texto a sus aplicaciones que realizan la diarización de varios hablantes.
 
@@ -44,7 +44,7 @@ Para que las reuniones sean inclusivas para todo el mundo, por ejemplo, para los
 
 Los participantes en la reunión pueden centrarse en la reunión y dejar la toma de notas a la transcripción de conversaciones. De este modo, pueden participar activamente en la reunión y realizar un seguimiento rápido de los pasos que vienen a continuación valiéndose de la transcripción en lugar de tomar notas y perderse algo posiblemente durante el evento.
 
-## <a name="how-it-works"></a>Cómo funciona
+## <a name="how-it-works"></a>Funcionamiento
 
 Así es a grandes rasgos cómo funciona la transcripción de conversaciones.
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa25a1b1d24c034a92a94ac9378bc4bff3947348
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: f07b37fffe61a6be62a72a0281e701b69167e95b
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639928"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596766"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Roles de administrador por tarea de administrador en Azure Active Directory
 
@@ -45,14 +45,14 @@ Tarea | Rol con privilegios mínimos | Roles adicionales
 Crear directorios de Azure AD B2C | Todos los usuarios que no sean invitados ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 Crear aplicaciones B2C | Administrador global | 
 Crear aplicaciones empresariales | Administrador de aplicaciones en la nube | Administrador de aplicaciones
-Crear, leer, actualizar y eliminar directivas de B2C | Administrador global | 
-Crear, leer, actualizar y eliminar proveedores de identidades | Administrador global | 
-Crear, leer, actualizar y eliminar flujos de usuario de restablecimiento de contraseña | Administrador global | 
-Crear, leer, actualizar y eliminar flujos de usuario de edición de perfiles | Administrador global | 
-Crear, leer, actualizar y eliminar flujos de usuario de inicio de sesión | Administrador global | 
-Crear, leer, actualizar y eliminar flujos de usuario de registro |Administrador global | 
-Crear, leer, actualizar y eliminar atributos de usuario | Administrador global | 
-Crear, leer, actualizar y eliminar usuarios | Administrador global ([consulte la documentación](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs))
+Crear, leer, actualizar y eliminar directivas de B2C | Administrador de directivas B2C con IEF | 
+Crear, leer, actualizar y eliminar proveedores de identidades | Administrador de proveedor de identidades externo | 
+Crear, leer, actualizar y eliminar flujos de usuario de restablecimiento de contraseña | Administrador de flujos de usuario B2C | 
+Crear, leer, actualizar y eliminar flujos de usuario de edición de perfiles | Administrador de flujos de usuario B2C | 
+Crear, leer, actualizar y eliminar flujos de usuario de inicio de sesión | Administrador de flujos de usuario B2C | 
+Crear, leer, actualizar y eliminar flujos de usuario de registro |Administrador de flujos de usuario B2C | 
+Crear, leer, actualizar y eliminar atributos de usuario | Administrador de atributos de flujos de usuario B2C | 
+Crear, leer, actualizar y eliminar usuarios | Administrador de usuarios
 Leer toda la configuración | Lector global | 
 Leer registros de auditoría de B2C | Lector global ([consulte la documentación](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
 
@@ -126,8 +126,8 @@ Leer claves de BitLocker | Lector de seguridad | Administrador de contraseñas, 
 Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Dar consentimiento a los permisos delegados | Administrador de aplicaciones en la nube | Administrador de aplicaciones
-Dar consentimiento a permisos de aplicación sin incluir a Microsoft Graph ni Azure AD Graph | Administrador de aplicaciones en la nube | Administrador de aplicaciones
-Dar consentimiento a permisos de aplicación para Microsoft Graph o Azure AD Graph | Administrador global | 
+Dar consentimiento a permisos de aplicación sin incluir a Microsoft Graph | Administrador de aplicaciones en la nube | Administrador de aplicaciones
+Dar consentimiento a permisos de aplicación para Microsoft Graph | Administrador de roles con privilegios | 
 Dar consentimiento a aplicaciones que acceden a datos propios | Rol de usuario predeterminado ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 Crear aplicación empresarial | Administrador de aplicaciones en la nube | Administrador de aplicaciones
 Administrar proxy de aplicación | Administrador de aplicaciones | 
@@ -156,7 +156,7 @@ Asignación de la licencia | Administrador de usuarios |
 Crear grupo | Administrador de usuarios | 
 Crear, actualizar o eliminar revisión de acceso de un grupo o de una aplicación | Administrador de usuarios | 
 Administrar expiración de grupos | Administrador de usuarios | 
-Administración de la configuración de grupo | Administrador global | 
+Administración de la configuración de grupo | Administrador de grupos | Administrador de usuarios | 
 Leer toda la configuración (excepto pertenencia oculta) | Lectores de directorios | Rol de usuario predeterminado ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 Leer pertenencias ocultas | Miembro del grupo | Propietario del grupo, Administrador de contraseñas, Administrador de Exchange, Administrador de SharePoint, Administrador de equipos, Administrador de usuarios
 Leer pertenencia a grupos con pertenencia oculta | Administrador del departamento de soporte técnico | Administrador de usuarios, Administrador de equipos
@@ -234,7 +234,7 @@ Leer estado del servidor | Lector global |
 
 Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
-Administrar proveedores de identidad | Administrador global | 
+Administrar proveedores de identidad | Administrador de proveedor de identidades externo | 
 Administración de la configuración | Administrador global | 
 Administrar términos de uso | Administrador global | 
 Leer toda la configuración | Lector global | 
@@ -330,11 +330,11 @@ Crear usuario | Administrador de usuarios |
 Eliminación de usuarios | Administrador de usuarios | 
 Invalidar tokens de actualización de los administradores limitados (consulte la documentación) | Administrador de usuarios | 
 Invalidar tokens de actualización de usuarios no administradores (consulte la documentación) | Administrador de contraseñas | Administrador de usuarios
-Invalidar tokens de actualización de administradores con privilegios (consulte la documentación) | Administrador global | 
+Invalidar tokens de actualización de administradores con privilegios (consulte la documentación) | Administrador de autenticación con privilegios | 
 Leer configuración básica | Rol de usuario predeterminado ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 Restablecer contraseñas para administradores limitados (consulte la documentación) | Administrador de usuarios | 
 Restablecer contraseñas de usuarios no administradores (consulte la documentación) | Administrador de contraseñas | Administrador de usuarios
-Restablecer contraseñas de administradores con privilegios | Administrador global | 
+Restablecer contraseñas de administradores con privilegios | Administrador de autenticación con privilegios | 
 Revocar licencia | Administrador de licencias | Administrador de usuarios
 Actualizar todas las propiedades excepto el nombre principal de usuario | Administrador de usuarios | 
 Actualizar el nombre principal de usuario para administradores limitados (consulte la documentación) | Administrador de usuarios | 

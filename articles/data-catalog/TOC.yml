@@ -4,7 +4,7 @@
   items:
     - name: ¿Qué es Data Catalog?
       href: overview.md
-- name: Guía de inicio rápido
+- name: Guías de inicio rápido
   items:
     - name: Creación de una instancia de Azure Data Catalog
       href: data-catalog-get-started.md
@@ -14,13 +14,13 @@
       href: register-data-assets-tutorial.md
 - name: Conceptos
   items:
-    - name: Escenarios comunes
+    - name: Escenarios frecuentes
       href: data-catalog-common-scenarios.md
     - name: Orígenes de datos admitidos
       href: data-catalog-dsr.md
     - name: Adopción de Azure Data Catalog
       href: data-catalog-adopting-data-catalog.md
-    - name: Requisitos previos
+    - name: Prerrequisitos
       href: data-catalog-prerequisites.md
     - name: Preguntas más frecuentes
       href: data-catalog-frequently-asked-questions.md
@@ -34,7 +34,7 @@
       href: data-catalog-how-to-annotate.md
     - name: Orígenes de datos de documentos
       href: data-catalog-how-to-documentation.md
-    - name: Conexión a orígenes de datos
+    - name: Conectarse a orígenes de datos
       href: data-catalog-how-to-connect.md
     - name: Trabajo con orígenes de macrodatos
       href: data-catalog-how-to-big-data.md
@@ -60,7 +60,7 @@
       href: /rest/api/datacatalog/
     - name: Búsqueda de referencia de sintaxis
       href: /rest/api/datacatalog/data-catalog-search-syntax-reference
-    - name: Conceptos para desarrollador
+    - name: Conceptos para desarrolladores
       href: data-catalog-developer-concepts.md
 - name: Recursos
   items:

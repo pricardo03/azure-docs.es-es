@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: ed477dddeb499023f4803929d9433ed37c302159
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: efee34ddfb2b2f6090d5dc8c43647c7ee1c53ce2
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212480"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562435"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Seguimiento de mensajes del dispositivo a la nube de Azure IoT con seguimiento distribuido (versión preliminar)
 
@@ -131,7 +131,7 @@ Estas instrucciones sirven para generar el muestreo en Windows. Para otros entor
 ### <a name="edit-the-send-telemetry-sample-to-enable-distributed-tracing"></a>Edición del muestreo de telemetría de envío para habilitar el seguimiento distribuido
 
 > [!div class="button"]
-> <a href="https://github.com/Azure-Samples/azure-iot-distributed-tracing-sample/blob/master/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c" target="_blank">Obtener el ejemplo en GitHub</a>
+> <a href="https://github.com/Azure-Samples/azure-iot-distributed-tracing-sample/blob/master/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c" target="_blank">Obtención del ejemplo de GitHub</a>
 
 1. Utilice un editor para abrir el archivo de origen `azure-iot-sdk-c/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c`.
 
@@ -280,7 +280,7 @@ Para entender los diferentes tipos de registros, vea [Supervisión del mantenimi
 Para visualizar el flujo de mensajes de IoT, configure la aplicación de ejemplo Application Map. La aplicación de ejemplo envía los registros de seguimiento distribuidos a [Application Map](../application-insights/app-insights-app-map.md) mediante una función de Azure y un centro de eventos.
 
 > [!div class="button"]
-> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Obtener el ejemplo en GitHub</a>
+> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Obtención del ejemplo de GitHub</a>
 
 La imagen siguiente muestra el seguimiento distribuido en App Map con tres puntos de conexión de enrutamiento:
 
@@ -308,8 +308,8 @@ Una vez habilitada, la compatibilidad con el seguimiento distribuido para IoT Hu
 1. El dispositivo de IoT envía el mensaje a IoT Hub.
 1. El mensaje llega a la puerta de enlace de IoT Hub.
 1. IoT Hub busca `tracestate` en las propiedades de la aplicación del mensaje y comprobaciones si tiene el formato correcto.
-1. Si lo tiene, IoT Hub genera y registra `trace-id` y `span-id` en los registros de diagnóstico de Azure Monitor bajo la categoría `DiagnosticIoTHubD2C`.
-1. Una vez finalizado el procesamiento del mensaje, IoT Hub genera otro `span-id` y lo registra junto con el elemento `trace-id` existente bajo la categoría `DiagnosticIoTHubIngress`.
+1. En ese caso, IoT Hub genera un elemento `trace-id` único global para el mensaje y un elemento `span-id` para el "salto" y los anota en los registros de diagnóstico de Azure Monitor en la operación `DiagnosticIoTHubD2C`.
+1. Una vez finalizado el procesamiento del mensaje, IoT Hub genera otro elemento `span-id` y lo registra junto con el elemento `trace-id` existente en la operación `DiagnosticIoTHubIngress`.
 1. Si el enrutamiento está habilitado para el mensaje, IoT Hub lo escribe en el punto de conexión personalizado y registra otro `span-id` con el mismo `trace-id` bajo la categoría `DiagnosticIoTHubEgress`.
 1. Los pasos anteriores se repiten para cada mensaje generado.
 

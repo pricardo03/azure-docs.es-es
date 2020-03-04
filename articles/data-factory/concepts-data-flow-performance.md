@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 01/25/2020
-ms.openlocfilehash: ff128d148abb87959894aee94d257ae71a3ca65e
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 02/24/2020
+ms.openlocfilehash: 9236fab332758308ceb8bde1f83a9f3ac8ee6789
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773845"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587590"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la asignación de instancias de Data Flow
 
@@ -35,8 +35,8 @@ Al diseñar flujos de datos de asignación, puede hacer una prueba unitaria de c
 ## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Aumento del tamaño de proceso en Azure Integration Runtime
 
 Un entorno Integration Runtime con más núcleos aumenta el número de nodos en los entornos de proceso de Spark y proporciona más capacidad de procesamiento para leer, escribir y transformar los datos.
-* Pruebe un clúster **optimizado para proceso**, si desea que la velocidad de procesamiento sea mayor que la velocidad de entrada.
-* Pruebe un clúster **optimizado para memoria** si desea almacenar en caché más datos en memoria.
+* Pruebe un clúster **optimizado para proceso** si quiere que la velocidad de procesamiento sea mayor que la velocidad de entrada.
+* Pruebe un clúster **optimizado para memoria** si desea almacenar en caché más datos en memoria. La optimización para memoria es ligeramente más cara por núcleo que la optimización para proceso, pero es probable que se produzcan velocidades de transformación más rápidas.
 
 ![Nuevo IR](media/data-flow/ir-new.png "Nuevo IR")
 
@@ -87,17 +87,24 @@ En su canalización, agregue una [actividad de procedimiento almacenado](transfo
 
 Programe un cambio de tamaño del origen y el receptor de Azure SQL DB y Azure SQL DataWarehouse antes de que la canalización se ejecute para aumentar el rendimiento y minimizar la limitación de Azure una vez que se alcancen los límites de DTU. Una vez completada la ejecución de la canalización, cambie el tamaño de las bases de datos a la velocidad de ejecución normal.
 
-### <a name="azure-sql-dw-only-use-staging-to-load-data-in-bulk-via-polybase"></a>[Solo para Azure SQL Data Warehouse] Uso de almacenamiento provisional para cargar datos de forma masiva a través de Polybase
+* La tabla de origen de base de datos SQL con filas de 887 k y 74 columnas para una tabla de base de datos SQL con una sola transformación de columnas derivadas tarda unos tres minutos de un extremo a otro con instancias de Azure IR de depuración de 80 núcleos optimizadas para memoria.
+
+### <a name="azure-synapse-sql-dw-only-use-staging-to-load-data-in-bulk-via-polybase"></a>[Solo para Azure Synapse SQL DW] Uso de almacenamiento provisional para cargar datos de forma masiva a través de Polybase
 
 Para evitar las inserciones fila a fila en el almacenamiento de datos, consulte **Habilitación del almacenamiento provisional** en la configuración del receptor para que ADF pueda usar [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide). PolyBase permite a ADF cargar los datos de forma masiva.
 * Al ejecutar la actividad de flujo de datos desde una canalización, deberá seleccionar la ubicación de almacenamiento Blob o ADLS Gen2 para almacenar provisionalmente los datos durante la carga masiva.
 
+* El origen del archivo de 421 Mb con 74 columnas para una tabla Synapse y una sola transformación de columnas derivadas tarda aproximadamente cuatro minutos de un extremo a otro con instancias de Azure IR de depuración de 80 núcleos optimizadas para memoria.
+
 ## <a name="optimizing-for-files"></a>Optimización de los archivos
 
-En cada transformación, puede establecer el esquema de partición que desee que use la factoría de datos en la pestaña Optimizar.
+En cada transformación, puede establecer el esquema de partición que desee que use la factoría de datos en la pestaña Optimizar. Se recomienda probar primero los receptores basados en archivos y mantener las particiones y las optimizaciones predeterminadas.
+
 * Para los archivos más pequeños, puede comprobar que seleccionar *Partición única* en ocasiones funciona mejor y más rápido que solicitar a Spark que cree particiones de los archivos pequeños.
 * Si no tiene información suficiente sobre los datos de origen, elija la creación de particiones *Round Robin* y establezca el número de particiones.
 * Si los datos tienen columnas que pueden ser claves de hash correctas, elija *Creación de particiones por hash*.
+
+* El origen del archivo con el receptor de un archivo de 421 Mb con 74 columnas y una sola transformación de columnas derivadas tarda aproximadamente dos minutos de un extremo a otro usando instancias de Azure IR de depuración de 80 núcleos optimizadas para memoria.
 
 Al depurar en la vista previa de datos y la depuración de la canalización, el límite y los tamaños de muestreo de los conjuntos de datos de origen basados en archivos solo se aplican al número de filas devueltas, no al número de filas leídas. Esto puede afectar al rendimiento de sus ejecuciones de depuración y, posiblemente, hacer que se produzca un error en el flujo.
 * Los clústeres de depuración son pequeños clústeres de un solo nodo de forma predeterminada, de modo que se recomienda usar archivos pequeños de ejemplo para la depuración. Vaya a Configuración de depuración y seleccione un pequeño subconjunto de sus datos mediante un archivo temporal.

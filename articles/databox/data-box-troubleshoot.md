@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas en Azure Data Box, cuadro Azure Data Box Heavy | Microsoft Docs
+title: Solución de problemas en Azure Data Box y Azure Data Box Heavy
 description: Describe cómo solucionar problemas que se producen en Azure Data Box y Azure Data Box Heavy al copiar datos en estos dispositivos.
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 83f6f7c7f8cd5155669f12fd6e426f86ef1c7baa
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 51935516e26f263e44a926bf9b7d7ec24a5eeb9e
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848507"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560072"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Solucionar problemas relacionados con Azure Data Box y Azure Data Box Heavy
 
@@ -23,7 +23,7 @@ En este artículo se detalla información sobre cómo solucionar problemas con q
 
 Los errores en Data Box y Data Box Heavy se resumen como sigue:
 
-| Categoría de error*        | DESCRIPCIÓN        | Acción recomendada    |
+| Categoría de error*        | Descripción        | Acción recomendada    |
 |----------------------------------------------|---------|--------------------------------------|
 | Nombres de contenedor o recurso compartido | Los nombres de contenedor o de recurso compartido no siguen las reglas de nomenclatura de Azure.  |Descargue las listas de errores. <br> Cambiar el nombre de los contenedores o recursos compartidos. [Más información](#container-or-share-name-errors).  |
 | Límite de tamaño de contenedor o recurso compartido | El total de datos en contenedores o recursos compartidos supera el límite de Azure.   |Descargue las listas de errores. <br> Reduzca los datos generales en el contenedor o recurso compartido. [Más información](#container-or-share-size-limit-errors).|
@@ -148,7 +148,7 @@ Para más información, consulte la [Introducción a blobs en páginas de Azure]
 
 **Resolución sugerida:** Para discos administrados, dentro de cada recurso compartido, se crean las tres carpetas siguientes, que corresponden a contenedores de la cuenta de almacenamiento: SSD Premium, HDD estándar y SSD estándar. Estas carpetas se corresponden con el nivel de rendimiento para el disco administrado.
 
-- Asegúrese de copiar los datos de blobs de página (VHD) en una de estas carpetas existentes.
+- Asegúrese de copiar los datos de blobs en páginas (VHD) en una de estas carpetas existentes.
 - No se permiten una carpeta o un directorio en estas carpetas existentes. Quite las carpetas que haya creado dentro de las carpetas ya existentes.
 
 Para más información, consulte [Copiar en discos administrados](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box).

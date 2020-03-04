@@ -3,39 +3,39 @@ title: Uso de Acciones de GitHub con la sincronización de Azure App Configurat
 description: Uso de Acciones de GitHub para desencadenar una actualización de la instancia de App Configuration cuando se realizan acciones definidas en un repositorio de GitHub
 author: lisaguthrie
 ms.author: lcozzens
-ms.date: 01/14/2020
+ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: ce8d42ec7c37b19378b6f4ae0c81548f2eff5c9c
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 9d60f1885a85fd7d45090f1cb4905a3d95d9d1d6
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190383"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523720"
 ---
 # <a name="sync-your-app-configuration-instance-using-github-actions"></a>Sincronización de la instancia de App Configuration mediante Acciones de GitHub
-Azure App Configuration usa Acciones de GitHub para actualizar una instancia de App Configuration cuando se desencadena mediante una acción realizada en un repositorio de GitHub. Puede aprovechar los flujos de trabajo de GitHub para actualizar la configuración de la aplicación, lo que permite la integración de las actualizaciones de configuración de aplicaciones en el mismo flujo de trabajo que se usa para actualizar el código de la aplicación.
+Azure App Configuration usa Acciones de GitHub para desencadenar actualizaciones en una instancia de App Configuration en función de acciones realizadas en un repositorio de GitHub. Los flujos de trabajo de GitHub desencadenan actualizaciones de configuración, lo que permite integrar estas actualizaciones en el mismo flujo de trabajo que se usa para actualizar el código de la aplicación.
 
-Un [flujo de trabajo](https://help.github.com/articles/about-github-actions#workflow) de las Acciones de GitHub es un proceso automatizado que se define en el repositorio de GitHub. Este proceso indica a GitHub cómo crear e implementar el proyecto de GitHub. Azure App Configuration proporciona la acción de *sincronización de Azure App Configuration* para habilitar las actualizaciones en una instancia de configuración de App Configuration cuando se realizan cambios en el repositorio de origen. 
+Un [flujo de trabajo](https://help.github.com/articles/about-github-actions#workflow) de Acciones de GitHub define un proceso automatizado en un repositorio de GitHub. Este proceso indica a GitHub cómo crear e implementar el proyecto de GitHub. Azure App Configuration proporciona la acción de *sincronización de Azure App Configuration* para habilitar las actualizaciones en una instancia de configuración de App Configuration cuando se realizan cambios en el repositorio de origen. 
 
-Un archivo YAML (.yml) define un flujo de trabajo en la ruta de acceso `/.github/workflows/` del repositorio. En esta definición se incluyen los diversos pasos y parámetros que definen el flujo de trabajo.
+Un archivo YAML (.yml) incluido en la ruta de acceso `/.github/workflows/` del repositorio define el flujo de trabajo. En esta definición se incluyen los pasos y parámetros del flujo de trabajo.
 
-Los eventos de GitHub, como una inserción en un repositorio, pueden desencadenar un flujo de trabajo de Acciones de GitHub.  Azure proporciona la *sincronización de Azure App Configuration* para que pueda desencadenar una actualización de una instancia de App Configuration cuando se produce una acción de GitHub especificada. Esto permite que los equipos aprovechen las características principales de GitHub al insertar, revisar o bifurcar los archivos de configuración de la aplicación de la misma forma que con el código de la aplicación.
+Los eventos de GitHub, como una inserción en un repositorio, pueden desencadenar un flujo de trabajo de Acciones de GitHub.  La acción *Azure App Configuration Sync* permite desencadenar una actualización de una instancia de App Configuration cuando se produce una acción de GitHub especificada. Puede desencadenar actualizaciones de configuración al insertar, revisar o bifurcar archivos de configuración de la aplicación, de la misma forma que lo hace con el código de la aplicación.
 
 La [documentación](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) de GitHub proporciona una vista detallada de los flujos de trabajo y las acciones de GitHub. 
 
 ## <a name="enable-github-actions-in-your-repository"></a>Habilitación de Acciones de GitHub en el repositorio
-Para empezar a usar esta acción de GitHub, vaya al repositorio y seleccione la pestaña **Acciones**. Haga clic en New workflow (Nuevo flujo de trabajo) y, luego, en "Set up a workflow yourself" (Configurar un flujo de trabajo por su cuenta). Desde allí, busque en Marketplace "Azure App Configuration Sync".
+Para empezar a usar esta acción de GitHub, vaya al repositorio y seleccione la pestaña **Acciones**. Haga clic en **New workflow** (Nuevo flujo de trabajo) y, luego, en **Set up a workflow yourself** (Configurar un flujo de trabajo por su cuenta). Por último, busque en Marketplace "Azure App Configuration Sync".
 > [!div class="mx-imgBorder"]
 > ![Selección de la pestaña Acción](media/find-github-action.png)
 
 > [!div class="mx-imgBorder"]
-> ![Selección de la acción de sincronización de configuración de la aplicación](media/app-configuration-sync-action.png)
+> ![Selección de la acción Azure App Configuration Sync](media/app-configuration-sync-action.png)
 
 ## <a name="sync-configuration-files-after-a-push"></a>Sincronización de los archivos de configuración después de una inserción
-Esta acción sincroniza los archivos de Azure App Configuration cuando se inserta un cambio en `appsettings.json`. Cuando un desarrollador realiza un cambio y lo inserta en `appsettings.json`, la acción de sincronización de App Configuration actualiza la instancia de App Configuration con los nuevos valores.
+Esta acción sincroniza los archivos de Azure App Configuration cuando se inserta un cambio en `appsettings.json`. Cuando un desarrollador inserta un cambio en `appsettings.json`, la acción App Configuration Sync actualiza la instancia de App Configuration con los nuevos valores.
 
-La primera sección de este flujo de trabajo especifica que la acción se desencadena *en* una *inserción* que contiene `appsettings.json` para la bifurcación *maestra*. En la segunda sección se enumeran los trabajos que se ejecutan una vez que se desencadena la acción. La acción desprotege los archivos pertinentes y actualiza la instancia de App Configuration con la cadena de conexión almacenada como un secreto en el repositorio.  Para más información sobre el uso de secretos en Github, consulte [este artículo](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) sobre la creación y el uso de secretos cifrados.
+La primera sección de este flujo de trabajo especifica que la acción se desencadena *en* una *inserción* que contiene `appsettings.json` para la bifurcación *maestra*. En la segunda sección se enumeran los trabajos que se ejecutan una vez que se desencadena la acción. La acción desprotege los archivos pertinentes y actualiza la instancia de App Configuration con la cadena de conexión almacenada como un secreto en el repositorio.  Para más información sobre el uso de secretos en GitHub, consulte este [artículo de GitHub](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) sobre la creación y el uso de secretos cifrados.
 
 ```json
 on: 
@@ -62,7 +62,7 @@ jobs:
 ```
 
 ## <a name="use-a-dynamic-label-on-sync"></a>Uso de una etiqueta dinámica en la sincronización
-La acción anterior simplemente actualizó la instancia de App Configuration cada vez que se actualiza `appsettings.json`. Esta acción inserta una etiqueta dinámica en cada sincronización, lo que garantiza que pueda identificarse de forma única.  Esto permite que los cambios de código se asignen rápidamente a los cambios de configuración.
+La acción anterior actualiza la instancia de App Configuration cada vez que se actualiza `appsettings.json`. Esta acción inserta una etiqueta dinámica en cada sincronización, lo que garantiza que cada una puede identificarse de forma única y permite que los cambios en el código se asignen a cambios en la configuración.
 
 La primera sección de este flujo de trabajo especifica que la acción se desencadena *en* una *inserción* que contiene `appsettings.json` para la bifurcación *maestra*. En la segunda sección se ejecuta un trabajo que crea una etiqueta única para la actualización de la configuración según el hash de confirmación. Después, el trabajo actualiza la instancia de App Configuration con los nuevos valores y la etiqueta única para esta actualización.
 
@@ -98,7 +98,7 @@ jobs:
 ## <a name="use-strict-sync"></a>Uso de una sincronización estricta
 Cuando el modo estricto está habilitado, la sincronización garantiza que la instancia de App Configuration coincida exactamente con el archivo de configuración para el prefijo y la etiqueta especificados. Se eliminan los pares clave-valor con el mismo prefijo y etiqueta que no están en el archivo de configuración. 
  
-Si el modo estricto no está habilitado, la sincronización solo establecerá los valores de clave del archivo de configuración. No se eliminará ningún par clave-valor. 
+Si el modo estricto no está habilitado, la sincronización solo establecerá los pares de clave-valor del archivo de configuración. No se eliminará ningún par clave-valor. 
 
 ```json
 on: 
@@ -143,6 +143,7 @@ El comportamiento predeterminado de los atributos JSON anidados es aplanar todo 
     }
 }
 ```
+
 Si el objeto anidado está pensado para ser el valor insertado en la instancia de configuración, puede usar el valor de *profundidad* para detener el acoplamiento con la profundidad adecuada. 
 
 ```json
@@ -185,15 +186,15 @@ Los parámetros de entrada especifican los datos usados por la acción durante e
 
 | Nombre de entrada | ¿Necesario? | Value |
 |----|----|----|
-| configurationFile | Sí | Ruta de acceso al archivo de configuración en el repositorio, con respecto a la raíz de este.  Se admiten patrones Glob y pueden incluir varios archivos. |
+| configurationFile | Sí | Ruta de acceso relativa al archivo de configuración en el repositorio.  Se admiten patrones Glob y pueden incluir varios archivos. |
 | format | Sí | Formato del archivo de configuración.  Los formatos válidos son: Propiedades JSON, YAML. |
 | connectionString | Sí | Cadena de conexión para la instancia de App Configuration. La cadena de conexión debe almacenarse como un secreto en el repositorio de GitHub y solo se debe usar el nombre de secreto en el flujo de trabajo. |
 | separador | Sí | Separador utilizado al aplanar el archivo de configuración en pares de clave y valor.  Los valores válidos son: , ; : - _ __ / |
-| prefix | No | Prefijo que se va a agregar al inicio de las claves. |
-| etiqueta | No | Etiqueta que se usa al establecer pares de clave-valor. Si no se especifica, se usa una etiqueta null. |
-| strict | No | Valor booleano que determina si está habilitado el modo estricto. El valor predeterminado es false. |
-| depth | No | Profundidad máxima para aplanar el archivo de configuración.  La profundidad debe ser un número positivo.  El valor predeterminado no tendrá una profundidad máxima. |
-| etiquetas | No | Especifica el conjunto de etiquetas en los pares de clave-valor.  El formato esperado es un formato de cadena de un objeto JSON con la siguiente forma: { [propertyName: string]: string; } Cada propiedad nombre-valor se convierte en una etiqueta. |
+| prefix | Sin | Prefijo que se va a agregar al inicio de las claves. |
+| etiqueta | Sin | Etiqueta que se usa al establecer pares de clave-valor. Si no se especifica, se usa una etiqueta null. |
+| strict | Sin | Valor booleano que determina si está habilitado el modo estricto. El valor predeterminado es false. |
+| depth | Sin | Profundidad máxima para aplanar el archivo de configuración.  La profundidad debe ser un número positivo.  El valor predeterminado no tendrá una profundidad máxima. |
+| etiquetas | Sin | Especifica el conjunto de etiquetas en los pares de clave-valor.  El formato esperado es un formato de cadena de un objeto JSON con la siguiente forma: { [propertyName: string]: string; } Cada propiedad nombre-valor se convierte en una etiqueta. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

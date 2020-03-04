@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 6fc4b40e9b65f17b0af61b601826279e99410ed1
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 514de1435519282335124bfd67bac82669240b78
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75920752"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616510"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de seguridad en Azure Security Center
 
@@ -72,15 +72,15 @@ Azure Security Center también utiliza la detección de anomalías para identifi
 Security Center asigna una gravedad a las alertas, que le ayudan a priorizar el orden en el que asiste a cada alerta, de modo que cuando un recurso está en peligro, puede obtenerlo inmediatamente. La gravedad se basa en la confianza que tiene Security Center en la búsqueda o en el análisis utilizados para emitir la alerta, así como en el nivel de confianza de que ha habido un intento malintencionado detrás de la actividad que ha provocado la alerta.
 
 > [!NOTE]
-> La gravedad de las alertas no son iguales en el portal y en la API REST. En la lista siguiente, se detallan las diferencias.
+> La gravedad de las alertas aparece de manera diferente en el portal y en las versiones de la API REST anteriores a 01-01-2019. Si usa una versión anterior de la API, actualícela para conseguir la experiencia coherente que se describe a continuación.
 
-* **Alto:** hay una probabilidad elevada de que el recurso esté en peligro. Debe investigarse de inmediato. El grado de certeza de Security Center sobre la mala intención de la acción y los hallazgos utilizados para emitir la alerta es elevado. Una alerta de este tipo sería podría detectar la ejecución de una herramienta malintencionada conocida; por ejemplo, Mimikatz, una herramienta que se usa habitualmente para robar credenciales.
-* **Media (baja en la API REST)** : es probable que sea una actividad sospechosa que puede indicar que un recurso está en peligro.
+- **Alto:** hay una probabilidad elevada de que el recurso esté en peligro. Debe investigarse de inmediato. El grado de certeza de Security Center sobre la mala intención de la acción y los hallazgos utilizados para emitir la alerta es elevado. Una alerta de este tipo sería podría detectar la ejecución de una herramienta malintencionada conocida; por ejemplo, Mimikatz, una herramienta que se usa habitualmente para robar credenciales.
+- **Medio:** es probable que sea una actividad sospechosa que puede indicar que un recurso está en peligro.
 El grado de certeza de Security Center sobre el análisis o los hallazgos es medio, mientras que el grado de certeza sobre la mala intención es medio o alto. Suelen tratarse de detecciones basadas en anomalías o aprendizaje automático. Por ejemplo, un intento de inicio de sesión desde una ubicación anómala.
-* **Baja (información de la API REST)** : podría tratarse de un hallazgo benigno o de un ataque bloqueado.
+- **Bajo:** podría tratarse de un hallazgo benigno o de un ataque bloqueado.
    * Security Center no tiene la certeza suficiente de que la intención fuera mala y la actividad podría ser inofensiva. Por ejemplo, borrar un registro es una acción que podría producirse si un atacante intenta ocultar sus huellas, pero en muchos casos es una operación rutinaria que realizan los administradores.
    * Por lo general, Security Center no avisa cuando se bloquean ataques a menos que se considere un caso interesante que convenga examinar. 
-* **Informativo (sin notificación en la API REST)** : solo verá las alertas informativas cuando explore en profundidad un incidente de seguridad, o si usa la API REST con un determinado identificador de alerta. Normalmente, las incidencias se componen de varias alertas, algunas de las cuales pueden parecer meramente informativas, aunque a tenor de otras alertas puede ser conveniente investigarlas. 
+- **Informativo:** solo verá las alertas informativas cuando explore en profundidad un incidente de seguridad, o si usa la API REST con un determinado identificador de alerta. Normalmente, las incidencias se componen de varias alertas, algunas de las cuales pueden parecer meramente informativas, aunque a tenor de otras alertas puede ser conveniente investigarlas. 
  
 
 ## <a name="continuous-monitoring-and-assessments"></a>Supervisión y evaluaciones continuas
@@ -98,14 +98,20 @@ Toda esta combinación de esfuerzos culmina en nuevas y mejoradas técnicas de d
 
 Los temas siguientes le guiarán a través de las diferentes alertas según los tipos de recursos:
 
-* [Alertas de servidores y máquinas virtuales de IaaS](security-center-alerts-iaas.md)
-* [Alertas de procesos nativos](security-center-alerts-compute.md)
-* [Alertas de servicios de datos](security-center-alerts-data-services.md)
+* [Alertas de máquinas Windows con IaaS](threat-protection.md#windows-machines)
+* [Alertas de máquinas Linux con IaaS](threat-protection.md#linux-machines)
+* [Alertas de Azure App Service](threat-protection.md#app-services)
+* [Alertas de contenedores de Azure](threat-protection.md#azure-containers)
+* [Alertas de SQL Database y SQL Data Warehouse](threat-protection.md#data-sql)
+* [Alertas de Azure Storage](threat-protection.md#azure-storage)
+* [Alertas de Cosmos DB](threat-protection.md#cosmos-db)
 
 Los temas siguientes explican cómo Security Center usa los diferentes datos de telemetría que recopila de la integración con la infraestructura de Azure a fin de aplicar capas de protección adicionales para los recursos implementados en Azure:
 
-* [Alertas de la capa de servicios](security-center-alerts-service-layer.md)
-* [Detección de amenazas en Azure WAF y Azure DDoS Protection](security-center-alerts-integration.md)
+* [Alertas de la capa de administración de Azure (Azure Resource Manager) (versión preliminar)](threat-protection.md#management-layer)
+* [Alertas de Azure Key Vault (versión preliminar)](threat-protection.md#azure-keyvault)
+* [Alertas de la capa de red de Azure](threat-protection.md#network-layer)
+* [Alertas de otros servicios](threat-protection.md#alerts-other)
 
 ## <a name="what-are-security-incidents"></a>¿Qué son los incidentes de seguridad?
 

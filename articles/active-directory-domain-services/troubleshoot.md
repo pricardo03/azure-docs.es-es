@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 2c6f594b16aac40abf885e0d058c7aba48d32f9c
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 3cb57fae2b1c67ece321a294e56612f49358405a
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512630"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612723"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Errores comunes y pasos de solución de problemas para Azure Active Directory Domain Services
 
@@ -30,7 +30,7 @@ Si tiene problemas para habilitar Azure AD DS, revise los siguientes errores c
 
 | **Ejemplo de mensaje de error** | **Resolución** |
 | --- |:--- |
-| *El nombre contoso.com ya se está usando en esta red. Especifique un nombre que no esté en uso.* |[Conflicto de nombres de dominio en la red virtual](troubleshoot.md#domain-name-conflict) |
+| *El nombre addscontoso.com ya se está usando en esta red. Especifique un nombre que no esté en uso.* |[Conflicto de nombres de dominio en la red virtual](troubleshoot.md#domain-name-conflict) |
 | *No se pudo habilitar Domain Services en este inquilino de Azure AD. El servicio no tiene los permisos adecuados para la aplicación llamada 'Azure AD Domain Services Sync'. Elimine la aplicación llamada "Azure AD Domain Services Sync" e intente habilitar Domain Services para el inquilino de Azure AD.)* |[Domain Services carece de permisos suficientes para la aplicación Azure AD Domain Services Sync](troubleshoot.md#inadequate-permissions) |
 | *No se pudo habilitar Domain Services en este inquilino de Azure AD. La aplicación de Domain Services en el inquilino de Azure AD carece de los permisos necesarios para habilitar Domain Services. Elimine la aplicación con el identificador d87dcbc6-a371-462e-88e3-28ad15ec4e64 e intente habilitar Domain Services para el inquilino de Azure AD.* |[La aplicación de Domain Services no está configurada correctamente en el inquilino de Azure AD](troubleshoot.md#invalid-configuration) |
 | *No se pudo habilitar Domain Services en este inquilino de Azure AD. La aplicación Microsoft Azure AD está deshabilitada en el inquilino de Azure AD. Habilite la aplicación con el identificador 00000002-0000-0000-c000-000000000000 e intente habilitar Domain Services para el inquilino de Azure AD.* |[La aplicación Microsoft Graph está deshabilitada en el inquilino de Azure AD](troubleshoot.md#microsoft-graph-disabled) |
@@ -39,11 +39,11 @@ Si tiene problemas para habilitar Azure AD DS, revise los siguientes errores c
 
 **Mensaje de error**
 
-*El nombre contoso.com ya se está usando en esta red. Especifique un nombre que no esté en uso.*
+*El nombre aaddscontoso.com ya se está usando en esta red. Especifique un nombre que no esté en uso.*
 
 **Resolución**
 
-Compruebe que no tenga un entorno de AD DS con el mismo nombre de dominio en la misma red virtual o una emparejada. Por ejemplo, puede tener un dominio de AD DS denominado *contoso.com* que se ejecute en máquinas virtuales de Azure. Al intentar habilitar un dominio administrado de Azure AD DS con el mismo nombre de dominio (*contoso.com*) en esa red virtual, la operación solicitada genera un error
+Compruebe que no tenga un entorno de AD DS con el mismo nombre de dominio en la misma red virtual o una emparejada. Por ejemplo, puede tener un dominio de AD DS denominado *aaddscontoso.com* que se ejecute en máquinas virtuales de Azure. Al intentar habilitar un dominio administrado de Azure AD DS con el mismo nombre de dominio (*aaddscontoso.com*) en esa red virtual, la operación solicitada genera un error
 
 que se debe a los conflictos de nombre en el nombre de dominio de la red virtual. Una búsqueda DNS comprueba si un entorno de AD DS existente responde en el nombre de dominio solicitado. Para resolver este problema, use un nombre diferente para configurar el dominio administrado de Azure AD DS o desaprovisione el dominio de AD DS existente y vuelva a intentar habilitar Azure AD DS.
 
@@ -128,9 +128,9 @@ Para comprobar el estado de esta aplicación y habilitarla si es necesario, comp
 
 Si uno o más usuarios de su inquilino de Azure AD no pueden iniciar sesión en el dominio administrado de Azure AD DS, lleve a cabo los siguientes pasos de solución de problemas:
 
-* **Formato de las credenciales**: pruebe a usar el formato UPN para especificar las credenciales, por ejemplo, `dee@contoso.onmicrosoft.com`. El formato UPN es el recomendado para especificar las credenciales en Azure AD DS. Asegúrese de que este UPN está configurado correctamente en Azure AD.
+* **Formato de las credenciales**: pruebe a usar el formato UPN para especificar las credenciales, por ejemplo, `dee@aaddscontoso.onmicrosoft.com`. El formato UPN es el recomendado para especificar las credenciales en Azure AD DS. Asegúrese de que este UPN está configurado correctamente en Azure AD.
 
-    El atributo *SAMAccountName* de su cuenta, como *CONTOSO\driley*, se puede generar automáticamente si hay varios usuarios con el mismo prefijo UPN en el inquilino o si el prefijo UPN es demasiado largo. Por lo tanto, el formato del atributo *SAMAccountName* de su cuenta puede que no sea el que espera o el que usa en su dominio local.
+    El atributo *SAMAccountName* de su cuenta, como *AADDSCONTOSO\driley*, se puede generar automáticamente si hay varios usuarios con el mismo prefijo UPN en el inquilino o si el prefijo UPN es demasiado largo. Por lo tanto, el formato del atributo *SAMAccountName* de su cuenta puede que no sea el que espera o el que usa en su dominio local.
 
 * **Sincronización de contraseña**: Asegúrese de que la ha habilitado para los [usuarios exclusivos de la nube][cloud-only-passwords] o para [entornos híbridos mediante Azure AD Connect][hybrid-phs].
     * **Cuentas sincronizadas híbridas:** Si las cuentas de usuario afectadas se sincronizan desde un directorio local, compruebe que ha hecho lo siguiente:

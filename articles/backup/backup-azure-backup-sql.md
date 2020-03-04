@@ -1,156 +1,166 @@
 ---
 title: Realización de una copia de seguridad de SQL Server en Azure como una carga de trabajo DPM
-description: Introducción a copia de seguridad de bases de datos SQL Server mediante el servicio Azure Backup
+description: Introducción a la copia de seguridad de bases de datos de SQL Server mediante el servicio Azure Backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: ea55081d6f3b58c6c64c16e64c7a9d0f673ec196
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 8cbb8c833bc2933afac300bcc848fd50861011d0
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025408"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505937"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Realización de una copia de seguridad de SQL Server en Azure como una carga de trabajo DPM
 
-Este artículo le guiará por los pasos de configuración de la copia de seguridad de bases de datos de SQL Server mediante Azure Backup.
+Este artículo le guiará por los pasos de configuración de la copia de seguridad de bases de datos de SQL Server mediante Azure Backup.
 
-Para realizar una copia de seguridad de las bases de datos de SQL Server en Azure, necesita una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+Para realizar una copia de seguridad de las bases de datos de SQL Server en Azure, necesita una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta gratuita en tan solo unos minutos. Para más información, consulte [Creación de una cuenta gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-La administración de la copia de seguridad de bases de datos de SQL Server en Azure implica tres pasos:
+Para realizar una copia de seguridad de una base de datos de SQL Server en Azure y recuperarla de Azure:
 
-1. Cree una directiva de copia de seguridad para proteger las bases de datos SQL Server en Azure.
-2. Creación de copias de seguridad a petición en Azure.
-3. Recuperación de la base de datos de Azure.
+1. Cree una directiva de copia de seguridad para proteger las bases de datos de SQL Server en Azure.
+1. Cree copias de seguridad a petición en Azure.
+1. Recuperación de la base de datos de Azure.
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-Antes de comenzar, asegúrese de que se cumplen todos los [requisitos previos](backup-azure-dpm-introduction.md#prerequisites-and-limitations) para usar Microsoft Azure Backup a fin de proteger las cargas de trabajo. Los requisitos previos cubren tareas como: crear un almacén de Backup, descargar las credenciales del almacén, instalar el agente de Azure Backup y registrar el servidor con el almacén.
+Antes de comenzar, asegúrese de que se cumplen todos los [requisitos previos](backup-azure-dpm-introduction.md#prerequisites-and-limitations) para usar Azure Backup para proteger las cargas de trabajo. Estas son algunas de las tareas de requisitos previos: 
+* Crear un almacén de copia de seguridad.
+* Descargar las credenciales de almacén. 
+* Instalar el agente de Azure Backup.
+* Registrar el servidor en el almacén.
 
-## <a name="create-a-backup-policy-to-protect-sql-server-databases-to-azure"></a>Crear una directiva de copia de seguridad para proteger las bases de datos SQL Server en Azure
+## <a name="create-a-backup-policy"></a>Crear una directiva de copia de seguridad 
 
-1. En el servidor DPM, haga clic en el espacio de trabajo **Protección**
-2. En la cinta de herramientas, haga clic en **Nuevo** para crear un nuevo grupo de protección.
+Para proteger las bases de datos de SQL Server en Azure, debe crear primero una directiva de copia de seguridad:
+
+1. En el servidor de Data Protection Manager (DPM), seleccione el área de trabajo **Protección**.
+1. Seleccione **Nuevo** para crear un grupo de protección.
 
     ![Creación de un grupo de protección](./media/backup-azure-backup-sql/protection-group.png)
-3. DPM muestra la pantalla de inicio con instrucciones sobre cómo crear un **Grupo de protección**. Haga clic en **Next**.
-4. Seleccione **Servidores**.
+1. En la página de inicio, revise las instrucciones sobre cómo crear un grupo de protección. Luego, seleccione **Siguiente**.
+1. Seleccione **Servidores**.
 
-    ![Selección de tipo de grupo de protección - 'Servidores'](./media/backup-azure-backup-sql/pg-servers.png)
-5. Expanda la máquina de SQL Server en la que se encuentran las bases de datos en las que se van a realizar copias de seguridad. DPM muestra varios orígenes de datos de los que se puede hacer copias de seguridad desde ese servidor. Expanda **Todos los recursos compartidos SQL** y seleccione las bases de datos (en este caso, seleccionamos ReportServer$MSDPM2012 y ReportServer$MSDPM2012TempDB) para realizar copias de seguridad. Haga clic en **Next**.
+    ![Selección del tipo de grupo de protección Servidores](./media/backup-azure-backup-sql/pg-servers.png)
+1. Expanda la máquina de SQL Server en la que se encuentran las bases de datos de las que se van a realizar copias de seguridad. Verá los orígenes de datos de los que se puede hacer copias de seguridad desde ese servidor. Expanda **Todos los recursos compartidos de SQL** y, a continuación, seleccione las bases de datos de las que desea realizar una copia de seguridad. En este ejemplo, seleccionamos ReportServer$MSDPM2012 y ReportServer$MSDPM2012TempDB. Luego, seleccione **Siguiente**.
 
-    ![Selección de base de datos SQL](./media/backup-azure-backup-sql/pg-databases.png)
-6. Proporcione un nombre para el grupo de protección y active la casilla **Quiero protección en línea** .
+    ![Selección de una base de datos de SQL Server](./media/backup-azure-backup-sql/pg-databases.png)
+1. Asigne un nombre al grupo de protección y, a continuación, seleccione **Deseo protección en línea**.
 
-    ![Método de protección de datos: disco a corto plazo y en línea de Azure](./media/backup-azure-backup-sql/pg-name.png)
-7. En la pantalla **Especificar objetivos a corto plazo** , incluya las entradas necesarias para crear puntos de copia de seguridad en el disco.
+    ![Elección de un método de protección de datos: protección en disco a corto plazo o protección en línea de Azure](./media/backup-azure-backup-sql/pg-name.png)
+1. En la página **Especificar objetivos a corto plazo**, incluya las entradas necesarias para crear puntos de copia de seguridad en el disco.
 
-    Aquí vemos que **Duración de retención** está establecida en *5 días*, **Frecuencia de la sincronización** está establecida en una vez cada *15 minutos*, que es la frecuencia con la que se realiza la copia de seguridad. **Copia de seguridad completa rápida** está establecido en *8:00 p.m*.
+    En este ejemplo, **Duración de retención** se establece en *5 días*. El campo **Frecuencia de sincronización** de la copia de seguridad se establece en una vez cada *15 minutos*. **Copia de seguridad completa rápida** está establecido en *8:00 P.M*.
 
-    ![Objetivos a corto plazo](./media/backup-azure-backup-sql/pg-shortterm.png)
+    ![Configuración de los objetivos a corto plazo para la protección de copias de seguridad](./media/backup-azure-backup-sql/pg-shortterm.png)
 
    > [!NOTE]
-   > A las 20:00 (de acuerdo con la entrada de la pantalla) se crea un punto de copia de seguridad cada día mediante la transferencia de los datos modificados desde el punto de copia de seguridad de las 20:00 del día anterior. Este proceso se denomina **Copia de seguridad completa rápida**. Mientras los registros transaccionales se sincronizan cada 15 minutos, si es necesario recuperar la base de datos a las 9:00 p.m., entonces se crea el punto mediante la reproducción de los registros de la última copia de seguridad completa rápida (8 p.m. en este caso).
+   > En este ejemplo, se crea un punto de copia de seguridad a las 8:00 P.M. todos los días. Los datos que se han modificado desde el punto de copia de seguridad de las 8:00 P.M. del día anterior se transfieren. Este proceso se denomina **Copia de seguridad completa rápida**. Mientras los registros transaccionales se sincronizan cada 15 minutos, si es necesario recuperar la base de datos a las 9:00 P.M., se crea el punto mediante la reproducción de los registros de la última copia de seguridad completa rápida (8:00 P.M. en este caso).
    >
    >
 
-8. Haga clic en **Siguiente**.
+1. Seleccione **Next** (Siguiente). DPM muestra el espacio de almacenamiento total disponible. También muestra el uso de espacio en disco potencial.
 
-    DPM muestra el espacio de almacenamiento total disponible y el uso del espacio de disco potencial.
+    ![Configuración de la asignación de discos](./media/backup-azure-backup-sql/pg-storage.png)
 
-    ![Asignación de disco](./media/backup-azure-backup-sql/pg-storage.png)
+    De forma predeterminada, DPM crea un volumen por origen de datos (base de datos de SQL Server). El volumen se usa para la copia de seguridad inicial. En esta configuración, el Administrador de discos lógicos (LDM) limita la protección de DPM a 300 orígenes de datos (bases de datos de SQL Server). Para evitar esta limitación, seleccione **Colocar datos en bloque de almacenamiento de DPM**. Si utiliza esta opción, DPM usa un único volumen para varios orígenes de datos. Esta configuración permite a DPM proteger hasta 2 000 bases de datos de SQL Server.
 
-    De forma predeterminada, DPM crea un volumen por origen de datos (base de datos SQL Server) que se usa para la copia de seguridad inicial. Con este enfoque, el Administrador de discos lógicos (LDM) limita la protección de DPM a 300 orígenes de datos (bases de datos SQL Server). Para evitar esta limitación, seleccione la opción **Colocar datos en bloque de almacenamiento de DPM**. Si utiliza esta opción, DPM usa un único volumen para varios orígenes de datos, que permite a DPM proteger hasta 2000 bases de datos SQL.
+    Si selecciona **Expandir automáticamente los volúmenes**, DPM puede tener en cuenta el aumento del volumen de copia de seguridad a medida que crecen los datos de producción. Si no selecciona **Expandir automáticamente los volúmenes**, DPM limita el almacenamiento de copia de seguridad usado para los orígenes de datos del grupo de protección.
 
-    Si la opción **Expandir automáticamente los volúmenes** está seleccionada, DPM puede tener en cuenta el aumento del volumen de copia de seguridad al ir creciendo los datos de producción. Si la opción **Expandir automáticamente los volúmenes** no está seleccionada, DPM limitará el almacenamiento de copia de seguridad usado para los orígenes de datos del grupo de protección.
-9. Los administradores tienen la opción de transferir esta copia de seguridad inicial manualmente (fuera de red) para evitar la congestión del ancho de banda o a través de la red. También pueden configurar la hora a la que se puede producir la transferencia inicial. Haga clic en **Next**.
+1. Si es un administrador, puede optar por transferir esta copia de seguridad inicial **Automáticamente a través de la red** y elegir la hora de transferencia. O bien, elija transferir **manualmente** la copia de seguridad. Luego, seleccione **Siguiente**.
 
-    ![Método de replicación inicial](./media/backup-azure-backup-sql/pg-manual.png)
+    ![Elección de un método de creación de réplicas](./media/backup-azure-backup-sql/pg-manual.png)
 
-    La copia de seguridad inicial requiere la transferencia de todo el origen de datos (base de datos SQL Server) desde el servidor de producción (máquina SQL Server) al servidor DPM. Estos datos pueden ser grandes y la transferencia de los datos a través de la red podría superar el ancho de banda. Por este motivo, los administradores pueden elegir transferir la copia de seguridad inicial: **Manualmente** (mediante un soporte físico extraíble) para evitar la congestión del ancho de banda, o **Automáticamente a través de la red** (en un momento determinado).
+    La copia de seguridad inicial requiere la transferencia de todo el origen de datos (base de datos de SQL Server). Los datos de copia de seguridad se mueven desde el servidor de producción (máquina de SQL Server) al servidor de DPM. Si esta copia de seguridad es grande, la transferencia de los datos por la red podría provocar la congestión del ancho de banda. Por esta razón, los administradores pueden optar por usar medios extraíbles para transferir la copia de seguridad inicial **manualmente**. O bien, pueden transferir los datos **Automáticamente a través de la red** a una hora especificada.
 
-    Una vez completada la copia de seguridad inicial, el resto de las copias de seguridad son copias de seguridad incrementales sobre la copia de seguridad inicial. Las copias de seguridad incrementales tienden a ser pequeñas y se transfieren fácilmente a través de la red.
-10. Elija cuándo quiere que se ejecute la comprobación de coherencia y haga clic en **Siguiente**.
+    Una vez finalizada la copia de seguridad inicial, las copias de seguridad continuarán de forma incremental sobre la copia de seguridad inicial. Las copias de seguridad incrementales tienden a ser pequeñas y se transfieren fácilmente a través de la red.
+    
+1. Elija cuándo desea ejecutar una comprobación de coherencia. Luego, seleccione **Siguiente**.
 
-    ![Comprobación de coherencia](./media/backup-azure-backup-sql/pg-consistent.png)
+    ![Elección de cuándo ejecutar una comprobación de coherencia](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    DPM puede realizar una comprobación de coherencia para comprobar la integridad del punto de copia de seguridad. Calcula la suma de comprobación del archivo de copia de seguridad en el servidor de producción (máquina de SQL Server en este escenario) y los datos de copia de seguridad para ese archivo en DPM. En caso de conflicto, se supone que el archivo de copia de seguridad de DPM está dañado. DPM rectifica los datos de copia de seguridad mediante el envío de los bloques correspondientes a la suma de comprobación no coincidente. Como la comprobación de coherencia es una operación que requiere un rendimiento intensivo, los administradores tienen la opción de programarla o ejecutarla automáticamente.
-11. Para especificar la protección en línea de los orígenes de datos, seleccione las bases de datos que se van proteger en Azure y haga clic en **Siguiente**.
+    DPM puede ejecutar una comprobación de coherencia sobre la integridad del punto de copia de seguridad. Calcula la suma de comprobación del archivo de copia de seguridad en el servidor de producción (máquina de SQL Server en este ejemplo) y los datos de copia de seguridad para ese archivo en DPM. Si la comprobación encuentra un conflicto, se supone que el archivo de copia de seguridad de DPM está dañado. DPM corrige los datos de copia de seguridad mediante el envío de los bloques correspondientes a la suma de comprobación no coincidente. Como la comprobación de coherencia es una operación que requiere un rendimiento intensivo, los administradores tienen la opción de programarla o ejecutarla automáticamente.
 
-    ![Selección de orígenes de datos](./media/backup-azure-backup-sql/pg-sqldatabases.png)
-12. Los administradores pueden elegir las programaciones de copia de seguridad y las directivas de retención que se ajusten a las directivas de la organización.
+1. Seleccione los orígenes de datos que se van a proteger en Azure. Luego, seleccione **Siguiente**.
 
-    ![Programación y retención](./media/backup-azure-backup-sql/pg-schedule.png)
+    ![Selección de los orígenes de datos que se van a proteger en Azure](./media/backup-azure-backup-sql/pg-sqldatabases.png)
+1. Si es un administrador, puede elegir las programaciones de copia de seguridad y las directivas de retención que se ajusten a las directivas de la organización.
 
-    En este ejemplo, las copias de seguridad se realizan una vez a las 12:00 p.m. y a las 8 p.m. (parte inferior de la pantalla)
+    ![Elección de programaciones y directivas de retención](./media/backup-azure-backup-sql/pg-schedule.png)
 
-    > [!NOTE]
-    > Es recomendable tener algunos puntos de recuperación a corto plazo en disco para una recuperación rápida. Estos puntos de recuperación se utilizan para la "recuperación operacional". Azure actúa como una ubicación válida fuera de sitio con unos contratos de nivel de servicio mayores y una disponibilidad garantizada.
+    En este ejemplo, las copias de seguridad se realizan diariamente a las 12:00 P.M. y las 8:00 P.M.
+
+    > [!TIP]
+    > Para una recuperación rápida, mantenga algunos puntos de recuperación a corto plazo en el disco. Estos puntos de recuperación se usan para la recuperación operacional. Azure actúa como una ubicación válida fuera de sitio y proporciona contratos de nivel de servicio mayores y una disponibilidad garantizada.
     >
+    > Use DPM para programar copias de seguridad de Azure una vez finalizadas las copias de seguridad del disco local. Al seguir este procedimiento, la última copia de seguridad del disco se copia en Azure.
     >
 
-    **Procedimiento recomendado**: asegúrese de que se programan copias de seguridad de Azure tras realizar copias de seguridad de disco local con DPM. Esto permitirá que la última copia de seguridad de disco se copie en Azure.
+1. Seleccione la programación de la directiva de retención. Para más información sobre el funcionamiento de la directiva de retención, consulte [Uso de Azure Backup para reemplazar la infraestructura de cintas](backup-azure-backup-cloud-as-tape.md).
 
-13. Seleccione la programación de la directiva de retención. Se proporcionan detalles sobre el funcionamiento de la directiva de retención en [Usar Azure Backup para cambiar su infraestructura de cintas](backup-azure-backup-cloud-as-tape.md).
-
-    ![Directiva de retención](./media/backup-azure-backup-sql/pg-retentionschedule.png)
+    ![Elección de una directiva de retención](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
     En este ejemplo:
 
-    * Las copias de seguridad se realizan una vez a las 12:00 p.m. y a las 8 p.m. (parte inferior de la pantalla) y se conservan durante 180 días.
-    * La copia de seguridad es el sábado a las 12:00 P.M. se conserva durante 104 semanas
-    * La copia de seguridad es el último sábado de 12:00 P.M. se conserva durante 60 meses
-    * La copia de seguridad es el último sábado de marzo a las 12:00 P.M. se conserva durante 10 años
-14. Haga clic en **Siguiente** y seleccione la opción adecuada para transferir la copia de seguridad inicial a Azure. Puede elegir **Automáticamente a través de la red** o **Copia de seguridad sin conexión**.
+    * Las copias de seguridad se realizan diariamente a las 12:00 P.M. y las 8:00 P.M. Se conservan durante 180 días.
+    * La copia de seguridad del sábado a las 12:00 P.M. se mantiene durante 104 semanas.
+    * La copia de seguridad del último sábado del mes a las 12:00 P.M. se conserva durante 60 meses.
+    * La copia de seguridad del último sábado de marzo a las 12:00 P.M. se conserva durante 10 años.
+    
+    Después de elegir una directiva de retención, seleccione **Siguiente**.
 
-    * **Automáticamente a través de la red** transferirá los datos de copia de seguridad a Azure en función de la programación seleccionada para la copia de seguridad.
-    * Cómo funciona **Copia de seguridad sin conexión** se explica en la [Información general sobre la copia de seguridad sin conexión](offline-backup-overview.md).
+1. Elija cómo transferir la copia de seguridad inicial a Azure.
 
-    Seleccione el mecanismo de transferencia correspondiente para enviar la copia de seguridad inicial a Azure y haga clic en **Siguiente**.
-15. Una vez revisados los detalles de la directiva en la pantalla **Resumen**, haga clic en el botón **Crear grupo** para completar el flujo de trabajo. Puede hacer clic en el botón **Cerrar** y supervisar el progreso del trabajo en el área de trabajo de supervisión.
+    * La opción **Automáticamente a través de la red** sigue su programación de copia de seguridad para transferir los datos a Azure.
+    * Para más información sobre la **copia de seguridad sin conexión**, consulte [Introducción a la copia de seguridad sin conexión](offline-backup-overview.md).
 
-    ![Creación de un grupo de protección en curso](./media/backup-azure-backup-sql/pg-summary.png)
+    Después de elegir un mecanismo de transferencia, seleccione **Siguiente**.
 
-## <a name="on-demand-backup-of-a-sql-server-database"></a>Copia de seguridad a petición de una base de datos SQL Server
+1. En la página **Resumen**, revise los detalles de la directiva. A continuación, seleccione **Crear grupo**. Puede seleccionar **Cerrar** y supervisar el progreso del trabajo en el área de trabajo **Supervisión**.
 
-Aunque los pasos anteriores crean una directiva de copia de seguridad, solo se crea un “punto de recuperación” cuando se produce la primera copia de seguridad. En lugar de esperar a que se inicie el programador, los pasos siguientes activarán la creación de un punto de recuperación manualmente.
+    ![Progreso de la creación del grupo de protección](./media/backup-azure-backup-sql/pg-summary.png)
 
-1. Espere hasta que el estado del grupo de protección muestre **Correcto** para la base de datos antes de crear el punto de recuperación.
+## <a name="create-on-demand-backup-copies-of-a-sql-server-database"></a>Creación de copias de seguridad a petición de una base de datos de SQL Server
 
-    ![Miembros del grupo de protección](./media/backup-azure-backup-sql/sqlbackup-recoverypoint.png)
-2. Haga clic con el botón derecho en la base de datos y seleccione **Crear punto de recuperación**.
+Cuando se realiza la primera copia de seguridad, se crea un punto de recuperación. En lugar de esperar a que se ejecute la programación, puede desencadenar manualmente la creación de un punto de recuperación:
 
-    ![Creación de punto de recuperación en línea](./media/backup-azure-backup-sql/sqlbackup-createrp.png)
-3. Elija **Protección en línea** en el menú desplegable y haga clic en **Aceptar**. Se iniciará la creación de un punto de recuperación en Azure.
+1. En el grupo de protección, asegúrese de que el estado de la base de datos es **Correcto**.
 
-    ![Crear punto de recuperación](./media/backup-azure-backup-sql/sqlbackup-azure.png)
-4. Puede ver el progreso del trabajo en el área de trabajo **Supervisión** donde encontrará un trabajo en curso como el descrito en la ilustración siguiente.
+    ![Grupo de protección que muestra el estado de la base de datos](./media/backup-azure-backup-sql/sqlbackup-recoverypoint.png)
+1. Haga clic con el botón derecho en la base de datos y, a continuación, seleccione **Crear punto de recuperación**.
 
-    ![Consola de supervisión](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
+    ![Elección de la creación de un punto de recuperación en línea](./media/backup-azure-backup-sql/sqlbackup-createrp.png)
+1. En el menú desplegable, seleccione **Protección en línea**. A continuación, seleccione **Aceptar** para iniciar la creación de un punto de recuperación en Azure.
+
+    ![Inicio de la creación de un punto de recuperación en Azure](./media/backup-azure-backup-sql/sqlbackup-azure.png)
+1. Puede ver el progreso del trabajo en el área de trabajo **Supervisión**.
+
+    ![Visualización del progreso del trabajo en la consola Supervisión](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
 ## <a name="recover-a-sql-server-database-from-azure"></a>Recuperación de una base de datos SQL Server de Azure
 
-Los pasos siguientes son necesarios para recuperar una entidad protegida (base de datos SQL) de Azure.
+Para recuperar una entidad protegida, como una base de datos de SQL Server, desde Azure:
 
-1. Abra el consola de administración del servidor DPM. Vaya al área de trabajo **Recuperación** donde podrá ver los servidores de los que DPM realiza una copia de seguridad. Examine la base de datos requerida (en este caso ReportServer$MSDPM2012). Seleccione una hora en **Recuperación desde** que finalice con **En línea**.
+1. Abra la consola de administración del servidor de DPM. Vaya al área de trabajo **Recuperación** para ver los servidores de los que DPM realiza una copia de seguridad. Seleccione la base de datos (en este ejemplo, ReportServer$MSDPM2012). Seleccione una **Hora de recuperación** que finalice con **En línea**.
 
-    ![Selección de punto de recuperación](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
-2. Haga clic con el botón secundario en el nombre de la base de datos y haga clic en **Recuperar**.
+    ![Seleccionar un punto de recuperación](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
+1. Haga clic con el botón derecho en el nombre de la base de datos y seleccione **Recuperar**.
 
-    ![Recuperación desde Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. DPM muestra los detalles del punto de recuperación. Haga clic en **Next**. Para sobrescribir la base de datos, seleccione el tipo de recuperación **Recuperar en instancia original de servidor SQL Server**. Haga clic en **Next**.
+    ![Recuperación de una base de datos desde Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
+1. DPM muestra los detalles del punto de recuperación. Seleccione **Next** (Siguiente). Para sobrescribir la base de datos, seleccione el tipo de recuperación **Recuperar en instancia original de servidor SQL Server**. Luego, seleccione **Siguiente**.
 
-    ![Recuperación en ubicación original](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
+    ![Recuperación de una base de datos en su ubicación original](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
-    En este ejemplo, DPM permite la recuperación de la base de datos en otra instancia de SQL Server o en una carpeta de red independiente.
-4. En la pantalla **Especificar opciones de recuperación** , puede seleccionar las opciones de recuperación como Límite de uso del ancho de banda de red para limitar el ancho de banda usado por la recuperación. Haga clic en **Next**.
-5. En la pantalla **Resumen** , podrá ver todas las configuraciones de recuperación proporcionadas hasta ahora. Haga clic en **Recuperar**.
+    En este ejemplo, DPM permite la recuperación de la base de datos en otra instancia de SQL Server o en una carpeta de red independiente.
+1. En la página **Especificar opciones de recuperación**, puede seleccionar las opciones de recuperación. Por ejemplo, puede elegir **Limitación del uso del ancho de banda de red** para limitar el ancho de banda que utiliza la recuperación. Luego, seleccione **Siguiente**.
+1. En la página **Resumen**, verá la configuración de recuperación actual. Seleccione **Recuperar**.
 
-    El estado de recuperación muestra que la base de datos se está recuperando. Puede hacer clic en **Cerrar** para cerrar el asistente y ver el progreso en el área de trabajo **Supervisión**.
+    El estado de recuperación muestra que la base de datos se está recuperando. Puede seleccionar **Cerrar** para cerrar el asistente y ver el progreso en el área de trabajo **Supervisión**.
 
-    ![Inicio de proceso de recuperación](./media/backup-azure-backup-sql/sqlbackup-recoverying.png)
+    ![Inicio del proceso de recuperación](./media/backup-azure-backup-sql/sqlbackup-recoverying.png)
 
     Una vez completada la recuperación, la base de datos restaurada será coherente con la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Preguntas más frecuentes de Azure Backup](backup-azure-backup-faq.md)
+Para más información, consulte [Preguntas más frecuentes sobre Azure Backup](backup-azure-backup-faq.md).

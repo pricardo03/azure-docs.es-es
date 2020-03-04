@@ -3,12 +3,12 @@ title: Detalles de la estructura de definición de directivas
 description: Describe cómo se usan las definiciones de directiva para establecer convenciones para los recursos de Azure de su organización.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: d30097badd3ab9ee5a328f17d0e3e91254a89185
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 1e90009a0c34bf166a18659a19988ea5a0c9ab07
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462009"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587131"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -328,7 +328,7 @@ Las condiciones también se pueden formar mediante el uso de **value**. **value*
 **value** se empareja con cualquier [condición](#conditions) admitida.
 
 > [!WARNING]
-> Si el resultado de una _función de plantilla_ es un error, no se pude realizar la evaluación de directivas. Una evaluación con errores es una **denegación** implícita. Para más información, consulte cómo [evitar los errores de plantilla](#avoiding-template-failures).
+> Si el resultado de una _función de plantilla_ es un error, no se pude realizar la evaluación de directivas. Una evaluación con errores es una **denegación** implícita. Para más información, consulte cómo [evitar los errores de plantilla](#avoiding-template-failures). Use [enforcementMode](./assignment-structure.md#enforcement-mode) de **DoNotEnforce** para evitar el efecto de una evaluación con errores en los recursos nuevos o actualizados mientras se prueba y valida una nueva definición de directiva.
 
 #### <a name="value-examples"></a>Ejemplos de value
 
@@ -580,13 +580,22 @@ Se pueden usar todas las [funciones de plantilla de Resource Manager](../../../a
 
 Las siguientes funciones están disponibles para su uso en una regla de directivas, pero difieren del uso en una plantilla de Azure Resource Manager:
 
-- addDays(dateTime, numberOfDaysToAdd)
+- `addDays(dateTime, numberOfDaysToAdd)`
   - **dateTime** (fecha y hora): [Obligatorio] cadena: cadena con el formato de fecha y hora universal ISO 8601 "yyyy-MM-ddTHH:mm:ss.fffffffZ"
   - **numberOfDaysToAdd** (número de días para agregar): [Obligatorio] entero: número de días que se desea agregar
-- utcNow(): a diferencia de una plantilla de Resource Manager, se puede usar con otro valor distinto del predeterminado.
+- `utcNow()`: a diferencia de una plantilla de Resource Manager, se puede usar con otro valor distinto del predeterminado.
   - Devuelve una cadena que se establece en la fecha y hora actuales en formato de fecha y hora universal ISO 8601 "yyyy-MM-ddTHH:mm:ss.fffffffZ"
 
-Además, la función `field` está disponible para las reglas de directiva. `field` se usa principalmente con **AuditIfNotExists** y **DeployIfNotExists** para hacer referencia a los campos del recurso que se van a evaluar. Este uso se puede observar en el [ejemplo de DeployIfNotExists](effects.md#deployifnotexists-example).
+Las siguientes funciones solo están disponibles en las reglas de directiva:
+
+- `field(fieldName)`
+  - **fieldName**: [obligatorio] cadena. Es el nombre del [campo](#fields) que se va a recuperar.
+  - Devuelve el valor de ese campo del recurso que se evalúa con la condición If.
+  - `field` se usa principalmente con **AuditIfNotExists** y **DeployIfNotExists** para hacer referencia a los campos del recurso que se van a evaluar. Este uso se puede observar en el [ejemplo de DeployIfNotExists](effects.md#deployifnotexists-example).
+- `requestContext().apiVersion`
+  - Devuelve la versión de la API de la solicitud que desencadenó la evaluación de la directiva (por ejemplo: `2019-09-01`). Esta será la versión de API que se usó en la solicitud PUT/PATCH para las evaluaciones de la creación o actualización de recursos. La versión más reciente de la API siempre se usa durante la evaluación del cumplimiento de los recursos existentes.
+  
+
 
 #### <a name="policy-function-example"></a>Ejemplo de función de directiva
 

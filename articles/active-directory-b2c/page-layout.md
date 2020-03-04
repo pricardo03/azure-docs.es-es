@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 02/26/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2a0a786d3e2135467c7279c76bae273bff0ba2d0
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: b24e8cc5f6bb6213bf021362c5654afd4d5266fb
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77149514"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620607"
 ---
 # <a name="page-layout-versions"></a>Versiones de diseño de página
 
@@ -33,7 +33,7 @@ Los paquetes de diseño de página se actualizan periódicamente para incluir co
 
 - Todas las páginas
   - Correcciones de accesibilidad
-  - Ahora puede agregar el atributo `data-preload="true"` en las etiquetas HTML para controlar el orden de carga de CSS y JavaScript.
+  - Ahora puede agregar el atributo `data-preload="true"` [en las etiquetas HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) para controlar el orden de carga de CSS y JavaScript.
     - Cargue los archivos CSS vinculados al mismo tiempo que la plantilla HTML para que no "vacile" durante la carga de los archivos.
     - Controle el orden en el que se capturan y ejecutan las etiquetas `script` antes de la carga de la página.
   - El campo de correo electrónico es ahora `type=email` y los teclados para móviles proporcionarán las sugerencias correctas.

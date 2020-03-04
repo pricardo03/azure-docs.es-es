@@ -1,23 +1,27 @@
 ---
-title: Cuaderno de estrategias de los procedimientos recomendados de seguridad para Azure SQL Database | Microsoft Docs
-description: En este artículo se proporcionan instrucciones generales para los procedimientos recomendados de seguridad en Azure SQL Database.
+title: Cuaderno de estrategias para abordar requisitos de seguridad comunes | Microsoft Docs
+titleSuffix: Azure SQL Database
+description: En este artículo se proporcionan requisitos de seguridad comunes y procedimientos recomendados de seguridad en Azure SQL Database.
 ms.service: sql-database
 ms.subservice: security
 author: VanMSFT
 ms.author: vanto
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 095d435b9a595c420821da0813fdfc0893d70d89
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c18e1b1a1feba5c528a692b7d63287b3751b62cf
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845871"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77506213"
 ---
-# <a name="azure-sql-database-security-best-practices-playbook"></a>Cuaderno de estrategias de los procedimientos recomendados de seguridad de Azure SQL Database
+# <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database"></a>Cuaderno de estrategias para abordar requisitos de seguridad comunes con Azure SQL Database
 
-## <a name="overview"></a>Información general
+> [!NOTE]
+> En este documento se proporcionan prácticas recomendadas para resolver los requisitos de seguridad comunes. No todos los requisitos se pueden aplicar a todos los entornos y debe consultar la base de datos y al equipo de seguridad qué características implementar.
+
+## <a name="solving-common-security-requirements"></a>Solución de requisitos de seguridad comunes
 
 En este documento se proporcionan instrucciones sobre cómo resolver los requisitos de seguridad comunes para aplicaciones nuevas o existentes mediante Azure SQL Database. Está organizado por áreas de seguridad de nivel alto. Para abordar amenazas específicas, consulte la sección [Amenazas de seguridad comunes y posibles mitigaciones](#common-security-threats-and-potential-mitigations). Aunque algunas de las recomendaciones presentadas se pueden aplicar al migrar aplicaciones desde el entorno local a Azure, los escenarios de migración no son el foco de este documento.
 
@@ -66,6 +70,9 @@ La autenticación es el proceso por el cual se demuestra que el usuario es quien
 - Autenticación SQL
 - Autenticación con Azure Active Directory
 
+> [!NOTE]
+> Es posible que la autenticación con Azure Active Directory no se admita en todas las herramientas y aplicaciones de terceros.
+
 ### <a name="central-management-for-identities"></a>Administración central de identidades
 
 La administración de identidades central ofrece estas ventajas:
@@ -82,7 +89,7 @@ La administración de identidades central ofrece estas ventajas:
 
 - Cree un inquilino de Azure AD y [cree usuarios](../active-directory/fundamentals/add-users-azure-active-directory.md) para representar a los usuarios humanos y cree [entidades de servicio](../active-directory/develop/app-objects-and-service-principals.md) para representar aplicaciones, servicios y herramientas de automatización. Las entidades de servicio son equivalentes a las cuentas de servicio de Windows y Linux. 
 
-- Asigne derechos de acceso a los recursos a entidades de seguridad de Azure AD a través de la asignación de grupos: Cree grupos de Azure AD, conceda acceso a los grupos y agregue miembros individuales a los grupos. En la base de datos, cree usuarios de bases de datos independientes que asignen los grupos de Azure AD. 
+- Asigne derechos de acceso a los recursos a entidades de seguridad de Azure AD a través de la asignación de grupos: Cree grupos de Azure AD, conceda acceso a los grupos y agregue miembros individuales a los grupos. En la base de datos, cree usuarios de bases de datos independientes que asignen los grupos de Azure AD. Para asignar permisos dentro de la base de datos, coloque los usuarios en los roles de base de datos con los permisos adecuados.
   - Consulte los artículos [Configuración y administración de la autenticación de Azure Active Directory con SQL](sql-database-aad-authentication-configure.md) y [Usar la autenticación de Azure Active Directory para autenticación con SQL](sql-database-aad-authentication.md).
   > [!NOTE]
   > En una instancia administrada, también puede crear inicios de sesión que se asignan a las entidades de seguridad de Azure AD de la base de datos maestra. Consulte [CREATE LOGIN (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
@@ -204,11 +211,6 @@ La autenticación de SQL hace referencia a la autenticación de un usuario al co
 - Como administrador del servidor, cree inicios de sesión y usuarios. A menos que use usuarios de bases de datos independientes con contraseñas, todas las contraseñas se almacenan en la base de datos maestra.
   - Consulte el artículo [Control y concesión de acceso de la base de datos a SQL Database y SQL Data Warehouse](sql-database-manage-logins.md).
 
-- Siga los procedimientos recomendados para la administración de contraseñas:
-  - Proporcione una contraseña compleja, formada por letras latinas en mayúsculas y minúsculas, dígitos (0-9) y caracteres no alfanuméricos (como $,!, # o%).
-  - Use frases de contraseña más largas en lugar de caracteres más cortos seleccionados aleatoriamente.
-  - Aplique un cambio de contraseña manual al menos cada 90 días.
-
 ## <a name="access-management"></a>Administración de acceso
 
 La administración de acceso es el proceso de controlar y administrar los privilegios y el acceso de los usuarios autorizados a Azure SQL Database.
@@ -250,9 +252,7 @@ Los procedimientos recomendados siguientes son opcionales, pero darán lugar a u
 
 - Evite asignar permisos a usuarios individuales. En su lugar, use roles (roles de base de datos o de servidor) de manera coherente. Los roles ayudan en gran medida a los informes y a la solución de problemas. (Azure RBAC solo admite la asignación de permisos a través de roles). 
 
-- Use los roles integrados cuando los permisos de los roles coincidan exactamente con los permisos necesarios para el usuario. Puede asignar usuarios a varios roles. 
-
-- Cree y use roles personalizados cuando los roles integrados concedan demasiados permisos o permisos insuficientes. Roles típicos que se usan en la práctica: 
+- Cree y use roles personalizados con los permisos específicos necesarios. Roles típicos que se usan en la práctica: 
   - Implementación de seguridad 
   - Administrador 
   - Desarrollador 
@@ -260,14 +260,17 @@ Los procedimientos recomendados siguientes son opcionales, pero darán lugar a u
   - Auditor 
   - Procesos automatizados 
   - Usuario final 
+  
+- Use roles integrados solo cuando los permisos de los roles coincidan exactamente con los que necesite el usuario. Puede asignar usuarios a varios roles. 
 
 - Recuerde que los permisos del Motor de base de datos de SQL Server pueden aplicarse en los ámbitos siguientes. Cuanto menor sea el ámbito, menor será el impacto de los permisos concedidos: 
   - Servidor de Azure SQL Database (roles especiales en la base de datos maestra) 
   - Base de datos 
-  - Esquema (consulte también el artículo sobre el [diseño de esquemas para SQL Server: recomendaciones para el diseño de esquemas considerando la seguridad](http://andreas-wolter.com/en/schema-design-for-sql-server-recommendations-for-schema-design-with-security-in-mind/))
+  - Schema
+      - El uso de esquemas para conceder permisos en una base de datos es un procedimiento recomendado (consulte también el artículo en el que se explica el [diseño de esquemas para SQL Server: recomendaciones para el diseño de esquemas considerando la seguridad](http://andreas-wolter.com/en/schema-design-for-sql-server-recommendations-for-schema-design-with-security-in-mind/))
   - Objeto (tabla, vista, procedimiento, etc.) 
   > [!NOTE]
-  > No se recomienda aplicar permisos en el nivel de objeto porque este nivel agrega complejidad innecesaria a la implementación global. Si decide usar permisos en el nivel de objeto, se deben documentar claramente. Lo mismo se aplica a los permisos en el nivel de columna, que se recomiendan incluso menos por las mismas razones. Las reglas estándar para [denegar](https://docs.microsoft.com/sql/t-sql/statements/deny-object-permissions-transact-sql) no se aplican a las columnas.
+  > No se recomienda aplicar permisos en el nivel de objeto porque este nivel agrega complejidad innecesaria a la implementación global. Si decide usar permisos en el nivel de objeto, se deben documentar claramente. Lo mismo se aplica a los permisos en el nivel de columna, que se recomiendan incluso menos por las mismas razones. Tenga también en cuenta también que, de forma predeterminada, una instrucción [DENY](https://docs.microsoft.com/sql/t-sql/statements/deny-object-permissions-transact-sql) de nivel de tabla no invalida una instrucción GRANT de nivel de columna. Esto requeriría la activación de la [configuración de un servidor que cumpla criterios comunes](https://docs.microsoft.com/sql/database-engine/configure-windows/common-criteria-compliance-enabled-server-configuration-option).
 
 - Lleve a cabo comprobaciones periódicas con [Evaluación de vulnerabilidades (VA)](https://docs.microsoft.com/sql/relational-databases/security/sql-vulnerability-assessment) para probar si hay demasiados permisos.
 
@@ -320,7 +323,7 @@ La separación de tareas, que también se denomina "separación de obligaciones"
 
 - Asegúrese siempre de tener una pista de auditoría para las acciones relacionadas con la seguridad. 
 
-- Puede recuperar la definición de los roles de RBAC integrados para ver los permisos usados y crear un rol personalizado basado en extractos y acumulaciones de estos a través de PowerShell. 
+- Puede recuperar la definición de los roles de RBAC integrados para ver los permisos usados y crear un rol personalizado basado en extractos y acumulaciones de estos a través de PowerShell.
 
 - Como cualquier miembro del rol de base de datos db_owner puede cambiar una configuración de seguridad como Cifrado de datos transparente (TDE) o cambiar el SLO, es necesario tener cuidado al conceder esta pertenencia. No obstante, existen muchas tareas que requieren privilegios db_owner. Tareas como cambiar cualquier valor de base de datos (por ejemplo, opciones de la base de datos). La auditoría desempeña un papel clave en cualquier solución.
 
@@ -409,6 +412,8 @@ El cifrado en reposo es la protección criptográfica de los datos cuando persis
 
 Los datos en uso son los datos almacenados en memoria del sistema de la base de datos durante la ejecución de consultas SQL. Si la base de datos almacena información confidencial, es posible que la organización deba asegurarse de que los usuarios con privilegios elevados no puedan ver datos confidenciales en la base de datos. Los usuarios con privilegios elevados, como los operadores de Microsoft o los administradores de bases de datos de su organización, deben ser capaces de administrar la base de datos, pero no de ver ni extraer datos confidenciales de la memoria del proceso de SQL Server o mediante una consulta a la base de datos.
 
+Las directivas que determinan qué datos son confidenciales y si estos datos se deben cifrar en la memoria y si los administradores no deben tener acceso a ellos en texto sin formato, son específicas tanto de la organización como de las regulaciones de cumplimiento que se deben cumplir. Consulte el requisito relacionado: [Identificación y etiquetado de datos confidenciales](#identify-and-tag-sensitive-data).
+
 **Implementación**:
 
 - Use [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) para asegurarse de que los datos confidenciales no se exponen en texto sin formato en Azure SQL Database, incluso en la memoria o en uso. Always Encrypted protege los datos de los administradores de bases de datos (DBA) y los administradores de la nube (o actores no válidos que pueden suplantar a usuarios con privilegios elevados pero no autorizados) y proporciona más control sobre quién puede acceder a los datos.
@@ -416,6 +421,8 @@ Los datos en uso son los datos almacenados en memoria del sistema de la base de 
 **Procedimientos recomendados**:
 
 - Always Encrypted no es un sustituto para cifrar los datos en reposo (TDE) o en tránsito (SSL/TLS). Always Encrypted no deben usarse para datos no confidenciales con el fin de minimizar el rendimiento y el impacto de la funcionalidad. Se recomienda usar Always Encrypted junto con TDE y Seguridad de la capa de transporte (TLS) para una protección integral de los datos en reposo, en tránsito y en uso. 
+
+- Evalúe el impacto de cifrar las columnas de datos confidenciales identificadas antes de implementar Always Encrypted en una base de datos de producción. En general, Always Encrypted reduce la funcionalidad de las consultas en columnas cifradas y tiene otras limitaciones, que se enumeran en [Always Encrypted: detalles de las características](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine#feature-details). Por consiguiente, es posible que tenga que rediseñar la aplicación para volver a implementar la funcionalidad (que una consulta no admite) en el lado del cliente o refactorizar el esquema de la base de datos, lo que incluye las definiciones de los procedimientos, funciones, vistas y desencadenadores almacenados. Si no cumplen las restricciones y limitaciones de Always Encrypted, es posible que las aplicaciones existentes no funcionen con columnas cifradas. Aunque el ecosistema de herramientas, productos y servicios de Microsoft que admiten Always Encrypted está creciendo, hay una serie de ellos que no funciona con columnas cifradas. El cifrado de una columna también puede afectar al rendimiento de las consultas, en función de las características de la carga de trabajo. 
 
 - Administre las claves de Always Encrypted con la separación de roles si usa Always Encrypted para proteger los datos de DBA malintencionados. Con la separación de roles, un administrador de seguridad crea las claves físicas. El DBA crea objetos de metadatos de clave maestra de columna y de cifrado de columna, que describen las claves físicas, en la base de datos. Durante este proceso, el administrador de seguridad no necesita tener acceso a la base de datos y el DBA no necesita tener acceso a las claves físicas en texto sin formato. 
   - Consulte el artículo [Administración de claves con separación de roles](https://docs.microsoft.com/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted#managing-keys-with-role-separation) para detalles. 
@@ -705,7 +712,7 @@ Mejore de manera proactiva la seguridad de la base de datos mediante la detecci�
 
 ### <a name="identify-and-tag-sensitive-data"></a>Identificación y etiquetado de datos confidenciales 
 
-Detecte las columnas que posiblemente contengan datos confidenciales. Clasifique las columnas para utilizar escenarios avanzados de protección y auditoría basadas en la confidencialidad. 
+Detecte las columnas que posiblemente contengan datos confidenciales. Lo que se considera datos confidenciales depende en gran medida del cliente, del reglamento de cumplimiento, etc. y los deben evaluar los usuarios a cargo de esos datos. Clasifique las columnas para utilizar escenarios avanzados de protección y auditoría basadas en la confidencialidad. 
 
 **Implementación**:
 

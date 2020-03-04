@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 2fa43cb9ec526cfab2367431712e09406556a529
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 63174e1d4950b9f18fd3693511c507ed2dd018b3
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191813"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500363"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectarse a redes virtuales de Azure desde Azure Logic Apps mediante un entorno del servicio de integración (ISE)
 
@@ -41,7 +41,7 @@ En este artículo se muestra cómo completar estas tareas:
 
 * Una instancia de [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Si no tiene una red virtual, aprenda a [crear una](../virtual-network/quick-create-portal.md).
 
-  * La red virtual tiene que tener cuatro subredes *vacías* para crear e implementar recursos en el ISE. Cada subred admite un componente de Logic Apps diferente para el ISE. Puede crear estas subredes por adelantado o esperar a que se cree el ISE en el que pueda crear las subredes al mismo tiempo. Obtenga más información sobre los [requisitos de subredes](#create-subnet).
+  * La red virtual tiene que tener cuatro subredes *vacías* para crear e implementar recursos en el ISE. Cada subred admite un componente de Logic Apps diferente que se usa en el ISE. Puede crear estas subredes por adelantado o esperar a que se cree el ISE en el que pueda crear las subredes al mismo tiempo. Obtenga más información sobre los [requisitos de subredes](#create-subnet).
 
   * Los nombres de subred tienen que empezar con un carácter alfabético o un carácter de subrayado, y en ellos no se pueden usar los siguientes caracteres: `<`, `>`, `%`, `&`, `\\`, `?`, `/`. 
   
@@ -91,27 +91,25 @@ En esta tabla se describen los puertos de la red virtual de Azure que usa el ISE
 
 | Propósito | Dirección | Puertos de destino | Etiqueta de servicio de origen | Etiqueta de servicio de destino | Notas |
 |---------|-----------|-------------------|--------------------|-------------------------|-------|
-| Comunicación entre subredes | Entrada y salida | * | Espacio de direcciones para la red virtual con las subredes del ISE | Espacio de direcciones para la red virtual con las subredes del ISE | Necesario para que el tráfico fluya dentro de cada subred. <p><p>**Importante**: Para la comunicación entre componentes dentro de subredes, asegúrese de que abre todos los puertos dentro de esas subredes. |
-| Comunicación entre subredes | Entrada y salida | 80, 443 | VirtualNetwork | VirtualNetwork | Para la comunicación entre subredes |
-| Comunicación desde Azure Logic Apps | Salida | 80, 443 | VirtualNetwork | Internet | El puerto depende del servicio externo con el que se comunica el servicio Logic Apps. |
-| Azure Active Directory | Salida | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
-| Dependencia de Azure Storage | Salida | 80, 443, 445 | VirtualNetwork | Storage | |
-| Comunicación con Azure Logic Apps | Entrada | 443 | ISE interno: <br>VirtualNetwork <p><p>ISE externo: <br>Internet | VirtualNetwork | La dirección IP del equipo o el servicio que llama a los desencadenadores de solicitud o webhooks que existan en la aplicación lógica. El cierre o bloqueo de este puerto evita las llamadas HTTP a aplicaciones lógicas con desencadenadores de solicitud. |
-| Historial de ejecución de la aplicación lógica | Entrada | 443 | ISE interno: <br>VirtualNetwork <p><p>ISE externo: <br>Internet | VirtualNetwork | La dirección IP del equipo en donde desea ver el historial de ejecución de las aplicaciones lógicas. Aunque cerrar o bloquear este puerto no le impide ver el historial de ejecución, no podrá ver las entradas y salidas de cada paso en ese historial de ejecución. |
-| Administración de conexiones | Salida | 443 | VirtualNetwork  | AppService | |
-| Publicación de las métricas y registros de diagnóstico | Salida | 443 | VirtualNetwork  | AzureMonitor | |
-| Comunicación de Azure Traffic Manager | Entrada | ISE interno: 454 <p><p>ISE externo: 443 | AzureTrafficManager | VirtualNetwork | |
+| Comunicación entre subredes dentro de la red virtual | Entrada y salida | * | El espacio de direcciones para la red virtual que contiene las subredes del ISE | El espacio de direcciones para la red virtual que contiene las subredes del ISE | Necesario para que el tráfico fluya *entre* las subredes de la red virtual. <p><p>**Importante**: Para que el tráfico fluya entre los *componentes* de cada subred, asegúrese de abrir todos los puertos de cada subred. |
+| Comunicación con la aplicación lógica | Entrada | 443 | ISE interno: <br>VirtualNetwork <p><p>ISE externo: <br>Internet | VirtualNetwork | La dirección IP de origen del equipo o servicio que llama a los desencadenadores de solicitud o webhooks que existan en la aplicación lógica. <p><p>**Importante**: El cierre o bloqueo de este puerto impide las llamadas HTTP a aplicaciones lógicas con desencadenadores de solicitud. |
+| Historial de ejecución de la aplicación lógica | Entrada | 443 | ISE interno: <br>VirtualNetwork <p><p>ISE externo: <br>Internet | VirtualNetwork | La dirección IP de origen del equipo o servicio donde desea ver el historial de ejecución de las aplicaciones lógicas. <p><p>**Importante**: Aunque cerrar o bloquear este puerto no le impide ver el historial de ejecución, no podrá ver las entradas y salidas de cada paso en ese historial de ejecución. |
 | Diseñador de Logic Apps: propiedades dinámicas | Entrada | 454 | Consulte en la columna **Notas** las direcciones IP que se permiten. | VirtualNetwork | Las solicitudes proceden de las direcciones IP [entrantes](../logic-apps/logic-apps-limits-and-config.md#inbound) del punto de conexión de acceso de Logic Apps de esa región. |
+| Implementación del conector | Entrada | 454 | AzureConnectors | VirtualNetwork | Necesario para implementar y actualizar conectores. Al cerrar o bloquear este puerto, las implementaciones de ISE producen un error y no se realizan las actualizaciones o correcciones del conector. |
 | Comprobación del estado de la red | Entrada | 454 | Consulte en la columna **Notas** las direcciones IP que se permiten. | VirtualNetwork | Las solicitudes proceden del punto de conexión de acceso de Logic Apps Para las direcciones IP [entrantes](../logic-apps/logic-apps-limits-and-config.md#inbound) y [salientes](../logic-apps/logic-apps-limits-and-config.md#outbound) de esa región. |
 | Dependencia de administración de App Service | Entrada | 454, 455 | AppServiceManagement | VirtualNetwork | |
-| Implementación del conector | Entrada | 454 | AzureConnectors | VirtualNetwork | Necesario para implementar y actualizar conectores. Al cerrar o bloquear este puerto, las implementaciones de ISE producen un error y no se realizan las actualizaciones o correcciones del conector. |
-| Implementación de la directiva de conectores | Entrada | 3443 | APIManagement | VirtualNetwork | Necesario para implementar y actualizar conectores. Al cerrar o bloquear este puerto, las implementaciones de ISE producen un error y no se realizan las actualizaciones o correcciones del conector. |
-| Dependencia de Azure SQL | Salida | 1433 | VirtualNetwork | SQL | |
-| Azure Resource Health | Salida | 1886 | VirtualNetwork | AzureMonitor | Se necesita para publicar el estado de mantenimiento en Resource Health |
+| Comunicación de Azure Traffic Manager | Entrada | ISE interno: 454 <p><p>ISE externo: 443 | AzureTrafficManager | VirtualNetwork | |
 | API Management: punto de conexión de administración | Entrada | 3443 | APIManagement | VirtualNetwork | |
+| Implementación de la directiva de conectores | Entrada | 3443 | APIManagement | VirtualNetwork | Necesario para implementar y actualizar conectores. Al cerrar o bloquear este puerto, las implementaciones de ISE producen un error y no se realizan las actualizaciones o correcciones del conector. |
+| Comunicación con la aplicación lógica | Salida | 80, 443 | VirtualNetwork | Varía según el destino | Los puntos de conexión del servicio externo con el que la aplicación lógica debe comunicarse. |
+| Azure Active Directory | Salida | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
+| Administración de conexiones | Salida | 443 | VirtualNetwork  | AppService | |
+| Publicación de las métricas y registros de diagnóstico | Salida | 443 | VirtualNetwork  | AzureMonitor | |
+| Dependencia de Azure Storage | Salida | 80, 443, 445 | VirtualNetwork | Storage | |
+| Dependencia de Azure SQL | Salida | 1433 | VirtualNetwork | SQL | |
+| Azure Resource Health | Salida | 1886 | VirtualNetwork | AzureMonitor | Necesario para publicar el estado de mantenimiento en Resource Health |
 | Dependencia de la directiva de registro en el centro de eventos y agente de supervisión | Salida | 5672 | VirtualNetwork | EventHub | |
-| Acceso a instancias de Azure Cache for Redis entre instancias de rol | Entrada <br>Salida | 6379-6383 | VirtualNetwork | VirtualNetwork | Además, para que ISE funcione con la caché de Azure para Redis, debe abrir estos [puertos de entrada y salida descritos en las Preguntas frecuentes de la caché de Azure para Redis](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
-| Azure Load Balancer | Entrada | * | AzureLoadBalancer | VirtualNetwork | |
+| Acceso a instancias de Azure Cache for Redis entre instancias de rol | Entrada <br>Salida | 6379 - 6383 | VirtualNetwork | VirtualNetwork | Además, para que ISE funcione con la caché de Azure para Redis, debe abrir estos [puertos de entrada y salida descritos en las Preguntas frecuentes de la caché de Azure para Redis](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
 ||||||
 
 <a name="create-environment"></a>
@@ -147,23 +145,19 @@ En esta tabla se describen los puertos de la red virtual de Azure que usa el ISE
 
    **Creación de una subred**
 
-   Para crear e implementar recursos en su entorno, el ISE necesita cuatro subredes *vacías* que no estén delegadas a ningún servicio. *No se pueden cambiar* estas direcciones de subred una vez creado el entorno.
+   Para crear e implementar recursos en su entorno, el ISE necesita cuatro subredes *vacías* que no estén delegadas a ningún servicio. Cada subred admite un componente de Logic Apps diferente que se usa en el ISE. *No se pueden cambiar* estas direcciones de subred una vez creado el entorno. Cada subred tiene que cumplir estos requisitos:
 
-   > [!IMPORTANT]
-   > 
-   > Los nombres de subred tienen que empezar con un carácter alfabético o un carácter de subrayado (sin números), y en ellos no se pueden usar los siguientes caracteres: `<`, `>`, `%`, `&`, `\\`, `?`, `/`.
-
-   Además, cada subred tiene que cumplir estos requisitos:
+   * Tiene un nombre que comienza con un carácter alfabético o un guión bajo (sin números), y no tiene estos caracteres: `<`, `>`, `%`, `&`, `\\`, `?`, `/`.
 
    * \- Usa el [formato de Enrutamiento de interdominios sin clases (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) y un espacio de direcciones de clase B.
 
-   * Usa al menos `/27` en el espacio de direcciones, porque cada subred requiere *al menos* 32 direcciones como *mínimo*. Por ejemplo:
+   * Usa al menos `/27` en el espacio de direcciones, porque cada subred requiere 32 direcciones como *mínimo*. Por ejemplo:
+
+     * `10.0.0.0/28` tiene solo 16 direcciones y es demasiado pequeño porque 2<sup>(32-28)</sup> es 2<sup>4</sup> o 16.
 
      * `10.0.0.0/27` tiene 32 direcciones porque 2<sup>(32-27)</sup> es 2<sup>5</sup> o 32.
 
-     * `10.0.0.0/24` tiene 256 direcciones porque 2<sup>(32-24)</sup> es 2<sup>8</sup> o 256.
-
-     * `10.0.0.0/28` tiene solo 16 direcciones y es demasiado pequeño porque 2<sup>(32-28)</sup> es 2<sup>4</sup> o 16.
+     * `10.0.0.0/24` tiene 256 direcciones porque 2<sup>(32-24)</sup> es 2<sup>8</sup> o 256. Sin embargo, más direcciones no proporcionan ninguna ventaja adicional.
 
      Para obtener más información sobre cómo calcular las direcciones, consulte [bloques de CIDR IPv4](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 

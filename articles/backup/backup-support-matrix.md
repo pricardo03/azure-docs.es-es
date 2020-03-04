@@ -3,12 +3,12 @@ title: Matriz de compatibilidad de Azure Backup
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 37347e6febdfc3500c218238606fc96463da631c
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 15c2fdfbe63dd73e665a4bac01dd2cd1b1144949
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76936251"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505857"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de compatibilidad para Azure Backup
 
@@ -78,8 +78,9 @@ Esto es lo que se admite si quiere hacer copias de seguridad de máquinas Linux:
 --- | ---
 **Copia de seguridad directa de máquina local que ejecuta Linux** | No compatible. El agente de MARS solo puede instalarse en máquinas Windows.
 **Uso de la extensión del agente para realizar la copia de seguridad de una máquina virtual de Azure que ejecuta Linux** | Copia de seguridad coherente con la aplicación mediante [scripts personalizados](backup-azure-linux-app-consistent.md).<br/><br/> Recuperación de nivel de archivo.<br/><br/> Restauración mediante la creación de una máquina virtual desde un disco o un punto de recuperación.
-**Uso de DPM para realizar la copia de seguridad de una máquina virtual local o de Azure que ejecuta Linux** | Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMWare.<br/><br/> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMWare.<br/><br/> La copia de seguridad coherente con archivos no está disponible para máquinas virtuales de Azure.
-**Uso de MABS para realizar la copia de seguridad de una máquina local o una máquina virtual de Azure que ejecuta Linux** | Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMWare.<br/><br/> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMWare.<br/><br/> Copia de seguridad coherente con archivo no disponible para las máquinas virtuales de Azure.
+**Uso de DPM para realizar la copia de seguridad de máquinas locales que ejecutan Linux** | Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMWare.<br/><br/> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMWare.
+**Uso de MABS para realizar la copia de seguridad de máquinas locales que ejecutan Linux** | Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMWare.<br/><br/> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMWare.
+**Uso de MABS o DPM para realizar las copias de seguridad de máquinas virtuales Linux de Azure** | No compatible.
 
 ## <a name="daylight-saving-time-support"></a>Compatibilidad con horario de verano
 
@@ -151,9 +152,9 @@ Azure Backup ha agregado la característica Restauración entre regiones para re
 | Tipo de administración de copias de seguridad | Compatible                                                    | Regiones admitidas |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | Sí. Versión preliminar pública limitada que se admite para las VM cifradas y las VM con discos de menos de 4 TB. | Centro-Oeste de EE. UU.   |
-| Agente de MARS/local | No                                                           | N/D               |
-| SQL/SAP HANA          | No                                                           | N/D               |
-| AFS                    | No                                                           | N/D               |
+| Agente de MARS/local | Sin                                                           | N/D               |
+| SQL/SAP HANA          | Sin                                                           | N/D               |
+| AFS                    | Sin                                                           | N/D               |
 
 
 

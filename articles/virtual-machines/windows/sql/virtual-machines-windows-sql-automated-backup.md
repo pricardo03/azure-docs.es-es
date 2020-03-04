@@ -1,5 +1,5 @@
 ---
-title: Automated Backup para SQL Server 2014 en Azure Virtual Machines | Microsoft Docs
+title: Automated Backup para máquinas virtuales de Azure con SQL Server 2014
 description: Se explica la característica Automated Backup para SQL Server 2014 en máquinas virtuales que se ejecutan en Azure. Este artículo trata exactamente sobre las máquinas virtuales que usan Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fdb7d9ed5164171407443596de256df02cb7e8de
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: c7dea85d8de17a0f65e6e73b5b5fbe619d464d3d
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790608"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650353"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Automated Backup para SQL Server 2014 en Azure Virtual Machines (Resource Manager)
 
@@ -31,7 +31,7 @@ Automated Backup configura automáticamente [Automated Backup para Microsoft Azu
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Para utilizar Automated Backup, tenga en cuenta los siguientes requisitos previos:
 
 **Sistema operativo**:
@@ -60,23 +60,20 @@ Para utilizar Automated Backup, tenga en cuenta los siguientes requisitos previo
 
 En la siguiente tabla se describen las opciones que pueden configurarse para Automated Backup. Los pasos de configuración reales varían si usa Azure Portal o comandos de Windows PowerShell de Azure.
 
-| Configuración | Intervalo (valor predeterminado) | DESCRIPCIÓN |
+| Configuración | Intervalo (valor predeterminado) | Descripción |
 | --- | --- | --- |
 | **Automated Backup** | Habilitar/deshabilitar (deshabilitado) | Habilita o deshabilita Automated Backup para una máquina virtual de Azure que ejecuta SQL Server 2014 Standard o Enterprise. |
 | **Período de retención** | 1-30 días (30 días) | El número de días para retener una copia de seguridad. |
-| **Storage Account** | Cuenta de Azure Storage | Una cuenta de almacenamiento de Azure que usar para almacenar archivos de Automated Backup en el almacenamiento de blobs. Se crea un contenedor en esta ubicación para guardar todos los archivos de copia de seguridad. La convención de nomenclatura del archivo de copia de seguridad incluye la fecha, la hora y el nombre de máquina. |
+| **Storage Account** | Cuenta de almacenamiento de Azure | Una cuenta de almacenamiento de Azure que usar para almacenar archivos de Automated Backup en el almacenamiento de blobs. Se crea un contenedor en esta ubicación para guardar todos los archivos de copia de seguridad. La convención de nomenclatura del archivo de copia de seguridad incluye la fecha, la hora y el nombre de máquina. |
 | **Cifrado** | Habilitar/deshabilitar (deshabilitado) | Habilita o deshabilita el cifrado. Cuando se habilita el cifrado, los certificados usados para restaurar la copia de seguridad se ubican en la cuenta de almacenamiento especificada en el mismo contenedor `automaticbackup` con la misma convención de nomenclatura. Si la contraseña cambia, se genera un nuevo certificado con esa contraseña, pero el certificado antiguo permanece para restaurar copias de seguridad anteriores. |
 | **Contraseña** | Texto de contraseña | Una contraseña para claves de cifrado. Esto solo es necesario si se habilita el cifrado. Para restaurar una copia de seguridad cifrada, debe disponer de la contraseña correcta y del certificado relacionado que se usó en el momento en el que se realizó la copia de seguridad. |
 
-## <a name="configure-in-the-portal"></a>Configurar en el portal
-
-Puede usar Azure Portal para configurar Automated Backup durante el aprovisionamiento o para las máquinas virtuales existentes de SQL Server 2014.
 
 ## <a name="configure-new-vms"></a>Configuración de máquinas virtuales nuevas
 
 Utilice Azure Portal para configurar la opción Automated Backup cuando cree una nueva máquina virtual con SQL Server 2014 en el modelo de implementación de Resource Manager.
 
-En la pestaña **Configuración de SQL Server**, desplácese hacia abajo hasta **Copia de seguridad automatizada** y seleccione **Habilitar**. También puede especificar el período de retención y la cuenta de almacenamiento, así como habilitar el cifrado, realizar copias de seguridad de las bases de datos del sistema y configurar una programación de copia de seguridad.  La siguiente captura de pantalla de Azure Portal muestra la opción de configuración **Copia de seguridad automatizada de SQL**.
+En la pestaña **Configuración de SQL Server**, desplácese hacia abajo hasta **Copia de seguridad automatizada** y seleccione **Habilitar**. La siguiente captura de pantalla de Azure Portal muestra la opción de configuración **Copia de seguridad automatizada de SQL**.
 
 ![Configuración de Automated Backup de SQL en Azure Portal](./media/virtual-machines-windows-sql-automated-backup/azure-sql-arm-autobackup.png)
 
@@ -84,13 +81,15 @@ En la pestaña **Configuración de SQL Server**, desplácese hacia abajo hasta *
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-En el caso de las máquinas virtuales de SQL Server existentes, vaya al [recurso máquinas virtuales SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) y seleccione **Copias de seguridad**. 
+En las máquinas virtuales con SQL Server existentes, desde Azure Portal se pueden habilitar y deshabilitar las copias de seguridad automatizadas, cambiar el período de retención, especificar la cuenta de almacenamiento y habilitar el cifrado. 
+
+Vaya al [recurso de máquinas virtuales SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) de la máquina virtual con SQL Server 2014 y seleccione **Copias de seguridad**. 
 
 ![Automated Backup de SQL para máquinas virtuales existentes](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-existing-vms.png)
 
 Cuando termine, seleccione el botón **Aplicar** de la parte inferior de la página **Copias de seguridad** para guardar los cambios.
 
-Si habilita Automated Backup por primera vez, Azure configura el Agente de IaaS de SQL Server en segundo plano. Durante este tiempo, es posible que Azure Portal no muestre que se ha configurado Automated Backup. Espere unos minutos hasta que el agente se instale y configure. Después, Azure Portal mostrará la nueva configuración.
+Si habilita Automated Backup por primera vez, Azure configura el Agente de IaaS de SQL Server en segundo plano. Durante este tiempo, es posible que Azure Portal no muestre que se ha configurado Automated Backup. Espere unos minutos hasta que el agente se instale y configure. Después, Azure Portal mostrará la configuración nueva.
 
 > [!NOTE]
 > También puede usar una plantilla para configurar Automated Backup. Para más información, consulte [la plantilla de inicio rápido de Azure para Automated Backup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autobackup-update).
@@ -100,7 +99,7 @@ Si habilita Automated Backup por primera vez, Azure configura el Agente de IaaS 
 Puede usar PowerShell para configurar la copia de seguridad automatizada. Antes de comenzar:
 
 - [Descargue e instale la última versión de Azure PowerShell](https://aka.ms/webpi-azps).
-- Abra Windows PowerShell y asócielo a su cuenta con el comando **Connect-AzAccount**.
+- Abra Windows PowerShell y asócielo a su cuenta con el comando **Connect-AzAccount**. 
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
@@ -260,7 +259,7 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 
 ## <a name="monitoring"></a>Supervisión
 
-Para supervisar Automated Backup en SQL Server 2014, tienes dos opciones principales. Puesto que Automated Backup utiliza la característica Copia de seguridad de administrada SQL Server, las mismas técnicas de supervisión se aplican a ambos.
+Para supervisar Automated Backup en SQL Server 2014, tienes dos opciones principales. Puesto que Automated Backup usa la característica Copia de seguridad de administrada SQL Server, las mismas técnicas de supervisión se aplican a ambos.
 
 En primer lugar, puede sondear el estado mediante una llamada a [msdb.smart_admin.sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). O bien consultar la función con valores de tabla [msdb.smart_admin.fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql).
 

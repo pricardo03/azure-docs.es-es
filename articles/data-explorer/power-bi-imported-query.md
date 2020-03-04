@@ -1,5 +1,5 @@
 ---
-title: 'Visualización de datos desde Azure Data Explorer con una consulta importada en Power BI '
+title: Visualización de datos desde Azure Data Explorer con una consulta importada en Power BI
 description: 'En este artículo aprenderá a usar una de las tres opciones de visualización de datos de Power BI: importación de una consulta de Azure Data Explorer.'
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 6c2c8457cee004bf1288656ec9746b703d41aee1
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: ff156ab3fe74115bce8f7d6bdd3ba47b514f5ff5
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806403"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562486"
 ---
 # <a name="visualize-data-using-a-query-imported-into-power-bi"></a>Visualización de datos mediante una consulta importada en Power BI
 
@@ -22,7 +22,7 @@ Azure Data Explorer ofrece tres opciones para conectarse a los datos de Power BI
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este artículo, necesitará lo siguiente:
 
@@ -56,7 +56,7 @@ En primer lugar, cree una consulta en la aplicación de escritorio de Azure Data
 
 1. En la pestaña **Inicio** de Power BI Desktop, seleccione **Obtener datos** y luego **Consulta en blanco**.
 
-    ![Obtener los datos](media/power-bi-imported-query/get-data.png)
+    ![Obtener datos](media/power-bi-imported-query/get-data.png)
 
 1. En el Editor de Power Query, en la pestaña **Inicio**, seleccione **Editor avanzado**.
 

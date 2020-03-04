@@ -11,15 +11,15 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 02/17/2020
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 5163c0cd5584848058620f76f77d9efbb6cef9c1
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: d9f6f015c210592d5d8053b1b34d5357bb357629
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025153"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586791"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Ejecución de tareas de preparación y liberación de trabajos en nodos de proceso de Batch
 
@@ -54,20 +54,23 @@ Puede que desee conservar una copia de los archivos de registro generados por la
 
 > [!TIP]
 > Otra manera de conservar los registros y otros datos de salida de los trabajos y las tareas es usar la biblioteca [Azure Batch File Conventions](batch-task-output.md) (Convenciones de archivos de Azure Batch).
-> 
-> 
+>
+>
 
 ## <a name="job-preparation-task"></a>tarea de preparación del trabajo
-Antes de ejecutar las tareas de un trabajo, Batch ejecuta la tarea de preparación del trabajo en cada nodo de proceso programado para ejecutar una tarea. De forma predeterminada, el servicio Batch esperará hasta que la tarea de preparación del trabajo se complete antes de ejecutar las tareas programadas para ejecutarse en el nodo. Sin embargo, puede configurar el servicio para que no espere. Si se reinicia el nodo, la tarea de preparación del trabajo se ejecutará de nuevo, pero también puede deshabilitar este comportamiento.
+
+
+Antes de ejecutar las tareas de un trabajo, Batch ejecuta la tarea de preparación del trabajo en cada nodo de proceso programado para ejecutar una tarea. De forma predeterminada, Batch esperará hasta que la tarea de preparación del trabajo se complete antes de ejecutar las tareas programadas para ejecutarse en el nodo. Sin embargo, puede configurar el servicio para que no espere. Si se reinicia el nodo, la tarea de preparación del trabajo se ejecuta de nuevo. También puede deshabilitar este comportamiento. Si tiene un trabajo con una tarea de preparación del trabajo y una tarea del administrador de trabajos configurada, la tarea de preparación del trabajo se ejecuta antes que la tarea del administrador de trabajos, al igual que en todas las demás tareas. La tarea de preparación del trabajo siempre se ejecuta primero.
 
 La tarea de preparación del trabajo solo se ejecuta en los nodos programados para ejecutar una tarea. Esto impide la ejecución innecesaria de una tarea de preparación en caso de que un nodo no tenga una tarea asignada. Esto puede ocurrir cuando el número de tareas de un trabajo es menor que el número de nodos de un grupo. También se aplica cuando la [ejecución de tareas simultáneas](batch-parallel-node-tasks.md) está habilitada, lo que deja algunos nodos inactivos si el número de tareas es menor que el total de posibles tareas simultáneas. Si no ejecuta la tarea de preparación del trabajo en nodos inactivos, puede ahorrar dinero en gastos de transferencia de datos.
 
 > [!NOTE]
 > [JobPreparationTask][net_job_prep_cloudjob] difiere de [CloudPool.StartTask][pool_starttask] en que JobPreparationTask se ejecuta al principio de cada trabajo, mientras que StartTask solo se ejecuta cuando un nodo de proceso se une por primera vez a un grupo o se reinicia.
-> 
-> 
+>
 
-## <a name="job-release-task"></a>tarea de liberación del trabajo
+
+>## <a name="job-release-task"></a>tarea de liberación del trabajo
+
 Cuando un trabajo se marca como completado, se ejecuta la tarea de liberación del trabajo en cada nodo del grupo que ejecutó al menos una tarea. El trabajo se marca como completado mediante la emisión de una solicitud de finalización. A continuación, el servicio Batch establece el estado del trabajo en *terminando*, finaliza las tareas activas o en ejecución asociadas al trabajo y ejecuta la tarea de liberación del trabajo. A continuación, el trabajo se mueve al estado *completado* .
 
 > [!NOTE]

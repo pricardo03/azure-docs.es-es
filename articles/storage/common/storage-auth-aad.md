@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 2/23/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 820e7187332b02993d3d8bcba9c01958cfbdd61d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b8a42723a9b56665160e660c0ea1451253c3d185
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965819"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588984"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Autorización del acceso a blobs y colas con Azure Active Directory
 
@@ -27,7 +27,7 @@ La autorización con credenciales de Azure AD está disponible para todas las cu
 
 Blob Storage admite de forma adicional la creación de firmas de acceso compartido (SAS) firmadas con credenciales de Azure AD. Para más información, consulte [Concesión de acceso limitado a datos con firmas de acceso compartido](storage-sas-overview.md).
 
-Azure Files admite autorización con Azure AD a través de SMB solo para máquinas virtuales unidas a dominios. Para información sobre el empleo de Azure AD a través de SMB para Azure Files, consulte [Introducción a la autorización de Azure Active Directory sobre SMB para Azure Files](../files/storage-files-active-directory-overview.md).
+Azure Files admite la autorización con AD (versión preliminar) o Azure AD DS (disponibilidad general) a través de SMB solo para máquinas virtuales unidas a dominios. Para aprender a usar AD (versión preliminar) o Azure AD DS (disponibilidad general) sobre SMB para Azure Files, consulte [Introducción a la compatibilidad de la autenticación basada en la identidad de Azure Files con el acceso SMB](../files/storage-files-active-directory-overview.md).
 
 La autorización con Azure AD no es compatible con Azure Table Storage. Use la clave compartida para autorizar solicitudes al almacenamiento de tablas.
 

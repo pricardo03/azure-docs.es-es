@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2019
 ms.author: memildin
-ms.openlocfilehash: 0096bccf76e81f2bca1a449cea2474cb5266fabc
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: ffe9ea5f46571f6a22717c376c97055f6f1759e4
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443591"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604727"
 ---
 # <a name="the-enhanced-secure-score-preview"></a>Puntuación de seguridad mejorada (versión preliminar) 
 
@@ -65,15 +65,15 @@ Por ejemplo, el control de seguridad denominado "Aplicar actualizaciones del sis
 
 El valor potencial del control de seguridad "Aplicar actualizaciones del sistema" en la captura de pantalla anterior muestra "2 % (1 punto)". Esto significa que si corrige todas las recomendaciones de este control, la puntuación aumentará en un 2 % (en este caso, un punto). Por motivos de sencillez, los valores de la columna de mejora potencial de la lista de recomendaciones se redondean a números enteros. La información sobre herramientas muestra los valores exactos:
 
+* **Puntuación máxima**: el número máximo de puntos que puede obtener al completar todas las recomendaciones de un control. La puntuación máxima de un control indica la importancia relativa de ese control. Use los valores de puntuación máxima para evaluar la prioridad de los problemas. 
 * **Mejora potencial**: los puntos restantes disponibles para el usuario en el control. Para que estos puntos se agreguen a la puntuación de seguridad, corrija todas las recomendaciones del control. En el ejemplo anterior, el punto que se muestra para este control es, en realidad, 0,96 puntos.
 * **Puntuación actual**: la puntuación actual de este control. Cada control contribuye a la puntuación total. En este ejemplo, el control contribuye con 5,04 puntos al total. 
-* **Puntuación máxima**: la suma de los dos valores anteriores.
 
 ### <a name="calculations---understanding-your-score"></a>Cálculos: Descripción de la puntuación
 
 |Métrica|Fórmula y ejemplo|
 |-|-|
-|**Puntuación actual del control de seguridad**|<br>![Ecuación para calcular la puntuación actual de un control de seguridad](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>Cada control de seguridad individual contribuye a la puntuación de seguridad. Cada recurso afectado por una recomendación dentro del control contribuye a la puntuación actual de este. La puntuación actual de cada control es una medida del estado de los recursos que están *dentro* del control.<br>![Información sobre herramientas que muestra los valores usados al calcular la puntuación actual del control de seguridad](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>En este ejemplo, la puntuación máxima de 6 se divide entre 78, ya que esta es la suma de los recursos correctos e incorrectos.<br>6 / 78 = 0,0769<br>La multiplicación de esa cifra por el número de recursos correctos (74) da como resultado la puntuación actual:<br>0,0769 * 74 = **5,69**<br><br>|
+|**Puntuación actual del control de seguridad**|<br>![Ecuación para calcular la puntuación actual de un control de seguridad](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>Cada control de seguridad individual contribuye a la puntuación de seguridad. Cada recurso afectado por una recomendación dentro del control contribuye a la puntuación actual de este. La puntuación actual de cada control es una medida del estado de los recursos que están *dentro* del control.<br>![Información sobre herramientas que muestra los valores usados al calcular la puntuación actual del control de seguridad](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>En este ejemplo, la puntuación máxima de 6 se divide entre 78, ya que esta es la suma de los recursos correctos e incorrectos.<br>6 / 78 = 0,0769<br>La multiplicación de esa cifra por el número de recursos correctos (4) da como resultado la puntuación actual:<br>0,0769 * 4 = **0,31**<br><br>|
 |**Puntuación segura**<br>Suscripción única|<br>![Ecuación para calcular la puntuación de seguridad actual](media/secure-score-security-controls/secure-score-equation.png)<br><br>![Puntuación de seguridad de una suscripción única con todos los controles habilitados](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>En este ejemplo, hay una suscripción única con todos los controles de seguridad disponibles (una puntuación máxima posible de 60 puntos). La puntuación muestra 28 puntos de los 60 posibles y los 32 puntos restantes se reflejan en las cifras de "Posible aumento de puntuación" de los controles de seguridad.<br>![Lista de controles y posible aumento de puntuación](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
 |**Puntuación segura**<br>Varias suscripciones|<br>La puntuación actual de todos los recursos de todas las suscripciones se suma y el cálculo es el mismo que para una suscripción única.<br><br>Cuando se ven varias suscripciones, la puntuación de seguridad evalúa todos los recursos de todas las directivas habilitadas y agrupa su impacto combinado en la puntuación máxima de cada control de seguridad.<br>![Puntuación de seguridad de varias suscripciones con todos los controles habilitados](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>La puntuación combinada **no** es un promedio; en vez de eso, es la posición evaluada del estado de todos los recursos de todas las suscripciones.<br>También en este caso, si va a la página de recomendaciones y suma los puntos posibles disponibles, observará que esta es la diferencia entre la puntuación actual (24) y la puntuación máxima disponible (60).|
 ||||

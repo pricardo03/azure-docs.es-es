@@ -10,12 +10,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 11/04/2019
-ms.openlocfilehash: 0da5fe56bd56d360cd8052976bdde0cdc910c9a5
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 49ee00d43820d5aeb50e44cff1b6c5a448b4ce81
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904287"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623916"
 ---
 # <a name="create-event-driven-machine-learning-workflows-preview"></a>Creación de flujos de trabajo de aprendizaje automático controlados por eventos (versión preliminar)
 
@@ -25,15 +25,15 @@ Para más información, vea [Integración de Azure Machine Learning con Event Gr
 
 Use Event Grid para habilitar escenarios comunes, como:
 
-* Desencadenamiento de canalizaciones para el nuevo entrenamiento
+* Envío de correos electrónicos al finalizar la ejecución
+* Uso de una función de Azure una vez registrado un modelo
 * Streaming de eventos desde Azure Machine Learning a varios puntos de conexión
+* Desencadenamiento de una canalización de Machine Learning cuando se detecta un desfase
 
-## <a name="prerequisites"></a>Prerequisites
-
+## <a name="prerequisites"></a>Prerrequisitos
 * Acceso de colaborador o propietario al área de trabajo de Azure Machine Learning para la que se crearán los eventos.
-* Selección de un punto de conexión de controlador de eventos, como un webhook o un centro de eventos. Para más información, vea [Controladores de eventos](https://docs.microsoft.com/azure/event-grid/event-handlers). 
 
-## <a name="configure-machine-learning-events-using-the-azure-portal"></a>Configuración de eventos de aprendizaje automático mediante Azure Portal
+### <a name="configure-eventgrid-using-the-azure-portal"></a>Configuración de EventGrid mediante Azure Portal
 
 1. Abra [Azure Portal](https://portal.azure.com) y vaya al área de trabajo de Azure Machine Learning.
 
@@ -51,7 +51,7 @@ Use Event Grid para habilitar escenarios comunes, como:
 
 Una vez que haya confirmado la selección, haga clic en __Crear__. Después de la configuración, estos eventos se insertarán en el punto de conexión.
 
-## <a name="set-up-azure-event-grid-using-cli"></a>Configuración de Azure Event Grid mediante la CLI
+### <a name="configure-eventgrid-using-the-cli"></a>Configuración de EventGrid mediante la CLI
 
 Puede instalar la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) más reciente, o bien usar Azure Cloud Shell que se proporciona como parte de la suscripción de Azure.
 
@@ -77,6 +77,12 @@ az eventgrid event-subscription create \
 ```
 
 ## <a name="sample-scenarios"></a>Escenarios de ejemplo
+
+### <a name="use-azure-functions-to-deploy-a-model-based-on-tags"></a>Uso de Azure Functions para implementar un modelo basado en etiquetas
+
+Un objeto de modelo de Azure Machine Learning contiene parámetros sobre los que puede dinamizar las implementaciones, como el nombre del modelo, la versión, la etiqueta y la propiedad. El evento de registro del modelo puede desencadenar un punto de conexión y puede usar una función de Azure para implementar un modelo en función del valor de esos parámetros.
+
+Para obtener un ejemplo, vea el repositorio [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) y siga los pasos del archivo **Léame**.
 
 ### <a name="use-a-logic-app-to-send-email-alerts"></a>Uso de una aplicación lógica para enviar alertas por correo electrónico
 
@@ -158,12 +164,6 @@ Ahora la canalización de Data Factory se desencadena cuando se produce el desfa
 
 ![view-in-workspace](./media/how-to-use-event-grid/view-in-workspace.png)
 
-
-### <a name="use-azure-functions-to-deploy-a-model-based-on-tags"></a>Uso de Azure Functions para implementar un modelo basado en etiquetas
-
-Un objeto de modelo de Azure Machine Learning contiene parámetros sobre los que puede dinamizar las implementaciones, como el nombre del modelo, la versión, la etiqueta y la propiedad. El evento de registro del modelo puede desencadenar un punto de conexión y puede usar una función de Azure para implementar un modelo en función del valor de esos parámetros.
-
-Para obtener un ejemplo, vea el repositorio [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) y siga los pasos del archivo **Léame**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

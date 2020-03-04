@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2020
+ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: f7d8d28299b662774a8cc0a7d4a28b052a551eab
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 01397ad078bc741977c4928f67d1834f05e1db8d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906328"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623970"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de seguridad: una guía de referencia
 
@@ -33,7 +33,7 @@ Debajo de las tablas de alertas hay una tabla que describe la cadena de eliminac
 
 ## <a name="alerts-windows"></a>Alertas de máquinas Windows
 
-[Más detalles y notas](security-center-alerts-iaas.md#windows-)
+[Más detalles y notas](threat-protection.md#windows-machines)
 
 |Alerta|Descripción|Intención ([Más información](#intentions))|
 |----|----|:----:|
@@ -124,7 +124,7 @@ Debajo de las tablas de alertas hay una tabla que describe la cadena de eliminac
 
 ## <a name="alerts-linux"></a>Alertas de máquinas Linux
 
-[Más detalles y notas](security-center-alerts-iaas.md#linux-)
+[Más detalles y notas](threat-protection.md#linux-machines)
 
 |Alerta|Descripción|Intención ([Más información](#intentions))|
 |----|----|:----:|
@@ -213,31 +213,32 @@ Debajo de las tablas de alertas hay una tabla que describe la cadena de eliminac
 
 ## <a name="alerts-azureappserv"></a>Alertas de Azure App Service
 
-[Más detalles y notas](security-center-alerts-compute.md#azure-app-service-)
+[Más detalles y notas](threat-protection.md#app-services)
 
 |Alerta|Descripción|Intención ([Más información](#intentions))|
 |----|----|:----:|
-|**Invocación de tema de WordPress sospechoso detectada**|El registro de actividad de App Service indica una posible actividad de inyección de código en el recurso de App Service.<br>Esta actividad sospechosa es similar a la actividad que manipula un tema de WordPress para permitir la ejecución de código en el servidor, seguida de una solicitud web directa para invocar el archivo de tema manipulado. Este tipo de actividad puede formar parte de una campaña de ataque a través de WordPress.|-|
-|**Huella digital web detectada**<br>(NMAP/Blind Elephant)|El registro de actividad de App Service indica una posible actividad de huella digital web en el recurso de App Service.<br>Esta actividad sospechosa está asociada con una herramienta llamada Blind Elephant. La herramienta crea una huella digital de servidores web e intenta detectar las aplicaciones instaladas y sus versiones. Los atacantes suelen utilizar esta herramienta para sondear aplicaciones web en busca de vulnerabilidades. |-|
-|**Acceso sospechoso a página web posiblemente vulnerable detectado**|El registro de actividad de App Service indica que se ha accedido a una página web que parece ser confidencial.<br>Esta actividad sospechosa se ha originado desde una dirección de origen cuyo patrón de acceso es similar al de un escáner web. Este tipo de actividad suele estar asociada a un intento de un atacante de examinar la red para intentar obtener acceso a páginas web confidenciales o vulnerables. |-|
-|**Se ha encontrado en Información sobre amenazas una dirección IP que se ha conectado a la interfaz de FTP de Azure App Service**|El análisis de registros de FTP de App Service ha detectado una conexión desde una dirección de origen que se ha encontrado en la fuente de información sobre amenazas. Durante esta conexión, un usuario ha accedido a las páginas que aquí se indican.|-|
 |**Intento de ejecución de comandos de Linux en una instancia de App Service de Windows**|El análisis de procesos de App Service ha detectado un intento de ejecutar un comando de Linux en una instancia de App Service de Windows. La aplicación web estaba ejecutando esta acción. Este comportamiento se ve a menudo en campañas que aprovechan una vulnerabilidad en una aplicación web común.|-|
-|**Ejecución de PHP sospechoso detectada**|Los registros de la máquina indican que se está ejecutando un proceso PHP sospechoso. La acción incluye un intento de ejecutar comandos del sistema operativo o código PHP desde la línea de comandos mediante el proceso PHP. Aunque este comportamiento puede ser legítimo, en aplicaciones web podría indicar actividades malintencionadas, como intentos de infectar sitios web con shells web.|Ejecución|
-|**Intento de ejecución de comando con privilegios elevados detectado**|El análisis de procesos de App Service ha detectado un intento de ejecutar un comando que requiere privilegios elevados. El comando se ejecutó en el contexto de la aplicación web. Aunque este comportamiento puede ser legítimo, en aplicaciones web podría indicar actividades malintencionadas.|-|
-|**Se detectó el almacenamiento de la salida de cURL en el disco.**|El análisis de los procesos de App Service detectó la ejecución de un comando de cURL en el que la salida se guardó en el disco. Aunque este comportamiento puede ser legítimo, en aplicaciones web también se observa en actividades malintencionadas, como intentos de infectar sitios web con shells web.|-|
-|**Se detectó una descarga de datos sin procesar.**|El análisis de los procesos de App Service detectó un intento de descarga de código desde sitios web de datos sin procesar como Pastebin. Esta acción la ejecutó un proceso de PHP. Este comportamiento está asociado a intentos de descargar shells web u otros componentes malintencionados en App Service.|-|
-|**Se detectó un detector de vulnerabilidades.**<br>(Joomla/WordPress/CMS)|El registro de actividad de Azure App Service indica que es posible que se usara un detector de vulnerabilidades en su recurso de App Service. La actividad sospechosa detectada es similar a la de las herramientas que tienen como destino aplicaciones de Joomla o WordPress, o un sistema de administración de contenido (CMS).|-|
-|**Se detectó un origen de referencia de la carpeta de correo no deseado.**|El registro de actividad de Azure App Service indica que se produjo actividad web que se identificó como procedente de un sitio web asociado a la actividad de envío de correos no deseados. Esto puede ocurrir si el sitio web está en peligro y se usa para la actividad de envío de correos no deseados.|-|
-|**Conexión a página web desde una dirección IP anómala detectada**|El registro de actividad de Azure App Service indica que se estableció una conexión a una página web confidencial desde una dirección IP de origen (%{Source IP Address}) que nunca se había establecido anteriormente. Esto podría indicar que alguien está intentando realizar un ataque por fuerza bruta en las páginas de administración de la aplicación web. También puede deberse a que un usuario legítimo esté utilizando una nueva dirección IP.|-|
-|**Se detectó un agente de usuario sospechoso.**|El registro de actividad de Azure App Service indica que se realizaron solicitudes con un agente de usuario sospechoso. Este comportamiento puede indicar que se realizaron intentos para aprovechar una vulnerabilidad en la aplicación de App Service.|-|
-|**Archivo PHP en la carpeta de carga**|El registro de actividad de Azure App Service indica que se ha accedido a una página PHP sospechosa ubicada en la carpeta de carga. Este tipo de carpeta no suele contener archivos PHP. La existencia de este tipo de archivo podría indicar un ataque que aprovecha vulnerabilidades de carga de archivos arbitrarias.|-|
+|**Se ha encontrado en Información sobre amenazas una dirección IP que se ha conectado a la interfaz de FTP de Azure App Service**|El análisis de registros de FTP de App Service ha detectado una conexión desde una dirección de origen que se ha encontrado en la fuente de información sobre amenazas. Durante esta conexión, un usuario ha accedido a las páginas que aquí se indican.|-|
 |**Se detectó un patrón de solicitudes anómalo.**|El registro de actividad de Azure App Service indica que se realizó una actividad de HTTP anómala en App Service desde la IP %{Source IP}. Esta actividad tiene un patrón similar al de la actividad de fuerza bruta o pruebas de vulnerabilidad ante datos aleatorios o inesperados.|-|
+|**Intento de ejecución de comando con privilegios elevados detectado**|El análisis de procesos de App Service ha detectado un intento de ejecutar un comando que requiere privilegios elevados. El comando se ejecutó en el contexto de la aplicación web. Aunque este comportamiento puede ser legítimo, en aplicaciones web podría indicar actividades malintencionadas.|-|
+|**Conexión a página web desde una dirección IP anómala detectada**|El registro de actividad de Azure App Service indica que se estableció una conexión a una página web confidencial desde una dirección IP de origen (%{Source IP Address}) que nunca se había establecido anteriormente. Esto podría indicar que alguien está intentando realizar un ataque por fuerza bruta en las páginas de administración de la aplicación web. También puede deberse a que un usuario legítimo esté utilizando una nueva dirección IP.|-|
+|**Se detectó una descarga de datos sin procesar.**|El análisis de los procesos de App Service detectó un intento de descarga de código desde sitios web de datos sin procesar como Pastebin. Esta acción la ejecutó un proceso de PHP. Este comportamiento está asociado a intentos de descargar shells web u otros componentes malintencionados en App Service.|-|
+|**Contenido de suplantación de identidad hospedado en Azure Web Apps**|Dirección URL que se ha usado para el ataque de suplantación de identidad detectado en el sitio web de Azure App Services. Esta dirección URL formaba parte de un ataque de suplantación de identidad enviado a clientes de O365. Normalmente, el contenido empuja a los visitantes a introducir sus credenciales corporativas o información financiera en un sitio web de aspecto legítimo.|Colección|
+|**Archivo PHP en la carpeta de carga**|El registro de actividad de Azure App Service indica que se ha accedido a una página PHP sospechosa ubicada en la carpeta de carga. Este tipo de carpeta no suele contener archivos PHP. La existencia de este tipo de archivo podría indicar un ataque que aprovecha vulnerabilidades de carga de archivos arbitrarias.|-|
+|**Se detectó el almacenamiento de la salida de cURL en el disco.**|El análisis de los procesos de App Service detectó la ejecución de un comando de cURL en el que la salida se guardó en el disco. Aunque este comportamiento puede ser legítimo, en aplicaciones web también se observa en actividades malintencionadas, como intentos de infectar sitios web con shells web.|-|
+|**Se detectó un origen de referencia de la carpeta de correo no deseado.**|El registro de actividad de Azure App Service indica que se produjo actividad web que se identificó como procedente de un sitio web asociado a la actividad de envío de correos no deseados. Esto puede ocurrir si el sitio web está en peligro y se usa para la actividad de envío de correos no deseados.|-|
+|**Acceso sospechoso a página web posiblemente vulnerable detectado**|El registro de actividad de App Service indica que se ha accedido a una página web que parece ser confidencial.<br>Esta actividad sospechosa se ha originado desde una dirección de origen cuyo patrón de acceso es similar al de un escáner web. Este tipo de actividad suele estar asociada a un intento de un atacante de examinar la red para intentar obtener acceso a páginas web confidenciales o vulnerables. |-|
+|**Ejecución de PHP sospechoso detectada**|Los registros de la máquina indican que se está ejecutando un proceso PHP sospechoso. La acción incluye un intento de ejecutar comandos del sistema operativo o código PHP desde la línea de comandos mediante el proceso PHP. Aunque este comportamiento puede ser legítimo, en aplicaciones web podría indicar actividades malintencionadas, como intentos de infectar sitios web con shells web.|Ejecución|
+|**Se detectó un agente de usuario sospechoso.**|El registro de actividad de Azure App Service indica que se realizaron solicitudes con un agente de usuario sospechoso. Este comportamiento puede indicar que se realizaron intentos para aprovechar una vulnerabilidad en la aplicación de App Service.|-|
+|**Invocación de tema de WordPress sospechoso detectada**|El registro de actividad de App Service indica una posible actividad de inyección de código en el recurso de App Service.<br>Esta actividad sospechosa es similar a la actividad que manipula un tema de WordPress para permitir la ejecución de código en el servidor, seguida de una solicitud web directa para invocar el archivo de tema manipulado. Este tipo de actividad puede formar parte de una campaña de ataque a través de WordPress.|-|
+|**Se detectó un detector de vulnerabilidades.**<br>(Joomla/WordPress/CMS)|El registro de actividad de Azure App Service indica que es posible que se usara un detector de vulnerabilidades en su recurso de App Service. La actividad sospechosa detectada es similar a la de las herramientas que tienen como destino aplicaciones de Joomla o WordPress, o un sistema de administración de contenido (CMS).|-|
+|**Huella digital web detectada**<br>(NMAP/Blind Elephant)|El registro de actividad de App Service indica una posible actividad de huella digital web en el recurso de App Service.<br>Esta actividad sospechosa está asociada con una herramienta llamada Blind Elephant. La herramienta crea una huella digital de servidores web e intenta detectar las aplicaciones instaladas y sus versiones. Los atacantes suelen utilizar esta herramienta para sondear aplicaciones web en busca de vulnerabilidades. |-|
 ||||
 
 
 ## <a name="alerts-akscluster"></a>Alertas para contenedores: clústeres de Azure Kubernetes Service
 
-[Más detalles y notas](security-center-alerts-compute.md#azure-containers-)
+[Más detalles y notas](threat-protection.md#azure-containers)
 
 |Alerta|Descripción|Intención ([Más información](#intentions))|
 |----|----|:----:|
@@ -252,7 +253,7 @@ Debajo de las tablas de alertas hay una tabla que describe la cadena de eliminac
 
 ## <a name="alerts-containerhost"></a>Alertas para contenedores: nivel de host
 
-[Más detalles y notas](security-center-alerts-compute.md#azure-containers-)
+[Más detalles y notas](threat-protection.md#azure-containers)
 
 |Alerta|Descripción|Intención ([Más información](#intentions))|
 |----|----|:----:|
@@ -268,7 +269,7 @@ Debajo de las tablas de alertas hay una tabla que describe la cadena de eliminac
 
 ## <a name="alerts-sql-db-and-warehouse"></a>Alertas de SQL Database y SQL Data Warehouse
 
-[Más detalles y notas](security-center-alerts-data-services.md#sql-database-and-sql-data-warehouse-)
+[Más detalles y notas](threat-protection.md#data-sql)
 
 |Alerta|Descripción|Intención ([Más información](#intentions))|
 |----|----|:----:|
@@ -286,7 +287,7 @@ Debajo de las tablas de alertas hay una tabla que describe la cadena de eliminac
 
 ## <a name="alerts-azurestorage"></a>Alertas de Azure Storage
 
-[Más detalles y notas](security-center-alerts-data-services.md#azure-storage-)
+[Más detalles y notas](threat-protection.md#azure-storage)
 
 |Alerta|Descripción|Intención ([Más información](#intentions))|
 |----|----|:----:|
@@ -307,7 +308,7 @@ Debajo de las tablas de alertas hay una tabla que describe la cadena de eliminac
 
 ## <a name="alerts-azurecosmos"></a>Alertas de Azure Cosmos DB (versión preliminar)
 
-[Más detalles y notas](security-center-alerts-data-services.md#azure-cosmos-db)
+[Más detalles y notas](threat-protection.md#cosmos-db)
 
 |Alerta|Descripción|Intención ([Más información](#intentions))|
 |----|----|:----:|
@@ -318,7 +319,7 @@ Debajo de las tablas de alertas hay una tabla que describe la cadena de eliminac
 
 ## <a name="alerts-azurenetlayer"></a>Alertas de la capa de red de Azure
 
-[Más detalles y notas](security-center-alerts-service-layer.md#azure-network-layer)
+[Más detalles y notas](threat-protection.md#network-layer)
 
 |Alerta|Descripción|Intención ([Más información](#intentions))|
 |----|----|:----:|
@@ -343,12 +344,13 @@ Debajo de las tablas de alertas hay una tabla que describe la cadena de eliminac
 
 ## <a name="alerts-azureresourceman"></a>Alertas de Azure Resource Manager (versión preliminar)
 
-[Más detalles y notas](security-center-alerts-service-layer.md#azure-management-layer-azure-resource-manager-preview)
+[Más detalles y notas](threat-protection.md#management-layer)
 
 |Alerta|Descripción|Intención ([Más información](#intentions))|
 |----|----|:----:|
 |**VERSIÓN PRELIMINAR: se detectó la ejecución del kit de herramientas de Azurite.**|Se ha detectado la ejecución de un conocido kit de herramientas de reconocimiento de entornos de nube en su entorno. Un atacante (o evaluador de penetración) puede usar la herramienta [Azurite](https://github.com/mwrlabs/Azurite) para asignar recursos de sus suscripciones e identificar configuraciones poco seguras.|-|
-|**VERSIÓN PRELIMINAR: se detectó la ejecución de la función "Get-AzureDomainInfo" del kit de herramientas de MicroBurst**|Se ha detectado la ejecución de un conocido kit de herramientas de reconocimiento de entornos de nube en su entorno. Un atacante (o evaluador de penetración) puede usar la herramienta "MicroBurst" (consulte https://github.com/NetSPI/MicroBurst) ) para asignar sus recursos de suscripciones, identificar configuraciones poco seguras y revelar información confidencial.|-||**VERSIÓN PRELIMINAR: se detectó una sesión de administración sospechosa con una cuenta inactiva.**|El análisis de registros de actividad de suscripción ha detectado un comportamiento sospechoso. Una entidad de seguridad que no se ha usado durante un largo período de tiempo ahora está realizando acciones que pueden garantizar la persistencia de un atacante.|Persistencia|
+|**VERSIÓN PRELIMINAR: se detectó la ejecución de la función "Get-AzureDomainInfo" del kit de herramientas de MicroBurst**|Se ha detectado la ejecución de un conocido kit de herramientas de reconocimiento de entornos de nube en su entorno. Un atacante (o evaluador de penetración) puede usar la herramienta "MicroBurst" (consulte https://github.com/NetSPI/MicroBurst) ) para asignar sus recursos de suscripciones, identificar configuraciones poco seguras y revelar información confidencial.|-|
+|**VERSIÓN PRELIMINAR: se detectó una sesión de administración sospechosa con una cuenta inactiva.**|El análisis de registros de actividad de suscripción ha detectado un comportamiento sospechoso. Una entidad de seguridad que no se ha usado durante un largo período de tiempo ahora está realizando acciones que pueden garantizar la persistencia de un atacante.|Persistencia|
 |**VERSIÓN PRELIMINAR: se detectó la ejecución de la función "Get-AzurePasswords" del kit de herramientas de MicroBurst**|Se ha detectado la ejecución de un conocido kit de herramientas de reconocimiento de entornos de nube en su entorno. Un atacante (o evaluador de penetración) puede usar la herramienta "MicroBurst" (consulte https://github.com/NetSPI/MicroBurst) ) para asignar sus recursos de suscripciones, identificar configuraciones poco seguras y revelar información confidencial.|-|
 |**VERSIÓN PRELIMINAR: se detectó una sesión de administración sospechosa que usa Azure Portal.**|El análisis de registros de actividad de la suscripción ha detectado un comportamiento sospechoso. Una entidad de seguridad que normalmente no usa Azure Portal (Ibiza) para administrar el entorno de la suscripción (no ha usado Azure Portal para la administración durante los últimos 45 días, ni una suscripción que administra de manera activa), ahora usa Azure Portal y realiza acciones que pueden proteger la persistencia de un atacante.|-|
 |**VERSIÓN PRELIMINAR: se detectó una sesión de administración sospechosa que usa PowerShell.**|El análisis de registros de actividad de suscripción ha detectado un comportamiento sospechoso. Una entidad de seguridad que no usa con frecuencia PowerShell para administrar el entorno de suscripción ahora usa PowerShell y realiza acciones que pueden garantizar la persistencia de un atacante.|Persistencia|
@@ -361,7 +363,7 @@ Debajo de las tablas de alertas hay una tabla que describe la cadena de eliminac
 
 ## <a name="alerts-azurekv"></a>Alertas de Azure Key Vault (versión preliminar)
 
-[Más detalles y notas](security-center-alerts-service-layer.md#azure-keyvault)
+[Más detalles y notas](threat-protection.md#azure-keyvault)
 
 |Alerta|Descripción|Intención ([Más información](#intentions))|
 |----|----|:----:|
@@ -379,7 +381,7 @@ Debajo de las tablas de alertas hay una tabla que describe la cadena de eliminac
 
 ## <a name="alerts-azureddos"></a>Alertas de Azure DDoS Protection
 
-[Más detalles y notas](security-center-alerts-integration.md#azure-ddos)
+[Más detalles y notas](threat-protection.md#azure-ddos)
 
 |Alerta|Descripción|Intención ([Más información](#intentions))|
 |----|----|:----:|
@@ -416,6 +418,7 @@ Los intentos de la cadena de eliminación admitidos de Security Center se basan 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre las alertas, consulte lo siguiente:
 
+* [Protección contra amenazas en Azure Security Center](threat-protection.md)
 * [Alertas de seguridad en el Centro de seguridad de Azure](security-center-alerts-overview.md)
 * [Administración y respuesta a alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md)
 * [Exportar alertas y recomendaciones de seguridad (versión preliminar)](continuous-export.md)

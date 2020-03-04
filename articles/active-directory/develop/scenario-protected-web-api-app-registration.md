@@ -87,7 +87,7 @@ También aparecen ámbitos en la ventana de consentimiento que se presenta a los
     - Seleccione **¿Quién puede dar el consentimiento?** y asegúrese de que esté seleccionado **Administradores y usuarios**.
     - En **Nombre para mostrar del consentimiento del administrador**, escriba **Access TodoListService as a user** (Acceder a TodoListService como usuario).
     - Seleccione **Descripción del consentimiento del administrador** y escriba **Accesses the TodoListService Web API as a user** (Accede a la API web de TodoListService como usuario).
-    - Seleccione **Nombre para mostrar del consentimiento del usuario**  y escriba **Access TodoListService as a user** (Accede a TodoListService como usuario).
+    - Seleccione **Nombre para mostrar del consentimiento del usuario**  y escriba **Access TodoListService as a user** (Acceder a TodoListService como usuario).
     - En **Descripción del consentimiento del usuario**, escriba **Accesses the TodoListService Web API as a user** (Accede a la API web de TodoListService como usuario).
     - Mantenga el valor de **Estado** establecido en **Habilitado**.
  1. Seleccione la opción **Agregar un ámbito**.
@@ -96,7 +96,7 @@ También aparecen ámbitos en la ventana de consentimiento que se presenta a los
 
 En esta sección, aprenderá a registrar su API web protegida para que las aplicaciones de demonio puedan invocarla de forma segura.
 
-- Solo se declaran y exponen *permisos de aplicación* ya que las aplicaciones de demonio no interactúan con los usuarios. Los permisos delegados no tendrían sentido.
+- Solo se declaran y exponen *permisos de aplicación*, ya que las aplicaciones de demonio no interactúan con los usuarios. Los permisos delegados no tendrían sentido.
 - Los administradores de inquilinos pueden exigir que Azure AD emita tokens de API web solo para las aplicaciones que se han registrado para acceder a uno de los permisos de aplicación de la API.
 
 #### <a name="exposing-application-permissions-app-roles"></a>Exposición de permisos de aplicación (roles de aplicación)

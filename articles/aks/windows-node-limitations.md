@@ -2,17 +2,14 @@
 title: Limitaciones de los grupos de nodos de Windows Server en Azure Kubernetes Service (AKS)
 description: Obtenga información sobre las limitaciones conocidas al ejecutar cargas de trabajo de aplicaciones y grupos de nodos de Windows Server en Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: mlearned
-ms.openlocfilehash: 3dd7399b68388d92d38b0f64c6e816cb94b3f295
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 157f890c65efd0de9fa7d8d7aa5cb43b4a902dfa
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768578"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615639"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitaciones actuales para las cargas de trabajo de aplicaciones y los grupos de nodos de Windows Server en Azure Kubernetes Service (AKS)
 
@@ -54,9 +51,9 @@ AKS hospeda los nodos maestros (esto es, el plano de control) de un clúster de 
 
 Los clústeres de AKS con grupos de nodos de Windows deben usar el modelo de redes (avanzado) de Azure CNI. No se admiten las redes Kubenet (básico). Para obtener más información sobre las diferencias en los modelos de redes, consulte [Conceptos de redes para las aplicaciones en AKS][azure-network-models]. - El modelo de redes de Azure CNI requiere un plan y consideraciones adicionales para la administración de direcciones IP. Para obtener más información sobre cómo planear e implementar Azure CNI, consulte [Configuración de redes de Azure CNI en AKS][configure-azure-cni].
 
-## <a name="can-i-change-the-min--of-pods-per-node"></a>¿Puedo cambiar el número mínimo de pods por nodo?
+## <a name="can-i-change-the-max--of-pods-per-node"></a>¿Puedo cambiar el número máximo de pods por nodo?
 
-Actualmente, es necesario establecer un mínimo de 30 pods para garantizar la confiabilidad de los clústeres.
+Actualmente es necesario establecer un máximo de 30 pods para garantizar la confiabilidad de los clústeres.
 
 ## <a name="how-do-patch-my-windows-nodes"></a>¿Cómo se aplica la revisión en los nodos de Windows?
 

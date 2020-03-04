@@ -2,14 +2,14 @@
 title: Disponibilidad de recursos por región
 description: Disponibilidad de recursos de proceso y memoria para el servicio Azure Container Instances en diferentes regiones de Azure.
 ms.topic: article
-ms.date: 01/31/2020
+ms.date: 02/19/2020
 ms.author: danlep
-ms.openlocfilehash: 3f64a13331658c1360c9d54f6f57a68c2c91fc6f
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: f429a165fe26cc9fc7aa973231f5a77163feef4a
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117838"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525310"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidad de recursos para Azure Container Instances en las regiones de Azure
 
@@ -24,7 +24,7 @@ Para obtener información sobre las cuotas y otros límites en las implementacio
 
 ## <a name="availability---general"></a>Disponibilidad: general
 
-Las siguientes regiones y recursos están disponibles para los grupos de contenedores con Linux y [admiten](container-instances-faq.md#what-windows-base-os-images-are-supported) contenedores basados en Windows Server 2016.
+Las siguientes regiones y recursos máximos están disponibles para los grupos de contenedores con Linux y contenedores basados en Windows Server 2016 [admitidos](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
 | Regions | SO | Uso máximo de CPU | Memoria máxima (GB) | Almacenamiento (GB) |
 | -------- | -- | :---: | :-----------: | :---: |
@@ -37,7 +37,7 @@ Las siguientes regiones y recursos están disponibles para los grupos de contene
 
 ## <a name="availability---windows-server-2019-ltsc-1809-deployments-preview"></a>Disponibilidad: implementaciones de la versión 1809 para Windows Server 2019 LTSC (versión preliminar)
 
-Las siguientes regiones y recursos están disponibles para los grupos de contenedores con contenedores basados en Windows Server 2019 (versión preliminar).
+Las siguientes regiones y recursos máximos están disponibles para los grupos de contenedores con contenedores basados en Windows Server 2019 (versión preliminar).
 
 | Regions | SO | Uso máximo de CPU | Memoria máxima (GB) | Almacenamiento (GB) |
 | -------- | -- | :---: | :-----------: | :---: |
@@ -47,13 +47,16 @@ Las siguientes regiones y recursos están disponibles para los grupos de contene
 
 ## <a name="availability---virtual-network-deployment"></a>Disponibilidad: implementación de red virtual
 
-Las regiones y los recursos siguientes están disponibles para un grupo de contenedores implementado en una [red virtual de Azure](container-instances-vnet.md).
+Las regiones y los recursos máximos siguientes están disponibles para un grupo de contenedores implementado en una [red virtual de Azure](container-instances-vnet.md).
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 ## <a name="availability---gpu-resources-preview"></a>Disponibilidad: recursos de GPU (versión preliminar)
 
-Las regiones y los recursos siguientes están disponibles para un grupo de contenedores implementado con [recursos de GPU](container-instances-gpu.md) (versión preliminar).
+Las regiones y los recursos máximos siguientes están disponibles para un grupo de contenedores implementado con [recursos de GPU](container-instances-gpu.md) (versión preliminar).
+
+> [!IMPORTANT]
+> Los recursos de GPU solo están disponibles bajo solicitud. Para solicitar acceso a los recursos de GPU, envíe una [solicitud de soporte técnico de Azure][azure-support].
 
 [!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
@@ -63,3 +66,6 @@ Las regiones y los recursos siguientes están disponibles para un grupo de conte
 Informe al equipo si le gustaría ver regiones adicionales o una mayor disponibilidad de los recursos en [aka.ms/aci/feedback](https://aka.ms/aci/feedback).
 
 Para obtener información sobre cómo solucionar problemas de la implementación de instancias de contenedor, vea [Solución de problemas en las implementaciones en Azure Container Instances](container-instances-troubleshooting.md).
+
+
+[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

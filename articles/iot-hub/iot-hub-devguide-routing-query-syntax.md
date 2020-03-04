@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: e95a0b4b9f071a0fd3949d50eeee17b811dfb8ea
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: b76ef431e4c0ad63929378c1f48c6ab06776cb25
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064825"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616040"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxis de las consultas de enrutamiento de mensajes de IoT Hub
 
@@ -88,7 +88,7 @@ $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 
 Una lista completa de los operadores y funciones admitidas se muestra en [Expresiones y condiciones](iot-hub-devguide-query-language.md#expressions-and-conditions).
 
-## <a name="message-routing-query-based-on-message-body"></a>Consulta de enrutamiento de mensajes basada en el cuerpo del mensaje 
+## <a name="message-routing-query-based-on-message-body"></a>Consulta de enrutamiento de mensajes basada en el cuerpo del mensaje
 
 Para habilitar la consulta en el cuerpo del mensaje, el mensaje debe estar en JSON codificado en UTF-8, UTF-16 o UTF-32. `contentType` debe establecerse en `application/JSON` y `contentEncoding` a una de las codificaciones UTF admitidas de la propiedad del sistema. Si no se especifican estas propiedades, IoT Hub no evaluará la expresión de consulta en el cuerpo del mensaje. 
 
@@ -140,6 +140,10 @@ deviceClient.sendEvent(message, (err, res) => {
     if (res) console.log('status: ' + res.constructor.name);
 });
 ```
+
+> [!NOTE] 
+> Se muestra cómo administrar la codificación del cuerpo en JavaScript. Si quiere ver un ejemplo en C#, descargue los [ejemplos de C# de Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Descomprima el archivo master.zip. El archivo Program.cs de la solución de Visual Studio *SimulatedDevice* muestra cómo codificar y enviar mensajes a una instancia de IoT Hub. Este es el mismo ejemplo que se usa para probar el enrutamiento de mensajes, como se explica en el [tutorial de enrutamiento de mensajes](tutorial-routing.md). En la parte inferior de Program.cs, también hay un método para leer en uno de los archivos codificados, descodificarlo y escribirlo de nuevo en ASCII para que pueda leerlo. 
+
 
 ### <a name="query-expressions"></a>Expresiones de consulta
 
@@ -209,6 +213,8 @@ $body.Weather.Temperature = 50 AND $twin.properties.desired.telemetryConfig.send
 ```sql
 $twin.tags.deploymentLocation.floor = 1 
 ```
+
+No se admite la consulta de enrutamiento en el cuerpo o el dispositivo gemelo con un punto en el nombre de la propiedad o la carga.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

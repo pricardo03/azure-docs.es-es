@@ -9,18 +9,18 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/31/2020
-ms.openlocfilehash: 6d6e7d564722d1c2ad4713dd1d39e7cba5ed0605
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 419dbd998abc5cbd2da64a990e13d46f3fb2efbe
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76965265"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77580635"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Creación, ejecución y eliminación de recursos de Azure Machine Learning mediante REST
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Hay varias maneras de administrar los recursos de Azure Machine Learning. Puede usar el [portal](https://portal.azure.com/), la [interfaz de la línea de comandos](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) o el [SDK de Python](https://docs.microsoft.com/python/api/overview/azureml-sdk/?view=azure-ml-py). O bien, puede elegir la API REST. La API REST utiliza verbos HTTP de una manera estándar para crear, recuperar, actualizar y eliminar recursos. La API REST funciona con cualquier lenguaje o herramienta que pueda hacer solicitudes HTTP. La estructura sencilla de REST suele convertirla en una buena opción en entornos de scripting y en la automatización de MLOps. 
+Hay varias maneras de administrar los recursos de Azure Machine Learning. Puede usar el [portal](https://portal.azure.com/), la [interfaz de la línea de comandos](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) o el [SDK de Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). O bien, puede elegir la API REST. La API REST utiliza verbos HTTP de una manera estándar para crear, recuperar, actualizar y eliminar recursos. La API REST funciona con cualquier lenguaje o herramienta que pueda hacer solicitudes HTTP. La estructura sencilla de REST suele convertirla en una buena opción en entornos de scripting y en la automatización de MLOps. 
 
 En este artículo aprenderá a:
 
@@ -32,7 +32,7 @@ En este artículo aprenderá a:
 > * Usar solicitudes DELETE para limpiar recursos 
 > * Usar una autorización basada en claves para puntuar los modelos implementados
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una **suscripción de Azure** en la que tenga derechos administrativos Si no tiene este tipo de suscripción, pruebe con una [suscripción personal gratuita o de pago](https://aka.ms/AMLFree)
 - Un [área de trabajo de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
@@ -401,6 +401,23 @@ providers/Microsoft.Storage/storageAccounts/{your-storage-account-name}"
 ```
 
 Debe recibir una respuesta `202 Accepted` y, en los encabezados devueltos, un URI de `Location`. Puede obtener este URI para conocer más información sobre la implementación, incluida información útil sobre depuración si hay un problema con alguno de los recursos dependientes (por ejemplo, si olvidó habilitar el acceso de administrador en el registro de contenedor). 
+
+## <a name="troubleshooting"></a>Solución de problemas
+
+### <a name="resource-provider-errors"></a>Errores del proveedor de recursos
+
+[!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+
+### <a name="moving-the-workspace"></a>Movimiento del área de trabajo
+
+> [!WARNING]
+> No se admite mover el área de trabajo de Azure Machine Learning a otra suscripción ni mover la suscripción propietaria a un nuevo inquilino. Si lo hace, pueden producirse errores.
+
+### <a name="deleting-the-azure-container-registry"></a>Eliminación de la instancia de Azure Container Registry
+
+El área de trabajo de Azure Machine Learning usa Azure Container Registry (ACR) para algunas operaciones. La primera vez que se necesite una instancia de ACR, se creará automáticamente.
+
+[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

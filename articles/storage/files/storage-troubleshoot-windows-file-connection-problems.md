@@ -7,19 +7,16 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 0321d253eb1db414dff2acbb704d3d36726010d9
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 207a3a6c59012154d547bbd224782b90e1046c6a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544980"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597973"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucione problemas de Azure Files en Windows
 
 En este artículo se enumeran los problemas habituales relacionados con Microsoft Azure Files cuando se conecta desde clientes Windows. También se proporcionan posibles causas de estos problemas y sus resoluciones. Además de los pasos de solución de problemas de este artículo, también puede usar [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5)  para asegurarse de que el entorno de cliente Windows cumpla los requisitos previos. AzFileDiagnostics automatiza la detección de la mayoría de los síntomas que se mencionan en este artículo y le ayuda a configurar su entorno para obtener un rendimiento óptimo. Esta información también se puede encontrar en el [Solucionador de problemas de recursos compartidos de Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares), que proporciona los pasos necesarios para ayudarle con problemas relativos a la conexión, asignación o montaje de recursos compartidos de Azure Files.
-
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 <a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Error 5 al montar un recurso compartido de archivos de Azure
@@ -250,7 +247,7 @@ Pruebe una de estas soluciones:
 
 -   Monte la unidad desde la misma cuenta de usuario que contiene la aplicación. Puede usar una herramienta como PsExec.
 - Pase el nombre y la clave de la cuenta de almacenamiento en los parámetros de nombre de usuario y contraseña del comando net use.
-- Use el comando cmdkey para agregar las credenciales en el Administrador de credenciales. Haga esta operación desde una línea de comandos en el contexto de la cuenta de servicio, mediante un inicio de sesión interactivo o con runas.
+- Use el comando cmdkey para agregar las credenciales en el Administrador de credenciales. Haga esta operación desde una línea de comandos en el contexto de la cuenta de servicio, mediante un inicio de sesión interactivo o mediante `runas`.
   
   `cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>`
 - Asigne el recurso compartido directamente sin usar una letra de unidad asignada. Algunas aplicaciones pueden no volver a conectarse a la letra de unidad correctamente, por lo que resultará más confiable usar la ruta de acceso UNC completa. 
@@ -300,7 +297,7 @@ Por ejemplo, puede establecerlo en 0x100000 y ver si el rendimiento mejora.
 
 ### <a name="cause"></a>Causa
 
-El error AadDsTenantNotFound se produce al intentar [habilitar la autenticación de Azure Active Directory Domain Service (AAD DS) para Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable) en una cuenta de almacenamiento donde [AAD Domain Service (AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) no se ha creado en el inquilino de AAD de la suscripción asociada.  
+El error AadDsTenantNotFound se produce al intentar [habilitar la autenticación de Azure Active Directory Domain Services (Azure AD DS) en Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) en una cuenta de almacenamiento donde [AAD Domain Service (AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) no se ha creado en el inquilino de AAD de la suscripción asociada.  
 
 ### <a name="solution"></a>Solución
 

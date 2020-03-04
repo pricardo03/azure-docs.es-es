@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 02/26/2020
 ms.author: alkohli
-ms.openlocfilehash: a5fee604a529e9ca6153f6c189f199577ae65426
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 521277b2eed7edfba016f6a80e8f877decfb0ac5
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356146"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651107"
 ---
 # <a name="return-or-replace-your-azure-data-box-edge-device"></a>Devolución o sustitución del dispositivo Azure Data Box Edge
 
 En este artículo se describe cómo borrar los datos y, a continuación, devolver el dispositivo Azure Data Box Edge. Una vez que haya devuelto el dispositivo, también puede eliminar el recurso asociado al dispositivo o solicitar un dispositivo de sustitución.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Borrar los datos de los discos de datos del dispositivo
@@ -72,7 +72,7 @@ Para comenzar el proceso de devolución, siga los pasos siguientes.
 3. Desconecte los cables de alimentación y quite todos los cables de red del dispositivo.
 4. Prepare el paquete de envío con su propia caja o con la caja que ha recibido de Azure. Introduzca en la caja el dispositivo y los cables de alimentación que se han enviado con el dispositivo.
 5. Coloque en el paquete la etiqueta de envío que ha recibido de Azure.
-6. Programe una recogida con su transportista regional. Si devuelve el dispositivo en EE. UU., el transportista es UPS. Para programar una recogida:
+6. Programe una recogida con su transportista regional. Si devuelve el dispositivo en EE. UU., el transportista podría ser UPS o FedEx. Póngase en contacto con UPS para programar la recogida:
 
     1. Llame a la oficina local de UPS (número gratuito específico del país).
     2. En la llamada, indique el número de seguimiento del envío inverso que se muestra en la etiqueta impresa.

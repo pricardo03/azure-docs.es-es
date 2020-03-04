@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: e53bd3deae5ccd7339c7a6d491dc4ff0da44a277
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 47d9508c891d2b4fe74b42114783b02c58e8c91f
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77426233"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620004"
 ---
 # <a name="traffic-analytics"></a>Análisis de tráfico
 
@@ -201,7 +201,7 @@ También puede configurar el análisis de tráfico mediante el cmdlet [Set-AzNet
 
 ## <a name="view-traffic-analytics"></a>Visualización de Análisis de tráfico
 
-A la izquierda del portal, seleccione **Todos los servicios** y, a continuación, escriba *Monitor* en el cuadro de **filtro**. Seleccione **Monitor** cuando aparezca en los resultados de búsqueda. Para empezar a explorar Análisis de tráfico y sus funcionalidades, seleccione **Network Watcher** y, a continuación, **Análisis de tráfico**.
+Para ver Análisis de tráfico, busque **Network Watcher** en la barra de búsqueda del portal. Una vez en Network Watcher, para el análisis de tráfico y sus funcionalidades, seleccione **Análisis de tráfico** en el menú de la izquierda. 
 
 ![Acceso al panel de Análisis de tráfico](./media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
 

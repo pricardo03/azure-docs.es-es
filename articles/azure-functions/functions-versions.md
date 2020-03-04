@@ -3,12 +3,12 @@ title: Introducción a las versiones de tiempo de ejecución de Azure Functions
 description: Azure Functions admite varias versiones del runtime. Conozca las diferencias entre ellas y cómo elegir la más adecuada en su caso.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 0138af15c89a4792b9ccb73a8b761577fad36c5e
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 21722d66129224038df20a0a1ef2bff989221224
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290383"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539508"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Introducción a las versiones de tiempo de ejecución de Azure Functions
 
@@ -38,7 +38,7 @@ Para más información, consulte [Lenguajes admitidos](supported-languages.md).
 
 ## <a name="creating-1x-apps"></a>Ejecución en una versión específica
 
-De forma predeterminada, las aplicaciones de funciones que se crean en Azure Portal y en la CLI de Azure se establecen en la versión 2.x. Puede modificar esta versión según sea necesario. Solo puede cambiar la versión del entorno en tiempo de ejecución a 1.x después de crear la aplicación de funciones, pero antes de agregar funciones.  Se permite el desplazamiento entre 2.x y 3.x incluso con aplicaciones que tienen funciones, pero se recomienda probar primero en una aplicación nueva.
+De forma predeterminada, las aplicaciones de funciones que se crean en Azure Portal y en la CLI de Azure se establecen en la versión 3.x. Puede modificar esta versión según sea necesario. Solo puede cambiar la versión del entorno en tiempo de ejecución a 1.x después de crear la aplicación de funciones, pero antes de agregar funciones.  Se permite el desplazamiento entre 2.x y 3.x incluso con aplicaciones que tienen funciones, pero se recomienda probar primero en una aplicación nueva.
 
 ## <a name="migrating-from-1x-to-later-versions"></a>Migración desde la versión 1.x a versiones posteriores
 

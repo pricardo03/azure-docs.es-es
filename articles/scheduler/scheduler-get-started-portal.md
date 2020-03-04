@@ -1,36 +1,35 @@
 ---
-title: 'Crear trabajos programados con Azure Scheduler: Azure Portal | Microsoft Docs'
-description: Obtenga información sobre cómo crear, programar y ejecutar su primer trabajo automatizado con Azure Scheduler en Azure Portal
+title: 'Creación de trabajos programados: Azure Portal'
+description: Cree, programe y ejecute su primer trabajo automatizado en Azure Portal mediante Azure Scheduler.
 services: scheduler
 ms.service: scheduler
 ms.suite: infrastructure-services
 author: derek1ee
-ms.author: deli
-ms.reviewer: klam
-ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
+ms.author: estfan
+ms.reviewer: klam, estfan, logicappspm
 ms.topic: conceptual
-ms.date: 09/17/2018
-ms.openlocfilehash: 48e03f41fa0a39642330288fc05ef709179b4c62
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 02/29/2020
+ms.openlocfilehash: a9f7169f4b54dfc08612b1d53bfde48154ee2d1d
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300987"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524808"
 ---
-# <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Crear y programar su primer trabajo con Azure Scheduler : Azure Portal
+# <a name="create-and-schedule-your-first-job-by-using-azure-scheduler---azure-portal"></a>Creación y programación de su primer trabajo con Azure Scheduler: Azure Portal
 
 > [!IMPORTANT]
 > [Azure Logic Apps](../logic-apps/logic-apps-overview.md) reemplaza a Azure Scheduler, que se [va a retirar](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para seguir utilizando los trabajos configurados en Scheduler, [migre a Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) cuanto antes.
 
-Este tutorial muestra la facilidad con la que puede crear y programar un trabajo y después supervisarlo y administrarlo. 
+Este tutorial muestra la facilidad con la que puede crear y programar un trabajo y después supervisarlo y administrarlo.
 
-Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>.
+Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 ## <a name="create-job"></a>Creación del trabajo
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).  
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-1. En el menú principal de Azure, seleccione **Crear un recurso**. En el cuadro de búsqueda, escriba "scheduler". En la lista de resultados, seleccione **Scheduler** y después **Crear**.
+1. En el cuadro de búsqueda de Azure, escriba `scheduler` como filtro. En la lista de resultados, seleccione **Colecciones de trabajos del Programador** y seleccione **Crear**.
 
    ![Crear recurso de Scheduler](./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png)
 
@@ -38,7 +37,7 @@ Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free
 
 1. En **Trabajo de Scheduler**, especifique esta información:
 
-   | Propiedad | Valor de ejemplo | DESCRIPCIÓN |
+   | Propiedad | Valor de ejemplo | Descripción |
    |----------|---------------|-------------| 
    | **Nombre** | getMicrosoft | El nombre para el trabajo | 
    | **Colección de trabajos** | <*job-collection-name*> | Cree una colección de trabajos o seleccione una existente. | 
@@ -47,7 +46,7 @@ Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free
 
 1. Seleccione **Configuración de acción: Configurar**, proporcione esta información y elija **Aceptar** cuando haya terminado:
 
-   | Propiedad | Valor de ejemplo | DESCRIPCIÓN |
+   | Propiedad | Valor de ejemplo | Descripción |
    |----------|---------------|-------------| 
    | **Acción** | **Http** | El tipo de acción para ejecutar | 
    | **Método** | **Get** | El método al que llamar | 
@@ -60,7 +59,7 @@ Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free
 
    Aunque puede crear un trabajo único, este ejemplo configura una programación periódica.
 
-   | Propiedad | Valor de ejemplo | DESCRIPCIÓN |
+   | Propiedad | Valor de ejemplo | Descripción |
    |----------|---------------|-------------| 
    | **Periodicidad** | **Periódica** | Un trabajo puntual o periódico | 
    | **Iniciar el** | <*fecha de hoy*> | La fecha de inicio del trabajo | 
@@ -93,7 +92,7 @@ Para obtener más información acerca de estas áreas, seleccione un área:
 
 <a name="properties"></a>
 
-### <a name="properties"></a>properties (Propiedades)
+### <a name="properties"></a>Propiedades
 
 Para ver las propiedades de solo lectura que describen los metadatos de administración para el trabajo, seleccione **Propiedades**.
 
@@ -107,7 +106,7 @@ Para cambiar la configuración avanzada del trabajo, seleccione **Configuración
 
 ![Revisar la configuración de la acción](./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png)
 
-| Tipo de acción | DESCRIPCIÓN | 
+| Tipo de acción | Descripción | 
 |-------------|-------------| 
 | Todos los tipos | Puede cambiar la **Directiva de reintentos** y la configuración de **Acción del error**. | 
 | HTTP y HTTPS | Puede cambiar **Método** a cualquier método permitido. También puede agregar, eliminar o cambiar los encabezados y la información de autenticación básica. | 
@@ -117,7 +116,7 @@ Para cambiar la configuración avanzada del trabajo, seleccione **Configuración
 
 <a name="schedule"></a>
 
-### <a name="schedule"></a>Schedule
+### <a name="schedule"></a>Programación
 
 Si configura una programación a través del Asistente de trabajo puede cambiarla, modificando la fecha de inicio y tiempo, la programación de periodicidad, la fecha de finalización y el tiempo para los trabajos periódicos.
 También puede crear más [programaciones complejas y periodicidad avanzada](scheduler-advanced-complexity.md).
@@ -147,6 +146,6 @@ Puede administrar el acceso a Azure Scheduler para cada usuario en un nivel espe
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga información sobre [conceptos, terminología y jerarquía de entidades](scheduler-concepts-terms.md)
-* [Crear programaciones complejas y periodicidad avanzada](scheduler-advanced-complexity.md)
+* [Creación de programaciones complejas y periodicidad avanzada](scheduler-advanced-complexity.md)
 * Obtenga información sobre [alta disponibilidad y confiabilidad de Scheduler](scheduler-high-availability-reliability.md)
 * Obtenga información sobre [límites, cuotas, valores predeterminados y códigos de error](scheduler-limits-defaults-errors.md)

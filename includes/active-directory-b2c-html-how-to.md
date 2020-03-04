@@ -3,14 +3,14 @@ author: mmacy
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 02/12/2020
+ms.date: 02/26/2020
 ms.author: marsma
-ms.openlocfilehash: 9612abbe078ab8d9e8c10c2da923a9a9b233d094
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: 4cf8eba9632c51ce9b5bcc42feae2446348890c2
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77373140"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77651736"
 ---
 ## <a name="use-custom-page-content"></a>Uso del contenido de la página personalizada
 
@@ -61,7 +61,7 @@ Al utilizar sus propios archivos HTML y CSS para personalizar la interfaz de usu
 ## <a name="guidelines-for-using-custom-page-content"></a>Directrices para usar el contenido de la página personalizada
 
 - Use una dirección URL absoluta al incluir recursos externos como archivos multimedia, CSS y JavaScript en el archivo HTML.
-- Agregue el atributo `data-preload="true"` en las etiquetas HTML para controlar el orden de carga de CSS y JavaScript. Con `data-preload=true`, la página se construye antes de que se muestre al usuario. Este atributo ayuda a evitar que la página "parpadee" al cargar previamente el archivo CSS, sin que el HTML sin estilo se muestre al usuario. El siguiente fragmento de código HTML muestra el uso de la etiqueta `data-preload`.
+- Con la [versión de diseño de página](../articles/active-directory-b2c/page-layout.md) 1.2.0 y posterior, puede agregar el atributo `data-preload="true"` en las etiquetas HTML para controlar el orden de carga de CSS y JavaScript. Con `data-preload=true`, la página se construye antes de que se muestre al usuario. Este atributo ayuda a evitar que la página "parpadee" al cargar previamente el archivo CSS, sin que el HTML sin estilo se muestre al usuario. El siguiente fragmento de código HTML muestra el uso de la etiqueta `data-preload`.
   ```HTML
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```

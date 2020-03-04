@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8cb14c19e8816d53c7d9385563f916bee5d4a6af
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 2cc54077456fce1e7e0f47843a762beee8e715f7
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886297"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526763"
 ---
 # <a name="security-controls-for-azure-storage"></a>Controles de seguridad para los servicios de Azure Storage
 
@@ -22,7 +22,7 @@ En este artículo, se explican los controles de seguridad integrados en Azure St
 
 [!INCLUDE [Security controls Header](../../../includes/security-controls-header.md)]
 
-## <a name="data-protection"></a>Protección de datos
+## <a name="data-protection"></a>Protección de los datos
 
 | Control de seguridad | Sí/No | Notas |
 |---|---|--|
@@ -36,7 +36,7 @@ En este artículo, se explican los controles de seguridad integrados en Azure St
 
 | Control de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad con el punto de conexión de servicio| Sí |  |
+| Compatibilidad con punto de conexión de servicio| Sí |  |
 | Compatibilidad con la inserción de redes virtuales| N/D |  |
 | Compatibilidad con el aislamiento de red y los firewalls| Sí | |
 | Compatibilidad con la tunelización forzada| N/D |  |
@@ -45,9 +45,9 @@ En este artículo, se explican los controles de seguridad integrados en Azure St
 
 | Control de seguridad | Sí/No | Notas|
 |---|---|--|
-| Compatibilidad con la supervisión de Azure (Log Analytics, Application Insights, etc.)| Sí | Las métricas de Azure Monitor ya están disponibles ahora, los registros empiezan la versión preliminar |
+| Compatibilidad con la supervisión de Azure (Log Analytics, Application Insights, etc.)| Sí | Métricas de Azure Monitor|
 | Registro y auditoría del plano de administración y de control | Sí | Registro de actividad de Azure Resource Manager |
-| Registro y auditoría del plano de datos| Sí | Los registros de diagnóstico del servicio y el registro de Azure Monitor empiezan la versión preliminar  |
+| Registro y auditoría del plano de datos| Sí | Registros de diagnóstico de servicio.|
 
 ## <a name="identity"></a>Identidad
 

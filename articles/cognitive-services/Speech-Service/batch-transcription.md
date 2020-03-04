@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: panosper
-ms.openlocfilehash: dc473c814cdd69204cddd976bc77f19b5db567b1
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 6d5ec5f798617d03072ec5931b0d1d3623df3d42
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200085"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500016"
 ---
 # <a name="how-to-use-batch-transcription"></a>Uso de la transcripción por lotes
 
@@ -87,14 +87,55 @@ Los parámetros de configuración se proporcionan como JSON:
 
 Utilice estas propiedades opcionales para configurar la transcripción:
 
-| Parámetro | Descripción |
-|-----------|-------------|
-| `ProfanityFilterMode` | Especifica cómo controlar las palabras soeces en los resultados del reconocimiento. Los valores aceptados son `None`, que deshabilita el filtrado de palabras soeces; `Masked`, que reemplaza las palabras soeces con asteriscos; `Removed`, que quita todas las palabras soeces del resultado; o `Tags`, que agrega etiquetas de "palabras soeces". El valor predeterminado es `Masked`. |
-| `PunctuationMode` | Especifica cómo controlar la puntuación en los resultados del reconocimiento. Los valores aceptados son: `None`, que deshabilita la puntuación; `Dictated`, que implica puntuación explícita; `Automatic`, que permite que el descodificador se ocupe de la puntuación; o `DictatedAndAutomatic`, que implica signos de puntuación dictados o puntuación automática. |
-| `AddWordLevelTimestamps` | Especifica si las marcas de tiempo de nivel de palabra se deben agregar a la salida. Los valores aceptados son `true`, que permite las marcas de tiempo de nivel de palabra, y `false` (el valor predeterminado) que las deshabilita. |
-| `AddSentiment` | Especifica que la opinión se debe agregar a la expresión. Los valores aceptados son `true`, que permite la opinión por expresión y `false` (el valor predeterminado) que la deshabilita. |
-| `AddDiarization` | Especifica que el análisis de la diarización se debe llevar a cabo en la entrada que se espera sea un canal mono que contenga dos voces. Los valores aceptados son `true`, que permite la diarización, y `false` (el valor predeterminado) que la deshabilita. También requiere que `AddWordLevelTimestamps` se establezca en true.|
-|`TranscriptionResultsContainerUrl`|URL opcional con [SAS de servicio](../../storage/common/storage-sas-overview.md) en un contenedor grabable de Azure. El resultado se almacenará en este contenedor.
+:::row:::
+   :::column span="1":::
+      **Parámetro**
+   :::column-end:::
+   :::column span="2":::
+      **Descripción**
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `ProfanityFilterMode`
+   :::column-end:::
+   :::column span="2":::
+      Especifica cómo controlar las palabras soeces en los resultados del reconocimiento. Los valores aceptados son `None`, para deshabilitar el filtrado de palabras soeces; `Masked`, para reemplazar las palabras soeces con asteriscos; `Removed`, para quitar todas las palabras soeces del resultado; o `Tags`, para agregar etiquetas de "palabras soeces". El valor predeterminado es `Masked`.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `PunctuationMode`
+   :::column-end:::
+   :::column span="2":::
+      Especifica cómo controlar la puntuación en los resultados del reconocimiento. Los valores aceptados son `None`, para deshabilitar la puntuación; `Dictated`, para implicar signos de puntuación explícitos (hablados); `Automatic`, para permitir que el descodificador trate con signos de puntuación o `DictatedAndAutomatic`, para usar la puntuación dictada y automática. El valor predeterminado es `DictatedAndAutomatic`.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `AddWordLevelTimestamps`
+   :::column-end:::
+   :::column span="2":::
+      Especifica si las marcas de tiempo de nivel de palabra se deben agregar a la salida. Los valores aceptados son `true`, para permitir las marcas de tiempo de nivel de palabra, y `false` (el valor predeterminado) para deshabilitarlas.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `AddSentiment`
+   :::column-end:::
+   :::column span="2":::
+      Especifica que la opinión se debe agregar a la expresión. Los valores aceptados son `true`, para permitir la opinión por expresión y `false` (el valor predeterminado) para deshabilitarla.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `AddDiarization`
+   :::column-end:::
+   :::column span="2":::
+      Especifica que el análisis de la diarización se debe llevar a cabo en la entrada que se espera sea un canal mono que contenga dos voces. Los valores aceptados son `true`, para permite la diarización, y `false` (el valor predeterminado), para deshabilitarla. También requiere que `AddWordLevelTimestamps` se establezca en true.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `TranscriptionResultsContainerUrl`
+   :::column-end:::
+   :::column span="2":::
+      URL opcional con [SAS de servicio](../../storage/common/storage-sas-overview.md) en un contenedor grabable de Azure. El resultado se almacenará en este contenedor.
+:::row-end:::
 
 ### <a name="storage"></a>Storage
 

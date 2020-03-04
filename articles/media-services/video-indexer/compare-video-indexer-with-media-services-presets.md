@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 02/24/2020
 ms.author: juliako
-ms.openlocfilehash: 2e2abd4ffe5a6d0a6336d811599db687da146f1e
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: dcfc6ea4afe23424e72c625518356be52f62bc81
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513191"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602195"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Comparación de los valores predeterminados de Video Indexer y Azure Media Services v3 
 
@@ -34,9 +34,9 @@ Actualmente hay una superposición entre las características que ofrecen las [A
 |Información de medios sociales|[Mejorado](video-indexer-output-json-v2.md). |[Aspectos básicos](../latest/intelligence-concept.md)|
 |Experiencias|Consulte la lista completa de características admitidas: <br/> [Información general](video-indexer-overview.md)|Devuelve solo información de vídeo.|
 |Facturación|[Precios de Media Services](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Precios de Media Services](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
-|Cumplimiento normativo|Con certificación [ISO 27001](https://www.microsoft.com/TrustCenter/Compliance/ISO-IEC-27001), [ISO 27018](https://www.microsoft.com/trustcenter/Compliance/ISO-IEC-27018), [SOC 1,2,3](https://www.microsoft.com/TrustCenter/Compliance/SOC), [HIPAA](https://www.microsoft.com/trustcenter/compliance/hipaa), [FedRAMP](https://www.microsoft.com/TrustCenter/Compliance/fedramp), [PCI](https://www.microsoft.com/trustcenter/compliance/pci) e [HITRUST](https://www.microsoft.com/TrustCenter/Compliance/hitrust). Para las actualizaciones más recientes, consulte el [estado actual de las certificaciones de Video Indexer](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).|Media Services es compatible con muchas certificaciones. Consulte el [documento PDF de ofertas de cumplimiento de Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) y busque "Media Services" para ver si cumple con un certificado de interés.|
-|Versión de prueba gratuita|East US|No disponible|
-|Disponibilidad en regiones|Este de EE. UU. 2, Centro-sur de EE. UU., Oeste de EE. UU. 2, Norte de Europa, Oeste de Europa, Sudeste Asiático, Asia Oriental y Este de Australia.  Para las actualizaciones más recientes, visite la página de los [productos por región](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services).|Consulte el [estado de Azure](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).|
+|Cumplimiento normativo|Para conocer las actualizaciones en materia de cumplimiento más actuales, visite [Azure Compliance Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) y busque "Video Indexer" para ver si cumple con un certificado de interés.|Para conocer las actualizaciones en materia de cumplimiento más actuales, visite [Azure Compliance Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) y busque "Media Services" para ver si cumple con un certificado de interés.|
+|Versión de prueba gratuita|Este de EE. UU.|No disponible|
+|Disponibilidad en regiones|Consulte la [disponibilidad de Cognitive Services por región](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services).|Consulte la [disponibilidad de Media Services por región](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

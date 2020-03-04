@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: memildin
-ms.openlocfilehash: 068fb9f61b7dcb3948e4f03c284ddfa680522c85
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: a2970ea3f5ad360deaedd7efc82154cd3bc50337
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907076"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617104"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Advanced Data Security para servidores SQL Server en Azure Virtual Machines (versión preliminar)
 Advanced Data Security para servidores SQL Server en Azure Virtual Machines es un paquete unificado de funcionalidades avanzadas de seguridad de SQL. En esta característica en vista previa se incluye una funcionalidad para buscar y mitigar posibles vulnerabilidades de la base de datos, así como detectar actividades anómalas que puedan indicar una amenaza para dicha base de datos. 
@@ -49,7 +49,7 @@ Habilite Advanced Data Security para instancias de SQL Server en Virtual Machine
 
     (Haga clic en la captura de pantalla para expandirla).
 
-    [![Recomendaciones y alertas de Security Center como se ven en el Centro de administración de Windows](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
+    [![Recomendaciones y alertas de Security Center, tal como se ven en Windows Admin Center](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
 
     Advanced Data Security para instancias de SQL Server se habilitará en todas las instancias de SQL Server conectadas al área de trabajo seleccionada o al área de trabajo predeterminada de la suscripción seleccionada.
 
@@ -61,7 +61,7 @@ Para crear una nueva área de trabajo, siga las instrucciones de [Crear un área
 Para conectar el host de SQL Server a un área de trabajo, siga las instrucciones de [Conexión de equipos Windows a Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
 
 
-## <a name="set-up-email-notification-for-atp-alerts"></a>Configuración de notificaciones de alertas de ATP por correo electrónico 
+## <a name="set-up-email-notification-for-security-alerts"></a>Configuración de notificaciones de alertas de seguridad por correo electrónico 
 
 Puede establecer una lista de destinatarios que reciban una notificación por correo electrónico cuando se generen alertas de Security Center. El correo electrónico contiene un vínculo directo a la alerta de Azure Security Center con todos los detalles pertinentes. 
 

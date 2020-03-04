@@ -1,10 +1,10 @@
 ---
-title: Escenarios y arquitectura de alta disponibilidad de Azure Virtual Machines para SAP NetWeaver | Microsoft Docs
+title: Arquitectura y escenarios de alta disponibilidad de máquinas virtuales de Azure para SAP NetWeaver | Microsoft Docs
 description: Escenarios y arquitectura de alta disponibilidad para SAP NetWeaver en Azure Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/21/2019
-ms.author: rclaus
+ms.date: 02/25/2020
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c04726bf3b4166255ada7c9f1252be0471dcc761
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: b974869d1462f449e8a241a5925ef345170b493a
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291488"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623871"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Escenarios y arquitectura de alta disponibilidad para SAP NetWeaver
 
@@ -391,6 +391,8 @@ Puede usar una solución WSFC para proteger la instancia de ASCS/SCS de SAP. La 
 
 * **Agrupación en clústeres de la instancia ASCS/SCS de SAP mediante un recurso compartido de archivos**: Para obtener más información sobre esta arquitectura, vea [Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un recurso compartido de archivos][sap-high-availability-guide-wsfc-file-share].
 
+* **Agrupación en clústeres de la instancia ASCS/SCS de SAP mediante un recurso compartido de SMB de ANF**: Para más información sobre esta arquitectura, consulte [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en Windows con Azure NetApp Files (SMB) para aplicaciones SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb).
+
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Arquitectura de alta disponibilidad para una instancia de ASCS/SCS de SAP en Linux
 
 > ![Linux][Logo_Linux] Linux
@@ -404,13 +406,20 @@ Para más información acerca de la agrupación en clústeres de la instancia de
 
 > ![Windows][Logo_Windows] Windows
 > 
-> Actualmente, el uso de varios identificadores de seguridad es compatible solo con WSFC. Se admiten varios identificadores de seguridad con los recursos compartidos de archivos y los discos compartidos.
+> Se admiten varios identificadores de seguridad con WSFC mediante los recursos compartidos de archivos y discos compartidos.
 > 
-> Para más información acerca de la arquitectura de alta disponibilidad con varios identificadores de seguridad consulte:
+> Para más información sobre la arquitectura de alta disponibilidad con varios identificadores de seguridad en Windows, consulte:
 
 * [Alta disponibilidad con varios identificadores de seguridad de instancia SAP ASCS/SCS para los clústeres de conmutación por error de Windows Server y los recursos compartidos de archivos][sap-ascs-ha-multi-sid-wsfc-file-share]
 
 * [Alta disponibilidad con varios identificadores de seguridad de instancia SAP ASCS/SCS para los clústeres de conmutación por error de Windows Server y el disco compartido][sap-ascs-ha-multi-sid-wsfc-shared-disk]
+
+> ![Linux][Logo_Linux] Linux
+> 
+> La agrupación en clústeres de varios SID es compatible con los clústeres de Linux Pacemaker para ASCS/ERS de SAP, limitado a **cinco** SID de SAP en el mismo clúster.
+> Para más información sobre la arquitectura de alta disponibilidad con varios identificadores de seguridad en Linux, consulte:
+
+* [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications: guía de varios SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
 
 ### <a name="high-availability-dbms-instance"></a>Alta disponibilidad para la instancia de DBMS
 

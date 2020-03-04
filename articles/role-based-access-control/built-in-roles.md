@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 02/13/2020
+ms.date: 02/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 9858f7ac25f2063e62dce0322f1859a0a7fcf83b
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 63b1adc7b25b732cda147c5c1d11cc37e7b39248
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198673"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562027"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Roles integrados en los recursos de Azure
 
@@ -115,6 +115,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | [Lector de Log Analytics](#log-analytics-reader) | Un lector de Log Analytics puede ver y buscar todos los datos de supervisión, así como consultar la configuración de supervisión, incluida la de Azure Diagnostics en todos los recursos de Azure. | 73c42c96-874c-492b-b04d-ab87d138a893 |
 > | [Colaborador de aplicación lógica](#logic-app-contributor) | Le permite administrar aplicaciones lógicas, pero no cambiar el acceso a ellas. | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
 > | [Operador de aplicación lógica](#logic-app-operator) | Le permite leer, habilitar y deshabilitar aplicaciones lógicas, pero no permite editarlas ni actualizarlas. | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
+> | [Rol Colaborador de la aplicación administrada](#managed-application-contributor-role) | Permite crear recursos de aplicaciones administradas. | 641177b8-a67a-45b9-a033-47bc880bb21e |
 > | [Rol de operador de aplicación administrada](#managed-application-operator-role) | Permite leer y realizar acciones en los recursos de aplicación administrada. | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | [Lector de aplicaciones administradas](#managed-applications-reader) | Le permite leer los recursos de una aplicación administrada y solicitar acceso JIT. | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
 > | [Colaborador de identidad administrada](#managed-identity-contributor) | Le permite crear, leer, actualizar y eliminar identidades asignadas por el usuario. | e40ec5ca-96e0-45a2-b4ff-59039f2c2b59 |
@@ -133,9 +134,10 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | [Colaborador de directivas de recursos](#resource-policy-contributor) | Los usuarios con derechos para crear o modificar la directiva de recursos pueden crear solicitudes de soporte técnico y leer los recursos o la jerarquía. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | [Colaborador de colecciones de trabajos de Scheduler](#scheduler-job-collections-contributor) | Permite administrar colecciones de trabajos de Scheduler, pero no acceder a ellas. | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
 > | [Colaborador del servicio Search](#search-service-contributor) | Permite administrar los servicios de Búsqueda, pero no acceder a ellos. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
-> | [Administrador de seguridad](#security-admin) | Solo en Security Center: puede ver las directivas de seguridad, los estados de seguridad, editar las directivas de seguridad, ver alertas y recomendaciones, y descartar alertas y recomendaciones. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
+> | [Administrador de seguridad](#security-admin) | puede ver las directivas de seguridad, los estados de seguridad, editar las directivas de seguridad, ver alertas y recomendaciones, y descartar alertas y recomendaciones. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
+> | [Colaborador de evaluación de la seguridad](#security-assessment-contributor) | Permite insertar evaluaciones en Security Center. | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
 > | [Administrador de seguridad (heredado)](#security-manager-legacy) | Se trata de un rol heredado. En su lugar, use el Administrador de seguridad. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
-> | [Lector de seguridad](#security-reader) | Solo en Security Center: puede ver las recomendaciones y alertas, ver las directivas de seguridad y ver los estados de seguridad, pero no puede realizar cambios | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
+> | [Lector de seguridad](#security-reader) | Puede ver las recomendaciones y alertas, ver las directivas de seguridad y ver los estados de seguridad, pero no puede realizar cambios. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | [Colaborador de Site Recovery](#site-recovery-contributor) | Permite administrar el servicio Site Recovery, excepto la creación de almacenes y la asignación de roles. | 6670b86e-a3f7-4917-ac9b-5d6ab1be4567 |
 > | [Operador de Site Recovery](#site-recovery-operator) | Permite realizar una conmutación por error o una conmutación por recuperación, pero no otras operaciones de administración de Site Recovery. | 494ae006-db33-4328-bf46-533a6560a3ca |
 > | [Lector de Site Recovery](#site-recovery-reader) | Permite visualizar el estado de Site Recovery, pero no realizar otras operaciones de administración. | dbaa88c4-0c30-4179-9fb3-46319faa6149 |
@@ -167,6 +169,8 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | [Inicio de sesión de usuario de Virtual Machine](#virtual-machine-user-login) | Visualización de máquinas virtuales en el portal e inicio de sesión como usuario normal. | fb879df8-f326-4884-b1cf-06f3ad86be52 |
 > | [Colaborador de plan web](#web-plan-contributor) | Permite administrar los planes web para sitios web, pero no acceder a ellos. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 > | [Colaborador de sitio web](#website-contributor) | Permite administrar los sitios web (no planes web), pero no acceder a ellos. | de139f84-1756-47ae-9be6-808fbbe84772 |
+> | [Colaborador de libros](#workbook-contributor) | Puede guardar los libros compartidos. | e8ddcd69-c73f-4f9f-9844-4100522f16ad |
+> | [Lector de libros](#workbook-reader) | Puede leer libros. | b279062a-9be3-42a0-92ae-8b3cf002ec4d |
 
 
 ## <a name="owner"></a>Propietario
@@ -346,7 +350,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.ApiManagement/service/restore/action | Restauración del servicio API Management desde el contenedor especificado de una cuenta de almacenamiento proporcionada por el usuario |
 > | Microsoft.ApiManagement/service/updatecertificate/action | Carga el certificado SSL de un servicio API Management |
 > | Microsoft.ApiManagement/service/updatehostname/action | Configura, actualiza o elimina los nombres de dominio personalizado de un servicio API Management |
-> | Microsoft.ApiManagement/service/write | Creación de una nueva instancia del servicio API Management |
+> | Microsoft.ApiManagement/service/write | Creación o actualización de una instancia de servicio de API Management |
 > | Microsoft.Authorization/*/read | Leer autorización |
 > | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alertas |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
@@ -609,7 +613,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **Id** | b64e21ea-ac4e-4cdf-9dc9-5b892992bee7 |
 > | **Acciones** |  |
 > | Microsoft.HybridCompute/machines/read | Leer cualquier máquina de Azure Arc |
-> | Microsoft.HybridCompute/machines/write | Escribir una máquina de Azure Arc |
+> | Microsoft.HybridCompute/machines/write | Escribe las máquinas de Azure Arc. |
 > | Microsoft.GuestConfiguration/guestConfigurationAssignments/read | Obtiene la asignación de configuración de invitado. |
 > | **NotActions** |  |
 > | *Ninguna* |  |
@@ -626,9 +630,9 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **Id** | cd570a14-e51a-42ad-bac8-bafd67325302 |
 > | **Acciones** |  |
 > | Microsoft.HybridCompute/machines/read | Leer cualquier máquina de Azure Arc |
-> | Microsoft.HybridCompute/machines/write | Escribir una máquina de Azure Arc |
-> | Microsoft.HybridCompute/machines/delete | Eliminar una máquina de Azure Arc |
-> | Microsoft.HybridCompute/machines/reconnect/action | Volver a conectar una máquina de Azure Arc |
+> | Microsoft.HybridCompute/machines/write | Escribe las máquinas de Azure Arc. |
+> | Microsoft.HybridCompute/machines/delete | Elimina las máquinas de Azure Arc. |
+> | Microsoft.HybridCompute/machines/reconnect/action | Vuelve a conectar las máquinas de Azure Arc. |
 > | Microsoft.HybridCompute/*/read |  |
 > | **NotActions** |  |
 > | *Ninguna* |  |
@@ -690,6 +694,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **Id** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | **Acciones** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Muestra la credencial clusterAdmin de un clúster administrado. |
+> | Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action | Obtiene el perfil de acceso de un clúster administrados por nombre de rol mediante las credenciales de la lista |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -1540,6 +1545,8 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Databox/jobs/listsecrets/action |  |
 > | Microsoft.Databox/jobs/listcredentials/action | Enumera las credenciales sin cifrar relacionadas con el pedido. |
 > | Microsoft.Databox/locations/availableSkus/action | Este método devuelve la lista de SKU disponibles. |
+> | Microsoft.Databox/locations/validateInputs/action | Este método realiza todo tipo de validaciones. |
+> | Microsoft.Databox/locations/regionConfiguration/action | Este método devuelve las configuraciones de la región. |
 > | Microsoft.Databox/locations/validateAddress/action | Valida la dirección de envío y proporciona direcciones alternativas, si existen. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
@@ -1565,6 +1572,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.EventGrid/eventSubscriptions/write | Crea o actualiza una suscripción a eventos. |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -1851,6 +1859,8 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.LabServices/labAccounts/createLab/action | Crea un laboratorio en una cuenta de laboratorio. |
 > | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action |  |
 > | Microsoft.LabServices/labAccounts/getRegionalAvailability/action | Obtiene información sobre la disponibilidad regional para cada categoría de tamaño configurada en una cuenta de laboratorio. |
+> | Microsoft.LabServices/labAccounts/getPricingAndAvailability/action | Obtiene los precios y la disponibilidad de combinaciones de tamaños, zonas geográficas y sistemas operativos para la cuenta de laboratorio. |
+> | Microsoft.LabServices/labAccounts/getRestrictionsAndUsage/action | Obtiene el uso y las restricciones de núcleos de esta suscripción. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | **NotActions** |  |
@@ -1964,6 +1974,25 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Web/connections/*/read | Lee las conexiones. |
 > | Microsoft.Web/customApis/*/read | Lee la API personalizada. |
 > | Microsoft.Web/serverFarms/read | Obtiene las propiedades de un plan de App Service |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
+
+## <a name="managed-application-contributor-role"></a>Rol Colaborador de la aplicación administrada
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Permite crear recursos de aplicaciones administradas. |
+> | **Id** | 641177b8-a67a-45b9-a033-47bc880bb21e |
+> | **Acciones** |  |
+> | */read | Leer recursos de todos los tipos, excepto secretos. |
+> | Microsoft.Solutions/applications/* |  |
+> | Microsoft.Solutions/register/action | Permite registrarse en Solutions. |
+> | Microsoft.Resources/subscriptions/resourceGroups/* |  |
+> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -2337,7 +2366,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Solo en Security Center: puede ver las directivas de seguridad, los estados de seguridad, editar las directivas de seguridad, ver alertas y recomendaciones, y descartar alertas y recomendaciones. |
+> | **Descripción** | puede ver las directivas de seguridad, los estados de seguridad, editar las directivas de seguridad, ver alertas y recomendaciones, y descartar alertas y recomendaciones. |
 > | **Id** | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
@@ -2351,6 +2380,21 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Security/* |  |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
+
+## <a name="security-assessment-contributor"></a>Colaborador de evaluación de la seguridad
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Permite insertar evaluaciones en Security Center. |
+> | **Id** | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
+> | **Acciones** |  |
+> | Microsoft.Security/assessments/write | Crea o actualiza las evaluaciones de seguridad en la suscripción. |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -2386,7 +2430,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Solo en Security Center: puede ver las recomendaciones y alertas, ver las directivas de seguridad y ver los estados de seguridad, pero no puede realizar cambios |
+> | **Descripción** | Puede ver las recomendaciones y alertas, ver las directivas de seguridad y ver los estados de seguridad, pero no puede realizar cambios. |
 > | **Id** | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
@@ -3114,6 +3158,9 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Compute/locations/* | Crear y administrar ubicaciones de proceso |
 > | Microsoft.Compute/virtualMachines/* | Crear y administrar máquinas virtuales |
 > | Microsoft.Compute/virtualMachineScaleSets/* | Crear y administrar conjuntos de escalado de máquinas virtuales |
+> | Microsoft.Compute/disks/write | Crea un nuevo disco o actualiza uno ya existente |
+> | Microsoft.Compute/disks/read | Obtiene las propiedades de un disco |
+> | Microsoft.Compute/disks/delete | Elimina el disco |
 > | Microsoft.DevTestLab/schedules/* |  |
 > | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
 > | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Se une a un grupo de direcciones de back-end de una puerta de enlace de aplicaciones. No genera alertas. |
@@ -3214,6 +3261,38 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Web/serverFarms/join/action |  |
 > | Microsoft.Web/serverFarms/read | Obtiene las propiedades de un plan de App Service |
 > | Microsoft.Web/sites/* | Crear y administrar sitios web (la creación de sitios también requiere permisos de escritura para el plan de App Service asociado) |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
+
+## <a name="workbook-contributor"></a>Colaborador de libros
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Puede guardar los libros compartidos. |
+> | **Id** | e8ddcd69-c73f-4f9f-9844-4100522f16ad |
+> | **Acciones** |  |
+> | Microsoft.Insights/workbooks/write | Crea o actualiza un libro. |
+> | Microsoft.Insights/workbooks/delete | Elimina un libro. |
+> | Microsoft.Insights/workbooks/read | Lee un libro. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
+
+## <a name="workbook-reader"></a>Lector de libros
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Puede leer libros. |
+> | **Id** | b279062a-9be3-42a0-92ae-8b3cf002ec4d |
+> | **Acciones** |  |
+> | microsoft.insights/workbooks/read | Lee un libro. |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |

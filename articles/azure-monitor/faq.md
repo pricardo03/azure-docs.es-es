@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/23/2020
-ms.openlocfilehash: 33af9c8f3fbe4de57d65be432f249d4aeb5d3e27
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 169cc3f6a195a7339ab33eb9f00d9937451a93e0
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485342"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620450"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Monitor
 
@@ -56,7 +56,7 @@ Azure Monitor recopila datos de diversos orígenes, incluidos los registros y la
 Azure Monitor recopila datos de una variedad de orígenes en los [registros](platform/data-platform-logs.md) o las [métricas](platform/data-platform-metrics.md). Cada tipo de datos tiene sus propias ventajas relativas y cada uno admite un conjunto determinado de características de Azure Monitor. Hay una sola base de datos de métricas para cada suscripción de Azure, aunque puede crear varias áreas de trabajo de Log Analytics para recopilar registros en función de sus requisitos. Consulte [Plataforma de datos de Azure Monitor](platform/data-platform.md).
 
 ### <a name="is-there-a-maximum-amount-of-data-that-i-can-collect-in-azure-monitor"></a>¿Hay una cantidad máxima de datos que puedo recopilar en Azure Monitor?
-No hay límite en la cantidad de datos de métricas que se pueden recopilar, pero estos datos se almacenan durante un máximo de 93 días. Consulte [Retención de métricas](platform/data-platform-metrics.md#retention-of-metrics). No hay límite en la cantidad de datos de registro que se pueden recopilar, pero puede verse afectado por el plan de tarifa que elija para el área de trabajo Log Analytics. Consulte los [detalles de los precios](https://azure.microsoft.com/pricing/details/monitor/).
+No hay límite en la cantidad de datos de métricas que se pueden recopilar, pero estos datos se almacenan durante un máximo de 93 días. Consulte [Retención de métricas](platform/data-platform-metrics.md#retention-of-metrics). No hay límite en la cantidad de datos de registro que se pueden recopilar, pero puede verse afectado por el plan de tarifa que elija para el área de trabajo de Log Analytics. Consulte los [detalles de los precios](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### <a name="how-do-i-access-data-collected-by-azure-monitor"></a>¿Cómo puedo acceder a los datos recopilados por Azure Monitor?
 Insights y las soluciones proporcionan una experiencia personalizada para trabajar con los datos almacenados en Azure Monitor. Puede trabajar directamente con los datos de registro mediante una consulta de registro escrita en el lenguaje de consulta Kusto (KQL). En Azure Portal, puede escribir y ejecutar consultas y analizar los datos de forma interactiva mediante Log Analytics. Puede analizar las métricas en Azure Portal con el Explorador de métricas. Consulte [Análisis de los datos de registro en Azure Monitor](log-query/log-query-overview.md) e [Introducción al Explorador de métricas de Azure](platform/metrics-getting-started.md).

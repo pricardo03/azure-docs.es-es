@@ -3,12 +3,12 @@ title: Publicación de Durable Functions en Azure Event Grid (versión prelimina
 description: Aprenda a configurar la publicación automática en Azure Event Grid de Durable Functions.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 768af2e89d6523f50bd9fcc3d13cc84b711cc6f0
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 5ee60dadc90af5a9b941ba890bddb9b96de3f35d
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547479"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562178"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Publicación de Durable Functions en Azure Event Grid (versión preliminar)
 
@@ -18,24 +18,19 @@ A continuación se muestran algunos escenarios donde esta característica result
 
 * **Escenarios de DevOps, como las implementaciones Azul/Verde**: por si quiere saber si hay tareas en ejecución antes de implementar la [estrategia de implementación en paralelo](durable-functions-versioning.md#side-by-side-deployments).
 
-* **Compatibilidad con la supervisión y el diagnóstico avanzados**: puede realizar el seguimiento de la información de estado de la orquestación en un almacén externo optimizado para las consultas, como SQL Database o CosmosDB.
+* **Compatibilidad con la supervisión y el diagnóstico avanzados**: puede realizar el seguimiento de la información de estado de la orquestación en un almacén externo optimizado para las consultas, como Azure SQL Database o Azure Cosmos DB.
 
 * **Actividad de ejecución en segundo plano de larga duración**: si se utiliza Durable Functions para una actividad de ejecución en segundo plano de larga duración, esta característica le ayuda a conocer el estado actual.
 
-[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
-
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Instale [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) en el proyecto de Durable Functions.
-* Instale el [Emulador de Azure Storage](../../storage/common/storage-use-emulator.md).
+* Instale el [emulador de Azure Storage](../../storage/common/storage-use-emulator.md) (solo para Windows) o use una cuenta de Azure Storage existente.
 * Instale la [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) o use [Azure Cloud Shell](../../cloud-shell/overview.md).
 
 ## <a name="create-a-custom-event-grid-topic"></a>Creación de un tema de Event Grid personalizado
 
-Cree un tema de Event Grid para enviar eventos desde Durable Functions. Las instrucciones siguientes muestran cómo crear un tema con la CLI de Azure. Para información acerca de cómo hacerlo con PowerShell o Azure Portal, consulte los artículos siguientes:
-
-* [Inicios rápidos de EventGrid: Creación de eventos personalizados: PowerShell](../../event-grid/custom-event-quickstart-powershell.md)
-* [Inicios rápidos de EventGrid: Creación de eventos personalizados: Azure Portal](../../event-grid/custom-event-quickstart-portal.md)
+Cree un tema de Event Grid para enviar eventos desde Durable Functions. Las instrucciones siguientes muestran cómo crear un tema con la CLI de Azure. También puede hacerlo [mediante PowerShell](../../event-grid/custom-event-quickstart-powershell.md) o [Azure Portal](../../event-grid/custom-event-quickstart-portal.md).
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -47,7 +42,7 @@ az group create --name eventResourceGroup --location westus2
 
 ### <a name="create-a-custom-topic"></a>Creación de un tema personalizado
 
-Un tema de Event Grid proporciona un punto de conexión definido por el usuario en el que publicar eventos. Reemplace `<topic_name>` por un nombre único para el tema. El nombre del tema debe ser único, ya que se convierte en entrada DNS.
+Un tema de Event Grid proporciona un punto de conexión definido por el usuario en el que se publicar eventos. Reemplace `<topic_name>` por un nombre único para el tema. El nombre del tema debe ser único, ya que se convierte en entrada DNS.
 
 ```bash
 az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup
@@ -69,7 +64,7 @@ az eventgrid topic key list --name <topic_name> -g eventResourceGroup --query "k
 
 Ahora puede enviar eventos al tema.
 
-## <a name="configure-azure-event-grid-publishing"></a>Configuración de la publicación en Azure Event Grid
+## <a name="configure-event-grid-publishing"></a>Configuración de la publicación en Event Grid
 
 En su proyecto de Durable Functions, busque el archivo `host.json`.
 
@@ -84,7 +79,7 @@ Agregue `eventGridTopicEndpoint` y `eventGridKeySettingName` en una propiedad `d
 }
 ```
 
-Las posibles propiedades de configuración de Azure Event Grid se pueden encontrar en la [documentación de host.json](../functions-host-json.md#durabletask). Después de configurar el archivo `host.json`, la aplicación de función envía eventos del ciclo de vida al tema de Event Grid. Esto funciona cuando se ejecuta la aplicación de función tanto localmente como en Azure.```
+Las posibles propiedades de configuración de Azure Event Grid se pueden encontrar en la [documentación de host.json](../functions-host-json.md#durabletask). Después de configurar el archivo `host.json`, la aplicación de función envía eventos del ciclo de vida al tema de Event Grid. Esto funciona cuando se ejecuta la aplicación de función tanto localmente como en Azure.
 
 Establezca la configuración de la aplicación para la clave del tema en la aplicación de función y en `local.settings.json`. El siguiente JSON es un ejemplo de `local.settings.json` para la depuración local. Reemplace `<topic_key>` por la clave del tema.  
 
@@ -99,11 +94,13 @@ Establezca la configuración de la aplicación para la clave del tema en la apli
 }
 ```
 
-Asegúrese de que el [emulador de Storage](../../storage/common/storage-use-emulator.md) funciona. Es conveniente ejecutar el comando `AzureStorageEmulator.exe clear all` antes de la ejecución.
+Si usa el [emulador Storage](../../storage/common/storage-use-emulator.md) (solo para Windows), asegúrese de que funciona. Es conveniente ejecutar el comando `AzureStorageEmulator.exe clear all` antes de la ejecución.
+
+Si utiliza una cuenta de Azure Storage existente, reemplace `UseDevelopmentStorage=true` en `local.settings.json` por su cadena de conexión.
 
 ## <a name="create-functions-that-listen-for-events"></a>Creación de funciones que realicen escuchas para los eventos
 
-Cree una aplicación de función. Se recomienda ubicarla en la misma región que el tema de Event Grid.
+Con Azure Portal, cree otra aplicación de función para escuchar eventos publicados por la aplicación de Durable Functions. Se recomienda ubicarla en la misma región que el tema de Event Grid.
 
 ### <a name="create-an-event-grid-trigger-function"></a>Creación de una función de desencadenador de Event Grid
 
@@ -111,7 +108,7 @@ Cree una función que reciba los eventos de ciclo de vida. Seleccione **Función
 
 ![Selección de creación de una función personalizada](./media/durable-functions-event-publishing/functions-portal.png)
 
-Elija Desencadenador de Event Grid y seleccione `C#`.
+Elija el desencadenador de Event Grid y seleccione el lenguaje.
 
 ![Selección de Desencadenador de Event Grid](./media/durable-functions-event-publishing/eventgrid-trigger.png)
 
@@ -121,15 +118,7 @@ Escriba el nombre de la función y seleccione `Create`.
 
 Se creará una función con el código siguiente:
 
-#### <a name="precompiled-c"></a>C# precompilado
-```csharp
-public static void Run([HttpTrigger] JObject eventGridEvent, ILogger log)
-{
-    log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
-}
-```
-
-#### <a name="c-script"></a>Script de C#
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -143,7 +132,18 @@ public static void Run(JObject eventGridEvent, ILogger log)
 }
 ```
 
-Seleccione `Add Event Grid Subscription`. Esta operación agrega una suscripción a Event Grid para el tema de Event Grid que ha creado. Para más información, consulte [Conceptos de Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts).
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+```javascript
+module.exports = async function(context, eventGridEvent) {
+    context.log(typeof eventGridEvent);
+    context.log(eventGridEvent);
+}
+```
+
+---
+
+Seleccione `Add Event Grid Subscription`. Esta operación agrega una suscripción a Event Grid para el tema que ha creado. Para más información, consulte [Conceptos de Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts).
 
 ![Selección del vínculo Desencadenador de Event Grid](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
 
@@ -153,69 +153,9 @@ Seleccione `Event Grid Topics` como **Tipo de tema**. Seleccione el grupo de rec
 
 Ahora está preparado para recibir eventos de ciclo de vida.
 
-## <a name="create-durable-functions-to-send-the-events"></a>Creación de una instancia de Durable Functions para enviar eventos
+## <a name="run-durable-functions-app-to-send-the-events"></a>Ejecución de una aplicación de Durable Functions para enviar eventos
 
-En el proyecto de Durable Functions, inicie la depuración en la máquina local.  El código siguiente es el mismo que el de la plantilla de Durable Functions. Ya se han configurado `host.json` y `local.settings.json` en la máquina local.
-
-### <a name="precompiled-c"></a>C# precompilado
-
-```csharp
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.DurableTask;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.Azure.WebJobs.Host;
-using Microsoft.Extensions.Logging;
-
-namespace LifeCycleEventSpike
-{
-    public static class Sample
-    {
-        [FunctionName("Sample")]
-        public static async Task<List<string>> RunOrchestrator(
-            [OrchestrationTrigger] IDurableOrchestrationContext context)
-        {
-            var outputs = new List<string>();
-
-            // Replace "hello" with the name of your Durable Activity Function.
-            outputs.Add(await context.CallActivityAsync<string>("Sample_Hello", "Tokyo"));
-            outputs.Add(await context.CallActivityAsync<string>("Sample_Hello", "Seattle"));
-            outputs.Add(await context.CallActivityAsync<string>("Sample_Hello", "London"));
-
-            // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
-            return outputs;
-        }
-
-        [FunctionName("Sample_Hello")]
-        public static string SayHello([ActivityTrigger] string name, ILogger log)
-        {
-            log.LogInformation($"Saying hello to {name}.");
-            return $"Hello {name}!";
-        }
-
-        [FunctionName("Sample_HttpStart")]
-        public static async Task<HttpResponseMessage> HttpStart(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestMessage req,
-            [DurableClient] IDurableOrchestrationClient starter,
-            ILogger log)
-        {
-            // Function input comes from the request content.
-            string instanceId = await starter.StartNewAsync("Sample", null);
-            log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
-            return starter.CreateCheckStatusResponse(req, instanceId);
-        }
-    }
-}
-```
-
-> [!NOTE]
-> El código anterior corresponde a Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`, el atributo `OrchestrationClient` en lugar del atributo `DurableClient` además de usar el tipo de parámetro `DurableOrchestrationClient` en lugar de `IDurableOrchestrationClient`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
-
-Si se llama a `Sample_HttpStart` con Postman o el explorador, la instancia de Durable Functions comienza a enviar eventos de ciclo de vida. El punto de conexión suele ser `http://localhost:7071/api/Sample_HttpStart` para la depuración local.
-
-Consulte los registros de la función que ha creado en Azure Portal.
+En el proyecto de Durable Functions que configuró anteriormente, inicie la depuración en la máquina local e inicie una orquestación. La aplicación los eventos de publica de ciclo de vida de Durable Functions en Event Grid. Compruebe que Event Grid desencadena la función de cliente de escucha que ha creado comprobando sus registros en Azure Portal.
 
 ```
 2019-04-20T09:28:21.041 [Info] Function started (Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d)

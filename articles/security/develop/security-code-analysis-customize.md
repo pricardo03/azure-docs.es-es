@@ -1,5 +1,6 @@
 ---
-title: Guía de personalización de tareas de Análisis de código de seguridad de Microsoft Azure
+title: Personalización de las tareas de análisis de código de seguridad de Microsoft
+titleSuffix: Azure
 description: En este artículo se describe la personalización de las tareas en la extensión Análisis de código de seguridad de Microsoft
 author: vharindra
 manager: sukhans
@@ -12,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6c88fec4e6bea34dd3cf2e45300ae2c1ac15a1c6
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 6cdf892651407defc21f359a8e3b326b4af63b62
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851543"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77499999"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configuración y personalización de las tareas de compilación
 
@@ -26,7 +27,7 @@ En este artículo se describen de forma detallada las opciones de configuración
 ## <a name="anti-malware-scanner-task"></a>Tarea de Anti-Malware Scanner
 
 >[!NOTE]
-> La tarea de compilación de Anti-Malware Scanner requiere un agente de compilación con Windows Defender habilitado. Tanto Visual Studio 2017 hospedado como las versiones posteriores proporcionan ese agente. La tarea de compilación no se ejecutará en el agente hospedado de Visual Studio 2015.
+> La tarea de compilación Anti-Malware Scanner requiere un agente de compilación con Windows Defender habilitado. Tanto Visual Studio 2017 hospedado como las versiones posteriores proporcionan ese agente. La tarea de compilación no se ejecutará en el agente hospedado de Visual Studio 2015.
 >
 > Aunque las firmas no se pueden actualizar en estos agentes, siempre deben tener una antigüedad inferior a tres horas.
 

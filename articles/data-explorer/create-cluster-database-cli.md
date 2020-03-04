@@ -1,5 +1,5 @@
 ---
-title: Creación de un clúster y una base de datos de Azure Data Explorer mediante la CLI de Azure
+title: Creación de un clúster y una base de datos de Azure Data Explorer con la CLI de Azure
 description: Aprenda a crear un clúster y una base de datos de Azure Data Explorer mediante la CLI de Azure.
 author: radennis
 ms.author: radennis
@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: bd53a8e29254af617b6cfa68935a191a50fc526c
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 6b8c2924e50da095c3bc5c7db2d2bf48ef5a27c2
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326764"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561959"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>Creación de un clúster y una base de datos de Azure Data Explorer mediante la CLI de Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "71326764"
 
 Azure Data Explorer es un servicio de análisis de datos rápido y totalmente administrado para analizar en tiempo real grandes volúmenes de datos de que se transmiten desde aplicaciones, sitios web, dispositivos IoT, etc. Para usar Azure Data Explorer, cree primero un clúster y una o varias bases de datos en ese clúster. A continuación, ingerirá (cargará) los datos en una base de datos para que pueda ejecutar consultas en ella. En este artículo, se crean un clúster y una base de datos mediante la CLI de Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este artículo, se necesita una suscripción de Azure. Si no tiene una, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -60,7 +60,7 @@ Los pasos siguientes no son necesarios si ejecuta comandos en Azure Cloud Shell.
 
    |**Configuración** | **Valor sugerido** | **Descripción del campo**|
    |---|---|---|
-   | Nombre | *azureclitest* | Nombre que quiere para el clúster.|
+   | name | *azureclitest* | Nombre que quiere para el clúster.|
    | sku | *D13_v2* | La SKU que se usará para el clúster. |
    | resource-group | *testrg* | Nombre del grupo de recursos en el que se creará el clúster. |
 
@@ -85,7 +85,7 @@ Si el resultado contiene `provisioningState` con el valor `Succeeded`, significa
    |**Configuración** | **Valor sugerido** | **Descripción del campo**|
    |---|---|---|
    | cluster-name | *azureclitest* | Nombre del clúster donde se creará la base de datos.|
-   | Nombre | *clidatabase* | Nombre de la base de datos.|
+   | name | *clidatabase* | Nombre de la base de datos.|
    | resource-group | *testrg* | Nombre del grupo de recursos en el que se creará el clúster. |
    | soft-delete-period | *P365D* | Cantidad de tiempo que los datos estarán disponibles para consulta. Para más información, consulte [Directiva de retención](/azure/kusto/concepts/retentionpolicy). |
    | hot-cache-period | *P31D* | Cantidad de tiempo que los datos se conservarán en la caché. Para más información, consulte [Directiva de caché](/azure/kusto/concepts/cachepolicy). |

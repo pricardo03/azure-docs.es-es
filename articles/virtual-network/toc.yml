@@ -45,6 +45,12 @@
               href: nat-overview.md
             - name: Resource
               href: nat-gateway-resource.md
+            - name: Métricas y alertas
+              href: nat-metrics.md
+            - name: Solución de problemas
+              href: troubleshoot-nat.md
+        - name: Enrutamiento
+          href: virtual-networks-udr-overview.md
         - name: Interoperabilidad de conectividad de back-end
           items:
             - name: Preparación y configuración de la prueba
@@ -75,20 +81,20 @@
           href: ipv6-public-ip-address-prefix.md
     - name: Seguridad
       items:
-        - name: Protección contra DDOS
-          href: ddos-protection-overview.md
-        - name: Directivas de red de Kubernetes
-          href: kubernetes-network-policies.md
-        - name: Enrutamiento
-          href: virtual-networks-udr-overview.md
-        - name: Grupos de seguridad
+        - name: Grupos de seguridad de red
           href: security-overview.md
+        - name: Grupos de seguridad de aplicaciones
+          href: application-security-groups.md
         - name: Etiquetas de servicio
           href: service-tags-overview.md
         - name: Puntos de conexión del servicio
           href: virtual-network-service-endpoints-overview.md
         - name: Directivas de puntos de conexión de servicio
           href: virtual-network-service-endpoint-policies-overview.md
+        - name: Directivas de red de Kubernetes
+          href: kubernetes-network-policies.md
+        - name: Protección contra DDOS
+          href: ddos-protection-overview.md
         - name: TAP de red virtual
           href: virtual-network-tap-overview.md
     - name: Subredes
@@ -131,6 +137,18 @@
               href: tutorial-create-validate-nat-gateway-powershell.md
             - name: 'Creación y validación de una instancia de NAT Gateway: CLI'
               href: tutorial-create-validate-nat-gateway-cli.md
+        - name: Enrutado del tráfico de red
+          items:
+            - name: Portal de Azure
+              href: tutorial-create-route-table-portal.md
+            - name: Azure PowerShell
+              href: tutorial-create-route-table-powershell.md
+            - name: Azure CLI
+              href: tutorial-create-route-table-cli.md
+            - name: Ansible
+              href: /azure/ansible/ansible-create-configure-route-table
+            - name: Administración de tablas de rutas
+              href: manage-route-table.md
         - name: Administración de NIC
           href: virtual-network-network-interface.md
         - name: Administración de red virtual
@@ -249,20 +267,14 @@
                   href: tutorial-restrict-network-access-to-resources-powershell.md
                 - name: Azure CLI
                   href: tutorial-restrict-network-access-to-resources-cli.md
-            - name: Creación de directivas de puntos de conexión
-              href: virtual-network-service-endpoint-policies-portal.md
-        - name: Enrutado del tráfico de red
-          items:
-            - name: Portal de Azure
-              href: tutorial-create-route-table-portal.md
-            - name: Azure PowerShell
-              href: tutorial-create-route-table-powershell.md
-            - name: Azure CLI
-              href: tutorial-create-route-table-cli.md
-            - name: Ansible
-              href: /azure/ansible/ansible-create-configure-route-table
-            - name: Administración de tablas de rutas
-              href: manage-route-table.md
+            - name: Uso de directivas de punto de conexión de servicio
+              items:
+                - name: Portal de Azure
+                  href: virtual-network-service-endpoint-policies-portal.md
+                - name: Azure PowerShell
+                  href: virtual-network-service-endpoint-policies-powershell.md
+                - name: Azure CLI
+                  href: virtual-network-service-endpoint-policies-cli.md
         - name: Administración de protección contra DDoS
           href: manage-ddos-protection.md
         - name: Incorporación de asociados a DDoS Protection Standard

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 99c6ee5d58655350d14add61530fae647a675508
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 0af2b5f7d756060d463d2b4f3ef71bdd135710ee
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443234"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591530"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configuración y administración del grupo de máquinas virtuales 
 En este artículo se muestra cómo realizar las tareas siguientes:
@@ -58,6 +58,9 @@ La segunda forma consiste en seleccionar una o más máquinas virtuales en la li
 ![Inicio de máquinas virtuales seleccionadas](../media/how-to-set-virtual-machine-passwords/start-selected-vms.png)
 
 Del mismo modo, puede detener una o más máquinas virtuales si alterna el botón de la columna **Estado** o selecciona **Detener** en la barra de herramientas. 
+
+> [!NOTE]
+> Cuando un profesor encienda la máquina virtual de un alumno, la cuota del alumno no sufrirá cambios. La cuota de los usuarios especifica el número de horas de laboratorio disponibles para ellos fuera del tiempo de clase programado. Para más información sobre las cuotas, vea [Establecimiento de cuotas para los usuarios](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## <a name="reset-vms"></a>Restablecimiento de las máquinas virtuales
 Para restablecer una o varias máquinas virtuales, selecciónelas en la lista y, a continuación, seleccione **Reset** (Restablecer) en la barra de herramientas. 

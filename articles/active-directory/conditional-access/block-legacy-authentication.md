@@ -5,26 +5,26 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 02/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a65145fe9752a90e3328c308ce603c8626d8708
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7f7f6f31c4d2f67660fef507ce101b2d15897d51
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74380859"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620848"
 ---
-# <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedimientos para: Bloqueo de la autenticación heredada en Azure AD con acceso condicional   
+# <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedimientos: Bloqueo de la autenticación heredada en Azure AD con acceso condicional   
 
 Para brindar a los usuarios un acceso sencillo a las aplicaciones en la nube, Azure Active Directory (Azure AD) admite una amplia variedad de protocolos de autenticación, incluida la autenticación heredada. Sin embargo, los protocolos heredados no admiten la autenticación multifactor (MFA). En muchos entornos, MFA es un requisito común para enfrentar el robo de identidad. 
 
 Si el entorno está listo para bloquear la autenticación heredada con el fin de mejorar la protección del inquilino, puede lograr este objetivo con el acceso condicional. En este artículo se explica cómo configurar las directivas de acceso condicional que bloquean la autenticación heredada para el inquilino.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este artículo se asume que está familiarizado con: 
 
@@ -48,13 +48,30 @@ Las directivas de acceso condicional se aplican una vez que se completa la auten
 
 En esta sección se explica cómo configurar una directiva de acceso condicional para bloquear la autenticación heredada. 
 
+### <a name="legacy-authentication-protocols"></a>Protocolos de autenticación heredados
+
+Las siguientes opciones se consideran protocolos de autenticación heredados.
+
+- SMTP autenticado: usado por clientes POP e IMAP para enviar mensajes de correo electrónico.
+- Detección automática: usada por clientes Outlook y EAS para buscar y conectarse a buzones en Exchange Online.
+- Exchange Online PowerShell: se usa para conectarse a Exchange Online con PowerShell remoto. Si bloquea la autenticación básica para Exchange Online PowerShell, debe usar el módulo de Exchange Online PowerShell para conectarse. Para obtener instrucciones, consulte [Conexión a Exchange Online PowerShell con autenticación multifactor](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
+- Servicios web Exchange (EWS): una interfaz de programación que se usa en Outlook, Outlook para Mac y aplicaciones de terceros.
+- IMAP4: usado por clientes de correo electrónico IMAP.
+- MAPI sobre HTTP (MAPI/HTTP): usado por Outlook 2010 y versiones posteriores.
+- Libreta de direcciones sin conexión (OAB): una copia de las colecciones de listas de direcciones que Outlook descarga y usa.
+- Outlook en cualquier lugar (RPC a través de HTTP): usado por Outlook 2016 y versiones anteriores.
+- Servicio Outlook: usado por la aplicación de correo electrónico y calendario de Windows 10.
+- POP3: usado por clientes de correo electrónico POP.
+- Servicios web de creación de informes: se usan para recuperar datos de informes en Exchange Online.
+- Otros clientes: otros protocolos que usen autenticación heredada.
+
 ### <a name="identify-legacy-authentication-use"></a>Identificación del uso de la autenticación heredada
 
 Para poder bloquear la autenticación heredada en su directorio, primero debe entender si los usuarios tienen aplicaciones que la usen y cómo afecta a su directorio global. Se pueden usar los registros de inicio de sesión de Azure AD para saber si usa la autenticación heredada.
 
 1. Vaya a **Azure Portal** > **Azure Active Directory** > **Inicios de sesión**.
 1. Agregue la columna Aplicación cliente si no se muestra; para ello, haga clic en **Columnas** > **Aplicación cliente**.
-1. **Agregar filtros** > **Aplicación cliente** > seleccione todas las opciones de **Otros clientes** y haga clic en **Aplicar**.
+1. **Agregar filtros** > **Aplicación cliente** > Seleccione todos los protocolos de autenticación heredada y haga clic en **Aplicar**.
 
 Al filtrar solo se muestran los intentos de inicio de sesión que se realizaron con protocolos de autenticación heredada. Al hacer clic en cada intento de inicio de sesión individual se muestran detalles adicionales. El campo **Aplicación cliente** en la pestaña **Información básica** indicará qué protocolo de autenticación heredada se usó.
 
@@ -90,7 +107,7 @@ La característica de seguridad es necesaria porque el *bloqueo de todos los usu
 
 Para satisfacer esta característica de seguridad, excluya un usuario de la directiva. Idealmente, debe definir algunas [cuentas administrativas de acceso de emergencia en Azure AD](../users-groups-roles/directory-emergency-access.md) y excluirlas de la directiva.
 
-## <a name="policy-deployment"></a>Implementación de la directiva
+## <a name="policy-deployment"></a>Implementación de directivas
 
 Antes de implementar la directiva en el entorno de producción, encárguese de lo siguiente:
  

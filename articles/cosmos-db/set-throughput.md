@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: b60b117b10ac9ade6f685acf788e942ff7a2c93c
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 236ae017832d5d613d0bf9fc948d16a7218d2269
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188768"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621943"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar rendimiento en contenedores y bases de datos
 
@@ -60,11 +60,10 @@ Todos los contenedores creados en una base de datos con rendimiento aprovisionad
 
 Si la carga de trabajo en una partición lógica consume más que el rendimiento que se asignó a una partición lógica específica, las operaciones tendrán una velocidad limitada. Cuando se produce una limitación de velocidad, puede aumentar el rendimiento de toda la base de datos o volver a intentar las operaciones. Para más información sobre las particiones, consulte [Particiones lógicas](partition-data.md).
 
-Los contenedores de una base de datos de rendimiento compartido comparten el rendimiento (RU/s) asignado a dicha base de datos. En una base de datos de rendimiento compartido:
+Los contenedores de una base de datos de rendimiento compartido comparten el rendimiento (RU/s) asignado a dicha base de datos. Puede tener hasta cuatro contenedores con un mínimo de 400 RU/s en la base de datos. Cada nuevo contenedor después de los cuatro primeros requerirá un mínimo de 100 RU/s adicionales. Por ejemplo, si tiene una base de datos de rendimiento compartido con ocho contenedores, el mínimo de RU/s en la base de datos será de 800 RU/s.
 
-* Puede tener hasta cuatro contenedores con un mínimo de 400 RU/s en la base de datos. Cada nuevo contenedor después de los cuatro primeros requerirá un mínimo de 100 RU/s adicionales. Por ejemplo, si tiene una base de datos de rendimiento compartido con ocho contenedores, el mínimo de RU/s en la base de datos será de 800 RU/s.
-
-* Puede tener un máximo de 25 contenedores en la base de datos. Si ya tiene más de 25 contenedores en una base de datos de rendimiento compartido, no podrá crear contenedores adicionales hasta que el número de contenedores sea inferior a 25.
+> [!NOTE]
+> En una base de datos de rendimiento compartida, puede tener hasta 25 contenedores en la base de datos. Si ya tiene más de 25 contenedores en una base de datos de rendimiento compartido, no podrá crear contenedores adicionales hasta que el número de contenedores sea inferior a 25.
 
 Si las cargas de trabajo implican eliminar y volver a crear todas las colecciones de una base de datos, se recomienda quitar la base de datos vacía y volver a crear una nueva base de datos antes de la creación de la colección. En la siguiente imagen se muestra cómo una partición física puede hospedar una o varias particiones lógicas que pertenecen a distintos contenedores dentro de una base de datos:
 
@@ -109,7 +108,7 @@ Puede escalar el rendimiento aprovisionado de un contenedor o una base de datos 
 |RU asignadas o disponibles para un contenedor específico|Sin garantías. Las RU asignadas a un contenedor determinado dependen de las propiedades. Las propiedades pueden ser la elección de las claves de partición de contenedores que comparten el rendimiento, la distribución de la carga de trabajo y el número de contenedores. |Todas las RU configuradas en el contenedor se reservan exclusivamente para el contenedor.|
 |Almacenamiento máximo de un contenedor|Sin límite.|Sin límite.|
 |Rendimiento máximo por partición lógica de un contenedor|10 000 RU|10 000 RU|
-|Almacenamiento máximo (datos + índice) por partición lógica de un contenedor|10 GB|10 GB|
+|Almacenamiento máximo (datos + índice) por partición lógica de un contenedor|20 GB|20 GB|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

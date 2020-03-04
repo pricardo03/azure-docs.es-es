@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 750b49e149907f204b8b15f0b5728ab25f917743
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 2395aa5984de2a9fe41e4778d16aba69bfef5192
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844515"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77559240"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Administración de los nombres de dominio personalizados en Azure Active Directory
 
@@ -102,12 +102,12 @@ Se devuelve el error cuando:
 
 Si encuentra que alguna de las condiciones no se cumplen, limpie manualmente las referencias y vuelva a intentar eliminar el dominio.
 
-## <a name="use-powershell-or-graph-api-to-manage-domain-names"></a>Utilización de PowerShell o Graph API para administrar nombres de dominio
+## <a name="use-powershell-or-the-microsoft-graph-api-to-manage-domain-names"></a>Utilización de PowerShell o Microsoft Graph API para administrar nombres de dominio
 
-También se pueden completar la mayoría de las tareas de administración para los nombres de dominio de Azure Active Directory mediante Microsoft PowerShell, o mediante programación utilizando Azure Graph API.
+También se pueden completar la mayoría de las tareas de administración para los nombres de dominio de Azure Active Directory mediante Microsoft PowerShell, o mediante programación utilizando Microsoft Graph API.
 
 * [Utilización de PowerShell para administrar los nombres de dominio en Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#domains)
-* [Using Graph API to manage domain names in Azure AD (Uso de la API Graph para administrar nombres de dominio en Azure AD)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
+* [Tipo de recurso de dominio](https://docs.microsoft.com/graph/api/resources/domain?view=graph-rest-1.0)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

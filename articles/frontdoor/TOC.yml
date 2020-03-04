@@ -5,6 +5,7 @@
     - name: ¿Qué es Azure Front Door Service?
       href: front-door-overview.md
 - name: Guías de inicio rápido
+  expanded: true
   items:
     - name: Creación de una instancia de Front Door
       href: quickstart-create-front-door.md
@@ -48,7 +49,7 @@
       href: front-door-url-rewrite.md
     - name: Redirección de direcciones URL
       href: front-door-url-redirect.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Redirección del tráfico
       items:
@@ -70,7 +71,7 @@
       href: front-door-faq.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/ext/front-door/
     - name: Azure PowerShell
       href: /powershell/module/az.frontdoor

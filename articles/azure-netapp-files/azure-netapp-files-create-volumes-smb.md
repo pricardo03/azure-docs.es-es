@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: b-juche
-ms.openlocfilehash: c65da771dd483b3a79785d4bec2b89cbeefca5c4
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 7affd408ce2471f34a8362ba32101b639aafc514
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049886"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586619"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creación de un volumen de SMB para Azure NetApp Files
 
@@ -70,7 +70,7 @@ Debe haber una subred delegada en Azure NetApp Files.
 
 * La subred delegada en Azure NetApp Files debe poder tener acceso a todos los controladores de dominio Active Directory Domain Services (ADDS) del dominio, incluidos todos los controladores de dominio locales y remotos. De lo contrario, puede producirse una interrupción del servicio.  
 
-    Si tiene controladores de dominio a los que no se puede tener acceso a través de la subred delegada en Azure NetApp Files, puede enviar una solicitud de soporte técnico de Azure para modificar el ámbito de **global** (valor predeterminado) a **site** .  Azure NetApp Files solo debe comunicarse con los controladores de dominio del sitio en el que reside el espacio de direcciones de la subred delegada en Azure NetApp Files.
+    Si tiene controladores de dominio a los que no se puede acceder mediante la subred delegada de Azure NetApp Files, puede especificar un sitio de Active Directory durante la creación de la conexión a Active Directory.  Azure NetApp Files solo debe comunicarse con los controladores de dominio del sitio en el que reside el espacio de direcciones de la subred delegada en Azure NetApp Files.
 
     Consulte [Diseño de la topología de sitio](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) para obtener información acerca de los sitios y servicios de AD. 
     
@@ -88,8 +88,10 @@ Consulte las [Preguntas más frecuentes de SMB](https://docs.microsoft.com/azure
         Se trata del DNS que se requiere para las operaciones de autenticación de SMB y la unión a un dominio de Active Directory. 
     * **DNS secundario**   
         Este es el servidor DNS secundario para garantizar los servicios de nombre redundantes. 
-    * **Dominio**  
+    * **Nombre de dominio DNS de AD**  
         Se trata del nombre de dominio de Active Directory Domain Services al que desea unirse.
+    * **Nombre de sitio de AD**  
+        Este es el nombre del sitio al que se limitará la detección de controladores de dominio.
     * **Prefijo SMB (cuenta de equipo)**  
         Este es el prefijo de nomenclatura para la cuenta de máquina en Active Directory que Azure NetApp Files va a usar para la creación de nuevas cuentas.
 

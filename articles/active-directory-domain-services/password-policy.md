@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: b08c3854ef330081b4c55331cb410c5925f00dec
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: c4402c1ce2f051c8d1911e7c0332d4cac787ce1d
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512766"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613200"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Directivas de bloqueo de cuenta y contraseña en dominios administrados
 
@@ -87,7 +87,7 @@ Para crear una directiva de contraseñas personalizada, use las herramientas adm
 
 1. En la pantalla Inicio, seleccione **Herramientas administrativas**. Se muestra una lista de las herramientas de administración disponibles que se instalaron en el tutorial para [crear una máquina virtual de administración][tutorial-create-management-vm].
 1. Para crear y administrar unidades organizativas, seleccione **Centro de administración de Active Directory** de la lista de herramientas administrativas.
-1. En el panel izquierdo, elija el dominio administrado de Azure AD DS como, por ejemplo, *aadds.contoso.com*.
+1. En el panel izquierdo, seleccione el dominio administrado de Azure AD DS, como *aaddscontoso.com*.
 1. Abra el contenedor **Sistema** y el **contenedor Configuración de contraseña**.
 
     Aparecerá una directiva de contraseñas integrada para el dominio administrado de Azure AD DS. No se puede modificar esta directiva integrada. En su lugar, cree una directiva de contraseñas personalizada para reemplazar la directiva predeterminada.
@@ -112,7 +112,7 @@ Para crear una directiva de contraseñas personalizada, use las herramientas adm
 
     ![Seleccionar los usuarios y grupos a los que se va a aplicar la directiva de contraseñas](./media/how-to/fgpp-applies-to.png)
 
-1. Las directivas de contraseñas solo se pueden aplicar a grupos. En el cuadro de diálogo **Ubicaciones**, expanda el nombre de dominio, por ejemplo, *aadds.contoso.com* y, a continuación, seleccione una unidad organizativa como **Usuarios del controlador de dominio de AAD**. Si tiene una unidad organizativa personalizada que contiene un grupo de usuarios al que desea aplicar la directiva, seleccione esa unidad organizativa.
+1. Las directivas de contraseñas solo se pueden aplicar a grupos. En el cuadro de diálogo **Ubicaciones**, expanda el nombre de dominio, por ejemplo, *aaddscontoso.com* y, a continuación, seleccione una unidad organizativa como **Usuarios del controlador de dominio de AAD**. Si tiene una unidad organizativa personalizada que contiene un grupo de usuarios al que desea aplicar la directiva, seleccione esa unidad organizativa.
 
     ![Seleccionar la unidad organizativa a la que pertenece ese grupo](./media/how-to/fgpp-container.png)
 

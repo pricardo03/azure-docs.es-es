@@ -5,13 +5,13 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 05/29/2019
-ms.openlocfilehash: 889699ab184b82a7c194043d15358ecdaab5d03d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/20/2020
+ms.openlocfilehash: 96ef09ac081aa328014217592a7fcd3ed6314c0e
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899643"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523771"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Resistencia y recuperación ante desastres
 
@@ -27,9 +27,9 @@ La aplicación carga su configuración desde el almacén principal y el secundar
 
 ## <a name="failover-between-configuration-stores"></a>Conmutación por error entre los almacenes de configuración
 
-Técnicamente, la aplicación no va a ejecutar una conmutación por error. Va a intentar recuperar el mismo conjunto de datos de configuración de dos almacenes de App Configuration al mismo tiempo. Organice el código de modo que se cargue primero desde el almacén secundario y, luego, desde el almacén principal. Este enfoque garantiza que los datos de configuración del almacén principal tengan prioridad siempre que estén disponibles. El fragmento de código siguiente le muestra cómo puede implementar este tipo de organización en la CLI de .NET Core:
+Técnicamente, la aplicación no va a ejecutar una conmutación por error. Va a intentar recuperar el mismo conjunto de datos de configuración de dos almacenes de App Configuration al mismo tiempo. Organice el código de modo que se cargue primero desde el almacén secundario y, luego, desde el almacén principal. Este enfoque garantiza que los datos de configuración del almacén principal tengan prioridad siempre que estén disponibles. El fragmento de código siguiente le muestra cómo puede implementar este tipo de organización en .NET Core:
 
-#### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+#### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -44,7 +44,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
     
 ```
 
-#### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+#### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -70,17 +70,18 @@ En Azure Portal, puede insertar un cambio en otro almacén de configuración med
 
 1. Vaya a la pestaña **Import/Export** y seleccione **Exportar** > **App Configuration** > **Destino** > **Seleccionar un recurso**.
 
-2. En la nueva hoja que se abre, especifique la suscripción, el grupo de recursos y el nombre del recurso del almacén secundario y, luego, seleccione **Aplicar**.
+1. En la nueva hoja que se abre, especifique la suscripción, el grupo de recursos y el nombre del recurso del almacén secundario y, luego, seleccione **Aplicar**.
 
-3. La interfaz de usuario se actualiza para que pueda elegir qué datos de configuración quiere exportar al almacén secundario. Puede dejar el valor de tiempo predeterminado tal cual y establecer **De la etiqueta** y **Para etiquetar** en el mismo valor. Seleccione **Aplicar**.
+1. La interfaz de usuario se actualiza para que pueda elegir qué datos de configuración quiere exportar al almacén secundario. Puede dejar el valor de tiempo predeterminado tal cual y establecer **De la etiqueta** y **Para etiquetar** en el mismo valor. Seleccione **Aplicar**.
 
-4. Repita los pasos anteriores con todos los cambios de configuración.
+1. Repita los pasos anteriores con todos los cambios de configuración.
 
 Para automatizar este proceso de exportación, use la CLI de Azure. El comando siguiente muestra cómo exportar un único cambio de configuración del almacén principal al secundario:
 
+```azurecli
     az appconfig kv export --destination appconfig --name {PrimaryStore} --label {Label} --dest-name {SecondaryStore} --dest-label {Label}
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo, aprendió a mejorar la aplicación para lograr resistencia geográfica en tiempo de ejecución para App Configuration. También puede insertar datos de configuración de App Configuration en el momento de la compilación o la implementación. Para más información, consulte [Integración con una canalización de CI/CD](./integrate-ci-cd-pipeline.md).
-

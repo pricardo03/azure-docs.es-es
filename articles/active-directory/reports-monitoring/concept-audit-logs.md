@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49b49949c1765c3cb1598d728e21479c65037930
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: ad399fc24b2cdfbdc51e7feccba2c05786216b19
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714476"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648432"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de auditoría en el portal de Azure Active Directory 
 
@@ -41,11 +41,11 @@ En este artículo se proporciona información general del informe de auditoría.
  
 ## <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
 
-* Los usuarios con los roles **Administrador de seguridad**, **Lector de seguridad**, **Lector de informes** o **Administrador global**
+* Los usuarios con los roles **Administrador de seguridad**, **Lector de seguridad**, **Lector de informes**, **Lector global** o **Administrador global**
 
 ## <a name="audit-logs"></a>Registros de auditoría
 
-Los registros de auditoría de Azure AD proporcionan registros de las actividades del sistema de cara al cumplimiento. Para acceder al informe de auditoría, seleccione **Registros de auditoría** en la sección **Actividad** de **Azure Active Directory**. Tenga en cuenta que los registros de auditoría pueden tener una latencia de hasta una hora, por lo que los datos de la actividad de auditoría pueden tardar tiempo en aparecer en el portal una vez que haya completado la tarea.
+Los registros de auditoría de Azure AD proporcionan registros de las actividades del sistema de cara al cumplimiento. Para acceder al informe de auditoría, seleccione **Registros de auditoría** en la sección **Supervisión** de **Azure Active Directory**. Tenga en cuenta que los registros de auditoría pueden tener una latencia de hasta una hora, por lo que los datos de la actividad de auditoría pueden tardar tiempo en aparecer en el portal una vez que haya completado la tarea.
 
 
 
@@ -90,16 +90,20 @@ Puede filtrar los datos de auditoría por los siguientes campos:
 El filtro **Service** (Servicio) le permite seleccionar los siguientes servicios de una lista desplegable:
 
 - All
+- Experiencia de usuario de administración de AAD
 - Revisiones de acceso
-- Account Provisioning (Aprovisionamiento de cuentas) 
-- Inicio de sesión único de aplicaciones
+- Account Provisioning (Aprovisionamiento de cuentas)
+- Proxy de aplicación
 - Métodos de autenticación
 - B2C
 - Acceso condicional
 - Core Directory (Directorio principal)
 - Administración de derechos
+- Autenticación híbrida
 - Protección de identidad
 - Invited Users (Usuarios invitados)
+- MIM Service (Servicio MIM)
+- MyApps
 - PIM
 - Self-service Group Management (Administración de grupos de autoservicio)
 - Self-service Password Management (Administración de contraseñas de autorservicio)
@@ -118,7 +122,11 @@ El filtro **Category** (Categoría) le permite seleccionar uno de los filtros si
 - DirectoryManagement
 - EntitlementManagement
 - GroupManagement
+- KerberosDomain
+- KeyManagement
+- Etiqueta
 - Otros
+- PermissionGrantPolicy
 - Directiva
 - ResourceManagement
 - RoleManagement
@@ -136,12 +144,11 @@ El filtro **Status** (Estado) le permite filtrar en función del estado de una o
 
 El filtro **Target** (Destino) le permite buscar un destino determinado por nombre o nombre principal de usuario (UPN). El nombre de destino y el UPN distinguen mayúsculas de minúsculas. 
 
-El filtro **Iniciado por** (Initiated by) le permite definir el nombre de un actor o un nombre principal universal (UPN). El nombre y el UPN distinguen mayúsculas de minúsculas.
+El filtro **Iniciado por** (Initiated by) le permite definir por qué empieza el nombre de un actor o un nombre principal universal (UPN). El nombre y el UPN distinguen mayúsculas de minúsculas.
 
 El filtro **Date range** (Intervalo de fechas) permite definir un período de tiempo para los datos devueltos.  
 Los valores posibles son:
 
-- 1 mes
 - 7 días
 - 24 horas
 - Personalizado
@@ -179,11 +186,11 @@ Con los informes de auditoría basadas en grupos y usuarios, puede obtener respu
 
 - ¿Qué licencias se han asignado a un grupo o un usuario?
 
-Si quiere revisar solo los datos de auditoría relacionados con los usuarios, puede encontrar una vista filtrada en **Registros de auditoría** en la sección **Actividad** de la pestaña **Usuarios**. Este punto de entrada tiene **UserManagement** como categoría preseleccionada.
+Si quiere revisar solo los datos de auditoría relacionados con los usuarios, puede encontrar una vista filtrada en **Registros de auditoría** en la sección **Supervisión** de la pestaña **Usuarios**. Este punto de entrada tiene **UserManagement** como categoría preseleccionada.
 
 ![Registros de auditoría](./media/concept-audit-logs/users.png "Registros de auditoría")
 
-Si quiere revisar solo los datos de auditoría relacionados con los grupos, puede encontrar una vista filtrada en **Registros de auditoría** en la sección **Actividad** de la pestaña **Grupos**. Este punto de entrada tiene **GroupManagement** como categoría preseleccionada.
+Si quiere revisar solo los datos de auditoría relacionados con los grupos, puede encontrar una vista filtrada en **Registros de auditoría** en la sección **Supervisión** de la pestaña **Grupos**. Este punto de entrada tiene **GroupManagement** como categoría preseleccionada.
 
 ![Registros de auditoría](./media/concept-audit-logs/groups.png "Registros de auditoría")
 

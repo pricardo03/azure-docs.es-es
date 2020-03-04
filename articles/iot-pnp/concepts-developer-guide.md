@@ -7,12 +7,12 @@ ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 55f3e42687c90936c33208684b58792b3e2b9f85
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 5fda51e6d2f62b9cbef0fcac22d5bb2ea0df905b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905795"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605225"
 ---
 # <a name="iot-plug-and-play-preview-modeling-developer-guide"></a>Guía para desarrolladores de modelado de IoT Plug and Play (versión preliminar)
 
@@ -182,26 +182,26 @@ result = DigitalTwin_DeviceClient_RegisterInterfacesAsync(
 
 IoT Plug and Play le permite usar dispositivos que han registrado sus funcionalidades en su centro de IoT. Por ejemplo, puede acceder directamente a las propiedades y los comandos de un dispositivo.
 
-Para usar un dispositivo IoT Plug and Play que esté conectado a su centro de IoT, use la API REST de IoT Hub o uno de los SDK de lenguaje de IoT. En los ejemplos siguientes se usa la API REST de IoT Hub.
+Para usar un dispositivo IoT Plug and Play que esté conectado a su centro de IoT, use la API REST de IoT Hub o uno de los SDK de lenguaje de IoT. En los ejemplos siguientes se usa la API REST de IoT Hub. La versión actual de la API es `2019-07-01-preview`. Anexe `?api-version=2019-07-01-preview` a las llamadas a la API REST.
 
 Para obtener el valor de una propiedad de dispositivo, como la versión del firmware (`fwVersion`) en la `DeviceInformation` interfaz del termostato, se usa la API REST de gemelos digitales.
 
-Si se llama al dispositivo termostato`t-123`, logrará que su dispositivo implemente todas las propiedades con una llamada GET de la API REST:
+Si se llama al dispositivo termostato `t-123`, logrará que su dispositivo implemente todas las propiedades con una llamada GET de la API REST:
 
 ```REST
 GET /digitalTwins/t-123/interfaces
 ```
 
-En general, con esta plantilla de API REST en la que `{device-id}` es el identificador del dispositivo se accede a todas las propiedades:
+En general, con esta plantilla de API REST en la que `{device-id}` es el identificador del dispositivo se accede a todas las propiedades de todas las interfaces:
 
 ```REST
 GET /digitalTwins/{device-id}/interfaces
 ```
 
-Si conoce el nombre de la interfaz y desea obtener las propiedades de esa interfaz en concreto, asigne el ámbito de la solicitud a una interfaz específica por nombre:
+Si conoce el nombre de la interfaz, como `deviceInformation`, y desea obtener las propiedades de esa interfaz en concreto, asigne el ámbito de la solicitud a una interfaz específica por el nombre:
 
 ```REST
-GET /digitalTwins/t-123/interfaces/info
+GET /digitalTwins/t-123/interfaces/deviceInformation
 ```
 
 En general, se puede acceder a las propiedades de una interfaz específica a través de esta plantilla de API REST, donde `device-id` es el identificador del dispositivo y `{interface-name}` es el nombre de la interfaz:

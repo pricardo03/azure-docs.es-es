@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: e7aa19c1d189eb19237ea85aae1ad2441d7e98b9
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 8b1e4c60e6054141e71d2509fe34c7ca9baf9ca6
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163201"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598466"
 ---
 # <a name="import-data-module"></a>Módulo Importación de datos
 
@@ -48,9 +48,7 @@ Si cambian los datos de origen, puede actualizar el conjunto de datos y agregar 
 
 1. Agregue el módulo **Importación de datos** a la canalización. Puede encontrar el módulo en la categoría **Entrada y salida de datos** del diseñador.
 
-1. Haga clic en **Launch Data Import Wizard** (Iniciar el asistente para la importación de datos) para configurar el origen de datos mediante un asistente.
-
-    El asistente obtiene el nombre de cuenta y las credenciales y le ayuda a configurar otras opciones. Si va a editar una configuración existente, primero carga los valores actuales.
+1. Seleccione el módulo para que se abra el panel derecho.
 
 1. Seleccione **Origen de datos** y elija el tipo de origen de datos. Podría ser HTTP o almacén de datos.
 
@@ -60,6 +58,11 @@ Si cambian los datos de origen, puede actualizar el conjunto de datos y agregar 
 
     ![import-data-preview](media/module/import-data.png)
 
+1. La casilla **Regenerate output** (Regenerar salida), decide si se debe ejecutar el módulo para regenerar la salida en tiempo de ejecución. 
+
+    De forma predeterminada, no está seleccionada, lo que significa que si el módulo se ha ejecutado con los mismos parámetros anteriormente, el sistema reutilizará la salida de la última ejecución para reducir el tiempo de ejecución. 
+
+    Si se selecciona, el sistema volverá a ejecutar el módulo para regenerar la salida. Por lo tanto, seleccione esta opción cuando se actualicen los datos subyacentes en el almacenamiento, ya que puede ayudar a obtener los datos más recientes.
 
 
 1. Ejecución de la canalización

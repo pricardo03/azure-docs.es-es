@@ -11,16 +11,16 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 386c44cbf7a86e1a1dc92b918d87d0d8c1e60dd2
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: c4923e43613653bf3dfe8055754039ab0cf57fca
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75744703"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587386"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Solucionar problemas de rendimiento de Azure SQL Database con Intelligent Insights
 
-Esta página proporciona información sobre los problemas de rendimiento de Azure SQL Database e Instancia administrada detectados mediante el registro de diagnóstico de rendimiento de la base de datos de [Intelligent Insights](sql-database-intelligent-insights.md). Se puede realizar un flujo de datos de telemetría del registro de diagnóstico hacia [registros de Azure Monitor](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage) o una solución de terceros para las funcionalidades personalizadas de informes y alertas de DevOps.
+Esta página proporciona información sobre los problemas de rendimiento de Azure SQL Database e Instancia administrada detectados mediante el registro de diagnóstico de rendimiento de la base de datos de [Intelligent Insights](sql-database-intelligent-insights.md). Se puede realizar un flujo de datos de telemetría del registro de diagnóstico hacia [registros de Azure Monitor](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-diagnostic-telemetry-into-azure-storage) o una solución de terceros para las funcionalidades personalizadas de informes y alertas de DevOps.
 
 > [!NOTE]
 > Para una guía rápida de solución de problemas de rendimiento de SQL Database a través de Intelligent Insights, consulte el diagrama de flujo [Flujo de solución de problemas recomendado](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) de este documento.
@@ -34,7 +34,7 @@ Intelligent Insights detecta automáticamente los problemas de rendimiento de la
 | :------------------- | ------------------- | ------------------- |
 | [Alcance de los límites de recursos](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Se alcanzó el límite del consumo de los recursos disponibles (DTU), los subprocesos de trabajo de la base de datos o las sesiones de inicio de sesión de la base de datos disponibles en la suscripción supervisada. Esto afecta al rendimiento de SQL Database. | El consumo de recursos de CPU está alcanzando los límites de Instancia administrada. Esto afecta al rendimiento de la base de datos. |
 | [Aumento de la carga de trabajo](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | Se detectó un aumento de la carga de trabajo o una acumulación continua de la carga de trabajo en la base de datos. Esto afecta al rendimiento de SQL Database. | Se ha detectado un aumento de la carga de trabajo. Esto afecta al rendimiento de la base de datos. |
-| [Presión de memoria](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Los trabajos que solicitaron concesiones de memoria deben esperar a las asignaciones de memoria durante cantidades de tiempo considerables desde el punto de vista estadístico. O bien, existe una mayor acumulación de trabajos que solicitaron concesiones de memoria. Esto afecta al rendimiento de SQL Database. | Los trabajos que solicitaron concesiones de memoria esperan asignaciones de memoria durante un tiempo considerable desde el punto de vista estadístico. Esto afecta al rendimiento de la base de datos. |
+| [Presión de memoria](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Los trabajos que solicitaron concesiones de memoria deben esperar a las asignaciones de memoria durante cantidades de tiempo considerables desde el punto de vista estadístico, o bien una mayor acumulación de los trabajos que han solicitado concesiones de memoria. Esto afecta al rendimiento de SQL Database. | Los trabajos que solicitaron concesiones de memoria esperan asignaciones de memoria durante un tiempo considerable desde el punto de vista estadístico. Esto afecta al rendimiento de la base de datos. |
 | [Bloqueo](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Se detectó un bloqueo excesivo de la base de datos que afecta al rendimiento de SQL Database. | Se detectó un bloqueo excesivo de la base de datos que afecta al rendimiento de la base de datos. |
 | [Aumento de MAXDOP](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | La opción de grado máximo de paralelismo (MAXDOP) ha cambiado y afecta a la eficacia de la ejecución de consultas. Esto afecta al rendimiento de SQL Database. | La opción de grado máximo de paralelismo (MAXDOP) ha cambiado y afecta a la eficacia de la ejecución de consultas. Esto afecta al rendimiento de la base de datos. |
 | [Contención de PAGELATCH](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Hay varios subprocesos que están intentando acceder de forma simultánea a las mismas páginas de búfer de datos en memoria, lo cual provoca un aumento de los tiempos de espera y contención de Pagelatch. Esto afecta al rendimiento de SQL Database. | Hay varios subprocesos que están intentando acceder de forma simultánea a las mismas páginas de búfer de datos en memoria, lo cual provoca un aumento de los tiempos de espera y contención de Pagelatch. Esto afecta al rendimiento de la base de datos. |

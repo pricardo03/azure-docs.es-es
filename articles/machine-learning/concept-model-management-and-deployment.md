@@ -9,27 +9,36 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: jpe316
 ms.author: jordane
-ms.date: 11/22/2019
+ms.date: 02/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: e53db645875646b1e021cc0d3d760677e1128c0c
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 11a6a668b1028ba1640ef076606d4aeb4c3aae6e
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486383"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589375"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Administración, implementación y supervisión de modelos con Azure Machine Learning
 
 En este artículo, obtendrá información sobre cómo usar Azure Machine Learning para administrar el ciclo de vida de los modelos. Azure Machine Learning usa un enfoque de Operaciones de Machine Learning (MLOps). MLOps mejora la calidad y la coherencia de las soluciones de aprendizaje automático. 
 
+## <a name="what-is-mlops"></a>¿Qué es MLOps?
+
+Operaciones de Machine Learning (MLOps) se basa en los principios y prácticas de [DevOps](https://azure.microsoft.com/overview/what-is-devops/) que aumentan la eficacia de los flujos de trabajo. Por ejemplo, integración continua, entrega e implementación. MLOps aplica estas entidades de seguridad al proceso de aprendizaje automático, con el objetivo de:
+
+* Conseguir una experimentación y desarrollo de modelos más rápidos
+* Conseguir una implementación más rápida de los modelos en producción
+* Control de calidad
+
 Azure Machine Learning ofrece las siguientes funcionalidades de MLOps:
 
-- **Creación de canalizaciones de ML reproducibles**. Las canalizaciones permiten definir pasos repetibles y reutilizables para los procesos de preparación de datos, entrenamiento y puntuación.
-- **Registro, empaquetado e implementación de modelos desde cualquier lugar** y seguimiento de los metadatos asociados necesarios para usar el modelo.
-- **Captura de los datos de gobernanza necesarios para capturar un ciclo de vida de ML de un extremo a otro**, que incluye quién publica los modelos, el motivo por el que se realizan los cambios y el momento en que los modelos se implementan o usan en producción.
-- **Notificación y alerta sobre eventos del ciclo de vida de ML**, como la finalización de experimentos, el registro de modelos, la implementación de modelos y la detección de desfase de datos.
+- **Creación de canalizaciones de ML reproducibles**. Las canalizaciones de Machine Learning permiten definir pasos repetibles y reutilizables para los procesos de preparación de datos, entrenamiento y puntuación.
+- **Cree entornos de software reutilizables** para entrenar e implementar modelos.
+- **Registro, empaquetado e implementación de modelos desde cualquier lugar**. También puede realizar el seguimiento de los metadatos asociados necesarios para utilizar el modelo.
+- **Captura de los datos de gobernanza del ciclo de vida de Machine Learning de un extremo a otro**. La información registrada puede incluir quién está publicando modelos, por qué se han realizado los cambios y cuándo se implementaron o usaron los modelos en producción.
+- **Notificación y alerta sobre eventos en el ciclo de vida de Machine Learning**. Por ejemplo, la finalización del experimento, el registro del modelo, la implementación de este y la detección del desfase de datos.
 - **Supervisión de las aplicaciones de ML para las incidencias relacionadas con ML y operativas**. Compare las entradas del modelo durante el entrenamiento y la inferencia, explore las métricas de un modelo específico e incluya supervisión y alertas en su infraestructura de ML.
-- **Automatización del ciclo de vida de ML completo con Azure Machine Learning y Azure DevOps** para actualizar con frecuencia los modelos, probar los modelos nuevos e implementar continuamente nuevos modelos de ML junto con sus otras aplicaciones y servicios.
+- **Automatización del ciclo de vida de un extremo a otro de Machine Learning con Azure Machine Learning y Azure Pipelines**. El uso de canalizaciones le permite actualizar con frecuencia los modelos, probar los modelos nuevos e implementar continuamente nuevos modelos de ML junto con sus otras aplicaciones y servicios.
 
 ## <a name="create-reproducible-ml-pipelines"></a>Creación de canalizaciones de ML reproducibles
 
@@ -38,6 +47,12 @@ Utilice canalizaciones de ML desde Azure Machine Learning para unir todos los 
 Una canalización de ML puede contener pasos que van desde la preparación de datos hasta la extracción de características, el ajuste de hiperparámetros o la evaluación del modelo. Para obtener más información, consulte el artículo [canalizaciones de aprendizaje automático](concept-ml-pipelines.md).
 
 Si utiliza el [Diseñador](concept-designer.md) para crear sus canalizaciones ML, en cualquier momento puede hacer clic en **"..."** en la parte superior derecha de la página del Diseñador y luego seleccionar **Clonar**. La clonación de la canalización le permite iterar el diseño de canalización sin perder las versiones anteriores.  
+
+## <a name="create-reusable-software-environments"></a>Creación de entornos de software reutilizables
+
+Use los entornos de Azure Machine Learning para realizar un seguimiento de las dependencias de software de sus proyectos y reproducirlas a medida que evolucionan. Los entornos le permiten asegurarse de que las compilaciones se pueden reproducir sin necesidad de configuración manual del software.
+
+Los entornos describen las dependencias PIP y Conda de los proyectos, y se pueden usar para el entrenamiento e implementación de modelos. Para más información, consulte [¿Qué son los entornos de Azure Machine Learning?](concept-environments.md).
 
 ## <a name="register-package-and-deploy-models-from-anywhere"></a>Registro, empaquetado e implementación de modelos desde cualquier lugar
 
@@ -82,7 +97,7 @@ Cuando use un modelo como servicio web o dispositivo de IoT Edge, proporcione lo
 
 * Los modelos que se usan para puntuar los datos enviados al servicio o dispositivo.
 * Un script de entrada. Este script acepta las solicitudes, usa los modelos para puntuar los datos y devuelve una respuesta.
-* Un archivo de entorno de conda que describa las dependencias requeridas por el script de entrada y los modelos.
+* Un entorno de Azure Machine Learning que describe las dependencias de PIP y Conda que requieren los modelos y el script de entrada.
 * Los recursos adicionales, como texto, datos, etc. requeridos por el script de entrada y los modelos.
 
 También debe proporcionar la configuración de la plataforma de implementación de destino. Por ejemplo, el tipo de familia de la máquina virtual, la memoria disponible y número de núcleos cuando se implemente en Azure Kubernetes Service.
@@ -162,6 +177,8 @@ La [extensión de Azure Machine Learning](https://marketplace.visualstudio.com/i
 * Permite que los modelos entrenados creados con una canalización de entrenamiento desencadenen las canalizaciones de versión.
 
 Para más información sobre el uso de Azure Pipelines con Azure Machine Learning, consulte el artículo sobre [integración continua e implementación de modelos de Machine Learning con Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning) y el repositorio de [MLOps de Azure Machine Learning](https://aka.ms/mlops).
+
+También puede usar Azure Data Factory para crear una canalización de ingesta de datos que prepare los datos para su uso con el entrenamiento. Para más información, consulte [Canalización de ingesta de datos](how-to-cicd-data-ingestion.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

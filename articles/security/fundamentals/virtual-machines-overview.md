@@ -1,5 +1,6 @@
 ---
-title: 'Características de seguridad usadas con máquinas virtuales de Azure: seguridad de Azure | Microsoft Docs'
+title: Características de seguridad usadas con máquinas virtuales de Azure
+titleSuffix: Azure security
 description: Este artículo ofrece una visión general de las principales características de seguridad de Azure que se pueden usar con Azure Virtual Machines.
 services: security
 documentationcenter: na
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: 6c01df071f263f7080f6c89b539d9a40aeff282f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 3cbe7788ca7486022513fabdca682cbb78615281
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792617"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500382"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Información general de seguridad de Azure Virtual Machines
 Este artículo ofrece una introducción a las principales características de seguridad de Azure que pueden usarse con máquinas virtuales.

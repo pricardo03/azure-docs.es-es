@@ -4,15 +4,13 @@ ms.service: data-explorer
 ms.topic: include
 ms.date: 10/07/2019
 ms.author: orspodek
-ms.openlocfilehash: c39fd5bdf272117a9b4935d518a862fab4bac4a7
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 8abd8756850cb9e4250016e6d35310e1f6ce580c
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72822034"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77506015"
 ---
 ## <a name="install-c-nuget"></a>Instalación de NuGet C#
 
-* Instale el [paquete NuGet de Azure Data Explorer (Kusto)](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
-
-* Instale el [paquete NuGet Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) para la autenticación.
+* Instale el [paquete Microsoft.Azure.Management.Kusto NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).

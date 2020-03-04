@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 57dc7bb98bf4c2f733be0f2c94e17481a429be6d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: b2d49eeadf068cbaacaa5e147f38025c55f33ff4
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906790"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651368"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configuración de una instancia de clúster de conmutación por error de SQL Server con un recurso compartido de archivos Premium en Azure Virtual Machines
 
@@ -71,7 +71,7 @@ Para obtener información completa acerca de las licencias de SQL Server, consul
 
 La secuencia de archivos no se admite en los clústeres de conmutación por error con un recurso compartido de archivos Premium. Para usar la secuencia de archivos, implemente el clúster con [Espacios de almacenamiento directo](virtual-machines-windows-portal-sql-create-failover-cluster.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de completar los pasos de este artículo, ya debe tener:
 
@@ -149,7 +149,7 @@ Una vez que cumpla los requisitos previos, puede comenzar la creación de un cl�
 
    1. Seleccione **Siguiente** y después **Quitar**.
 
-1. <a name="ports"></a>Abra los puertos del firewall.
+1. <span id="ports"> </span>Abra los puertos del firewall.  
 
    En cada máquina virtual, abra estos puertos de Firewall de Windows:
 
@@ -369,7 +369,7 @@ Para crear el equilibrador de carga:
 
 1. Seleccione **Agregar**.
 
-1. En la hoja **Add health probe** (Agregar sonda de mantenimiento), <a name="probe"></a>establezca los parámetros del sondeo de mantenimiento siguientes.
+1. En la hoja **Add health probe** (Agregar sonda de mantenimiento), <span id="probe"> </span>establezca los parámetros del sondeo de mantenimiento siguientes.
 
    - **Name**: nombre del sondeo de estado.
    - **Protocolo**: TCP.

@@ -2,13 +2,13 @@
 title: Salidas en plantillas
 description: Se describe cómo definir valores de salida en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: 7244e1ac0eff973d550a2bae8a70fa5055ca2248
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/25/2020
+ms.openlocfilehash: ec96b45cdc5ccf488d46c2d8da03caf16d002dfa
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476198"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622841"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Salidas en una plantilla de Azure Resource Manager
 
@@ -43,6 +43,24 @@ En la sección de salidas, puede devolver un valor condicionalmente. Normalmente
 
 Para obtener un ejemplo sencillo de salida condicional, consulte la [plantilla de salida condicional](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json).
 
+## <a name="dynamic-number-of-outputs"></a>Número dinámico de salidas
+
+En algunos escenarios, no se conoce el número de instancias de un valor que se debe devolver al crear la plantilla. Puede devolver un número variable de valores mediante el elemento **copy**.
+
+```json
+"outputs": {
+  "storageEndpoints": {
+    "type": "array",
+    "copy": {
+      "count": "[parameters('storageCount')]",
+      "input": "[reference(concat(copyIndex(), variables('baseName'))).primaryEndpoints.blob]"
+    }
+  }
+}
+```
+
+Para más información, consulte [Iteración de salidas en plantillas de Azure Resource Manager](copy-outputs.md).
+
 ## <a name="linked-templates"></a>Plantillas vinculadas
 
 Para recuperar el valor de salida de una plantilla vinculada, use la función [reference](template-functions-resource.md#reference) en la plantilla principal. La sintaxis de la plantilla principal es la siguiente:
@@ -69,7 +87,7 @@ Cuando la implementación se realiza correctamente, los valores de salida se dev
 
 Para obtener valores de salida del historial de implementación, puede usar un script.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeployment `
@@ -77,7 +95,7 @@ Para obtener valores de salida del historial de implementación, puede usar un s
   -Name <deployment-name>).Outputs.resourceID.value
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 az group deployment show \

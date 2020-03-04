@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 98757677eae6d21b02d6b0b2a3abade453b5dfed
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: c1e740fbfa4bf1e8a77a2d9d6060ab39dba7ae7b
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552787"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587403"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>¿Qué son los grupos de instancias de SQL Database (versión preliminar)?
 
@@ -126,7 +126,7 @@ Si tiene problemas relacionados con la implementación de un grupo de instancias
 
 Si tiene problemas relacionados con bases de datos o instancias únicas dentro de un grupo, debe crear una incidencia de soporte técnico normal para las instancias administradas de Azure SQL Database.
 
-Para crear implementaciones de instancias administradas más grandes (con o sin grupos de instancias), es posible que tenga que obtener una cuota regional más grande. Use el [procedimiento de instancias administradas estándar para solicitar una cuota mayor](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance), pero tenga en cuenta que si usa grupos de instancias, la lógica de implementación compara el consumo total de núcleos virtuales *en el nivel de grupo* con respecto a la cuota para determinar si se permite crear recursos nuevos sin aumentar aún más la cuota.
+Para crear implementaciones de instancias administradas más grandes (con o sin grupos de instancias), es posible que tenga que obtener una cuota regional más grande. Para más información, consulte [Solicitud de aumentos de cuota para Azure SQL Database](quota-increase-request.md). Tenga en cuenta que si usa grupos de instancias, la lógica de implementación compara el consumo total de núcleos virtuales *en el nivel de grupo* con respecto a la cuota para determinar si se permite crear recursos nuevos sin aumentar aún más la cuota.
 
 ## <a name="instance-pool-billing"></a>Facturación de un grupo de instancias
 

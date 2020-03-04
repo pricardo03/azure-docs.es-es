@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: d39ffa05448600fe3bd09baf6080aa1565ae19ba
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c7e98c31c0db1db3051ad66df6526dcbddb265c5
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843600"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560429"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Consulta de datos en Azure Monitor con Azure Data Explorer (versión preliminar)
 
@@ -23,7 +23,7 @@ El flujo del proxy de Azure Data Explorer:
 
 ![Flujo de proxy de ADX](media/adx-proxy/adx-proxy-flow.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 > [!NOTE]
 > El proxy de ADX está en modo de versión preliminar. [Conéctese al proxy](#connect-to-the-proxy) para habilitar la característica de proxy de ADX para los clústeres. Póngase en contacto con el equipo de [ADXProxy](mailto:adxproxy@microsoft.com) con cualquier pregunta.

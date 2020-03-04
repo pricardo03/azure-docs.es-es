@@ -1,5 +1,6 @@
 ---
-title: 'Procedimientos recomendados de seguridad para proteger los activos: Microsoft Azure'
+title: Procedimientos recomendados de seguridad para los recursos de Azure
+titleSuffix: Azure security
 description: En este artículo se proporciona un conjunto de procedimientos recomendados operativos para proteger los datos, aplicaciones y otros recursos en Azure.
 services: security
 documentationcenter: na
@@ -15,17 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 69e55b17814c5b5ada0813bd0de66cc3a9a591f4
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 72d7a2dd112e5e7a5105ff977e3917ccdfd7b53e
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219510"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500302"
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedimientos recomendados de seguridad operativa de Azure
 En este artículo se proporciona un conjunto de procedimientos recomendados operativos para proteger los datos, aplicaciones y otros recursos en Azure.
 
-Los procedimientos recomendados se basan en un consenso de opinión y son válidos para las funcionalidades y conjuntos de características actuales de la plataforma Azure. Las opiniones y las tecnologías cambian con el tiempo, y este artículo se actualiza de forma periódica para reflejar esos cambios.
+Los procedimientos recomendados se basan en un consenso de opinión y son válidos para las funcionalidades y conjuntos de características actuales de la plataforma Azure. Como las opiniones y las tecnologías cambian con el tiempo, este artículo se actualiza de forma periódica para reflejar dichos cambios.
 
 ## <a name="define-and-deploy-strong-operational-security-practices"></a>Definición e implementación de procedimientos de seguridad operativa exhaustivos
 Por seguridad operativa de Azure, se entienden los servicios, los controles y las características disponibles para los usuarios para proteger sus datos, aplicaciones y otros recursos en Azure. La seguridad operativa de Azure se basa en un marco que incorpora el conocimiento adquirido a través de diversas funcionalidades exclusivas de Microsoft, incluido el [ciclo de vida de desarrollo de seguridad (SDL)](https://www.microsoft.com/sdl), el programa [Microsoft Security Response Center](https://www.microsoft.com/msrc?rtc=1) y un conocimiento en profundidad del panorama de amenazas de ciberseguridad.
@@ -95,7 +96,7 @@ El nivel Gratis de Security Center ofrece seguridad limitada solo para los recur
 
 Use Security Center para obtener una vista centralizada del estado de seguridad de todos los recursos de Azure. Compruebe que los controles de seguridad adecuados se han implementado y configurado correctamente, e identifique de un vistazo cualquier recurso que demande atención.
 
-Security Center también se integra con [Advanced Threat Protection (ATP) de Microsoft Defender](../../security-center/security-center-wdatp.md), que proporciona funcionalidades completas de detección y respuesta (EDR) de puntos de conexión. Con la integración de ATP de Microsoft Defender, puede detectar anomalías. También puede detectar y responder a ataques avanzados en los puntos de conexión de servidor supervisados por Security Center.
+Security Center también se integra con [Advanced Threat Protection (ATP) de Microsoft Defender](../../security-center/security-center-wdatp.md), que proporciona funcionalidades completas de detección y respuesta (EDR) de puntos de conexión. Gracias a la integración de ATP de Microsoft Defender, podrá detectar anomalías. También puede detectar y responder a ataques avanzados en los puntos de conexión de servidor supervisados por Security Center.
 
 Casi todas las organizaciones empresariales tienen un sistema de administración de eventos e información de seguridad (SIEM) para facilitar la identificación de las amenazas emergentes mediante la consolidación de la información de registro de distintos dispositivos de recopilación de señales. Después, un sistema de análisis de datos analiza los registros para ayudar a identificar lo que es "interesante" del ruido que es inevitable en todas las soluciones de análisis y recopilación de registros.
 
@@ -218,7 +219,7 @@ Para más información, vea [Creación y administración de directivas para apli
 **Detalles**: Para asignar documentos en la documentación de la organización o en la propia directiva de Azure, agregue una referencia a la directiva de la organización en la [descripción de la directiva](../../governance/policy/concepts/definition-structure.md#display-name-and-description) o en la de la [iniciativa](../../governance/policy/concepts/definition-structure.md#initiatives) de Azure.
 
 ## <a name="monitor-azure-ad-risk-reports"></a>Supervisión de los informes de riesgo de Azure AD
-La mayoría de las infracciones de seguridad tienen lugar cuando los atacantes obtienen acceso a un entorno mediante el robo de identidad de un usuario. Descubrir las identidades en peligro no es tarea fácil. Azure AD emplea algoritmos y heurística de aprendizaje automático adaptable para detectar acciones sospechosas que están relacionadas con las cuentas de usuario. Cada acción sospechosa detectada se almacena en un registro llamado [detección de riesgo](../../active-directory/reports-monitoring/concept-risk-events.md). Las detecciones de riesgo se registran en los informes de seguridad de Azure AD. Para más información, vea el [informe de seguridad de usuarios en riesgo](../../active-directory/reports-monitoring/concept-user-at-risk.md) y el [informe de seguridad de inicios de sesión en riesgo](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).
+La mayoría de las infracciones de seguridad tienen lugar cuando los atacantes obtienen acceso a un entorno mediante el robo de identidad de un usuario. Descubrir las identidades en peligro no es tarea fácil. Azure AD emplea algoritmos y heurística de aprendizaje automático adaptable para detectar acciones sospechosas que están relacionadas con las cuentas de usuario. Cada acción sospechosa detectada se almacena en un registro llamado [detección de riesgos](../../active-directory/reports-monitoring/concept-risk-events.md). Las detecciones de riesgo se registran en los informes de seguridad de Azure AD. Para más información, vea el [informe de seguridad de usuarios en riesgo](../../active-directory/reports-monitoring/concept-user-at-risk.md) y el [informe de seguridad de inicios de sesión en riesgo](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea [Patrones y procedimientos recomendados de seguridad en Azure](best-practices-and-patterns.md) para obtener más procedimientos recomendados de seguridad que pueda aplicar cuando diseñe, implemente y administre las soluciones en la nube mediante Azure.

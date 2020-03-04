@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0ca9ed8781a13f9ab5e949e0e5f019a851dc75f4
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 1404854e054c8fc4967ba863486969b8a87db526
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77057488"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621523"
 ---
 # <a name="tutorial-configure-insight4grc-for-automatic-user-provisioning"></a>Tutorial: Configuración de Insight4GRC para el aprovisionamiento automático de usuarios
 
@@ -90,7 +90,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba sus credenciales de administrador y su nombre de usuario de Insight4GRC. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Insight4GRC. Si la conexión no se establece, asegúrese de que la cuenta de Insight4GRC tenga permisos de administrador e inténtelo de nuevo.
+5. En la sección **Credenciales de administrador**, escriba la dirección URL de punto de conexión de SCIM en **URL de inquilino**. La dirección URL del punto de conexión debe tener el formato `https://<Insight4GRC Domain Name>.insight4grc.com/public/api/scim/v2 `, donde **Insight4GRC Domain Name** es el valor recuperado en los pasos anteriores. Escriba el valor del token de portador recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Insight4GRC. Si la conexión no se establece, asegúrese de que la cuenta de Insight4GRC tenga permisos de administrador e inténtelo de nuevo.
 
     ![Aprovisionamiento](./media/insight4grc-provisioning-tutorial/provisioning.png)
 

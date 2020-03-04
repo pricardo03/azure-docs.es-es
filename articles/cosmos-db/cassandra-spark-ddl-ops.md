@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 5c12787cd6e0df19fd842dd44da49aa5ea97aa05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0df05eff5dc84ef24e1ed5afcaf705d99f447ef
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60898889"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622573"
 ---
 # <a name="ddl-operations-in-azure-cosmos-db-cassandra-api-from-spark"></a>Operaciones DDL en Cassandra API de Azure Cosmos DB de Spark
 
@@ -85,7 +85,7 @@ DESCRIBE keyspaces;
 **Consideraciones:**  
 
 - El rendimiento puede asignarse a nivel de tabla; para ello, use la instrucción create table.  
-- Una clave de partición puede almacenar 10 GB de datos.  
+- Una clave de partición puede almacenar 20 GB de datos.  
 - Un registro puede almacenar un máximo de 2 MB de datos.  
 - Un intervalo de claves de partición puede almacenar varias claves de partición.
 
@@ -120,7 +120,7 @@ val cdbConnector = CassandraConnector(sc)
 cdbConnector.withSessionDo(session => session.execute("ALTER TABLE books_ks.books WITH cosmosdb_provisioned_throughput=8000, WITH default_time_to_live=0;"))
 ```
 
-### <a name="drop-table"></a>Eliminación de una tabla
+### <a name="drop-table"></a>Quitar tabla
 
 ```scala
 val cdbConnector = CassandraConnector(sc)

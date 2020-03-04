@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fc01bd5c868cddd448e3a262960af64f50b78d74
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: 2861b882d9b4c00a1c4db87b2dd49d49dfeb53a6
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77372976"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77581113"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -175,6 +175,8 @@ El elemento **Restriction** contiene los elementos siguientes:
 
 #### <a name="enumeration"></a>Enumeración
 
+El elemento **Enumeration** define opciones disponibles para que el usuario seleccione una notificación en la interfaz de usuario, como un valor en `CheckboxMultiSelect`, `DropdownSingleSelect` o `RadioSingleSelect`. Como alternativa, puede definir y localizar las opciones disponibles con el elemento [LocalizedCollections](localization.md#localizedcollections). Para buscar un elemento en una colección **Enumeration** de notificaciones, use la transformación de notificaciones [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection).
+
 El elemento **Enumeration** contiene los siguientes atributos:
 
 | Atributo | Obligatorio | Descripción |
@@ -209,7 +211,7 @@ El elemento **Pattern** puede contener los siguientes atributos:
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | RegularExpression | Sí | La expresión regular con la que deben coincidir las notificaciones de este tipo para que sean válidas. |
-| HelpText | Sin | El patrón o una expresión regular para esta notificación. |
+| HelpText | Sin | Un mensaje de error para los usuarios si se produce un error en la comprobación de la expresión regular. |
 
 En el ejemplo siguiente se configura una notificación de **correo electrónico** con el texto de ayuda y la validación de entrada de la expresión regular:
 
@@ -407,5 +409,3 @@ El tipo de entrada de usuario **Paragraph** se usa para proporcionar un campo qu
   </Restriction>
 </ClaimType>
 ```
-
-Para mostrar uno de los valores **Enumeration** en una notificación **responseMsg**, use una transformación de notificaciones `GetMappedValueFromLocalizedCollection` o `CreateStringClaim`. Para más información, vea [String Claims Transformations](string-transformations.md) (Transformaciones de las notificaciones de cadena)

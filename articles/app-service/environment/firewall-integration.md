@@ -4,15 +4,15 @@ description: Obtenga información sobre la integración con Azure Firewall para 
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 01/14/2020
+ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6b9633e8a37e665577f1e69e8008a64b7e139c1c
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: f24a984a4b3e13039f1f9dcf0be459425c048c41
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513358"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565730"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueo de una instancia de App Service Environment
 
@@ -41,9 +41,11 @@ El tráfico hacia y desde una instancia de ASE debe cumplir las convenciones sig
 
 ## <a name="locking-down-inbound-management-traffic"></a>Bloqueo del tráfico de administración de entrada
 
-Si la subred de ASE todavía no tiene un grupo de seguridad de red asignado, cree uno. En el grupo de seguridad de red, establezca la primera regla para permitir el tráfico desde la etiqueta de servicio denominada AppServiceManagement en los puertos 454 y 455. Esto es todo lo que se necesita de las direcciones IP públicas para administrar el ASE. Las direcciones que están detrás de esa etiqueta de servicio solo se usan para administrar Azure App Service. El tráfico de administración que fluye a través de estas conexiones se cifra y protege con certificados de autenticación. El tráfico habitual en este canal incluye elementos como los comandos iniciados por el cliente y los sondeos de estado. 
+Si la subred de ASE todavía no tiene un grupo de seguridad de red asignado, cree uno. En el grupo de seguridad de red, establezca la primera regla para permitir el tráfico desde la etiqueta de servicio llamada AppServiceManagement en los puertos 454 y 455. La regla para permitir el acceso desde la etiqueta AppServiceManagement es lo único que las direcciones IP públicas necesitan para administrar la instancia de ASE. Las direcciones que están detrás de esa etiqueta de servicio solo se usan para administrar Azure App Service. El tráfico de administración que fluye a través de estas conexiones se cifra y protege con certificados de autenticación. El tráfico habitual en este canal incluye elementos como los comandos iniciados por el cliente y los sondeos de estado. 
 
 Los ASE que se crean mediante el portal con una nueva subred lo hacen con un grupo de seguridad de red que contiene la regla de permiso para la etiqueta AppServiceManagement.  
+
+La instancia de ASE también debe permitir las solicitudes entrantes procedentes de la etiqueta Load Balancer en el puerto 16001. Las solicitudes procedentes de Load Balancer en el puerto 16001 son comprobaciones de conexiones persistentes entre Load Balancer y los servidores front-end de ASE. Si el puerto 16001 está bloqueado, la instancia de ASE adoptará un estado incorrecto.
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>Configuración de Azure Firewall con App Service aislado 
 
@@ -273,6 +275,21 @@ Linux no está disponible en regiones Gov (US) y, por tanto, no aparece como una
 | Azure SQL |
 | Azure Storage |
 | Centro de eventos de Azure |
+
+#### <a name="ip-address-dependencies"></a>Dependencias de dirección IP
+
+| Punto de conexión | Detalles |
+|----------| ----- |
+| \*:123 | Comprobación de reloj NTP. El tráfico se comprueba en varios puntos de conexión en el puerto 123. |
+| \*:12000 | Este puerto se usa para algunas tareas de supervisión del sistema. Si se bloquea, algunos problemas serán más difíciles de evaluar, pero el ASE seguirá funcionando. |
+| 40.77.24.27:80 | Necesario para supervisar y alertar sobre problemas del ASE. |
+| 40.77.24.27:443 | Necesario para supervisar y alertar sobre problemas del ASE. |
+| 13.90.249.229:80 | Necesario para supervisar y alertar sobre problemas del ASE. |
+| 13.90.249.229:443 | Necesario para supervisar y alertar sobre problemas del ASE. |
+| 104.45.230.69:80 | Necesario para supervisar y alertar sobre problemas del ASE. |
+| 104.45.230.69:443 | Necesario para supervisar y alertar sobre problemas del ASE. |
+| 13.82.184.151:80 | Necesario para supervisar y alertar sobre problemas del ASE. |
+| 13.82.184.151:443 | Necesario para supervisar y alertar sobre problemas del ASE. |
 
 #### <a name="dependencies"></a>Dependencias ####
 

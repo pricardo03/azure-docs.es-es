@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 02/20/2020
 ms.author: diberry
-ms.openlocfilehash: dec6faab0dfc7f073639186429767bbf653ceda1
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: f8ceef5e80bf15f0ba52a9c289e617018febfb5c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513616"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623586"
 ---
 # <a name="offline-evaluation"></a>Evaluación sin conexión
 
@@ -49,6 +49,16 @@ Los siguientes son consideraciones importantes para una evaluación sin conexió
 Personalizer puede usar el proceso de evaluación sin conexión para detectar automáticamente una directiva de aprendizaje óptima.
 
 Después de realizar la evaluación sin conexión, puede ver la efectividad comparativa de Personalizer con la nueva directiva, en comparación con la directiva en línea actual. Después puede aplicar esa directiva de aprendizaje para que sea efectiva de inmediato en Personalizer, al descargarla y cargarla en el panel de modelos y directiva. También puede descargarla para su futuro análisis o uso.
+
+Directivas actuales incluidas en la evaluación:
+
+| Configuración del aprendizaje | Propósito|
+|--|--|
+|**Directiva en línea**| la directiva de aprendizaje actual utilizada en Personalizer. |
+|**Línea de base**|El valor predeterminado de la aplicación (según lo determinado por la primera acción que se envía en las llamadas de Rank).|
+|**Directiva aleatoria**|un comportamiento de Rank imaginario que siempre devuelve la selección aleatoria de las acciones de las proporcionadas.|
+|**Directivas personalizadas**|directivas de aprendizaje adicionales que se cargan al iniciar la evaluación.|
+|**Directiva optimizada**|Si la evaluación se inició con la opción de detectar una directiva optimizada, también se comparará, y podrá descargarla o convertirla en la directiva de aprendizaje en línea, por el reemplazo de la actual.|
 
 ## <a name="understanding-the-relevance-of-offline-evaluation-results"></a>Información de la relevancia de los resultados de la evaluación sin conexión
 
@@ -92,7 +102,7 @@ Se recomienda mirar las evaluaciones de las características y preguntar:
 
 * ¿Qué otras características adicionales puede proporcionar la aplicación o sistema que sean similares a las que sean más eficaces?
 * ¿Qué características se pueden quitar debido a su baja eficacia? Las características de poca eficacia agregan _ruido_ al aprendizaje automático.
-* ¿Hay características que se incluyen de forma accidental? Estos son algunos ejemplos de ellas: información de identificación personal (DCP), duplicar identificadores, etc.
+* ¿Hay características que se incluyen de forma accidental? Estos son algunos ejemplos de ellas: información de identificación del usuario, identificadores duplicados, etc.
 * ¿Hay características no deseadas que no se deben usar para personalizar debido a consideraciones legales o de uso responsable? ¿Hay características que se puedan redirigir mediante proxy (es decir, asemejarse mucho o correlacionarse) con características no deseadas?
 
 

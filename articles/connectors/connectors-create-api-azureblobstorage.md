@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 86e8415cf2076819e23226e5e7878a2c96343f69
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: eb943bfe36be10d1e95d569a5c1bf48563e909c1
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789924"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650868"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Creación y administración de blobs en Azure Blob Storage con Azure Logic Apps
 
@@ -23,7 +23,7 @@ Imagine que tiene una herramienta que se actualiza en un sitio web de Azure, que
 Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para obtener información técnica específica del conector, consulte la [referencia sobre el conector de Azure Blob Storage](https://docs.microsoft.com/connectors/azureblobconnector/).
 
 > [!IMPORTANT]
-> Para habilitar el acceso desde Azure Logic Apps a cuentas de almacenamiento que se encuentran detrás de los firewalls, consulte la sección [Acceso a cuentas de almacenamiento detrás de firewalls](#storage-firewalls) más adelante en este tema.
+> Las aplicaciones lógicas no pueden acceder directamente a cuentas de almacenamiento que se encuentren detrás de un firewall si se encuentran en la misma región. Como alternativa, puede tener las aplicaciones lógicas y la cuenta de almacenamiento en diferentes regiones. Para más información sobre cómo habilitar el acceso desde Azure Logic Apps a cuentas de almacenamiento que se encuentran detrás de los firewalls, consulte la sección [Acceso a cuentas de almacenamiento detrás de firewalls](#storage-firewalls) más adelante en este tema.
 
 <a name="blob-storage-limits"></a>
 
@@ -31,15 +31,15 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
 
 * De forma predeterminada, las acciones de Azure Blob Storage pueden leer o escribir archivos de *50 MB o más pequeños*. Para controlar los archivos mayores de 50 MB, pero hasta 1024 MB, las acciones de Azure Blob Storage admiten la [fragmentación de mensajes](../logic-apps/logic-apps-handle-large-messages.md). La acción **Obtener contenido de blog** usa implícitamente la fragmentación.
 
-* Los desencadenadores de Azure Blob Storage no admiten la fragmentación. Cuando se solicita el contenido del archivo, los desencadenadores seleccionan solo los archivos que tienen un tamaño de 50 MB o menos. Para obtener archivos de más de 50 MB, siga este patrón:
+* Los desencadenadores de Azure Blob Storage no admiten la fragmentación. Cuando se solicita el contenido del archivo, los desencadenadores seleccionan solo los archivos que tienen un tamaño de 50 MB o menos. Para obtener archivos de más de 50 MB, siga este patrón:
 
   * Use un desencadenador de Azure Blob Storage que devuelva las propiedades de archivo, como **Cuando se agrega o modifica un blob (solo propiedades)** .
 
   * Siga el desencadenador con la acción **Obtener contenido de blob** de Azure Blob Storage, que lee el archivo completo y utiliza la fragmentación implícitamente.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * Una [cuenta de Azure Storage y un contenedor de almacenamiento](../storage/blobs/storage-quickstart-blobs-portal.md)
 
@@ -121,7 +121,7 @@ En este ejemplo solo se obtiene el contenido de un blob. Para ver dicho contenid
 
 1. Cuando se le pida crear la conexión, proporcione esta información:
 
-   | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Value | Descripción |
    |----------|----------|-------|-------------|
    | **Nombre de la conexión** | Sí | <*connection-name*> | El nombre que se va a crear para su conexión |
    | **Storage Account** | Sí | <*storage-account*> | Seleccione la cuenta de almacenamiento en la lista. |
@@ -129,7 +129,7 @@ En este ejemplo solo se obtiene el contenido de un blob. Para ver dicho contenid
 
    Por ejemplo:
 
-   ![Creación de una conexión de cuenta de Azure Blob Storage](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png)  
+   ![Creación de una conexión de cuenta de Azure Blob Storage](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png) 
 
 1. Cuando esté listo, seleccione **Crear**.
 
@@ -137,7 +137,10 @@ En este ejemplo solo se obtiene el contenido de un blob. Para ver dicho contenid
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener detalles técnicos, como los desencadenadores, las acciones y los límites, tal como lo describe el archivo Open API (antes Swagger) del conector, consulte la [página de referencia del conector](https://docs.microsoft.com/connectors/azureblobconnector/).
+Si necesita más detalles técnicos sobre este conector, como los desencadenadores, las acciones y los límites que se describen en el archivo de Swagger del conector, consulte la [página de referencia del conector](https://docs.microsoft.com/connectors/azureblobconnector/).
+
+> [!NOTE]
+> En el caso de las aplicaciones lógicas de un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versión con la etiqueta ISE de este conector usa en su lugar los [límites de mensajes de ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits).
 
 <a name="storage-firewalls"></a>
 
@@ -159,9 +162,12 @@ A continuación se muestran varias opciones acceder a las cuentas de almacenamie
 
 <a name="access-other-regions"></a>
 
-### <a name="access-to-storage-accounts-in-other-regions"></a>Acceso a las cuentas de almacenamiento de otras regiones
+### <a name="problems-accessing-storage-accounts-in-the-same-region"></a>Problemas de acceso a cuentas de almacenamiento en la misma región
 
-Las aplicaciones lógicas no pueden acceder directamente a cuentas de almacenamiento que tengan reglas de firewall y que se encuentren en la misma región. Sin embargo, si permite el acceso a las [direcciones IP de salida para los conectores administrados de la región](../logic-apps/logic-apps-limits-and-config.md#outbound), las aplicaciones lógicas pueden acceder a las cuentas de almacenamiento de una región diferente excepto cuando se usa el conector de Azure Table Storage o el conector de Azure Queue Storage. Para acceder a Table Storage o Queue Storage, puede seguir usando las acciones y el desencadenador HTTP integrado.
+Las aplicaciones lógicas no pueden acceder directamente a cuentas de almacenamiento que se encuentren detrás de un firewall cuando se encuentran en la misma región. Como solución alternativa, coloque las aplicaciones lógicas en una región diferente a la de la cuenta de almacenamiento y proporcione acceso a las [direcciones IP de salida para los conectores administrados de la región](../logic-apps/logic-apps-limits-and-config.md#outbound).
+
+> [!NOTE]
+> Esta solución no se aplica al conector de Azure Table Storage y al conector de Azure Queue Storage. En su lugar, para acceder a Table Storage o Queue Storage, use las acciones y el desencadenador HTTP integrados.
 
 <a name="access-trusted-virtual-network"></a>
 
@@ -196,7 +202,7 @@ Para configurar la excepción y la compatibilidad con identidad administrada, si
 
 ### <a name="access-storage-accounts-through-azure-api-management"></a>Acceso a las cuentas de almacenamiento a través de Azure API Management
 
-Si usa un nivel dedicado para [API Management](../api-management/api-management-key-concepts.md), puede presentar la API de Azure Storage utilizando API Management y permitiendo las direcciones IP de esta última a través del firewall. Básicamente, agregue la red virtual de Azure que API Management usa a la configuración del firewall de la cuenta de almacenamiento. Después, puede usar la acción API Management o la acción HTTP para llamar a las API de Azure Storage. Aunque si elige esta opción, tendrá que controlar el proceso de autenticación personalmente. Para obtener más información, vea [Arquitectura de integración empresarial sencilla](https://aka.ms/aisarch).
+Si usa un nivel dedicado para [API Management](../api-management/api-management-key-concepts.md), puede presentar la API de Azure Storage utilizando API Management y permitiendo las direcciones IP de esta última a través del firewall. Básicamente, agregue la red virtual de Azure que API Management usa a la configuración del firewall de la cuenta de almacenamiento. Después, puede usar la acción API Management o la acción HTTP para llamar a las API de Azure Storage. Aunque si elige esta opción, tendrá que controlar el proceso de autenticación personalmente. Para obtener más información, vea [Arquitectura de integración empresarial sencilla](https://aka.ms/aisarch).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

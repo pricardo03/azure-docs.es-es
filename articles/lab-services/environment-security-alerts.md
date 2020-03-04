@@ -11,28 +11,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: spelluru
-ms.openlocfilehash: 4ca17bece33107de756eb221e14eaab851660a99
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: fbac5a2fab91cdac8ebf626e324f12f209cfade5
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76992023"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588712"
 ---
 # <a name="security-alerts-for-environments-in-azure-devtest-labs"></a>Alertas de seguridad de entornos en Azure DevTest Labs
-En este artículo se muestra cómo ver alertas de seguridad de entornos en Azure DevTest Labs. 
+Como usuario del laboratorio, ahora puede ver las alertas de Azure Security Center para los entornos de laboratorio. Security Center recopila, analiza e integra automáticamente los datos de registro de los recursos de Azure, la red y las soluciones de asociados conectados, como firewalls y soluciones de protección de puntos de conexión, para detectar amenazas reales y reducir los falsos positivos. En Security Center, se muestra una lista de alertas de seguridad prioritarias, junto con la información que necesita para investigar rápidamente y recomendaciones para corregir un ataque. [Más información sobre las alertas de seguridad en Azure Security Center](../security-center//security-center-alerts-overview.md).  
 
-## <a name="prerequisites"></a>Prerequisites
-Actualmente, solo puede ver alertas de seguridad de los entornos implementados en el laboratorio. Para probar o usar esta característica, implemente un entorno en el laboratorio. 
+
+## <a name="prerequisites"></a>Prerrequisitos
+Actualmente, solo puede ver alertas de seguridad de los entornos de plataforma como servicio (PaaS) implementados en el laboratorio. Para probar o usar esta característica, [implemente un entorno en el laboratorio](devtest-lab-create-environment-from-arm.md). 
 
 ## <a name="view-security-alerts-for-an-environment"></a>Visualización de alertas de seguridad de un entorno
 
-1. En la página principal del laboratorio, seleccione **Security alerts** (Alertas de seguridad) en el menú de la izquierda. Verá el número de alertas de seguridad (alta, media y baja).
+1. En la página principal del laboratorio, seleccione **Security alerts** (Alertas de seguridad) en el menú de la izquierda. Verá el número de alertas de seguridad (alta, media y baja). Obtenga más información sobre [cómo se clasifican las alertas](../security-center/security-center-alerts-overview.md#how-are-alerts-classified).
 
     ![Alertas de seguridad: introducción](./media/environment-security-alerts/security-alerts-overview-page.png)
 2. Haga clic con el botón derecho en los tres puntos (...) de la última columna y seleccione **View security alerts** (Ver alertas de seguridad). 
 
     ![Ver alertas de seguridad](./media/environment-security-alerts/view-security-alerts-menu.png)
-3. Puede ver más detalles sobre las alertas y las recomendaciones de Advisor. 
+    
+3. Puede ver más detalles sobre las alertas y las recomendaciones de Advisor. Para más información, consulte [Administración y respuesta a las alertas de seguridad en Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md).
 
     ![Ver alertas de seguridad](./media/environment-security-alerts/advisor-recommendations.png)
 

@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/21/2020
+ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 56b78f4296709206cefb762c87d4d1471bff2df7
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 2c3c52fc85e6c915587db27a3f5ce247fd05ea51
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291522"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598330"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Lista de comprobación de planeamiento e implementación de cargas de trabajo de SAP en Azure
 
@@ -48,10 +48,13 @@ Durante esta fase, se planea la migración de la carga de trabajo de SAP a la pl
     - La arquitectura de continuidad empresarial y recuperación ante desastres.
     - Información detallada sobre las versiones del sistema operativo, la base de datos, el kernel y los paquetes de soporte de SAP. El hecho de que SAP NetWeaver o S/4HANA admitan una versión de sistema operativo determinada no implica necesariamente que también la admitan las máquinas virtuales de Azure. Lo mismo puede decirse de las versiones de DBMS. Compruebe los siguientes orígenes para alinear y, si es necesario, actualizar las versiones de SAP, DBMS y sistema operativo para garantizar el soporte técnico de SAP y Azure. Para obtener soporte técnico completo de SAP y Microsoft debe tener combinaciones de versiones compatibles con SAP y Azure. Si es necesario, deberá planear la actualización de algunos componentes de software. Aquí encontrará más detalles sobre el software compatible de SAP, sistema operativo y DBMS:
         - [Nota de soporte técnico de SAP 1928533](https://launchpad.support.sap.com/#/notes/1928533). En esta nota se definen las versiones mínimas del sistema operativo compatibles con las máquinas virtuales de Azure. También se definen las versiones mínimas de base de datos necesarias para la mayoría de las bases de datos que no son HANA. Por último, se proporciona el cálculo de tamaño de SAP para los tipos de máquina virtual de Azure compatibles con SAP.
+        - [Nota de soporte técnico de SAP 2015553](https://launchpad.support.sap.com/#/notes/2015553). En esta nota se definen las directivas de soporte técnico relativas a Azure Storage y la relación de soporte técnico necesaria con Microsoft.
         - [Nota de soporte técnico de SAP 2039619](https://launchpad.support.sap.com/#/notes/2039619). En esta nota se define la matriz de compatibilidad de Oracle para Azure. Oracle solo admite Windows y Oracle Linux como sistemas operativos invitados en Azure para cargas de trabajo de SAP. Esta declaración de soporte se aplica también en el nivel de aplicación de SAP que ejecuta instancias de SAP. No obstante, Oracle no permite utilizar una alta disponibilidad para SAP Central Services en Oracle Linux mediante Pacemaker. Si necesita tener una alta disponibilidad para ASCS en Oracle Linux, debe utilizar SIOS Protection Suite para Linux. Para obtener información detallada sobre la certificación de SAP, consulte la nota de soporte técnico de SAP [1662610 - Support details for SIOS Protection Suite for Linux](https://launchpad.support.sap.com/#/notes/1662610) (1662610: información de soporte técnico sobre SIOS Protection Suite para Linux). Para Windows, se admite la solución compatible con SAP de clústeres de conmutación por error de Windows Server para SAP Central Services en combinación con Oracle como nivel de DBMS.
         - [Nota de soporte técnico de SAP 2235581](https://launchpad.support.sap.com/#/notes/2235581). Esta nota proporciona la matriz de compatibilidad para SAP HANA en diferentes versiones del sistema operativo.
         - En el [sitio web de SAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) se indican las máquinas virtuales de Azure compatibles con SAP HANA y las [instancias grandes de HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
         - [Matriz de disponibilidad de productos SAP](https://support.sap.com/en/).
+        - [Nota de soporte técnico de SAP 2555629 - SAP HANA 2.0 Dynamic Tiering – Hypervisor and Cloud Support](https://launchpad.support.sap.com/#/notes/2555629) (SAP HANA 2.0 Dynamic Tiering: hipervisor y soporte en la nube)
+        - [Nota de soporte técnico de SAP 1662610 - Support details for SIOS Protection Suite for Linux](https://launchpad.support.sap.com/#/notes/1662610) (Detalles de soporte técnico de SIOS Protection Suite para Linux)
         - Notas de SAP para otros productos específicos de SAP.     
     - Se recomienda utilizar diseños estrictos de tres niveles para los sistemas de producción de SAP. No se recomienda combinar ASCS y/o DBMS y/o servidores de aplicaciones en una máquina virtual. Se admite el uso de configuraciones de clúster de varios SID para SAP Central Services en sistemas operativos invitados de Windows en Azure. Esta configuración, sin embargo, no se admite para SAP Central Services en sistemas operativos de Linux en Azure. Puede encontrar documentación sobre el escenario de sistema operativo invitado de Windows en estos artículos:
         - [Alta disponibilidad con varios identificadores de seguridad de instancia de ASCS/SCS de SAP para los clústeres de conmutación por error de Windows Server y el disco compartido en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk)
@@ -148,6 +151,21 @@ Se recomienda configurar y validar una solución completa de alta disponibilidad
             - SameSubNetDelay = 2000
             - SameSubNetThreshold = 15
             - RoutingHistorylength = 30
+    6. Correcciones o configuraciones del sistema operativo
+        - Para ejecutar HANA en SAP, lea estas notas y documentos:
+            -   [Nota de soporte técnico de SAP 2814271 - SAP HANA Backup fails on Azure with Checksum Error](https://launchpad.support.sap.com/#/notes/2814271) (No se puede realizar la copia de seguridad de SAP HANA en Azure debido a un error de suma de comprobación)
+            -   [Nota de soporte técnico de SAP 2753418 - Potential Performance Degradation Due to Timer Fallback ](https://launchpad.support.sap.com/#/notes/2753418) (Posible degradación del rendimiento debido a la reserva del temporizador)
+            -   [Nota de soporte técnico de SAP 2791572 - Performance Degradation Because of Missing VDSO Support For Hyper-V in Azure](https://launchpad.support.sap.com/#/notes/2791572) (Degradación del rendimiento debido a la falta de compatibilidad de VDSO con Hyper-V en Azure)
+            -   [Nota de soporte técnico de SAP 2382421 - Optimizing the Network Configuration on HANA- and OS-Level](https://launchpad.support.sap.com/#/notes/2382421) (Optimización de la configuración de red en los niveles de HANA y de sistema operativo)
+            -   [Nota de soporte técnico de SAP 2694118 - Red Hat Enterprise Linux HA Add-On on Azure](https://launchpad.support.sap.com/#/notes/2694118) (Complemento de alta disponibilidad de Red Hat Enterprise Linux en Azure)
+            -   [Nota de soporte técnico de SAP 1984787 - SUSE LINUX Enterprise Server 12: Installation notes](https://launchpad.support.sap.com/#/notes/1984787) (SUSE LINUX Enterprise Server 12: notas de instalación)
+            -   [SAP support note #2002167 - Red Hat Enterprise Linux 7.x: Installation and Upgrade](https://launchpad.support.sap.com/#/notes/0002002167) (Red Hat Enterprise Linux 7.x: instalación y actualización)
+            -   [SAP support note #2292690 - SAP HANA DB: Recommended OS settings for RHEL 7](https://launchpad.support.sap.com/#/notes/0002292690) (2292690 - SAP HANA DB: configuraciones de sistema operativo recomendadas para RHEL 7)
+            -   [Nota de soporte técnico de SAP 2772999 - Red Hat Enterprise Linux 8.x: Installation and Configuration](https://launchpad.support.sap.com/#/notes/2772999) (Red Hat Enterprise Linux 8.x: instalación y configuración)
+            -   [Nota de soporte técnico de SAP 2777782 - SAP HANA DB: Recommended OS settings for RHEL 8](https://launchpad.support.sap.com/#/notes/2777782) (SAP HANA DB: configuración recomendada del sistema operativo para RHEL 8).
+            -   [Nota de soporte técnico de SAP 2578899 – SUSE Linux Enterprise Server 15: Installation Note](https://launchpad.support.sap.com/#/notes/2578899) (SUSE Linux Enterprise Server 15: nota de instalación)
+            -   Nota de soporte técnico de SAP https://launchpad.support.sap.com/#/notes/0002455582)(https://launchpad.support.sap.com/#/notes/0002455582)
+            -    [Nota de soporte técnico de SAP 2729475 - HWCCT Failed with Error "Hypervisor is not supported" on Azure VMs certified for SAP HANA ](https://launchpad.support.sap.com/#/notes/2729475) (HWCCT: error "no se admite el hipervisor" en las máquinas virtuales de Azure certificadas para SAP HANA)
 1. Pruebe los procedimientos de alta disponibilidad y recuperación ante desastres.
    1. Simule situaciones de conmutación por error apagando las máquinas virtuales (sistemas operativos invitados de Windows) o colocando los sistemas operativos en modo de pánico (sistemas operativos invitados de Linux). Este paso le ayudará a averiguar si las configuraciones de conmutación por error funcionan según lo previsto.
    1. Mida cuánto tiempo se tarda en ejecutar una conmutación por error. Si tarda demasiado, considere las siguientes opciones:
@@ -209,7 +227,7 @@ En esta fase recopilará lo que experimentó y aprendió durante las implementac
     - Use el proceso [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) si tiene que combinar la migración con una actualización de la versión de SAP. Tenga en cuenta que no todas las combinaciones de DBMS de origen y de destino son compatibles. Encontrará más información en las notas de soporte técnico de SAP específicas para las diferentes versiones de DMO. Por ejemplo, [Database Migration Option (DMO) of SUM 2.0 SP04](https://launchpad.support.sap.com/#/notes/2644872) (Opción de migración de base de datos [DMO] de SUM 2.0 SP04).
     - Compruebe si el rendimiento de la transferencia de datos es mejor a través de Internet o de ExpressRoute, en caso de que tenga que mover copias de seguridad o archivos de exportación de SAP. Si va a mover datos a través de Internet, es posible que deba cambiar algunas de las reglas del grupo de seguridad de red o del grupo de seguridad de aplicación que necesitará aplicar en los futuros sistemas de producción.
 1.  Antes de mover los sistemas de la plataforma anterior a Azure, recopile los datos de consumo de recursos. Entre los datos útiles se incluyen el uso de CPU, el rendimiento de almacenamiento y los datos de IOPS. Recopile estos datos especialmente en las unidades del nivel de DBMS, pero también en las unidades del nivel de aplicación. Mida también la latencia de la red y del almacenamiento.
-1.  Vuelva a comprobar las notas de soporte técnico de SAP, el directorio de hardware de SAP HANA y SAP PAM. Asegúrese de que no hay cambios en las máquinas virtuales compatibles con Azure, las versiones admitidas del sistema operativo para esas máquinas virtuales, y las versiones admitidas de SAP y DBMS.
+1.  Vuelva a consultar las notas de soporte técnico de SAP y la configuración necesaria del sistema operativo, el directorio de hardware de SAP HANA, y SAP PAM. Asegúrese de que no hay cambios en las máquinas virtuales compatibles con Azure, las versiones admitidas del sistema operativo para esas máquinas virtuales, y las versiones admitidas de SAP y DBMS.
 1.  Actualice los scripts de implementación para tener en cuenta las decisiones más recientes que ha adoptado en lo que respecta a los tipos de máquina virtual y la funcionalidad de Azure.
 1.  Después de implementar la infraestructura y las aplicaciones, compruebe lo siguiente:
     - Se implementaron los tipos correctos de máquina virtual, con los atributos y los tamaños de almacenamiento correctos.
@@ -219,7 +237,7 @@ En esta fase recopilará lo que experimentó y aprendió durante las implementac
     - Las máquinas virtuales se implementaron en conjuntos de disponibilidad de Azure según lo previsto.
     - Se usó Azure Premium Storage para los discos sensibles a la latencia o cuando se requiere el [contrato de nivel de servicio del 99,9 % para una única máquina virtual](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/).
     - El Acelerador de escritura de Azure se implementó correctamente.
-        - Asegúrese de que, en las máquinas virtuales, se crearon correctamente espacios de almacenamiento o conjuntos de franjas en todos los discos que necesitan Acelerador de escritura.
+        - Asegúrese de que, en las máquinas virtuales, se han creado correctamente los espacios de almacenamiento o conjuntos de franjas en los discos que necesitan Acelerador de escritura.
         - Compruebe la [configuración del software RAID en Linux](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid).
         - Compruebe la [configuración del LVM en las máquinas virtuales de Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm).
     - Se usaron exclusivamente [discos administrados de Azure](https://azure.microsoft.com/services/managed-disks/).

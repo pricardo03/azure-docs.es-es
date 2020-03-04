@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 11fdaa0d547e588daa9d264c2393606705554a17
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 2983be507fdc40d033623afa37c72eb2507d99ca
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157282"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597175"
 ---
 # <a name="storage-account-overview"></a>Introducción a las cuentas de almacenamiento
 
@@ -72,7 +72,7 @@ Las cuentas BlockBlobStorage no admiten actualmente los niveles de acceso frecue
 
 Una cuenta FileStorage es una cuenta de almacenamiento especializada que se usa para almacenar y crear recursos compartidos de archivos premium. Este tipo de cuenta de almacenamiento admite archivos, pero no de blobs en bloques, blobs en anexos, blobs en páginas, tablas ni colas.
 
-Las cuentas FileStorage ofrecen características de rendimiento únicas, como la ampliación de IOPS. Para más información sobre estas características, consulte la sección sobre los [niveles de rendimiento de recursos compartidos de archivo](../files/storage-files-planning.md#file-share-performance-tiers) en la guía de planeación de archivos.
+Las cuentas FileStorage ofrecen características dedicadas de rendimiento único, como la ampliación de IOPS. Para más información sobre estas características, consulte la sección sobre las [capas de almacenamiento de recursos compartidos de archivo](../files/storage-files-planning.md#storage-tiers) en la guía de planeación de archivos.
 
 ## <a name="naming-storage-accounts"></a>Nomenclatura de las cuentas de almacenamiento
 

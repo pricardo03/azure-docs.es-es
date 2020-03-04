@@ -9,12 +9,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: 309cf59c4b27c2a5906acfc519edd5306dece2d5
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a9d3d0287e7839d6396553d532ba6f293fb19b68
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789246"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647672"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integración de aplicaciones controladas por pantallas 3270 en sistemas centrales de IBM con Azure mediante Azure Logic Apps y el conector de IBM 3270
 
@@ -39,9 +39,9 @@ Para ampliar estos escenarios, el conector de IBM 3270 de Azure Logic Apps funci
 
 Una vez que genere el archivo de metadatos a partir de la herramienta de diseño, agregará ese archivo a una cuenta de integración de Azure. De ese modo, su aplicación lógica podrá obtener acceso a los metadatos de su aplicación al agregar una acción del conector 3270. El conector lee el archivo de metadatos en su cuenta de integración, controla la navegación a través de las pantallas 3270 y presenta de forma dinámica los parámetros para la acción del conector 3270. A partir de ese momento, puede proporcionar datos a la aplicación host y el conector devuelve los resultados a su aplicación lógica. De este modo, puede integrar sus aplicaciones heredadas con Azure, Microsoft y otras aplicaciones, servicios y sistemas que Azure Logic Apps admite.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -182,7 +182,7 @@ En este modo, define el flujo o los pasos para navegar por las pantallas de su a
 
 1. En **Elegir nuevo nombre del plan**, escriba un nombre para su plan. En la lista **Tipo**, seleccione el tipo de plan:
 
-   | Tipo de plan | DESCRIPCIÓN |
+   | Tipo de plan | Descripción |
    |-----------|-------------|
    | **Proceso** | Para los planes independientes o combinados |
    | **Conexión** | Para los planes de conexión |
@@ -358,12 +358,12 @@ Al completar todos estos pasos, podrá usar la acción que crea en su aplicació
 
 1. Si aún no existe ninguna conexión, proporcione la información necesaria para su conexión y elija **Crear**.
 
-   | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Value | Descripción |
    |----------|----------|-------|-------------|
    | **Nombre de la conexión** | Sí | <*connection-name*> | El nombre de la conexión |
    | **Id. de cuenta de integración** | Sí | <*integration-account-name*> | Nombre de su cuenta de integración |
    | **Dirección URL de SAS de la cuenta de integración** | Sí | <*integration-account-SAS-URL*> | Dirección URL de la Firma de acceso compartido (SAS) de su cuenta de integración, que puede generar a partir de la configuración de dicha cuenta en Azure Portal. <p>1. En el menú de la cuenta de integración, en **Configuración**, seleccione **Dirección URL de devolución de llamada**. <br>2. En el panel derecho, copie el valor **Dirección URL de devolución de llamada generada**. |
-   | **Servidor** | Sí | <*TN3270-server-name*> | Nombre del servidor para su servicio TN3270 |
+   | **Server** | Sí | <*TN3270-server-name*> | Nombre del servidor para su servicio TN3270 |
    | **Puerto** | Sin | <*TN3270-server-port*> | Puerto utilizado por el servidor TN3270. Si se deja en blanco, el conector usa `23` como valor predeterminado. |
    | **Tipo de dispositivo** | Sin | <*IBM-terminal-model*> | Nombre o número del modelo para el terminal de IBM que se va a emular. Si se deja en blanco, el conector usa valores predeterminados. |
    | **Página de códigos** | Sin | <*code-page-number*> | Número de la página de códigos para el host. Si se deja en blanco, el conector usa `37` como valor predeterminado. |
@@ -378,7 +378,7 @@ Al completar todos estos pasos, podrá usar la acción que crea en su aplicació
 
 1. Proporcione la información necesaria para la acción:
 
-   | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Value | Descripción |
    |----------|----------|-------|-------------|
    | **Nombre de HIDX** | Sí | <*HIDX-file-name*> | Seleccione el archivo HIDX 3270 que desea usar. |
    | **Nombre de método** | Sí | <*method-name*> | Seleccione el método en el archivo HIDX que desea usar. Una vez seleccionado un método, aparece la lista **Agregar nuevo parámetro** para que pueda seleccionar los parámetros que se van a usar con ese método. |
@@ -409,7 +409,10 @@ Al completar todos estos pasos, podrá usar la acción que crea en su aplicació
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener información técnica acerca de los desencadenadores, las acciones y los límites, que se detallan en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia de los conectores](/connectors/si3270/).
+Si necesita más detalles técnicos sobre este conector, como los desencadenadores, las acciones y los límites que se describen en el archivo de Swagger del conector, consulte la [página de referencia del conector](https://docs.microsoft.com/connectors/si3270/).
+
+> [!NOTE]
+> En el caso de las aplicaciones lógicas de un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versión con la etiqueta ISE de este conector usa en su lugar los [límites de mensajes de ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

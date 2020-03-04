@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 226ed1fcc72eada399c0a9a9eb4225d79cd83dd7
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: efb6cd1a45ac14dcbd5b2b6d8e70f5ee096ddbd8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845889"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587284"
 ---
 # <a name="hyperscale-service-tier"></a>Nivel de servicio Hiperescala
 
@@ -112,7 +112,7 @@ Con la capacidad de aumentar o disminuir rápidamente los nodos de ejecución ad
 
 ## <a name="create-a-hyperscale-database"></a>Creación de una base de datos de Hiperescala
 
-Las bases de datos de Hiperescala se pueden crear desde [Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) o la [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Las bases de datos de Hiperescala solo están disponibles cuando se usa el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
+Las bases de datos de Hiperescala se pueden crear desde [Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) o la [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Las bases de datos de Hiperescala solo están disponibles cuando se usa el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
 
 El siguiente comando de Transact-SQL crea una base de datos de Hiperescala. Debe especificar tanto la edición como el servicio objetivo en la instrucción `CREATE DATABASE`. Consulte los [límites de recursos](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen4) para obtener una lista de los objetivos de servicio válidos.
 
@@ -125,7 +125,7 @@ Esto creará una base de datos Hiperescala en el hardware de Gen5 con 4 núcleos
 
 ## <a name="migrate-an-existing-azure-sql-database-to-the-hyperscale-service-tier"></a>Migración de una base de datos de Azure SQL existente al nivel de servicio Hiperescala
 
-Puede mover las bases de datos de Azure SQL existentes a Hiperescala con [Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) o la [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). Actualmente, esta migración es unidireccional. No se pueden trasladar bases de datos de Hiperescala a otro nivel de servicio, excepto mediante la exportación e importación de datos. Para las pruebas de concepto (POC), se recomienda que haga una copia de las bases de datos de producción y la migre a Hiperescala. La migración de una base de datos de Azure SQL existente al nivel Hiperescala tiene el tamaño de una operación de datos.
+Puede mover las bases de datos de Azure SQL existentes a Hiperescala con [Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) o la [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). Actualmente, esta migración es unidireccional. No se pueden trasladar bases de datos de Hiperescala a otro nivel de servicio, excepto mediante la exportación e importación de datos. Para las pruebas de concepto (POC), se recomienda que haga una copia de las bases de datos de producción y la migre a Hiperescala. La migración de una base de datos de Azure SQL existente al nivel Hiperescala tiene el tamaño de una operación de datos.
 
 El siguiente comando de T-SQL traslada una base de datos al nivel de servicio Hiperescala. Debe especificar tanto la edición como el servicio objetivo en la instrucción `ALTER DATABASE`.
 
@@ -173,7 +173,7 @@ El nivel Hiperescala de Azure SQL Database está disponible actualmente en las r
 - Centro de EE. UU.
 - Este de China 2
 - Norte de China 2
-- Asia oriental
+- Este de Asia
 - Este de EE. UU.
 - Este de EE. UU. 2
 - Centro de Francia
@@ -185,55 +185,21 @@ El nivel Hiperescala de Azure SQL Database está disponible actualmente en las r
 - Norte de Europa
 - Norte de Sudáfrica
 - Centro-sur de EE. UU.
-- Sudeste asiático
+- Sudeste de Asia
 - Sur de Reino Unido 2
 - Oeste de Reino Unido
 - Oeste de Europa
 - Oeste de EE. UU.
 - Oeste de EE. UU. 2
 
-Si desea crear una base de datos Hiperescala en una región que no conste como admitida, puede enviar una solicitud de incorporación a través de Azure Portal. Estamos trabajando para ampliar la lista de regiones admitidas, así que consulte la lista de regiones más reciente.
+Si desea crear una base de datos Hiperescala en una región que no conste como admitida, puede enviar una solicitud de incorporación a través de Azure Portal. Para obtener instrucciones, consulte [Solicitud de aumentos de cuota para Azure SQL Database](quota-increase-request.md). Cuando envíe la solicitud, utilice las siguientes directrices:
 
-Para solicitar la capacidad de crear bases de datos Hiperescala en regiones que no constan en la lista:
-
-1. Vaya a [Hoja de ayuda y soporte técnico de Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
-
-2. Haga clic en [**Nueva solicitud de soporte técnico**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-
-    ![Hoja de ayuda y soporte técnico de Azure](media/sql-database-service-tier-hyperscale/request-screen-1.png)
-
-3. En **Tipo de problema**, seleccione **Límites de servicio y suscripción (cuotas)** .
-
-4. Elija la suscripción que utilizaría para crear las bases de datos.
-
-5. En **Tipo de cuota**, seleccione **Base de datos SQL**.
-
-6. Haga clic en **Siguiente: Soluciones**
-
-1. Haga clic en **Proporcionar detalles**
-
-    ![Detalles del problema](media/sql-database-service-tier-hyperscale/request-screen-2.png)
-
-8. Elija **Tipo de cuota de base de datos SQL**: **otra solicitud de cuota**
-
-9. Rellene la plantilla siguiente:
-
-    ![Detalles de la cuota](media/sql-database-service-tier-hyperscale/request-screen-3.png)
-
-    En la plantilla, proporcione la información siguiente:
-
-    > Solicitud para crear la base de datos de SQL Azure Hiperescala en una región nueva<br/> Región: (escriba la región solicitada)  <br/>
-    > Procese el SKU/número total de núcleos, incluidas las réplicas legibles <br/>
-    > Número de TB estimado 
-    >
-
-10. Elija **Severity C** (Gravedad C)
-
-11. Elija el método de contacto adecuado y rellene los detalles.
-
-12. Haga clic en **Guardar** y **Continuar**.
+- Use el tipo de cuota de base de datos SQL [Otra solicitud de cuota](quota-increase-request.md#other).
+- En los detalles del texto, agregue la SKU/el número total de núcleos de proceso, incluidas las réplicas legibles.
+- Especifique también los TB estimados.
 
 ## <a name="known-limitations"></a>Restricciones conocidas
+
 Estas son las limitaciones actuales para el nivel de servicio Hiperescala en disponibilidad general.  Estamos trabajando activamente para eliminar tantas limitaciones como sea posible.
 
 | Problema | Descripción |

@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 11f5bd7f01e142273509ae59ddc19a2557464bde
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 40d8e298237b6110fee04aefbb7b79c5f3bac6f0
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152319"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598619"
 ---
 # <a name="export-data-module"></a>Módulo Exportación de datos
 
 En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
-Utilice este módulo para guardar los resultados, los datos intermedios y los datos de trabajo de las canalizaciones en los destinos de almacenamiento en la nube fuera de Azure Machine Learning. 
+Utilice este módulo para guardar los resultados, los datos intermedios y los datos de trabajo de las canalizaciones en los destinos de almacenamiento en la nube. 
 
 Este módulo admite la exportación de los datos a los siguientes servicios de datos en la nube:
 
@@ -41,7 +41,13 @@ Antes de exportar los datos, debe registrar un almacén de datos en el área de 
 
 1. En **Almacén de datos**, seleccione un almacén de datos existente en la lista desplegable. También puede crear un nuevo almacén de datos. Para ver cómo, consulte [Acceso a los datos en los servicios de almacenamiento de Azure](../how-to-access-data.md).
 
-1. Defina la ruta del almacén de datos en el que se van a escribir los datos. 
+1. La casilla **Regenerate output** (Regenerar salida), decide si se debe ejecutar el módulo para regenerar la salida en tiempo de ejecución. 
+
+    De forma predeterminada, no está seleccionada, lo que significa que si el módulo se ha ejecutado con los mismos parámetros anteriormente, el sistema reutilizará la salida de la última ejecución para reducir el tiempo de ejecución. 
+
+    Si se selecciona, el sistema volverá a ejecutar el módulo para regenerar la salida.
+
+1. Defina la ruta del almacén de datos en el que se encuentran los datos. La ruta es una ruta de acceso relativa. No se permiten las rutas de acceso vacías o de dirección URL.
 
 
 1. Para **Formato de archivo**, seleccione el formato en el que se deben almacenar los datos.

@@ -4,18 +4,16 @@ description: Aprenda a implementar un monitor de estado con la extensión Durabl
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: f8a589bd4ab4de396c0688f8022515d6fbec96a2
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: ed92156df9d8e1e07b56cea4b1e64edee11d68d9
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769598"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562129"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Escenario de supervisión en Durable Functions: ejemplo de supervisión meteorológica
 
 El patrón de supervisión hace referencia a un proceso *periódico* flexible de un flujo de trabajo; por ejemplo, realizar un sondeo hasta que se cumplan determinadas condiciones. En este artículo se explica un ejemplo que usa [Durable Functions](durable-functions-overview.md) para implementar la supervisión.
-
-[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -30,11 +28,13 @@ En este ejemplo se supervisan las condiciones meteorológicas actuales de una ub
 * Las supervisiones son escalables. Debido a que cada supervisión es una instancia de orquestación, se pueden crear múltiples supervisiones sin tener que crear nuevas funciones ni definir más código.
 * Las supervisiones se integran fácilmente en flujos de trabajo mayores. Una supervisión puede ser una sección de una función de orquestación más compleja, o una [suborquestación](durable-functions-sub-orchestrations.md).
 
-## <a name="configuring-twilio-integration"></a>Configuración de la integración de Twilio
+## <a name="configuration"></a>Configuración
+
+### <a name="configuring-twilio-integration"></a>Configuración de la integración de Twilio
 
 [!INCLUDE [functions-twilio-integration](../../../includes/functions-twilio-integration.md)]
 
-## <a name="configuring-weather-underground-integration"></a>Configuración de la integración de Weather Underground
+### <a name="configuring-weather-underground-integration"></a>Configuración de la integración de Weather Underground
 
 Este ejemplo implica el uso de la API de Weather Underground para comprobar las condiciones meteorológicas actuales de una ubicación.
 
@@ -50,27 +50,29 @@ Cuando tenga una clave de API, agregue la siguiente **configuración de la aplic
 
 En este artículo se explican las funciones siguientes en la aplicación de ejemplo:
 
-* `E3_Monitor`: una función de orquestador que llama a `E3_GetIsClear` periódicamente. Llama a `E3_SendGoodWeatherAlert` si `E3_GetIsClear` devuelve true.
-* `E3_GetIsClear`: una función de la actividad que comprueba las condiciones meteorológicas actuales de una ubicación.
+* `E3_Monitor`: una [función de orquestador](durable-functions-bindings.md#orchestration-trigger) que llama periódicamente a `E3_GetIsClear`. Llama a `E3_SendGoodWeatherAlert` si `E3_GetIsClear` devuelve true.
+* `E3_GetIsClear`: una [función de la actividad](durable-functions-bindings.md#activity-trigger) que comprueba las condiciones meteorológicas actuales de una ubicación.
 * `E3_SendGoodWeatherAlert`: una función de la actividad que envía un mensaje SMS por Twilio.
 
-En las siguientes secciones se explican la configuración y el código que se utilizan para el scripting C# y para JavaScript. Al final del artículo se muestra el código para el desarrollo de Visual Studio.
+### <a name="e3_monitor-orchestrator-function"></a>Función de orquestador E3_Monitor
 
-## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>La orquestación de supervisión meteorológica (código de ejemplo de Azure Portal y Visual Studio Code)
+# <a name="c"></a>[C#](#tab/csharp)
+
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=41-78,97-115)]
+
+El orquestador requiere una ubicación para supervisar y un número de teléfono al que enviar un mensaje cuando el tiempo aparece despejado en la ubicación. Estos datos se pasan al orquestador como un objeto `MonitorRequest` con un tipo inflexible.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 La función **E3_Monitor** utiliza la norma *function.json* para las funciones de orquestador.
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E3_Monitor/function.json)]
+[!code-json[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/function.json)]
 
 Este es el código que implementa la función:
 
-### <a name="c-script"></a>Script de C#
-
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
-
-### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
-
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
+
+---
 
 Esta función de orquestador realiza las acciones siguientes:
 
@@ -79,48 +81,52 @@ Esta función de orquestador realiza las acciones siguientes:
 3. Llama a **E3_GetIsClear** para determinar si el cielo está despejado en la ubicación solicitada.
 4. Si está despejado, llama a **E3_SendGoodWeatherAlert** para enviar una notificación por SMS al número de teléfono solicitado.
 5. Crea un temporizador duradero para reanudar la orquestación en el siguiente intervalo de sondeo. El ejemplo utiliza un valor modificable por brevedad.
-6. Sigue ejecutándose hasta que `CurrentUtcDateTime` (.NET) o `currentUtcDateTime` (JavaScript) pasan la hora de expiración de la supervisión o se envía una alerta por SMS.
+6. Continúa ejecutándose hasta que la hora universal coordinada actual pasa la hora de expiración de la supervisión o se envía una alerta por SMS.
 
-Para ejecutar simultáneamente varias instancias del orquestador, envíe varias funciones **MonitorRequests**. Se puede especificar la ubicación que se va a supervisar, así como el número de teléfono para enviar una alerta por SMS.
+Se pueden ejecutar varias instancias de orquestador de forma simultanea llamando varias veces a la función de orquestador. Se puede especificar la ubicación que se va a supervisar, así como el número de teléfono para enviar una alerta por SMS.
 
-## <a name="strongly-typed-data-transfer-net-only"></a>Transferencia de datos fuertemente tipados (solo .NET)
+### <a name="e3_getisclear-activity-function"></a>Función de actividad E3_GetIsClear
 
-El orquestador requiere varios fragmentos de datos, por lo que se usan [objetos POCO compartidos](../functions-reference-csharp.md#reusing-csx-code) para la transferencia de datos fuertemente tipados en C# y scripts de C#:  
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
+Al igual que otros ejemplos, las funciones auxiliares de actividad son básicamente funciones normales que usan el enlace del desencadenador `activityTrigger`. La función **E3_GetIsClear** obtiene las condiciones meteorológicas actuales utilizando la API de Weather Underground y determina si el cielo está despejado.
 
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
+# <a name="c"></a>[C#](#tab/csharp)
 
-En el ejemplo de JavaScript se usan objetos JSON normales como parámetros.
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=80-85)]
 
-## <a name="helper-activity-functions"></a>Funciones auxiliares de actividad
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Al igual que otros ejemplos, las funciones auxiliares de actividad son básicamente funciones normales que usan el enlace del desencadenador `activityTrigger`. La función **E3_GetIsClear** obtiene las condiciones meteorológicas actuales utilizando la API de Weather Underground y determina si el cielo está despejado. *function.json* se define como sigue:
+*function.json* se define como sigue:
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/function.json)]
+[!code-json[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/function.json)]
 
-Y esta es la implementación. Al igual que los objetos POCO usados para la transferencia de datos, la lógica para tratar la llamada API y analizar el JSON de respuesta se abstrae en una clase compartida en C#. Puede encontrarlo como parte del [código de ejemplo de Visual Studio](#run-the-sample).
-
-### <a name="c-script"></a>Script de C#
-
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
-
-### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
+Y esta es la implementación.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
-La función **E3_SendGoodWeatherAlert** usa el enlace de Twilio para enviar un mensaje SMS que notifica al usuario final que es un buen momento para dar un paseo. La *function.json* es simple:
+---
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/function.json)]
+### <a name="e3_sendgoodweatheralert-activity-function"></a>Función de actividad E3_SendGoodWeatherAlert
+
+La función **E3_SendGoodWeatherAlert** usa el enlace de Twilio para enviar un mensaje SMS que notifica al usuario final que es un buen momento para dar un paseo.
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=87-96,140-205)]
+
+> [!NOTE]
+> Tendrá que instalar el paquete NuGet `Microsoft.Azure.WebJobs.Extensions.Twilio` para ejecutar el código de ejemplo.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+La *function.json* es simple:
+
+[!code-json[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/function.json)]
 
 Y este es el código que envía el mensaje SMS:
 
-### <a name="c-script"></a>Script de C#
-
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
-
-### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
-
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
+
+---
 
 ## <a name="run-the-sample"></a>Ejecución del ejemplo
 
@@ -168,15 +174,6 @@ La orquestación [finalizará](durable-functions-instance-management.md) una vez
 ```
 POST https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}
 ```
-
-## <a name="visual-studio-sample-code"></a>Código de ejemplo de Visual Studio
-
-Esta es la orquestación como archivo único de C# en un proyecto de Visual Studio:
-
-> [!NOTE]
-> Habrá de instalar el paquete NuGet `Microsoft.Azure.WebJobs.Extensions.Twilio` para ejecutar el siguiente código de ejemplo.
-
-[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

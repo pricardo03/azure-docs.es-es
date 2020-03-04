@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 02/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9fe24e4a2b25b1ef3f0da2b1a5e1c0f29251df1
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: dff80d849268c770e4227ff8c99b8f4d133c4d78
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77192081"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620725"
 ---
 # <a name="conditional-access-conditions"></a>Acceso condicional: Condiciones
 
@@ -54,6 +54,8 @@ Al incluir **cualquier ubicación**, esta opción incluye cualquier dirección I
 
 Por ejemplo, algunas organizaciones pueden optar por no requerir la autenticación multifactor cuando los usuarios están conectados a la red en una ubicación de confianza, como su oficina central física. Los administradores pueden crear una directiva que incluya cualquier ubicación, pero excluya las ubicaciones seleccionadas para las redes de la oficina central.
 
+Para más información sobre las ubicaciones, consulte el artículo [¿Qué es la condición de ubicación del acceso condicional de Azure Active Directory?](location-condition.md)
+
 ## <a name="client-apps-preview"></a>Aplicaciones cliente (versión preliminar)
 
 De forma predeterminada, las directivas de acceso condicional se aplican a aplicaciones basadas en explorador y aplicaciones que usan protocolos de autenticación modernos. Además de estas aplicaciones, los administradores pueden elegir incluir clientes de Exchange ActiveSync y otros clientes que utilicen protocolos heredados.
@@ -64,9 +66,21 @@ De forma predeterminada, las directivas de acceso condicional se aplican a aplic
    - Clientes de autenticación moderna
       - Esta opción incluye aplicaciones como las aplicaciones de teléfono y escritorio de Office.
    - Clientes de Exchange ActiveSync
+      - De forma predeterminada, esto incluye cualquier uso del protocolo Exchange ActiveSync (EAS). Si se selecciona **Aplicar directiva solo en las plataformas compatibles**, se limitará a las plataformas compatibles, como iOS, Android y Windows.
       - Cuando la directiva bloquea el uso de Exchange ActiveSync, el usuario afectado recibirá un único mensaje de correo electrónico de cuarentena. Este mensaje de correo electrónico proporciona información sobre por qué está bloqueado e incluye instrucciones de corrección si es posible.
    - Otros clientes
-      - Esta opción incluye clientes que usan protocolos de autenticación básicos/heredados, como IMAP, MAPI, POP, SMTP y aplicaciones de Office heredadas que no admiten la autenticación moderna.
+      - Esta opción incluye clientes que usan protocolos de autenticación básicos/heredados que no admiten la autenticación moderna.
+         - SMTP autenticado: usado por clientes POP e IMAP para enviar mensajes de correo electrónico.
+         - Detección automática: usada por clientes Outlook y EAS para buscar y conectarse a buzones en Exchange Online.
+         - Exchange Online PowerShell: se usa para conectarse a Exchange Online con PowerShell remoto. Si bloquea la autenticación básica para Exchange Online PowerShell, debe usar el módulo de Exchange Online PowerShell para conectarse. Para obtener instrucciones, consulte [Conexión a Exchange Online PowerShell con autenticación multifactor](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
+         - Servicios web Exchange (EWS): una interfaz de programación que se usa en Outlook, Outlook para Mac y aplicaciones de terceros.
+         - IMAP4: usado por clientes de correo electrónico IMAP.
+         - MAPI sobre HTTP (MAPI/HTTP): usado por Outlook 2010 y versiones posteriores.
+         - Libreta de direcciones sin conexión (OAB): una copia de las colecciones de listas de direcciones que Outlook descarga y usa.
+         - Outlook en cualquier lugar (RPC a través de HTTP): usado por Outlook 2016 y versiones anteriores.
+         - Servicio Outlook: usado por la aplicación de correo electrónico y calendario de Windows 10.
+         - POP3: usado por clientes de correo electrónico POP.
+         - Servicios web de creación de informes: se usan para recuperar datos de informes en Exchange Online.
 
 Estas condiciones se suelen usar cuando se requiere un dispositivo administrado, se bloquea la autenticación heredada y se bloquea la aplicación web, pero se permiten aplicaciones móviles o de escritorio.
 
@@ -139,7 +153,7 @@ Esta configuración afecta a los intentos de acceso realizados desde las siguien
 | Outlook 2016, Outlook 2013 (con autenticación moderna) y Skype Empresarial (con autenticación moderna) | Office 365 Exchange Online | Windows 8.1, Windows 7, Windows 7 |
 | Aplicación móvil de Outlook | Office 365 Exchange Online | Android, iOS |
 | Power BI app | Servicio Power BI | Windows 10, Windows 8.1, Windows 7, Android e iOS |
-| Skype Empresarial | Office 365 Exchange Online| Android, IOS |
+| Skype Empresarial | Office 365 Exchange Online| Android, iOS |
 | Aplicación de Visual Studio Team Services | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS y Android |
 
 ### <a name="exchange-activesync-clients"></a>Clientes de Exchange ActiveSync

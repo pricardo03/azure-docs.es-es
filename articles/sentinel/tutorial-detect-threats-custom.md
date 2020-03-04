@@ -3,7 +3,7 @@ title: Creación de reglas de análisis personalizadas para detectar amenazas so
 description: Use este tutorial para aprender a crear reglas de análisis personalizadas para detectar amenazas sospechosas con Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: 9c4ba09c7e3eca4482ed56b0b337124aeec5b838
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.date: 02/20/2020
+ms.author: yelevin
+ms.openlocfilehash: cea7429ecea105355b0afe306bfa334e55d5d9c4
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928251"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585114"
 ---
 # <a name="tutorial-create-custom-analytic-rules-to-detect-suspicious-threats"></a>Tutorial: Creación de reglas de análisis personalizadas para detectar amenazas sospechosas
 
@@ -36,49 +36,70 @@ Puede crear reglas de análisis personalizadas que le ayuden a buscar los tipos 
 
 1. En Azure Portal en Azure Sentinel, seleccione **Analytics**.
 
-1. En la barra de menús superior, seleccione **+Crear** y seleccione**Regla de consulta programada**. Esto abrirá el **asistente para la creación de reglas personalizadas**.
+1. En la barra de menús superior, seleccione **+Crear** y seleccione**Regla de consulta programada**. Así se abre el **Asistente para reglas de Analytics**.
 
     ![Crear una consulta programada](media/tutorial-detect-threats-custom/create-scheduled-query.png)
 
-1. En la pestaña**General**, proporcione un nombre descriptivo y una descripción. Establezca **Gravedad de la alerta** según sea necesario. Cuando cree la regla puede habilitarla, lo cual hará que se pueda ejecutar inmediatamente después de finalizar su creación. Si la crea como deshabilitada, la regla se agregará a la pestaña**Reglas activas** y podrá habilitarla desde allí cuando sea necesario.
+1. En la pestaña **General**, especifique unos valores únicos en los campos **Name** (Nombre) y **Description** (Descripción). En el campo **Tactics** (Táctica), puede elegir cualquiera de las categorías de ataques por las que se clasifica la regla. Establezca la **gravedad** según sea necesario. Cuando cree la regla, el valor predeterminado del campo **Status** (Estado) es **Enabled** (Habilitado), lo que significa que se ejecutará inmediatamente después de que termine de crearla. Si no desea ejecutarla de inmediato, seleccione **Disabled** (Deshabilitado) para agregar la regla a la pestaña **Active rules** (Reglas activas), desde donde podrá habilitarla cuando sea necesario.
 
     ![Empezar a crear una regla de análisis personalizada](media/tutorial-detect-threats-custom/general-tab.png)
 
-1. En la pestaña **Configuración**, puede escribir una consulta directamente o crearla en Log Analytics y pegarla a continuación en el campo **Consulta de búsqueda**. A medida que cambia y configura la consulta, Azure Sentinel simula los resultados de la consulta en la ventana **Vista previa de resultados**, situada a la derecha. Esto le permite obtener información sobre cuántos datos se generarían durante un intervalo de tiempo específico para la alerta que está creando. La cantidad depende de lo que haya establecido en **Run query every** (Ejecutar consulta cada) y en **Lookup data from the last**(Buscar datos desde el más reciente). Si ve que su alerta se activaría con demasiada frecuencia, puede establecer un número mayor de resultados para que esté por encima de la línea de base promedio.
-
+1. En la pestaña **Set rule logic** (Establecer lógica de regla), puede escribir una consulta directamente en el campo **Rule query** (Consulta de búsqueda), o bien crearla en Log Analytics y, después, copiarla y pegarla ahí.
+ 
    ![Crear una consulta en Azure Sentinel](media/tutorial-detect-threats-custom/settings-tab.png)
 
-   Aquí tiene una consulta de ejemplo que le alertará cuando se cree una cantidad anómala de recursos en Azure Activity.
+   - Vea el área **Results preview** (Vista previa de resultados) de la derecha, donde Azure Sentinel muestra el número de resultados (eventos de registro) que va a generar la consulta, lo que cambia sobre la marcha mientras se escribe y configura la consulta. El gráfico muestra el número de resultados en un periodo definido, lo que determina la configuración de la sección **Query scheduling** (Programación de consultas).
+    - Si ve que su consulta desencadena demasiadas alertas o alertas demasiado frecuentes, puede establecer una base de referencia en la sección **Alert threshold** (Umbral de alerta).
 
-    `AzureActivity
-    \| where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
-    \| where ActivityStatus == "Succeeded"
-    \| make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller`
+      Aquí tiene una consulta de ejemplo que le alertará cuando se cree una cantidad anómala de recursos en Azure Activity.
 
-   > [!NOTE]
-   > La longitud de la consulta debe estar entre 1 y 10 000 caracteres y no puede contener las palabras "buscar \*" ni "unión \*".
+      `AzureActivity
+     \| where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
+     \| where ActivityStatus == "Succeeded"
+     \| make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller`
 
-    1. En **Query scheduling** (Programación de consultas), establezca los siguientes parámetros:
+      > [!NOTE]
+      > La longitud de la consulta debe estar entre 1 y 10 000 caracteres y no puede contener las palabras "buscar \*" ni "unión \*".
 
-        1.  Establezca la opción **Run query every** (Ejecutar consulta cada) para establecer la **frecuencia** de ejecución de la consulta; puede establecer frecuencias de 5 minutos o de una vez al día.
+    1. Use la sección **Map entities** (Asignar entidades) para vincular parámetros de los resultados de las consultas a entidades reconocidas de Azure Sentinel. Estas entidades forman la base del posterior análisis, lo que incluye la agrupación de alertas en incidentes en la pestaña **Incident settings** (Configuración de incidentes).
+    1. En la sección **Query scheduling** (Programación de consultas), establezca los siguientes parámetros:
 
-        1.  Establezca la opción **Lookup data from the last** (Buscar datos desde el más reciente) para controlar la ventana de tiempo correspondiente a la cantidad de datos en los que se ejecuta la consulta; por ejemplo, puede ejecutarse cada hora en 60 minutos de datos.
+       1. Establezca la opción **Run query every** (Ejecutar consulta cada) para controlar la frecuencia de ejecución de la consulta (puede establecer frecuencias de 5 minutos o de una vez al día).
 
-        1. Puede establecer Azure Sentinel en **Stop running the query after alert is generated** (Detener la ejecución de la consulta después de que se genere la alerta) si solo desea recibir la alerta cuando se produce el incidente. Debe establecer el intervalo durante el cual la consulta debe dejar de ejecutarse, 24 horas como máximo.
+       1. Set **Lookup data from the last** (Datos de la búsqueda a partir del último) para determinar el periodo de los datos que cubre la consulta (por ejemplo, puede consultar los 10 últimos minutos de datos o las 6 últimas horas de datos).
 
-    1. Defina las condiciones de activación de las alertas en **Activación de alertas**. En **Asignación de entidades**, puede asignar las columnas en su consulta a los campos de entidades que reconoce Azure Sentinel. Para cada campo, asigne la columna relevante en la consulta que creó en Log Analytics, al campo de entidad apropiado. Cada entidad incluye varios campos, por ejemplo SID y GUID. Puede asignar la entidad a cualquiera de los campos, y no solo a la entidad de nivel superior.
+       > [!NOTE]
+       > Estos dos valores son independientes entre sí, hasta cierto punto. Puede ejecutar una consulta a un intervalo corto que abarque un periodo mayor que el intervalo (teniendo en efecto consultas que se solapan), pero no puede ejecutar una consulta a un intervalo que supere el periodo de cobertura, ya que, de lo contrario tendrá lagunas en la cobertura general de la consulta.
 
-1.  En la pestaña **Automate responses** (Automatizar respuestas), seleccione todos los cuadernos de estrategias que desee ejecutar automáticamente cuando la regla personalizada genere una alerta. Para más información sobre la creación y automatización de los cuadernos de estrategias, consulte [Respuesta a amenazas](tutorial-respond-threats-playbook.md).
+    1. Use la sección **Alert threshold** (Umbral de alerta) para definir una base de referencia. Por ejemplo, en **Generate alert when number of query results** (Generar una alerta cuando el número de resultados de la consulta), seleccione **Is greater than** (Es mayor que) y escriba el número 1000 si desea que la regla genere una alerta solo si la consulta genera más de 1000 resultados cada vez que se ejecuta. Al ser este un campo obligatorio, si no desea establecer una base de referencia (es decir, si desea que su alerta registre todos los eventos) escriba 0 en el campo numérico.
 
-    ![Automatización de la respuesta a las amenazas en Azure Sentinel](media/tutorial-detect-threats-custom/response-automation-custom.png)
+    1. In the **Suppression** (Supresión), en el valor **Stop running query after alert is generated** (Detener la ejecución de la consulta después de que se genere una alerta), seleccione **On** (Activar) si, una vez que recibe la alerta, desea suspender la operación de esta reglar durante un periodo que supere el intervalo de consulta. Si lo activa, en **Stop running query for** (Detener la ejecución de la consulta durante), seleccione el periodo durante el que debe detenerse la consulta, con un máximo de 24 horas.
 
-1. Seleccione **Revisar** para revisar todos los valores de la nueva regla de alertas y, después, seleccione **Create to initialize your alert rule** (Crear para inicializar la regla de alertas).
+1. En la pestaña **Incident Settings** (Configuración de incidentes), puede elegir si Azure Sentinel convierte las alertas en incidentes sobre los que se pueden realizar acciones y cómo lo hace. Si esta pestaña no se modifica, Azure Sentinel creará un solo incidente independiente a partir de todas y cada una de las alertas. Puede elegir que no se creen incidentes o agrupar varias alertas en un solo incidente. Para ello, solo debe cambiar el valor de esta pestaña.
 
-   ![Revisar la consulta personalizada](media/tutorial-detect-threats-custom/review-tab.png)
+    1. En la sección **Incident Settings** (Configuración de incidentes), el valor predeterminado de **Create incidents from alerts triggered by this analytics rule** (Crear incidentes a partir de alertas desencadenadas por esta regla de análisis) es **Enabled** (Habilitado), lo que significa que Azure Sentinel creará un solo incidente independiente por cada una de las alertas que desencadene la regla.<br></br>Si no desea que esta regla provoque la aparición de incidentes (por ejemplo, si esta regla es solo para recopilar información para su posterior análisis), seleccione **Disabled** (Deshabilitado).
 
-1.  Una vez creada la alerta, se agrega una regla personalizada a la tabla en **Active rules** (Reglas activas). Desde esta lista puede habilitar, deshabilitar o eliminar cada regla.
+    1. En la sección **Alert grouping** (Agrupación de alertas), si desea que se genere un solo incidente a partir de un grupo de alertas similares o recurrentes, en **Group related alerts, triggered by this analytics rule, into incidents** (Agrupar en incidentes alertas relacionadas desencadenadas por esta regla de análisis) seleccione **Enabled** (Habilitado) y establezca los siguientes parámetros.
 
-1.  Para ver los resultados de las reglas de alertas, vaya a la página de **incidentes**, donde puede evaluar las prioridades,  [investigar los incidentes](tutorial-investigate-cases.md) y solucionar las amenazas.
+    1. **Limite el grupo a las alertas creadas en el período de tiempo seleccionado**:<br></br> Determine el período de tiempo en el que se agruparán las alertas similares o periódicas. Todas las alertas correspondientes que se encuentren dentro de este periodo de tiempo generarán colectivamente un incidente o un conjunto de incidentes (en función de la configuración de agrupación que encontrará a continuación). Las alertas que aparezcan fuera de este periodo de tiempo generarán un incidente, o conjunto de incidentes, independientes.
+
+    2. **Agrupe las alertas desencadenadas por esta regla de análisis en un único incidente por**: elija el motivo por el que se agruparán las alertas:
+
+        - **Agrupar las alertas en un solo incidente si todas las entidades coinciden**: <br></br>Las alertas se agrupan si comparten los mismos valores entre todas las entidades asignadas (definidas en la pestaña Set rule logic [Establecer lógica de regla] anterior). Éste es el valor recomendado.
+
+        - **Agrupar todas las alertas desencadenadas por esta regla en un único incidente**: <br></br>Todas las alertas que genera esta regla se agrupan aunque no compartan valores idénticos.
+
+        - **Agrupar las alertas en un solo incidente si las entidades seleccionadas coinciden**: <br></br>Las alertas se agrupan si comparten valores idénticos en algunas de las entidades asignadas (que puede seleccionar en la lista desplegable). Es posible que desee usar esta opción si, por ejemplo, desea crear incidentes independientes basados en las direcciones IP de origen o de destino.
+
+    3. **Vuelva a abrir los incidentes coincidentes cerrados**: si se ha cerrado un incidente (lo que significa que se ha resuelto el problema subyacente) y, posteriormente, se genera otra alerta que se habría agrupado en ese incidente, establezca esta opción en **Enabled** (Habilitado) si desea que el incidente cerrado se vuelva a abrir, o bien déjela como **Disabled** (Deshabilitado) si desea que la alerta cree un incidente nuevo.
+
+1. En la pestaña **Automated responses** (Respuestas automatizadas), seleccione todos los cuadernos de estrategias que desee ejecutar automáticamente cuando la regla personalizada genere una alerta. Para más información sobre la creación y automatización de los cuadernos de estrategias, consulte [Respuesta a amenazas](tutorial-respond-threats-playbook.md).
+
+1. Seleccione **Review and create** (Revisar y crear) para revisar todos los valores de la nueva regla de alertas y, después, seleccione **Create to initialize your alert rule** (Crear para inicializar la regla de alertas).
+  
+1. Una vez creada la alerta, se agrega una regla personalizada a la tabla en **Active rules** (Reglas activas). Desde esta lista puede habilitar, deshabilitar o eliminar cada regla.
+
+1. Para ver los resultados de las reglas de alertas, vaya a la página de **incidentes**, donde puede evaluar las prioridades,  [investigar los incidentes](tutorial-investigate-cases.md) y solucionar las amenazas.
 
 
 > [!NOTE]

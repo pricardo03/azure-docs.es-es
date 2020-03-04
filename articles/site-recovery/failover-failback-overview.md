@@ -3,12 +3,12 @@ title: Acerca de la conmutación por error y la conmutación por recuperación e
 description: Obtenga información sobre la conmutación por error y la conmutación por recuperación en Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/24/2019
-ms.openlocfilehash: 3c461d2de4f9ef8e8159c7b9c86f23a846421c5e
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: d9b54f3c452212e12419a5ffd67b116c8660308d
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75498388"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539525"
 ---
 # <a name="about-on-premises-disaster-recovery-failoverfailback"></a>Acerca de la conmutación por error o conmutación por recuperación de la recuperación ante desastres local
 
@@ -37,8 +37,8 @@ La conmutación por error es una actividad de dos fases:
 - **Confirmación**: después de la conmutación por error, compruebe la máquina virtual en Azure:
     - Después, puede confirmar la conmutación por error al punto de recuperación seleccionado, o seleccionar un punto diferente para la confirmación.
     - No se puede cambiar el punto de recuperación después de confirmar la conmutación por error.
-    
-    
+
+
 ## <a name="connect-to-azure-after-failover"></a>Conexión a Azure después de la conmutación por error
 
 Para conectarse a las máquinas virtuales de Azure creadas después de la conmutación por error mediante RDP o SSH, debe cumplir una serie de requisitos.
@@ -59,7 +59,7 @@ Site Recovery proporciona diferentes opciones de conmutación por error.
 **Conmutación por error de prueba** | Se usa para ejecutar un simulacro que valida la estrategia de BCDR sin pérdida de datos ni tiempo de inactividad.| Crea una copia de la máquina virtual en Azure, sin afectar a la replicación en curso ni al entorno de producción. | 1. Ejecute una conmutación por error de prueba en una sola máquina virtual o en varias en un plan de recuperación.<br/><br/> 2. Seleccione un punto de recuperación para usarlo en la conmutación por error de prueba.<br/><br/> 3. Seleccione una red de Azure en la que la máquina virtual de Azure se encuentra cuando se crea después de la conmutación por error. La red solo se usa para la conmutación por error de prueba.<br/><br/> 4. Compruebe que el simulacro funciona según lo previsto. Site Recovery limpia automáticamente las máquinas virtuales creadas en Azure durante el simulacro.
 **Conmutación por error planeada de Hyper-V**  | Normalmente se usa para el tiempo de inactividad planeado.<br/><br/> Las máquinas virtuales de origen se apagan. Los datos más recientes se sincronizan antes de iniciar la conmutación por error. | Cero pérdida de datos para el flujo de trabajo planeado. | 1. Planee un período de inactividad por mantenimiento y notifique a los usuarios.<br/><br/> 2. Desconecte las aplicaciones orientadas al usuario.<br/><br/> 3. Inicie una conmutación por error planeada con el punto de recuperación más reciente. La conmutación por error no se ejecuta si el equipo no se apaga, o si se producen errores.<br/><br/> 4. Después de la conmutación por error, compruebe que la máquina virtual de Azure de réplica está activa en Azure.<br/><br/> 5. Confirme la conmutación por error para finalizar. La acción de confirmación elimina todos los puntos de recuperación.
 **Conmutación por error de Hyper-V** | Normalmente se ejecuta si se produce una interrupción no planeada o el sitio primario no está disponible.<br/><br/> También puede apagar la máquina virtual y sincronizar los cambios finales antes de iniciar la conmutación por error.  | Pérdida de datos mínima para las aplicaciones. | 1. Inicie el plan de BCDR. <br/><br/> 2. Inicie una conmutación por error. Especifique si Site Recovery debe apagar la máquina virtual y sincronizar/replicar los cambios más recientes antes de desencadenar la conmutación por error.<br/><br/> 3. Puede conmutar por error a varias opciones de puntos de recuperación, que están resumidas en la tabla siguiente.<br/><br/> Si no habilita la opción para apagar la máquina virtual, o si Site Recovery no puede apagarla, se usa el punto de recuperación más reciente.<br/>La conmutación por error se ejecuta incluso si la máquina no se puede apagar.<br/><br/> 4. Después de la conmutación por error, debe comprobar que la máquina virtual de Azure de réplica está activa en Azure.<br/> Si es necesario, puede seleccionar un punto de recuperación diferente dentro del período de retención de 24 horas.<br/><br/> 5. Confirme la conmutación por error para finalizar. La acción de confirmación elimina todos los puntos de recuperación disponibles.
-**Conmutación por error de VMware** | Normalmente se ejecuta si se produce una interrupción no planeada o el sitio primario no está disponible.<br/><br/> De manera opcional, especifique si Site Recovery debe tratar de apagar la máquina virtual y sincronizar y replicar los cambios finales antes de iniciar la conmutación por error.  | Pérdida de datos mínima para las aplicaciones. | 1. Inicie el plan de BCDR. <br/><br/> 2. Inicie una conmutación por error desde Site Recovery. Especifique si Site Recovery debe tratar de apagar y sincronizar la máquina virtual antes de ejecutar la conmutación por error.<br/> La conmutación por error se ejecuta incluso si las máquinas no se pueden apagar.<br/><br/> 3. Después de la conmutación por error, compruebe que la máquina virtual de Azure de réplica está activa en Azure. <br/>Si es necesario, puede seleccionar un punto de recuperación diferente dentro del período de retención de 72 horas.<br/><br/> 5. Confirme la conmutación por error para finalizar. La acción de confirmación elimina todos los puntos de recuperación.<br/> En el caso de las máquinas virtuales Windows, Site Recovery deshabilita las herramientas de VMware durante la conmutación por error. 
+**Conmutación por error de VMware** | Normalmente se ejecuta si se produce una interrupción no planeada o el sitio primario no está disponible.<br/><br/> De manera opcional, especifique si Site Recovery debe tratar de apagar la máquina virtual y sincronizar y replicar los cambios finales antes de iniciar la conmutación por error.  | Pérdida de datos mínima para las aplicaciones. | 1. Inicie el plan de BCDR. <br/><br/> 2. Inicie una conmutación por error desde Site Recovery. Especifique si Site Recovery debe tratar de apagar y sincronizar la máquina virtual antes de ejecutar la conmutación por error.<br/> La conmutación por error se ejecuta incluso si las máquinas no se pueden apagar.<br/><br/> 3. Después de la conmutación por error, compruebe que la máquina virtual de Azure de réplica está activa en Azure. <br/>Si es necesario, puede seleccionar un punto de recuperación diferente dentro del período de retención de 72 horas.<br/><br/> 5. Confirme la conmutación por error para finalizar. La acción de confirmación elimina todos los puntos de recuperación.<br/> En el caso de las máquinas virtuales Windows, Site Recovery deshabilita las herramientas de VMware durante la conmutación por error.
 
 ## <a name="failover-processing"></a>Procesamiento de la conmutación por error
 
@@ -85,6 +85,8 @@ Durante la conmutación por error, puede seleccionar varias opciones de punto de
 **Último coherente con aplicación de máquinas virtuales múltiples** |  esta opción está disponible para los planes de recuperación con una o varias máquinas virtuales que tienen habilitada la coherencia entre varias máquinas virtuales. Las máquinas virtuales que forman parte de un grupo de replicación conmutan por error al último punto de recuperación común coherente con la aplicación de varias máquinas virtuales. Otras máquinas virtuales conmutan por error a su punto de recuperación coherente con la aplicación más reciente.
 **Personalizada** | Use esta opción para conmutar por error una máquina virtual específica a un punto de recuperación concreto en el tiempo. Esta opción no está disponible para los planes de recuperación.
 
+> [!NOTE]
+> Los puntos de recuperación no se pueden migrar a otro almacén de Recovery Services.
 
 ## <a name="reprotectionfailback"></a>Reprotección y conmutación por recuperación
 
@@ -136,17 +138,17 @@ Para reproteger y conmutar por recuperación máquinas virtuales de Hyper-V de A
 - Ejecute una conmutación por recuperación planeada de Azure a un entorno local.
 - No es necesario configurar ningún componente específico para la conmutación por recuperación de las máquinas virtuales de Hyper-V.
 - Durante la conmutación por error planeada, puede seleccionar opciones para sincronizar los datos antes de realizar la conmutación por recuperación:
-    - **Sincronizar datos antes de la conmutación por error**: esta opción reduce el tiempo de inactividad de las máquinas virtuales, ya que las sincroniza sin apagarlas. 
+    - **Sincronizar datos antes de la conmutación por error**: esta opción reduce el tiempo de inactividad de las máquinas virtuales, ya que las sincroniza sin apagarlas.
         - Fase 1: toma una instantánea de la máquina virtual de Azure y la copia en el host de Hyper-V local. El equipo continúa ejecutándose en Azure.
         - Fase 2: apaga la máquina virtual de Azure de modo que no se produzca ningún cambio nuevo. El último conjunto de cambios incrementales se transfiere al servidor local y se inicia la máquina virtual local.
-    - **Sincronizar datos solo durante la conmutación por error**: esta opción es más rápida, ya que se prevé que la mayoría del disco ha cambiado y, por lo tanto, no se realizan los cálculos de la suma de comprobación. Realiza una descarga del disco. Se recomienda utilizar esta opción si la máquina virtual ha estado trabajando con Azure durante un tiempo (un mes o más) o si se ha eliminado a la máquina virtual local.  
+    - **Sincronizar datos solo durante la conmutación por error**: esta opción es más rápida, ya que se prevé que la mayoría del disco ha cambiado y, por lo tanto, no se realizan los cálculos de la suma de comprobación. Realiza una descarga del disco. Se recomienda utilizar esta opción si la máquina virtual ha estado trabajando con Azure durante un tiempo (un mes o más) o si se ha eliminado a la máquina virtual local.
 
 [Obtenga más información](hyper-v-azure-failback.md) sobre los procesos de reprotección y conmutación por recuperación de Hyper-V.
 
 Al reproteger las máquinas virtuales de Azure en un entorno local, puede especificar si quiere conmutar por recuperación a la ubicación original o a una ubicación alternativa.
 
 - **Recuperación de ubicación original**: esta opción conmuta por recuperación de Azure a la misma máquina local de origen (si existe). En este escenario, se selecciona una de las opciones de sincronización descritas en el procedimiento anterior.
-- **Recuperación de ubicación alternativa**: si no existe la máquina local, puede conmutar por recuperación de Azure a una ubicación alternativa. Al reproteger la máquina virtual de Azure en un entorno local, se crea la máquina local. En este caso, se recomienda seleccionar la opción para sincronizar los datos antes de la conmutación por error. 
+- **Recuperación de ubicación alternativa**: si no existe la máquina local, puede conmutar por recuperación de Azure a una ubicación alternativa. Al reproteger la máquina virtual de Azure en un entorno local, se crea la máquina local. En este caso, se recomienda seleccionar la opción para sincronizar los datos antes de la conmutación por error.
 - [Revise](hyper-v-azure-failback.md) los requisitos y las limitaciones de la conmutación por recuperación en la ubicación.
 
 
@@ -156,7 +158,7 @@ Después de la conmutación por recuperación al sitio local, habilite la **Repl
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Conmutar por error [máquinas virtuales específicas de VMware](vmware-azure-tutorial-failover-failback.md). 
+- Conmutar por error [máquinas virtuales específicas de VMware](vmware-azure-tutorial-failover-failback.md).
 - Conmutar por error [máquinas virtuales específicas de Hyper-V](hyper-v-azure-failover-failback-tutorial.md).
 - [Crear](site-recovery-create-recovery-plans.md) un plan de recuperación.
 - Conmutar por error [máquinas virtuales en un plan de recuperación](site-recovery-failover.md).

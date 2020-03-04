@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: aschhab
-ms.openlocfilehash: 21a3bfd09e83571e489e15e9351e12220a99e563
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f852ad70b2eb97e2b8b3e40d086e98b3836c3592
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301997"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598296"
 ---
 # <a name="throttling-operations-on-azure-service-bus"></a>Operaciones de limitación en Azure Service Bus
 
@@ -55,6 +55,11 @@ No todas las operaciones se crean igual. Estos son los costos en créditos de ca
 |-----------|-----------|
 | Operaciones con datos (Send, SendAsync, Receive, ReceiveAsync, Peek) |1 crédito por mensaje |
 | Operaciones de administración (Create, Read, Update, Delete on Queues, Topics, Subscriptions, Filters) | 10 créditos |
+
+> [!NOTE]
+> Tenga en cuenta que, al realizar el envío a un tema, cada mensaje se evalúa con respecto a los filtros antes de que esté disponible en la suscripción.
+> Cada evaluación mediante filtros también cuenta con el límite de crédito (es decir, un crédito por evaluación de filtro).
+>
 
 ### <a name="how-will-i-know-that-im-being-throttled"></a>¿Cómo sé que estoy limitado?
 

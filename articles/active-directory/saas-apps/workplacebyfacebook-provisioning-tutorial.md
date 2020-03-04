@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7d8a7881c00427023e5f174461b3d8b24d83444
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 22576be8dec021f0f18a6e2dda16891ce70d4f13
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121452"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603210"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workplace by Facebook para el aprovisionamiento automático de usuarios
 
@@ -51,7 +51,7 @@ Hemos bloqueado la sección de credenciales de administrador para los clientes d
 
  
 #### <a name="when-will-these-changes-happen"></a>¿Cuándo se producirán estos cambios?
-Todas las instancias nuevas de Workplace ya utilizarán el nuevo método de integración o autorización. Las integraciones existentes se migrarán gradualmente en febrero. La migración se completará para todos los inquilinos al final del mes. 
+Todas las instancias nuevas de Workplace ya utilizarán el nuevo método de integración o autorización. Las integraciones existentes se migrarán gradualmente en mayo. El equipo de Workplace ha ampliado la fecha límite del 28 de febrero al 1 de mayo. 
 
 ## <a name="capabilities-supported"></a>Funcionalidades admitidas
 > [!div class="checklist"]

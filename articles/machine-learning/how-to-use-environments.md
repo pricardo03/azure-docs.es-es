@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 9d6c823b5dc85676b15188c8f1783e50e5ed441b
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: cb76c7d7804a7d39e8a18c7a4cf41e9b4e0a7593
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76717821"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623649"
 ---
 # <a name="reuse-environments-for-training-and-deployment-by-using-azure-machine-learning"></a>Reutilización de entornos para entrenamiento e implementación con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,7 +33,7 @@ En los ejemplos de este artículo se muestran los siguientes procedimientos:
 
 Para obtener información general de alto nivel sobre cómo funcionan los entornos en Azure Machine Learning, consulte [¿Qué son los entornos de ML?](concept-environments.md)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * El [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
 * Un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
@@ -231,7 +231,7 @@ build.wait_for_completion(show_output=True)
 
  [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) de la clase `Environment` de Azure Machine Learning le permite personalizar y controlar en detalle el sistema operativo invitado en el que se ejecuta el entrenamiento.
 
-Cuando define `enable` para Docker, el servicio compila una imagen de Docker. También crea un entorno de Python que usa sus especificaciones dentro de ese contenedor de Docker. Esta funcionalidad ofrece aislamiento y reproducibilidad adicionales para las ejecuciones del entrenamiento.
+Cuando habilita Docker, el servicio compila una imagen de Docker. También crea un entorno de Python que usa sus especificaciones dentro de ese contenedor de Docker. Esta funcionalidad ofrece aislamiento y reproducibilidad adicionales para las ejecuciones del entrenamiento.
 
 ```python
 # Creates the environment inside a Docker container.

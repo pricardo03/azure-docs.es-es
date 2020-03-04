@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 9570a8512e3437b12ecce2ef0c708a74a8806482
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: f651beb181430f65d0b4c86f285e74958f8366eb
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077924"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588890"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>Migración desde la biblioteca de procesadores de fuente de cambios al SDK de Azure Cosmos DB para .NET V3
 
@@ -22,22 +22,22 @@ En este artículo se describen los pasos necesarios para migrar el código de un
 El SDK de .NET V3 tiene varios cambios importantes; estos son los pasos principales para migrar la aplicación:
 
 1. Convierta las instancias de `DocumentCollectionInfo` en referencias de `Container` para los contenedores supervisados y de concesiones.
-1. Las personalizaciones que usan `WithProcessorOptions` se deben actualizar para usar `WithLeaseConfiguration` y `WithPollInterval` para los intervalos, `WithStartTime` [para la hora de inicio](how-to-configure-change-feed-start-time.md) y `WithMaxItems` para definir el número máximo de elementos.
+1. Las personalizaciones que usan `WithProcessorOptions` se deben actualizar para usar `WithLeaseConfiguration` y `WithPollInterval` para los intervalos, `WithStartTime`[para la hora de inicio](how-to-configure-change-feed-start-time.md) y `WithMaxItems` para definir el número máximo de elementos.
 1. Establezca el `processorName` en `GetChangeFeedProcessorBuilder` para que coincida con el valor configurado en `ChangeFeedProcessorOptions.LeasePrefix`, o bien, puede usar `string.Empty`.
 1. Los cambios ya no se entregan como `IReadOnlyList<Document>` sino que, en su lugar, se trata de un `IReadOnlyCollection<T>` donde `T` es un tipo que debe definir. Ya no hay ninguna clase de elemento base.
 1. Para controlar los cambios, ya no necesita una implementación, en su lugar debe [definir un delegado](change-feed-processor.md#implementing-the-change-feed-processor). El delegado puede ser una función estática o, si necesita mantener el estado entre las ejecuciones, puede crear su propia clase y pasar un método de instancia como delegado.
 
 Por ejemplo, si el código original para compilar el procesador de fuente de cambios tiene el siguiente aspecto:
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=ChangeFeedProcessorLibrary)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="ChangeFeedProcessorLibrary":::
 
 El código migrado tendrá el siguiente aspecto:
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=ChangeFeedProcessorMigrated)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="ChangeFeedProcessorMigrated":::
 
 Y el delegado puede ser un método estático:
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=Delegate)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="Delegate":::
 
 ## <a name="state-and-lease-container"></a>Contenedor de estado y concesión
 
@@ -63,4 +63,4 @@ Puede obtener más información sobre el procesador de la fuente de cambios en l
 
 * [Introducción a la fuente de cambios](change-feed-processor.md)
 * [Uso del calculador de la fuente de cambios](how-to-use-change-feed-estimator.md)
-* [Hora de inicio del procesador de fuente de cambios](how-to-configure-change-feed-start-time.md)
+* [Hora de inicio del procesador de la fuente de cambios](how-to-configure-change-feed-start-time.md)

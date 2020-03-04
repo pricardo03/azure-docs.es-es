@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 50d12a0aba9018b1ecb30c018249e8f94ebe6d95
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 43e626355feaf1e51fc840f82506c559a1859b84
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903282"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622001"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configuración de claves administradas por el cliente para cifrar datos en reposo de Azure Event Hubs mediante Azure Portal
 Azure Event Hubs proporciona cifrado de datos en reposo con Azure Storage Service Encryption (Azure SSE). Event Hubs se basa en Azure Storage para almacenar los datos y, de forma predeterminada, todos los datos que se almacenan con Azure Storage se cifran mediante claves administradas por Microsoft. 
@@ -143,6 +143,262 @@ El siguiente es un ejemplo del registro de una clave administrada por el cliente
    "message": "",
 }
 ```
+
+## <a name="use-resource-manager-template-to-enable-encryption"></a>Uso de la plantilla de Resource Manager para habilitar el cifrado
+En esta sección se muestra cómo realizar las siguientes tareas con **plantillas de Azure Resource Manager**. 
+
+1. Cree un **espacio de nombres de Event Hubs** con una identidad de servicio administrada.
+2. Cree un **almacén de claves** y conceda a la identidad de servicio acceso a él. 
+3. Actualice el espacio de nombres de Event Hubs con la información del almacén de claves (clave/valor). 
+
+
+### <a name="create-an-event-hubs-cluster-and-namespace-with-managed-service-identity"></a>Creación de un clúster y un espacio de nombres de Event Hubs con la identidad de servicio administrada
+En esta sección se muestra cómo crear un espacio de nombres de Azure Event Hubs con la identidad de servicio administrada mediante una plantilla de Azure Resource Manager y PowerShell. 
+
+1. Cree una plantilla de Azure Resource Manager para crear un espacio de nombres de Event Hubs con una identidad de servicio administrada. Asigne al archivo el nombre: **CreateEventHubClusterAndNamespace.json**: 
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "clusterName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Event Hub cluster."
+             }
+          },
+          "namespaceName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Namespace to be created in cluster."
+             }
+          },
+          "location":{
+             "type":"string",
+             "defaultValue":"[resourceGroup().location]",
+             "metadata":{
+                "description":"Specifies the Azure location for all resources."
+             }
+          }
+       },
+       "resources":[
+          {
+             "type":"Microsoft.EventHub/clusters",
+             "apiVersion":"2018-01-01-preview",
+             "name":"[parameters('clusterName')]",
+             "location":"[parameters('location')]",
+             "sku":{
+                "name":"Dedicated",
+                "capacity":1
+             }
+          },
+          {
+             "type":"Microsoft.EventHub/namespaces",
+             "apiVersion":"2018-01-01-preview",
+             "name":"[parameters('namespaceName')]",
+             "location":"[parameters('location')]",
+             "identity":{
+                "type":"SystemAssigned"
+             },
+             "sku":{
+                "name":"Standard",
+                "tier":"Standard",
+                "capacity":1
+             },
+             "properties":{
+                "isAutoInflateEnabled":false,
+                "maximumThroughputUnits":0,
+                "clusterArmId":"[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]"
+             },
+             "dependsOn":[
+                "[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]"
+             ]
+          }
+       ],
+       "outputs":{
+          "EventHubNamespaceId":{
+             "type":"string",
+             "value":"[resourceId('Microsoft.EventHub/namespaces',parameters('namespaceName'))]"
+          }
+       }
+    }
+    ```
+2. Cree un archivo de parámetros de plantilla llamado: **CreateEventHubClusterAndNamespaceParams.json**. 
+
+    > [!NOTE]
+    > Reemplace los siguientes valores: 
+    > - `<EventHubsClusterName>`: nombre del clúster de Event Hubs.    
+    > - `<EventHubsNamespaceName>`: nombre del espacio de nombres de Event Hubs.
+    > - `<Location>`: ubicación del espacio de nombres de Event Hubs.
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "clusterName":{
+             "value":"<EventHubsClusterName>"
+          },
+          "namespaceName":{
+             "value":"<EventHubsNamespaceName>"
+          },
+          "location":{
+             "value":"<Location>"
+          }
+       }
+    }
+    
+    ```
+3. Ejecute el siguiente comando de PowerShell para implementar la plantilla y crear un espacio de nombres de Event Hubs. A continuación, recupere el identificador del espacio de nombres de Event Hubs para usarlo más adelante. Antes de ejecutar el comando, reemplace `{MyRG}` por el nombre del grupo de recursos.  
+
+    ```powershell
+    $outputs = New-AzResourceGroupDeployment -Name CreateEventHubClusterAndNamespace -ResourceGroupName {MyRG} -TemplateFile ./CreateEventHubClusterAndNamespace.json -TemplateParameterFile ./CreateEventHubClusterAndNamespaceParams.json
+
+    $EventHubNamespaceId = $outputs.Outputs["eventHubNamespaceId"].value
+    ```
+ 
+### <a name="grant-event-hubs-namespace-identity-access-to-key-vault"></a>Concesión de acceso al almacén de claves a la identidad del espacio de nombres de Event Hubs
+
+1. Ejecute el siguiente comando para crear un almacén de claves con las características **protección de purga** y **eliminación temporal** habilitadas. 
+
+    ```powershell
+    New-AzureRmKeyVault -Name {keyVaultName} -ResourceGroupName {RGName}  -Location {location} -EnableSoftDelete -EnablePurgeProtection    
+    ```     
+    
+    O BIEN    
+    
+    Ejecute el siguiente comando para actualizar un **almacén de claves existente**. Antes de ejecutar el comando, especifique valores para los nombres de grupo de recursos y almacén de claves. 
+    
+    ```powershell
+    ($updatedKeyVault = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -ResourceGroupName {RGName} -VaultName {keyVaultName}).ResourceId).Properties| Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"-Force | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true" -Force
+    ``` 
+2. Establezca la directiva de acceso del almacén de claves para que la identidad administrada del espacio de nombres de Event Hubs pueda acceder al valor de la clave del almacén de claves. Use el identificador del espacio de nombres de Event Hubs de la sección anterior. 
+
+    ```powershell
+    $identity = (Get-AzureRmResource -ResourceId $EventHubNamespaceId -ExpandProperties).Identity
+    
+    Set-AzureRmKeyVaultAccessPolicy -VaultName {keyVaultName} -ResourceGroupName {RGName} -ObjectId $identity.PrincipalId -PermissionsToKeys get,wrapKey,unwrapKey,list
+    ```
+
+### <a name="encrypt-data-in-event-hubs-namespace-with-customer-managed-key-from-key-vault"></a>Cifrado de datos en el espacio de nombres de Event Hubs con la clave administrada por el cliente desde el almacén de claves
+Hasta el momento ha realizado los pasos siguientes: 
+
+1. Ha creado un espacio de nombres premium con una identidad administrada.
+2. Cree un almacén de claves y conceda a la identidad administrada acceso al almacén de claves. 
+
+En este paso, actualizará el espacio de nombres de Event Hubs con la información del almacén de claves. 
+
+1. Cree un archivo JSON llamado **CreateEventHubClusterAndNamespace.json** con el contenido siguiente: 
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "clusterName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Event Hub cluster."
+             }
+          },
+          "namespaceName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Namespace to be created in cluster."
+             }
+          },
+          "location":{
+             "type":"string",
+             "defaultValue":"[resourceGroup().location]",
+             "metadata":{
+                "description":"Specifies the Azure location for all resources."
+             }
+          },
+          "keyVaultUri":{
+             "type":"string",
+             "metadata":{
+                "description":"URI of the KeyVault."
+             }
+          },
+          "keyName":{
+             "type":"string",
+             "metadata":{
+                "description":"KeyName."
+             }
+          }
+       },
+       "resources":[
+          {
+             "type":"Microsoft.EventHub/namespaces",
+             "apiVersion":"2018-01-01-preview",
+             "name":"[parameters('namespaceName')]",
+             "location":"[parameters('location')]",
+             "identity":{
+                "type":"SystemAssigned"
+             },
+             "sku":{
+                "name":"Standard",
+                "tier":"Standard",
+                "capacity":1
+             },
+             "properties":{
+                "isAutoInflateEnabled":false,
+                "maximumThroughputUnits":0,
+                "clusterArmId":"[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]",
+                "encryption":{
+                   "keySource":"Microsoft.KeyVault",
+                   "keyVaultProperties":[
+                      {
+                         "keyName":"[parameters('keyName')]",
+                         "keyVaultUri":"[parameters('keyVaultUri')]"
+                      }
+                   ]
+                }
+             }
+          }
+       ]
+    }
+    ``` 
+
+2. Cree un archivo de parámetros de plantilla: **UpdateEventHubClusterAndNamespaceParams.json**. 
+
+    > [!NOTE]
+    > Reemplace los siguientes valores: 
+    > - `<EventHubsClusterName>`: nombre del clúster de Event Hubs.        
+    > - `<EventHubsNamespaceName>`: nombre del espacio de nombres de Event Hubs.
+    > - `<Location>`: ubicación del espacio de nombres de Event Hubs.
+    > - `<KeyVaultName>`: nombre de su almacén de claves.
+    > - `<KeyName>`: nombre de la clave del almacén de claves.
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "clusterName":{
+             "value":"<EventHubsClusterName>"
+          },
+          "namespaceName":{
+             "value":"<EventHubsNamespaceName>"
+          },
+          "location":{
+             "value":"<Location>"
+          },
+          "keyName":{
+             "value":"<KeyName>"
+          },
+          "keyVaultUri":{
+             "value":"https://<KeyVaultName>.vault.azure.net"
+          }
+       }
+    }
+    ```             
+3. Ejecute el siguiente comando de PowerShell para implementar la plantilla de Resource Manager. Antes de ejecutar el comando, reemplace `{MyRG}` por el nombre del grupo de recursos. 
+
+    ```powershell
+    New-AzResourceGroupDeployment -Name UpdateEventHubNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateEventHubClusterAndNamespace.json -TemplateParameterFile ./UpdateEventHubClusterAndNamespaceParams.json 
+    ```
 
 ## <a name="troubleshoot"></a>Solución de problemas
 Como procedimiento recomendado, habilite siempre los registros como se muestra en la sección anterior. Esto ayuda a realizar el seguimiento de las actividades cuando está habilitado el cifrado de BYOK. También ayuda a limitar los problemas.
