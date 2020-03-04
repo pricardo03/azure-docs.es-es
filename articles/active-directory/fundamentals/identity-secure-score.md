@@ -1,22 +1,22 @@
 ---
-title: ¿Qué es una puntuación segura de identidad? - Azure Active Directory
+title: ¿Qué es una puntuación segura de identidad? - Azure Active Directory
 description: Uso de la puntuación segura de identidad para mejorar el nivel de seguridad del directorio
 services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 02/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cdff2305914ca6e4144f7784d1a60026a1d27c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f75dea2cffbe710bf2778ceab5eacc91ffcca9c
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65988672"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523122"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>¿Qué es la puntuación segura de identidad en Azure Active Directory?
 
@@ -48,7 +48,7 @@ Si realiza las acciones de mejora, puede:
 
 ## <a name="how-do-i-get-my-secure-score"></a>¿Cómo se obtiene la puntuación segura?
 
-La puntuación segura de identidad está disponible en todas las ediciones de Azure AD. Para acceder a su puntuación, vaya a la [panel de información general de Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/IdentitySecureScore).
+La puntuación segura de identidad está disponible en todas las ediciones de Azure AD. Las organizaciones pueden acceder a su puntuación de seguridad de la identidad desde **Azure Portal** > **Azure Active Directory** > **Seguridad** > **Puntuación de seguridad de la identidad**.
 
 ## <a name="how-does-it-work"></a>¿Cómo funciona?
 
@@ -107,7 +107,7 @@ Para ver el historial de puntuación, diríjase al [Centro de seguridad de Micro
 La [puntuación segura de Microsoft](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score) contiene cinco categorías distintas de control y puntuación:
 
 - Identidad
-- Datos
+- data
 - Dispositivos
 - Infraestructura
 - Aplicaciones

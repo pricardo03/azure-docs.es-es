@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 3a79db11ff05bcc9d18619c7f508a9864c17c3b8
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 5b2ee8b5bf19f16d7f7f04e9515fe591db7132f1
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012792"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647515"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB como almacén de pares valor-clave: Información general de costos
 
@@ -26,7 +26,7 @@ El rendimiento de Azure Cosmos DB se basa en la cantidad de rendimiento aprovisi
 
 Como un sistema de base de datos distribuido globalmente, Cosmos DB es el único servicio de Azure que proporciona un Acuerdo de Nivel de Servicio completo que abarca la latencia, el rendimiento, la coherencia y la alta disponibilidad. El rendimiento que se aprovisiona se aplica a cada una de las regiones asociadas a su cuenta de Cosmos. Para lecturas, Cosmos DB ofrece varios [niveles de coherencia](consistency-levels.md) bien definidos entre los que elegir. 
 
-En la tabla siguiente se muestra el número de RU necesarias para realizar operaciones de lectura y escritura basadas en un elemento de datos son un tamaño de 1 KB y 100 KB.
+En la tabla siguiente se muestra el número de RU necesarias para realizar operaciones de lectura y escritura basadas en un elemento de datos con un tamaño de 1 KB y 100 KB con la indexación automática predeterminada desactivada. 
 
 |Tamaño del elemento|1 lectura|1 escritura|
 |-------------|------|-------|

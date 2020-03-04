@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 694697be85b61ad2d59a0a4be1ced3581873cb77
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 2b200692610302bb135982e5419dcda36d5cfe60
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111759"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648502"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicación con la instancia de IoT Hub mediante el protocolo MQTT
 
@@ -73,11 +73,11 @@ Para asegurarse de que una conexión cliente/IoT Hub permanece activa, tanto el 
 
 |Idioma  |Intervalo de mantenimiento de conexión predeterminado  |Configurable  |
 |---------|---------|---------|
-|Node.js     |   180 Segundos      |     No    |
-|Java     |    230 Segundos     |     No    |
+|Node.js     |   180 Segundos      |     Sin    |
+|Java     |    230 Segundos     |     Sin    |
 |C     | 240 segundos |  [Sí](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
 |C#     | 300 segundos |  [Sí](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
-|Python (V2)   | 60 segundos |  No   |
+|Python (V2)   | 60 segundos |  Sin   |
 
 Siguiendo la [especificación de MQTT](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081), el intervalo de ping de Keep-Alive de IoT Hub es 1,5 veces el valor de Keep-Alive del cliente. Sin embargo, IoT Hub limita el tiempo de espera máximo del servidor a 29,45 minutos (1 767 segundos) porque todos los servicios de Azure están enlazados al tiempo de espera de inactividad TCP del equilibrador de carga de Azure, que es de 29,45 minutos. 
 
@@ -161,28 +161,27 @@ Este repositorio contiene:
 
 **Para Windows:**
 
-•   TelemetryMQTTWin32: contiene código para enviar un mensaje de telemetría a una instancia de Azure IoT Hub, compilada y ejecutada en una máquina Windows.
+* TelemetryMQTTWin32: contiene código para enviar un mensaje de telemetría a una instancia de Azure IoT Hub compilada y ejecutada en una máquina Windows.
 
-•   SubscribeMQTTWin32: contiene código para suscribirse a eventos de un centro de IoT determinado en una máquina Windows.
+* SubscribeMQTTWin32: contiene código para suscribirse a eventos de un centro de IoT determinado en una máquina Windows.
 
-•   DeviceTwinMQTTWin32: contiene código para consultar y suscribirse a los eventos de dispositivo gemelo de un dispositivo en Azure IoT Hub en una máquina Windows.
+* DeviceTwinMQTTWin32: contiene código para consultar y suscribirse a los eventos de dispositivo gemelo de un dispositivo en Azure IoT Hub en una máquina Windows.
 
-•   PnPMQTTWin32: contiene código para enviar un mensaje de telemetría con funcionalidad de dispositivo IoT Plug & Play en versión preliminar a una instancia de Azure IoT Hub, compilada y ejecutada en una máquina Windows. Más información sobre IoT Plug & Play [aquí](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
+* PnPMQTTWin32: contiene código para enviar un mensaje de telemetría con funcionalidad de dispositivo IoT Plug & Play en versión preliminar a una instancia de Azure IoT Hub compilada y ejecutada en una máquina Windows. Más información sobre IoT Plug & Play [aquí](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
 
 **Para Linux:**
 
-•   MQTTLinux: contiene código y un script de compilación para ejecutar en Linux (hasta ahora, se han probado WSL, Ubuntu y Raspbian).
+* MQTTLinux: contiene código y un script de compilación para ejecutar en Linux (hasta ahora, se han probado WSL, Ubuntu y Raspbian).
 
-•   LinuxConsoleVS2019: contiene el mismo código, pero en un proyecto de VS2019 que tiene como destino WSL (subsistema Windows Linux). Este proyecto permite depurar el código que se ejecuta en Linux paso a paso desde Visual Studio.
+* LinuxConsoleVS2019: contiene el mismo código, pero en un proyecto de VS2019 que tiene como destino WSL (subsistema Windows Linux). Este proyecto permite depurar el código que se ejecuta en Linux paso a paso desde Visual Studio.
 
 **Para mosquitto_pub:**
 
-•   Esta carpeta contiene dos comandos de ejemplo que se usan con la herramienta de utilidad mosquitto_pub que proporciona Mosquitto.org.
+Esta carpeta contiene dos comandos de ejemplo que se usan con la herramienta de utilidad mosquitto_pub que proporciona Mosquitto.org.
 
-Mosquitto_sendmessage: para enviar un mensaje de texto simple a una instancia de Azure IoT Hub que actúa como dispositivo.
+* Mosquitto_sendmessage: para enviar un mensaje de texto simple a una instancia de Azure IoT Hub que actúa como dispositivo.
 
-Mosquitto_subscribe: para ver los eventos que se producen en una instancia de Azure IoT Hub.
-
+* Mosquitto_subscribe: para ver los eventos que se producen en una instancia de Azure IoT Hub.
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>Uso del protocolo MQTT directamente (como un módulo)
 
@@ -342,7 +341,7 @@ Los códigos de estado posibles son:
 
 |Status | Descripción |
 | ----- | ----------- |
-| 204 | Correcto (sin contenido) |
+| 200 | Correcto |
 | 429 | Demasiadas solicitudes (limitadas), según el artículo sobre [limitaciones de IoT Hub](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Errores del servidor |
 
@@ -373,7 +372,7 @@ Los códigos de estado posibles son:
 
 |Status | Descripción |
 | ----- | ----------- |
-| 200 | Correcto |
+| 204 | Correcto (sin contenido) |
 | 400 | Solicitud incorrecta. JSON con formato incorrecto |
 | 429 | Demasiadas solicitudes (limitadas), según el artículo sobre [limitaciones de IoT Hub](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Errores del servidor |

@@ -7,14 +7,14 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 179d0ff8143b526e100b89cffbbac0bbc29ca3e1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 83cac961eb3cd700451f16c684c64185b35e9bd3
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776185"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616746"
 ---
-# <a name="upgrade-azure-public-load-balancer-from-basic-sku-to-standard-sku"></a>Actualización de Azure Public Load Balancer de una SKU básica a una estándar
+# <a name="upgrade-azure-public-load-balancer"></a>Actualización de Azure Load Balancer público
 [Azure Standard Load Balancer](load-balancer-overview.md) ofrece un amplio conjunto de funcionalidades y alta disponibilidad gracias a la redundancia de zona. Para más información acerca de la SKU de Load Balancer, consulte la [tabla de comparación](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
 
 Hay dos fases en una actualización:
@@ -28,8 +28,8 @@ Este artículo trata sobre la migración de la configuración. La incorporación
 
 Existe un script de Azure PowerShell que hace lo siguiente:
 
-* Crea una instancia de Load Balancer con una SKU pública estándar en el grupo de recursos de recursos y ubicación que especifique.
-* Copia sin problemas las configuraciones de la instancia de Load Balancer con SKU pública básica a la estándar recién creada.
+* Crea una instancia de Load Balancer con una SKU estándar en el grupo de recursos y la ubicación que especifique.
+* Copia perfectamente las configuraciones del equilibrador de carga de SKU básica en la instancia de Standard Load Balancer recién creada.
 
 ### <a name="caveatslimitations"></a>Advertencias y limitaciones
 
@@ -70,18 +70,9 @@ Para ejecutar el script:
 
 1. Use `Import-Module Az` para importar los módulos de Az.
 
-1. Ejecute `Get-Help AzureLBUpgrade.ps1` para examinar los parámetros obligatorios:
+1. Examine los parámetros obligatorios:
 
-   ```
-   AzurePublicLBUpgrade.ps1
-    -oldRgName <name of the Resource Group where Basic Load Balancer exists>
-    -oldLBName <name of existing Basic Load Balancer>
-    -newrgName <Name of the Resource Group where the new Standard Load Balancer will be created>
-    -newlocation <Name of the location where the new Standard Load Balancer will be created>
-    -newLBName <Name of the Standard Load Balancer to be created>
-   ```
-   Parámetros del script:
-   * **oldRgName: [String]: Required**: es el grupo de recursos de la instancia existente de Basic Load Balancer que desea actualizar. Para encontrar este valor de cadena, vaya a Azure Portal, seleccione el origen de Basic Load Balancer y haga clic en **Información general** del equilibrador de carga. El grupo de recursos se encuentra en esa página.
+   * **oldRgName: [String]: Required**: es el grupo de recursos de la instancia existente de Basic Load Balancer que desea actualizar. Para encontrar este valor de cadena, vaya a Azure Portal, seleccione el origen Basic Load Balancer y haga clic en la sección **Información general** del equilibrador de carga. El grupo de recursos se encuentra en esa página.
    * **oldLBName: [String]: Required**: es el nombre de la instancia de Basic Load Balancer que desea actualizar. 
    * **newrgName: [String]: Required**: es el grupo de recursos en el que se creará la instancia de Standard Load Balancer. Puede tratarse de un nuevo grupo de recursos o de uno ya existente. Si elige un grupo de recursos existente, tenga en cuenta que el nombre de la instancia de Load Balancer debe ser único dentro del grupo de recursos. 
    * **newlocation: [String]: Required**: es la ubicación en la que se creará la instancia de Standard Load Balancer. Se recomienda heredar la misma ubicación de la instancia elegida de Basic Load Balancer para la instancia de Standard Load Balancer para una mejor asociación con otros recursos existentes.

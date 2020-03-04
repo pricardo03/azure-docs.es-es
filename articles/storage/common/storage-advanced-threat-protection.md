@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/04/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: f9889f58ead8d1dd35ceb50fa100b2b466cbe7cf
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: d97b63aa87bfd8cf8ca1a3f5b213d6b16ca066df
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022399"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616859"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Configuración de Advanced Threat Protection para Azure Storage
 
@@ -31,7 +31,7 @@ Advanced Threat Protection de Azure Storage ingiere los registros de diagnóstic
 
 Puede configurar Advanced Threat Protection de varias maneras, como se describe en las secciones siguientes.
 
-### <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Inicie [Azure Portal](https://portal.azure.com/).
 1. Vaya a la cuenta de Azure Storage. En **Configuración**, seleccione **Seguridad avanzada**.
@@ -41,7 +41,7 @@ Puede configurar Advanced Threat Protection de varias maneras, como se describe 
 
     ![Activar Protección contra amenazas avanzada de Azure Storage](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
-### <a name="azure-security-centertabazure-security-center"></a>[Azure Security Center](#tab/azure-security-center)
+### <a name="azure-security-center"></a>[Azure Security Center](#tab/azure-security-center)
 
 Cuando se suscribe al nivel Estándar en Azure Security Center, se configura automáticamente Advanced Threat Protection en las cuentas de almacenamiento. Puede habilitar o deshabilitar Advanced Threat Protection para las cuentas de almacenamiento en una suscripción específica de la manera siguiente:
 
@@ -57,11 +57,11 @@ Cuando se suscribe al nivel Estándar en Azure Security Center, se configura aut
     ![Habilitación de ATP en Security Center](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
 1. Haga clic en **Save**(Guardar).
 
-### <a name="templatetabtemplate"></a>[Plantilla](#tab/template)
+### <a name="template"></a>[Plantilla](#tab/template)
 
 Use una plantilla de Azure Resource Manager para implementar una cuenta de Azure Storage con Advanced Threat Protection habilitada. Para más información, consulte [Storage account with Advanced Threat Protection](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/) (Cuenta de Storage con Advanced Threat Protection).
 
-### <a name="azure-policytabazure-policy"></a>[Azure Policy](#tab/azure-policy)
+### <a name="azure-policy"></a>[Azure Policy](#tab/azure-policy)
 
 Use una instancia de Azure Policy para habilitar Advanced Threat Protection en las cuentas de almacenamiento de un grupo de recursos o suscripción específicos.
 
@@ -79,14 +79,14 @@ Use una instancia de Azure Policy para habilitar Advanced Threat Protection en l
 
     ![Página de definiciones de directiva](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
-### <a name="rest-apitabrest-api"></a>[REST API](#tab/rest-api)
+### <a name="rest-api"></a>[REST API](#tab/rest-api)
 
 Use comandos de la API REST para crear, actualizar u obtener la configuración de Advanced Threat Protection para una cuenta de almacenamiento específica.
 
 * [Creación de Advanced Threat Protection](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
 * [Obtención de Advanced Threat Protection](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
 
-### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Use los siguientes cmdlets de PowerShell:
 
@@ -116,9 +116,9 @@ Las alertas de seguridad actuales se pueden revisar y administrar desde el [icon
 
 ![Correo electrónico de alerta de Protección contra amenazas avanzada de Azure Storage](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-alert.png)
 
-## <a name="protection-alerts"></a>Alertas de protección
+## <a name="security-alerts"></a>Alertas de seguridad
 
-Las alertas las generan los intentos inusuales y potencialmente dañinos de acceso o aprovechamiento de cuentas de almacenamiento. Para obtener una lista de las alertas de Azure Storage, consulte la sección dedicada a **Storage** en las alertas de [Detección de amenazas en servicios de datos en Azure Security Center](../../security-center/security-center-alerts-data-services.md#azure-storage).
+Las alertas las generan los intentos inusuales y potencialmente dañinos de acceso o aprovechamiento de cuentas de almacenamiento. Para una lista de las alertas de Azure Storage, consulte la sección **Almacenamiento** en [Detección de amenazas en servicios de datos en Azure Security Center](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurestorage).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

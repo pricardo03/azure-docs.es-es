@@ -3,22 +3,22 @@ title: Conocer los términos de SAP HANA en Azure (instancias grandes) | Microso
 description: Conozca los términos de SAP HANA en Azure (instancias grandes).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/03/2019
+ms.date: 02/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ea6a8963d0905036f759fbab792492cc63d551c
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 6785ae821f701121185f0064c6317c69d50191ab
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806752"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617063"
 ---
 # <a name="know-the-terms"></a>Conocer los términos
 
@@ -38,7 +38,7 @@ En la Guía de implementación técnica y arquitectura, se utilizan con frecuenc
    Los usuarios del dominio local pueden tener acceso a los servidores y ejecutar servicios en esas máquinas virtuales (por ejemplo, servicios de DBMS). Es posible la comunicación y resolución de nombres entre máquinas virtuales implementadas de forma local y en Azure. Se trata del escenario típico en que se implementan la mayoría de los recursos de SAP. Para obtener más información, consulte [Azure VPN Gateway](../../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) y [Creación de una red virtual con una conexión de sitio a sitio mediante Azure Portal](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 - **Tenant**: un cliente implementado en la demarcación de HANA (instancias grandes) se aísla en un *inquilino*. Un inquilino se aísla en el nivel de redes, almacenamiento y proceso de otros inquilinos. Las unidades de almacenamiento y proceso asignadas a los distintos inquilinos no pueden verse ni comunicarse entre sí en el nivel de la demarcación de HANA (instancias grandes). Un cliente puede elegir que las implementaciones se realicen en diferentes inquilinos. Aún así, no hay ninguna comunicación entre los inquilinos a nivel de la marca de la instancia grande HANA.
 - **Categoría de SKU**: para HANA (instancias grandes), se ofrecen las siguientes dos categorías de SKU:
-    - **Clase de tipo I**: S72, S72m, S96, S144, S144m, S192, S192m, S192xm y S224
+    - **Clase de tipo I**: S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224 y S224m
     - **Clase de tipo II**: S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm y S960m
 - **Demarcación**: Define el tamaño de la implementación interna de Microsoft de instancias grandes de HANA. Para poder implementar unidades de instancias grandes de HANA, se debe implementar una demarcación de instancias grandes de HANA que conste de bastidores de proceso, red y almacenamiento en una ubicación del centro de datos. Este tipo de implementación se denomina demarcación de instancia grande de Hana o, en la revisión 4 (ver a continuación), usamos el término alternativo **fila de instancia grande**.
 - **Revisión**: Hay dos revisiones de demarcación diferentes para las demarcaciones de instancias grandes de HANA. Estas difieren en la arquitectura y la proximidad de los hosts de Azure Virtual Machine.

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: c6ea57ac30a1b4d228a19c3be6a794b3d2175171
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8b95bb45436f45dc0e62fb12d6ab1b24c37372e1
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973028"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562571"
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
 
@@ -77,7 +77,7 @@ Para crear rutas personalizadas, cree rutas [definidas por el usuario](#user-def
 
 ### <a name="user-defined"></a>Definidas por el usuario
 
-En Azure se pueden crear rutas personalizadas o definidas por el usuario para reemplazar las rutas de sistema predeterminadas o para agregar rutas adicionales a una tabla de rutas de una subred. En Azure, cree una tabla de rutas y asóciela a cero o más subredes de red virtual. Cada subred puede tener cero o una ruta de tablas de ruta asociada. Para obtener información acerca del número máximo de rutas que puede agregar a una tabla de rutas y del número máximo de tablas de rutas definidas por el usuario que se pueden crear por suscripción de Azure, consulte el artículo acerca de los [límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Si crea una tabla de rutas y la asocia a una subred, las rutas que contiene se combinan con las rutas predeterminadas que Azure agrega a una subred de forma predeterminada, o bien las reemplazan.
+En Azure se pueden crear rutas personalizadas o definidas por el usuario (estáticas) para reemplazar las rutas del sistema predeterminadas o para agregar rutas adicionales a una tabla de rutas de una subred. En Azure, cree una tabla de rutas y asóciela a cero o más subredes de red virtual. Cada subred puede tener cero o una ruta de tablas de ruta asociada. Para obtener información acerca del número máximo de rutas que puede agregar a una tabla de rutas y del número máximo de tablas de rutas definidas por el usuario que se pueden crear por suscripción de Azure, consulte el artículo acerca de los [límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Si crea una tabla de rutas y la asocia a una subred, las rutas que contiene se combinan con las rutas predeterminadas que Azure agrega a una subred de forma predeterminada, o bien las reemplazan.
 
 Puede especificar los siguientes tipos de próximo salto al crear una ruta definida por el usuario:
 

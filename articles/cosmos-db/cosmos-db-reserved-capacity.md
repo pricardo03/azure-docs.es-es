@@ -4,15 +4,15 @@ description: Aprenda a comprar capacidad reservada de Azure Cosmos DB para ahorr
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 8e29683b994d66e769a24bb2d386a2120cf8eab9
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 16e8f770445218e10ab7e7645a81325d11be55da
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367713"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505970"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Optimización del costo con capacidad reservada en Azure Cosmos DB
 
@@ -30,7 +30,9 @@ Puede comprar capacidad reservada de Azure Cosmos DB en [Azure Portal](https://p
 
 ## <a name="determine-the-required-throughput-before-purchase"></a>Determinación del rendimiento necesario antes de la compra
 
-El tamaño de la reserva debe basarse en la cantidad total de rendimiento que usarán los recursos de Azure Cosmos DB existentes o que se van a implementar. Puede ver los tamaños de reserva recomendados en Azure Portal mediante los pasos siguientes:
+El tamaño de la compra de capacidad reservada debe basarse en la cantidad total de rendimiento que usarán cada hora los recursos de Azure Cosmos DB existentes o que se van a implementar. Por ejemplo: compre una capacidad reservada de 30 000 RU/s si ese es su patrón de uso por hora constante. En este ejemplo, cualquier rendimiento aprovisionado por encima de 30 000 RU/s se facturará según su tarifa de pago por uso. Si el rendimiento aprovisionado es inferior a 30 000 RU/s en una hora, la capacidad reservada adicional para esa hora se desperdiciará.
+
+Calculamos las recomendaciones de compra en función del patrón de uso por hora. Se analiza el uso en los últimos 7, 30 y 60 días, y se recomienda la compra de capacidad reservada para maximizar su ahorro. Puede ver los tamaños de reserva recomendados en Azure Portal mediante los pasos siguientes:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).  
 
@@ -46,7 +48,7 @@ Puede filtrar las recomendaciones por los siguientes atributos:
 - **Frecuencia de facturación** (mensual o por adelantado)
 - **Tipo de rendimiento** (RU frente a RU de arquitectura multimaestro)
 
-Además, puede limitar el ámbito de las recomendaciones a un único grupo de recursos, una sola suscripción o toda la inscripción de Azure. Puede mostrar recomendaciones basadas en el uso durante los últimos 7, 30 o 60 días.
+Además, puede limitar el ámbito de las recomendaciones a un único grupo de recursos, una sola suscripción o toda la inscripción de Azure. 
 
 A continuación se muestra una recomendación de ejemplo:
 

@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: c1e9be605a6f01695f2472ae76a9e5a786388aa0
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 849d1187d6b854d48ad75ab1e55f600407420346
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77206113"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562367"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Puntos de conexión de streaming (origen) en Azure Media Services
 
@@ -73,7 +73,7 @@ Uso recomendado |Se recomienda para la gran mayoría de escenarios de streaming.
 
 <sup>1</sup> Solo se usa directamente en el punto de conexión de streaming cuando la red CDN no está habilitada en el punto de conexión.<br/>
 
-## <a name="properties"></a>Propiedades
+## <a name="streaming-endpoint-properties"></a>Propiedades del punto de conexión de streaming
 
 En esta sección se proporcionan detalles sobre algunas de las propiedades del punto de conexión de streaming. Para obtener ejemplos de cómo crear un nuevo punto de conexión de streaming y las descripciones de todas las propiedades, vea [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create) (Punto de conexión de streaming).
 
@@ -130,50 +130,36 @@ En esta sección se proporcionan detalles sobre algunas de las propiedades del p
 
 - `scaleUnits`: proporciona capacidad de salida dedicada que se puede adquirir en incrementos de 200 Mbps. Si tiene que pasar a un tipo **premium**, ajuste la propiedad `scaleUnits`.
 
-## <a name="working-with-cdn"></a>Trabajo con la red CDN
+## <a name="why-use-multiple-streaming-endpoints"></a>¿Por qué usar varios puntos de conexión de streaming?
 
-En la mayoría de los casos, tendrá la red CDN habilitada. Sin embargo, si prevé una simultaneidad máxima inferior a 500 visores, se recomienda deshabilitar la red CDN, ya que esta se escala mejor con simultaneidad.
+Un punto de conexión de streaming único puede transmitir vídeos en directo y bajo demanda, y la mayoría de los clientes solo usan un punto de conexión de streaming. En esta sección se proporcionan algunos ejemplos de por qué es posible que tenga que usar varios puntos de conexión de streaming.
 
-### <a name="considerations"></a>Consideraciones
+* Cada unidad reservada permite 200 Mbps de ancho de banda. Si necesita más de 2000 Mbps (2 Gbps) de ancho de banda, puede usar el segundo punto de conexión de streaming y el equilibrio de carga para proporcionar ancho de banda adicional.
 
-* El punto de conexión de streaming `hostname` y la dirección URL de streaming permanecen igual habilite o no la red CDN.
-* Si necesita poder probar el contenido con o sin red CDN, puede crear otro punto de conexión de streaming que no tenga habilitada la red CDN.
+    Sin embargo, la red CDN es la mejor manera de alcanzar la escalabilidad horizontal para el contenido de streaming, pero si va a entregar tanto contenido que la red CDN extrae más de 2 Gbps, puede agregar puntos de conexión de streaming adicionales (orígenes). En este caso, deberá entregar las direcciones URL de contenido que estén equilibradas entre los dos puntos de conexión de streaming. Este enfoque proporciona un mejor almacenamiento en caché que intentar enviar solicitudes a cada origen de manera aleatoria (por ejemplo, a través de un administrador de tráfico). 
+    
+    > [!TIP]
+    > Por lo general, si la red CDN extrae más de 2 Gbps, es posible que algo esté mal configurado (por ejemplo, sin blindaje de origen).
+    
+* Equilibrio de carga entre distintos proveedores de CDN. Por ejemplo, puede configurar el punto de conexión de streaming predeterminado para usar la red CDN de Verizon y crear un segundo para usar Akamai. Luego, agregue un equilibrio de carga entre ambos para lograr el equilibrio de múltiples CDN. 
 
-### <a name="detailed-explanation-of-how-caching-works"></a>Explicación detallada de cómo funciona el almacenamiento en caché
+    Sin embargo, el cliente a menudo realiza el equilibrio de carga entre varios proveedores de CDN mediante un origen único.
+* Contenido mixto de streaming: en directo y vídeo bajo demanda. 
 
-No hay ningún valor de ancho de banda específico al agregar la red CDN porque la cantidad de ancho de banda necesaria para un punto de conexión de streaming con la red CDN habilitada varía. Un lote depende del tipo de contenido, su popularidad, la velocidad de bits y los protocolos. La red CDN solo almacena en caché lo que se solicita. Esto significa que se servirá contenido popular directamente desde la red CDN: siempre que el fragmento de vídeo esté almacenado en caché. Es probable que el contenido en vivo se almacene en caché porque suele haber muchas personas mirando exactamente lo mismo. El contenido a petición puede ser un poco más complejo porque podría haber parte del contenido que fuera popular y otra que no. Si hay millones de recursos de vídeo que no son populares (solo uno o dos visores a la semana), pero hay miles de personas que miran vídeos diferentes, la red CDN pasa a ser mucho menos efectiva. Con estos errores de caché, se aumenta la carga en el punto de conexión de streaming.
+    Los patrones de acceso para contenido en vivo y bajo demanda son muy diferentes. El contenido en directo tiende a tener una gran cantidad de demanda del mismo contenido a la vez. El contenido de vídeo bajo demanda (por ejemplo, contenido de archivo de cola larga) se usa poco en el mismo contenido. Por lo tanto, el almacenamiento en caché funciona muy bien en el contenido en directo, pero no tanto en el contenido de cola larga.
 
-También debe tener en cuenta cómo funciona el streaming adaptable. Cada fragmento de vídeo individual se almacena en caché como entidad propia. Por ejemplo, imagine la primera vez que se mira un vídeo determinado. Si el visor omite parte y mira solo unos segundos aquí y allá, solo los fragmentos de vídeo asociados con lo que miró esa persona se almacenan en caché de la red CDN. Con el streaming adaptable, se suelen tener de 5 a 7 velocidades de bits de vídeo distintas. Si una persona está mirando a una velocidad de bits y otra persona a una velocidad de bits diferente, se almacenan en caché cada uno por separado en la red CDN. Incluso si dos personas están mirando a la misma velocidad de bits podrían hacer streaming a través de protocolos diferentes. Cada protocolo (HLS, MPEG-DASH, Smooth Streaming) se almacena en caché por separado. Por lo tanto, cada velocidad de bits y protocolo se almacenan en caché por separado y solo se almacenan en caché los fragmentos de vídeo que se han solicitado.
+    Considere un escenario en el que los clientes ven principalmente el contenido en directo pero que, en ocasiones, ven el contenido bajo demanda y se proporciona desde el mismo punto de conexión de streaming. El uso bajo de contenido bajo demanda ocuparía espacio en caché que se guardaría mejor para el contenido en directo. En este escenario, se recomienda proporcionar el contenido en directo de un punto de conexión de streaming y el contenido de cola larga desde otro punto de conexión de streaming. Esto mejorará el rendimiento del contenido del evento en directo.
+    
+## <a name="scaling-streaming-with-cdn"></a>Escalado de streaming con CDN
 
-### <a name="enable-azure-cdn-integration"></a>Habilitación de la integración de Azure CDN
+Vea los artículos siguientes:
 
-> [!IMPORTANT]
-> No puede habilitar CDN con cuentas de prueba o cuentas educativas de Azure.
->
-> La integración de la red CDN está habilitada en todos los centros de datos de Azure excepto para las regiones Gobierno Federal y China.
-
-Después de aprovisionar un punto de conexión de streaming con la red CDN habilitada, hay un tiempo de espera definido en Media Services antes de realizar la actualización de DNS para asignar el punto de conexión de streaming al punto de conexión de la red CDN.
-
-Si más adelante desea volver a habilitar o deshabilitar la red CDN, punto de conexión de streaming debe estar en estado **stopped** (detenido). Es posible que transcurran hasta dos horas hasta que la integración de Azure CDN se habilite y los cambios se activen en todos los POP de la red CDN. Sin embargo, puede iniciar el punto de conexión de streaming y transmitir sin interrupciones desde ahí y, una vez que la integración esté completa, la transmisión se efectúa desde la red CDN. Durante el período de aprovisionamiento, el punto de conexión de streaming estará en estado **iniciando** y es posible que note una reducción en el rendimiento.
-
-Cuando se crea el punto de conexión de streaming Estándar, se configura de forma predeterminada con Standard Verizon. Puede configurar los proveedores Premium Verizon o Standard Akamai mediante las API REST.
-
-La integración de Azure Media Services con Azure CDN se implementa en **Azure CDN de Verizon** para puntos de conexión de streaming estándar. Los puntos de conexión de streaming premium pueden configurarse con todos los **proveedores y planes de tarifa de Azure CDN**. 
-
-> [!NOTE]
-> Para más información sobre Azure CDN, consulte [Información general de la red CDN](../../cdn/cdn-overview.md).
-
-### <a name="determine-if-dns-change-was-made"></a>Determinar si se realizó el cambio de DNS
-
-Puede determinar si se ha realizado el cambio de DNS en un punto de conexión de streaming (el tráfico se dirige a la red Azure CDN) mediante https://www.digwebinterface.com. Si los resultados tienen los nombres de dominio azureedge.net, el tráfico apunta ahora a la red CDN.
+- [Información general de la red CDN](../../cdn/cdn-overview.md)
+- [Escalado de streaming con CDN](scale-streaming-cdn.md)
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, realice comentarios y obtenga actualizaciones
 
 Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
-
-## <a name="see-also"></a>Consulte también
-
-[Información general de la red CDN](../../cdn/cdn-overview.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

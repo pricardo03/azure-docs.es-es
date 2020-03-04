@@ -4,15 +4,15 @@ description: Obtenga información sobre las características de red de Azure App
 author: ccompy
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 02/27/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 208bf37bfcdf0f86fad11611279d1b4e642fb18a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0fd904b15a830e2b261057a11d1a8f3a4d584fe1
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74971764"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649233"
 ---
 # <a name="app-service-networking-features"></a>Características de redes de App Service
 
@@ -27,8 +27,8 @@ Azure App Service es un sistema distribuido. Los roles que controlan las solicit
 | Características de entrada | Características de salida |
 |---------------------|-------------------|
 | Direcciones asignadas a las aplicaciones | conexiones híbridas |
-| Restricciones de acceso | Integración con redes virtuales requerida por la puerta de enlace |
-| Puntos de conexión de servicio | Integración con redes virtuales (versión preliminar) |
+| Restricciones de acceso | Integración con red virtual con requisito de puerta de enlace |
+| Puntos de conexión de servicio | Integración con red virtual |
 
 A menos que se indique lo contrario, todas las características se pueden usar conjuntamente. Puede combinar las características para solucionar diversos problemas.
 
@@ -53,10 +53,12 @@ Los siguientes casos de uso de salida sugieren cómo usar las características d
 | Casos de uso de salida | Característica |
 |---------------------|-------------------|
 | Acceso a los recursos de una red virtual de Azure en la misma región | Integración con red virtual </br> ASE |
-| Acceso a los recursos de una red virtual de Azure en una región diferente | Integración con redes virtuales requerida por la puerta de enlace </br> ASE y emparejamiento de redes virtuales |
+| Acceso a los recursos de una red virtual de Azure en una región diferente | Integración con red virtual con requisito de puerta de enlace </br> ASE y emparejamiento de redes virtuales |
 | Acceso a los recursos protegidos por puntos de conexión de servicio | Integración con red virtual </br> ASE |
 | Acceso a los recursos de una red privada no conectada a Azure | conexiones híbridas |
-| Acceso a los recursos mediante circuitos de ExpressRoute | Integración con redes virtuales (restringido a direcciones RFC 1918 por el momento) </br> ASE | 
+| Acceso a los recursos mediante circuitos de ExpressRoute | Integración con red virtual </br> ASE | 
+| Protección del tráfico saliente de su aplicación web | Integración de VNet y grupos de seguridad de red </br> ASE | 
+| Enrutamiento del tráfico saliente de su aplicación web | Integración de VNet y tablas de ruta </br> ASE | 
 
 
 ### <a name="default-networking-behavior"></a>Comportamiento predeterminado de la redes
@@ -97,11 +99,11 @@ La característica Restricciones de acceso es de utilidad en escenarios donde se
 
 Si desea bloquear el acceso a la aplicación para que solo sea accesible desde los recursos de su red virtual de Azure (VNet), necesita una dirección pública estática en aquel que sea el elemento de origen desde dicha red virtual. Si los recursos no tienen una dirección pública, debe usar la característica Puntos de conexión de servicio en su lugar. Obtenga información sobre cómo habilitar esta característica con el tutorial [Configuración de Restricciones de acceso][iprestrictions].
 
-### <a name="service-endpoints"></a>Puntos de conexión de servicio
+### <a name="service-endpoints"></a>Puntos de conexión del servicio
 
 Los puntos de conexión de servicio le permite bloquear el acceso **entrante** a la aplicación de modo que la dirección de origen deba proceder de un conjunto de subredes que ha seleccionado. Esta característica funciona junto con la característica Restricciones de acceso IP. Los puntos de conexión de servicio se establecen en la misma experiencia de usuario que las restricciones de acceso IP. Puede crear una lista de reglas de acceso tipo permitir/denegar que incluya direcciones públicas, así como las subredes de sus redes virtuales. Esta característica admite escenarios como:
 
-![puntos de conexión de servicio](media/networking-features/service-endpoints.png)
+![puntos de conexión del servicio](media/networking-features/service-endpoints.png)
 
 * Configuración de Application Gateway con la aplicación para bloquear el tráfico entrante a la aplicación
 * Restricción del acceso a la aplicación a los recursos de su red virtual. Estos pueden ser máquinas virtuales, entornos de ASE o incluso otras aplicaciones que usen la integración con red virtual. 
@@ -130,11 +132,11 @@ Dado que la característica permite el acceso a los recursos locales sin un aguj
 
 Aunque Conexiones híbridas es popular para el desarrollo, también se utiliza en numerosas aplicaciones de producción. Es muy útil para acceder a un servicio web o una base de datos, pero no es adecuada para situaciones que implican crear muchas conexiones. 
 
-### <a name="gateway-required-vnet-integration"></a>Integración con redes virtuales requerida por la puerta de enlace 
+### <a name="gateway-required-vnet-integration"></a>Integración con red virtual con requisito de puerta de enlace 
 
 La característica Integración con redes virtuales de App Service requerida por la puerta de enlace permite a la aplicación realizar solicitudes **salientes** a una red virtual de Azure. La característica funciona mediante la conexión del host en el que se ejecuta la aplicación a una puerta de enlace de red virtual de la red virtual con una conexión VPN de punto a sitio. Al configurar la característica, la aplicación obtiene una de las direcciones de punto a sitio asignadas a cada instancia. Esta característica le permite acceder a recursos de redes virtuales clásicas o de Resource Manager en cualquier región. 
 
-![Integración con redes virtuales requerida por la puerta de enlace](media/networking-features/gw-vnet-integration.png)
+![Integración con red virtual con requisito de puerta de enlace](media/networking-features/gw-vnet-integration.png)
 
 Esta característica soluciona el problema de acceso a recursos existentes en otras redes virtuales e incluso se puede usar para conectarse a través de una red virtual a otras redes virtuales o incluso al entorno local. No funciona con redes virtuales conectadas mediante ExpressRoute, pero funciona con redes conectadas mediante VPN. Normalmente es inadecuado usar esta característica desde una aplicación en un entorno de App Service Environment (ASE), porque la instancia de ASE ya está en su red virtual. Los casos de uso que soluciona esta característica son:
 
@@ -151,10 +153,12 @@ La característica Integración con redes virtuales requerida por la puerta de e
 * Acceso a recursos en redes virtuales de Resource Manager de la misma región
 * Acceso a los recursos que están protegidos por puntos de conexión de servicio 
 * Acceso a recursos que son accesibles a través de conexiones ExpressRoute o VPN
+* Protección de todo el tráfico saliente 
+* Fuerce la tunelización de todo el tráfico saliente. 
 
 ![Integración con red virtual](media/networking-features/vnet-integration.png)
 
-Esta característica se encuentra en versión preliminar y no debe usarse para cargas de trabajo de producción. Para más información sobre esta característica, lea los documentos sobre [Integración con red virtual de App Service][vnetintegration].
+Para más información sobre esta característica, lea los documentos sobre [Integración con red virtual de App Service][vnetintegration].
 
 ## <a name="app-service-environment"></a>Entorno de App Service 
 

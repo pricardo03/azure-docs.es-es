@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 610c3aa486b48b2d29df48d98e93b37cfec4854c
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 548163f4c86f4df4d858b31afd95e0e4615f1696
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790376"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587505"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migración de espacios de nombres estándar de Azure Service Bus existentes
 Anteriormente, Azure Service Bus ofrecía espacios de nombres solo en el nivel Estándar. Los espacios de nombres son configuraciones multiinquilino optimizadas para entornos de desarrollador y de rendimiento bajo. El nivel premium ofrece recursos dedicados por espacio de nombres para la latencia predecible y el rendimiento aumentado a un precio fijo. El nivel premium está optimizado para entornos de producción y de alto rendimiento que requieren características empresariales adicionales.
@@ -32,7 +32,7 @@ Algunos de los puntos que debe tener en cuenta:
 - El espacio de nombres **Premium** no debe tener **ninguna entidad** para que la migración se realice correctamente. 
 - Todas las **entidades** del espacio de nombres estándar se **copiar** al espacio de nombres premium durante el proceso de migración. 
 - La migración admite **1000 entidades por unidad de mensajería** en el nivel premium. Para identificar cuántas unidades de mensajería necesita, empiece con el número de entidades que tiene en el espacio de nombres estándar actual. 
-- No es posible migrar directamente desde el **nivel básico** al **nivel Premier**, pero puede hacerlo de manera indirecta si migra primero desde el nivel básico al nivel estándar y, luego, desde el nivel estándar al premium en el paso siguiente.
+- No es posible migrar directamente desde el **nivel básico** al **nivel premium**, pero puede hacerlo de manera indirecta si migra primero desde el nivel básico al nivel estándar y, luego, desde el nivel estándar al premium en el paso siguiente.
 
 ## <a name="migration-steps"></a>Pasos de migración
 El proceso de migración tiene asociadas algunas condiciones. Familiarícese con estos pasos para disminuir la posibilidad de errores. En estos pasos se describe el proceso de migración y los detalles paso a paso aparecen en las secciones siguientes.
@@ -170,7 +170,7 @@ No, no es necesario ningún cambio de código ni de la configuración durante la
 ### <a name="what-happens-when-i-abort-the-migration"></a>¿Qué pasa si anulo la migración?
 La migración se puede anular con el comando `Abort` o con Azure Portal. 
 
-#### <a name="azure-cli"></a>CLI de Azure
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 az servicebus migration abort --resource-group $resourceGroup --name $standardNamespace

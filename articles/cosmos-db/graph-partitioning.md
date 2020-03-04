@@ -8,18 +8,18 @@ ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4c8761d82c8a735ac9c4bff2e5ac0107b2a57fe0
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 44d3b7c2b9e23b90f696162747d9728b18fb7d3f
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537543"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623368"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Uso de Graph con particiones en Azure Cosmos DB
 
 Una de las características clave de la API de Gremlin de Azure Cosmos DB es la posibilidad de tratar grafos a gran escala con escalado horizontal. Los contenedores pueden escalarse independientemente en términos de almacenamiento y rendimiento. Puede crear contenedores en Azure Cosmos DB que pueden escalarse automáticamente para almacenar los datos de un grafo. Los datos se equilibrarán automáticamente según la **clave de partición** especificada.
 
-**Se requiere la creación de particiones** si se espera que el contenedor almacene más de 10 GB de tamaño o se quieren asignar más de 10 000 unidades de solicitud por segundo (RU). Se aplican los mismos principios generales del [mecanismo para crear particiones de Azure Cosmos DB](partition-data.md) con algunas optimizaciones específicas de Grafo que se describen a continuación.
+**Se requiere la creación de particiones** si se espera que el contenedor almacene más de 20 GB de tamaño o se quieren asignar más de 10 000 unidades de solicitud por segundo (RU). Se aplican los mismos principios generales del [mecanismo para crear particiones de Azure Cosmos DB](partition-data.md) con algunas optimizaciones específicas de Grafo que se describen a continuación.
 
 ![Creación de particiones de Graph.](./media/graph-partitioning/graph-partitioning.png)
 

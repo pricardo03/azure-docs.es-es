@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
-ms.openlocfilehash: 06fa98ae4acc2252d8866858ed0e2194ed84ff79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 40735f91e2ca58cc42f723c7993686d92f0e5ff0
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60928289"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623344"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Retirada de los niveles de rendimiento S1, S2 y S3
 
@@ -26,7 +26,7 @@ En este artículo se proporciona información general de los niveles de rendimie
 - [¿Qué tengo que hacer para garantizar el acceso ininterrumpido a mis datos?](#uninterrupted-access)
 - [¿Cómo cambiará mi colección después de la migración?](#collection-change)
 - [¿Cómo cambiará mi facturación después migrar a colecciones de partición única?](#billing-change)
-- [¿Qué ocurre si necesito más de 10 GB de almacenamiento?](#more-storage-needed)
+- [¿Qué ocurre si necesito más de 20 GB de almacenamiento?](#more-storage-needed)
 - [¿Puedo cambiar entre los niveles de rendimiento S1, S2 y S3 antes de la migración planeada?](#change-before)
 - [¿Cómo migro de los niveles de rendimiento S1, S2 y S3 a las colecciones de partición única por mí mismo?](#migrate-diy)
 - [¿Cómo me afecta si soy un cliente de EA?](#ea-customer)
@@ -41,13 +41,13 @@ Los niveles de rendimiento S1, S2 y S3 no ofrecen la flexibilidad que proporcion
 
 ## <a name="how-do-single-partition-collections-and-partitioned-collections-compare-to-the-s1-s2-s3-performance-levels"></a>¿Cómo se comparan las colecciones de partición única y con particiones con los niveles de rendimiento S1, S2 y S3?
 
-En la tabla siguiente se comparan las opciones de rendimiento y almacenamiento disponibles en las colecciones de partición única, las colecciones con particiones y los niveles de rendimiento S1, S2 y S3. Este es un ejemplo para la región Este de EE. UU. - 2:
+En la tabla siguiente se comparan las opciones de rendimiento y almacenamiento disponibles en las colecciones de partición única, las colecciones con particiones y los niveles de rendimiento S1, S2 y S3. Este es un ejemplo para la región Este de EE. UU. 2:
 
 |   |Colección con particiones|Colección de partición única|S1|S2|S3|
 |---|---|---|---|---|---|
-|Rendimiento máximo|Ilimitado|10 000 RU/s|250 RU/s|1000 RU/s|2500 RU/s|
+|Rendimiento máximo|Sin límite|10 000 RU/s|250 RU/s|1000 RU/s|2500 RU/s|
 |Rendimiento mínimo|2500 RU/s|400 RU/s|250 RU/s|1000 RU/s|2500 RU/s|
-|Almacenamiento máximo|Ilimitado|10 GB|10 GB|10 GB|10 GB|
+|Almacenamiento máximo|Sin límite|20 GB|20 GB|20 GB|20 GB|
 |Precio (mensual)|Rendimiento: 6 USD / 100 RU/s<br><br>Almacenamiento: 0,25 USD/GB|Rendimiento: 6 USD / 100 RU/s<br><br>Almacenamiento: 0,25 USD/GB|25 USD|50 USD|100 USD|
 
 ¿Es un cliente de EA? Si es así, consulte [¿Cómo me afecta si soy un cliente de EA?](#ea-customer)
@@ -80,9 +80,9 @@ Supongamos que tiene 10 colecciones S1 en la región Este de EE. UU. y 1 GB de a
 
 <a name="more-storage-needed"></a>
 
-## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>¿Qué ocurre si necesito más de 10 GB de almacenamiento?
+## <a name="what-if-i-need-more-than-20-gb-of-storage"></a>¿Qué ocurre si necesito más de 20 GB de almacenamiento?
 
-Independientemente de si tiene una colección con un nivel de rendimiento S1, S2 o S3, o si tiene una colección de partición única, todos con 10 GB de almacenamiento disponibles, puede utilizar la herramienta de migración de datos de Azure Cosmos DB para migrar los datos a una colección con particiones, con un almacenamiento prácticamente ilimitado. Para más información acerca de las ventajas de una colección con particiones, consulte el tema sobre [particiones y escalado en Azure Cosmos DB](sql-api-partition-data.md). 
+Independientemente de si tiene una colección con un nivel de rendimiento S1, S2 o S3, o si tiene una colección de partición única, todos con 20 GB de almacenamiento disponibles, puede utilizar la herramienta de migración de datos de Azure Cosmos DB para migrar los datos a una colección con particiones, con un almacenamiento prácticamente ilimitado. Para más información acerca de las ventajas de una colección con particiones, consulte el tema sobre [particiones y escalado en Azure Cosmos DB](sql-api-partition-data.md). 
 
 <a name="change-before"></a>
 

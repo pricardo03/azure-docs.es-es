@@ -3,12 +3,12 @@ title: Acerca de la copia de seguridad de máquina virtual de Azure
 description: En este artículo, aprenderá cómo el servicio Azure Backup realiza copias de seguridad de las máquinas virtuales de Azure y cómo seguir los procedimientos recomendados.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: b38c61adaf334eacb7d85292d4174189d6fddc46
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8ffbf0d0164cbf6f085518d57566b0befde6e124
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75391900"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597259"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Información general sobre la copia de seguridad de máquinas virtuales de Azure
 
@@ -58,12 +58,7 @@ También se crea una copia de seguridad de las BEK. Por lo tanto, si se pierden 
 
 Azure Backup toma instantáneas según la programación de copia de seguridad.
 
-- **VM de Windows**: para las VM de Windows, el servicio de copia de seguridad coordina con VSS para tomar una instantánea coherente con la aplicación de los discos de la VM.
-
-  - De forma predeterminada, Azure Backup realiza copias de seguridad de VSS completas. [Más información](https://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
-  - Para cambiar la configuración de modo que Azure Backup realice copias de seguridad de las copias de VSS, establezca la siguiente clave del registro desde un símbolo del sistema:
-
-    **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f**
+- **VM de Windows**: para las VM de Windows, el servicio de copia de seguridad coordina con VSS para tomar una instantánea coherente con la aplicación de los discos de la VM.  De forma predeterminada, Azure Backup toma una copia de seguridad completa de VSS (trunca los registros de la aplicación, como SQL Server, en el momento de la copia de seguridad para obtener una copia de seguridad coherente en el nivel de aplicación).  Si utiliza una base de datos de SQL Server en la copia de seguridad de VM de Azure, puede modificar la configuración para realizar una copia de seguridad de la copia de VSS (para conservar los registros). Para obtener más información, consulte [este artículo](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#troubleshoot-vm-snapshot-issues).
 
 - **VM de Linux:** para realizar instantáneas coherentes con la aplicación de una VM de Linux, use el marco de script anterior y posterior para escribir scripts personalizados a fin de garantizar la coherencia.
 

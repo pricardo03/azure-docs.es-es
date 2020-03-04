@@ -4,101 +4,99 @@ description: Conozca los aspectos que debe tener en cuenta al planear una implem
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9b71c4a5c0f245d9da97dc8f096d15c5386bf919
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 88c35b7b1420b5d89f9215f7da3ccf24870024e9
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368607"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597880"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
+[Azure Files](storage-files-introduction.md) se puede implementar de dos formas principales: montando directamente los recursos compartidos de archivos de Azure sin servidor o almacenando en caché recursos compartidos de archivos de Azure localmente mediante Azure File Sync. La opción de implementación que elija cambiará todo aquello que debe tener en cuenta a la hora de planear la implementación. 
 
-[Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el protocolo SMB estándar. Dado que Azure Files está totalmente administrado, su implementación en escenarios de producción resulta mucho más sencilla que la implementación y administración de un servidor de archivos o un dispositivo NAS. En este artículo se tratan las cuestiones que deben tenerse en cuenta al implementar un recurso compartido de archivos de Azure para su uso en producción dentro de la organización.
+- **Montaje directo de un recurso compartido de archivos de Azure**: dado que Azure Files proporciona acceso SMB, puede montar recursos compartidos de archivos de Azure locales o en la nube mediante el cliente SMB estándar disponible en Windows, macOS y Linux. Dado que los recursos compartidos de archivos de Azure no tienen servidor, la implementación en escenarios de producción no requiere la administración de un servidor de archivos o un dispositivo NAS, lo que significa que no tiene que aplicar revisiones de software ni intercambiar discos físicos. 
+
+- **Almacenamiento en caché de recursos compartidos de archivos de Azure localmente con Azure File Sync**: Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma una instancia de Windows Server local (o en la nube) en una caché rápida de su recurso compartido de archivos de Azure. 
+
+En este artículo se abordan principalmente las consideraciones de implementación de un recurso compartido de archivos de Azure que se va a montar directamente mediante un cliente local o en la nube. Para planear una implementación de Azure File Sync, consulte [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md).
 
 ## <a name="management-concepts"></a>Conceptos de administración
+[!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 
- El siguiente diagrama muestra las construcciones de administración de Azure Files:
+Al implementar recursos compartidos de archivos de Azure en cuentas de almacenamiento, se recomienda:
 
-![Estructura de archivos](./media/storage-files-introduction/files-concepts.png)
+- Implementar solo recursos compartidos de archivos de Azure en cuentas de almacenamiento con otros recursos compartidos de archivos de Azure. Aunque las cuentas de almacenamiento de GPv2 permiten tener cuentas de almacenamiento de propósito combinado, dado que los recursos de almacenamiento como los recursos compartidos de archivos de Azure y los contenedores de blobs comparten los límites de la cuenta de almacenamiento, la combinación de recursos puede dificultar la solución de problemas de rendimiento más adelante. 
 
-* **Storage Account** (Cuenta de almacenamiento): Todo el acceso a Azure Storage se realiza a través de una cuenta de almacenamiento. Vea [Objetivos de escalabilidad y rendimiento para cuentas de almacenamiento estándar](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obtener más información sobre la capacidad de la cuenta de almacenamiento.
+- Prestar atención a las limitaciones de IOPS de la cuenta de almacenamiento al implementar recursos compartidos de archivos de Azure. Lo ideal sería asignar recursos compartidos de archivos 1:1 a cuentas de almacenamiento; sin embargo, quizás no sea posible debido a diversos límites y restricciones, tanto de su organización como de Azure. Cuando no sea posible tener un solo recurso compartido de archivos implementado en una cuenta de almacenamiento, tenga en cuenta qué recursos compartidos estarán muy activos y cuales estarán menos activos, con el fin de asegurarse de que los recursos compartidos de archivos más activos no se colocan en la misma cuenta de almacenamiento.
 
-* **Recurso compartido**: un recurso compartido de File Storage es un recurso compartido de archivos de SMB en Azure. Todos los directorios y archivos se deben crear en un recurso compartido principal. Una cuenta puede contener un número ilimitado de recursos compartidos y un recurso compartido puede almacenar un número ilimitado de archivos, hasta una capacidad total del recurso compartido de archivos. La capacidad total de los recursos compartidos de archivos prémium y estándar es 100 TiB.
+- Implementar solamente cuentas de GPv2 y FileStorage, y actualizar las cuentas de almacenamiento clásicas y de GPv1 cuando las encuentre en su entorno. 
 
-* **Directorio**: una jerarquía de directorios opcional.
+## <a name="identity"></a>Identidad
+Para acceder a un recurso compartido de archivos de Azure, el usuario debe estar autenticado y tener la debida autorización. Esto se hace en función de la identidad del usuario que accede al recurso compartido de archivos. Azure Files se integra con tres proveedores de identidades principales:
+- **Active Directory propiedad del cliente** (versión preliminar) Las cuentas de almacenamiento de Azure pueden estar unidas a un dominio de Windows Server Active Directory propiedad del cliente, al igual que un servidor de archivos de Windows Server o un dispositivo NAS. El controlador de dominio de Active Directory se puede implementar de forma local, en una VM de Azure o incluso como una VM en otro proveedor de nube. Azure Files es independiente de la ubicación donde se hospeda el controlador de dominio. Una vez que una cuenta de almacenamiento está unida a un dominio, el usuario final puede montar un recurso compartido de archivos con la cuenta de usuario con la que inició sesión en su equipo. La autenticación basada en AD usa el protocolo de autenticación Kerberos.
+- **Azure Active Directory Domain Services (Azure AD DS)** : Azure AD DS proporciona un controlador de dominio de Active Directory administrado por Microsoft que se puede usar para los recursos de Azure. La unión a un dominio de la cuenta de almacenamiento a Azure AD DS proporciona ventajas similares a la unión a un dominio de dicha cuenta a una instancia de Active Directory propiedad del cliente. Esta opción de implementación es especialmente útil para escenarios de migración mediante lift-and-shift de aplicaciones que requieren permisos basados en AD. Dado que Azure AD DS proporciona autenticación basada en AD, esta opción también usa el protocolo de autenticación Kerberos.
+- **Clave de la cuenta de Azure Storage**: los recursos compartidos de archivos de Azure también se pueden montar con una clave de cuenta de almacenamiento de Azure. Para montar un recurso compartido de archivos de esta forma, el nombre de la cuenta de almacenamiento se usa como nombre de usuario y la clave de la cuenta de almacenamiento se usa como contraseña. El uso de la clave de la cuenta de almacenamiento para montar el recurso compartido de archivos de Azure es realmente una operación de administrador, ya que el recurso compartido de archivos montado tendrá permisos completos para todos los archivos y todas las carpetas del recurso compartido, aunque tengan ACL. Cuando se usa la clave de la cuenta de almacenamiento para el montaje a través de SMB, se usa el protocolo de autenticación NTLMv2.
 
-* **Archivo**: se trata de un archivo del recurso compartido. Un archivo puede tener un tamaño de hasta 1 TiB.
+En el caso de los clientes que realizan la migración desde servidores de archivos locales o que crean nuevos recursos compartidos de archivos en Azure Files destinados a comportarse como servidores de archivos de Windows o dispositivos NAS, la unión a un dominio de la cuenta de almacenamiento a **Active Directory propiedad del cliente** es la opción recomendada. Para más información acerca de la unión a un dominio de la cuenta de almacenamiento a una instancia de Active Directory propiedad del cliente, consulte la [introducción a Active Directory de Azure Files](storage-files-active-directory-overview.md).
 
-* **Formato de dirección URL**: en las solicitudes a un recurso compartido de archivos de Azure realizadas con el protocolo de REST de archivo, los archivos son direccionables mediante el formato de dirección URL siguiente:
+Si tiene previsto usar la clave de la cuenta de almacenamiento para acceder a los recursos compartidos de archivos de Azure, se recomienda usar puntos de conexión de servicio como se describe en la sección [Redes](#networking).
 
-    ```
-    https://<storage account>.file.core.windows.net/<share>/<directory>/<file>
-    ```
+## <a name="networking"></a>Redes
+Los recursos compartidos de archivos de Azure son accesibles desde cualquier lugar a través del punto de conexión público de la cuenta de almacenamiento. Esto significa que las solicitudes autenticadas, como las solicitudes autorizadas por la identidad de inicio de sesión de un usuario, pueden originarse de forma segura dentro o fuera de Azure. En muchos entornos de cliente, se producirá un error en el montaje inicial del recurso compartido de archivos de Azure en la estación de trabajo local, aunque los montajes desde las máquinas virtuales de Azure se realicen correctamente. El motivo es que muchas organizaciones y proveedores de servicios de Internet (ISP) bloquean el puerto que usa SMB para comunicarse, el puerto 445. 
 
-## <a name="data-access-method"></a>Método de acceso a datos
+Para desbloquear el acceso al recurso compartido de archivos de Azure, tiene dos opciones principales:
 
-Azure Files ofrece dos cómodos métodos de acceso a datos integrados que puede usar por separado o combinados entre sí para acceder a los datos:
+- Desbloquear el puerto 445 para la red local de su organización. Solo se puede acceder externamente a recursos compartidos de archivos de Azure a través del punto de conexión público mediante protocolos seguros para Internet, como SMB 3.0 y la API de FileREST. Esta es la manera más fácil de acceder al recurso compartido de archivos de Azure desde el entorno local, ya que no requiere una configuración de red avanzada más allá de cambiar las reglas de puerto de salida de la organización. Sin embargo, se recomienda quitar las versiones heredadas y en desuso del protocolo SMB, concretamente SMB 1.0. Para obtener información sobre cómo hacerlo, consulte [Protección de Windows y Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server) y [Protección de Linux](storage-how-to-use-files-linux.md#securing-linux).
 
-1. **Acceso directo a la nube**: cualquier recurso compartido de archivos de Azure se puede montar mediante [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md) o [Linux](storage-how-to-use-files-linux.md) con el protocolo de bloque de mensaje de servidor (SMB) estándar del sector o a través de la API de REST de archivo. Con SMB, las operaciones de lectura y escritura en archivos del recurso compartido se realizan directamente en el recurso compartido de archivos en Azure. Para montar mediante una máquina virtual en Azure, el cliente SMB del sistema operativo debe ser compatible al menos con SMB 2.1. Para montar en local, como en la estación de trabajo de un usuario, el cliente SMB compatible con la estación de trabajo debe ser compatible al menos con SMB 3.0 (con cifrado). Además de SMB, hay nuevas aplicaciones o servicios que pueden acceder directamente al recurso compartido de archivos a través de REST de archivo, lo que proporciona una interfaz de programación de aplicaciones escalable y sencilla para el desarrollo de software.
-2. **Azure File Sync**: con Azure File Sync, se pueden replicar los recursos compartidos de archivos a servidores de Windows Servers de forma local o en Azure. Los usuarios accederían al recurso compartido de archivos mediante el servidor de Windows Server, por ejemplo, a través de un recurso compartido de SMB o NFS. Esto resulta útil en escenarios en los que es necesario acceder a los datos y modificarlos lejos de un centro de datos de Azure, como puede ser en una sucursal. Lo datos pueden replicarse entre varios puntos de conexión de Windows Server, por ejemplo, entre varias sucursales. Por último, los datos pueden colocarse en niveles en Azure Files, de modo que se pueda seguir accediendo a todos los datos a través del servidor, pero este no tenga una copia completa de ellos. Los datos se recuperan sin problemas cuando los abre el usuario.
+- Acceder a recursos compartidos de archivos de Azure a través de una conexión de ExpressRoute o VPN. Al acceder al recurso compartido de archivos de Azure a través de un túnel de red, puede montar el recurso compartido de archivos de Azure como un recurso compartido de archivos local, ya que el tráfico SMB no atraviesa el límite de la organización.   
 
-En la tabla siguiente se muestra cómo pueden acceder los usuarios y las aplicaciones al recurso compartido de archivos de Azure:
+Aunque desde una perspectiva técnica es considerablemente más fácil montar los recursos compartidos de archivos de Azure a través del punto de conexión público, esperamos que la mayoría de los clientes opten por montar sus recursos compartidos de archivos de Azure a través de una conexión de ExpressRoute o VPN. Para ello, deberá configurar las opciones siguientes para su entorno:  
 
-| | Acceso directo a la nube | Azure File Sync |
-|------------------------|------------|-----------------|
-| ¿Qué protocolos necesita usar? | Azure Files admite SMB 2.1, SMB 3.0 y API de REST de archivo. | Acceda al recurso compartido de archivos de Azure a través de cualquier protocolo compatible de Windows Server (SMB, NFS, FTPS, etc.) |  
-| ¿Dónde se ejecuta la carga de trabajo? | **En Azure**: Azure Files ofrece acceso directo a los datos. | **En local con red lenta**: los clientes de Windows, Linux y macOS pueden montar un recurso compartido de archivos de Windows local como una memoria caché rápida del recurso compartido de archivos de Azure. |
-| ¿Qué nivel de ACL necesita? | Nivel de recurso compartido y archivo. | Nivel de recurso compartido, archivo y usuario. |
+- **Tunelización de red mediante ExpressRoute o una VPN de sitio a sitio o de punto a sitio**: la tunelización en una red virtual permite acceder a recursos compartidos de archivos de Azure desde el entorno local, aunque el puerto 445 esté bloqueado.
+- **Puntos de conexión privados**: los puntos de conexión privados proporcionan a su cuenta de almacenamiento una dirección IP dedicada desde el espacio de direcciones de la red virtual. Esto permite la tunelización de red sin necesidad de abrir redes locales en todos los intervalos de direcciones IP que son propiedad de los clústeres de almacenamiento de Azure. 
+- **Reenvío DNS**: configure su DNS local para resolver el nombre de la cuenta de almacenamiento (es decir, `storageaccount.file.core.windows.net` para las regiones de la nube pública) para resolver la dirección IP de sus puntos de conexión privados.
 
-## <a name="data-security"></a>Seguridad de los datos
+Para planear las redes asociadas a la implementación de un recurso compartido de archivos de Azure, consulte [Consideraciones de redes para Azure Files](storage-files-networking-overview.md).
 
-Azure Files tiene varias opciones integradas para garantizar la seguridad de los datos:
+## <a name="encryption"></a>Cifrado
+Azure Files admite dos tipos de cifrado diferentes: el cifrado en tránsito, que se relaciona con el cifrado que se usa al montar el recurso compartido de archivos de Azure y acceder a este, y el cifrado en reposo, relacionado con la forma en que se cifran los datos cuando se almacenan en el disco. 
 
-* Admite el cifrado en ambos protocolos inalámbricos: cifrado SMB 3.0 y REST de archivo a través de HTTPS. De forma predeterminada: 
-    * Los clientes que admiten el cifrado SMB 3.0 envían y reciben datos a través de un canal cifrado.
-    * Los clientes que no admiten SMB 3.0 con cifrado pueden comunicarse dentro de centros de datos a través de SMB 2.1 o SMB 3.0 sin cifrado. No se permite a los clientes SMB comunicarse entre centros de datos a través de SMB 2.1 o SMB 3.0 sin cifrado.
-    * Los clientes pueden comunicarse a través de REST de archivo con HTTP o HTTPS.
-* Cifrado en reposo ([Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): La característica Storage Service Encryption está habilitada para todas las cuentas de almacenamiento. Los datos en reposo se cifran con claves completamente administradas. En el cifrado en reposo no se aumentan los costos de almacenamiento ni se reduce el rendimiento. 
-* Requisito opcional de datos cifrados en tránsito: cuando está seleccionado, Azure Files rechaza el acceso a los datos a través de canales sin cifrar. En concreto, solo se permiten HTTPS y SMB 3.0 con conexiones de cifrado.
+### <a name="encryption-in-transit"></a>Cifrado en tránsito
+De forma predeterminada, todas las cuentas de Azure Storage tienen habilitado el cifrado en tránsito. Esto significa que al montar un recurso compartido de archivos a través de SMB o acceder a él a través del protocolo de FileREST (por ejemplo, a través de Azure Portal, la CLI o PowerShell, o los SDK de Azure), Azure Files solo permitirá la conexión si se realiza con una versión posterior a SMB 3.0 con cifrado o HTTPS. Los clientes que no admiten SMB 3.0, o los clientes que admiten SMB 3.0, pero no al cifrado SMB no podrán montar el recurso compartido de archivos de Azure si está habilitado el cifrado en tránsito. Para obtener más información sobre qué sistemas operativos admiten SMB 3.0 con cifrado, consulte nuestra documentación detallada para [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md) y [Linux](storage-how-to-use-files-linux.md). Todas las versiones actuales de PowerShell, la CLI y los SDK admiten HTTPS.  
 
-    > [!Important]  
-    > La exigencia de transferencia segura de datos hace que los clientes SMB más antiguos que no son capaces de comunicarse con SMB 3.0 con cifrado experimenten un error. Para más información, consulte [Montaje en Windows](storage-how-to-use-files-windows.md), [Montaje en Linux](storage-how-to-use-files-linux.md) y [Montaje en macOS](storage-how-to-use-files-mac.md).
+Puede deshabilitar el cifrado en tránsito para una cuenta de almacenamiento de Azure. Cuando el cifrado está deshabilitado, Azure Files también permite el uso de SMB 2.1, SMB 3.0 sin cifrado y las llamadas a la API de FileREST sin cifrar a través de HTTP. La razón principal para deshabilitar el cifrado en tránsito es admitir una aplicación heredada que debe ejecutarse en un sistema operativo anterior, como Windows Server 2008 R2 o una distribución de Linux anterior. Azure Files solo permite conexiones SMB 2.1 dentro de la misma región de Azure del recurso compartido de archivos de Azure. Un cliente SMB 2.1 fuera de la región de Azure del recurso compartido de archivos de Azure (por ejemplo, en un entorno local o en una región de Azure diferente) no podrá acceder al recurso compartido de archivos.
 
-Para lograr la máxima seguridad, se recomienda encarecidamente habilitar siempre el cifrado en reposo y el cifrado de datos en tránsito cuando se usen clientes modernos para acceder a los datos. Por ejemplo, si tiene que montar un recurso compartido en una máquina virtual de Windows Server 2008 R2 que solo es compatible con SMB 2.1, debe permitir el tráfico sin cifrar a la cuenta de almacenamiento, dado que SMB 2.1 no admite el cifrado.
+Se recomienda encarecidamente asegurarse de que está habilitado el cifrado de los datos en tránsito.
 
-Si usa Azure File Sync para acceder al recurso compartido de archivos de Azure, use siempre HTTPS y SMB 3.0 con cifrado para sincronizar los datos en los servidores de Windows Server, independientemente de si se exige cifrado de datos en reposo.
+Para obtener más información sobre el cifrado en tránsito, consulte [Requerir transferencia segura en Azure Storage](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-## <a name="file-share-performance-tiers"></a>Niveles de rendimiento de un recurso compartido de archivos
+### <a name="encryption-at-rest"></a>Cifrado en reposo
+[!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
 
-Azure Files ofrece dos niveles de rendimiento: Estándar y Prémium.
+## <a name="storage-tiers"></a>Niveles de almacenamiento
+[!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
 
-### <a name="standard-file-shares"></a>Recursos compartidos de archivos estándar
+En general, las características de Azure Files y la interoperabilidad con otros servicios coinciden en los recursos compartidos de archivos prémium y los recursos compartidos de archivos estándar, pero hay algunas diferencias importantes:
+- **Modelo de facturación**
+    - Los recursos compartidos de archivos prémium se facturan con un modelo de facturación aprovisionado, lo que significa que se paga por la cantidad de almacenamiento que se aprovisiona en lugar de la cantidad de almacenamiento que se solicita realmente. 
+    - Los recursos compartidos de archivos estándar se facturan con un modelo de pago por uso, que incluye un costo básico de almacenamiento para la cantidad de almacenamiento que realmente se consume y, a continuación, un costo de transacción adicional basado en el uso del recurso compartido. Con los recursos compartidos de archivos estándar, su factura aumentará si usa (lee, escribe o monta) más el recurso compartido de archivos de Azure.
+- **Opciones de redundancia**
+    - Los recursos compartidos de archivos prémium solo están disponibles para el almacenamiento con redundancia local (LRS) y redundancia de zona (ZRS). 
+    - Los recursos compartidos de archivos estándar están disponibles para el almacenamiento con redundancia local, redundancia de zona, redundancia geográfica (GRS) y redundancia de zona geográfica (GZRS).
+- **Tamaño máximo de un recurso compartido de archivos**
+    - Los recursos compartidos de archivos prémium se pueden aprovisionar hasta 100 TiB sin ningún trabajo adicional.
+    - De forma predeterminada, los recursos compartidos de archivos estándar solo pueden abarcar hasta 5 TiB, aunque se puede aumentar el límite de recursos compartidos hasta 100 TiB al optar por recibir la marca de la característica de cuenta de almacenamiento de *recurso compartido de archivos de gran tamaño*. Los recursos compartidos de archivos estándar solo pueden abarcar hasta 100 TiB para las cuentas de almacenamiento con redundancia local o redundancia de zona. Para obtener más información sobre el aumento de  
+- **Disponibilidad regional**
+    - Los recursos compartidos de archivos prémium no están disponibles en todas las regiones y la compatibilidad con la redundancia de zona está disponible en un subconjunto de regiones más pequeño. Para averiguar si los recursos compartidos de archivos prémium están disponibles actualmente en su región, consulte la página [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para Azure. Para averiguar qué regiones admiten ZRS, consulte la tabla de [soporte técnico para las zonas de disponibilidad de Azure por región](../../availability-zones/az-overview.md#services-support-by-region). Para ayudarnos a clasificar por orden de prioridad las nuevas regiones y características del nivel Premium, rellene esta [encuesta](https://aka.ms/pfsfeedback).
+    - Los recursos compartidos de archivos estándar están disponibles en todas las regiones de Azure.
+- Azure Kubernetes Service (AKS) admite recursos compartidos de archivos prémium en la versión 1.13 y posteriores.
 
-Los recursos compartidos de archivos estándar están respaldados por unidades de disco duro (HDD). Los recursos compartidos de archivos estándar ofrecen un rendimiento confiable para cargas de trabajo de E/S menos sensibles a la variabilidad del rendimiento, como recursos compartidos de archivos de uso general y entornos de desarrollo y pruebas. Los recursos compartidos de archivos estándar solo están disponibles en un modelo de facturación de pago por uso.
+Una vez que se crea un recurso compartido de archivos prémium o estándar, este no se puede convertir automáticamente al otro nivel. Para cambiar al otro nivel, debe crear un nuevo recurso compartido de archivos en ese nivel y copiar manualmente los datos del recurso compartido original en el nuevo que acaba de crear. Para realizar esta copia, se recomienda usar `robocopy` para Windows o `rsync` para macOS y Linux.
 
-> [!IMPORTANT]
-> Si quiere usar recursos compartidos de archivos de más de 5 TiB, consulte la sección [Incorporación a recursos compartidos de archivos de mayor tamaño (nivel estándar)](#onboard-to-larger-file-shares-standard-tier) para ver los pasos de incorporación, además de la disponibilidad regional y las restricciones.
-
-### <a name="premium-file-shares"></a>Recursos compartidos de archivos Prémium
-
-Los recursos compartidos de archivos Prémium cuentan con el respaldo de unidades de estado sólido (SSD). Los recursos compartidos de archivos Prémium proporcionan un alto rendimiento y una baja latencia de forma coherente en menos de 10 milisegundos en la mayoría de las operaciones de E/S para las cargas de trabajo con un uso intensivo de E/S, lo que hace que sean adecuados para una amplia variedad de cargas de trabajo, como bases de datos, hospedaje de sitios web, y entornos de desarrollo. Los recursos compartidos de archivos Premium solo están disponibles en un modelo de facturación aprovisionada. Los recursos compartidos de archivos prémium usan un modelo de implementación independiente de los recursos compartidos de archivos estándar.
-
-Azure Backup está disponible para recursos compartidos de archivos prémium y Azure Kubernetes Service es compatible con recursos compartidos de archivos prémium en la versión 1.13 y posteriores.
-
-Para obtener información sobre cómo crear un recurso compartido de archivos prémium, consulte nuestro artículo sobre el tema: [Procedimientos para crea un recurso compartido de archivos de Azure premium](storage-how-to-create-premium-fileshare.md).
-
-Actualmente, no se puede convertir directamente entre un recurso compartido de archivos estándar y un recurso compartido de archivos prémium. Para cambiar a cualquier nivel, debe crear un nuevo recurso compartido de archivos en ese nivel y copiar manualmente los datos del recurso compartido original en el nuevo recurso compartido que creó. Para hacerlo, puede usar cualquiera de las herramientas de copia de Azure Files compatibles, como Robocopy o AzCopy.
-
-> [!IMPORTANT]
-> Los recursos compartidos de archivos Prémium están disponibles con LRS en la mayoría de regiones que ofrecen cuentas de almacenamiento y con ZRS en subconjuntos de regiones más pequeños. Para averiguar si los recursos compartidos de archivos prémium están disponibles actualmente en su región, consulte la página [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para Azure. Para obtener información sobre las regiones que admiten ZRS, consulte [Redundancia de Azure Storage](../common/storage-redundancy.md).
->
-> Para ayudarnos a clasificar por orden de prioridad las nuevas regiones y características del nivel Premium, rellene esta [encuesta](https://aka.ms/pfsfeedback).
-
-#### <a name="provisioned-shares"></a>Recursos compartidos aprovisionados
-
+### <a name="understanding-provisioning-for-premium-file-shares"></a>Descripción del aprovisionamiento de recursos compartidos de archivos prémium
 Los recursos compartidos de archivos Premium se aprovisionan en función de una relación fija de GiB/IOPS/rendimiento. Por cada GiB aprovisionado, se generará un IOPS y un rendimiento de 0,1 MiB por segundo en el recurso compartido hasta los límites máximos por recurso compartido. El aprovisionamiento mínimo que se permite es 100 GiB con un IOPS/rendimiento mínimos.
 
 En su máximo esfuerzo, todos los recursos compartidos pueden aumentar hasta tres IOPS por GiB de almacenamiento aprovisionado durante 60 minutos, o más, según el tamaño del recurso compartido. Los nuevos recursos compartidos comienzan con todos los créditos de aumento según la capacidad aprovisionada.
@@ -135,7 +133,6 @@ En la tabla siguiente se ilustran algunos ejemplos de estas fórmulas para los t
 > El rendimiento de los recursos compartidos de archivos está sujeto a los límites de red de la máquina, el ancho de banda de red disponible, los tamaños de E/S y el paralelismo, entre muchos otros factores. Por ejemplo, en función de las pruebas internas con tamaños de e/s de lectura/escritura de 8 KiB, una sola máquina virtual de Windows (*Standard F16s_v2*) conectada al recurso compartido de archivos Premium a través de SMB podría alcanzar un valor de hasta 20 000 IOPS de lectura y 15 000 IOPS de escritura. Con tamaños de e/s de lectura/escritura de 512 MiB, la misma máquina virtual puede alcanzar un rendimiento de salida de 1,1 GiB/s y 370 MiB/s de entrada. Para lograr una escala de rendimiento máxima, distribuya la carga entre varias VM. Consulte en la [guía de solución de problemas](storage-troubleshooting-files-performance.md) algunos problemas de rendimiento comunes y soluciones alternativas.
 
 #### <a name="bursting"></a>Creación de ráfagas
-
 Los recursos compartidos de archivos prémium pueden crear ráfagas de su IOPS hasta un factor de tres. La creación de ráfagas está automatizada y funciona de acuerdo con un sistema de crédito. La creación de ráfagas funciona en la medida de lo posible y el límite de ráfaga no es una garantía: los recursos compartidos de archivos pueden crear ráfagas *hasta* el límite.
 
 Cada vez que el tráfico para el recurso compartido de archivos se encuentra por debajo del valor de IOPS de la línea de base, se acumulan créditos en un cubo de ráfagas. Por ejemplo, un recurso compartido de 100 GiB tiene un valor de IOPS de línea de base de 100. Si el tráfico real del recurso compartido era de 40 IOPS para un intervalo específico de 1 segundo, el valor de 60 IOPS sin usar se agrega a un cubo de ráfagas. A continuación, estos créditos se usan más tarde si las operaciones superan el valor de IOPS de línea de base.
@@ -153,51 +150,25 @@ Los créditos de recursos compartidos tienen tres estados:
 
 Los nuevos recursos compartidos de archivo empiezan con la cantidad total de créditos del cubo de ráfagas. Los créditos de ráfaga no se acumularán si el valor de IOPS del recurso compartido cae por debajo del valor de IOPS de la línea de base debido a una limitación del servidor.
 
-## <a name="file-share-redundancy"></a>Redundancia del recurso compartido de archivos
+### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Habilitación de recursos compartidos de archivos estándar para incluir hasta 100 TiB
+[!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]
 
-[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
+#### <a name="regional-availability"></a>Disponibilidad regional
+[!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
 
-Si opta por el almacenamiento con redundancia geográfica de acceso de lectura (RA-GRS), debe saber que Azure Files no admite el almacenamiento con redundancia geográfica de acceso de lectura (RA-GRS) en ninguna región en este momento. Los recursos compartidos de archivos de la cuenta de almacenamiento de RA-GRS funcionan como lo harían en las cuentas de GRS y se cobran de acuerdo con los precios de GRS.
+## <a name="redundancy"></a>Redundancia
+[!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
 
-> [!Warning]  
-> Si usa el recurso compartido de archivos de Azure como punto de conexión en la nube en una cuenta de almacenamiento GRS, no debe iniciar la conmutación por error de la cuenta de almacenamiento. Si lo hace, la sincronización dejará de funcionar y también podría provocar una pérdida inesperada de datos en el caso de archivos recién organizados en capas. En caso de pérdida de una región de Azure, Microsoft activará la conmutación por error de la cuenta de almacenamiento de forma que sea compatible con Azure File Sync.
+## <a name="migration"></a>Migración
+En muchos casos, no se establecerá un nuevo recurso compartido de archivos para su organización, sino que se migrará uno existente de un servidor de archivos local o un dispositivo NAS a Azure Files. Existen muchas herramientas, que proporcionan tanto Microsoft como terceros, para realizar una migración a un recurso compartido de archivos, pero se pueden dividir en dos categorías aproximadamente:
 
-Los recursos compartidos Prémium de Azure Files admiten tanto LRS como ZRS. ZRS está disponible actualmente en un subconjunto más pequeño de regiones.
+- **Herramientas que mantienen atributos del sistema de archivos, como las ACL y las marcas de tiempo**:
+    - **[Azure File Sync](storage-sync-files-planning.md)** : Azure File Sync puede usarse como método para ingerir datos en un recurso compartido de archivos de Azure, incluso cuando la implementación final deseada no va a mantener una presencia local. Azure File Sync se puede instalar en su lugar en implementaciones existentes de Windows Server 2012 R2, Windows Server 2016 y Windows Server 2019. Una ventaja de utilizar Azure File Sync como mecanismo de ingesta es que los usuarios finales pueden seguir usando el recurso compartido de archivos existente. La desactivación del recurso compartido de archivos de Azure puede producirse después de cargar todos los datos en segundo plano.
+    - **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : Robocopy es una herramienta de copia conocida que se incluye con Windows y Windows Server. Robocopy puede usarse para transferir datos a Azure Files al montar el recurso compartido de archivos localmente y luego usar la ubicación montada como destino en el comando de Robocopy.
 
-## <a name="onboard-to-larger-file-shares-standard-tier"></a>Incorporación a recursos compartidos de archivos de mayor tamaño (nivel estándar)
-
-Esta sección solo se aplica a los recursos compartidos de archivos estándar. Todos los recursos compartidos de archivos prémium están disponibles con 100 TiB de capacidad.
-
-### <a name="restrictions"></a>Restricciones
-
-- La conversión de cuentas de LRS/ZRS a GRS/GZRS no será posible en ninguna nueva cuenta de almacenamiento nueva creada con los recursos compartidos de archivos de gran tamaño habilitados.
-
-### <a name="regional-availability"></a>Disponibilidad regional
-
-Están disponibles recursos compartidos de archivos estándar con el límite de capacidad de 100 TiB a nivel global en todas las regiones de Azure.
-
-- LRS: todas las regiones, excepto Norte de Sudáfrica y Oeste de Sudáfrica.
-- ZRS: todas las regiones, excepto Japón Oriental, Europa del Norte, Norte de Sudáfrica.
-- GRS/GZRS: No compatible.
-
-### <a name="enable-and-create-larger-file-shares"></a>Habilitación y creación de recursos compartidos de archivos de mayor tamaño
-
-Para empezar a usar recursos compartidos de archivos grandes, consulte nuestro artículo [Habilitación y creación de recursos compartidos de archivos grandes](storage-files-how-to-create-large-file-share.md).
-
-## <a name="data-growth-pattern"></a>Patrón de crecimiento de datos
-
-Actualmente, el tamaño máximo de un recurso compartido de archivos de Azure es de 100 TiB. Debido a esta limitación actual, debe tener en cuenta el crecimiento esperado de los datos al implementar un recurso compartido de archivos de Azure.
-
-Es posible sincronizar varios recursos compartidos de archivos de Azure en un único servidor de archivos de Windows con Azure File Sync. Esto permite garantizar que los recursos compartidos de archivos anteriores de gran tamaño que pueda tener en un entorno local se incluyen en Azure File Sync. Para más información, consulte [Planeamiento de una implementación de Azure File Sync](storage-files-planning.md).
-
-## <a name="data-transfer-method"></a>Método de transferencia de datos
-
-Existen muchas opciones sencillas para la transferencia masiva de datos desde un recurso de archivos existente, como un recurso compartido de archivos local, a Azure Files. Algunas populares incluyen (lista no exhaustiva):
-
-* **[Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)** : como parte de una primera sincronización entre un recurso compartido de archivos de Azure (un "punto de conexión de nube") y un espacio de nombres de directorio de Windows (un "punto de conexión de servidor"), Azure File Sync replica todos los datos del recurso compartido de archivos existente en Azure Files.
-* **[Azure Import/Export](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : El servicio Azure Import/Export permite transferir de forma segura grandes cantidades de datos a un recurso compartido de archivos de Azure mediante el envío de unidades de disco duro a un centro de datos de Azure. 
-* **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : Robocopy es una herramienta de copia conocida que se incluye con Windows y Windows Server. Robocopy puede usarse para transferir datos a Azure Files al montar el recurso compartido de archivos localmente y luego usar la ubicación montada como destino en el comando de Robocopy.
-* **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : AzCopy es una utilidad de línea de comandos diseñada para copiar datos a y desde Azure Files, así como Azure Blob Storage, mediante sencillos comandos con un rendimiento óptimo.
+- **Herramientas que no mantienen atributos del sistema de archivos**:
+    - **Data Box**: Data Box proporciona un mecanismo de transferencia de datos sin conexión para enviar datos físicamente a Azure. Este método está diseñado para aumentar el rendimiento y ahorrar ancho de banda, pero actualmente no admite atributos del sistema de archivos como marcas de tiempo y listas ACL.
+    - **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : AzCopy es una utilidad de línea de comandos diseñada para copiar datos a y desde Azure Files, así como Azure Blob Storage, mediante sencillos comandos con un rendimiento óptimo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md)

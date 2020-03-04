@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: ad7fd664f0dce08e4482b4fb2cba2831208396fc
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: ac990141ccc694ed7460763e84126d9fefdbb609
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264838"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539457"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Administración de laboratorios de clase en Azure Lab Services 
 En este artículo se describe cómo crear y eliminar un laboratorio de clase. También se muestra cómo ver todos los laboratorios de clase de una cuenta de laboratorio. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser miembro del rol **Creador de laboratorio** en la cuenta de laboratorio. La cuenta que usó para crear una cuenta de laboratorio se agrega automáticamente a este rol. Un propietario de laboratorio puede agregar otros usuarios al rol Creador de laboratorio mediante los pasos que se indican en el siguiente artículo: [Incorporación de un usuario al rol Creador de laboratorio](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 ## <a name="create-a-classroom-lab"></a>Creación de un laboratorio educativo
@@ -41,6 +41,9 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
     6. Seleccione **Guardar**.
 
         ![Ventana de nuevo laboratorio](../media/tutorial-setup-classroom-lab/new-lab-window.png)
+
+        > [!NOTE]
+        > Se muestra una opción para seleccionar una ubicación del laboratorio si la cuenta de laboratorio se configuró en la opción [Permitir al creador del laboratorio seleccionar la ubicación correspondiente](allow-lab-creator-pick-lab-location.md). 
 4. En la página **Virtual machine credentials** (Credenciales de la máquina virtual), especifique las credenciales predeterminadas de todas las máquinas virtuales del laboratorio.
     1. Especifique el **nombre del usuario** para todas las máquinas virtuales del laboratorio.
     2. Especifique la **contraseña** del usuario. 
@@ -52,12 +55,14 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
         Un profesor puede elegir usar la misma contraseña para todas las máquinas virtuales en el laboratorio o permitir a los alumnos establecer contraseñas para sus máquinas virtuales. De forma predeterminada, esta configuración está habilitada para todas las imágenes Windows y Linux, excepto para Ubuntu. Al seleccionar la máquina virtual **Ubuntu**, esta opción está deshabilitada, por lo que se pedirá a los alumnos que establezcan una contraseña cuando inicien sesión por primera vez.  
 
         ![Ventana de nuevo laboratorio](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
-        > [!IMPORTANT]
-        > Tome nota de ambos. No se volverán a mostrar.    
     4. A continuación, seleccione **Next** (Siguiente) en la página **Virtual machine credentials** (Credenciales de la máquina virtual). 
-5. En la página **Lab policies** (Directivas del laboratorio), escriba el número de horas asignadas para cada usuario (**cuota para cada usuario**) fuera del tiempo programado para el laboratorio y seleccione **Finish** (Terminar). 
+5. En la página **Directivas de laboratorio**, siga estos pasos:
+    1. Escriba el número de horas asignadas para cada usuario (**cuota para cada usuario**) fuera del tiempo programado para el laboratorio. 
+    2. En la opción **Apagado automático de máquinas virtuales**, especifique si desea que la VM se apague automáticamente cuando el usuario se desconecte. También puede especificar cuánto tiempo debe esperar la VM para que el usuario se vuelva a conectar antes de que se apague automáticamente. Para obtener más información, consulte [Habilitación del apagado automático de las máquinas virtuales al desconectarse](how-to-enable-shutdown-disconnect.md).
+    3. Después, seleccione **Finalizar**. 
 
-    ![Cuota para cada usuario](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+        ![Cuota para cada usuario](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+    
 5. Debería ver la siguiente pantalla, que muestra el estado de la creación de la máquina virtual de plantilla. La creación de la plantilla en el laboratorio tarda un máximo de 20 minutos. 
 
     ![Estado de la creación de la plantilla de máquina virtual](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 02/12/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 826b8e923575db3d6c6aee7ead230f87f1efb50e
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 8d5ff722d4a035113af8528ed8adb396b01c81eb
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848449"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77504947"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Habilitar el inicio de sesión con clave de seguridad sin contraseña (versión preliminar)
 
@@ -26,21 +26,23 @@ Este documento se centra en la habilitación de la autenticación sin contraseñ
 
 |     |
 | --- |
-| Las llaves de seguridad FIDO2 son una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Las claves de seguridad FIDO2 son una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## <a name="requirements"></a>Requisitos
 
 - [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
 - [Registro de información de seguridad combinado (vista preliminar)](concept-registration-mfa-sspr-combined.md)
-- [Llaves de seguridad FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatibles
+- [Claves de seguridad FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatibles
 - WebAuthN requiere Windows 10 versión 1809 o superior**
 
 Para usar claves de seguridad para iniciar sesión en servicios y aplicaciones web, debe tener un explorador que admita el protocolo WebAuthN. Entre ellas se incluyen Microsoft Edge, Chrome, Firefox y Safari.
 
 ## <a name="prepare-devices-for-preview"></a>Preparar dispositivos para la versión preliminar
 
-Los dispositivos que va a probar en uso piloto deben ejecutar Windows 10 versión 1809 o superior. La mejor experiencia se logra con Windows 10 versión 1903 o superior.
+Los dispositivos unidos a Azure AD que se usarán para la prueba piloto deben ejecutar Windows 10 versión 1809 o superior. La mejor experiencia se logra con Windows 10 versión 1903 o superior.
+
+Los dispositivos unidos a Azure AD híbrido deben ejecutar Windows 10 Insider Build 18945 o una versión más reciente.
 
 ## <a name="enable-passwordless-authentication-method"></a>Habilitar métodos de autenticación sin contraseña
 
@@ -50,7 +52,7 @@ Las características de registro de los métodos de autenticación sin contrase�
 
 ### <a name="enable-fido2-security-key-method"></a>Habilitar el método de llaves de seguridad FIDO2
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Vaya a **Azure Active Directory** > **Seguridad** > **Métodos de autenticación** > **Directiva de métodos de autenticación (versión preliminar)** .
 1. En el método **Llave de seguridad FIDO2**, elija las opciones siguientes:
    1. **Habilitar**: Sí o No
@@ -79,13 +81,13 @@ En el ejemplo siguiente, un usuario ya ha aprovisionado su clave de seguridad FI
 
 ## <a name="troubleshooting-and-feedback"></a>Solución de problemas y comentarios
 
-Si quiere compartir comentarios o detectar problemas mientras usa la versión preliminar de esta característica, compártalos mediante la aplicación Centro de opiniones sobre Windows.
+Si quiere compartir comentarios o detectar problemas mientras usa la versión preliminar de esta característica, compártalos mediante la aplicación Centro de opiniones sobre Windows. Para ello, realice los pasos siguientes:
 
 1. Abra el **Centro de opiniones** y asegúrese de que ha iniciado sesión.
 1. Envíe los comentarios bajo la categorización siguiente:
-   1. Categoría: Seguridad y privacidad
-   1. Subcategoría: FIDO
-1. Para capturar registros, use la opción: **Volver a crear mi problema**
+   - Categoría: Seguridad y privacidad
+   - Subcategoría: FIDO
+1. Para capturar registros, use la opción **Recreate my Problem** (Recrear mi problema).
 
 ## <a name="known-issues"></a>Problemas conocidos
 
@@ -95,7 +97,7 @@ El aprovisionamiento y desaprovisionamiento de administrador de claves de seguri
 
 ### <a name="upn-changes"></a>Cambios de UPN
 
-Si cambia el UPN de un usuario, ya no puede modificar las llaves de seguridad FIDO2 en consecuencia. La solución es restablecer el dispositivo y el usuario tiene que volver a registrar sus llaves de seguridad FIDO2.
+Estamos trabajando en la admisión de una característica que permite el cambio de UPN en dispositivos unidos a Azure AD híbridos y dispositivos unidos a Azure AD. Si cambia el UPN de un usuario, ya no puede modificar las llaves de seguridad FIDO2 en consecuencia. La solución consiste en restablecer el dispositivo y que el usuario vuelva a registrarse.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

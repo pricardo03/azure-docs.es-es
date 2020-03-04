@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 5c820b7e11c06f2d785da036f5174298caf56da6
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: d5e2813c71e9d6941eea7d11fb6565fb84fd0789
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76960237"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651345"
 ---
 #    <a name="custom-entity-lookup-cognitive-skill-preview"></a>Aptitud cognitiva de búsqueda de entidades personalizadas (versión preliminar)
 
@@ -63,7 +63,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 
 Hay tres formas diferentes de proporcionar la lista de entidades personalizadas a la aptitud de búsqueda de entidades personalizadas. Puede proporcionar la lista en un archivo .CSV, un archivo .JSON o como una definición insertada como parte de la definición de la aptitud.  
 
-Si el archivo de definición es un archivo .CSV o .JSON, la ruta de acceso del archivo se debe proporcionar como parte del parámetro *entitiesDefitionUri*. En este caso, el archivo se descarga una vez al principio de cada ejecución del indexador. El archivo debe ser accesible siempre que se pretenda ejecutar el indexador.
+Si el archivo de definición es un archivo .CSV o .JSON, la ruta de acceso del archivo se debe proporcionar como parte del parámetro *entitiesDefitionUri*. En este caso, el archivo se descarga una vez al principio de cada ejecución del indexador. El archivo debe ser accesible siempre que se pretenda ejecutar el indexador. Además, el archivo debe estar codificado como UTF-8.
 
 Si la definición se proporciona insertada, debe proporcionarse como insertada como contenido del parámetro *inlineEntitiesDefinition* de la aptitud. 
 

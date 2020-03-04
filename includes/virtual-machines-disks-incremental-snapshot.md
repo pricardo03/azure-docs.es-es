@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3361f4723c5a9776cb156417e57d609175d11621
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 083051fd621194d39d0092046e187e0809fd62d9
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77446283"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77520689"
 ---
 Las instantáneas incrementales (versión preliminar) son copias de seguridad en un momento dado de los discos administrados que, cuando se realizan, solo constan de todos los cambios desde la última instantánea. Al intentar descargar o usar una instantánea incremental, se utiliza el VHD completo. Esta nueva funcionalidad para las instantáneas de discos administrados puede permitir que sean más rentables, ya que no es necesario almacenar todo el disco con cada instantánea individual a menos que decida hacerlo expresamente. Al igual que las instantáneas normales, las instantáneas incrementales se pueden usar para crear un disco administrado completo o para realizar una instantánea normal.
 
@@ -21,10 +21,15 @@ Hay algunas diferencias entre una instantánea incremental y una instantánea no
 
 Las instantáneas incrementales también ofrecen una funcionalidad diferencial, que está disponible de forma única para los discos administrados. Permiten obtener los cambios entre dos instantáneas incrementales de los mismos discos administrados hasta el nivel de bloque. Puede usar esta funcionalidad para reducir la superficie de los datos al copiar instantáneas entre regiones.
 
-## <a name="restrictions"></a>Restricciones
+### <a name="supported-regions"></a>Regiones admitidas
 
-- Actualmente, las instantáneas incrementales solo están disponibles en las regiones Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU.,Centro-oeste de EE. UU., Este de Canadá, Centro de Canadá, Norte de Europa y Sudeste Asiático.
-- Actualmente, las instantáneas incrementales no se pueden crear después de cambiar el tamaño de un disco.
+Actualmente, solo se admiten las siguientes regiones:
+
+- Disponible como una oferta de disponibilidad general en las regiones Centro-oeste de EE. UU., Este de Canadá y Centro de Canadá.
+- Disponible como versión preliminar pública en las regiones Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Norte de Europa y Sudeste Asiático.
+
+## <a name="restrictions"></a>Restricciones
+- Actualmente, las instantáneas incrementales no se pueden crear después de cambiar el tamaño de un disco (solo durante la versión preliminar).
 - Las instantáneas incrementales no se pueden mover entre suscripciones.
 - En este momento, solo se pueden generar URI de SAS de hasta cinco instantáneas de una determinada familia de instantáneas en un momento dado.
 - No se puede crear una instantánea incremental para un disco determinado fuera de la suscripción de ese disco.

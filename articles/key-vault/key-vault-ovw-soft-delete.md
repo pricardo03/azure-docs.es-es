@@ -6,12 +6,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 03/19/2019
-ms.openlocfilehash: 26bd6c8b31bd16c058c5cb35cab086117b9f8cc5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 8559dc357d34d505d45cd0a6491183345ae5cf61
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845800"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526593"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Información general sobre la eliminación temporal de Azure Key Vault
 
@@ -34,15 +34,13 @@ Los almacenes Azure Key Vault son recursos controlados que se administran por me
 
 ### <a name="soft-delete-behavior"></a>Comportamiento de eliminación temporal
 
-Con esta característica, la operación DELETE sobre un objeto o instancia de Key Vault es una operación temporal que retiene los recursos durante un período determinado (90 días) durante el cual parece que el objeto se ha eliminado realmente. El servicio proporciona además un mecanismo para recuperar el objeto eliminado, básicamente deshaciendo la eliminación. 
+Cuando está habilitada la eliminación temporal, los recursos marcados como recursos eliminados se conservan durante un período especificado (de forma predeterminada, 90 días). El servicio proporciona además un mecanismo para recuperar el objeto eliminado, básicamente deshaciendo la eliminación.
 
-La eliminación temporal ahora está activada de forma predeterminada para los almacenes de claves recién creados. Se puede deshabilitar mediante la [CLI de Azure](key-vault-soft-delete-cli.md) o [Azure PowerShell](key-vault-soft-delete-powershell.md).
+Al crear un almacén de claves, la eliminación temporal está activada de forma predeterminada. Puede crear un almacén de claves sin eliminación temporal a través de la [CLI de Azure](key-vault-soft-delete-cli.md) de o de [Azure PowerShell](key-vault-soft-delete-powershell.md). Una vez que la eliminación temporal está habilitada en un almacén de claves, no se puede deshabilitar.
 
-El período de retención predeterminado es de 90 días, pero es posible establecer el intervalo de la directiva de retención en un valor de 7 a 90 días en Azure Portal. La directiva de retención de protección de purgas usa el mismo intervalo. 
+El período de retención predeterminado es de 90 días, durante la creación del almacén de claves, pero es posible establecer el intervalo de la directiva de retención en un valor de 7 a 90 días en Azure Portal. La directiva de retención de protección de purgas usa el mismo intervalo. Una vez establecido, el intervalo de la directiva de retención no se puede cambiar.
 
-Una vez que se ha establecido la eliminación temporal en un almacén de claves, no se puede deshabilitar y el intervalo de la directiva de retención no se puede cambiar. 
-
-No se puede volver a usar el nombre de un almacén de claves que se ha eliminado temporalmente hasta que haya transcurrido el período de retención. 
+No se puede volver a usar el nombre de un almacén de claves que se ha eliminado temporalmente hasta que haya transcurrido el período de retención.
 
 ### <a name="purge-protection"></a>Protección de purgas 
 

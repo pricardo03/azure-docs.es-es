@@ -1,43 +1,27 @@
 ---
-title: Almacén de pares clave-valor de Azure App Configuration
-description: Información general sobre cómo se almacenan los datos de configuración en Azure App Configuration.
+title: Descripción del almacén de pares clave-valor de Azure App Configuration
+description: Descubra cómo se almacenan los datos de configuración en Azure App Configuration.
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 04/19/2019
-ms.openlocfilehash: 1cd13369f443f91782eef1024003e07435a44a45
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.date: 02/19/2020
+ms.openlocfilehash: 0b83a35d912c97ae25bc2d69d076e8eae8ca490f
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425228"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523611"
 ---
 # <a name="keys-and-values"></a>Claves y valores
 
-Azure App Configuration almacena los datos de configuración como pares clave-valor. Los pares clave-valor constituyen una manera sencilla aunque flexible de representar varios tipos de configuraciones de la aplicación con las que los desarrolladores están familiarizados.
+Azure App Configuration almacena los datos de configuración como pares clave-valor. Los pares clave-valor son una representación sencilla y flexible de la configuración de la aplicación utilizada por los desarrolladores.
 
 ## <a name="keys"></a>Claves
 
-Las claves sirven como nombre de los pares clave-valor y se usan para almacenar y recuperar los valores correspondientes. Es una práctica habitual la organización de las claves en un espacio de nombres jerárquico mediante un delimitador de caracteres como `/` o `:`. Use la convención que resulte más adecuada para su aplicación. Azure App Configuration trata las claves como un todo. No analiza las claves para averiguar cómo están estructurados sus nombres o para aplicar ninguna regla en ellas.
+Las claves sirven como identificadores de los pares clave-valor y se usan para almacenar y recuperar los valores correspondientes. Es una práctica habitual la organización de las claves en un espacio de nombres jerárquico mediante un delimitador de caracteres como `/` o `:`. Use una convención más adecuada para su aplicación. Azure App Configuration trata las claves como un todo. No analiza las claves para averiguar cómo están estructurados sus nombres o para aplicar ninguna regla en ellas.
 
-El uso de datos de configuración dentro de los marcos de trabajo de las aplicaciones puede dictar esquemas de nombres específicos para los pares clave-valor. Por ejemplo, el marco de trabajo de Spring Cloud de Java define los recursos `Environment` que aportan la configuración a una aplicación de Spring que se va a parametrizar mediante variables entre las que se incluyen el *nombre de la aplicación* y el *perfil*. Las claves de los datos de configuración relacionadas con Spring Cloud empiezan normalmente por estos dos elementos, separados por un delimitador.
-
-Las claves almacenadas en App Configuration distinguen entre mayúsculas y minúsculas y son cadenas basadas en Unicode. Las claves *app1* y *App1* se consideran diferentes en un almacén de App Configuration. Téngalo en cuenta al utilizar las opciones de configuración en una aplicación ya que algunos marcos de trabajo administran las claves de configuración sin hacer distinción entre mayúsculas y minúsculas. Por ejemplo, el sistema de configuración de ASP.NET Core trata las claves como cadenas sin distinción de mayúsculas y minúsculas. Para evitar comportamientos impredecibles al realizar consultas en App Configuration dentro de una aplicación de ASP.NET Core, no utilizan claves que solo se distingan por el uso de mayúsculas o minúsculas.
-
-Puede usar cualquier carácter unicode en los nombres de clave que se especifican en App Configuration, excepto `*`, `,` y `\`. Estos caracteres están reservados. Si tiene que incluir un carácter reservado, deberá especificar un carácter de escape con `\{Reserved Character}`. Hay un límite de tamaño combinado de 10 KB en un par clave-valor. Este límite incluye todos los caracteres de la clave, su valor y todos los atributos opcionales asociados. Dentro de este límite, puede tener múltiples niveles jerárquicos para las claves.
-
-### <a name="design-key-namespaces"></a>Diseño de espacios de nombres de clave
-
-Hay dos enfoques generales en relación con la nomenclatura de las claves que se usa en los datos de configuración: plano o jerárquico. Estos métodos son similares desde la perspectiva del uso de la aplicación, pero la nomenclatura jerárquica ofrece una serie de ventajas:
-
-* Es más fácil de leer. En lugar de una secuencia larga de caracteres, los delimitadores de una función de nombre de clave jerárquico funciona como los espacios de una frase. También proporcionan las divisiones naturales entre palabras.
-* Es más fácil de administrar. Un nombre de clave jerárquico representa grupos lógicos de datos de configuración.
-* Es más fácil de usar. Resulta más fácil escribir una consulta cuyos patrones coinciden con las claves de una estructura jerárquica y que recupera solo una porción de los datos de configuración. Además, muchas plataformas de programación más recientes tienen una compatibilidad nativa para datos de configuración jerárquicos tal que la aplicación puede hacer uso de conjuntos específicos de configuración.
-
-Puede organizar jerárquicamente las claves de App Configuration de muchas formas. Piense en dichas claves como [identificadores URI](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier). Cada clave jerárquica es una *ruta* de recurso que consta de uno o varios componentes unidos por delimitadores. Elija qué carácter se debe usar como delimitador en función de qué aplicación, lenguaje o plataforma de programación necesita. Use varios delimitadores para diferentes claves de App Configuration.
-
-Estos son algunos ejemplos de cómo se pueden estructurar los nombres de claves en una jerarquía:
+Estos son dos ejemplos de nombres de clave estructurados en una jerarquía:
 
 * Según los servicios de los componentes.
 
@@ -48,6 +32,24 @@ Estos son algunos ejemplos de cómo se pueden estructurar los nombres de claves 
 
         AppName:Region1:DbEndpoint
         AppName:Region2:DbEndpoint
+
+El uso de datos de configuración dentro de los marcos de trabajo de las aplicaciones puede dictar esquemas de nombres específicos para los pares clave-valor. Por ejemplo, el marco de trabajo de Spring Cloud de Java define los recursos `Environment` que suministran la configuración a una aplicación de Spring.  Esta se va a parametrizar mediante variables entre las que se incluyen el *nombre de la aplicación* y el *perfil*. Las claves de los datos de configuración relacionadas con Spring Cloud empiezan normalmente por estos dos elementos, separados por un delimitador.
+
+Las claves almacenadas en App Configuration distinguen entre mayúsculas y minúsculas y son cadenas basadas en Unicode. Las claves *app1* y *App1* se consideran diferentes en un almacén de App Configuration. Téngalo en cuenta al utilizar las opciones de configuración en una aplicación ya que algunos marcos de trabajo administran las claves de configuración sin hacer distinción entre mayúsculas y minúsculas. No se recomienda usar mayúsculas y minúsculas para diferenciar las claves.
+
+Puede usar cualquier carácter Unicode en los nombres de claves, excepto para `*`, `,` y `\`.  Si necesita incluir uno de estos caracteres reservados, especifique un carácter de escape con `\{Reserved Character}`. 
+
+Hay un límite de tamaño combinado de 10 KB en un par clave-valor. Este límite incluye todos los caracteres de la clave, su valor y todos los atributos opcionales asociados. Dentro de este límite, puede tener múltiples niveles jerárquicos para las claves.
+
+### <a name="design-key-namespaces"></a>Diseño de espacios de nombres de clave
+
+Hay dos enfoques generales en relación con la nomenclatura de las claves que se usa en los datos de configuración: plano o jerárquico. Estos métodos son similares desde la perspectiva del uso de la aplicación, pero la nomenclatura jerárquica ofrece una serie de ventajas:
+
+* Es más fácil de leer. Los delimitadores de un nombre de clave jerárquica funcionan como espacios en una oración. También proporcionan las divisiones naturales entre palabras.
+* Es más fácil de administrar. Un nombre de clave jerárquico representa grupos lógicos de datos de configuración.
+* Es más fácil de usar. Resulta más fácil escribir una consulta cuyos patrones coinciden con las claves de una estructura jerárquica y que recupera solo una porción de los datos de configuración. Además, muchas plataformas de programación más recientes tienen una compatibilidad nativa para datos de configuración jerárquicos tal que la aplicación puede hacer uso de conjuntos específicos de configuración.
+
+Puede organizar jerárquicamente las claves de App Configuration de muchas formas. Piense en dichas claves como [identificadores URI](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier). Cada clave jerárquica es una *ruta* de recurso que consta de uno o varios componentes unidos por delimitadores. Elija qué carácter se debe usar como delimitador en función de qué aplicación, lenguaje o plataforma de programación necesita. Use varios delimitadores para diferentes claves de App Configuration.
 
 ### <a name="label-keys"></a>Claves de etiqueta
 
@@ -61,7 +63,7 @@ Las etiquetas proporcionan una manera cómoda de crear variantes de una clave. U
 
 ### <a name="version-key-values"></a>Valores de clave de versión
 
-App Configuration no crea valores de clave de versión automáticamente a medida que se modifican. Use etiquetas como una manera de crear varias versiones de un valor de clave. Por ejemplo, puede escribir un número de versión de la aplicación o un identificador de confirmación de Git en las etiquetas para identificar los valores de clave asociados con una compilación de software en particular.
+App Configuration no crea valores de clave de versión de manera automática. Use etiquetas como una manera de crear varias versiones de un valor de clave. Por ejemplo, puede escribir un número de versión de la aplicación o un identificador de confirmación de Git en las etiquetas para identificar los valores de clave asociados con una compilación de software en particular.
 
 Puede usar cualquier carácter Unicode en las etiquetas, excepto para `*`, `,` y `\`. Estos caracteres están reservados. Para incluir un carácter reservado, debe evitarlo utilizando `\{Reserved Character}`.
 
@@ -74,7 +76,7 @@ Cada valor de clave se identifica por su clave más una etiqueta que puede ser `
 | se omite `key` o `key=*` | Coincide con todas las claves |
 | `key=abc` | Coincide con el nombre de clave **abc** exactamente |
 | `key=abc*` | Coincide con los nombres de clave que empiezan por **abc** |
-| `key=abc,xyz` | Coincide con los nombres de clave **abc** o **xyz**, limitado a cinco CSV |
+| `key=abc,xyz` | Coincide con los nombres de clave **abc** o **xyz**. Tiene un límite de cinco archivos .csv |
 
 También puede incluir los siguientes patrones de etiqueta:
 
@@ -88,9 +90,9 @@ También puede incluir los siguientes patrones de etiqueta:
 
 ## <a name="values"></a>Valores
 
-Los valores asignados a las claves también son cadenas unicode. Puede usar todos los caracteres unicode para los valores. Hay un tipo de contenido opcional definido por el usuario que se asocia a cada valor. Utilice este atributo para almacenar información, por ejemplo, un esquema de codificación, sobre un valor que ayuda a la aplicación a procesarlo correctamente.
+Los valores asignados a las claves también son cadenas unicode. Puede usar todos los caracteres unicode para los valores. Hay un tipo de contenido opcional definido por el usuario que se asocia a cada valor. Utilice este atributo para almacenar información sobre un valor que ayuda a la aplicación a procesarlo correctamente.
 
-Los datos de configuración que se encuentran en un almacén de App Configuration, entre los que se incluyen todas las claves y los valores, se cifran tanto en reposo como en tránsito. App Configuration no es una solución de reemplazo para Azure Key Vault. No almacene secretos de aplicación en ella.
+Los datos de configuración almacenados en un almacén de App Configuration se cifran en reposo y en tránsito. Las claves no se cifran en reposo. App Configuration no es una solución de reemplazo para Azure Key Vault. No almacene secretos de aplicación en ella.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

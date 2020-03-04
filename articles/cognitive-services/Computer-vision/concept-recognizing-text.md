@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e37b4c02692575f76582e8f62c3aff00b57424ed
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: a4c90ed12c8023e0b9ebc509b20d8d9224b49f1b
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946295"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566257"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Reconocimiento de texto manuscrito e impreso
 
@@ -26,10 +26,10 @@ Computer Vision proporciona varios servicios que detectan y extraen texto manusc
 
 Read API detecta el contenido de texto de una imagen con los últimos modelos de reconocimiento y convierte el texto identificado en una secuencia de caracteres legible por una máquina. Está optimizada para imágenes con gran cantidad de texto (por ejemplo, documentos que han sido digitalizados) y para imágenes con mucho ruido visual. Determinará qué modelo de reconocimiento se usará para cada línea de texto y admite imágenes con texto escrito a mano e impreso. Read API se ejecuta de forma asincrónica porque los documentos más grandes pueden tardar varios minutos en devolver un resultado.
 
-La operación de lectura mantiene las agrupaciones de líneas originales de palabras reconocidas en la salida. Cada línea incluye las coordenadas del rectángulo delimitador y cada palabra dentro de la línea también tiene sus propias coordenadas. Si una palabra se ha reconocido con confianza baja, dicha información se muestra también. Consulte los [documentos de referencia de Read API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) para más información.
+La operación de lectura mantiene las agrupaciones de líneas originales de palabras reconocidas en la salida. Cada línea incluye las coordenadas del rectángulo delimitador y cada palabra dentro de la línea también tiene sus propias coordenadas. Si una palabra se ha reconocido con confianza baja, dicha información se muestra también. Consulte los documentos de referencia de [Read API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) y [Read API Preview](https://go.microsoft.com/fwlink/?linkid=2118322) para obtener más información.
 
 > [!NOTE]
-> Esta característica solo está disponible para texto en inglés.
+> Esta característica solo está disponible para texto en inglés y español (versión preliminar).
 
 ### <a name="image-requirements"></a>Requisitos de imagen
 
@@ -94,4 +94,4 @@ La precisión de las operaciones de reconocimiento de texto depende de la calida
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Siga la guía de inicio rápido [Extracción de texto impreso (OCR)](./quickstarts/csharp-print-text.md) para implementar el reconocimiento de texto en una sencilla aplicación de C#.
+Siga la guía de inicio rápido sobre la [extracción de texto (Read)](./QuickStarts/CSharp-hand-text.md) para implementar el reconocimiento de texto en una sencilla aplicación de C#.

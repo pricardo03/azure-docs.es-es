@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5013457aca99a63808077b86f5674460e83fdc41
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4ed604302ca187ad4953e865d68dc73030a37c02
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232972"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562146"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Restricciones de código de las funciones de orquestador
 
@@ -38,7 +38,7 @@ En la siguiente tabla se muestran ejemplos de API que debe evitar porque *no* so
 | Bloqueo de API | Las API de bloqueo como `Thread.Sleep` de .NET y otras API similares pueden causar problemas de rendimiento y escalado en las funciones de orquestador, por lo que deben evitarse. En el plan de consumo de Azure Functions, incluso pueden provocar cargos innecesarios en el tiempo de ejecución. | Puede usar alternativas para bloquear las API cuando estén disponibles. Por ejemplo, use `CreateTimer` para introducir retrasos en la ejecución de la orquestación. Los retrasos en el [temporizador duradero](durable-functions-timers.md) no cuentan en el tiempo de ejecución de una función de orquestador. |
 | API asincrónicas | El código del orquestador no debe iniciar nunca ninguna operación asincrónica, excepto mediante la API `IDurableOrchestrationContext` o la API del objeto `context.df`. Por ejemplo, no puede usar `Task.Run`, `Task.Delay` y `HttpClient.SendAsync` en .NET o `setTimeout` y `setInterval` en JavaScript. La instancia de Durable Task Framework se encargará de ejecutar código de orquestador en un solo hilo. Esta no puede interactuar con ningún otro subproceso al que puedan llamar otras API asincrónicas. | Una función de orquestador solo debe realizar llamadas asincrónicas duraderas. Las funciones de actividad deben realizar cualquier otra llamada de API asincrónica. |
 | Funciones asincrónicas de JavaScript | No puede declarar las funciones de orquestador de JavaScript como `async` porque el runtime de node.js no garantiza que esas funciones asincrónicas sean deterministas. | Las funciones de orquestador de JavaScript deben declararse como funciones del generador sincrónico. |
-| API de subprocesos | Durable Task Framework ejecuta código de orquestador en un solo subproceso y no puede interactuar con otros. La introducción de nuevos subprocesos en la ejecución de una orquestación puede dar lugar a interbloqueos o ejecuciones no deterministas. | Las funciones de orquestador casi nunca deben usar API de subprocesos. Si tales API son necesarias, limite su uso a funciones de actividad únicamente. |
+| API de subprocesos | Durable Task Framework ejecuta código de orquestador en un solo subproceso y no puede interactuar con otros. La introducción de nuevos subprocesos en la ejecución de una orquestación puede dar lugar a interbloqueos o ejecuciones no deterministas. | Las funciones de orquestador casi nunca deben usar API de subprocesos. Por ejemplo, en .NET, evite utilizar `ConfigureAwait(continueOnCapturedContext: false)`; así se asegurará de que las continuaciones de tareas se ejecuten en el original de la función de orquestador `SynchronizationContext`. Si tales API son necesarias, limite su uso a funciones de actividad únicamente. |
 | Variables estáticas | Evite el uso de variables estáticas no constantes en las funciones de orquestador, ya que sus valores pueden cambiar con el tiempo, lo que resultaría en un comportamiento de tiempo de ejecución no determinista. | Use constantes o limite el uso de variables estáticas a las funciones de actividad. |
 | Variables de entorno | No use variables de entorno en las funciones de orquestador. Sus valores pueden cambiar con el tiempo, lo que resulta en un comportamiento de tiempo de ejecución no determinista. | Solo se debe hacer referencia a las variables de entorno desde las funciones de cliente o las funciones de actividad. |
 | Bucles infinitos | Evite bucles infinitos en funciones de orquestador. Como Durable Task Framework guarda el historial de ejecución a medida que avanza la función de orquestación, un bucle infinito podría provocar que una instancia de orquestador se quedara sin memoria. | En cuanto a los escenarios de bucle infinito, use API como `ContinueAsNew` en .NET o `continueAsNew` en JavaScript para reiniciar la ejecución de la función y descartar el historial de ejecución anterior. |

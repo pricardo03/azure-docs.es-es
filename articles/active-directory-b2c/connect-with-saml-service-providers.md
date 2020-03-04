@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 09c704237e3c1fde8a7591d610d1b801dd016c46
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 5ec83857ebabc92bf86f9f84a43746a0e561218a
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836667"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647593"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrar una aplicación SAML en Azure AD B2C
 
@@ -43,7 +43,7 @@ Resumen de los dos escenarios principales no exclusivos con SAML:
 | Mi aplicación espera una aserción de SAML para completar una autenticación. | **Azure AD B2C actúa como proveedor de identidades (IdP)**<br />Azure AD B2C actúa como IdP de SAML para las aplicaciones. | Este artículo. |
 | Mis usuarios necesitan un inicio de sesión único con un proveedor de identidades compatible con SAML, como ADFS, Salesforce o Shibboleth.  | **Azure AD B2C actúa como proveedor de servicios (SP)**<br />Azure AD B2C actúa como proveedor de servicios al conectarse al proveedor de identidades de SAML. Es un proxy de federación entre la aplicación y el proveedor de identidades de SAML.  | <ul><li>[Configuración del inicio de sesión con IdP de SAML y ADFS mediante directivas personalizadas](identity-provider-adfs2016-custom.md)</li><li>[Configuración del inicio de sesión con un proveedor de SAML Salesforce mediante directivas personalizadas](identity-provider-salesforce-custom.md)</li></ul> |
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Realice los pasos del artículo [Introducción a las directivas personalizadas en Azure AD B2C](custom-policy-get-started.md). Necesita la directiva personalizada *SocialAndLocalAccounts* del paquete de inicio de la directiva personalizada que se describe en el artículo.
 * Conocimientos básicos del protocolo SAML (Lenguaje de marcado de aserción de seguridad).
@@ -259,7 +259,7 @@ El archivo de directiva de usuario de confianza final debe tener un aspecto simi
 
 Guarde los cambios y cargue el nuevo archivo de directiva. Una vez que haya cargado ambas directivas (la extensión y los archivos de usuario de confianza), abra un explorador web y vaya a los metadatos de la directiva.
 
-Los metadatos de la directiva de Azure AD B2C están disponibles en la siguiente dirección URL. Reemplace `tenant-name` por el nombre de su inquilino de Azure AD B2C y `policy-name` por el nombre (ID) de la directiva:
+Los metadatos de IDP de directivas de Azure AD B2C son información que se usa en el protocolo SAML para exponer la configuración de un proveedor de entidades SAML. Los metadatos definen la ubicación de los servicios, como el inicio y el cierre de sesión, los certificados, el método de inicio de sesión y mucho más. Los metadatos de la directiva de Azure AD B2C están disponibles en la siguiente dirección URL. Reemplace `tenant-name` por el nombre de su inquilino de Azure AD B2C y `policy-name` por el nombre (ID) de la directiva:
 
 `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
 
@@ -276,7 +276,6 @@ La directiva personalizada y el inquilino de Azure AD B2C ya están listos. A co
 1. Escriba un **Nombre** para la aplicación. Por ejemplo, *SAMLApp1*.
 1. En **Tipos de cuenta admitidos**, seleccione **Solo las cuentas de este directorio organizativo**.
 1. En **URI de redirección**, seleccione **Web** y escriba `https://localhost`. Modificará este valor más adelante en el manifiesto del registro de aplicación.
-1. Seleccione **Conceder consentimiento de administrador a los permisos openid y offline_access**.
 1. Seleccione **Registrar**.
 
 ### <a name="42-update-the-app-manifest"></a>4.2 Actualizar el manifiesto de la aplicación
@@ -338,7 +337,7 @@ El último paso es habilitar Azure AD B2C como IdP de SAML en la aplicación de 
 Normalmente se requieren algunos o todos los siguientes elementos:
 
 * **Metadatos**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
-* **Emisor:** `https://tenant-name.onmicrosoft.com/policy-name`
+* **Emisor:** :   `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name`
 * **Dirección URL de inicio de sesión/Punto de conexión SAML/Dirección URL de SAML**: Comprobar el valor en el archivo de metadatos
 * **Certificate**: es *B2C_1A_SamlIdpCert*, pero sin la clave privada. Para obtener la clave pública del certificado:
 

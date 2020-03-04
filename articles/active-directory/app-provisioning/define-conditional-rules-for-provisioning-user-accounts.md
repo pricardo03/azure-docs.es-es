@@ -6,7 +6,7 @@ documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41a4eb565f49b75b64cc072d3017c41000154e2a
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 12ba93a7e3de3c290d5952227b67843c0a9846d3
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77065827"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77544273"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito
 El objetivo de este artículo es explicar cómo usar filtros de ámbito para definir reglas basadas en atributos que determinarán qué usuarios se aprovisionarán en una aplicación.
@@ -98,10 +98,12 @@ Los filtros de ámbito se configuran como parte de las asignaciones de atributos
    i. **Greater_Than.** La cláusula devuelve "true" si el atributo evaluado es mayor que el valor. El valor especificado en el filtro de ámbito debe ser un entero y el atributo del usuario debe ser un entero [0, 1, 2,...]. 
    
    j. **Greater_Than_OR_EQUALS.** La cláusula devuelve "true" si el atributo evaluado es mayor o igual que el valor. El valor especificado en el filtro de ámbito debe ser un entero y el atributo del usuario debe ser un entero [0, 1, 2,...]. 
+   
+   k. **Includes.** La cláusula devuelve "true" si el atributo que se evalúa contiene el valor de la cadena (distingue entre mayúsculas y minúsculas) como se describe [aquí](https://docs.microsoft.com/dotnet/api/system.string.contains?view=netframework-4.8). 
 
 
 >[!IMPORTANT] 
-> No se admiten los filtros Includes e IsMemberOf. Pronto se quitarán de la interfaz de usuario.
+> El filtro IsMemberOf no se admite actualmente.
 
 9. Si lo desea, repita los pasos 7 y 8 para agregar más cláusulas de ámbito.
 

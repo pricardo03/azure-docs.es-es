@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/05/2020
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d2ef446e10620895fff77e8160adc4a566929650
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: e220009ec04ce732d99a53432077d681707e28d1
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484373"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585737"
 ---
 # <a name="string-claims-transformations"></a>Transformaciones de notificaciones de cadena
 
@@ -34,7 +34,8 @@ Comparar dos notificaciones y emitir una excepción si no son iguales según la 
 | InputClaim | inputClaim2 | string | Tipo de la segunda notificación, que se va a comparar. |
 | InputParameter | stringComparison | string | comparación de cadenas, uno de los valores: Ordinal, OrdinalIgnoreCase. |
 
-La transformación de notificaciones **AssertStringClaimsAreEqual** siempre se ejecuta desde un [perfil técnico de validación](validation-technical-profile.md) llamado por un [perfil técnico autofirmado](self-asserted-technical-profile.md). Los metadatos de un perfil técnico autoafirmado **UserMessageIfClaimsTransformationStringsAreNotEqual** controlan el mensaje de error que se presenta al usuario.
+La transformación de notificaciones **AssertStringClaimsAreEqual** siempre se ejecuta desde un [perfil técnico de validación](validation-technical-profile.md) llamado por un [perfil técnico autofirmado](self-asserted-technical-profile.md) o un elemento [DisplayControl](display-controls.md). Los metadatos `UserMessageIfClaimsTransformationStringsAreNotEqual` de un perfil técnico autoafirmado controlan el mensaje de error que se presenta al usuario.
+
 
 ![Ejecución de AssertStringClaimsAreEqual](./media/string-transformations/assert-execution.png)
 
@@ -126,7 +127,7 @@ Crea una notificación de cadena a partir del parámetro de entrada proporcionad
 
 | Elemento | TransformationClaimType | Tipo de datos | Notas |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | value | string | La cadena que va a establecerse. |
+| InputParameter | value | string | La cadena que va a establecerse. Este parámetro de entrada admite [expresiones de transformación de notificaciones de cadena](string-transformations.md#string-claim-transformations-expressions). |
 | OutputClaim | createdClaim | string | El valor ClaimType que se genera después de que se haya invocado esta transformación de notificaciones, con el valor especificado en el parámetro de entrada. |
 
 Use que esta transformación de notificaciones para establecer un valor de ClaimType de cadena.
@@ -296,7 +297,7 @@ Da formato a una notificación de acuerdo con la cadena de formato proporcionada
 | Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |string |ClaimType que actúa como el parámetro {0} de formato de cadena. |
-| InputParameter | stringFormat | string | El formato de cadena, incluido el parámetro {0}. |
+| InputParameter | stringFormat | string | El formato de cadena, incluido el parámetro {0}. Este parámetro de entrada admite [expresiones de transformación de notificaciones de cadena](string-transformations.md#string-claim-transformations-expressions).  |
 | OutputClaim | outputClaim | string | El valor ClaimType que se genera después de que se haya invocado esta transformación de notificaciones. |
 
 Use esta transformación de notificaciones para dar formato a cualquier cadena con un parámetro {0}. El ejemplo siguiente crea un **userPrincipalName**. Todos los perfiles técnicos de proveedores de las identidades de redes sociales, como `Facebook-OAUTH` llaman a **CreateUserPrincipalName** para generar un **userPrincipalName**.
@@ -332,7 +333,7 @@ Da formato a dos notificaciones de acuerdo con la cadena de formato proporcionad
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |string | ClaimType que actúa como el parámetro {0} de formato de cadena. |
 | InputClaim | inputClaim | string | ClaimType que actúa como el parámetro {1} de formato de cadena. |
-| InputParameter | stringFormat | string | El formato de cadena, incluidos los parámetros {0} y {1}. |
+| InputParameter | stringFormat | string | El formato de cadena, incluidos los parámetros {0} y {1}. Este parámetro de entrada admite [expresiones de transformación de notificaciones de cadena](string-transformations.md#string-claim-transformations-expressions).   |
 | OutputClaim | outputClaim | string | El valor ClaimType que se genera después de que se haya invocado esta transformación de notificaciones. |
 
 Use esta transformación de notificaciones para dar formato a cualquier cadena con dos parámetros, {0} y {1}. En el ejemplo siguiente se crea un **displayName** con el formato especificado:
@@ -516,6 +517,42 @@ En el ejemplo siguiente se busca el nombre de dominio en una de las colecciones 
     - **errorOnFailedLookup**: false
 - Notificaciones de salida:
     - **outputClaim**: c7026f88-4299-4cdb-965d-3f166464b8a9
+
+Cuando el parámetro de entrada `errorOnFailedLookup` está establecido en `true`, la transformación de notificaciones **LookupValue** siempre se ejecuta desde un [perfil técnico de validación](validation-technical-profile.md) llamado por un [perfil técnico autofirmado](self-asserted-technical-profile.md) o un elemento [DisplayControl](display-controls.md). Los metadatos `LookupNotFound` de un perfil técnico autoafirmado controlan el mensaje de error que se presenta al usuario.
+
+![Ejecución de AssertStringClaimsAreEqual](./media/string-transformations/assert-execution.png)
+
+En el ejemplo siguiente se busca el nombre de dominio en una de las colecciones inputParameters. La transformación de notificaciones busca el nombre de dominio en el identificador y devuelve su valor (un identificador de aplicación), o bien genera un mensaje de error.
+
+```XML
+ <ClaimsTransformation Id="DomainToClientId" TransformationMethod="LookupValue">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="domainName" TransformationClaimType="inputParameterId" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="contoso.com" DataType="string" Value="13c15f79-8fb1-4e29-a6c9-be0d36ff19f1" />
+    <InputParameter Id="microsoft.com" DataType="string" Value="0213308f-17cb-4398-b97e-01da7bd4804e" />
+    <InputParameter Id="test.com" DataType="string" Value="c7026f88-4299-4cdb-965d-3f166464b8a9" />
+    <InputParameter Id="errorOnFailedLookup" DataType="boolean" Value="true" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="domainAppId" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Ejemplo
+
+- Notificaciones de entrada:
+    - **inputParameterId**: live.com
+- Parámetros de entrada:
+    - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
+    - **microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
+    - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **errorOnFailedLookup**: true
+- Error:
+    - No se encontró ninguna coincidencia para el valor de notificaciones de entrada en la lista de identificadores de parámetro de entrada y errorOnFailedLookup es true.
+
 
 ## <a name="nullclaim"></a>NullClaim
 
@@ -888,3 +925,12 @@ En el siguiente ejemplo se toma una cadena con delimitador de coma de roles de u
   - **delimiter**: ","
 - Notificaciones de salida:
   - **outputClaim**: [ "Admin", "Author", "Reader" ]
+  
+## <a name="string-claim-transformations-expressions"></a>Expresiones de transformaciones de notificaciones de cadena
+Las expresiones de transformaciones de notificaciones de las directivas personalizadas de Azure AD B2C proporcionan información contextual sobre el identificador de inquilino y el identificador de perfil técnico.
+
+  | Expression | Descripción | Ejemplo |
+ | ----- | ----------- | --------|
+ | `{TechnicalProfileId}` | Nombre identificador del perfil técnico. | Facebook-OAUTH |
+ | `{RelyingPartyTenantId}` | El identificador de inquilino de la directiva del usuario de confianza. | your-tenant.onmicrosoft.com |
+ | `{TrustFrameworkTenantId}` | El identificador de inquilino del marco de confianza. | your-tenant.onmicrosoft.com |

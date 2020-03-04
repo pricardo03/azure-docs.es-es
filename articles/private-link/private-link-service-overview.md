@@ -2,17 +2,17 @@
 title: ¿Qué es el servicio Azure Private Link?
 description: Obtenga información sobre el servicio Azure Private Link.
 services: private-link
-author: malopMSFT
+author: sumeetmittal
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
-ms.author: allensu
-ms.openlocfilehash: d2313bfc47026ed9655d0ca25f0a0fdf3f86d8a5
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.author: sumi
+ms.openlocfilehash: 97515b308323452e88cf6fd8a517c1f169c9ba6f
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191081"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587420"
 ---
 # <a name="what-is-azure-private-link-service"></a>¿Qué es el servicio Azure Private Link?
 
@@ -98,7 +98,7 @@ La acción de aprobar las conexiones se puede automatizar mediante la propiedad 
 
 ## <a name="getting-connection-information-using-tcp-proxy-v2"></a>Cómo obtener información de conexión mediante el proxy TCP V2
 
-Al usar el servicio de hipervínculo privado, la dirección IP de origen de los paquetes procedentes de un punto de conexión privado es traducida a dirección de red (NAT) en el lado del proveedor de servicios mediante la dirección IP NAT asignada desde la red virtual del proveedor. Por lo tanto, las aplicaciones reciben la dirección IP NAT asignada en lugar de la dirección IP de origen real de los consumidores del servicio. Si la aplicación necesita la dirección IP de origen real del lado del consumidor, se puede habilitar el protocolo de proxy en el servicio y recuperar la información a partir del encabezado del protocolo de proxy. Además de la dirección IP de origen, el encabezado del protocolo de proxy también incluye el LinkID del punto de conexión privado. Combinar la dirección IP de origen con el LinkID puede ayudar a los proveedores de servicios a identificar de forma única a sus consumidores. Para obtener más información sobre el protocolo de proxy, consulte este artículo. 
+Al usar el servicio de hipervínculo privado, la dirección IP de origen de los paquetes procedentes de un punto de conexión privado es traducida a dirección de red (NAT) en el lado del proveedor de servicios mediante la dirección IP NAT asignada desde la red virtual del proveedor. Por lo tanto, las aplicaciones reciben la dirección IP NAT asignada en lugar de la dirección IP de origen real de los consumidores del servicio. Si la aplicación necesita la dirección IP de origen real del lado del consumidor, se puede habilitar el protocolo de proxy en el servicio y recuperar la información a partir del encabezado del protocolo de proxy. Además de la dirección IP de origen, el encabezado del protocolo de proxy también incluye el LinkID del punto de conexión privado. Combinar la dirección IP de origen con el LinkID puede ayudar a los proveedores de servicios a identificar de forma única a sus consumidores. Para más información sobre el protocolo de proxy, [consulte este artículo](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt). 
 
 Esta información se codifica mediante un vector tipo-longitud-valor (TLV) personalizado como se indica a continuación:
 
@@ -111,6 +111,8 @@ Detalles del TLV personalizado:
 |Value  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
 |  |4        |UINT32 (4 bytes) que representan el LINKID del punto de conexión privado. Codificado en formato little endian.|
 
+ > [!NOTE]
+ > El proveedor de servicios es responsable de asegurarse de que el servicio que está detrás del equilibrador de carga estándar está configurado para analizar el encabezado del protocolo de proxy según la [especificación](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) cuando el protocolo de proxy está habilitado en el servicio de vínculo privado. Se producirá un error en la solicitud si la configuración del protocolo de proxy está habilitada en el servicio de vínculo privado y el servicio no está configurado para analizar el encabezado. Del mismo modo, se producirá un error en la solicitud si el servicio espera un encabezado de protocolo de proxy mientras la configuración no está habilitada en el servicio de vínculo privado. Una vez habilitada la configuración del protocolo de proxy, el encabezado del protocolo de proxy también se incluirá en los sondeos de estado HTTP/TCP desde el host hasta las máquinas virtuales de back-end, aunque no haya información del cliente en el encabezado. 
 
 ## <a name="limitations"></a>Limitaciones
 

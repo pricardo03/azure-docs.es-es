@@ -1,5 +1,5 @@
 ---
-title: Selección de la SKU de máquina virtual correcta para el clúster de Azure Data Explorer
+title: Selección de la SKU de VM correcta para el clúster de Azure Data Explorer
 description: En este artículo se describe cómo debe seleccionar el tamaño de SKU óptimo para el clúster de Azure Data Explorer.
 author: avneraa
 ms.author: avnera
@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/14/2019
-ms.openlocfilehash: 8293fd2d84189cc1f1df3564abbfdcbf86e3543e
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 2d078f9715a0cfa171f0c88776a4ab78c15215a8
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186738"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561857"
 ---
 # <a name="select-the-correct-vm-sku-for-your-azure-data-explorer-cluster"></a>Selección de la SKU de máquina virtual correcta para el clúster de Azure Data Explorer 
 
@@ -72,15 +72,15 @@ En la tabla siguiente se describen las especificaciones técnicas para las máqu
 |---|---|---|---|---|---|---|---
 |D11 v2| Optimizada para proceso | 75&nbsp;GB    | 2 | 14&nbsp;GB | 0 | 1 | 8 (excepto para la SKU de desarrollo/pruebas en que es 1)
 |D12 v2| Optimizada para proceso | 150&nbsp;GB   | 4 | 28&nbsp;GB | 0 | 2 | 16
-|D13 v2| Optimizada para proceso | 307&nbsp;GB   | 8 | 56&nbsp;GB | 0 | 2 | 1000
-|D14 v2| Optimizada para proceso | 614&nbsp;GB   | 16| 112&nbsp;GB | 0 | 2 | 1000
-|DS13 v2 + 1&nbsp;TB&nbsp;PS| Optimizado para el almacenamiento | 1&nbsp;TB | 8 | 56&nbsp;GB | 1 | 2 | 1000
-|DS13 v2 + 2&nbsp;TB&nbsp;PS| Optimizado para el almacenamiento | 2&nbsp;TB | 8 | 56&nbsp;GB | 2 | 2 | 1000
-|DS14 v2 + 3&nbsp;TB&nbsp;PS| Optimizado para el almacenamiento | 3&nbsp;TB | 16 | 112&nbsp;GB | 2 | 2 | 1000
-|DS14 v2 + 4&nbsp;TB&nbsp;PS| Optimizado para el almacenamiento | 4&nbsp;TB | 16 | 112&nbsp;GB | 4 | 2 | 1000
+|D13 v2| Optimizada para proceso | 307&nbsp;GB   | 8 | 56&nbsp;GB | 0 | 2 | 1,000
+|D14 v2| Optimizada para proceso | 614&nbsp;GB   | 16| 112&nbsp;GB | 0 | 2 | 1,000
+|DS13 v2 + 1&nbsp;TB&nbsp;PS| Optimizado para el almacenamiento | 1&nbsp;TB | 8 | 56&nbsp;GB | 1 | 2 | 1,000
+|DS13 v2 + 2&nbsp;TB&nbsp;PS| Optimizado para el almacenamiento | 2&nbsp;TB | 8 | 56&nbsp;GB | 2 | 2 | 1,000
+|DS14 v2 + 3&nbsp;TB&nbsp;PS| Optimizado para el almacenamiento | 3&nbsp;TB | 16 | 112&nbsp;GB | 2 | 2 | 1,000
+|DS14 v2 + 4&nbsp;TB&nbsp;PS| Optimizado para el almacenamiento | 4&nbsp;TB | 16 | 112&nbsp;GB | 4 | 2 | 1,000
 |L4s v1| Optimizado para el almacenamiento | 650&nbsp;GB | 4 | 32&nbsp;GB | 0 | 2 | 16
-|L8s v1| Optimizado para el almacenamiento | 1,3&nbsp;TB | 8 | 64&nbsp;GB | 0 | 2 | 1000
-|L16s_1| Optimizado para el almacenamiento | 2,6&nbsp;TB | 16| 128&nbsp;GB | 0 | 2 | 1000
+|L8s v1| Optimizado para el almacenamiento | 1,3&nbsp;TB | 8 | 64&nbsp;GB | 0 | 2 | 1,000
+|L16s_1| Optimizado para el almacenamiento | 2,6&nbsp;TB | 16| 128&nbsp;GB | 0 | 2 | 1,000
 
 * Consulte la lista de SKU de máquinas virtuales actualizadas por región mediante [ListSkus API](/dotnet/api/microsoft.azure.management.kusto.clustersoperationsextensions.listskus?view=azure-dotnet) de Azure Data Explorer. 
 * Más información sobre las [diferentes SKU](/azure/virtual-machines/windows/sizes). 

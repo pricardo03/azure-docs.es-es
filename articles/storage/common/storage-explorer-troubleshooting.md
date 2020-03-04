@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 3d5b1ab4e72ec759098e9c71515200f89a8dfe82
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: aec8048c7ef2eb0d944cdd2a863e23578f4f87e5
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931206"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561687"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas del Explorador de Azure Storage
 
@@ -59,6 +59,17 @@ Si no tiene ningún rol que conceda permisos para la capa de administración, el
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>¿Qué sucede si no puedo obtener los permisos de la capa de administración que necesito de mi administrador?
 
 Actualmente no tenemos una solución relacionada con RBAC para este problema. Como alternativa, puede solicitar un URI de SAS para que se [adjunte al recurso](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+
+### <a name="recommended-built-in-rbac-roles"></a>Roles de RBAC integrados recomendados
+
+Hay varios roles de RBAC integrados que pueden proporcionar los permisos necesarios para usar el Explorador de Storage. Algunos de estos roles son:
+- [Propietario](/azure/role-based-access-control/built-in-roles#owner): administra todo, incluido el acceso a los recursos. **Nota**: Este rol le proporcionará acceso con clave.
+- [Colaborador](/azure/role-based-access-control/built-in-roles#contributor): administra todo, excepto el acceso a los recursos. **Nota**: Este rol le proporcionará acceso con clave.
+- [Lector](/azure/role-based-access-control/built-in-roles#reader): lee y enumera los recursos.
+- [Colaborador de la cuenta de almacenamiento](/azure/role-based-access-control/built-in-roles#storage-account-contributor): administración completa de cuentas de almacenamiento. **Nota**: Este rol le proporcionará acceso con clave.
+- [Propietario de datos de Storage Blob](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): acceso completo a contenedores de blobs y datos de Azure Storage.
+- [Colaborador de datos de Storage Blob](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): Lee, escribe y elimina blobs y contenedores de Azure Storage.
+- [Lector de datos de Storage Blob](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): Lee y enumera blobs y contenedores de Azure Storage.
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Error: certificado autofirmado en la cadena de certificados (y errores similares)
 
@@ -244,20 +255,20 @@ Si desea conservar las conexiones que no estén dañadas, puede usar los siguien
 
 Después de recorrer todas las conexiones, en busca de todos los nombres de conexión que no se han agregado de nuevo, debe borrar los datos dañados (si los hay) y volver a agregarlos mediante los pasos estándar del Explorador de Storage:
 
-# <a name="windowstabwindows"></a>[Windows](#tab/Windows)
+# <a name="windows"></a>[Windows](#tab/Windows)
 
 1. En el menú **Inicio**, busque **Administrador de credenciales** y ábralo.
 2. Vaya a **Credenciales de Windows**.
 3. En **Credenciales genéricas** , busque las entradas que tengan la clave `<connection_type_key>/<corrupted_connection_name>` (por ejemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 4. Elimine estas entradas y vuelva a agregar las conexiones.
 
-# <a name="macostabmacos"></a>[macOS](#tab/macOS)
+# <a name="macos"></a>[macOS](#tab/macOS)
 
 1. Abra Spotlight (comando + barra espaciadora) y busque **Keychain access** (Acceso a llavero).
 2. Busque las entradas que tengan la clave `<connection_type_key>/<corrupted_connection_name>` (por ejemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 3. Elimine estas entradas y vuelva a agregar las conexiones.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/Linux)
+# <a name="linux"></a>[Linux](#tab/Linux)
 
 La administración de las credenciales locales varía en función de la distribución de Linux. Si la distribución de Linux no proporciona una herramienta de GUI integrada para la administración de credenciales locales, puede instalar una herramienta de terceros para administrar las credenciales locales. Por ejemplo, puede usar [Seahorse](https://wiki.gnome.org/Apps/Seahorse/), una herramienta de GUI de código abierto para administrar credenciales locales de Linux.
 
@@ -309,7 +320,7 @@ Estos paquetes son los requisitos más comunes del Explorador de Storage en Linu
 > [!NOTE]
 > La versión 1.7.0 del Explorador de Storage y anteriores requieren .NET Core 2.0. Si tiene una versión más reciente de .NET Core instalada, tendrá que [aplicar un parche al Explorador de Storage](#patching-storage-explorer-for-newer-versions-of-net-core). Si ejecuta el Explorador de Storage 1.8.0, o cualquier versión posterior, debería poder usar hasta .NET Core 2.2. Las versiones superiores a la 2.2 no se han comprobado para que funcionen en este momento.
 
-# <a name="ubuntu-1904tab1904"></a>[Ubuntu 19.04](#tab/1904)
+# <a name="ubuntu-1904"></a>[Ubuntu 19.04](#tab/1904)
 
 1. Descargue el Explorador de Storage.
 2. Instale el [entorno de ejecución de .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
@@ -318,7 +329,7 @@ Estos paquetes son los requisitos más comunes del Explorador de Storage en Linu
    sudo apt-get install libgconf-2-4 libgnome-keyring0
    ```
 
-# <a name="ubuntu-1804tab1804"></a>[Ubuntu 18.04](#tab/1804)
+# <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
 1. Descargue el Explorador de Storage.
 2. Instale el [entorno de ejecución de .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
@@ -327,7 +338,7 @@ Estos paquetes son los requisitos más comunes del Explorador de Storage en Linu
    sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
    ```
 
-# <a name="ubuntu-1604tab1604"></a>[Ubuntu 16.04](#tab/1604)
+# <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Descargue el Explorador de Storage.
 2. Instale el [entorno de ejecución de .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
@@ -336,7 +347,7 @@ Estos paquetes son los requisitos más comunes del Explorador de Storage en Linu
    sudo apt install libgnome-keyring-dev
    ```
 
-# <a name="ubuntu-1404tab1404"></a>[Ubuntu 14.04](#tab/1404)
+# <a name="ubuntu-1404"></a>[Ubuntu 14.04](#tab/1404)
 
 1. Descargue el Explorador de Storage.
 2. Instale el [entorno de ejecución de .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: spelluru
-ms.openlocfilehash: 348340516f9332f5492c7ce60c3d164da44a008c
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 15fd3c18d059466c2b2bd5e2431013f393092b4b
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120885"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526236"
 ---
 # <a name="classroom-labs-concepts"></a>Conceptos de laboratorios educativos
 
@@ -28,11 +28,17 @@ La lista siguiente contiene las definiciones y los conceptos clave de Lab Servic
 
 Cuota es el límite de tiempo (en horas) que puede establecer un profesor para que un alumno use una máquina virtual de laboratorio. Se puede establecer en 0, o en un número específico de horas. Si la cuota se establece en 0, el alumno solo podrá usar la máquina virtual cuando se ejecute una programación o cuando un profesor active manualmente la máquina virtual para el alumno.  
 
-Las horas de cuota se contabilizan cuando el alumno inicia la máquina virtual de laboratorio por su cuenta.  Si un profesor inicia manualmente la máquina virtual de laboratorio de un alumno, no se usan las horas de cuota de ese alumno.
+Las horas de cuota se contabilizan cuando el alumno inicia la máquina virtual de laboratorio por su cuenta.  Si un profesor inicia manualmente la VM de laboratorio de un alumno, no se usan las horas de cuota de ese alumno.
 
 ## <a name="schedules"></a>Programaciones
 
-Las programaciones son los intervalos de tiempo (una vez o de manera periódica) que un profesor puede crear para la clase. Todas las máquinas virtuales del laboratorio se inician automáticamente al comienzo de la programación y se detienen al final de esta. Las horas de cuota no se utilizan cuando se ejecuta una programación.
+Las programaciones son los períodos de tiempo que un profesor puede crear para la clase, de modo que las VM de los alumnos estén disponibles para el horario de clase.  Las programaciones pueden ser para una sola vez o periódicas.  Las horas de cuota no se utilizan cuando se ejecuta una programación.
+
+Hay tres tipos de programaciones: Estándar, Solo inicio y Solo detención.
+
+- **Estándar**.  Esta programación iniciará las VM de todos los alumnos a la hora de inicio especificada y las apagará a la hora de detención especificada.
+- **Solo inicio**.   Esta programación iniciará las VM de todos los alumnos a la hora especificada.  Las VM no se detendrán hasta que cada alumno detenga su VM a través del portal de Azure Lab Services o se realice una programación de solo detención.
+- **Solo detención**.  Esta programación detendrá las VM de todos los alumnos a la hora especificada.  
 
 ## <a name="template-virtual-machine"></a>Máquina virtual de plantilla
 

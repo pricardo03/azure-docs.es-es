@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 106cd870a8ba52917ecabe6266bbb2c376296d79
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 8a82d2ad3e79633bb930348c6162996e961c4306
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704267"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612966"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Descripción de los estados de mantenimiento y resolución de dominios suspendidos en Azure Active Directory Domain Services
 
@@ -96,7 +96,7 @@ Verá una [alerta][resolve-alerts] en la página Estado de Azure AD DS de Azur
 Para restaurar el estado de un dominio administrado de Azure AD DS que se encuentra en el estado *Suspendido*, complete los pasos siguientes:
 
 1. En Azure Portal, busque y seleccione **Domain Services**.
-1. En la lista, elija el dominio administrado de Azure AD DS como, por ejemplo, *aadds.contoso.com* y, luego, seleccione **Estado**.
+1. En la lista, elija el dominio administrado de Azure AD DS como, por ejemplo, *aaddscontoso.com* y, luego, seleccione **Estado**.
 1. Seleccione la alerta, como *AADDS503* o *AADDS504*, en función de la causa de la suspensión.
 1. Elija el vínculo de resolución que se proporciona en la alerta y siga los pasos para resolverla.
 

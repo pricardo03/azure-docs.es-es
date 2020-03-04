@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: f47f112991a4fe2e5b245920db98e5ae7617161a
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 2694a5f250b746748a1b42ac4d211aa28ef1ebad
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704930"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613693"
 ---
 # <a name="administer-dns-in-an-azure-ad-domain-services-managed-domain"></a>Administración de DNS en un dominio administrado con Azure AD Domain Services
 
@@ -39,7 +39,7 @@ Para completar este artículo, necesitará los siguientes recursos y privilegios
     * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
 * Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
     * Si es necesario, complete el tutorial para [crear y configurar una instancia de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-* Una máquina virtual de administración de Windows Server que esté unida al dominio administrado con Azure AD DS.
+* Una máquina virtual de administración de Windows Server que esté unida al dominio administrado de Azure AD DS.
     * Si es necesario, complete el tutorial para [crear una máquina virtual de Windows Server y unirla a un dominio administrado][create-join-windows-vm].
 * Una cuenta de usuario que sea miembro del grupo de *administradores de Azure AD DC* en el inquilino de Azure AD.
 
@@ -52,7 +52,7 @@ Para crear y modificar registros DNS en Azure AD DS, debe instalar las herramie
 1. En el *Panel de información* de la ventana **Administrador del servidor**, seleccione **Agregar roles y características**.
 1. En la página **Antes de comenzar** del *Asistente para agregar roles y características*, seleccione **Siguiente**.
 1. En *Tipo de instalación*, deje activada la opción **Instalación basada en características o en roles** y seleccione **Siguiente**.
-1. En la página **Selección de servidor**, elija la máquina virtual actual del grupo de servidores, por ejemplo *mivm.aadds.contoso.com*, y seleccione **Siguiente**.
+1. En la página **Selección de servidor**, elija la máquina virtual actual del grupo de servidores, por ejemplo *mivm.aaddscontoso.com*, y seleccione **Siguiente**.
 1. En la página **Roles de servidor**, haga clic en **Siguiente**.
 1. En la página **Características**, expanda el nodo **Herramientas de administración remota del servidor** y el nodo **Herramientas de administración de roles**. Seleccione la característica **Herramientas del servidor DNS** en la lista de herramientas de administración de roles.
 
@@ -69,7 +69,7 @@ Con las herramientas del servidor DNS instaladas, puede administrar los registro
 > Para administrar DNS en un dominio administrado con Azure AD DS, debe haber iniciado sesión en una cuenta de usuario que sea miembro del grupo *Administradores del controlador de dominio de AAD*.
 
 1. En la pantalla Inicio, seleccione **Herramientas administrativas**. Se muestra una lista de las herramientas de administración disponibles, incluido **DNS**, instalado en la sección anterior. Seleccione **DNS** para iniciar la consola de administración de DNS.
-1. En el cuadro de diálogo **Conectar a servidor DNS**, seleccione **El siguiente equipo** y escriba el nombre de dominio DNS del dominio administrado, como *aadds.contoso.com*:
+1. En el cuadro de diálogo **Conectar a servidor DNS**, seleccione **El siguiente equipo** y escriba el nombre de dominio DNS del dominio administrado, como *aaddscontoso.com*:
 
     ![Conexión al dominio administrado con Azure AD DS en la consola DNS](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)
 

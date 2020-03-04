@@ -2,14 +2,14 @@
 title: 'Solución de problemas: Personalizer'
 description: En este artículo se incluyen respuestas a preguntas para solucionar problemas sobre Personalizer.
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 02/26/2020
 ms.author: diberry
-ms.openlocfilehash: fec403da7f54098dbf197d14f3b16afd30bf5efc
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 432b33243bdb38cf359d4fea1a336500eb244464
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77469551"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650527"
 ---
 # <a name="personalizer-troubleshooting"></a>Solución de problemas de Personalizer
 
@@ -32,6 +32,19 @@ En este artículo se incluyen respuestas a preguntas para solucionar problemas s
 </details>
 
 ## <a name="learning-loop"></a>Bucle de aprendizaje
+
+<details>
+<summary>
+<b>El bucle de aprendizaje no logra una coincidencia del 100 % con el sistema sin Personalizer. ¿Cómo puedo corregirlo?</b></summary>
+
+**Respuesta**: Motivos por los que no alcanza su objetivo con el bucle de aprendizaje:
+* No hay suficientes características enviadas con la llamada API Rank.
+* Errores en las características enviadas, como, por ejemplo, el envío de datos de características no agregados, como marcas de tiempo a la API Rank.
+* Errores con el procesamiento de bucles, como no enviar datos de recompensa a la API Reward para eventos.
+
+Para corregir este problema, debe cambiar el procesamiento mediante la modificación de las características enviadas al bucle o asegurarse de que la recompensa es una evaluación correcta de la calidad de la respuesta de Rank.
+
+</details>
 
 <details>
 <summary>
@@ -91,7 +104,7 @@ Cuando comience el nuevo período de actualización, se usará el modelo actuali
 <details>
 <summary><b>¿Cómo puedo importar una directiva de aprendizaje?</b></summary>
 
-**Respuesta**: Obtenga más información sobre los [conceptos de la directiva de aprendizaje](concept-active-learning.md#understand-learning-policy-settings) y [cómo aplicar](how-to-learning-policy.md) una nueva directiva de aprendizaje. Si no quiere seleccionar una directiva de aprendizaje, puede usar [la evaluación sin conexión](how-to-offline-evaluation.md) para sugerir una directiva de aprendizaje en función de los eventos actuales.
+**Respuesta**: Obtenga más información sobre los [conceptos de la directiva de aprendizaje](concept-active-learning.md#understand-learning-policy-settings) y [cómo aplicar](how-to-manage-model.md) una nueva directiva de aprendizaje. Si no quiere seleccionar una directiva de aprendizaje, puede usar [la evaluación sin conexión](how-to-offline-evaluation.md) para sugerir una directiva de aprendizaje en función de los eventos actuales.
 
 </details>
 

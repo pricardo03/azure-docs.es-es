@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: 8eb115497427338599db08e8c7bbdd55c5a158fc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 348bd2b92801217a5aea2ef4d1426c020085e4c1
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73807944"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624147"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Diseño de servicios disponibles globalmente con Azure SQL Database
 
@@ -35,7 +35,7 @@ En este escenario, las aplicaciones tienen las siguientes características:
 * El nivel web y la capa de datos deben colocarse para reducir la latencia y el costo de tráfico.
 * Básicamente, el tiempo de inactividad es un riesgo empresarial más alto para estas aplicaciones que la pérdida de datos.
 
-En este caso, la topología de implementación de la aplicación está optimizada para el tratamiento de desastres regionales cuando tiene que realizarse la conmutación por error conjunta de todos los componentes de aplicación. En el diagrama siguiente se muestra esta topología. Para la redundancia geográfica, los recursos de la aplicación se implementan en la región A y B. Sin embargo, no se utilizan los recursos de la región B hasta que se produce un error en la región A. Se configura un grupo de conmutación por error entre las dos regiones para administrar la conmutación por error, la replicación y la conectividad de base de datos. El servicio web de ambas regiones está configurado para tener acceso a la base de datos mediante el agente de escucha de lectura y escritura  **&lt;nombre del grupo de conmutación por error&gt;. database.windows.net** (1). Traffic Manager se configura para usar el [método de enrutamiento de prioridad](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
+En este caso, la topología de implementación de la aplicación está optimizada para el tratamiento de desastres regionales cuando tiene que realizarse la conmutación por error conjunta de todos los componentes de aplicación. En el diagrama siguiente se muestra esta topología. Para la redundancia geográfica, los recursos de la aplicación se implementan en la región A y B. Sin embargo, no se utilizan los recursos de la región B hasta que se produce un error en la región A. Se configura un grupo de conmutación por error entre las dos regiones para administrar la conmutación por error, la replicación y la conectividad de base de datos. El servicio web de ambas regiones está configurado para tener acceso a la base de datos mediante el agente de escucha de lectura y escritura **&lt;nombre del grupo de conmutación por error&gt;. database.windows.net** (1). Traffic Manager se configura para usar el [método de enrutamiento de prioridad](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
 
 > [!NOTE]
 > [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) se usa en este artículo únicamente con fines ilustrativos. Puede usar cualquier solución de equilibrio de carga que admita el método de enrutamiento de prioridad.
@@ -112,30 +112,30 @@ En este escenario, la aplicación tiene las siguientes características:
 
 Con el fin de cumplir estos requisitos, tiene que asegurarse de que el dispositivo del usuario **siempre** se conecta a la aplicación implementada en la misma ubicación geográfica para las operaciones de solo lectura, como la exploración de datos, análisis, etc. Por otra parte, las operaciones OLTP se procesan en la misma ubicación geográfica la **mayoría de las veces**. Por ejemplo, por el día, las operaciones OLTP se procesan en la misma ubicación geográfica, pero durante las horas de inactividad podrían procesarse en una ubicación geográfica diferente. Si la actividad del usuario final se produce principalmente durante las horas de trabajo, puede garantizar un rendimiento óptimo para la mayoría de los usuarios la mayoría del tiempo. El siguiente diagrama muestra esta topología.
 
-Los recursos de la aplicación deben implementase en cada ubicación geográfica en la que haya una demanda de uso considerable. Por ejemplo, si la aplicación se utiliza activamente en Estados Unidos, la Unión Europea y Asia Suroriental, la aplicación debe implementarse en todas estas ubicaciones geográficas. La base de datos principal debe cambiarse dinámicamente de una ubicación geográfica a la siguiente al final de las horas laborables. A este método se le conoce como "seguimiento del sol". La carga de trabajo OLTP siempre se conecta a la base de datos mediante el agente de escucha de lectura y escritura **&lt;nombre de grupo de conmutación por error&gt;.database.windows.net** (1). La carga de trabajo de solo lectura se conecta a la base de datos local directamente mediante el punto de conexión del servidor de bases de datos **&lt;nombre del servidor&gt;.database.windows.net** (2). Traffic Manager está configurado con el [método de enrutamiento de rendimiento](../traffic-manager/traffic-manager-configure-performance-routing-method.md). Este garantiza que el dispositivo del usuario final está conectado al servicio web en la región más cercana. Traffic Manager debe configurarse con la supervisión de punto de conexión habilitada para cada punto de conexión de servicio web (3).
+Los recursos de la aplicación deben implementase en cada ubicación geográfica en la que haya una demanda de uso considerable. Por ejemplo, si la aplicación se utiliza activamente en Estados Unidos, la Unión Europea y Sudeste de Asia, la aplicación debe implementarse en todas estas ubicaciones geográficas. La base de datos principal debe cambiarse dinámicamente de una ubicación geográfica a la siguiente al final de las horas laborables. A este método se le conoce como "seguimiento del sol". La carga de trabajo OLTP siempre se conecta a la base de datos mediante el agente de escucha de lectura y escritura **&lt;nombre de grupo de conmutación por error&gt;.database.windows.net** (1). La carga de trabajo de solo lectura se conecta a la base de datos local directamente mediante el punto de conexión del servidor de bases de datos **&lt;nombre del servidor&gt;.database.windows.net** (2). Traffic Manager está configurado con el [método de enrutamiento de rendimiento](../traffic-manager/traffic-manager-configure-performance-routing-method.md). Este garantiza que el dispositivo del usuario final está conectado al servicio web en la región más cercana. Traffic Manager debe configurarse con la supervisión de punto de conexión habilitada para cada punto de conexión de servicio web (3).
 
 > [!NOTE]
 > La configuración del grupo de conmutación por error define qué región se utiliza para la conmutación por error. Puesto que la región primaria nueva se encuentra en una ubicación geográfica diferente, la conmutación por error provoca una latencia mayor para las cargas de trabajo de solo lectura y OLTP hasta que la región afectada vuelva a estar conectada.
 
 ![Escenario 3. Configuración con la región primaria en el Este de EE. UU.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-a.png)
 
-Al final del día (por ejemplo, a las 11 p.m., hora local), las bases de datos activas deben cambiarse a la siguiente región (Europa del Norte). Esta tarea puede se puede automatizar por completo mediante el uso del [servicio de programación de Azure](../scheduler/scheduler-intro.md).  La tarea implica los pasos siguientes:
+Al final del día (por ejemplo, a las 11 p.m., hora local), las bases de datos activas deben cambiarse a la siguiente región (Norte de Europa). Esta tarea puede se puede automatizar por completo mediante el uso de [Azure Logic Apps](../logic-apps/logic-apps-overview.md). La tarea implica los pasos siguientes:
 
-* Cambiar el servidor principal en el grupo de conmutación por error a Europa del Norte con una conmutación por error fácil de usar (1).
-* Quitar el grupo de conmutación por error entre el Este de EE. UU. y Europa del Norte.
-* Crear un nuevo grupo de conmutación por error con el mismo nombre, pero entre Europa del Norte y Asia Oriental (2).
-* Agregar la región primaria en Europa del Norte y la secundaria en Asia Oriental para este grupo de conmutación por error (3).
+* Cambiar el servidor principal en el grupo de conmutación por error a Norte de Europa con una conmutación por error fácil de usar (1).
+* Quitar el grupo de conmutación por error entre el Este de EE. UU. y Norte de Europa.
+* Crear un nuevo grupo de conmutación por error con el mismo nombre, pero entre Norte de Europa y Este de Asia (2).
+* Agregar la región primaria en Norte de Europa y la secundaria en Este de Asia para este grupo de conmutación por error (3).
 
 El siguiente diagrama ilustra la nueva configuración después de la conmutación por error planeada:
 
-![Escenario 3. Cambio de la región principal a Europa del Norte.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-b.png)
+![Escenario 3. Cambio de la región principal a Norte de Europa.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-b.png)
 
-Si se produce una interrupción en Europa del Norte, por ejemplo, el grupo de conmutación por error inicia la conmutación por error de base de datos automática, lo que resulta eficaz para trasladar la aplicación a la siguiente región antes de lo previsto (1).  En ese caso, Este de EE. UU. es la única región secundaria que queda hasta que Europa del Norte vuelva a estar activa. Las dos regiones restantes sirven a los clientes en las otras tres regiones geográficas al intercambiar los roles. Azure Scheduler debe ajustarse según corresponda. Puesto que el resto de regiones obtiene tráfico de usuario adicional desde Europa, el rendimiento de la aplicación se ve afectado no solo por latencia adicional, sino también por un mayor número de conexiones de usuario final. Una vez que se solucione la interrupción en Europa del Norte, la base de datos secundaria se sincronizará inmediatamente con la principal actual. El siguiente diagrama ilustra una interrupción en Europa del Norte:
+Si se produce una interrupción en Norte de Europa, por ejemplo, el grupo de conmutación por error inicia la conmutación por error de base de datos automática, lo que resulta eficaz para trasladar la aplicación a la siguiente región antes de lo previsto (1).  En ese caso, Este de EE. UU. es la única región secundaria que queda hasta que Norte de Europa vuelva a estar activa. Las dos regiones restantes sirven a los clientes en las otras tres regiones geográficas al intercambiar los roles. Azure Logic Apps debe ajustarse según corresponda. Puesto que el resto de regiones obtiene tráfico de usuario adicional desde Europa, el rendimiento de la aplicación se ve afectado no solo por latencia adicional, sino también por un mayor número de conexiones de usuario final. Una vez que se solucione la interrupción en Norte de Europa, la base de datos secundaria se sincronizará inmediatamente con la principal actual. El siguiente diagrama ilustra una interrupción en Norte de Europa:
 
-![Escenario 3. Interrupción en Europa del Norte.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
+![Escenario 3. Interrupción en Norte de Europa.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
 
 > [!NOTE]
-> Puede reducir el tiempo cuando la experiencia del usuario final en Europa sea inferior debido a una mayor latencia. Para ello, debe implementar proactivamente una copia de la aplicación y crear bases de datos secundarias en otra región local (Europa Occidental) como sustitución de la instancia de la aplicación sin conexión en Europa del Norte. Cuando esta última vuelva a estar activa, puede decidir si quiere seguir usando Europa Occidental o quitar la copia de la aplicación y volver a usar Europa del Norte.
+> Puede reducir el tiempo cuando la experiencia del usuario final en Europa sea inferior debido a una mayor latencia. Para ello, debe implementar proactivamente una copia de la aplicación y crear bases de datos secundarias en otra región local (Oeste de Europa) como sustitución de la instancia de la aplicación sin conexión en Norte de Europa. Cuando esta última vuelva a estar activa, puede decidir si quiere seguir usando Oeste de Europa o quitar la copia de la aplicación y volver a usar Norte de Europa.
 
 Las principales **ventajas** de este diseño son las siguientes:
 

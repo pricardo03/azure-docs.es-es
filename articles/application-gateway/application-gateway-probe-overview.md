@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 01/28/2020
+ms.date: 02/20/2020
 ms.author: victorh
-ms.openlocfilehash: 5c25f591d1011d2efd66851cafd67ceef8b56637
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a4427c05d16a42879d37fdbd2e8b8be9095fcc9b
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766827"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505895"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Información general sobre la supervisión de estado de la puerta de enlace de aplicaciones
 
@@ -101,9 +101,11 @@ La siguiente tabla proporciona definiciones de las propiedades de un sondeo de m
 
 ## <a name="nsg-considerations"></a>Consideraciones sobre NSG
 
-Si hay un grupo de seguridad de red (NSG) en una subred de Application Gateway, se deben abrir los intervalos de puertos 65503-65534 en la subred de Application Gateway para el tráfico de entrada. Estos puertos son necesarios para que funcione correctamente la API de estado de back-end.
+Debe permitir el tráfico entrante de Internet en los puertos TCP 65503-65534 para la SKU de Application Gateway v1, y los puertos TCP 65200-65535 para la SKU de V2 con la subred de destino como **cualquiera** y origen como la etiqueta de servicio de **GatewayManager**. Este intervalo de puertos es necesario para la comunicación de la infraestructura de Azure.
 
-Además, no se puede bloquear la conectividad saliente de Internet y se debe permitir el tráfico entrante desde la etiqueta AzureLoadBalancer.
+Además, no se puede bloquear la conectividad saliente de Internet y se debe permitir el tráfico entrante desde la etiqueta **AzureLoadBalancer**.
+
+Para más información, consulte [Introducción a la configuración de Application Gateway](configuration-overview.md#network-security-groups-on-the-application-gateway-subnet).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Tras conocer todo lo referente a la supervisión del mantenimiento de Application Gateway, puede configurar un [sondeo de mantenimiento personalizado](application-gateway-create-probe-portal.md) en Azure Portal o un [sondeo de mantenimiento personalizado](application-gateway-create-probe-ps.md) mediante PowerShell y el modelo de implementación con Azure Resource Manager.

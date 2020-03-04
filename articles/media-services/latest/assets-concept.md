@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ab4eebf56abd2d328ccf86929a043d4354ca157c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 3860823787b860f2504d6fb13b9479d1feec9d28
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186313"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505816"
 ---
 # <a name="assets-in-azure-media-services"></a>Recursos de Azure Media Services
 
@@ -28,7 +28,13 @@ Un recurso se asigna a un contenedor de blobs en la [cuenta de Azure Storage](st
 
 El nivel de almacenamiento de **archivos** solo se recomienda para archivos de origen muy grandes que ya se hayan codificado y cuya salida del trabajo de codificación se haya colocado en un contenedor de blobs de salida. Los blobs del contenedor de salida que quiera asociar con un recurso y usar para transmitir o analizar contenido deben existir en un nivel de almacenamiento **frecuente** o **esporádico**.
 
-### <a name="naming-blobs"></a>Nomenclatura de blobs
+### <a name="naming"></a>Nomenclatura 
+
+#### <a name="assets"></a>Recursos
+
+Los nombres de los recursos tienen que ser únicos. Los nombres de recursos de Media Services v3 (por ejemplo, recursos, trabajos y transformaciones) están sujetos a las restricciones de nomenclatura de Azure Resource Manager. Para más información, consulte [Convenciones de nomenclatura](media-services-apis-overview.md#naming-conventions).
+
+#### <a name="blobs"></a>Datos BLOB
 
 Los nombres de los archivos o blobs dentro de un recurso deben seguir los [requisitos para los nombres de blobs](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) y los [requisitos para los nombres NTFS](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). La razón de estos requisitos es que los archivos se puedan copiar desde Blob Storage a un disco NTFS local para su procesamiento.
 
@@ -115,7 +121,7 @@ En la tabla siguiente se muestra cómo las propiedades de los [recursos](https:/
 
 Para proteger los recursos en reposo, estos se deben cifrar mediante el cifrado del lado de almacenamiento. En la tabla siguiente se muestra cómo funciona el cifrado del lado de almacenamiento en Media Services:
 
-|Opción de cifrado|DESCRIPCIÓN|Media Services v2|Media Services v3|
+|Opción de cifrado|Descripción|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Cifrado de almacenamiento en Media Services|Cifrado AES-256, clave administrada por Media Services|Admitido<sup>(1)</sup>|No admitido<sup>(2)</sup>|
 |[Storage Service Encryption para datos en reposo](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Cifrado en el lado servidor que ofrece Azure Storage, clave administrada por Azure o por el cliente.|Compatible|Compatible|

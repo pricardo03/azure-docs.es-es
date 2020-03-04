@@ -1,18 +1,19 @@
 ---
-title: 'Referencia: Desuso de las imágenes de DSVM'
-description: Detalles sobre el desuso que afecta a Azure Data Science Virtual Machine (DSVM)
+title: 'Referencia: Desuso de la imagen de Data Science Virtual Machine'
+titleSuffix: Azure Data Science Virtual Machine
+description: Detalles sobre el desuso que afecta a Azure Data Science Virtual Machine
 author: gvashishtha
 ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 10/14/2019
 ms.topic: reference
-ms.openlocfilehash: 252f9c66034dbadaf7a2e9e6f78665c26d414deb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 71ce8519dca6fa71340b1c34fe3a6891ccf5753f
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456286"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525794"
 ---
 # <a name="reference-deprecation-of-dsvm-images"></a>Referencia: Desuso de las imágenes de DSVM
 

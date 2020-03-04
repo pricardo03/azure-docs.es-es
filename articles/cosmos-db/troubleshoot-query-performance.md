@@ -8,12 +8,12 @@ ms.date: 02/10/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: aae11facd2fea5413b2996b3088cb2edc23f0dc1
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 0dd3cb12c52e23a0a8acd57bf401ba68acfb9925
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77424939"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623687"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Solución de problemas de consulta al usar Azure Cosmos DB
 
@@ -22,6 +22,20 @@ Este artículo le guía por un enfoque recomendado general para la solución de 
 En Azure Cosmos DB existen amplias categorías de optimización de consulta: optimizaciones que reducen la carga de unidades de solicitud (RU) de la consulta y otras que solo reducen la latencia. Al reducir la carga de RU de una consulta, seguramente también reduzca la latencia.
 
 En este documento se usan ejemplos que se pueden recrear con el conjunto de datos [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
+
+## <a name="important"></a>Importante
+
+- Para obtener el mejor rendimiento, siga las [Sugerencias para mejorar el rendimiento](performance-tips.md).
+    > [!NOTE] 
+    > El proceso de host de Windows de 64 bits se recomienda para mejorar el rendimiento. El SDK de SQL incluye un ServiceInterop.dll nativo para analizar y optimizar consultas localmente, y solo se admite en la plataforma Windows x64. En el caso de Linux y otras plataformas no compatibles donde el ServiceInterop.dll no está disponible, realizará una llamada de red adicional a la puerta de enlace para obtener la consulta optimizada. 
+- La consulta de Cosmos DB no admite un recuento mínimo de elementos.
+    - El código debe controlar cualquier tamaño de página entre 0 y el recuento máximo de elementos
+    - El número de elementos de una página puede cambiar sin previo aviso, y lo hará.
+- Se esperan páginas vacías para las consultas y pueden aparecer en cualquier momento. 
+    - El motivo por el que se exponen páginas vacías en los SDK es que permite más oportunidades para cancelar la consulta. También deja claro que el SDK realiza varias llamadas de red.
+    - Las páginas vacías pueden mostrarse en cargas de trabajo existentes, ya que una partición física se divide en Cosmos DB. La primera partición tiene 0 resultados actualmente, lo que da lugar a la página vacía.
+    - Las páginas vacías se deben al back-end que adelanta la consulta porque esta tarda más que cierto tiempo fijo en el back-end para recuperar los documentos. Si Cosmos DB adelanta una consulta, devolverá un token de continuación que permitirá que continúe la consulta. 
+- Asegúrese de purgar la consulta completamente. Revise los ejemplos de SDK y use un bucle WHILE en los `FeedIterator.HasMoreResults` para purgar toda la consulta.
 
 ### <a name="obtaining-query-metrics"></a>Obtención de las métricas de consulta:
 
@@ -144,7 +158,7 @@ Directiva de indexación:
 }
 ```
 
-**Cargo por unidad de solicitud:** 409,51 RU
+**Cargo por unidad de solicitud:** 409,51 RU
 
 ### <a name="optimized"></a>Optimizado
 
@@ -163,7 +177,7 @@ Directiva de indexación actualizada:
 }
 ```
 
-**Cargo por unidad de solicitud:** 2,98 RU
+**Cargo por unidad de solicitud:** 2,98 RU
 
 Puede agregar propiedades adicionales a la directiva de indexación en cualquier momento, sin que ello afecte a la disponibilidad o el rendimiento de la escritura. Si agrega una nueva propiedad al índice, las consultas que usen esta propiedad utilizarán inmediatamente el nuevo índice disponible. La consulta utilizará el nuevo índice mientras se está generando. En consecuencia, los resultados de la consulta pueden ser incoherentes con la recompilación del índice en curso. Si se indexa una nueva propiedad, las consultas que solo utilicen índices existentes no se verán afectadas durante la recompilación del índice. Puede [realizar el seguimiento del progreso de transformación del índice](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
 
@@ -217,7 +231,7 @@ Directiva de indexación:
 }
 ```
 
-**Cargo por unidad de solicitud:** 44,28 RU
+**Cargo por unidad de solicitud:** 44,28 RU
 
 ### <a name="optimized"></a>Optimizado
 
@@ -257,7 +271,7 @@ Directiva de indexación actualizada:
 
 ```
 
-**Cargo por unidad de solicitud:** 8,86 RU
+**Cargo por unidad de solicitud:** 8,86 RU
 
 ## <a name="optimize-join-expressions-by-using-a-subquery"></a>Optimización de las expresiones JOIN mediante una subconsulta
 Las subconsultas multivalor pueden optimizar las expresiones `JOIN` mediante la inserción de predicados después de cada expresión select-many, en lugar de hacerlo después de todas las combinaciones cruzadas en la cláusula `WHERE`.
@@ -274,7 +288,7 @@ WHERE t.name = 'infant formula' AND (n.nutritionValue > 0
 AND n.nutritionValue < 10) AND s.amount > 1
 ```
 
-**Cargo por unidad de solicitud:** 167,62 RU
+**Cargo por unidad de solicitud:** 167,62 RU
 
 Para esta consulta, el índice coincidirá con cualquier documento que tenga una etiqueta con el nombre "infant formula", un valor de nutritionValue mayor que 0 y sirva una cantidad mayor que 1. La expresión `JOIN` aquí generará el producto cruzado de todos los elementos de las matrices tags, nutrients y servings para cada documento coincidente antes de aplicar cualquier filtro. Luego, la cláusula `WHERE` aplicará el predicado de filtro en cada tupla `<c, t, n, s>`.
 
@@ -290,7 +304,7 @@ JOIN (SELECT VALUE n FROM n IN c.nutrients WHERE n.nutritionValue > 0 AND n.nutr
 JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 ```
 
-**Cargo por unidad de solicitud:** 22,17 RU
+**Cargo por unidad de solicitud:** 22,17 RU
 
 Se supone que solo un elemento de la matriz tags coincide con el filtro, y hay cinco elementos tanto para la matriz de nutrients como la de servings. Las expresiones `JOIN`luego se expandirán a 1 × 1 × 5 × 5 = 25 elementos, en lugar de los 1000 elementos de la primera consulta.
 

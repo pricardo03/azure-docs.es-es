@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 02/21/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89063cc8131c28f20153c6fe9b4c71b58794e609
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: e5df7eedcd92d338d3f741f7092ff6ef73f3442d
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77192045"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585890"
 ---
 # <a name="conditional-access-grant"></a>Acceso condicional: Conceder
 
@@ -55,13 +55,17 @@ Al seleccionar esta casilla, los usuarios deberán ejecutar Azure Multi-Factor A
 
 Las organizaciones que han implementado Microsoft Intune pueden usar la información que devuelven sus dispositivos para identificar aquellos que satisfacen los requisitos de cumplimiento específicos. Esta información del cumplimiento de las directivas se reenvía de Intune a Azure AD donde se pueden tomar decisiones de acceso condicional para conceder o bloquear el acceso a los recursos. Para más información sobre las directivas de cumplimiento, consulte el artículo [Establecimiento de reglas en los dispositivos para permitir el acceso a recursos de su organización con Intune](https://docs.microsoft.com/intune/protect/device-compliance-get-started).
 
+Un dispositivo se puede marcar como compatible con Intune (para cualquier sistema operativo del dispositivo) o por el sistema MDM de terceros para dispositivos Windows 10. No se pueden utilizar sistemas MDM de terceros con otros sistemas operativos que no sean Windows 10.
+
+Los dispositivos deben estar registrados en Azure AD para poder marcarlos como compatibles. Puede encontrar más información sobre el registro del dispositivo en el artículo [¿Qué es una identidad de dispositivo?](../devices/overview.md)
+
 ### <a name="require-hybrid-azure-ad-joined-device"></a>Requerir un dispositivo unido a Azure AD híbrido
 
 Las organizaciones pueden optar por usar la identidad del dispositivo como parte de la directiva de acceso condicional. Las organizaciones pueden requerir que los dispositivos estén unidos a Azure AD híbrido utilizando esta casilla. Para más información sobre las identidades del dispositivo, consulte el artículo [¿Qué es una identidad de dispositivo?](../devices/overview.md)
 
 ### <a name="require-approved-client-app"></a>Requerir aplicación cliente aprobada
 
-Las organizaciones pueden requerir que los intentos de acceso a las aplicaciones en la nube seleccionadas se tengan que realizar desde una aplicación cliente aprobada.
+Las organizaciones pueden requerir que los intentos de acceso a las aplicaciones en la nube seleccionadas se tengan que realizar desde una aplicación cliente aprobada. Estas aplicaciones cliente aprobadas son compatibles con las [directivas de protección de aplicaciones de Intune](/intune/app-protection-policy) independientemente de cualquier otra solución de administración de dispositivos móviles (MDM).
 
 Esta configuración se aplica a las aplicaciones cliente siguientes:
 
@@ -102,9 +106,7 @@ Esta configuración se aplica a las aplicaciones cliente siguientes:
 
 ### <a name="require-app-protection-policy"></a>Requerir la directiva de protección de aplicaciones
 
-En la directiva de acceso condicional, puede requerir que una directiva de protección de aplicaciones esté presente en la aplicación cliente antes de que el acceso esté disponible para las aplicaciones en la nube seleccionadas. 
-
-![Control del acceso con la directiva de protección de aplicaciones](./media/technical-reference/22.png)
+En la directiva de acceso condicional, puede requerir que una [directiva de protección de aplicaciones de Intune](/intune/app-protection-policy) esté presente en la aplicación cliente antes de que el acceso esté disponible para las aplicaciones en la nube seleccionadas. 
 
 Esta configuración se aplica a las aplicaciones cliente siguientes:
 
@@ -118,6 +120,10 @@ Esta configuración se aplica a las aplicaciones cliente siguientes:
 - Las aplicaciones para la directiva de protección de aplicaciones admiten la característica de administración de aplicaciones móviles de Intune con la protección de la directiva.
 - Requisitos para la **Exigencia de la directiva de protección de aplicaciones**:
     - Solo admite iOS y Android como condición de plataformas de dispositivo.
+
+### <a name="terms-of-use"></a>Términos de uso
+
+Si su organización ha redactado términos de uso, es posible que aparezcan opciones adicionales debajo de Conceder controles. Estas opciones permiten a los administradores exigir la aceptación de los términos de uso como una condición para acceder a los recursos protegidos por la directiva. Puede encontrar más información sobre los términos de uso en el artículo [Términos de uso de Azure Active Directory](terms-of-use.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,18 +1,18 @@
 ---
-title: Acerca de las conexiones VPN de punto a sitio de Azure | Microsoft Docs
+title: Acerca de las conexiones VPN de punto a sitio de Azure | VPN Gateway
 description: Este artículo le ayudará a comprender las conexiones de punto a sitio y a decidir qué tipo de autenticación de puerta de enlace de VPN P2S utilizar.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 02/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3db5cf0ddfec231a313df58e551061cbd5f9bef5
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 78ed07560fdb15efb2de13c194549f5b433b775a
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110449"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500600"
 ---
 # <a name="about-point-to-site-vpn"></a>Acerca de las conexiones VPN de punto a sitio
 
@@ -53,14 +53,14 @@ En un nivel alto, para configurar la autenticación de Azure AD es preciso segu
 
 1. [Configurar un inquilino de Azure AD](openvpn-azure-ad-tenant.md)
 
-2. [Habilitar la autenticación de Azure AD en la puerta de enlace](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authentication)
+2. [Habilitar la autenticación de Azure AD en la puerta de enlace](openvpn-azure-ad-tenant.md#enable-authentication)
 
 3. [Descargar y configurar el Cliente VPN de Azure](https://go.microsoft.com/fwlink/?linkid=2117554)
 
 
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>Autenticación mediante el servidor de dominio de Active Directory (AD)
 
-La autenticación de dominio de AD permite a los usuarios conectarse a Azure con sus credenciales de dominio de la organización. Requiere un servidor RADIUS que se integre con el servidor de AD. Las organizaciones también pueden aprovechar las implementaciones existentes de RADIUS.   
+La autenticación de dominio de AD permite a los usuarios conectarse a Azure con sus credenciales de dominio de la organización. Requiere un servidor RADIUS que se integre con el servidor de AD. Las organizaciones también pueden aprovechar las implementaciones existentes de RADIUS.
   
 El servidor RADIUS puede implementarse de forma local o en la red virtual de Azure. Durante la autenticación, la puerta de enlace de VPN de Azure actúa como acceso directo y reenvía los mensajes de autenticación entre el servidor RADIUS y el dispositivo que se conecta. Por lo tanto, la disponibilidad de la puerta de enlace del servidor RADIUS es importante. Si el servidor RADIUS está presente de forma local, se necesita una conexión VPN S2S de Azure en el sitio local para la disponibilidad.  
   
@@ -156,9 +156,6 @@ El archivo zip también proporciona los valores de algunas de las opciones de co
 |TLS_RSA_WITH_AES_128_CBC_SHA256 |
 |TLS_RSA_WITH_AES_256_CBC_SHA256 |
 
-
-
-
 ## <a name="configure"></a>¿Cómo se puede configurar una conexión de P2S?
 
 En una configuración de P2S es necesario realizar unos pocos pasos específicos. En los siguientes artículos encontrará los pasos necesarios para realizar una configuración de P2S, así como vínculos para configurar los dispositivos de cliente VPN:
@@ -169,11 +166,9 @@ En una configuración de P2S es necesario realizar unos pocos pasos específicos
 
 * [Configuración de OpenVPN](vpn-gateway-howto-openvpn.md)
 
-## <a name="how-do-i-remove-the-configuration-of-a-p2s-connection"></a>¿Cómo se puede quitar la configuración de una conexión P2S?
+### <a name="to-remove-the-configuration-of-a-p2s-connection"></a>Procedimiento para quitar la configuración de una conexión P2S
 
-Una configuración P2S se puede quitar mediante az cli y el comando siguiente: 
-
-`az network vnet-gateway update --name <gateway-name> --resource-group <resource-group name> --remove "vpnClientConfiguration"`
+Para conocer los pasos, consulte las [preguntas más frecuentes](#removeconfig) a continuación.
  
 ## <a name="faqcert"></a>Preguntas más frecuentes acerca de la autenticación de certificado nativa de Azure
 

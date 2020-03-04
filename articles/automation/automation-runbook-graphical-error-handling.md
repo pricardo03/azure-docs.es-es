@@ -5,64 +5,67 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: db14ee3d7e28ba7896b7558a7d01cbe77ad4496b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dec715ec6741f4429d8b1d4f620ef3cb82d4c1d3
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421028"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649983"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Control de errores en runbooks gráficos de Azure Automation
 
-Una entidad de seguridad clave en el diseño de runbooks que se debe tener en cuenta es identificar los distintos problemas que puede tener un runbook. Dichos problemas pueden incluir condiciones de correcto, estados de error esperado y condiciones de error inesperado.
+Un principio de diseño clave que se debe tener en cuenta para su runbook gráfico de Azure Automation es la identificación de problemas que puede experimentar el runbook durante la ejecución. Dichos problemas pueden incluir condiciones de correcto, estados de error esperado y condiciones de error inesperado.
 
-Los runbooks deben incluir el control de errores. Para validar el resultado de una actividad o controlar un error con runbooks gráficos, se puede usar una actividad de código de Windows PowerShell, definir una lógica condicional en el vínculo de salida de la actividad o aplicar otro método.          
+A menudo, aunque se produzca un error de no terminación en una actividad de runbook, Windows PowerShell controla la actividad procesando cualquier actividad posterior, independientemente del error. Es probable que el error genere una excepción, pero se podrá ejecutar la siguiente actividad.
 
-A menudo, aunque se produzca un error de no terminación en una actividad de un runbook, se procesarán todas las actividades posteriores, independientemente del error. Es probable que el error genere una excepción, pero se podrá ejecutar la siguiente actividad. Esta es la forma en que se ha diseñado que PowerShell controle los errores.    
+Su runbook gráfico debe incluir el código de control de errores para lidiar con problemas de ejecución. Para validar el resultado de una actividad o controlar un error, se puede usar una actividad de código de PowerShell, definir una lógica condicional en el vínculo de salida de la actividad o aplicar otro método.
 
-Los tipos de errores de PowerShell que se pueden producir durante la ejecución provocan la terminación o no la provocan. Estas son las diferencias entre los errores de terminación y de no terminación:
+Los runbooks gráficos de Azure Automation se han mejorado con la funcionalidad de inclusión del control de errores. Ahora es posible convertir las excepciones en errores de no terminación y crear vínculos de error entre las actividades. El proceso mejorado permite a su runbook detectar errores y administrar cualquier condición realizada o inesperada. 
 
-* **Error de terminación**: error grave durante la ejecución que detiene el comando (o la ejecución del script) por completo. Entre los ejemplos se incluyen cmdlets inexistentes, errores de sintaxis que impiden la ejecución de un cmdlet u otros errores irrecuperables.
+>[!NOTE]
+>Este artículo se ha actualizado para usar el nuevo módulo Az de Azure PowerShell. Aún puede usar el módulo de AzureRM que continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo. Para más información acerca del nuevo módulo Az y la compatibilidad con AzureRM, consulte [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0) (Presentación del nuevo módulo Az de Azure PowerShell). Para obtener instrucciones sobre la instalación del módulo Az en Hybrid Runbook Worker, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Puede actualizar los módulos de su cuenta de Automation a la versión más reciente mediante [Actualización de módulos de Azure PowerShell en Azure Automation](automation-update-azure-modules.md).
 
-* **Error de no terminación**: error que no es grave, lo que permite que la ejecución no se interrumpe. Entre los ejemplos se incluyen errores operativos, como los errores de archivos no encontrados y problemas de permisos.
+## <a name="powershell-error-types"></a>Tipos de errores de PowerShell
 
-Los runbooks gráficos de Azure Automation se han mejorado con la funcionalidad de inclusión del control de errores. Ahora es posible convertir las excepciones en errores de no terminación y crear vínculos de error entre las actividades. Este proceso permite a los autores de runbooks detectar errores y administrar cualquier condición realizada o inesperada.  
+Los tipos de errores de PowerShell que se pueden producir durante la ejecución de runbooks son: errores de terminación y errores de no terminación.
+ 
+### <a name="terminating-error"></a>Error de terminación
+
+Un error de terminación es un error grave durante la ejecución que detiene un comando o la ejecución del script por completo. Entre los ejemplos se incluyen cmdlets inexistentes, errores de sintaxis que impiden la ejecución de un cmdlet y otros errores irrecuperables.
+
+### <a name="non-terminating-error"></a>Error de no terminación
+
+Un error de no terminación es un error que no es grave, lo que permite que la ejecución no se interrumpa pese a la condición de error. Entre los ejemplos se incluyen errores operativos, como los errores de archivos no encontrados y problemas de permisos.
 
 ## <a name="when-to-use-error-handling"></a>Cuándo se debe utilizar el control de errores
 
-Siempre que haya una actividad crítica que genere un error o una excepción es importante que se procese la siguiente actividad del runbook y controlar el error adecuadamente. Esto es especialmente crítico cuando los runbooks dan soporte a un proceso de operaciones de un negocio o un servicio.
+Use el control de errores en su runbook cuando una actividad crítica produzca un error o una excepción. Es importante impedir que se procese la siguiente actividad del runbook, así como controlar el error adecuadamente. Controlar el error es especialmente crítico cuando los runbooks dan soporte a un proceso de operaciones de un negocio o un servicio.
 
-Por cada actividad que pueda generar un error, el autor del runbook puede agregar un vínculo de error que señale a cualquier otra actividad. La actividad de destino puede ser de cualquier tipo, entre las que se incluyen actividades de código, la invocación de un cmdlet, la invocación de otro runbook, etc.
+Por cada actividad que pueda generar un error, puede agregar un vínculo de error que señale a cualquier otra actividad. La actividad de destino puede ser de cualquier tipo, entre las que se incluyen la actividad de código, la invocación de un cmdlet, la invocación de otro runbook, etc. La actividad de destino también puede tener vínculos salientes, ya sean vínculos regulares o de error. Los vínculos permiten al runbook implementar una lógica de control de errores compleja sin tener que recurrir a una actividad de código.
 
-Además, la actividad de destino también puede tener vínculos salientes. Dichos vínculos pueden ser normales o de error, lo que significa que el autor del runbook puede implementar una lógica de control de errores compleja sin tener que recurrir a una actividad de código. La práctica recomendada consiste en crear un runbook específico para el control de errores con una funcionalidad común, pero no es obligatorio. La lógica de control de errores en una actividad de código de PowerShell no es la única opción.  
-
-Por ejemplo, piense en un runbook que intenta iniciar una máquina virtual e instalar una aplicación en ella. Si la máquina virtual no se inicia correctamente, realiza dos acciones:
+La práctica recomendada consiste en crear un runbook específico para el control de errores con una funcionalidad común, pero dicha práctica no es obligatoria. Por ejemplo, piense en un runbook que intenta iniciar una máquina virtual e instalar una aplicación en ella. Si la máquina virtual no se inicia correctamente, realiza las siguientes acciones:
 
 1. Envía una notificación acerca de este problema.
 2. Inicia otro runbook que aprovisiona automáticamente una nueva máquina virtual.
 
-Una solución es en tener un vínculo de error que apunte a una actividad que controle el paso uno. Por ejemplo, puede conectar el cmdlet **Write-Warning** a una actividad para el paso dos, como el cmdlet **AzureRmAutomationRunbook inicio**.
+Una solución es tener un vínculo de error en el runbook que apunte a una actividad que controle el paso uno. Por ejemplo, el runbook puede conectar el cmdlet **Write-Warning** a una actividad para el paso dos, como el cmdlet [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0).
 
-Este comportamiento se puede generalizar para que se pueda usar en muchos runbooks. Solo es preciso colocar estas dos actividades en un runbook de control de errores independiente y seguir las instrucciones anteriores. Antes de llamar a este runbook de control de errores se puede construir un mensaje personalizado a partir de los datos del runbook original y, después, pasarlo como parámetro al runbook de control de errores.
+Este comportamiento también se puede generalizar para que se pueda usar en muchos runbooks. Solo es preciso colocar estas dos actividades en un runbook de control de errores independiente y seguir las instrucciones anteriores. Antes de que su runbook original llame a este runbook de control de errores se puede construir un mensaje personalizado a partir de sus datos y, después, pasarlo como parámetro al runbook de control de errores.
 
 ## <a name="how-to-use-error-handling"></a>Uso del control de errores
 
-Todas las actividades tienen una opción de configuración que convierte las excepciones en errores que no provocan la terminación. De manera predeterminada esta opción está deshabilitada. Se recomienda habilitar esta opción en todas aquellas actividades en las que se desee controlar los errores.  
+Todas las actividades de su runbook tienen una opción de configuración que convierte las excepciones en errores que no provocan la terminación. De manera predeterminada esta opción está deshabilitada. Se recomienda habilitar esta opción en cualquier actividad en la que el runbook controle los errores. Al habilitar esta configuración, se garantiza que el runbook trate tanto los errores de la actividad que provocan terminación como los que no la provocan como errores que no la provocan, con un vínculo de error.  
 
-Al habilitar esta configuración, se garantiza que tanto los errores de la actividad que provocan terminación como los que no la provocan se tratan como errores que no la provocan y se pueden controlar con un vínculo de error.  
-
-Tras configurar esta opción, cree una actividad que controle el error. Si una actividad produce algún error, se siguen los vínculos de error de salida, no los vínculos normales, aunque la actividad genere también una salida normal.<br><br> ![Ejemplo de vínculo de error de runbook de Automation](media/automation-runbook-graphical-error-handling/error-link-example.png)
+Después de habilitar la opción de configuración, haga que el runbook cree una actividad que controle el error. Si la actividad produce algún error, se seguirán los vínculos de error salientes. Los vínculos regulares no se seguirán, incluso si la actividad también produce la salida regular.<br><br> ![Ejemplo de vínculo de error de runbook de Automation](media/automation-runbook-graphical-error-handling/error-link-example.png)
 
 En el ejemplo siguiente, un runbook recupera una variable que contiene el nombre del equipo de una máquina virtual. A continuación, intenta iniciar la máquina virtual con la siguiente actividad.<br><br> ![Ejemplo de control de errores de runbook de Automation](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-Las actividades **Get-AutomationVariable** y **Start-AzureRmVm** están configuradas para convertir excepciones en errores. Si hay problemas para obtener la variable o para iniciar la máquina virtual, se generan errores.<br><br> ![Configuración de la actividad de control de errores de runbook de Automation](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
+La actividad **Get-AutomationVariable** y el cmdlet [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) están configurados para convertir excepciones en errores. Si hay problemas para obtener la variable o para iniciar la máquina virtual, el código genera errores.<br><br> ![Configuración de la actividad de control de errores de runbook de Automation](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png).
 
-Fluyen vínculos de errores de flujo de estas actividades a una única actividad de **administración de errores** (una actividad de código). Esta actividad se configura con una expresión simple de PowerShell que utiliza la palabra clave *Throw* para detener el procesamiento, junto con *$Error.Exception.Message* para obtener el mensaje que describe la excepción actual.<br><br> ![Ejemplo de código de control de errores de runbook de Automation](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
-
+Fluyen vínculos de errores de estas actividades a una única actividad de código de **administración de errores**. Esta actividad se configura con una expresión simple de PowerShell que utiliza la palabra clave *Throw* para detener el procesamiento, junto con `$Error.Exception.Message` para obtener el mensaje que describe la excepción actual.<br><br> ![Ejemplo de código de control de errores de runbook de Automation](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información acerca de los vínculos y tipos de vínculo de los runbooks gráficos, consulte [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md#links-and-workflow).
 
-* Para más información acerca de la ejecución de un runbook, cómo supervisar trabajos del runbook y otros detalles técnicos, consulte [Ejecución de un runbook en Automatización de Azure](automation-runbook-execution.md).
-
+* Para más información acerca de la ejecución de un runbook, la supervisión de trabajos del runbook y otros detalles técnicos, consulte [Ejecución de un runbook en Azure Automation](automation-runbook-execution.md).

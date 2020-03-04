@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 601574cc2a478dc53a261cfcb074e43a556dd4c0
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 76dc964b7fe7f5e8acfcfb03b2e89bebb2caa176
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979512"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613388"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Resolver errores de directorios que no coinciden en dominios administrados existentes de Azure AD Domain Services
 
@@ -26,7 +26,7 @@ En este artículo se explica por qué se produce el error y cómo resolverlo.
 
 ## <a name="what-causes-this-error"></a>¿Qué causa este error?
 
-Un error de directorio no coincidente se produce cuando un dominio administrado de Azure AD DS y una red virtual pertenecen a dos inquilinos de Azure AD distintos. Por ejemplo, tiene un dominio administrado de Azure AD DS denominado *aadds.contoso.com* que se ejecuta en el inquilino de Azure AD de Contoso, pero la red virtual de Azure para el dominio administrado forma parte del inquilino de Azure AD de Fabrikam.
+Un error de directorio no coincidente se produce cuando un dominio administrado de Azure AD DS y una red virtual pertenecen a dos inquilinos de Azure AD distintos. Por ejemplo, tiene un dominio administrado de Azure AD DS denominado *aaddscontoso.com* que se ejecuta en el inquilino de Azure AD de Contoso, pero la red virtual de Azure para el dominio administrado forma parte del inquilino de Azure AD de Fabrikam.
 
 Azure utiliza el control de acceso basado en rol (RBAC) para limitar el acceso a los recursos. Al habilitar Azure AD DS en un inquilino de Azure AD, los hashes de credenciales se sincronizan con el dominio administrado. Esta operación requiere que se sea administrador de inquilinos en el directorio de Azure AD y debe controlarse el acceso a las credenciales. Para implementar recursos en una red virtual de Azure y controlar el tráfico, debe tener privilegios administrativos en la red virtual en la que implementa Azure AD DS.
 

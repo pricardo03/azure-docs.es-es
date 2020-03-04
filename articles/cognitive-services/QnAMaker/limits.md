@@ -3,12 +3,12 @@ title: 'Límites: QnA Maker'
 description: QnA Maker tiene meta-límites para partes de la base de conocimiento y el servicio. Es importante mantener la base de conocimiento dentro de esos límites para probar y publicar.
 ms.topic: article
 ms.date: 02/14/2020
-ms.openlocfilehash: 7fdf45a4a22f6d9ffe123f5998592739402be55f
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: ba53513f21cfc2a4f16fe17decdf0df41570201c
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77252015"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650374"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Límites de la base de conocimiento de QnA Maker
 
@@ -55,7 +55,7 @@ El número máximo de vínculos profundos que se pueden rastrear para la extracc
 
 ## <a name="metadata-limits"></a>Límites de metadatos
 
-Los metadatos se almacenan y se comparan en minúsculas.
+Los metadatos se presentan como un par clave-valor basado en texto, como `product:windows 10`. Se almacenan y se comparan en minúsculas.
 
 ### <a name="by-azure-cognitive-search-pricing-tier"></a>Por plan de tarifa de Azure Cognitive Search
 
@@ -71,8 +71,8 @@ La longitud y los caracteres aceptables para el nombre y el valor de los metadat
 
 |Elemento|Caracteres permitidos|Coincidencia de patrón regex|Número máximo de caracteres|
 |--|--|--|--|
-|Nombre|Permite<br>alfanuméricos (letras y dígitos)<br>`_` (subrayado)|`^[a-zA-Z0-9_]+$`|100|
-|Value|Permite todo excepto<br>`:` (dos puntos)<br>`|` (barra vertical)|`^[^:|]+$`|500|
+|Nombre (clave)|Permite<br>alfanuméricos (letras y dígitos)<br>`_` (subrayado)<br> No debe contener espacios.|`^[a-zA-Z0-9_]+$`|100|
+|Value|Permite todo excepto<br>`:` (dos puntos)<br>`|` (barra vertical)<br>Solo se permite un valor.|`^[^:|]+$`|500|
 |||||
 
 ## <a name="knowledge-base-content-limits"></a>Límites de contenido de la base de conocimiento
@@ -103,4 +103,4 @@ Representan los límites para cada acción de actualización; es decir, al hacer
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda cuándo y cómo cambiar los [planes de tarifa de servicio](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker).
+Aprenda cuándo y cómo cambiar los [planes de tarifa de servicio](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku).

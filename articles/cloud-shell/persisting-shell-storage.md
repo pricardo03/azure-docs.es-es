@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2019
+ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: 0b3b0b2cc97c86fefe37055e0744b747d4f31687
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 15a5770eb2964f0f2039fe93de904af65d4c81ed
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385563"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598755"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Persistencia de archivos en Azure Cloud Shell
 Cloud Shell utiliza Azure File Storage para conservar los archivos entre sesiones. En el primer inicio, Cloud Shell le pedirá que asocie un recurso compartido de archivos nuevo o existente para conservar los archivos entre sesiones.
@@ -62,7 +62,7 @@ Cloud Shell usa un recurso compartido de archivos de Azure en una cuenta de alma
 Los usuarios deben bloquear el acceso a sus archivos estableciendo los permisos en el nivel de cuenta de almacenamiento o de suscripción.
 
 ## <a name="supported-storage-regions"></a>Regiones de almacenamiento admitidas
-Las cuentas de almacenamiento de Azure asociadas tienen que residir en la misma región que la máquina de Cloud Shell en la que se montan. Para encontrar la región actual puede ejecutar `env` en Bash y buscar la variable `ACC_LOCATION`. Los recursos compartidos de archivos existentes reciben una imagen de 5 GB para que el usuario conserve el directorio `$Home`.
+Para encontrar la región actual puede ejecutar `env` en Bash y buscar la variable `ACC_LOCATION`, o bien ejecutar `$env:ACC_LOCATION` desde PowerShell. Los recursos compartidos de archivos existentes reciben una imagen de 5 GB para que el usuario conserve el directorio `$Home`.
 
 Las máquinas de Cloud Shell existen en las regiones siguientes:
 
@@ -70,7 +70,17 @@ Las máquinas de Cloud Shell existen en las regiones siguientes:
 |---|---|
 |América|Este de EE. UU., centro-sur de EE. UU. y oeste de EE. UU.|
 |Europa|Norte de Europa y Oeste de Europa|
-|Asia Pacífico|India central, Sudeste Asiático|
+|Asia Pacífico|Sur de la India, Sudeste de Asia|
+
+Los clientes deben elegir una región primaria, a menos que tengan un requisito de que sus datos en reposo se almacenen en una región determinada. Si existe este requisito, se debe usar una región de almacenamiento secundaria.
+
+### <a name="secondary-storage-regions"></a>Regiones de almacenamiento secundarias
+Si se usa una región de almacenamiento secundaria, la cuenta de almacenamiento de Azure asociada se encuentra en una región distinta a la de la máquina de Cloud Shell donde se va a montar. Por ejemplo, Julia puede configurar su cuenta de almacenamiento para que se encuentre en la región Este de Canadá, una región secundaria, pero la máquina en la que se montó todavía se encuentra en una región primaria. Sus datos en reposo se encuentran en Canadá, pero se procesan en los Estados Unidos.
+
+> [!NOTE]
+> Si se usa una región secundaria, el acceso a archivos y el tiempo de inicio de Cloud Shell pueden ser más lentos.
+
+Un usuario puede ejecutar `(Get-CloudDrive | Get-AzStorageAccount).Location` en PowerShell para ver la ubicación de su recurso compartido de archivos.
 
 ## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Restringir la creación de recursos con una directiva de recursos de Azure
 Las cuentas de almacenamiento creadas en Cloud Shell se etiquetan con `ms-resource-usage:azure-cloud-shell`. Si quiere impedir que los usuarios creen cuentas de almacenamiento en Cloud Shell, cree una [directiva de recursos de Azure para etiquetas](../azure-policy/json-samples.md) que se desencadene mediante esta etiqueta específica.

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: d982771d5c7ebc864991026e399e9648d333cc8f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 0eacf0f65346247d5fda5b26ead924a8cfd94dd9
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425534"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562095"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-preview-using-cli"></a>Creación y administración de Private Link para Azure Database for PostgreSQL: servidor único (versión preliminar) con CLI
 
@@ -121,6 +121,9 @@ az network private-dns record-set a create --name myserver --zone-name privateli
 az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.postgres.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
 ```
 
+> [!NOTE] 
+> El FQDN de la configuración de DNS del cliente no se resuelve en la dirección IP privada configurada. Tendrá que configurar una zona DNS para el FQDN configurado, como se muestra [aquí](../dns/dns-operations-recordsets-portal.md).
+
 ## <a name="connect-to-a-vm-from-the-internet"></a>Conexión a una máquina virtual desde Internet
 
 Conéctese a la máquina virtual *myVm* desde Internet de la siguiente manera:
@@ -161,14 +164,14 @@ Conéctese a la máquina virtual *myVm* desde Internet de la siguiente manera:
     Address:  10.1.3.4
     ```
 
-3. Pruebe la conexión de vínculo privado para el servidor PostgreSQL con cualquier cliente disponible. En el ejemplo siguiente se ha usado [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) para realizar la operación.
+3. Pruebe la conexión de Private Link del servidor PostgreSQL con cualquier cliente disponible. En el ejemplo siguiente se ha usado [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) para realizar la operación.
 
 4. En **Nueva conexión**, escriba o seleccione esta información:
 
     | Configuración | Value |
     | ------- | ----- |
     | Tipo de servidor| Seleccione **PostgreSQL**.|
-    | Nombre de servidor| Seleccione *mydemopostgresserver.privatelink.postgres.database.azure.com* |
+    | Nombre de servidor| Seleccione *mydemopostgresserver.privatelink.postgres.database.azure.com*. |
     | Nombre de usuario | Escriba el nombre de usuario como username@servername, que se proporciona durante la creación del servidor PostgreSQL. |
     |Contraseña |Escriba una contraseña proporcionada durante la creación del servidor PostgreSQL. |
     |SSL|Seleccione **Requerido**.|
@@ -178,7 +181,7 @@ Conéctese a la máquina virtual *myVm* desde Internet de la siguiente manera:
 
 6. Examine las bases de datos en el menú izquierdo.
 
-7. (Opcionalmente) Cree o consulte la información del servidor PostgreSQL.
+7. (Opcional) Cree o consulte la información del servidor PostgreSQL.
 
 8. Cierre la conexión de escritorio remoto a myVm.
 

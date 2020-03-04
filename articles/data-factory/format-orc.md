@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 5f83e9bbcdfffdd9b19786012295ff5643116551
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e104c4c8e976207859b75212d5406558f04c6377
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927383"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597497"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Formato ORC en Azure Data Factory
 
@@ -26,10 +26,10 @@ El formato ORC es compatible con los conectores siguientes: [Amazon S3](connecto
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). En esta sección se proporciona una lista de las propiedades compatibles con el conjunto de datos de ORC.
 
-| Propiedad         | DESCRIPCIÓN                                                  | Obligatorio |
+| Propiedad         | Descripción                                                  | Obligatorio |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| Tipo             | La propiedad type del conjunto de datos debe establecerse en **Orc**. | Sí      |
-| location         | Configuración de ubicación de los archivos. Cada conector basado en archivos tiene su propio tipo de ubicación y propiedades compatibles en `location`. **Vea los detalles en el artículo de conectores -> sección de propiedades del conjunto de datos**. | Sí      |
+| type             | La propiedad type del conjunto de datos debe establecerse en **Orc**. | Sí      |
+| ubicación         | Configuración de ubicación de los archivos. Cada conector basado en archivos tiene su propio tipo de ubicación y propiedades compatibles en `location`. **Vea los detalles en el artículo de conectores -> sección de propiedades del conjunto de datos**. | Sí      |
 
 A continuación, se muestra un ejemplo de un conjunto de datos de ORC en Azure Blob Storage:
 
@@ -68,29 +68,30 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 En la sección ***\*source\**** de la actividad de copia se admiten las siguientes propiedades.
 
-| Propiedad      | DESCRIPCIÓN                                                  | Obligatorio |
+| Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
-| Tipo          | La propiedad type del origen de la actividad de copia debe establecerse en **OrcSource**. | Sí      |
+| type          | La propiedad type del origen de la actividad de copia debe establecerse en **OrcSource**. | Sí      |
 | storeSettings | Un grupo de propiedades sobre cómo leer datos de un almacén de datos. Cada conector basado en archivos tiene su propia configuración de lectura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | Sin       |
 
 ### <a name="orc-as-sink"></a>ORC como receptor
 
 En la sección ***\*sink\**** de la actividad de copia se admiten las siguientes propiedades.
 
-| Propiedad      | DESCRIPCIÓN                                                  | Obligatorio |
+| Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
-| Tipo          | La propiedad type del origen de la actividad de copia debe establecerse en **OrcSink**. | Sí      |
+| type          | La propiedad type del origen de la actividad de copia debe establecerse en **OrcSink**. | Sí      |
 | storeSettings | Un grupo de propiedades sobre cómo escribir datos en un almacén de datos. Cada conector basado en archivos tiene su propia configuración de escritura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | Sin       |
 
 ## <a name="using-self-hosted-integration-runtime"></a>Uso del entorno de ejecución de integración autohospedado
 
 > [!IMPORTANT]
-> En el caso de las copias autorizadas por el entorno de ejecución de integración (IR) autohospedado (por ejemplo, entre almacenes de datos locales y almacenes de datos en la nube), si no va a copiar archivos ORC **tal y como están**, tendrá que instalar **JRE (Java Runtime Environment) 8 de 64 bits u OpenJDK** en la máquina de IR. Consulte el párrafo siguiente para más información.
+> En el caso de las copias autorizadas por el entorno de ejecución de integración (IR) autohospedado (por ejemplo, entre almacenes de datos locales y almacenes de datos en la nube), si no va a copiar archivos ORC **tal y como están**, tendrá que instalar **JRE (Java Runtime Environment) 8 de 64 bits u OpenJDK** y el **paquete Microsoft Visual C++ 2010 Redistributable** en la máquina de IR. Consulte el párrafo siguiente para más información.
 
 En el caso de las copias que se ejecutan en el IR autohospedado con la serialización o deserialización de archivos ORC, para encontrar el entorno de ejecución de Java, ADF consulta primero el Registro *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* de JRE; si no lo encuentra, comprueba la variable del sistema *`JAVA_HOME`* de OpenJDK.
 
 - **Para usar JRE**: el IR de 64 bits necesita JRE de 64 bits. Puede encontrarlo [aquí](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **Para usar OpenJDK**: se admite desde la versión 3.13 de IR. Empaquete jvm.dll con todos los demás ensamblados de OpenJDK necesarios en la máquina del IR autohospedado y establezca la variable de entorno del sistema JAVA_HOME en el valor que corresponda.
+- **Para instalar el paquete Visual C++ 2010 Redistributable**: el paquete Visual C++ 2010 Redistributable no se instala con las instalaciones de IR autohospedadas. Puede encontrarlo [aquí](https://www.microsoft.com/download/details.aspx?id=14632).
 
 > [!TIP]
 > Si copia datos desde o hacia el formato ORC mediante el entorno de ejecución de integración autohospedado y recibe un error que indica que "Se produjo un error al invocar Java, mensaje: **Espacio en el montón java.lang.OutOfMemoryError:Java**", puede agregar una variable de entorno `_JAVA_OPTIONS` en la máquina que hospeda IR autohospedado para ajustar el tamaño del montón mínimo y máximo para JVM a fin de facilitar dicha copia y, a continuación, volver a ejecutar la canalización.

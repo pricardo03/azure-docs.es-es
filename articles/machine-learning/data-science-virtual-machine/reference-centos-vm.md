@@ -1,5 +1,6 @@
 ---
-title: 'Referencia: CentOS DSVM'
+title: 'Referencia: Data Science Virtual Machine para CentOS'
+titleSuffix: Azure Data Science Virtual Machine
 description: Detalles de las herramientas incluidas en la máquina Data Science Virtual Machine de CentOS
 author: gvashishtha
 ms.service: machine-learning
@@ -7,12 +8,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 0f71a8af2f7d2cfbfe43c0cfcc84cc7c08109c32
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: db49a9f5e0e6675d93cb58d6af9c92fac21e8b74
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493707"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525845"
 ---
 # <a name="reference-centos-linux-data-science-virtual-machine"></a>Referencia: Data Science Virtual Machine de CentOS (Linux)
 
@@ -71,7 +72,7 @@ El entorno py35 es el predeterminado. Para activar el entorno root (2.7), use es
 source activate root
 ```
 
-Para volver a activar el entorno PY35, use este comando:
+Para volver a activar el entorno py35, use este comando:
 
 ```bash
 source activate py35
@@ -178,7 +179,7 @@ SQuirreL SQL es un cliente SQL gráfico que se puede conectar a varias bases de 
 /usr/local/squirrel-sql-3.7/squirrel-sql.sh /usr/local/squirrel-sql-3.7/squirrel-sql.sh
 ```
 
-Antes de usarlo por primera vez, configure los controladores y los alias de las bases de datos. Los controladores JDBC se encuentran en /usr/share/Java/jdbcdrivers.
+Antes de usarlo por primera vez, configure los controladores y los alias de las bases de datos. Los controladores JDBC se encuentran en /usr/share/java/jdbcdrivers.
 
 Para más información, consulte [SQuirreL SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
 
@@ -302,13 +303,13 @@ cd xgboostdemo
 xgboost mushroom.conf
 ```
 
-Se escribe un archivo .model en el directorio especificado. Para información sobre este ejemplo de demostración en GitHub, consulte la [clasificación binaria](https://github.com/dmlc/xgboost/tree/master/demo/binary_classification).
+En el directorio especificado se escribe un archivo .model. Para información sobre este ejemplo de demostración en GitHub, consulte la [clasificación binaria](https://github.com/dmlc/xgboost/tree/master/demo/binary_classification).
 
 Para más información sobre XGBoost, consulte la [documentación de XGBoost](https://xgboost.readthedocs.org/en/latest/) y el [repositorio de GitHub para XGBoost](https://github.com/dmlc/xgboost).
 
 ### <a name="rattle"></a>Rattle
 
-Rattle (siglas del inglés *R* *A*nalytical *T*ool *T*o *L*earn *E*asily, la herramienta de análisis de R para aprender fácilmente) usa el modelado y la exploración de datos basados en GUI. Rattle:
+Rattle (*R* *A*nalytical *T*ool *T*o *L*earn *E*asily, la herramienta de análisis de R para aprender fácilmente) utiliza el modelado y la exploración de datos basados en GUI. Rattle:
 - Presenta resúmenes estadísticos y visuales de los datos.
 - Transforma los datos que se pueden modelar fácilmente.
 - Compila los modelos no supervisados y supervisados a partir de los datos.
@@ -324,7 +325,7 @@ library(rattle)
 rattle()
 ```
 
-Se abre una interfaz gráfica que tiene un conjunto de pestañas. Siga estos pasos de inicio rápido en Rattle para usar un conjunto de datos meteorológicos de ejemplo y crear un modelo. En algunos de los pasos, se le solicita que instale y cargue automáticamente cualquier paquete de R necesario que todavía no esté en el sistema.
+Se abre una interfaz gráfica que tiene un conjunto de pestañas. Siga estos pasos de inicio rápido en Rattle para usar un conjunto de datos meteorológicos de ejemplo y crear un modelo. En algunos de los pasos, se le solicitará que instale y cargue automáticamente algún paquete de R necesario que todavía no esté en el sistema.
 
 > [!NOTE]
 > Si no tiene permisos para instalar el paquete en el directorio del sistema (valor predeterminado), puede que aparezca un aviso en la ventana de la consola de R para instalar paquetes en su biblioteca personal. Si ve estos avisos, escriba **y**.
@@ -337,7 +338,7 @@ Se abre una interfaz gráfica que tiene un conjunto de pestañas. Siga estos pas
 1. Seleccione la opción **Forest** (Bosque) y, luego, seleccione **Execute** (Ejecutar) para crear un bosque aleatorio.
 1. Seleccione la pestaña **Evaluate** (Evaluar).
 1. Seleccione la opción **Risk** (Riesgo) y, luego, **Execute** (Ejecutar) para mostrar dos trazados de rendimiento de **Risk (Cumulative)** (Riesgo [acumulativo]).
-1. Seleccione la pestaña **Log** (Registro) para mostrar el código R generado para las operaciones anteriores. (Debido a un error de la versión actual de Rattle, debe insertar un carácter **#** delante de **Export this log** [Exportar este registro] en el texto del registro).
+1. Seleccione la pestaña **Log** (Registro) para mostrar el código R generado con las operaciones anteriores. (Debido a un error de la versión actual de Rattle, debe insertar un carácter **#** delante de **Export this log** [Exportar este registro] en el texto del registro).
 1. Seleccione el botón **Export** (Exportar) para guardar el archivo de script de R llamado *weather_script.R* en la carpeta principal.
 
 Puede salir de Rattle y R. Ahora puede modificar el script de R generado. O bien, use el script tal y como está y ejecútelo en cualquier momento para repetir todo lo que se hizo en la interfaz de usuario de Rattle. Esta es una forma sencilla, especialmente para los principiantes en R, de realizar análisis y aprendizaje automático rápidamente en una interfaz gráfica sencilla, al mismo tiempo que se genera automáticamente código en R para modificar o aprender.

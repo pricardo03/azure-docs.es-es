@@ -1,5 +1,6 @@
 ---
-title: 'Referencia: Ubuntu DSVM'
+title: 'Referencia: Data Science Virtual Machine para Ubuntu'
+titleSuffix: Azure Data Science Virtual Machine
 description: Detalles de las herramientas incluidas en la máquina Data Science Virtual Machine de Ubuntu
 author: gvashishtha
 ms.service: machine-learning
@@ -7,12 +8,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 97072f1a17f2b0adbe96afae3263dc84aff0f30f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5c184e7f1dc828c3f9ff8d449d29ab3aaa4d1cf6
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497623"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525828"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Referencia: Data Science Virtual Machine de Ubuntu
 
@@ -280,7 +281,7 @@ vw house_dataset
 
 Puede encontrar otras demostraciones más grandes en ese directorio. Para más información sobre Vowpal Wabbit, consulte [esta sección de GitHub](https://github.com/JohnLangford/vowpal_wabbit) y la [wiki de Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki).
 
-### <a name="xgboost"></a>XGBoost
+### <a name="xgboost"></a>xgboost
 
 Se trata de una biblioteca que está diseñada y optimizada para algoritmos potenciados (de árbol). El objetivo de esta biblioteca es llevar los límites de cálculo de las máquinas a los puntos de conexión necesarios para proporcionar una ampliación de árboles a gran escala que sea escalable, portátil y precisa.
 

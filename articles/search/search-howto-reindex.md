@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 8cebe02ebc638ba62fceec80dff2c6724ccf92c8
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 58b60a0eee8ab407709f33911d3c6b13ffbf301a
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212298"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498381"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Cómo recompilar un índice en Azure Cognitive Search
 
@@ -33,7 +33,7 @@ Elimine y vuelva a crear un índice si se cumple cualquiera de las condiciones s
 | Asignar un analizador a un campo | Los [analizadores](search-analyzers.md) se definen en un índice y, a continuación, se asignan a los campos. Puede agregar una nueva definición de analizador a un índice en cualquier momento, pero solo puede *asignar* un analizador cuando se crea el campo. Esto es así tanto para la propiedad **analyzer** como para la propiedad **indexAnalyzer**. La propiedad **searchAnalyzer** es una excepción (puede asignar esta propiedad a un campo existente). |
 | Actualizar o eliminar una definición de analizador en un índice | No puede eliminar ni cambiar una configuración de analizador existente (analizador, tokenizador, filtro de token o filtro de caracteres) en el índice, a menos que recompile todo el índice. |
 | Agregar un campo a un proveedor de sugerencias | Si ya existe un campo y desea agregarlo a una construcción de [proveedor de sugerencias](index-add-suggesters.md), debe recompilar el índice. |
-| Eliminar un campo | Para quitar físicamente todos los rastros de un campo, tendrá que recompilar el índice. Cuando no resulta práctica una recompilación inmediata, puede modificar el código de la aplicación para deshabilitar el acceso al campo "eliminado". Físicamente, el contenido y la definición del campo permanecen en el índice hasta la próxima recompilación, cuando aplica un esquema que omite el campo en cuestión. |
+| Eliminar un campo | Para quitar físicamente todos los rastros de un campo, tendrá que recompilar el índice. Cuando una recompilación inmediata no es práctica, puede modificar el código de aplicación para deshabilitar el acceso al campo "eliminado" o usar el [parámetro de consulta $select](search-query-odata-select.md) para elegir los campos que se representan en el conjunto de resultados. Físicamente, el contenido y la definición del campo permanecen en el índice hasta la próxima recompilación, cuando aplica un esquema que omite el campo en cuestión. |
 | Cambiar los niveles | Si necesita más capacidad, no hay ninguna actualización local en Azure Portal. Se debe crear otro servicio y los índices se deben compilar de cero en el servicio nuevo. Para ayudar a automatizar este proceso, puede usar el código de ejemplo **index-backup-restore** de este [repositorio de ejemplo .NET de Azure Cognitive Search](https://github.com/Azure-Samples/azure-search-dotnet-samples). Esta aplicación hará una copia de seguridad del índice en una serie de archivos JSON y luego volverá a crear el índice en un servicio de búsqueda que especifique.|
 
 ## <a name="update-conditions"></a>Actualización de condiciones
@@ -52,9 +52,11 @@ Cuando agrega un campo nuevo, a los documentos indexados existentes se les asign
 
 ## <a name="how-to-rebuild-an-index"></a>Cómo recompilar un índice
 
-Durante el desarrollo, el esquema de índice cambia con frecuencia. Puede planearlo mediante la creación de índices que se pueden eliminar, volver a crear y recargar rápidamente con un pequeño conjunto de datos representativo. 
+Durante el desarrollo, el esquema de índice cambia con frecuencia. Puede planearlo mediante la creación de índices que se pueden eliminar, volver a crear y recargar rápidamente con un pequeño conjunto de datos representativo.
 
 Para las aplicaciones ya en producción, se recomienda crear un nuevo índice que se ejecute en paralelo a un índice existente para evitar el tiempo de inactividad de la consulta. El código de aplicación proporciona redireccionamiento al nuevo índice.
+
+La indexación no se ejecuta en segundo plano y el servicio equilibrará la indexación adicional con las consultas en curso. Durante la indexación, puede [supervisar las solicitudes de consulta](search-monitor-queries.md) en el portal para asegurarse de que las consultas se completen puntualmente.
 
 1. Determine si es necesaria una recompilación. Si solo va a agregar campos o a cambiar alguna parte del índice que no esté relacionada con los campos, es posible que pueda [actualizar la definición](https://docs.microsoft.com/rest/api/searchservice/update-index) sin eliminarla, volver a crearla y a cargarla por completo.
 
@@ -78,6 +80,10 @@ Al cargar el índice, el índice invertido de cada campo se rellena con todas la
 ## <a name="check-for-updates"></a>Buscar actualizaciones
 
 Puede empezar a consultar un índice en cuanto se carga el primer documento. Si conoce el identificador de un documento, la [API REST para buscar documentos](https://docs.microsoft.com/rest/api/searchservice/lookup-document) devuelve el documento específico. Para realizar pruebas más amplias, debe esperar hasta que el índice se haya cargado completamente y, a continuación, usar consultas para comprobar el contexto que espera ver.
+
+Puede usar el [Explorador de búsqueda](search-explorer.md) o una herramienta de pruebas web como [Postman](search-get-started-postman.md) para comprobar el contenido actualizado.
+
+Si ha agregado un campo o le ha cambiado el nombre, use [$select](search-query-odata-select.md) para volver a ese campo: `search=*&$select=document-id,my-new-field,some-old-field&$count=true`
 
 ## <a name="see-also"></a>Consulte también
 

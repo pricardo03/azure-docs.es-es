@@ -2,17 +2,14 @@
 title: 'Conceptos: aspectos básicos de Kubernetes para Azure Kubernetes Services (AKS)'
 description: Obtenga información sobre el clúster básico y los componentes de carga de trabajo de Kubernetes y cómo se relacionan con las características de Azure Kubernetes Service (AKS).
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: mlearned
-ms.openlocfilehash: 9efd053bde11a29c37e3ff6afb7c6fc4492338db
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bcf56aa89a42d65fdb7bf03696faad13c64cbc8a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967550"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596239"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)
 
@@ -106,7 +103,7 @@ Para mantener la funcionalidad y el rendimiento de los nodos, AKS reserva los si
     - 6 % de los siguientes 112 GB de memoria (hasta 128 GB)
     - 2 % de cualquier memoria que esté por encima de 128 GB
 
-Las reglas anteriores para la asignación de memoria y CPU se usan para mantener el estado correcto de los nodos del agente, algunos pods del sistema de hospedaje son críticos para el mantenimiento del clúster. Estas reglas de asignación también hacen que el nodo informe una menor memoria y CPU asignables que la que informaría si no formase parte de un clúster de Kubernetes. Las reservas de recursos anteriores no se pueden cambiar.
+Las reglas anteriores para la asignación de memoria y CPU se usan para mantener el estado correcto de los nodos del agente, incluidos algunos pods del sistema de hospedaje que son críticos para el mantenimiento del clúster. Estas reglas de asignación también hacen que el nodo informe una menor memoria y CPU asignables que la que informaría si no formase parte de un clúster de Kubernetes. Las reservas de recursos anteriores no se pueden cambiar.
 
 Por ejemplo, si un nodo ofrece 7 GB, informará del 34 % de la memoria no asignable por encima del umbral de expulsión estricto de 750 Mi.
 
@@ -224,7 +221,7 @@ Hay dos recursos de Kubernetes que le permiten administrar estos tipos de aplica
 
 ### <a name="statefulsets"></a>StatefulSets
 
-Con frecuencia, el desarrollo de aplicaciones modernas tiene como objetivo las aplicaciones sin estado, pero *StatefulSets* puede usarse para aplicaciones con estado, como las aplicaciones que incluyen componentes de base de datos. StatefulSet es similar a una implementación en la que se crean y administran uno o varios pods idénticos. Las réplicas de StatefulSet siguen un enfoque estable y secuencial para la implementación, el escalado, las actualizaciones y las finalizaciones. Con StatefulSet, la convención de nomenclatura, los nombres de red y el almacenamiento persisten como réplicas que se vuelven a programar.
+Con frecuencia, el desarrollo de aplicaciones modernas tiene como objetivo las aplicaciones sin estado, pero *StatefulSets* puede usarse para aplicaciones con estado, como las aplicaciones que incluyen componentes de base de datos. StatefulSet es similar a una implementación en la que se crean y administran uno o varios pods idénticos. Las réplicas de StatefulSet siguen un enfoque estable y secuencial para la implementación, el escalado, las actualizaciones y las finalizaciones. Con StatefulSet (a medida que las réplicas se vuelven a programar), la convención de nomenclatura, los nombres de red y el almacenamiento persisten.
 
 El usuario define la aplicación en formato YAML mediante `kind: StatefulSet` y el controlador de StatefulSet, a continuación, controla la implementación y administración de las réplicas necesarias. Los datos se escriben en el almacenamiento persistente, proporcionado por Azure Managed Disks o Azure Files. Con StatefulSets, el almacenamiento persistente subyacente permanece incluso cuando se elimina StatefulSet.
 

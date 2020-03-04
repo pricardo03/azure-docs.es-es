@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: b7eed4089a65f62056027c70f08902f531567c17
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 742ef62895f3ef64e8fa22ab21d2947bee57776b
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445265"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623346"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrar contenedores sin particiones a contenedores con particiones
 
-Azure Cosmos DB admite la creación de contenedores sin una clave de partición. Actualmente puede crear contenedores sin particiones utilizando la CLI de Azure y los SDK de Azure Cosmos DB (.NET, Java, NodeJs) que tienen una versión inferior o igual a 2.x. No se pueden crear contenedores sin particiones con Azure Portal. Sin embargo, dichos contenedores sin particiones no son elásticos y tienen una capacidad de almacenamiento fija de 10 GB y un límite de rendimiento de 10K RU/s.
+Azure Cosmos DB admite la creación de contenedores sin una clave de partición. Actualmente puede crear contenedores sin particiones utilizando la CLI de Azure y los SDK de Azure Cosmos DB (.NET, Java, NodeJs) que tienen una versión inferior o igual a 2.x. No se pueden crear contenedores sin particiones con Azure Portal. Sin embargo, dichos contenedores sin particiones no son elásticos y tienen una capacidad de almacenamiento fija de 20 GB y un límite de rendimiento de 10K RU/s.
 
 Los contenedores sin particiones son heredados y debe migrar los contenedores sin particiones existentes a los contenedores con particiones para escalar el almacenamiento y el rendimiento. Azure Cosmos DB proporciona un mecanismo definido por el sistema para migrar los contenedores sin particiones a contenedores con particiones. En este documento se explica cómo todos los contenedores sin particiones existentes se migran automáticamente a contenedores con particiones. Puede aprovechar la característica de migración automática solo si usa la versión V3 de los SDK en todos los idiomas.
 

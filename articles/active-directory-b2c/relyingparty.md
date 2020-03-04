@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/02/2020
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 502b4cef4fc44abcc55c1733b86fb6052e3e43ab
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: b64583bc61b87e900690e397fac57d64d145db05
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77372749"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585703"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -117,6 +117,7 @@ El elemento **UserJourneyBehaviors** contiene los siguientes elementos:
 | SessionExpiryInSeconds | 0:1 | La duración de la cookie de la sesión de Azure AD B2C especificada como un entero se ha almacenado en el explorador del usuario tras la autenticación correcta. |
 | JourneyInsights | 0:1 | La clave de instrumentación de Application Insights de Azure que se va a usar. |
 | ContentDefinitionParameters | 0:1 | La lista de pares clave-valor que se anexará a la URI de carga de la definición de contenido. |
+|ScriptExecution| 0:1| Modos de ejecución de [JavaScript](javascript-samples.md) admitidos. Valores posibles: `Allow` o `Disallow` (valor predeterminado).
 
 ### <a name="singlesignon"></a>SingleSignOn
 

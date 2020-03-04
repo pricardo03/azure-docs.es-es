@@ -14,12 +14,12 @@ ms.date: 11/13/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a28a4ccbaa256133b785d2238657093ba40ea11f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 530eebea19d9e53f85a0079d6fba91c615ee6dd1
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024201"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498908"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configurar alertas de seguridad para roles de Azure AD en Privileged Identity Management
 
@@ -32,11 +32,11 @@ Desde noviembre de 2019, la parte de roles de Azure AD de Privileged Identity Ma
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con un usuario que tenga el rol [Administrador de roles con privilegios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
 1. Abra **Azure AD Privileged Identity Management**. Si tiene un banner en la parte superior de la página de introducción, siga las instrucciones de la pestaña **Nueva versión** de este artículo. De lo contrario, siga las instrucciones de la pestaña **Versión anterior**.
 
-    ![Nueva versión de roles de Azure AD](./media/pim-how-to-add-role-to-user/pim-new-version.png)
+  [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 Siga los pasos que se describen en este artículo para investigar las alertas de seguridad de los roles de Azure AD.
 
-# <a name="new-versiontabnew"></a>[Nueva versión](#tab/new)
+# <a name="new-version"></a>[Nueva versión](#tab/new)
 
 ![Roles de Azure AD: panel de alerta que muestra las alertas y la gravedad](./media/pim-how-to-configure-security-alerts/view-alerts.png)
 
@@ -135,7 +135,7 @@ Personalice la configuración de las diferentes alertas para que encajen con su 
 
 ![Página de configuración de una alerta para habilitar y configurar los valores](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
 
-# <a name="previous-versiontabprevious"></a>[Versión anterior](#tab/previous)
+# <a name="previous-version"></a>[Versión anterior](#tab/previous)
 
 ![Roles de Azure AD: panel de alerta que muestra las alertas y la gravedad](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 

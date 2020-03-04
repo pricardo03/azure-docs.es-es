@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-baselines
-ms.openlocfilehash: de6bbb81b04b93cce8ab7ddaf1d983cb7e4a700d
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 2f4b034948605b0a53a0320863608d284719a96d
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990596"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587539"
 ---
-# <a name="overview-of-azure-security-controls"></a>Introducción a los controles de seguridad de Azure
+# <a name="overview-of-the-azure-security-benchmark"></a>Información general sobre la prueba comparativa de seguridad de Azure
 
 La prueba comparativa de seguridad de Azure contiene recomendaciones que le ayudarán a mejorar la seguridad de las aplicaciones y los datos en Azure.
 

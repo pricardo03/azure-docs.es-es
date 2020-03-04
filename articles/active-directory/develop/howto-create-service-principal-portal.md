@@ -12,12 +12,12 @@ ms.date: 10/14/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 0d3e1e10120dce404f0fdfe781661c4c169ae00a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 2283f4f3cf1d31f0d67e01e1a63ee20557ef5633
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697224"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591581"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedimientos: Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
 
@@ -40,9 +40,9 @@ Vamos a saltar directamente a la creación de la identidad. Si experimenta un pr
 
 Ha creado una aplicación de Azure AD y una entidad de servicio.
 
-## <a name="assign-the-application-to-a-role"></a>Asignación de la aplicación a un rol
+## <a name="assign-a-role-to-the-application"></a>Asignación de un rol a la aplicación
 
-Para acceder a los recursos de la suscripción, debe asignarle a la aplicación un rol. Decida qué rol ofrece los permisos adecuados para la aplicación. Para obtener más información sobre los roles disponibles, vea [RBAC: Roles integrados](../../role-based-access-control/built-in-roles.md).
+Para acceder a los recursos de la suscripción, debe asignar un rol a la aplicación. Decida qué rol ofrece los permisos adecuados para la aplicación. Para obtener más información sobre los roles disponibles, vea [RBAC: Roles integrados](../../role-based-access-control/built-in-roles.md).
 
 Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o recurso. Los permisos se heredan en los niveles inferiores del ámbito. Por ejemplo, el hecho de agregar una aplicación al rol Lector para un grupo de recursos significa que esta puede leer el grupo de recursos y los recursos que contenga.
 
@@ -62,7 +62,7 @@ Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o rec
 
    ![Seleccione el rol que se asignará a la aplicación](./media/howto-create-service-principal-portal/select-role.png)
 
-1. Haga clic en **Guardar** para finalizar la asignación del rol. Verá la aplicación en la lista de usuarios asignados a un rol para ese ámbito.
+1. Haga clic en **Guardar** para finalizar la asignación del rol. Verá la aplicación en la lista de usuarios con un rol para ese ámbito.
 
 La entidad de servicio está configurada. Puede empezar a usarla para ejecutar aplicaciones o scripts. En la sección siguiente se muestra cómo obtener valores necesarios al iniciar sesión mediante programación.
 
@@ -112,7 +112,7 @@ Si decide no usar un certificado, puede crear un secreto de aplicación nuevo.
 1. Seleccione **Secretos de cliente -> Nuevo secreto de cliente**.
 1. Proporcione una descripción y duración del secreto. Cuando haya terminado, seleccione **Agregar**.
 
-   Después de guardar el secreto de cliente, se muestra el valor del mismo. Copie este valor porque no podrá recuperar la clave más adelante. Debe proporcionar el valor de la clave junto con el identificador de la aplicación para iniciar sesión como la aplicación. Guarde el valor de clave donde la aplicación pueda recuperarlo.
+   Después de guardar el secreto de cliente, se muestra el valor del mismo. Copie este valor porque no podrá recuperar la clave más adelante. Deberá proporcionar el valor de la clave junto con el identificador de la aplicación para iniciar sesión como la aplicación. Guarde el valor de clave donde la aplicación pueda recuperarlo.
 
    ![Copie el valor del secreto porque no podrá recuperarlo más adelante](./media/howto-create-service-principal-portal/copy-secret.png)
 
@@ -126,7 +126,7 @@ Tenga en cuenta que es posible que deba configurar permisos adicionales sobre lo
 
 ## <a name="required-permissions"></a>Permisos necesarios
 
-Debe tener permisos suficientes para registrar una aplicación en su inquilino de Azure AD y asignar la aplicación a un rol en su suscripción de Azure.
+Debe tener permisos suficientes para registrar una aplicación en su inquilino de Azure AD y asignar a la aplicación un rol en su suscripción de Azure.
 
 ### <a name="check-azure-ad-permissions"></a>Comprobación de los permisos de Azure AD
 
@@ -142,7 +142,7 @@ Si la configuración de registro de aplicaciones se establece en **No**, solo lo
 
 ### <a name="check-azure-subscription-permissions"></a>Comprobación de los permisos de suscripción de Azure
 
-En su suscripción de Azure, su cuenta debe tener acceso a `Microsoft.Authorization/*/Write` para asignar una aplicación de AD a un rol. Esta acción se concede mediante el rol [Propietario](../../role-based-access-control/built-in-roles.md#owner) o el rol [Administrador de acceso de usuario](../../role-based-access-control/built-in-roles.md#user-access-administrator). Si su cuenta está asignada al rol **Colaborador**, no tiene los permisos adecuados. Al intentar asignar la entidad de servicio a un rol, se muestra un error.
+En su suscripción de Azure, su cuenta debe tener acceso a `Microsoft.Authorization/*/Write` para asignar un rol a una aplicación de AD. Esta acción se concede mediante el rol [Propietario](../../role-based-access-control/built-in-roles.md#owner) o el rol [Administrador de acceso de usuario](../../role-based-access-control/built-in-roles.md#user-access-administrator). Si su cuenta tiene asignado al rol **Colaborador**, no tiene los permisos adecuados. Recibirá un error al intentar asignarle un rol a la entidad de servicio.
 
 Para comprobar los permisos de su suscripción:
 
@@ -154,7 +154,7 @@ Para comprobar los permisos de su suscripción:
 
    ![Seleccione la suscripción en la que quiere crear la entidad de servicio](./media/howto-create-service-principal-portal/view-details.png)
 
-1. Seleccione **Asignaciones de roles** para ver los roles asignados y determine si tiene los permisos correspondientes para asignar una aplicación de AD a un rol. En caso contrario, pida al administrador de suscripciones que le agregue al rol Administrador de acceso de usuario. En la siguiente imagen, el usuario está asignado al rol Propietario, lo que significa que el usuario tiene los permisos adecuados.
+1. Seleccione **Asignaciones de roles** para ver los roles asignados y determine si tiene los permisos correspondientes para asignar un rol a una aplicación de AD. En caso contrario, pida al administrador de suscripciones que le agregue al rol Administrador de acceso de usuario. En la imagen siguiente, el usuario está asignado al rol Propietario, lo que significa que el usuario tiene los permisos adecuados.
 
    ![En este ejemplo se muestra el usuario asignado al rol Propietario](./media/howto-create-service-principal-portal/view-user-role.png)
 

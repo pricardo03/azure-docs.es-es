@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/16/2020
+ms.date: 02/20/2020
 ms.author: radeltch
-ms.openlocfilehash: 7471fc6d7f10c849ba79fedf88961d6c3c99913f
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: e48cb1baa515e6a1549bf913a3c3e4cf50e1fff6
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314205"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525488"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications: guía de varios SID
 
@@ -83,7 +83,7 @@ Antes de comenzar, consulte las siguientes notas y documentos de SAP:
 * [Implementación de DBMS de Azure Virtual Machines para SAP en Linux][dbms-guide]
 * [Guías de procedimientos recomendados de SUSE SAP HA][suse-ha-guide] Las guías contienen toda la información necesaria para la configuración de Netweaver HA y la replicación del sistema de SAP HANA en el entorno local. Use estas guías como base de referencia general. Proporcionan información mucho más detallada.
 * [Notas de la versión de la Extensión 12 SP3 de alta disponibilidad para SUSE][suse-ha-12sp3-relnotes]
-* [Compatibilidad de SUSE con un clúster de varios SID](https://www.suse.com/c/sap-workloads-going-green/)
+* [Guía de clústeres de varios SID de SUSE para SLES 12 y SLES 15](https://documentation.suse.com/sbp/all/html/SBP-SAP-MULTI-SID/index.html)
 
 ## <a name="overview"></a>Información general
 
@@ -175,7 +175,7 @@ En este ejemplo se supone que el sistema **NW1** ya se ha implementado en el cl�
 
 Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos, **[1]** : aplicable solo al nodo 1 o **[2]** : aplicable solo al nodo 2.
 
-### <a name="prerequisites"></a>Prerequisites 
+### <a name="prerequisites"></a>Prerrequisitos 
 
 > [!IMPORTANT]
 > Antes de seguir las instrucciones para implementar sistemas SAP adicionales en el clúster, siga las instrucciones para implementar el primer sistema SAP en el clúster, ya que hay pasos que solo son necesarios durante la implementación del primer sistema.  

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: 548a578365b03162396fb8618718ab1e7ce5b081
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 28b7a2b95e8ad23226f92f2b6fba085cc0fa1bfd
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75400795"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565560"
 ---
 # <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Actualización del agente Dependency Agent en Azure Monitor para VM
 
@@ -39,16 +39,9 @@ Puede descargar la versión más reciente del agente de Windows [aquí](https://
 1. Inicie sesión en el equipo con una cuenta con derechos administrativos.
 
 2. Ejecute **InstallDependencyAgent-Windows.exe** para iniciar el Asistente para la instalación.
+   
+3. Siga las instrucciones del **Asistente para la instalación de Dependency Agent** para desinstalar la versión anterior de Dependency Agent y, a continuación, instale la versión más reciente.
 
-3. En el cuadro de diálogo de **instalación de Dependency Agent 9.9.1**, haga clic en **Acepto** para aceptar el contrato de licencia.
-
-5. En el cuadro de diálogo de **desinstalación de Dependency Agent 9.9.0**, haga clic en **Siguiente**. En la página de estado se muestra el progreso de la desinstalación de la versión anterior.
-
-6. En el cuadro de diálogo de **desinstalación de Dependency Agent 9.9.0**, haga clic en **Desinstalar** para continuar con la desinstalación de la versión anterior de la ruta de acceso especificada en el cuadro de diálogo. 
-
-7. En el cuadro de diálogo de **desinstalación de Dependency Agent 9.9.0** se muestra el progreso de la desinstalación y, cuando se completa, aparece la página que anuncia la **finalización del proceso de desinstalación de Dependency Agent**. Haga clic en **Finalizar**
-
-8. En el cuadro de diálogo de **instalación de Dependency Agent 9.9.1**, se muestra el progreso de la instalación. Cuando aparezca la página que anuncia la **finalización del proceso de desinstalación de Dependency Agent**, haga clic en **Finalizar**. 
 
 ### <a name="from-the-command-line"></a>Desde la línea de comandos
 

@@ -2,13 +2,13 @@
 title: Estructura y sintaxis de plantillas
 description: Describe la estructura y las propiedades de plantillas de Azure Resource Manager mediante la sintaxis declarativa de JSON.
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.openlocfilehash: 9cd602644ecf803e97254189cfc157d60713cc6c
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/25/2020
+ms.openlocfilehash: 08c688da3e812a4a67070c926cf11512bfc60667
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209467"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622896"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager
 
@@ -260,10 +260,14 @@ En el ejemplo siguiente se muestra la estructura de una definición de salida:
 
 ```json
 "outputs": {
-  "<output-name>" : {
+  "<output-name>": {
     "condition": "<boolean-value-whether-to-output-value>",
-    "type" : "<type-of-output-value>",
-    "value": "<output-value-expression>"
+    "type": "<type-of-output-value>",
+    "value": "<output-value-expression>",
+    "copy": {
+      "count": <number-of-iterations>,
+      "input": <values-for-the-variable>
+    }
   }
 }
 ```
@@ -273,7 +277,8 @@ En el ejemplo siguiente se muestra la estructura de una definición de salida:
 | nombre de salida |Sí |Nombre del valor de salida. Debe ser un identificador válido de JavaScript. |
 | condición |Sin | Valor booleano que indica si se va a devolver este valor de salida. Si es `true`, el valor se incluye en la salida de la implementación. Si es `false`, el recurso se omite en esta implementación. Si no se especifica, el valor predeterminado es `true`. |
 | type |Sí |Tipo del valor de salida. Los valores de salida admiten los mismos tipos que los parámetros de entrada de plantilla. Si especifica **securestring** para el tipo de salida, el valor no se muestra en el historial de implementación y no se puede recuperar desde otra plantilla. Para usar un valor de secreto en más de una plantilla, almacene el secreto en un almacén de claves y haga referencia al secreto en el archivo de parámetros. Para más información, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](key-vault-parameter.md). |
-| value |Sí |Expresión de lenguaje de plantilla que se evaluará y devolverá como valor de salida. |
+| value |Sin |Expresión de lenguaje de plantilla que se evaluará y devolverá como valor de salida. Especifique **value** o **copy**. |
+| copy |Sin | Se usa para devolver más de un valor para una salida. Especifique **value** o **copy**. Para más información, consulte [Iteración de salida en plantillas de Azure Resource Manager](copy-outputs.md). |
 
 Para ejemplos sobre cómo usar las salidas, consulte [Salidas en una plantilla de Azure Resource Manager](template-outputs.md).
 
@@ -379,7 +384,7 @@ No se puede agregar un objeto de metadatos a las funciones definidas por el usua
 
 ## <a name="multi-line-strings"></a>Cadenas de varias líneas
 
-Una cadena se puede dividir en varias líneas. Por ejemplo, la propiedad Location y uno de los comentarios del siguiente ejemplo de JSON.
+Una cadena se puede dividir en varias líneas. Por ejemplo, consulte la propiedad location y uno de los comentarios del ejemplo de JSON siguiente.
 
 ```json
 {

@@ -12,37 +12,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/12/2019
+ms.date: 02/07/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3261e30d024cedba5885019a62cba1e296c1c00d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 0b39336591e9939d0e5200304cbeced2d9831979
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025561"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498767"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Aprobación o rechazo de solicitudes para los roles de Azure AD en Privileged Identity Management
 
 Con Azure Active Directory (Azure AD) Privileged Identity Management (PIM), puede configurar roles para requerir la aprobación para la activación y elegir uno o varios usuarios o grupos como aprobadores delegados. Los aprobadores delegados tienen 24 horas para aprobar las solicitudes. Si no se aprueba una solicitud en un plazo de 24 horas, el usuario apto debe volver a enviar una nueva solicitud. El período de tiempo de aprobación de 24 horas no es configurable.
 
-## <a name="determine-your-version-of-pim"></a>Determinar la versión de PIM
+## <a name="determine-your-version-of-pim"></a>Determinación de la versión de PIM
 
-Desde noviembre de 2019, la parte de roles de Azure AD de Privileged Identity Management se está actualizando a una nueva versión que coincide con las experiencias de los roles de recursos de Azure. Esta actualización introduce características adicionales y [cambios en la API existente](azure-ad-roles-features.md#api-changes). Mientras se implementa la nueva versión, los procedimientos que seguirá en este artículo dependerán de la versión de Privileged Identity Management que tenga actualmente. Siga los pasos de esta sección para determinar la versión de Privileged Identity Management que tiene. Cuando averigüe la versión de Privileged Identity Management, puede seleccionar los procedimientos de este artículo que coincidan con esa versión.
+Desde noviembre de 2019, la parte de roles de Azure AD de Privileged Identity Management se está actualizando a una nueva versión que coincide con las experiencias de los roles de Azure. Esta actualización introduce características adicionales y [cambios en la API existente](azure-ad-roles-features.md#api-changes). Mientras se implementa la nueva versión, los procedimientos que seguirá en este artículo dependerán de la versión de Privileged Identity Management que tenga actualmente. Siga los pasos de esta sección para determinar la versión de Privileged Identity Management que tiene. Cuando averigüe la versión de Privileged Identity Management, puede seleccionar los procedimientos de este artículo que coincidan con esa versión.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con un usuario que tenga el rol [Administrador de roles con privilegios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
 1. Abra **Azure AD Privileged Identity Management**. Si tiene un banner en la parte superior de la página de introducción, siga las instrucciones de la pestaña **Nueva versión** de este artículo. De lo contrario, siga las instrucciones de la pestaña **Versión anterior**.
 
-    ![Nueva versión de roles de Azure AD](./media/pim-how-to-add-role-to-user/pim-new-version.png)
+    [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 Siga los pasos que se describen en este artículo para aprobar o denegar solicitudes para los roles de Azure AD.
 
-# <a name="new-versiontabnew"></a>[Nueva versión](#tab/new)
+# <a name="new-version"></a>[Nueva versión](#tab/new)
 
 ## <a name="view-pending-requests"></a>Ver solicitudes en espera
 
-Como aprobador delegado, recibirá una notificación por correo electrónico cuando una solicitud de rol de recursos de Azure está pendiente de su aprobación. Puede ver estas solicitudes pendientes en Privileged Identity Management.
+Como aprobador delegado, recibirá una notificación por correo electrónico cuando una solicitud de rol de Azure AD está pendiente de su aprobación. Puede ver estas solicitudes pendientes en Privileged Identity Management.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
@@ -50,7 +50,7 @@ Como aprobador delegado, recibirá una notificación por correo electrónico cua
 
 1. Seleccione **Aprobar solicitudes**.
 
-    ![Aprobar solicitudes: página de recursos de Azure que muestra la solicitud de revisión](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
+    ![Aprobar solicitudes: página de recursos que muestra la solicitud de revisión de roles de Azure AD](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
 
     En la sección **Solicitudes de activación de roles**, verá una lista de solicitudes pendientes de su aprobación.
 
@@ -64,7 +64,7 @@ Como aprobador delegado, recibirá una notificación por correo electrónico cua
 
 1. Seleccione **Aprobar**. Recibirá una notificación de Azure de su aprobación.
 
-    ![Notificación de aprobación que muestra que se ha aprobado la solicitud](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
+    ![Notificación de aprobación que muestra que se ha aprobado la solicitud](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png))
 
 ## <a name="deny-requests"></a>Denegar solicitudes
 
@@ -83,12 +83,12 @@ A continuación proporcionamos información sobre las notificaciones de flujo de
 - Los aprobadores reciben una notificación por correo cuando una solicitud de un rol está pendiente de su revisión. Las notificaciones por correo electrónico incluyen un vínculo directo a la solicitud donde el aprobador puede aprobarla o rechazarla.
 - Las solicitudes las resuelve el primer aprobador que aprueba o rechaza.
 - Cuando un aprobador responde a la solicitud, se notifica a todos los aprobadores de la acción.
-- Los administradores de recursos reciben una notificación cuando un usuario aprobado se activa en su rol.
+- Los administradores globales y los administradores de roles con privilegios reciben una notificación cuando un usuario aprobado se activa en su rol.
 
 >[!NOTE]
->Un administrador de recursos que cree que un usuario aprobado no debe estar activo puede quitar la asignación de roles activa en Privileged Identity Management. Aunque los administradores de recursos no reciben notificaciones de solicitudes pendientes a menos que sean aprobadores, pueden ver y cancelar solicitudes pendientes para todos los usuarios viendo solicitudes pendientes en Privileged Identity Management.
+>Un administrador global o un administrador de roles con privilegios que cree que un usuario aprobado no debe estar activo puede quitar la asignación de roles activa en Privileged Identity Management. Aunque los administradores no reciben notificaciones de solicitudes pendientes a menos que sean aprobadores, pueden ver y cancelar todas las solicitudes pendientes de todos los usuarios, para lo cual deben dirigirse a las solicitudes pendientes en Privileged Identity Management.
 
-# <a name="previous-versiontabprevious"></a>[Versión anterior](#tab/previous)
+# <a name="previous-version"></a>[Versión anterior](#tab/previous)
 
 ## <a name="view-pending-requests"></a>Ver solicitudes en espera
 
@@ -132,7 +132,7 @@ Como aprobador delegado, recibirá una notificación por correo electrónico cua
 
     ![Panel de Aprobar las solicitudes seleccionadas con una razón de la denegación](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
 
-1. Haga clic en **Denegar**.
+1. Seleccione **Denegar**.
 
     El símbolo de estado se actualizará con la denegación.
 

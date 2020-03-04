@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: e3661797ea408f219a67a1862901fee7c27a1d58
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 7847e76c8f0354e3a17c7df5f3ce9227dcf0e6ce
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123903"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526423"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Límites de capacidad de Azure Synapse Analytics (anteriormente SQL DW)
 
@@ -23,25 +23,25 @@ Valores máximos permitidos para los distintos componentes de Azure Synapse.
 
 ## <a name="workload-management"></a>Administración de cargas de trabajo
 
-| Category | DESCRIPCIÓN | Máxima |
+| Category | Descripción | Máxima |
 |:--- |:--- |:--- |
 | [Unidades de almacenamiento de datos (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Máximo de DWU para una sola unidad de grupo de SQL (almacenamiento de datos) | Gen1: DW6000<br></br>Gen2: DW30000c |
 | [Unidades de almacenamiento de datos (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Valor predeterminado de la DTU por servidor |54 000<br></br>De forma predeterminada, cada servidor SQL (por ejemplo, myserver.database.windows.net) tiene una cuota de DTU de 54 000, lo que permite un máximo de DW5000c. Esta cuota es simplemente un límite de seguridad. Puede aumentar su cuota mediante la [creación de una incidencia de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md) y la selección de *Cuota* como el tipo de solicitud.  Para calcular las necesidades de la DTU, multiplique 7,5 por el total de DWU necesarias o multiplique 9,5 por el total de cDWU necesarias. Por ejemplo:<br></br>DW6000 x 7,5 = 45 000 DTU<br></br>DW5000c x 9,5 = 47 500 DTU<br></br>Puede ver el consumo de DTU actual en la opción de SQL Server en el portal. Tanto las bases de datos en pausa como las no pausadas cuentan en la cuota de DTU. |
 | Conexión de base de datos |Número máximo de sesiones abiertas simultáneas |1024<br/><br/>El número de sesiones abiertas simultáneas variará en función de la DWU seleccionada. DWU600c y versiones posteriores admiten 1024 sesiones abiertas como máximo. DWU500c y las versiones anteriores admiten un límite máximo de 512 sesiones abiertas simultáneas. Tenga en cuenta que no hay límite en el número de consultas que se pueden ejecutar a la vez. Cuando se supera el límite de simultaneidad, la solicitud entra en una cola interna donde espera para su proceso. |
 | Conexión de base de datos |Memoria máxima para instrucciones preparadas |20 MB |
-| [Administración de cargas de trabajo](resource-classes-for-workload-management.md) |N.º máximo de consultas simultáneas |128<br/><br/>  Se ejecutará un máximo de 128 consultas simultáneas y las consultas restantes se pondrán en cola.<br/><br/>El número de consultas simultáneas se puede reducir cuando los usuarios se asignan a clases de recursos superiores o cuando se reduce el ajuste de la [unidad de almacenamiento de datos](memory-concurrency-limits.md). Algunas consultas, como las consultas DMV, siempre se pueden ejecutar y no afectan al límite de consultas simultáneas. Para más detalles sobre la ejecución de consultas simultáneas, consulte el artículo sobre [valores máximos de simultaneidad](memory-concurrency-limits.md). |
+| [Administración de cargas de trabajo](resource-classes-for-workload-management.md) |Número máximo de consultas concurrentes |128<br/><br/>  Se ejecutará un máximo de 128 consultas simultáneas y las consultas restantes se pondrán en cola.<br/><br/>El número de consultas simultáneas se puede reducir cuando los usuarios se asignan a clases de recursos superiores o cuando se reduce el ajuste de la [unidad de almacenamiento de datos](memory-concurrency-limits.md). Algunas consultas, como las consultas DMV, siempre se pueden ejecutar y no afectan al límite de consultas simultáneas. Para más detalles sobre la ejecución de consultas simultáneas, consulte el artículo sobre [valores máximos de simultaneidad](memory-concurrency-limits.md). |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |GB máximos: |399 GB por DW100. Por lo tanto, en DWU1000 el tamaño de tempdb es de 3,99 TB. |
 
 ## <a name="database-objects"></a>Objetos de base de datos
-| Category | DESCRIPCIÓN | Máxima |
+| Category | Descripción | Máxima |
 |:--- |:--- |:--- |
 | Base de datos |Tamaño máximo | Gen1: 240 TB comprimidos en disco. Este espacio es independiente del espacio de tempdb o de registro y, por tanto, está dedicado a tablas permanentes.  La compresión del almacén de columnas en clúster se estima en 5X.  Esta compresión permite que la base de datos crezca a aproximadamente 1 PB cuando todas las tablas tienen el almacén de columnas en clúster (el tipo de tabla predeterminada). <br/><br/> Gen2: 240 TB para el almacén de filas y almacenamiento ilimitado para las tablas de almacén de columnas |
-| Tabla |Tamaño máximo |60 TB comprimidos en disco |
+| Tabla |Tamaño máximo | En el caso de las tablas de almacén de columnas, no hay ningún límite superior. <br/><br/>En el caso de las tablas de almacén de filas, es de 60 TB comprimidos en disco. |
 | Tabla |Tablas por base de datos | 100 000 |
 | Tabla |Columnas por tabla |1024 columnas |
 | Tabla |Bytes por columna |Depende de la columna de [tipo de datos](sql-data-warehouse-tables-data-types.md). El límite es 8000 para los tipos de datos char, 4000 para nvarchar o 2 GB para los tipos de datos MAX. |
 | Tabla |Bytes por fila, tamaño definido |8060 bytes<br/><br/>El número de bytes por fila se calcula de la misma forma que para SQL Server con la compresión de página. Al igual que SQL Server, se admite el almacenamiento con desbordamiento de fila, lo que permite insertar **columnas de longitud variable** de forma no consecutiva. Cuando se insertan filas de longitud variable, solo se almacena la raíz de 24 bytes en el registro principal. Para obtener más información, consulte [Datos de desbordamiento de fila superiores a 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
-| Tabla |Particiones por tabla |15 000<br/><br/>Para obtener un alto rendimiento, se recomienda reducir al mínimo el número de particiones que necesita, pero sin perder de vista sus requisitos empresariales. A medida que crece el número de particiones, la sobrecarga de operaciones de lenguaje de definición de datos (DDL) y lenguaje de manipulación de datos (DML) crece y da lugar a un rendimiento más lento. |
+| Tabla |Particiones por tabla |15,000<br/><br/>Para obtener un alto rendimiento, se recomienda reducir al mínimo el número de particiones que necesita, pero sin perder de vista sus requisitos empresariales. A medida que crece el número de particiones, la sobrecarga de operaciones de lenguaje de definición de datos (DDL) y lenguaje de manipulación de datos (DML) crece y da lugar a un rendimiento más lento. |
 | Tabla |Caracteres por valor de límite de partición |4000 |
 | Índice |Índices no agrupados por tabla |50<br/><br/>Solo se aplica a tablas de almacén de filas. |
 | Índice |Índices agrupados por tabla |1<br><br/>Se aplica a tablas de almacén de filas y de almacén de columnas. |
@@ -49,17 +49,17 @@ Valores máximos permitidos para los distintos componentes de Azure Synapse.
 | Índice |Columnas de clave por índice |16<br/><br/>Solo se aplica a los índices de almacén de filas. Los índices de almacén de columnas agrupados incluyen todas las columnas. |
 | Estadísticas |Tamaño de los valores de columna combinados |900 bytes |
 | Estadísticas |Columnas por objeto de estadísticas |32 |
-| Estadísticas |Estadísticas creadas en columnas por tabla |30 000 |
+| Estadísticas |Estadísticas creadas en columnas por tabla |30,000 |
 | Procedimientos almacenados |Niveles máximos de anidamiento |8 |
 | Ver |Columnas por vista |1024 |
 
 ## <a name="loads"></a>Cargas
-| Category | DESCRIPCIÓN | Máxima |
+| Category | Descripción | Máxima |
 |:--- |:--- |:--- |
 | Cargas de PolyBase |MB por fila |1<br/><br/>Polybase carga las filas que son inferiores a 1 MB. No se admite la carga de tipos de datos LOB en tablas con un índice de almacén de columnas en clúster (CCI).<br/><br/> |
 
 ## <a name="queries"></a>Consultas
-| Category | DESCRIPCIÓN | Máxima |
+| Category | Descripción | Máxima |
 |:--- |:--- |:--- |
 | Consultar |Consultas en cola en tablas de usuario |1000 |
 | Consultar |Consultas simultáneas en vistas de sistema |100 |

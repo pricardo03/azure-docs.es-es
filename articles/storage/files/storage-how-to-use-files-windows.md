@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 831c771da385ef6faeba194878ca53ede34ccc0a
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 4bd9c64e1b9219f6752172d9dc518af71ad67e70
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816642"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598592"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Uso de un recurso compartido de archivos de Azure con Windows
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden usar sin problemas en Windows y Windows Server. En este artículo se describen los aspectos que se deben tener en cuenta al usar un recurso compartido de archivos de Azure con Windows y Windows Server.
@@ -22,27 +22,25 @@ Para usar un recurso compartido de archivos de Azure fuera de la región de Azur
 Puede usar recursos compartidos de archivos de Azure en una instalación de Windows que se ejecute en una máquina virtual de Azure o en el entorno local. En la tabla siguiente se ilustran las versiones del sistema operativo que admiten el acceso a recursos compartidos de archivos en cada entorno:
 
 | Versión de Windows        | Versión de SMB | Se puede montar en una máquina virtual de Azure | Se puede montar en el entorno local |
-|------------------------|-------------|-----------------------|----------------------|
-| Windows Server 2019    | SMB 3.0 | Sí | Sí |
+|------------------------|-------------|-----------------------|-----------------------|
+| Windows Server 2019 | SMB 3.0 | Sí | Sí |
 | Windows 10<sup>1</sup> | SMB 3.0 | Sí | Sí |
 | Canal semestral de Windows Server<sup>2</sup> | SMB 3.0 | Sí | Sí |
-| Windows Server 2016    | SMB 3.0     | Sí                   | Sí                  |
-| Windows 8.1            | SMB 3.0     | Sí                   | Sí                  |
-| Windows Server 2012 R2 | SMB 3.0     | Sí                   | Sí                  |
-| Windows Server 2012    | SMB 3.0     | Sí                   | Sí                  |
-| Windows 7              | SMB 2.1     | Sí                   | Sin                   |
-| Windows Server 2008 R2 | SMB 2.1     | Sí                   | Sin                   |
+| Windows Server 2016 | SMB 3.0 | Sí | Sí |
+| Windows 8.1 | SMB 3.0 | Sí | Sí |
+| Windows Server 2012 R2 | SMB 3.0 | Sí | Sí |
+| Windows Server 2012 | SMB 3.0 | Sí | Sí |
+| Windows 7<sup>3</sup> | SMB 2.1 | Sí | Sin |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Sí | Sin |
 
-<sup>1</sup>Windows 10, versiones 1507, 1607, 1703, 1709, 1803, 1809 y 1903.  
-<sup>2</sup>Windows Server, versiones 1803, 1809 y 1903.
+<sup>1</sup>Windows 10, versiones 1507, 1607, 1709, 1803, 1809, 1903 y 1909.  
+<sup>2</sup>Windows Server, versiones 1809, 1903 y 1909.  
+<sup>3</sup>Finalizó el soporte técnico habitual de Microsoft para Windows 7 y Windows Server 2008 R2. Es posible adquirir soporte técnico adicional para las actualizaciones de seguridad solo a través del programa [Actualización de seguridad extendida (ESU)](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates). Se recomienda encarecidamente migrar de estos sistemas operativos.
 
 > [!Note]  
 > Siempre se recomienda disponer de la KB más reciente para su versión de Windows.
 
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Prerrequisitos 
 * **Nombre de la cuenta de almacenamiento**: para montar un recurso compartido de archivos de Azure, necesitará el nombre de la cuenta de almacenamiento.
 
 * **Clave de la cuenta de almacenamiento**: para montar un recurso compartido de archivos de Azure, necesitará la clave principal (o secundaria). Actualmente no se admiten claves SAS para el montaje.
@@ -82,7 +80,7 @@ Puede usar recursos compartidos de archivos de Azure en una instalación de Wind
 ## <a name="using-an-azure-file-share-with-windows"></a>Uso de un recurso compartido de archivos de Azure con Windows
 Para usar un recurso compartido de archivos de Azure con Windows, debe montarlo, lo que significa asignarle una letra de unidad o una ruta de acceso a un punto de montaje, o acceder a él mediante su [ruta de acceso UNC](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx). 
 
-A diferencia de otros recursos compartidos de SMB con los que pueda haber interactuado, como los que están hospedados en un servidor de Windows, un servidor de Linux Samba o un dispositivo NAS, los recursos compartidos de archivos de Azure no admiten actualmente la autenticación Kerberos con la identidad de Active Directory (AD) o Azure Active Directory (AAD), si bien es una característica [en la que estamos trabajando](https://feedback.azure.com/forums/217298-storage/suggestions/6078420-acl-s-for-azurefiles). En su lugar, debe acceder a su recurso compartido de archivos de Azure con la clave de la cuenta de almacenamiento que lo contiene. Una clave de cuenta de almacenamiento es una clave de administrador para una cuenta de almacenamiento, lo que incluye los permisos de administrador de todos los archivos y carpetas dentro de un recurso compartido de archivos al que accede, y de todos los recursos compartidos de archivos y otros recursos de almacenamiento (blobs, colas, tablas, etc.) contenidos en la cuenta de almacenamiento. Si esta solución no es suficiente para su carga de trabajo, [Azure File Sync](storage-files-planning.md#data-access-method) puede solucionar mientras tanto la falta de compatibilidad con la autenticación Kerberos y las listas ACL hasta que dicha compatibilidad esté disponible públicamente.
+A diferencia de otros recursos compartidos de SMB con los que pueda haber interactuado, como los que están hospedados en un servidor de Windows, un servidor de Linux Samba o un dispositivo NAS, los recursos compartidos de archivos de Azure no admiten actualmente la autenticación Kerberos con la identidad de Active Directory (AD) o Azure Active Directory (AAD), si bien es una característica [en la que estamos trabajando](https://feedback.azure.com/forums/217298-storage/suggestions/6078420-acl-s-for-azurefiles). En su lugar, debe acceder a su recurso compartido de archivos de Azure con la clave de la cuenta de almacenamiento que lo contiene. Una clave de cuenta de almacenamiento es una clave de administrador para una cuenta de almacenamiento, lo que incluye los permisos de administrador de todos los archivos y carpetas dentro de un recurso compartido de archivos al que accede, y de todos los recursos compartidos de archivos y otros recursos de almacenamiento (blobs, colas, tablas, etc.) contenidos en la cuenta de almacenamiento. Si esta solución no es suficiente para su carga de trabajo, [Azure File Sync](storage-sync-files-planning.md) puede solucionar mientras tanto la falta de compatibilidad con la autenticación Kerberos y las listas ACL hasta que dicha compatibilidad esté disponible públicamente.
 
 Un patrón común para elevar y desplazar aplicaciones de línea de negocio (LOB) que esperan un recurso compartido de archivos de SMB es usar un recurso compartido de archivos de Azure como alternativa a ejecutar un servidor de archivos de Windows dedicado en una máquina virtual de Azure. Un aspecto importante que se debe tener en cuenta para migrar correctamente una aplicación de línea de negocio para usar un recurso compartido de archivos de Azure es que muchas de estas aplicaciones se ejecutan en el contexto de una cuenta de servicio dedicada con permisos de sistema limitados y no en la cuenta administrativa de la máquina virtual. Por lo tanto, debe asegurarse de montar o guardar las credenciales del recurso compartido de archivos de Azure desde el contexto de la cuenta de servicio y no de la cuenta administrativa.
 
@@ -207,7 +205,7 @@ Remove-PSDrive -Name <desired-drive-letter>
 7. Cuando esté listo para desmontar el recurso compartido de archivos de Azure, puede hacerlo si hace clic con el botón derecho en la entrada del recurso compartido en **Ubicaciones de red** en el Explorador de archivos y selecciona **Desconectar**.
 
 ### <a name="accessing-share-snapshots-from-windows"></a>Acceso a instantáneas de recursos compartido de Windows
-Si ha realizado una instantánea de un recurso compartido, ya sea manualmente o automáticamente a través de un script o un servicio como Azure Backup, puede ver las versiones anteriores de un recurso compartido, un directorio o un archivo concreto desde el recurso compartido de archivos en Windows. Las instantáneas de recursos compartidos se pueden realizar desde [Azure Portal](storage-how-to-use-files-portal.md), [Azure PowerShell](storage-how-to-use-files-powershell.md) y la [CLI de Azure](storage-how-to-use-files-cli.md).
+Si ha realizado una instantánea de un recurso compartido, ya sea manualmente o automáticamente a través de un script o un servicio como Azure Backup, puede ver las versiones anteriores de un recurso compartido, un directorio o un archivo concreto desde el recurso compartido de archivos en Windows. Las instantáneas de recursos compartidos se pueden realizar desde [Azure Portal](storage-how-to-use-files-portal.md), [Azure PowerShell](storage-how-to-use-files-powershell.md) y la [CLI de Azure](storage-how-to-use-files-cli.md).
 
 #### <a name="list-previous-versions"></a>Enumeración de versiones anteriores
 Vaya al elemento o elemento principal que hay que restaurar. Haga doble clic para ir al directorio deseado. Haga clic con el botón derecho y seleccione **Propiedades** en el menú.

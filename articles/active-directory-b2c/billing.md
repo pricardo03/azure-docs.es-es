@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4db758ce0710f5b8b122feaadaa8b97a90dcb7cb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e3cdf44c2fc4c16bba283b6f884078dd947b1f34
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850439"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77564780"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modelo de facturación para Azure Active Directory B2C
 
@@ -82,7 +82,7 @@ El vínculo de la suscripción se consigue mediante la creación de un *recurso*
 
 Se puede usar una suscripción vinculada a un inquilino de Azure AD B2C para la facturación del uso de Azure AD B2C u otros recursos de Azure, incluidos recursos adicionales de Azure AD B2C. La suscripción no se puede usar para agregar otros servicios basados en licencias de Azure o licencias de Office 365 en el inquilino de Azure AD B2C.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 
 * [Suscripción de Azure](https://azure.microsoft.com/free/)
 * [Inquilino de Azure AD B2C](tutorial-create-tenant.md) que quiere vincular a una suscripción
@@ -140,4 +140,4 @@ Antes de iniciar el traslado, no olvide leer el artículo completo para comprend
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Además de revisar los detalles de uso y facturación de una suscripción de Azure seleccionada, puede revisar los informes detallados de uso diario mediante la [API de informes de uso](view-usage-reports.md).
+Para obtener la información de precios más reciente, consulte [Precios de Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).

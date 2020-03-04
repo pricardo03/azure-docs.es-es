@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: c8f6e36997939be90d74eabad9a4145d2e503521
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.date: 02/20/2020
+ms.openlocfilehash: 78f5f6eda28bed164668445b5671dad92f8dedd7
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045046"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500265"
 ---
 # <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Incorporación de una aptitud personalizada a una canalización de enriquecimiento de Azure Cognitive Search
 
@@ -33,6 +33,8 @@ Los puntos de conexión de las aptitudes personalizadas de WebAPI agotarán, de 
         "uri": "https://[your custom skill uri goes here]",
         "timeout": "PT230S",
 ```
+
+Asegúrese de que el URI sea seguro (HTTPS).
 
 Actualmente, el único mecanismo para interactuar con una aptitud personalizada es a través de una interfaz de Web API. Web API debe cumplir los requisitos que se describen en esta sección.
 

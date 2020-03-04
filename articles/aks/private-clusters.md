@@ -2,17 +2,14 @@
 title: Creación de un clúster privado de Azure Kubernetes Service
 description: Aprenda a crear un clúster privado de Azure Kubernetes Service (AKS).
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
-ms.date: 1/24/2020
-ms.author: mlearned
-ms.openlocfilehash: 934dfdb43d6d2e4ccc346b728f0ac4f5febea327
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.date: 2/21/2020
+ms.openlocfilehash: 4b4ba130d9ff63291abdd46617b0692e844a60bf
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76932590"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649514"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Creación de un clúster privado de Azure Kubernetes Service (versión preliminar)
 
@@ -26,18 +23,50 @@ El plano de control o el servidor de la API están en una suscripción de Azure 
 > * [Directivas de soporte técnico para AKS](support-policies.md)
 > * [Preguntas más frecuentes de soporte técnico de Azure](faq.md)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * La versión 2.0.77 de la CLI de Azure u otra versión posterior y la versión 0.4.18 de la extensión de la versión preliminar de la CLI de AKS.
 
 ## <a name="currently-supported-regions"></a>Regiones admitidas actualmente
+
+* Este de Australia
+* Sudeste de Australia
+* Sur de Brasil
+* Centro de Canadá
+* Este de Canadá
+* Centro de EE. UU.
+* Este de Asia
+* Este de EE. UU.
+* Este de EE. UU. 2
+* EUAP de Este de EE. UU. 2
+* Centro de Francia
+* Norte de Alemania
+* Japón Oriental
+* Japón Occidental
+* Centro de Corea del Sur
+* Corea del Sur
+* Centro-Norte de EE. UU
+* Norte de Europa
+* Norte de Europa
+* Centro-sur de EE. UU.
+* Sur de Reino Unido 2
+* Oeste de Europa
 * Oeste de EE. UU.
 * Oeste de EE. UU. 2
 * Este de EE. UU. 2
-* Centro de Canadá
+
+## <a name="currently-supported-availability-zones"></a>Zonas de disponibilidad admitidas actualmente
+
+* Centro de EE. UU.
+* Este de EE. UU.
+* Este de EE. UU. 2
+* Centro de Francia
+* Japón Oriental
 * Norte de Europa
+* Sudeste de Asia
+* Sur de Reino Unido 2
 * Oeste de Europa
-* Este de Australia
+* Oeste de EE. UU. 2
 
 ## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Instalación de la extensión de la versión preliminar de AKS de la CLI de Azure más reciente
 
@@ -98,6 +127,7 @@ Donde *--enable-private-cluster* es una marca obligatoria para un clúster priva
 > Si la dirección CIDR del puente de Docker (172.17.0.1/16) entra en conflicto con el CIDR de la subred, cambie la dirección del puente de Docker.
 
 ## <a name="connect-to-the-private-cluster"></a>Conexión al clúster privado
+
 El punto de conexión del servidor de la API no tiene ninguna dirección IP pública. Por lo tanto, deberá crear una máquina virtual de Azure en una red virtual y conectarse al servidor de la API. Para ello, haga lo siguiente:
 
 1. Obtenga las credenciales para conectarse al clúster.
@@ -131,7 +161,8 @@ El punto de conexión del servidor de la API no tiene ninguna dirección IP pú
 * Para usar un servidor DNS personalizado, implemente un servidor de AD con DNS para el reenvío a la IP 168.63.129.16.
 
 ## <a name="limitations"></a>Limitaciones 
-* Availability Zones solo está disponible actualmente en las regiones Este de EE. UU. 2 y Oeste de EE. UU. 2
+* Los intervalos autorizados de direcciones IP no se pueden aplicar al punto de conexión del servidor de API privada. Solo se aplican al servidor de API pública.
+* Availability Zones se admite actualmente para determinadas regiones. Consulte el principio de este documento. 
 * Las [limitaciones del servicio Azure Private Link][private-link-service] se aplican a los clústeres privados, a puntos de conexión privados de Azure y a puntos de conexión del servicio de red virtual, que actualmente no se admiten en la misma red virtual.
 * No se pueden usar los nodos virtuales de un clúster privado para poner en marcha Azure Container Instances (ACI) en una red virtual de Azure privada.
 * No se admite de serie la integración de Azure DevOps con clústeres privados.

@@ -1,18 +1,18 @@
 ---
 title: Orígenes de eventos de Azure Event Grid
-description: En este artículo se describe los orígenes de eventos compatibles con Azure Event Grid. Un origen de evento es donde se produce el evento.
+description: Suscripciones de Azure, Container Registry, temas personalizados, Event Hubs, IoT Hub, Key Vault, Media Services, grupos de recursos, Service Bus, Storage, Mapa, App Configuration, Signal R, Machine Learning.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 3a52d906d958fdfd1d7e09c6229b12af3204bc52
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: d4a426ea1432d0266b7ae9344afefe8ddac1d030
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846385"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561772"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Orígenes de eventos de Azure Event Grid
 

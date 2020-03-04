@@ -9,16 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: ee8b166077c64ae5e0f2cce18ee0bc77e8c996f4
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 171219c001f43137a52f29b282fb1705b3d836aa
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210130"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649830"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticación con Azure Maps
 
 Azure Maps admite dos formas de autenticar las solicitudes: Autenticación de clave compartida y autenticación de Azure Active Directory. En este artículo se explican estos métodos de autenticación para guiar su implementación de los servicios de Azure Maps.
+
+> [!NOTE]
+> Para mejorar la comunicación segura con Azure Maps, ahora admitimos Seguridad de la capa de transporte (TLS) 1.2 y retiramos la compatibilidad con TLS 1.0 y 1.1. Para evitar cualquier interrupción del servicio, **actualice sus servidores y aplicaciones para usar TLS 1.2 antes del 2 de abril de 2020**.  Si actualmente usa TLS 1.x, evalúe su preparación de TLS 1.2 y desarrolle un plan de migración con las pruebas descritas en [Solución del problema de TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
 
 ## <a name="shared-key-authentication"></a>Autenticación de clave compartida
 

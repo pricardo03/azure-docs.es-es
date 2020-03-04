@@ -8,45 +8,61 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: e814d9be4a0db2852bd9e21f3d3c1d54a45bd268
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 99a2f32c3f76d7fec475c9b299f7208b4db29cfe
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368647"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650930"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Dar forma a los eventos con la versión preliminar de Azure Time Series Insights
 
-En este artículo se proporciona información para dar forma a su archivo JSON para la ingesta y para maximizar la eficacia de las consultas de la versión preliminar de Azure Time Series Insights.
+En este artículo se definen los procedimientos recomendados para dar forma a las cargas JSON para la ingesta en Azure Time Series Insights y para maximizar la eficacia de las consultas de la versión preliminar.
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 
-Piense en cómo envía eventos a la versión preliminar de Time Series Insights. Es decir, siempre debería:
+Es mejor considerar detenidamente cómo envía los eventos al entorno de versión preliminar de Time Series Insights. 
+
+Entre los procedimientos recomendados generales se incluyen:
 
 * Enviar los datos a través de la red de la forma más eficaz posible.
 * Almacenar los datos de una manera que le ayude a agregarlos de manera más adecuada para su escenario.
 
-Para garantizar el máximo rendimiento de las consultas, haga lo siguiente:
+Para obtener el mejor rendimiento de las consultas, cumpla las siguientes reglas de control:
 
-* No envíe propiedades innecesarias. La versión preliminar de Time Series Insights le facturará en función del uso. Es mejor almacenar y procesar los datos que vaya a consultar.
-* Use campos de instancia para los datos estáticos. Este procedimiento le ayudará a evitar el envío de datos estáticos a través de la red. Los campos de instancia, un componente del modelo de Time Series Insights, funcionan como datos de referencia en el servicio Time Series Insights, que tiene disponibilidad general. Para más información sobre los campos de instancia, lea [Modelo de Time Series](./time-series-insights-update-tsm.md).
+* No envíe propiedades innecesarias. La versión preliminar de Time Series Insights factura en función del uso. Es mejor almacenar y procesar solo los datos que vaya a consultar.
+* Use campos de instancia para los datos estáticos. Este procedimiento ayuda a evitar el envío de datos estáticos a través de la red. Los campos de instancia, un componente del modelo de Time Series Insights, funcionan como datos de referencia en el servicio Time Series Insights, que tiene disponibilidad general. Para más información sobre los campos de instancia, lea [Modelo de Time Series](./time-series-insights-update-tsm.md).
 * Comparta propiedades de dimensión entre dos o más eventos. Este procedimiento le ayudará a enviar datos a través de la red de manera más eficaz.
 * No utilice el anidamiento profundo de matriz. La versión preliminar de Time Series Insights admite hasta dos niveles de matrices anidadas que contienen objetos. Igualmente, la versión preliminar de Time Series Insights acopla las matrices en mensajes de varios eventos con pares de valores de propiedad.
 * Si solo existen algunas de las medidas para todos o la mayoría de los eventos, es mejor que envíe estas medidas como propiedades independientes dentro del mismo objeto. Al enviarlas por separado se reduce el número de eventos y podría mejorar el rendimiento de consultas, ya que se deben procesar menos eventos.
 
-Durante la ingesta, las cargas útiles que contienen anidamiento se aplanarán, de modo que el nombre de la columna sea un valor único con un delineador. Time Series Insights (versión preliminar) usa caracteres de subrayado para la delineación. Tenga en cuenta que se trata de un cambio respecto a la versión de disponibilidad general del producto que usaba puntos. Durante la versión preliminar, hay una advertencia sobre el aplanamiento, que se muestra en el segundo ejemplo a continuación.
+## <a name="column-flattening"></a>Aplanamiento de columnas
 
-## <a name="examples"></a>Ejemplos
+Durante la ingesta, las cargas útiles que contienen objetos anidados se aplanarán, de modo que el nombre de la columna sea un valor único con un delineador.
 
-El ejemplo siguiente se basa en un escenario donde dos o más dispositivos envían señales o medidas. Las medidas o señales podrían ser *Caudal*, *Presión de aceite del motor*, *Temperatura* y *Humedad*.
+* Por ejemplo, el siguiente JSON anidado:
 
-En el ejemplo, hay un único mensaje de Azure IoT Hub donde la matriz externa contiene una sección compartida de valores de dimensión comunes. La matriz externa usa datos de instancia de serie temporal para aumentar la eficacia del mensaje. 
+   ```JSON
+   "data": {
+        "flow": 1.0172575712203979,
+   },
+   ```
 
-La instancia de Time Series contiene los metadatos del dispositivo. Estos metadatos no cambian con cada evento, pero que proporcionan propiedades útiles para el análisis de datos. Para ahorrar en bytes enviados a través de la conexión y hacer que el mensaje sea más eficaz, considere la posibilidad de agrupar valores de dimensiones comunes y usar metadatos de instancia de serie temporal.
+   Se convierte en `data_flow` cuando se aplana.
 
-### <a name="example-1"></a>Ejemplo 1:
+> [!IMPORTANT]
+> * Time Series Insights (versión preliminar) usa caracteres de subrayado (`_`) para la delineación de columnas.
+> * Tenga en cuenta la diferencia con respecto a la disponibilidad general, que usa puntos (`.`).
+
+A continuación, se muestran escenarios más complejos.
+
+#### <a name="example-1"></a>Ejemplo 1:
+
+En el siguiente escenario hay dos (o más) dispositivos que envían las medidas (señales): *Caudal*, *Presión de aceite del motor*, *Temperatura* y *Humedad*.
+
+Hay un único mensaje de Azure IoT Hub enviado donde la matriz externa contiene una sección compartida de valores de dimensión comunes (tenga en cuenta las dos entradas de dispositivo en el mensaje).
 
 ```JSON
 [
@@ -77,10 +93,23 @@ La instancia de Time Series contiene los metadatos del dispositivo. Estos metada
 ]
 ```
 
-### <a name="time-series-instance"></a>Instancia de serie temporal 
+**Puntos clave:**
+
+* El JSON de ejemplo tiene una matriz externa que usa datos de [instancia de Time Series](./time-series-insights-update-tsm.md#time-series-model-instances) para aumentar la eficacia del mensaje. Aunque no es probable que cambien los metadatos de dispositivos de instancias de Time Series, suele proporcionar propiedades útiles para el análisis de datos.
+
+* El archivo JSON combina dos o más mensajes (uno de cada dispositivo) en una sola carga, lo que permite ahorrar ancho de banda a lo largo del tiempo.
+
+* Los puntos de datos de series individuales de cada dispositivo se combinan en un solo atributo de **serie**, lo que reduce la necesidad de transmitir continuamente las actualizaciones para cada dispositivo.
+
+> [!TIP]
+> Para reducir el número de mensajes necesarios para enviar datos y aumentar la eficacia de la telemetría, considere la posibilidad de procesar por lotes valores de dimensiones comunes y metadatos de instancias de Time Series en una sola carga JSON.
+
+#### <a name="time-series-instance"></a>Instancia de serie temporal 
+
+Echemos un vistazo más detallado sobre cómo usar la [instancia de Time Series](./time-series-insights-update-tsm.md#time-series-model-instances) para dar forma al JSON de manera óptima. 
 
 > [!NOTE]
-> El id. de serie temporal es *deviceId*.
+> Los siguientes [identificadores de Time Series](./time-series-insights-update-how-to-id.md) son *deviceIds*.
 
 ```JSON
 [
@@ -115,7 +144,7 @@ La instancia de Time Series contiene los metadatos del dispositivo. Estos metada
 ]
 ```
 
-La versión preliminar de Time Series Insights une una tabla (después del acoplamiento) durante el tiempo de consulta. La tabla incluye columnas adicionales, como **Type**. En el ejemplo siguiente se demuestra cómo puede [dar forma](./time-series-insights-send-events.md#supported-json-shapes) a los datos de telemetría.
+La versión preliminar de Time Series Insights une una tabla (después del acoplamiento) durante el tiempo de consulta. La tabla incluye columnas adicionales, como **Type**.
 
 | deviceId  | Tipo | L1 | L2 | timestamp | series_Flow Rate ft3/s | series_Engine Oil Pressure psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -123,18 +152,20 @@ La versión preliminar de Time Series Insights une una tabla (después del acopl
 | `FXXX` | Default_Type | SIMULADOR |   Sistema de batería |    2018-01-17T01:17:00Z | 2.445906400680542 |  49.2 |
 | `FYYY` | LINE_DATA    COMMON | SIMULADOR |    Sistema de batería |    2018-01-17T01:18:00Z | 0.58015072345733643 |    22.2 |
 
-En el ejemplo anterior, tenga en cuenta lo siguiente:
+> [!NOTE]
+>  En la tabla anterior se representa la vista de consulta en el [explorador de versión preliminar de Time Series](./time-series-insights-update-explorer.md).
 
-* Las propiedades estáticas se almacenan en la versión preliminar de Time Series Insights para optimizar los datos enviados a través de la red.
+**Puntos clave:**
+
+* En el ejemplo anterior, las propiedades estáticas se almacenan en la versión preliminar de Time Series Insights para optimizar los datos enviados a través de la red.
 * Los datos de la versión preliminar de Time Series Insights se combinan cuando se realiza una consulta a través del identificador de Time Series definido en la instancia.
 * Se utilizan dos niveles de anidamiento. Este número es el más compatible con la versión preliminar de Time Series Insights. Es fundamental para evitar matrices profundamente anidadas.
 * Como hay pocas medidas, estas se envían como propiedades independientes en el mismo objeto. En este ejemplo, **series_Flow Rate psi**, **series_Engine Oil Pressure psi** y **series_Flow Rate ft3/s** son columnas únicas.
 
 >[!IMPORTANT]
 > Los campos de instancia no se almacenan con telemetría. Se almacenan con metadatos en el modelo de Time Series.
-> La tabla anterior representa la vista de consulta.
 
-### <a name="example-2"></a>Ejemplo 2:
+#### <a name="example-2"></a>Ejemplo 2:
 
 Considere el siguiente JSON:
 
@@ -148,12 +179,20 @@ Considere el siguiente JSON:
   "data_flow" : 1.76435072345733643
 }
 ```
-En el ejemplo anterior, la propiedad de `data_flow` aplanada presentaría una colisión de nombres con la propiedad `data_flow`. En este caso, el valor de la propiedad *latest* sobrescribiría a la anterior. Si este comportamiento presenta un desafío para sus escenarios empresariales, póngase en contacto con el equipo de Time Series Insights.
+
+En el ejemplo anterior, la propiedad de `data["flow"]` aplanada presentaría una colisión de nombres con la propiedad `data_flow`.
+
+En este caso, el valor de la propiedad *latest* sobrescribiría a la anterior. 
+
+> [!TIP]
+> Póngase en contacto con el equipo de Time Series Insights para obtener más ayuda.
 
 > [!WARNING] 
-> En los casos en los que las propiedades duplicadas están presentes en la misma carga del evento debido al acoplamiento o a otro mecanismo, se almacena el valor de propiedad más reciente, sobrescribiendo todos los valores anteriores.
-
+> * En los casos en los que las propiedades duplicadas están presentes en la misma carga del evento (singular) debido al acoplamiento o a otro mecanismo, se almacena el valor de propiedad más reciente, sobrescribiendo todos los valores anteriores.
+> * La serie de eventos combinados no se invalidará entre sí.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para poner en práctica estas pautas, consulte [Sintaxis de consultas de la versión preliminar de Azure Time Series Insights](./time-series-insights-query-data-csharp.md). Obtendrá más información sobre la sintaxis de consultas para la API REST de acceso a datos de la versión preliminar de Time Series Insights.
+* Para poner en práctica estas pautas, consulte [Sintaxis de consultas de la versión preliminar de Azure Time Series Insights](./time-series-insights-query-data-csharp.md). Obtendrá más información sobre la sintaxis de consultas para la [API REST de la versión preliminar](https://docs.microsoft.com/rest/api/time-series-insights/preview) de acceso a datos de Time Series Insights.
+
+* Combine los procedimientos recomendados de JSON con el [Modelado de datos de Time Series](./time-series-insights-update-how-to-tsm.md).

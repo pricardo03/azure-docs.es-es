@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 11/19/2019
-ms.openlocfilehash: da8c194b7911d2eeda8e0c903cb7412186aacfcb
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: fa41649e002bd4845b95e787c1d0589ed1987588
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638262"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587250"
 ---
 # <a name="sql-database-resource-limits-and-resource-governance"></a>Límites y regulación de recursos de SQL Database
 
@@ -37,14 +37,14 @@ En este artículo se proporciona información general acerca de los límites de 
 | Número máximo de grupos por servidor | Limitado por el número de DTU o núcleos virtuales. Por ejemplo, si cada grupo tiene 1000 DTU, un servidor puede admitir 54 grupos.|
 |||
 
-> [!NOTE]
-> Para obtener más cuota de DTU o eDTU, cuota de núcleos virtuales o más servidores que la cantidad predeterminada, se puede enviar una nueva solicitud de soporte técnico para la suscripción en Azure Portal con el tipo de problema "Cuota". La cuota de DTU o eDTU y el límite de base de datos por servidor restringe el número de grupos elásticos por servidor.
-
 > [!IMPORTANT]
 > A medida que el número de bases de datos se aproxima al límite por servidor de SQL Database, puede ocurrir lo siguiente:
 >
 > - Aumento de la latencia de las consultas en ejecución en la base de datos maestra.  Incluye vistas de las estadísticas del uso de los recursos como sys.resource_stats.
 > - Aumento de la latencia en las operaciones de administración y presentación de las perspectivas del portal que implican enumerar las bases de datos del servidor.
+
+> [!NOTE]
+> Para obtener más cuota de DTU/eDTU, cuota de núcleo virtual o más servidores que la cantidad predeterminada, envíe una nueva solicitud de soporte técnico en Azure Portal. Para más información, consulte [Solicitud de aumentos de cuota para Azure SQL Database](quota-increase-request.md).
 
 ### <a name="storage-size"></a>Tamaño de almacenamiento
 

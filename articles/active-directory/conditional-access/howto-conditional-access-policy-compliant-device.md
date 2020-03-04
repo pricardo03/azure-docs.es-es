@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 02/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a18f0b1f83ae02b06344c332cfdd1cc093f37fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 90d958d2adc8920e4e6ccbccef20acf20aedca4c
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424889"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561619"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Acceso condicional: Requerir dispositivos compatibles
 
@@ -27,7 +27,7 @@ Las organizaciones que han implementado Microsoft Intune pueden usar la informac
 * Exigir una versión mínima o máxima del sistema operativo
 * Exigir que un dispositivo no se haya liberado ni modificado
 
-Esta información del cumplimiento de las directivas se reenvía a Azure AD donde se pueden tomar decisiones mediante el acceso condicional para conceder o bloquear el acceso a los recursos.
+Esta información del cumplimiento de las directivas se reenvía a Azure AD donde se pueden tomar decisiones mediante el acceso condicional para conceder o bloquear el acceso a los recursos. Para más información sobre las directivas de cumplimiento de dispositivos, consulte el artículo [Establecimiento de reglas en los dispositivos para permitir el acceso a recursos de su organización con Intune](/intune/protect/device-compliance-get-started).
 
 ## <a name="create-a-conditional-access-policy"></a>Creación de una directiva de acceso condicional
 
@@ -49,6 +49,9 @@ Los pasos siguientes le ayudarán a crear una directiva de acceso condicional pa
 1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
 1. Seleccione **Crear** para crear la directiva.
 
+> [!NOTE]
+> Puede inscribir sus nuevos dispositivos en Intune aunque seleccione **Requerir que el dispositivo esté marcado como compatible** para **Todos los usuarios** y **Todas las aplicaciones en la nube** mediante los pasos anteriores. El control **Requerir que el dispositivo esté marcado como compatible** no impide la inscripción a Intune. 
+
 ### <a name="known-behavior"></a>Comportamiento conocido
 
 En Windows 7, iOS, Android, macOS y algunos exploradores web de terceros, Azure AD identifica el dispositivo mediante un certificado de cliente que se aprovisiona cuando el dispositivo se registra con Azure AD. Cuando un usuario inicia sesión por primera vez a través del explorador, se le pide que seleccione el certificado. El usuario final debe seleccionar este certificado para poder seguir usando el explorador.
@@ -61,4 +64,4 @@ En Windows 7, iOS, Android, macOS y algunos exploradores web de terceros, Azure
 
 [Simulación del comportamiento de inicio de sesión mediante la herramienta What If de acceso condicional](troubleshoot-conditional-access-what-if.md)
 
-[Las directivas de cumplimiento de dispositivos funcionan con Azure AD](https://docs.microsoft.com/intune/device-compliance-get-started#device-compliance-policies-work-with-azure-ad)
+[Las directivas de cumplimiento de dispositivos funcionan con Azure AD](/intune/device-compliance-get-started#device-compliance-policies-work-with-azure-ad)

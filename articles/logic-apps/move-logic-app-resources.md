@@ -1,29 +1,31 @@
 ---
-title: Traslado de aplicaciones lógicas entre suscripciones, grupos de recursos o regiones
+title: Migración de aplicaciones lógicas entre suscripciones, grupos de recursos o regiones
 description: Migración de aplicaciones lógicas o cuentas de integración a otras suscripciones de Azure, grupos de recursos o ubicaciones (regiones)
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: d6250238edd15126e7a56bd821fbd1c736ebda07
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f5944accb185f1311c811cf65a8ea8348fd569db
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965889"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605610"
 ---
 # <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Traslado de recursos de aplicaciones lógicas a otras suscripciones, grupos de recursos o regiones de Azure
 
-Para trasladar la aplicación lógica o los recursos relacionados a otra suscripción, grupo de recursos o región de Azure, tiene varias formas de completar estas tareas, como Azure Portal, Azure PowerShell, CLI de Azure y API REST. Antes de trasladar recursos, revise estas consideraciones: 
+Para migrar la aplicación lógica o los recursos relacionados a otra suscripción, grupo de recursos o región de Azure, tiene varias formas de completar estas tareas, como Azure Portal, Azure PowerShell, CLI de Azure y API REST. Antes de trasladar recursos, revise estas consideraciones: 
 
 * Solo puede trasladar [tipos de recursos específicos de la aplicación lógica](../azure-resource-manager/management/move-support-resources.md#microsoftlogic) entre las suscripciones o los grupos de recursos de Azure.
 
 * Compruebe los [límites](../logic-apps/logic-apps-limits-and-config.md) en el número de recursos de la aplicación lógica que puede tener en su suscripción de Azure y en cada región de Azure. Estos límites afectan a si puede trasladar tipos de recursos específicos cuando la región permanece invariable en las suscripciones o en los grupos de recursos. Por ejemplo, solo puede tener una cuenta de integración de nivel Gratis para cada región de Azure en cada suscripción de Azure.
 
-* Al trasladar recursos, Azure crea nuevos identificadores de recursos. Por tanto, asegúrese de usar los nuevos identificadores en su lugar y actualizar los scripts o las herramientas asociados a los recursos que ha movido. Después de migrar las aplicaciones lógicas entre las suscripciones, los grupos de recursos o las regiones, debe volver a crear o a autorizar las conexiones basadas en OAuth.
+* Después de migrar las aplicaciones lógicas entre las suscripciones, los grupos de recursos o las regiones, debe volver a crear o a autorizar las conexiones que requieran autenticación abierta (OAuth).
 
-## <a name="prerequisites"></a>Prerequisites
+* Cada vez que traslada recursos, Azure crea identificadores de recursos nuevos. Por tanto, asegúrese de usar los nuevos identificadores en su lugar y actualizar los scripts o las herramientas asociados a los recursos que ha movido.
+
+## <a name="prerequisites"></a>Prerrequisitos
 
 * La misma suscripción de Azure que se usó para crear la aplicación lógica o la cuenta de integración que desea trasladar
 

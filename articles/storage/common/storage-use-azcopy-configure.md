@@ -8,12 +8,12 @@ ms.date: 01/28/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 00ce40e24a01b765419186a609ecf19ce53c772b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: d2cb40d7510e46539db46bdb61ec2d64c0fd1ec7
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905269"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526502"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configuración, optimización y solución de problemas de AzCopy
 
@@ -121,6 +121,8 @@ AzCopy crea archivos de registro y de plan para cada trabajo. Puede usar los reg
 Los registros contendrán el estado de error (`UPLOADFAILED`, `COPYFAILED` y `DOWNLOADFAILED`), la ruta de acceso completa y el motivo del error.
 
 De forma predeterminada, los archivos de registro y de plan se encuentran en el directorio `%USERPROFILE%\.azcopy` de Windows o en el directorio `$HOME$\.azcopy` en Mac y Linux, pero puede cambiar la ubicación si lo desea.
+
+El error pertinente no es necesariamente el primer error que aparece en el archivo. En el caso de errores como errores de red, tiempos de espera y errores de servidor ocupado, AzCopy volverá a intentarlo hasta 20 veces y, normalmente, el proceso de reintento se realizará correctamente.  El primer error que se ve podría ser algo inofensivo que se reintentara correctamente.  Por lo tanto, en lugar de examinar el primer error del archivo, busque los errores cercanos `UPLOADFAILED`, `COPYFAILED` o `DOWNLOADFAILED`. 
 
 > [!IMPORTANT]
 > Al enviar una solicitud a Soporte técnico de Microsoft (o al solucionar el problema con la participación de terceros), comparta la versión censurada del comando que quiere ejecutar. Esto garantiza que la SAS no se comparta de forma accidental con nadie. Puede encontrar la versión censurada al principio del archivo de registro.

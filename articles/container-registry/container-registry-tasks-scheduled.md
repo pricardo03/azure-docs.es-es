@@ -3,12 +3,12 @@ title: 'Tutorial: Programación de una tarea de ACR'
 description: En este tutorial, aprenderá a ejecutar una tarea de Azure Container Registry según una programación definida mediante la configuración de uno o más desencadenadores de temporizador.
 ms.topic: article
 ms.date: 06/27/2019
-ms.openlocfilehash: 37247289ef11873ac37dc78ad56548994220f894
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 4c0962a38cca73e4a03a7417baaa595cf0d97009
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454678"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617454"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Ejecución de una tarea de ACR según una programación definida
 
@@ -175,7 +175,7 @@ La zona horaria que se usa con las expresiones cron es la Hora universal coordin
 
 Cada campo puede tener uno de los siguientes tipos de valores:
 
-|type  |Ejemplo  |Cuándo se desencadena  |
+|Tipo  |Ejemplo  |Cuándo se desencadena  |
 |---------|---------|---------|
 |Un valor específico |<nobr>`"5 * * * *"`</nobr>|cada hora a "y cinco"|
 |Todos los valores (`*`)|<nobr>`"* 5 * * *"`</nobr>|cada minuto de la hora empezando a las 5:00 UTC (60 veces al día)|
@@ -197,6 +197,14 @@ Cada campo puede tener uno de los siguientes tipos de valores:
 |`"30 9 * * 1-5"`|a las 9:30 UTC todos los días laborables|
 |`"30 9 * Jan Mon"`|a las 9:30 UTC todos los lunes de enero|
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Para quitar todos los recursos que ha creado en esta serie de tutoriales, incluido el registro o los registros de contenedor, la instancia de contenedor, el almacén de claves y la entidad de servicio, ejecute los comandos siguientes:
+
+```azurecli-interactive
+az group delete --resource-group $RES_GROUP
+az ad sp delete --id http://$ACR_NAME-pull
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

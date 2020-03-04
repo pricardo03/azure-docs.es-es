@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: e73f5e578ef498d3c6be8422fbbcfa7ac8856adf
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 187fa7cf52193d94b932d9021749917fa4f9b1dc
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425823"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562605"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-preview-using-portal"></a>Creación y administración de Private Link para Azure Database for PostgreSQL: servidor único (versión preliminar) con Portal
 
@@ -171,6 +171,9 @@ En esta sección, creará un servidor PostgreSQL y le agregará un punto de cone
 
     ![Private Link creado](media/concepts-data-access-and-security-private-link/show-postgres-private-link.png)
 
+    > [!NOTE] 
+    > El FQDN de la configuración de DNS del cliente no se resuelve en la dirección IP privada configurada. Tendrá que configurar una zona DNS para el FQDN configurado, como se muestra [aquí](../dns/dns-operations-recordsets-portal.md).
+
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Conéctese a una máquina virtual mediante Escritorio remoto (RDP)
 
 
@@ -231,7 +234,7 @@ Después de crear **myVm**, conéctese a ella desde Internet como se indica a co
 
 7. (Opcional) Cree o consulte la información del servidor PostgreSQL.
 
-8. Cierre la conexión de Escritorio remoto a myVM.
+8. Cierre la conexión de escritorio remoto a myVm.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 Cuando haya terminado de usar el punto de conexión privado, el servidor PostgreSQL y la máquina virtual, elimine el grupo de recursos y todos los recursos que contiene:
