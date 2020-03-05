@@ -5,15 +5,16 @@ services: key-vault
 author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: aef4061a8349e6602ac4394cb31bbe76b6cb63c0
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 7288e5d8c01122bea7650274cdaf358c7fc24cd0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976305"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197324"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Uso de la eliminación temporal de Key Vault con la CLI
 
@@ -22,7 +23,7 @@ La característica de eliminación temporal de Azure Key Vault permite recuperar
 - Compatibilidad con la eliminación recuperable de una instancia de Key Vault
 - Compatibilidad con la eliminación recuperable de objetos de Key Vault: claves, secretos y certificados
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - CLI de Azure: si no tiene esta configuración para su entorno, consulte [Administración de Key Vault mediante la CLI de Azure](key-vault-manage-with-cli2.md).
 
@@ -32,10 +33,10 @@ Para obtener información de referencia específica sobre Key Vault para la CLI,
 
 Las operaciones de Key Vault se administran por separado mediante los permisos de control de acceso basado en roles (RBAC) como se indica a continuación:
 
-| Operación | DESCRIPCIÓN | Permiso del usuario |
+| Operación | Descripción | Permiso del usuario |
 |:--|:--|:--|
 |List|Enumera los almacenes de claves eliminados.|Microsoft.KeyVault/deletedVaults/read|
-|Recuperar|Restaura un almacén de claves eliminado.|Microsoft.KeyVault/vaults/write|
+|Recover|Restaura un almacén de claves eliminado.|Microsoft.KeyVault/vaults/write|
 |Purgar|Elimina permanentemente un almacén de claves eliminado y todo su contenido.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
 Para más información sobre los permisos y el control de acceso, consulte [Protección de un almacén de claves](key-vault-secure-your-key-vault.md).
@@ -150,7 +151,7 @@ Para eliminar definitivamente (lo que se conoce también como purga) una clave e
 az keyvault key purge --name ContosoFirstKey --vault-name ContosoVault
 ```
 
-Las acciones de **recuperación** y **purga** tienen sus propios permisos asociados en una directiva de acceso del almacén de claves. Para que un usuario o una entidad de servicio puedan ejecutar una acción de **recuperación** o **purga**, deben tener el permiso correspondiente para ese almacén o secreto. De forma predeterminada, el permiso de **purga** no se agrega a la directiva de acceso del almacén de claves cuando se usa el acceso directo "todos" para conceder todos los permisos. Debe conceder específicamente el permiso de **purga**. 
+Las acciones de **recuperación** y **purga** tienen permisos propios asociados a una directiva de acceso al almacén de claves. Para que un usuario o una entidad de servicio puedan ejecutar una acción de **recuperación** o **purga**, deben tener el permiso correspondiente para ese almacén o secreto. De forma predeterminada, el permiso de **purga** no se agrega a la directiva de acceso del almacén de claves cuando se usa el acceso directo "todos" para conceder todos los permisos. Debe conceder específicamente el permiso de **purga**. 
 
 #### <a name="set-a-key-vault-access-policy"></a>Establecimiento de una directiva de acceso del almacén de claves
 
@@ -242,7 +243,7 @@ Para agregarle la protección de purgas a un almacén existente (que ya tenga ha
 az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
 ```
 
-## <a name="other-resources"></a>Otros recursos:
+## <a name="other-resources"></a>Otros recursos
 
 - Para obtener una información general sobre la nueva característica de eliminación temporal, consulte [la información general sobre la eliminación temporal de Azure Key Vault](key-vault-ovw-soft-delete.md).
 - Para obtener información general del uso de Azure Key Vault, consulte [¿Qué es Azure Key Vault?](key-vault-overview.md).

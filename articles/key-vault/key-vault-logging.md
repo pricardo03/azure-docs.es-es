@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 997651887c3c378e4791553d5ff05f585ad169ea
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 8915970cd4c70228fad3b49921f4c81d6d90aa72
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000663"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195362"
 ---
 # <a name="azure-key-vault-logging"></a>Registro de Azure Key Vault
 
@@ -37,9 +38,9 @@ Use este tutorial para tener ayuda para empezar a trabajar con el registro de Az
 
 Para obtener información general sobre Key Vault, consulte [¿Qué es Azure Key Vault?](key-vault-overview.md) Para obtener información acerca de dónde está disponible Key Vault, consulte la [página de precios](https://azure.microsoft.com/pricing/details/key-vault/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-Para realizar este tutorial, necesitará lo siguiente:
+Para realizar este tutorial, debe disponer de lo siguiente:
 
 * Un Almacén de claves existente que ha utilizado.  
 * Azure PowerShell, versión mínima de 1.0.0. Para instalar Azure PowerShell y asociarlo con una suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview). Si ya instaló Azure PowerShell y no sabe la versión, en la consola de Azure PowerShell, escriba `$PSVersionTable.PSVersion`.  
@@ -75,7 +76,7 @@ Hacer que PowerShell apunte a la suscripción correcta es un paso importante, es
 
 Aunque puede usar una cuenta de almacenamiento existente para sus registros, crearemos una cuenta de almacenamiento que se dedicará a los registros de Key Vault. Por comodidad para cuando tengamos que especificarlos más adelante, almacenaremos los detalles en una variable denominada **sa**.
 
-Para una mayor facilidad de administración, también usaremos el grupo de recursos que contiene el almacén de claves. Desde el [tutorial de introducción](key-vault-get-started.md), este grupo de recursos se denomina **ContosoResourceGroup**, y seguiremos usando la ubicación Asia Oriental. Sustituya estos valores por los suyos propios, según corresponda:
+Para una mayor facilidad de administración, también usaremos el grupo de recursos que contiene el almacén de claves. Desde el [tutorial de introducción](key-vault-get-started.md), este grupo de recursos se denomina **ContosoResourceGroup**, y seguiremos usando la ubicación Este de Asia. Sustituya estos valores por los suyos propios, según corresponda:
 
 ```powershell
  $sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
@@ -129,7 +130,7 @@ Qué se registra:
 * Las operaciones en claves y secretos del almacén de claves, incluido lo siguiente:
   * Crear, modificar o eliminar estas claves o secretos.
   * Firmar, comprobar, cifrar, descifrar, encapsular y desencapsular claves, obtener secretos y elaborar listados de claves y secretos (y sus versiones).
-* Solicitudes no autenticadas que dan como resultado una respuesta 401. Por ejemplo, las solicitudes que no tienen un token de portador, cuyo formato es incorrecto o está caducado o tienen un token no válido.  
+* Solicitudes no autenticadas que dan como resultado una respuesta 401. Por ejemplo, las solicitudes que no tienen un token de portador, cuyo formato es incorrecto o está caducado o que tienen un token no válido.  
 
 ## <a id="access"></a>Acceso a los registros
 
@@ -248,7 +249,7 @@ Devuelve una entrada de registro similar a esta:
 
 En la tabla siguiente se muestran los nombres y las descripciones de los campos:
 
-| Nombre del campo | DESCRIPCIÓN |
+| Nombre del campo | Descripción |
 | --- | --- |
 | **time** |Fecha y hora en UTC. |
 | **resourceId** |Identificador de recursos de Azure Resource Manager. Para los registros de Key Vault, siempre es el identificador de recurso de Key Vault. |
