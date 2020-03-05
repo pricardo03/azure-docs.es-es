@@ -208,6 +208,9 @@
         - name: Creación de conjuntos de datos con etiquetas
           displayName: 'data, labels, torchvision'
           href: how-to-use-labeled-dataset.md
+        - name: Ingesta de datos con Azure Data Factory
+          displayName: 'data, ingestion, adf'
+          href: how-to-data-ingest-adf.md
         - name: DevOps para la ingesta de datos
           displayName: 'data, ingestion, devops'
           href: how-to-cicd-data-ingestion.md

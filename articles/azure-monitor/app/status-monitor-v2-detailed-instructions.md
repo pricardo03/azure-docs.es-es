@@ -1,18 +1,16 @@
 ---
 title: Instrucciones detalladas de Azure Application Insights Agent | Microsoft Docs
 description: Instrucciones detalladas para empezar con Application Insights Agent. Supervise el rendimiento de los sitios web sin volver a implementarlos. Funciona con las aplicaciones web de ASP.NET hospedadas en local, en las máquinas virtuales o en Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 3b053b7876494a3b2e6f392850c0323b56b1c3ec
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cd5ca5039b537859d5b31c901ed1f93877ecb629
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230263"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671212"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights Agent (antes Monitor de estado v2): Instrucciones detalladas
 
@@ -30,7 +28,7 @@ Para empezar, necesita una clave de instrumentación. Para obtener más informac
 
 PowerShell necesita permisos de nivel de administrador para hacer cambios en el equipo.
 ### <a name="execution-policy"></a>Directiva de ejecución
-- Description: De forma predeterminada, la ejecución de scripts de PowerShell está deshabilitada. Le recomendamos que permita los scripts de RemoteSigned solo para el ámbito actual.
+- Descripción: De forma predeterminada, la ejecución de scripts de PowerShell está deshabilitada. Le recomendamos que permita los scripts de RemoteSigned solo para el ámbito actual.
 - Referencia: [Información sobre las directivas de ejecución](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) y [Set-ExecutionPolicy](
 https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
 ).
@@ -82,7 +80,7 @@ Con estos pasos, se preparará el servidor para descargar los módulos de la Gal
 
 1. Ejecute PowerShell como administrador con una directiva de ejecución con privilegios elevados.
 2. Instale el proveedor de paquetes NuGet.
-    - Description: Necesita este proveedor para interactuar con repositorios basados en NuGet, como la Galería de PowerShell.
+    - Descripción: Necesita este proveedor para interactuar con repositorios basados en NuGet, como la Galería de PowerShell.
     - Referencia: [Install-PackageProvider](https://docs.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershell-6).
     - Comando: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201`.
     - Parámetros opcionales:
@@ -100,7 +98,7 @@ Con estos pasos, se preparará el servidor para descargar los módulos de la Gal
         [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
     
 3. Configure la Galería de PowerShell como un repositorio de confianza.
-    - Description: De forma predeterminada, la Galería de PowerShell no es un repositorio de confianza.
+    - Descripción: De forma predeterminada, la Galería de PowerShell no es un repositorio de confianza.
     - Referencia: [Set-PSRepository](https://docs.microsoft.com/powershell/module/powershellget/set-psrepository?view=powershell-6).
     - Comando: `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted`.
     - Parámetro opcional:
@@ -117,7 +115,7 @@ Con estos pasos, se preparará el servidor para descargar los módulos de la Gal
     Puede confirmar este cambio y auditar todos los PSRepositories si ejecuta el comando `Get-PSRepository`.
 
 4. Instale la versión más reciente de PowerShellGet.
-    - Description: Este módulo contiene las herramientas que se usan para obtener otros módulos de la Galería de PowerShell. La versión 1.0.0.1 se distribuye con Windows 10 y Windows Server. Se requiere la versión 1.6.0 o posterior. Para determinar qué versión está instalada, ejecute el comando `Get-Command -Module PowerShellGet`.
+    - Descripción: Este módulo contiene las herramientas que se usan para obtener otros módulos de la Galería de PowerShell. La versión 1.0.0.1 se distribuye con Windows 10 y Windows Server. Se requiere la versión 1.6.0 o posterior. Para determinar qué versión está instalada, ejecute el comando `Get-Command -Module PowerShellGet`.
     - Referencia: [Instalación de PowerShellGet](/powershell/scripting/gallery/installing-psget).
     - Comando: `Install-Module -Name PowerShellGet`.
     - Parámetros opcionales:
@@ -156,7 +154,7 @@ Si por algún motivo no puede conectarse al módulo de PowerShell, puede descarg
 
 ### <a name="manually-download-the-latest-nupkg-file"></a>Descarga manual del archivo nupkg más reciente
 
-1. Vaya a https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+1. Ir a https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
 2. Seleccione la versión más reciente del archivo en la tabla **Historial de versiones**.
 3. En **Opciones de instalación**, seleccione **Descarga manual**.
 
@@ -167,7 +165,7 @@ Para obtener más información, consulte [Instalación de un módulo de PowerShe
 
 #### <a name="unzip-nupkg-as-a-zip-file-by-using-expand-archive-v1010"></a>Descompresión de nupkg como un archivo ZIP mediante Expand-Archive (v1.0.1.0)
 
-- Description: La versión base de Microsoft.PowerShell.Archive (v1.0.1.0) no puede descomprimir los archivos nupkg. Cambie el nombre del archivo con la extensión .zip.
+- Descripción: La versión base de Microsoft.PowerShell.Archive (v1.0.1.0) no puede descomprimir los archivos nupkg. Cambie el nombre del archivo con la extensión .zip.
 - Referencia: [Expand-Archive](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6).
 - Comando:
 
@@ -181,7 +179,7 @@ Para obtener más información, consulte [Instalación de un módulo de PowerShe
 
 #### <a name="unzip-nupkg-by-using-expand-archive-v1100"></a>Descompresión de nupkg mediante Expand-Archive (v1.1.0.0)
 
-- Description: Use una versión actual de Expand-Archive para descomprimir los archivos nupkg sin cambiar la extensión.
+- Descripción: Use una versión actual de Expand-Archive para descomprimir los archivos nupkg sin cambiar la extensión.
 - Referencia: [Expand-Archive](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) y [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
 - Comando:
 

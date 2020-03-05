@@ -5,12 +5,12 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 42f11ecb8e7c7ae47b5a5ab5ff4f946833945aa1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7069ff363cf274ba855efc9b598d8d01e64e18d1
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471190"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250124"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Tutorial: Protección de los artefactos de las implementaciones de plantillas de Azure Resource Manager
 
@@ -31,7 +31,7 @@ En este tutorial se describen las tareas siguientes:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este artículo, necesitará lo siguiente:
 
@@ -39,7 +39,7 @@ Para completar este artículo, necesitará lo siguiente:
 * Revise [Tutorial: Importación de archivos BACPAC de SQL con plantillas de Azure Resource Manager](./template-tutorial-deploy-sql-extensions-bacpac.md). La plantilla usada en este tutorial es lo que se desarrolló en ese mismo tutorial. En este artículo se proporciona un vínculo de descarga de la plantilla completa.
 * Para aumentar la seguridad, utilice una contraseña generada para la cuenta de administrador de SQL Server. A continuación se muestra un ejemplo de generación de contraseña:
 
-    ```azurecli-interactive
+    ```console
     openssl rand -base64 32
     ```
 

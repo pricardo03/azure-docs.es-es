@@ -1,23 +1,19 @@
 ---
 title: Más información sobre Azure Application Insights | Microsoft Docs
 description: Aquí se presentan algunas características que puede explorar una vez que sepa utilizar Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 02/03/2017
-ms.openlocfilehash: 8c51745c43ced8ad3031a6a01096261ef72b33fc
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 3c4a9a736f34d4f7dbfeb004d0837f1f2efa55dc
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678352"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666031"
 ---
 # <a name="more-telemetry-from-application-insights"></a>Más telemetría desde Application Insights
 Una vez que haya [agregado Application Insights a su código de ASP.NET](../../azure-monitor/app/asp-net.md), puede realizar varias acciones para obtener más datos de telemetría. 
 
-| . | Lo que obtiene|
+| Acción | Lo que obtiene|
 |---|---|
 |(Servidores IIS) [Instale Monitor de estado](https://go.microsoft.com/fwlink/?LinkId=506648) en cada máquina del servidor.<br/>(Aplicaciones web de Azure) En el panel de control de Azure de la aplicación web, abra la hoja Application Insights.| [**Contadores de rendimiento**](../../azure-monitor/app/performance-counters.md).<br/>[**Excepciones**](asp-net-exceptions.md): seguimiento de la pila detallado.<br/>[**Dependencias**](../../azure-monitor/app/asp-net-dependencies.md).|
 |[Agregue el fragmento de código de JavaScript en las páginas web](../../azure-monitor/app/javascript.md).|[Rendimiento de página](../../azure-monitor/app/usage-overview.md), excepciones de explorador y rendimiento de AJAX. Telemetría del lado cliente personalizada.|

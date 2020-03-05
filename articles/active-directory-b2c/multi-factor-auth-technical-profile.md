@@ -3,20 +3,20 @@ title: Perfiles técnicos de Azure MFA en las directivas personalizadas
 titleSuffix: Azure AD B2C
 description: Referencia de directivas personalizadas para perfiles técnicos de Azure Multi-Factor Authentication (MFA) en Azure AD B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a8aaea6b2afb4d89e6e667edba0eeba2f4ddcca8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 05851dba9de06b5dfba2da4f455fbaf5e9376d08
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475058"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184288"
 ---
 # <a name="define-an-azure-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definición de un perfil técnico de Azure AD en una directiva personalizada de Azure AD B2C
 
@@ -57,8 +57,8 @@ El elemento **InputClaims** contiene una lista de notificaciones para enviar a A
 | --------- | -------- | ----------- |
 | userPrincipalName | Sí | Identificador del usuario que posee el número de teléfono. |
 | phoneNumber | Sí | Número de teléfono al que se va a enviar un código de SMS. |
-| companyName | No |Nombre de la empresa en el SMS. Si no se proporciona, se usa el nombre de la aplicación. |
-| locale | No | Configuración regional del SMS. Si no se proporciona, se usa la configuración regional del explorador del usuario. |
+| companyName | Sin |Nombre de la empresa en el SMS. Si no se proporciona, se usa el nombre de la aplicación. |
+| locale | Sin | Configuración regional del SMS. Si no se proporciona, se usa la configuración regional del explorador del usuario. |
 
 El elemento **InputClaimsTransformations** puede contener una colección de elementos **InputClaimsTransformation** que se usan para modificar las notificaciones de entrada o generar otras nuevas antes del envío al servicio Azure MFA.
 
@@ -73,9 +73,9 @@ El elemento **OutputClaimsTransformations** puede contener una colección de ele
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | Operación | Sí | Debe ser **OneWaySMS**.  |
-| UserMessageIfInvalidFormat | No | Mensaje de error personalizado si el número de teléfono proporcionado no es un número de teléfono válido |
-| UserMessageIfCouldntSendSms | No | Mensaje de error personalizado si el número de teléfono proporcionado no acepta SMS |
-| UserMessageIfServerError | No | Mensaje de error personalizado si el servidor ha encontrado un error interno |
+| UserMessageIfInvalidFormat | Sin | Mensaje de error personalizado si el número de teléfono proporcionado no es un número de teléfono válido |
+| UserMessageIfCouldntSendSms | Sin | Mensaje de error personalizado si el número de teléfono proporcionado no acepta SMS |
+| UserMessageIfServerError | Sin | Mensaje de error personalizado si el servidor ha encontrado un error interno |
 
 ### <a name="return-an-error-message"></a>Devolución de un mensaje de error
 
@@ -133,11 +133,11 @@ El elemento **OutputClaimsTransformations** puede contener una colección de ele
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | Operación | Sí | Debe ser **Verify**. |
-| UserMessageIfInvalidFormat | No | Mensaje de error personalizado si el número de teléfono proporcionado no es un número de teléfono válido |
-| UserMessageIfWrongCodeEntered | No | Mensaje de error personalizado si el código especificado para la verificación es incorrecto |
-| UserMessageIfMaxAllowedCodeRetryReached | No | Mensaje de error personalizado si el usuario ha intentado un código de verificación demasiadas veces |
-| UserMessageIfThrottled | No | Mensaje de error personalizado si el usuario está limitado |
-| UserMessageIfServerError | No | Mensaje de error personalizado si el servidor ha encontrado un error interno |
+| UserMessageIfInvalidFormat | Sin | Mensaje de error personalizado si el número de teléfono proporcionado no es un número de teléfono válido |
+| UserMessageIfWrongCodeEntered | Sin | Mensaje de error personalizado si el código especificado para la verificación es incorrecto |
+| UserMessageIfMaxAllowedCodeRetryReached | Sin | Mensaje de error personalizado si el usuario ha intentado un código de verificación demasiadas veces |
+| UserMessageIfThrottled | Sin | Mensaje de error personalizado si el usuario está limitado |
+| UserMessageIfServerError | Sin | Mensaje de error personalizado si el servidor ha encontrado un error interno |
 
 ### <a name="return-an-error-message"></a>Devolución de un mensaje de error
 

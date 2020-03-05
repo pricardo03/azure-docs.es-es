@@ -3,20 +3,20 @@ title: Protección de un servicio RESTful mediante la autenticación HTTP básic
 titleSuffix: Azure AD B2C
 description: Proteja los intercambios de notificaciones de la API REST personalizada en Azure AD B2C mediante la autenticación HTTP básica.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 986ad1845fa2699bb3462dceb3865300a035cb71
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 505d92e33606dac327778cae179df44efbfdf853
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850955"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183863"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Protección de los servicios REST mediante la autenticación HTTP básica
 
@@ -28,7 +28,7 @@ En dicho artículo se agrega una autenticación HTTP básica al servicio REST, c
 
 Para más información, consulte [Basic authentication in ASP.NET web API](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication) (Autenticación básica en ASP.NET Web API).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Complete los pasos del artículo [Azure Active Directory B2C: integración de intercambios de notificaciones de API de REST en el recorrido del usuario de Azure AD B2C como validación en entradas de usuario](rest-api-claims-exchange-dotnet.md).
 

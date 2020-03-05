@@ -1,14 +1,17 @@
 ---
 title: Conexión de la función de Java a Azure Storage
 description: Aprenda a conectar una función de Java desencadenada por HTTP a Azure Storage mediante un enlace de salida de Queue Storage.
+author: KarlErickson
+ms.author: karler
 ms.date: 10/14/2019
 ms.topic: quickstart
-ms.openlocfilehash: 72e3aad15ea8ef922d89a67891e223b65473b909
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+zone_pivot_groups: java-build-tools-set
+ms.openlocfilehash: 8ae69bfa7ed00e310205332e05c071158c5fc9a3
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198554"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272800"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Conexión de la función de Java a Azure Storage
 
@@ -112,10 +115,19 @@ Ahora ya está listo para probar el nuevo enlace de salida de forma local.
 
 Como antes, use el siguiente comando para crear el proyecto e iniciar el sistema en tiempo de ejecución de Functions localmente:
 
+::: zone pivot="java-build-tools-maven"  
 ```bash
 mvn clean package 
 mvn azure-functions:run
 ```
+::: zone-end
+
+::: zone pivot="java-build-tools-gradle"  
+```bash
+gradle jar --info
+gradle azureFunctionsRun
+```
+::: zone-end
 
 > [!NOTE]  
 > Como ya habilitó las agrupaciones de extensiones en el archivo host.json, la [extensión de enlace de Storage](functions-bindings-storage-blob.md#add-to-your-functions-app) se descargó e instaló automáticamente durante el inicio junto con el resto de extensiones de enlace de Microsoft.
@@ -138,9 +150,17 @@ A continuación, se usa la CLI de Azure para ver la nueva cola y comprobar que s
 
 Para actualizar la aplicación publicada, vuelva a ejecutar el siguiente comando:  
 
-```azurecli
+::: zone pivot="java-build-tools-maven"  
+```bash
 mvn azure-functions:deploy
 ```
+::: zone-end
+
+::: zone pivot="java-build-tools-gradle"  
+```bash
+gradle azureFunctionsDeploy
+```
+::: zone-end
 
 De nuevo, puede usar cURL para probar la función implementada. Como antes, pase el valor `AzureFunctions` del cuerpo de la solicitud POST a la dirección URL, como en este ejemplo:
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 54606b4fbbf7ae459298b3842f957de5256ba0df
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 799ed0e877bb3bddb3f179cdb3d6df6fca57e4d5
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74971152"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301359"
 ---
 # <a name="application-gateway-components"></a>Componentes de Application Gateway
 
@@ -53,7 +53,7 @@ Application Gateway admite cuatro protocolos: HTTP, HTTPS, HTTP/2 y WebSocket:
 >La compatibilidad con el protocolo HTTP/2 está disponible únicamente para los clientes que se conectan a los agentes de escucha de la puerta de aplicaciones. La comunicación con grupos de servidores back-end es a través de HTTP/1.1. De forma predeterminada, HTTP/2 está deshabilitado. Pero puede elegir habilitarlo.
 
 - Especifique entre los protocolos HTTP y HTTPS en la configuración del cliente de escucha.
-- La compatibilidad con los [protocolos WebSockets y HTTP/2](overview.md#websocket-and-http2-traffic) se proporciona de forma nativa, y la [compatibilidad con WebSocket](application-gateway-websocket.md) está habilitada de forma predeterminada. No hay ninguna opción de configuración que permita al usuario habilitar o deshabilitar la compatibilidad con WebSocket. Use WebSockets con clientes de escucha HTTP y HTTPS.
+- La compatibilidad con los [protocolos WebSockets y HTTP/2](features.md#websocket-and-http2-traffic) se proporciona de forma nativa, y la [compatibilidad con WebSocket](application-gateway-websocket.md) está habilitada de forma predeterminada. No hay ninguna opción de configuración que permita al usuario habilitar o deshabilitar la compatibilidad con WebSocket. Use WebSockets con clientes de escucha HTTP y HTTPS.
 
 Use un cliente de escucha HTTPS para la terminación SSL. Un cliente de escucha HTTPS descarga el trabajo de cifrado y descifrado en la puerta de enlace de aplicaciones, por lo que los servidores web no se ven afectados por la sobrecarga.
 
@@ -115,9 +115,9 @@ El puerto y el protocolo usados en la configuración de HTTP determinan si el tr
 
 Este componente también se usa para:
 
-- Determinar si una sesión de usuario se va a mantener en el mismo servidor mediante la [afinidad de sesión basada en cookies](overview.md#session-affinity).
+- Determinar si una sesión de usuario se va a mantener en el mismo servidor mediante la [afinidad de sesión basada en cookies](features.md#session-affinity).
 
-- Quitar miembros del grupo back-end correctamente con la [purga de conexiones](overview.md#connection-draining).
+- Quitar miembros del grupo back-end correctamente con la [purga de conexiones](features.md#connection-draining).
 
 - Asociar un sondeo personalizado para supervisar el mantenimiento del back-end, establecer el intervalo de tiempo de expiración de las solicitudes, reemplazar el nombre de host y la ruta de acceso de la solicitud y proporcionar facilidad de uso con un clic para especificar la configuración del back-end de App Service.
 
@@ -125,7 +125,7 @@ Este componente también se usa para:
 
 Un grupo back-end enruta la solicitud a los servidores back-end, quienes la atienden. Los grupos back-end pueden contener:
 
-- Tarjetas de red
+- NIC
 - Conjuntos de escalado de máquinas virtuales
 - Direcciones IP públicas
 - Direcciones IP internas

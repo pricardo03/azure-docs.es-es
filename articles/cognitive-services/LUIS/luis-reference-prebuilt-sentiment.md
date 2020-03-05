@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/22/2019
 ms.author: diberry
-ms.openlocfilehash: a91246e4a4b3dc98bf11d2b014478fd40252f14b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dee07859da97f76d9a2db3ccbb71ae74d8ff4846
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506875"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270418"
 ---
 # <a name="sentiment-analysis"></a>análisis de opiniones
 Si el análisis de sentimiento está configurado, la respuesta JSON de LUIS incluye el análisis de sentimiento. Obtenga más información sobre el análisis de sentimiento en la documentación de [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
@@ -26,7 +26,7 @@ Si el análisis de sentimiento está configurado, la respuesta JSON de LUIS incl
 
 Los datos de opinión son una puntuación entre 1 y 0 que indica el valor de opinión positiva (más cercano a 1) o negativa (más cercano a 0) de los datos.
 
-#### <a name="english-languagetabenglish"></a>[Lengua inglesa](#tab/english)
+#### <a name="english-language"></a>[Lengua inglesa](#tab/english)
 
 Cuando la referencia cultural es `en-us`, la respuesta es:
 
@@ -37,7 +37,7 @@ Cuando la referencia cultural es `en-us`, la respuesta es:
 }
 ```
 
-#### <a name="other-languagestabother-languages"></a>[Otros idiomas](#tab/other-languages)
+#### <a name="other-languages"></a>[Otros idiomas](#tab/other-languages)
 
 Para todas las demás referencias culturales, la respuesta es:
 
@@ -46,7 +46,7 @@ Para todas las demás referencias culturales, la respuesta es:
   "score": 0.9163064
 }
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Pasos siguientes
 

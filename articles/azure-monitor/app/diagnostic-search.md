@@ -1,18 +1,14 @@
 ---
 title: Uso de Búsqueda en Azure Application Insights | Microsoft Docs
 description: Busque y filtre los datos de telemetría sin procesar que envía la aplicación web.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/30/2019
-ms.openlocfilehash: 77cd0a8d0c1a93e7dc1db931e987a172d31978ef
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 8039a55784f63030f330d6c1e2061e99b8b63bbf
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678042"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669682"
 ---
 # <a name="using-search-in-application-insights"></a>Uso de Búsqueda en Application Insights
 
@@ -96,7 +92,7 @@ Quizás desee establecer un intervalo de tiempo, dado que las búsquedas en un i
 
 Busque palabras completas, no subcadenas. Use comillas con los caracteres especiales.
 
-| Cadena | *No* encontrado | Encontrado |
+| String | *No* encontrado | Encontrado |
 | --- | --- | --- |
 | HomeController.About |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
 |Estados Unidos|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`
