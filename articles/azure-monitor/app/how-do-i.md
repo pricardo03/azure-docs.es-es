@@ -1,18 +1,14 @@
 ---
 title: Procedimientos en Azure Application Insights | Microsoft Docs
 description: P+F en Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 04/04/2017
-ms.openlocfilehash: 61bd5898c494018a2bacbd894d4dc2aac97f53b4
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 5b65087c361911f0714723c315e0b7f7e9bb74e6
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928416"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663864"
 ---
 # <a name="how-do-i--in-application-insights"></a>¿Cómo ... en Application Insights?
 ## <a name="get-an-email-when-"></a>Recibir un correo electrónico cuando...
@@ -100,7 +96,7 @@ Or
 ### <a name="filter-out-anonymous-or-authenticated-users"></a>Filtrado de usuarios anónimos o autenticados
 Si los usuarios inician sesión, puede establecer el [identificador de usuario autenticado](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users). (No ocurre automáticamente).
 
-A continuación, puede:
+Seguidamente, puede:
 
 * Buscar identificadores de usuario específicos
 

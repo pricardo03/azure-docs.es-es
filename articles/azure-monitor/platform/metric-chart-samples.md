@@ -3,17 +3,16 @@ title: Ejemplos de gráficos de métricas de Azure Monitor
 description: Obtenga información sobre cómo visualizar los datos de Azure Monitor.
 author: vgorbenko
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 8cc653b8e5d2c239243bf6a09955b10011c7408b
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 1aaeb853a67b36a21a09db57e015029d10cd0c36
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538962"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660877"
 ---
 # <a name="metric-chart-examples"></a>Ejemplos de gráficos de métricas 
 
@@ -33,7 +32,7 @@ Seleccione el recurso de App Service y busque la métrica de **porcentaje de CPU
 
 ## <a name="application-availability-by-region"></a>Disponibilidad de la aplicación por región
 
-Consulte la disponibilidad de la aplicación por región para identificar qué ubicaciones geográficas tienen problemas. Este gráfico muestra la métrica de disponibilidad de Application Insights. Puede ver que la aplicación supervisada no tiene ningún problema con la disponibilidad desde el centro de datos del Este de EE. UU., pero está experimentando un problema de disponibilidad parcial desde el Oeste de EE. UU. y Asia Oriental.
+Consulte la disponibilidad de la aplicación por región para identificar qué ubicaciones geográficas tienen problemas. Este gráfico muestra la métrica de disponibilidad de Application Insights. Puede ver que la aplicación supervisada no tiene ningún problema con la disponibilidad desde el centro de datos del Este de EE. UU., pero está experimentando un problema de disponibilidad parcial desde el Oeste de EE. UU. y Este de Asia.
 
 ![Gráfico de disponibilidad media por ubicaciones](./media/metric-chart-samples/availability-run-location.png)
 
