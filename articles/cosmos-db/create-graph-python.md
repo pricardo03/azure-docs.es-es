@@ -71,7 +71,7 @@ Ahora vamos a empezar a trabajar con el código. Vamos a clonar una aplicación 
 
 ## <a name="review-the-code"></a>Revisión del código
 
-Este paso es opcional. Si está interesado en aprender cómo se crean los recursos de base de datos en el código, puede revisar los siguientes fragmentos de código. Todos los fragmentos de código se han tomado del archivo *connect.py* de la carpeta *C:\git-samples\azure-cosmos-db-graph-python-getting-started\\\* . En caso contrario, puede ir directamente a [Actualización de la cadena de conexión](#update-your-connection-information). 
+Este paso es opcional. Si está interesado en aprender cómo se crean los recursos de base de datos en el código, puede revisar los siguientes fragmentos de código. Todos los fragmentos de código se han tomado del archivo *connect.py* de la carpeta *C:\git-samples\azure-cosmos-db-graph-python-getting-started\\* . En caso contrario, puede ir directamente a [Actualización de la cadena de conexión](#update-your-connection-information). 
 
 * El valor de `client` de Gremlin se inicializa en la línea 104 de *connect.py*:
 

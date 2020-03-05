@@ -73,7 +73,7 @@ Para ver los registros relacionados con el agente de autenticación de paso a tr
 
 ### <a name="delete-authentication-agent-trace-log-files"></a>Eliminación de archivos de registro de seguimiento del agente de autenticación.
 
-Debe comprobar con regularidad el contenido de **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\** y eliminar el contenido de esta carpeta cada 48 horas. 
+Debe comprobar con regularidad el contenido de **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace** y eliminar el contenido de esta carpeta cada 48 horas. 
 
 >[!IMPORTANT]
 >Si el servicio del agente de autenticación está en ejecución, no podrá eliminar el archivo de registro actual en la carpeta. Detenga el servicio antes de volver a intentarlo. Para evitar errores de inicio de sesión de usuario, ya debe haber configurado la autenticación de paso a través para una [alta disponibilidad](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).

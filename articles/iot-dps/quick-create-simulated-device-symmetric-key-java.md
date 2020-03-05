@@ -132,7 +132,7 @@ En esta sección, actualizará el código de ejemplo del dispositivo para enviar
       Message received! Response status: OK_EMPTY
     ```
 
-6. En Azure Portal, vaya a la instancia de IoT Hub vinculada a su servicio de aprovisionamiento y abra la hoja **Device Explorer**. Después del aprovisionamiento correcto del dispositivo de la clave simétrica en el centro, su identificador de dispositivo aparece en la hoja **Explorador de dispositivos** con el *ESTADO***Habilitado**.  Es posible que deba presionar el botón **Actualizar** de la parte superior si ha abierto la hoja antes de ejecutar la aplicación de ejemplo del dispositivo. 
+6. En Azure Portal, vaya a la instancia de IoT Hub vinculada a su servicio de aprovisionamiento y abra la hoja **Device Explorer**. Después del aprovisionamiento correcto del dispositivo de la clave simétrica en el centro, su identificador de dispositivo aparece en la hoja **Explorador de dispositivos** con el *ESTADO* **Habilitado**.  Es posible que deba presionar el botón **Actualizar** de la parte superior si ha abierto la hoja antes de ejecutar la aplicación de ejemplo del dispositivo. 
 
     ![El dispositivo se registra con el centro de IoT](./media/quick-create-simulated-device-symm-key-java/hubregistration-java.png) 
 

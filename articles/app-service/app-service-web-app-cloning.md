@@ -1,18 +1,16 @@
 ---
 title: Clonación de aplicaciones con PowerShell
 description: Aprenda a clonar una aplicación de App Service para crear otra nueva con PowerShell. Se trata una variedad de escenarios de clonación, entre los que se incluye la integración de Traffic Manager.
-author: ahmedelnably
 ms.assetid: f9a5cfa1-fbb0-41e6-95d1-75d457347a35
 ms.topic: article
 ms.date: 01/14/2016
-ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 332f7a562fc8c1d7b2bbebb0e596a068797c2ce3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e7ad45ea4cb1049ed7eeb454162e23e81ed35019
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967219"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255202"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Clonación de aplicaciones de Azure App Service mediante PowerShell
 
@@ -23,7 +21,7 @@ Con el lanzamiento de Microsoft Azure PowerShell versión 1.1.0, se ha agregado 
 La clonación de aplicaciones se admite para los planes de App Service Estándar, Premium, Premium V2 y Aislado. La nueva característica cuenta con las mismas limitaciones que la copia de seguridad de App Service; consulte [Realización de una copia de seguridad de una aplicación en Azure App Service](manage-backup.md).
 
 ## <a name="cloning-an-existing-app"></a>Clonación de una aplicación existente
-Escenario: tiene una aplicación web existente de la región Centro-sur de EE. UU. y desea clonar el contenido en una nueva aplicación web de la región Centro-norte de EE. UU. Para ello, puede utilizar la versión para Azure Resource Manager del cmdlet de PowerShell y crear una nueva aplicación web con la opción `-SourceWebApp`.
+Escenario: tiene una aplicación web existente de la región Centro-sur de EE. UU. y desea clonar el contenido en una nueva aplicación web de la región Centro-norte de EE. UU. Para ello, puede utilizar la versión para Azure Resource Manager del cmdlet de PowerShell y crear una nueva aplicación web con la opción `-SourceWebApp`.
 
 Si conoce el nombre del grupo de recursos que contiene la aplicación de origen, puede usar el siguiente comando de PowerShell para obtener la información de la aplicación de origen (en este caso, llamada "`source-webapp`"):
 
@@ -56,7 +54,7 @@ $destapp = New-AzWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-weba
 ```
 
 ## <a name="cloning-an-existing-app-to-an-app-service-environment"></a>Clonación de una aplicación existente en un entorno de App Service
-Escenario: tiene una aplicación en la región Centro-sur de EE. UU. y desea clonar el contenido en una nueva aplicación utilizando una instancia de App Service Environment (ASE) existente.
+Escenario: tiene una aplicación en la región Centro-sur de EE. UU. y desea clonar el contenido en una nueva aplicación utilizando una instancia de App Service Environment (ASE) existente.
 
 Si conoce el nombre del grupo de recursos que contiene la aplicación de origen, puede usar el siguiente comando de PowerShell para obtener la información de la aplicación de origen (en este caso, llamada "`source-webapp`"):
 

@@ -3,12 +3,12 @@ title: Errores de cuota
 description: Describe cómo resolver errores de cuota de recursos al implementar recursos con Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 03/09/2018
-ms.openlocfilehash: d36f7d12f432839760b68c85e1c5761e0caf8d85
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 9b5cce3258a29b6ac6a3db50f880e3242c4d5e8c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659362"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250152"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Resolución de errores de cuotas de recursos
 
@@ -52,7 +52,7 @@ az vm list-usage --location "South Central US"
 
 Que devuelve:
 
-```azurecli
+```output
 [
   {
     "currentValue": 0,
@@ -89,7 +89,7 @@ Virtual Machines                             0 10000 Count
 Para solicitar un aumento de cuota, vaya al portal y abra una incidencia de soporte técnico. En la incidencia de soporte técnico, solicite un aumento de la cuota para la región en la que desea realizar la implementación.
 
 > [!NOTE]
-> Recuerde que para los grupos de recursos, la cuota para cada región individual, no para toda la suscripción. Si necesita implementar 30 núcleos en el oeste de Estados Unidos, debe pedir 30 núcleos de administrador de recursos en el oeste de Estados Unidos. Si necesita implementar 30 núcleos en cualquiera de las regiones para las que tiene acceso, debe pedir 30 núcleos de Resource Manager en todas las regiones.
+> Recuerde que para los grupos de recursos, la cuota para cada región individual, no para toda la suscripción. Si necesita implementar 30 núcleos en el Oeste de EE. UU., debe pedir 30 núcleos de administrador de recursos en el Oeste de EE. UU. Si necesita implementar 30 núcleos en cualquiera de las regiones para las que tiene acceso, debe pedir 30 núcleos de Resource Manager en todas las regiones.
 >
 >
 
