@@ -3,20 +3,20 @@ title: Configuración del inicio de sesión con una cuenta de Twitter mediante e
 titleSuffix: Azure AD B2C
 description: Configure el inicio de sesión con una cuenta de Twitter mediante directivas personalizadas en Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bae7a235ee42ca02dc72fcbc8d9a694321571ac4
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 85af3457f83f06c107f8b4aa9bd88a9f915c776f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76851271"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187940"
 ---
 # <a name="set-up-sign-in-with-a-twitter-account-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión con una cuenta de Twitter mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76851271"
 
 En este artículo se muestra cómo habilitar el inicio de sesión para los usuarios de una cuenta de Twitter mediante [directivas personalizadas](custom-policy-overview.md) en Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Siga los pasos de [Introducción a las directivas personalizadas en Azure Active Directory B2C](custom-policy-get-started.md).
 - Si aún no tiene una cuenta de Twitter, créela en la [página de registro de Twitter](https://twitter.com/signup).

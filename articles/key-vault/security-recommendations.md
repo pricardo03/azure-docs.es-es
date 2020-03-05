@@ -5,16 +5,17 @@ services: key-vault
 author: barclayn
 manager: rkarlin
 ms.service: key-vault
+ms.subservice: general
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: barclayn
 ms.custom: security-recommendations
-ms.openlocfilehash: 5aa3ebc602396bc2d7f83150c66535039b1389e6
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 9fd41ae9b61a9c74fd5d99dd71199cfde06f5cb2
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73171331"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192377"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>Recomendaciones de seguridad para Azure Key Vault
 
@@ -25,7 +26,7 @@ Algunas de las recomendaciones incluidas en este artículo se pueden supervisar 
 - Para más información sobre las recomendaciones de seguridad de Azure Security Center, consulte [Recomendaciones de seguridad en Azure Security Center](../security-center/security-center-recommendations.md).
 - Para más información sobre Azure Security Center, consulte [¿Qué es Azure Security Center?](../security-center/security-center-intro.md)
 
-## <a name="data-protection"></a>Protección de datos
+## <a name="data-protection"></a>Protección de los datos
 
 | Recomendación | Comentarios | Security Center |
 |-|----|--|

@@ -1,18 +1,14 @@
 ---
 title: Exploración de métricas en Azure Application Insights | Microsoft Docs
 description: Interpretación de los gráficos en el Explorador de métricas y personalización de las hojas del Explorador de métricas.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/22/2019
-ms.openlocfilehash: b0831ff500ba4cbe71dae6251fd960f6c96c0fe5
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: f85a8fe79e7f4f820d7c0e5b942730305e892095
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820792"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670192"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Exploración de métricas en Application Insights
 Las métricas de [Application Insights][start] son valores medidos y recuentos de eventos que se envían en telemetría desde la aplicación. Ayudar a detectar problemas de rendimiento y a observar las tendencias sobre cómo se utiliza la aplicación. Hay una amplia gama de métricas estándar y también se pueden crear los propios eventos y métricas personalizados.
@@ -28,7 +24,7 @@ A continuación encontrará un conjunto de ejemplo de gráficos:
 
 Encontrará gráficos de métricas en todas partes en el portal de Application Insights. En la mayoría de los casos, pueden personalizarse y puede agregar más gráficos a la hoja. En la hoja Información general, haga clic para ver gráficos más detallados (que presentan títulos como "Servidores") o haga clic en **Explorador de métricas** para abrir una nueva hoja donde podrá crear gráficos personalizados.
 
-## <a name="time-range"></a>Intervalo de tiempo
+## <a name="time-range"></a>Intervalo de horas
 En todas las hojas puede cambiar el intervalo de tiempo cubierto por los gráficos o cuadrículas.
 
 ![Abrir la hoja de información general de la aplicación en el portal de Azure](./media/metrics-explorer/03-range.png)
@@ -184,7 +180,7 @@ Si desea obtener vistas todavía más sofisticadas de los datos, puede [exportar
 
 En el gráfico de una métrica, puede hacer clic en el icono Análisis para ir directamente a la consulta de análisis equivalente.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 *No veo ningún dato en el gráfico.*
 
 * Los filtros se aplican a todos los gráficos de la hoja. Asegúrese de que, al centrarse en un gráfico, no ha establecido un filtro que excluya todos los datos en otro.

@@ -3,17 +3,16 @@ title: Métricas personalizadas en Azure Monitor
 description: Obtenga información sobre las métricas personalizadas en Azure Monitor y cómo se modelan.
 author: ancav
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 744958fc44a8d10bbc8ca5d44af8c473548ae5ca
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3e3f45c1802d501e2320930c35073ec89ff38124
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669160"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662355"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métricas personalizadas en Azure Monitor
 
@@ -60,7 +59,7 @@ Cada punto de datos que se envía a Azure Monitor debe marcarse con una marca de
 ### <a name="namespace"></a>Espacio de nombres
 Los espacios de nombres son una manera de clasificar o agrupar las métricas similares. Mediante el uso de espacios de nombres se puede conseguir el aislamiento entre los grupos de métricas que puedan estar recopilando diferentes conclusiones o indicadores de rendimiento. Por ejemplo, podría tener un espacio de nombres denominado **contosomemorymetrics** que realice el seguimiento de las métricas de uso de memoria que perfile una aplicación. Otro espacio de nombres denominado **contosoapptransaction** podría realizar un seguimiento de todas las métricas sobre las transacciones de usuario en la aplicación.
 
-### <a name="name"></a>NOMBRE
+### <a name="name"></a>Nombre
 **Nombre** es el nombre de la métrica que se está notificando. Normalmente, el nombre es lo suficientemente descriptivo como para ayudar a identificar lo que se está midiendo. Un ejemplo es una métrica que mide el número de bytes de memoria utilizados en una máquina virtual determinada. Podría tener un nombre de métrica como **Bytes de memoria en uso**.
 
 ### <a name="dimension-keys"></a>Claves de dimensión
@@ -93,14 +92,14 @@ Por ejemplo, si hubo cuatro transacciones de inicio de sesión a la aplicación 
 |
 
 La publicación de métricas resultante en Azure Monitor sería la siguiente:
-* Mínimo: 4
-* Máximo: 16
+* Mín.: 4
+* Máx.: 16
 * Suma: 40
 * Recuento: 4
 
 Si la aplicación no puede agregar previamente de manea local y debe emitir cada muestra o evento discretos inmediatamente después de la recopilación, puede emitir los valores de medida sin procesar. Por ejemplo, cada vez que se produzca una transacción de inicio de sesión en la aplicación, publica una métrica en Azure Monitor con solo una única medida. Por lo tanto, para una transacción de inicio de sesión que llevó 12 ms, la publicación de la métrica sería la siguiente:
-* Mínimo: 12
-* Máximo: 12
+* Mín.: 12
+* Máx.: 12
 * Suma: 12
 * Recuento: 1
 
@@ -171,27 +170,27 @@ Durante la versión preliminar pública, la capacidad de publicar métricas pers
 |Región de Azure |Prefijo del punto de conexión regional|
 |---|---|
 | **EE. UU. y Canadá** | |
-|Centro occidental de EE.UU. | https:\//westcentralus.monitoring.azure.com/ |
+|Centro-Oeste de EE. UU. | https:\//westcentralus.monitoring.azure.com/ |
 |Oeste de EE. UU. 2       | https:\//westus2.monitoring.azure.com/ |
 |Centro-Norte de EE. UU | https:\//northcentralus.monitoring.azure.com
-|Centro-Sur de EE. UU| https:\//southcentralus.monitoring.azure.com/ |
+|Centro-sur de EE. UU.| https:\//southcentralus.monitoring.azure.com/ |
 |Centro de EE. UU.      | https:\//centralus.monitoring.azure.com |
 |Centro de Canadá | https:\//canadacentral.monitoring.azure.comc
-|East US| https:\//eastus.monitoring.azure.com/ |
+|Este de EE. UU.| https:\//eastus.monitoring.azure.com/ |
 | **Europa** | |
-|Europa del Norte    | https:\//northeurope.monitoring.azure.com/ |
-|Europa occidental     | https:\//westeurope.monitoring.azure.com/ |
+|Norte de Europa    | https:\//northeurope.monitoring.azure.com/ |
+|Oeste de Europa     | https:\//westeurope.monitoring.azure.com/ |
 |Sur de Reino Unido 2 | https:\//uksouth.monitoring.azure.com
 |Centro de Francia | https:\//francecentral.monitoring.azure.com |
 | **África** | |
 |Norte de Sudáfrica | https:\//southafricanorth.monitoring.azure.com
 | **Asia** | |
-|India Central | https:\//centralindia.monitoring.azure.com
+|Centro de la India | https:\//centralindia.monitoring.azure.com
 |Este de Australia | https:\//australiaeast.monitoring.azure.com
-|Este de Japón | https:\//japaneast.monitoring.azure.com
-|Sudeste asiático  | https:\//southeastasia.monitoring.azure.com |
-|Asia oriental | https:\//eastasia.monitoring.azure.com
-|Corea Central   | https:\//koreacentral.monitoring.azure.com
+|Japón Oriental | https:\//japaneast.monitoring.azure.com
+|Sudeste de Asia  | https:\//southeastasia.monitoring.azure.com |
+|Este de Asia | https:\//eastasia.monitoring.azure.com
+|Centro de Corea del Sur   | https:\//koreacentral.monitoring.azure.com
 
 
 ## <a name="quotas-and-limits"></a>Cuotas y límites
@@ -211,6 +210,6 @@ Use métricas personalizadas desde distintos servicios:
  - [Conjunto de escalado de máquinas virtuales](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Azure Virtual Machines (clásico)](collect-custom-metrics-guestos-vm-classic.md)
  - [Máquina virtual Linux que usa el agente Telegraf](collect-custom-metrics-linux-telegraf.md)
- - [API DE REST](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
+ - [REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
  - [Cloud Services clásico](collect-custom-metrics-guestos-vm-cloud-service-classic.md)
  

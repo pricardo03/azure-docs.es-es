@@ -1,18 +1,17 @@
 ---
 title: Filtros en las vistas de Azure Monitor | Microsoft Docs
 description: Un filtro de una vista de Azure Monitor permite a los usuarios filtrar los datos de la vista por el valor de una propiedad determinada sin modificar la vista propiamente dicha.  En este artículo se describe cómo usar un filtro y agregar uno a una vista personalizada.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
-ms.openlocfilehash: 03950c7c87f659c5d1c032b5d3c1f74d136697c7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b4840ed30eb1f6dc8d6e6cef47da17807f9644d5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931978"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658581"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filtros en las vistas de Azure Monitor
 Un **filtro** de una [vista de Azure Monitor](view-designer.md) permite a los usuarios filtrar los datos de la vista por el valor de una propiedad determinada sin modificar la vista propiamente dicha.  Por ejemplo, podría permitir que los usuarios de la vista la filtraran por los datos de solo un determinado equipo o conjunto de equipos.  Puede crear varios filtros en una sola vista para permitir que los usuarios filtren por varias propiedades.  En este artículo se describe cómo usar un filtro y agregar uno a una vista personalizada.
@@ -38,7 +37,7 @@ Cree un filtro en la pestaña **Filtros** al [editar una vista](view-designer.md
 
 En la tabla siguiente se describe la configuración de un filtro.
 
-| Configuración | DESCRIPCIÓN |
+| Configuración | Descripción |
 |:---|:---|
 | Nombre del campo | Nombre del campo usado para filtrar.  Este campo debe coincidir con el campo de resumen de **Consultar valores**. |
 | Consultar valores | Consulta que se ejecutará para rellenar la lista desplegable de filtros del usuario.  Esta consulta debe usar [summarize](/azure/kusto/query/summarizeoperator) o [distinct](/azure/kusto/query/distinctoperator) para proporcionar valores únicos para un campo determinado y debe coincidir con el valor de **Nombre de campo**.  Puede usar [sort](/azure/kusto/query/sortoperator) para ordenar los valores que se muestran al usuario. |
@@ -50,7 +49,7 @@ En la tabla siguiente se incluyen algunos ejemplos de filtros comunes.
 
 | Nombre del campo | Consultar valores | Etiqueta |
 |:--|:--|:--|
-| Computer   | Heartbeat &#124; distinct Computer &#124; sort by Computer asc | Equipos |
+| Computer   | Heartbeat &#124; distinct Computer &#124; sort by Computer asc | Computers |
 | EventLevelName | Event &#124; distinct EventLevelName | severity |
 | SeverityLevel | Syslog &#124; distinct SeverityLevel | severity |
 | SvcChangeType | ConfigurationChange &#124; distinct svcChangeType | ChangeType |

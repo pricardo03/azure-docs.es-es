@@ -3,20 +3,20 @@ title: Ejemplos de transformación de notificaciones generales para directivas p
 titleSuffix: Azure AD B2C
 description: Ejemplos de transformación de notificaciones generales para el esquema de Identity Experience Framework (IEF) de Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/03/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 98d9730168764f0ba683a246f9ac224c13d3bf31
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: afdf2f531ede30d868123d89cac94fcfae070384
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982813"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188552"
 ---
 # <a name="general-claims-transformations"></a>Transformaciones de notificaciones generales
 
@@ -36,13 +36,13 @@ Copiar el valor de una notificación en otra. Ambas notificaciones deben ser del
 Use esta transformación de notificaciones para copiar un valor de una notificación de cadena o numérica a otra notificación. En el ejemplo siguiente se copia el valor de la notificación externalEmail a una notificación por correo electrónico.
 
 ```XML
-<ClaimsTransformation Id="CopyEmailAddress" TransformationMethod="CopyClaim"> 
+<ClaimsTransformation Id="CopyEmailAddress" TransformationMethod="CopyClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="externalEmail" TransformationClaimType="inputClaim"/>
   </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="email" TransformationClaimType="outputClaim"/>
-  </OutputClaims>         
+  </OutputClaims>
 </ClaimsTransformation>
 ```
 
@@ -51,7 +51,7 @@ Use esta transformación de notificaciones para copiar un valor de una notificac
 - Notificaciones de entrada:
     - **inputClaim**: bob@contoso.com
 - Notificaciones de salida:
-    - **outputClaim**: bob@contoso.com 
+    - **outputClaim**: bob@contoso.com
 
 ## <a name="doesclaimexist"></a>DoesClaimExist
 

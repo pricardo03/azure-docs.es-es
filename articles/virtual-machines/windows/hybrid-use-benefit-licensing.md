@@ -13,28 +13,26 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: d6e3d4d059e464795c712af1226d8202d00bfd74
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 470e38c21a250273216f93eb38a5334a4bb581e7
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461162"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77911801"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Ventaja para uso híbrido de Azure para Windows Server
 Para los clientes con Software Assurance, la ventaja para uso híbrido de Azure para Windows Server le permite usar las licencias de Windows Server locales y ejecutar máquinas virtuales de Windows en Azure a bajo costo. Puede usar la Ventaja híbrida de Azure para Windows Server para implementar nuevas máquinas virtuales con el SO Windows. En este artículo se recorren los pasos necesarios para implementar nuevas máquinas virtuales con la Ventaja híbrida de Azure para Windows Server y para actualizar las máquinas virtuales en funcionamiento existentes. Para obtener más información acerca de los ahorros de costos y la concesión de licencias de la ventaja para uso híbrido para Azure para Windows Server, vea la [página de concesión de licencias de la ventaja para uso híbrido de Azure para Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
-> [!Important]
-> Cada una de las licencias de dos procesadores o cada uno de los conjuntos de licencias de 16 núcleos tienen derecho a dos instancias de hasta ocho núcleos o a una instancia de hasta 16 núcleos. La Ventaja híbrida de Azure para licencias de Standard Edition solo podrá usarse una vez en el entorno local o en Azure. Las ventajas de Datacenter Edition permiten el uso simultáneo de forma local y en Azure.
->
+Cada una de las licencias de dos procesadores o cada uno de los conjuntos de licencias de 16 núcleos tienen derecho a dos instancias de hasta ocho núcleos o a una instancia de hasta 16 núcleos. La Ventaja híbrida de Azure para licencias de Standard Edition solo podrá usarse una vez en el entorno local o en Azure. Las ventajas de Datacenter Edition permiten el uso simultáneo de forma local y en Azure.
 
-> [!Important]
-> Ahora se admite el uso de la Ventaja híbrida de Azure para Windows Server con cualquier máquina virtual que ejecute el sistema operativo Windows Server en todas las regiones, incluidas las máquinas virtuales con software adicional como SQL Server o el software de catálogos de soluciones de terceros. 
->
+Ahora se admite el uso de la Ventaja híbrida de Azure para Windows Server con cualquier máquina virtual que ejecute el sistema operativo Windows Server en todas las regiones, incluidas las máquinas virtuales con software adicional como SQL Server o el software de catálogos de soluciones de terceros. 
 
-> [!NOTE]
-> Para las VM clásicas, solo se admite la implementación de una nueva VM desde imágenes personalizadas locales. Para aprovechar las ventajas de las funcionalidades admitidas en este artículo, primero debe migrar las máquinas virtuales clásicas al modelo de Resource Manager.
->
 
+## <a name="classic-vms"></a>Máquinas virtuales clásicas
+
+Para las VM clásicas, solo se admite la implementación de una nueva VM desde imágenes personalizadas locales. Para aprovechar las ventajas de las funcionalidades admitidas en este artículo, primero debe migrar las máquinas virtuales clásicas al modelo de Resource Manager.
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
  
 
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Formas de usar la ventaja para uso híbrido de Azure para Windows Server

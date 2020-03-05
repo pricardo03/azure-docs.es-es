@@ -1,18 +1,17 @@
 ---
 title: Combinaciones en consultas de registros de Azure Monitor | Microsoft Docs
 description: En este artículo se incluye una lección sobre el uso de combinaciones en consultas de registros de Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: f2880044e48e59d0d5f005f9772cdd0f807f7f29
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2dace6968fbbe69f806c27fb7a46e60c63f78b4f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75397824"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670209"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Combinaciones en consultas de registros de Azure Monitor
 

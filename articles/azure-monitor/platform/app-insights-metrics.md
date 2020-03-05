@@ -3,17 +3,16 @@ title: Métricas basadas en registros de Azure Application Insights | Microsoft 
 description: En este artículo se enumeran las métricas de Azure Application Insights con las agregaciones y dimensiones compatibles. Los detalles sobre las métricas basadas en registros incluyen las instrucciones de consulta de Kusto subyacentes.
 author: vgorbenko
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 847c56faae61483813286c46190764327e287783
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 12bc51e800ef5ccd4ad3c72d3860fb22bac5b749
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887250"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664922"
 ---
 # <a name="application-insights-log-based-metrics"></a>Métricas basadas en registros de Application Insights
 
@@ -50,7 +49,7 @@ La métrica *Disponibilidad* muestra el porcentaje de las series de pruebas web 
 
 |Unidad de medida|Agregaciones compatibles|Dimensiones compatibles|
 |---|---|---|---|---|---|
-|Porcentaje|Media|Ubicación de ejecución, nombre de prueba|
+|Porcentaje|Average|Ubicación de ejecución, nombre de prueba|
 
 ```Kusto
 availabilityResults 
@@ -253,7 +252,7 @@ exceptions
 | render barchart
 ```
 
-## <a name="performance-counters"></a>contadores de rendimiento
+## <a name="performance-counters"></a>Contadores de rendimiento
 
 Use las métricas de la categoría de **Contadores de rendimiento** para acceder a los [contadores de rendimiento del sistema que recopila Application Insights](../../azure-monitor/app/performance-counters.md).
 

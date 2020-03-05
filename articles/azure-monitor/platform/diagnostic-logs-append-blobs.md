@@ -3,17 +3,16 @@ title: Preparación para el cambio de formato a los registros de recursos de Azu
 description: Describe el impacto y el método de actualización de las herramientas para gestionar los nuevos registros de recursos de Azure que se cambiaron para usar los blobs en anexos el 1 de noviembre de 2018.
 author: johnkemnetz
 services: monitoring
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: dc7fd8916f356414437d4def21f26f0b651ee76f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: d30652d4e068cbceb79e6da60b48176b9de64647
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893525"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670447"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-resource-logs-archived-to-a-storage-account"></a>Preparación para el cambio de formato a los registros de recursos de Azure Monitor archivados en una cuenta de almacenamiento
 

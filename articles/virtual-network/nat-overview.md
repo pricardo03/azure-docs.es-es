@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: b27baed20d8e36bf5790036e2fdc0804a94a4ea1
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 0e19271b5c69610dd9f44c3121e195b80732279c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589443"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669546"
 ---
 # <a name="what-is-virtual-network-nat-public-preview"></a>¿Qué es Virtual Network NAT (versión preliminar pública)?
 
@@ -39,7 +39,7 @@ La NAT (traducción de direcciones de red) de Virtual Network simplifica la cone
 
 
 >[!NOTE] 
->En este momento, Virtual Network NAT está disponible como versión preliminar pública. Actualmente solo está disponible en un conjunto limitado de [regiones](#region-availability). Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.comsupport/legal/preview-supplemental-terms).
+>En este momento, Virtual Network NAT está disponible como versión preliminar pública. Actualmente solo está disponible en un conjunto limitado de [regiones](#region-availability). Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
 
 ## <a name="static-ip-addresses-for-outbound-only"></a>Direcciones IP estáticas de solo salida
 
@@ -200,5 +200,5 @@ Queremos saber cómo podemos mejorar el servicio. Comparta sus [comentarios sobr
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre [recursos de puerta de enlace de NAT](./nat-gateway-resource.md).
-- [Díganos en UserVoice qué es lo que cree que deberíamos crear a continuación](https://aka/natuservoice).
+- [Díganos en UserVoice qué es lo que cree que deberíamos crear a continuación](https://aka.ms/natuservoice).
 - [Proporcione comentarios sobre la versión preliminar pública](https://aka.ms/natfeedback).

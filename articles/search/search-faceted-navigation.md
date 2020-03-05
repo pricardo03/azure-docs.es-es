@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 927f57ae3ca90f5701791022b68c4bf0d91d4e7d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 4008779f0ec16bcaf6b995cf7f33d15a8f1e5665
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112088"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190660"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Procedimiento para implementar la navegación por facetas en Azure Cognitive Search
 
@@ -34,11 +34,11 @@ En el desarrollo de aplicaciones, la escritura del código que construye las con
 ## <a name="sample-code-and-demo"></a>Demostración y código de ejemplo
 En este artículo se utiliza como ejemplo un portal de búsqueda de trabajo. El ejemplo se implementa como una aplicación ASP.NET MVC.
 
--   Vea y pruebe la demostración de trabajo en línea en [Demostración del portal de búsqueda de trabajo de Azure Cognitive Search](https://azjobsdemo.azurewebsites.net/).
+- Vea y pruebe la demostración de trabajo en línea en [Demostración del portal de búsqueda de trabajo de Azure Cognitive Search](http://azjobsdemo.azurewebsites.net/).
 
--   Descargue el código del [repositorio de ejemplos de Azure en GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
+- Descargue el código del [repositorio de ejemplos de Azure en GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 Si no está familiarizado con el desarrollo de búsquedas, la mejor manera de pensar en la navegación por facetas es que muestra las posibilidades de una búsqueda autodirigida. Es un tipo de experiencia de búsqueda en profundidad basada en filtros predefinidos, que se usa para restringir rápidamente los resultados de búsqueda mediante acciones de apuntar y hacer clic. 
 
 ### <a name="interaction-model"></a>Modelo de interacción
@@ -243,7 +243,7 @@ if (businessTitleFacet != "")
 
 <a name="tips"></a> 
 
-## <a name="tips-and-best-practices"></a>Sugerencias y procedimientos recomendados
+## <a name="tips-and-best-practices"></a>Sugerencias y prácticas recomendadas
 
 ### <a name="indexing-tips"></a>Sugerencias de indexación
 **Mejora de la eficacia del índice si no utiliza un cuadro de búsqueda**

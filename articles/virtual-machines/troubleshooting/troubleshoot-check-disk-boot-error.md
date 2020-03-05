@@ -12,19 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: ba3138076da89610bef878583e424153594c5dcc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 86938c582745cb0759eda9cd0693f407471a0529
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981388"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921494"
 ---
 # <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>Windows muestra el mensaje "comprobando el sistema de archivos" al iniciar una máquina virtual de Azure
 
 En este artículo se describe el error "Comprobando el sistema de archivos" que puede surgir al iniciar una máquina Virtual (VM) de Windows en Microsoft Azure.
 
-> [!NOTE] 
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../azure-resource-manager/management/deployment-models.md). En este artículo se describe el uso del modelo de implementación de Resource Manager, que es el que se recomienda para realizar la mayoría de las nuevas implementaciones en lugar del modelo de implementación clásica.
 
 ## <a name="symptom"></a>Síntoma 
 

@@ -1,18 +1,16 @@
 ---
 title: Soluciones de problemas conocidos de Azure Application Insights Agent | Microsoft Docs
 description: Problemas conocidos de Application Insights Agent y ejemplos de soluciones. Supervise el rendimiento de los sitios web sin volver a implementarlos. Funciona con las aplicaciones web de ASP.NET hospedadas en local, en las máquinas virtuales o en Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 30172bf65be52ba1ddd2b9127c3e2b5a284d48dc
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 217629ba5c386557455cc2d2b8bd47f85fa8f84e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899585"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671161"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Solución de problemas de Application Insights Agent (antes Monitor de estado v2)
 
@@ -83,7 +81,7 @@ La configuración del SDK no se muestra al usuario final en la versión 1.0.
 
     
     
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
     
 ### <a name="troubleshooting-powershell"></a>Solución de problemas de PowerShell
 
@@ -133,7 +131,7 @@ Revise la [referencia de la API](status-monitor-v2-api-get-status.md) para obten
 
 ### <a name="collect-etw-logs-by-using-perfview"></a>Recopilación de los registros ETW con PerfView
 
-#### <a name="setup"></a>Configuración
+#### <a name="setup"></a>Configurar
 
 1. Descargue PerfView.exe y PerfView64.exe desde [GitHub](https://github.com/Microsoft/perfview/releases).
 2. Inicie PerfView64.exe.

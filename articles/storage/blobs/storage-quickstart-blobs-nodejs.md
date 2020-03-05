@@ -7,20 +7,20 @@ ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: eabfefbf28b54e4a0a025698f8da48518e7df9bf
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: b53896896ecd4b0e577e8d2c5ec13e00ce6fab30
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906451"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191935"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>Inicio rápido: Administración de blobs con el SDK de JavaScript v12 en Node.js
 
 En este inicio rápido, aprenderá a administrar blobs mediante Node.js. Los blobs son objetos que pueden contener grandes cantidades de texto o datos binarios, como imágenes, documentos, medios de transmisión y datos de archivo. Cargará, descargará y enumerará los blobs, y creará y eliminará los contenedores.
 
-[Documentación de referencia de API](/javascript/api/@azure/storage-blob) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Paquete (administrador de paquetes de Node)](https://www.npmjs.com/package/@azure/storage-blob) | [Ejemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
+[Documentación de referencia de API](/javascript/api/@azure/storage-blob) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Paquete (administrador de paquetes de Node)](https://www.npmjs.com/package/@azure/storage-blob) | [Ejemplos](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Una cuenta de Azure Storage. [Crear una cuenta de almacenamiento](../common/storage-account-create.md).

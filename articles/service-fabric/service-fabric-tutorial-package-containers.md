@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 554590a065214c17de0acdea3207876f113b3caf
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: cc1d6e04b19d36f0ca8c7ed4b2bb3d62f5e8e15a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614033"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252750"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutorial: Empaquetamiento e implementación de contenedores como una aplicación de Service Fabric mediante Yeoman
 
@@ -25,7 +25,7 @@ Este tutorial es la segunda parte de una serie. En este tutorial, se emplea una 
 > * Implementar y ejecutar la aplicación
 > * Limpiar la aplicación
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Se usan las imágenes de contenedor insertadas en Azure Container Registry creadas en la [Parte 1](service-fabric-tutorial-create-container-images.md) de esta serie del tutorial.
 * Se [configura](service-fabric-tutorial-create-container-images.md) el entorno de desarrollo de Linux.
@@ -114,7 +114,7 @@ Para que Service Fabric extraiga las imágenes de contenedor de Azure Container 
 
 Inicie sesión en la instancia de ACR. Use el comando **az acr login** para completar la operación. Proporcione el nombre único que se especificó para el registro de contenedor cuando se creó.
 
-```bash
+```azurecli
 az acr login --name <acrName>
 ```
 
@@ -122,7 +122,7 @@ Al finalizar, el comando devuelve un mensaje que indica que el **inicio de sesi�
 
 A continuación, ejecute el siguiente comando para obtener la contraseña del registro de contenedor. Service Fabric utiliza esta contraseña para realizar la autenticación con ACR y extraer las imágenes del contenedor.
 
-```bash
+```azurecli
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
@@ -199,7 +199,7 @@ Para que Service Fabric asigne este nombre DNS al servicio back-end, el nombre t
 
 El servicio front-end lee una variable de entorno para conocer el nombre DNS de la instancia de Redis. Esta variable de entorno ya está definida en el Dockerfile que se usó para generar la imagen de Docker y no es necesario realizar ninguna acción.
 
-```Dockerfile
+```dockerfile
 ENV REDIS redisbackend.testapp
 ```
 

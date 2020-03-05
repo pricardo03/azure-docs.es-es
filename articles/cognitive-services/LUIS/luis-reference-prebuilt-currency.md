@@ -8,25 +8,25 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 5b49dcc7e999757e119c399bdf01bed7cb312e02
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 56d264fa976967ae4772f50b4aa6f58b30355d6f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73465053"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270779"
 ---
 # <a name="currency-prebuilt-entity-for-a-luis-app"></a>Entidad precompilada Currency para una aplicación de LUIS
-La entidad precompilada de moneda detecta la moneda en muchas denominaciones, países y regiones, independientemente de la referencia cultural de la aplicación de LUIS. Dado que esta entidad ya está entrenada, no es necesario agregar expresiones de ejemplo que contengan la moneda para las intenciones de la aplicación. La entidad de la moneda se admite en [muchas referencias culturales](luis-reference-prebuilt-entities.md). 
+La entidad precompilada de moneda detecta la moneda en muchas denominaciones, países y regiones, independientemente de la referencia cultural de la aplicación de LUIS. Dado que esta entidad ya está entrenada, no es necesario agregar expresiones de ejemplo que contengan la moneda para las intenciones de la aplicación. La entidad de la moneda se admite en [muchas referencias culturales](luis-reference-prebuilt-entities.md).
 
 ## <a name="types-of-currency"></a>Tipos de moneda
 La moneda se administra desde el repositorio de GitHub [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26)
 
 ## <a name="resolution-for-currency-entity"></a>Resolución de la entidad de moneda
 
-#### <a name="v3-responsetabv3"></a>[Respuesta de V3](#tab/V3)
+#### <a name="v3-response"></a>[Respuesta de V3](#tab/V3)
 
 El siguiente JSON es con el parámetro `verbose` establecido en `false`:
 
@@ -40,7 +40,7 @@ El siguiente JSON es con el parámetro `verbose` establecido en `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-responsetabv3-verbose"></a>[Respuesta detallada de V3](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[Respuesta detallada de V3](#tab/V3-verbose)
 El siguiente JSON es con el parámetro `verbose` establecido en `true`:
 
 ```json
@@ -66,7 +66,7 @@ El siguiente JSON es con el parámetro `verbose` establecido en `true`:
 }
 ```
 
-#### <a name="v2-responsetabv2"></a>[Respuesta de V2](#tab/V2)
+#### <a name="v2-response"></a>[Respuesta de V2](#tab/V2)
 
 En el siguiente ejemplo se muestra la resolución de la entidad **builtin.currency**.
 
@@ -84,10 +84,10 @@ En el siguiente ejemplo se muestra la resolución de la entidad **builtin.curren
     }
 ]
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
 
-Obtenga información acerca de las entidades [datetimeV2](luis-reference-prebuilt-datetimev2.md), [dimension](luis-reference-prebuilt-dimension.md) y [email](luis-reference-prebuilt-email.md). 
+Obtenga información acerca de las entidades [datetimeV2](luis-reference-prebuilt-datetimev2.md), [dimension](luis-reference-prebuilt-dimension.md) y [email](luis-reference-prebuilt-email.md).

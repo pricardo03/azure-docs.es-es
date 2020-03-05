@@ -6,15 +6,16 @@ author: amitbapat
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: d22231541a7fe29d4517985742d4bf88dc4c3fa7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: eac3850cfa0684bd1751cf7b88b4ff8e92667293
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980452"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197443"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Protección del acceso a un almacén de claves
 
@@ -53,8 +54,8 @@ En la siguiente tabla se muestran los puntos de conexión para los planos de adm
 
 | Plano de&nbsp;acceso | Puntos de conexión de acceso | Operaciones | Mecanismo de&nbsp;control de acceso |
 | --- | --- | --- | --- |
-| Plano de administración | **Global:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure Gobierno de EE. UU.:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemania:**<br> management.microsoftazure.de:443 | Crear, leer, actualizar y eliminar almacenes de claves<br><br>Establecer directivas de acceso de Key Vault<br><br>Establecer etiquetas de Key Vault | RBAC de Azure Resource Manager |
-| Plano de datos | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure Gobierno de EE. UU.:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Alemania:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 | Claves: descifrar, cifrar,<br> desencapsular, encapsular, verificar, firmar,<br> obtener, enumerar, actualizar, crear,<br> importar, eliminar, hacer copia de seguridad y restaurar<br><br> Secretos: obtener, enumerar, establecer y eliminar | Directiva de acceso de Key Vault |
+| Plano de administración | **Global:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Gov:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemania:**<br> management.microsoftazure.de:443 | Crear, leer, actualizar y eliminar almacenes de claves<br><br>Establecer directivas de acceso de Key Vault<br><br>Establecer etiquetas de Key Vault | RBAC de Azure Resource Manager |
+| Plano de datos | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Gov:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Alemania:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 | Claves: descifrar, cifrar,<br> desencapsular, encapsular, verificar, firmar,<br> obtener, enumerar, actualizar, crear,<br> importar, eliminar, hacer copia de seguridad y restaurar<br><br> Secretos: obtener, enumerar, establecer y eliminar | Directiva de acceso de Key Vault |
 
 ## <a name="management-plane-and-rbac"></a>Plano de administración y RBAC
 

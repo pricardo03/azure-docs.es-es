@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1d3dd0f4f1da4d3815d4d879dd13ed5882f39e8f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 46044d4c6dd65944291aff157229be0abc60d3d7
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230724"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913249"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Creación de la primera función de Azure con Java e IntelliJ
 
@@ -80,8 +80,6 @@ Maven crea los archivos del proyecto en una carpeta nueva con el mismo nombre qu
 1. Seleccione **(+)** para agregar un elemento **Remote** (Remoto).
 1. Complete los campos _Name_ (Nombre) y _Settings_ (Configuración) y, a continuación, seleccione **OK** para guardar la configuración.
 1. Después de la configuración, seleccione **Debug < Remote Configuration Name >** (Depurar <Nombre de configuración remota>) o presione MAYÚS + F9 en el teclado para iniciar la depuración.
-
-   ![Depuración de funciones en IntelliJ](media/functions-create-first-java-intellij/debug-configuration-intellij.png)
 
 1. Cuando termine, detenga el depurador y el proceso en ejecución. Solo puede haber un host de función activo y en ejecución en el entorno local a la vez.
 

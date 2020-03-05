@@ -6,12 +6,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: 106085c4c528e42d4f559b92585be2f4e0a2f98a
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: a4fbba65af5afbd27a3fd2c7d41858e33b4d812c
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77498661"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163886"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Inicio rápido: Adición de marcas de características a una aplicación web de ASP.NET Core
 
@@ -91,7 +91,7 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
 
     ```dotnetcli
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
-    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 2.0.0-preview-010610001-1263
+    dotnet add package Microsoft.FeatureManagement.AspNetCore
     ```
 
 1. Ejecute el siguiente comando para restaurar los paquetes para el proyecto:

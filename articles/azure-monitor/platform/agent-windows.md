@@ -1,18 +1,17 @@
 ---
 title: Conexión de equipos Windows a Azure Monitor | Microsoft Docs
 description: En este artículo se describe la manera de conectar equipos Windows hospedados en otras nubes o de forma local en Azure Monitor mediante el agente de Log Analytics de Windows.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 8918c18c9356c583b9ea23138f0d0a0fb4dcd845
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 21efb16cf519d4bcad520af1c7d8818f36a77218
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689990"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668645"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Conexión de equipos Windows a Azure Monitor
 
@@ -36,7 +35,7 @@ Si tiene que configurar el agente para que informe a varias áreas de trabajo, e
 Para comprender la configuración compatible, revise los [sistemas operativos Windows admitidos](log-analytics-agent.md#supported-windows-operating-systems) y la [configuración del firewall de red](log-analytics-agent.md#network-firewall-requirements).
 
 ## <a name="obtain-workspace-id-and-key"></a>Obtención de la clave y el identificador de área de trabajo
-Antes de instalar el agente Log Analytics para Windows, necesita la clave y el identificador de área de trabajo para el área de trabajo de Log Analytics.  Esta información es necesaria durante la configuración de cada método de instalación para configurar de forma correcta el agente y garantizar que puede comunicarse correctamente con Azure Monitor en la nube Gobierno de EE. UU. y comercial de Azure. 
+Antes de instalar el agente Log Analytics para Windows, necesita la clave y el identificador de área de trabajo para el área de trabajo de Log Analytics.  Esta información es necesaria durante la configuración de cada método de instalación para configurar de forma correcta el agente y garantizar que puede comunicarse correctamente con Azure Monitor en la nube US Gov y comercial de Azure. 
 
 1. En Azure Portal, busque y seleccione **Áreas de trabajo de Log Analytics**.
 2. En la lista de áreas de trabajo de Log Analytics, seleccione el área de trabajo que quiera configurar para informar al agente.
@@ -77,7 +76,7 @@ Los siguientes pasos permiten la instalación y configuración del agente de Log
 4. En la página e **Carpeta de destino**, cambie o mantenga la carpeta de instalación predeterminada y haga clic en **Siguiente**.
 5. En la página **Opciones de instalación del agente**, elija la opción para conectar el agente a Azure Log Analytics y luego haga clic en **Siguiente**.   
 6. En la página **Azure Log Analytics**, realice lo siguiente:
-   1. Pegue el **Id. del área de trabajo** y la **clave del área de trabajo (clave principal)** que copió anteriormente.  Si el equipo tiene que notificar a un área de trabajo de Log Analytics en Azure Government Cloud, seleccione **Azure Gobierno de EE.UU.** desde la lista desplegable **Azure Cloud**.  
+   1. Pegue el **Id. del área de trabajo** y la **clave del área de trabajo (clave principal)** que copió anteriormente.  Si el equipo tiene que notificar a un área de trabajo de Log Analytics en Azure Government Cloud, seleccione **Azure US Gov** desde la lista desplegable **Azure Cloud**.  
    2. Si el equipo necesita comunicarse a través de un servidor proxy con el servicio de Log Analytics, haga clic en **Avanzado** y proporcione la dirección URL y el número de puerto del servidor proxy.  Si el servidor proxy requiere autenticación, escriba el nombre de usuario y la contraseña para autenticar con el servidor proxy y, luego, haga clic en **Siguiente**.  
 7. Haga clic en **Siguiente** cuando haya terminado de proporcionar las opciones de configuración necesarias.<br><br> ![pegar identificador del área de trabajo y clave principal](media/agent-windows/log-analytics-mma-setup-laworkspace.png)<br><br>
 8. En la página **Preparado para instalar**, revise las opciones seleccionadas y haga clic en **Instalar**.

@@ -7,12 +7,12 @@ ms.date: 12/4/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 2bbd66257e1ccd81f1dac7d775b4dd6ccc39189a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9cfedd322db721156584844e949724ab2d104968
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358774"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199808"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para Java
 
@@ -22,14 +22,14 @@ Use la biblioteca cliente de Azure Queue Storage v12 para Java para realizar lo
 
 * Creación de una cola
 * Adición de mensajes a una cola
-* Visualización de los mensajes de una cola
+* Lectura de los mensajes de una cola
 * Eliminación de un mensaje de una cola
 * Recepción y eliminación de mensajes de una cola
 * Eliminación de una cola
 
-[Documentación de referencia de la API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue) | [Paquete (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Ejemplos](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples)
+[Documentación de referencia de la API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue) | [Paquete (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Ejemplos](https://docs.microsoft.com/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * [Kit de desarrollo de Java (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable), versión 8 o posterior
 * [Apache Maven](https://maven.apache.org/download.cgi)
@@ -167,7 +167,7 @@ Estos fragmentos de código de ejemplo muestran cómo realizar las siguientes ac
 * [Obtención de la cadena de conexión](#get-the-connection-string)
 * [Creación de una cola](#create-a-queue)
 * [Adición de mensajes a una cola](#add-messages-to-a-queue)
-* [Visualización de los mensajes de una cola](#peek-at-messages -in-a-queue)
+* [Leer los mensajes de una cola](#peek-at-messages -in-a-queue)
 * [Eliminación de un mensaje de una cola](#update-a-message-in-a-queue)
 * [Recepción y eliminación de mensajes de una cola](#receive-and-delete-messages-from-a-queue)
 * [Eliminación de una cola](#delete-a-queue)

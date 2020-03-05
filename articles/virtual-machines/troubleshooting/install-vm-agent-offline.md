@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 438143d3253f1cab1afb958a90f427dcba59a98e
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 8ea85b560f35c79b3d5066d794f587345810b5d0
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059248"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920865"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Instalación del agente de máquina virtual de Azure en modo sin conexión 
 
@@ -37,7 +37,7 @@ Use los pasos siguientes para instalar al agente de máquina virtual en modo sin
 
 ### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Paso 1: Asociación del disco del sistema operativo de la máquina virtual a otra máquina virtual como disco de datos
 
-1. Realice una instantánea del disco del sistema operativo de la máquina virtual afectada, cree un disco a partir de la instantánea y, a continuación, conecte el disco a una máquina virtual de solución de problemas. Para obtener más información, consulte [Solución de problemas de una máquina virtual Windows mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante Azure Portal](troubleshoot-recovery-disks-portal-windows.md). Para la máquina virtual clásica, elimine la máquina virtual y conserve el disco del sistema operativo y, a continuación, conecte el disco del sistema operativo a la máquina virtual de solución de problemas.
+1. Realice una instantánea del disco del sistema operativo de la máquina virtual afectada, cree un disco a partir de la instantánea y, a continuación, conecte el disco a una máquina virtual de solución de problemas. Para más información, consulte [Solución de problemas de una máquina virtual Windows mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante Azure Portal](troubleshoot-recovery-disks-portal-windows.md). Para la máquina virtual clásica, elimine la máquina virtual y conserve el disco del sistema operativo y, a continuación, conecte el disco del sistema operativo a la máquina virtual de solución de problemas.
 
 2.  Conéctese a la máquina virtual de solucionador de problemas. Abra **Administración de equipos** > **Administración de discos**. Confirme que el disco del sistema operativo está en línea y que las letras de unidad están asignadas a las particiones de disco.
 
@@ -66,7 +66,7 @@ Use los pasos siguientes para instalar al agente de máquina virtual en modo sin
         - HKEY_LOCAL_MACHINE\BROKENSYSTEM\\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\RdAgent
 
-8.  Use los archivos existentes en la maquina virtual de solucionador de problemas como repositorio para la instalación del agente de máquina virtual. Complete los siguientes pasos:
+8.  Use los archivos existentes en la maquina virtual de solucionador de problemas como repositorio para la instalación del agente de máquina virtual. Complete los pasos siguientes:
 
     1. En la máquina virtual de solucionador de problemas, exporte las siguientes subclaves en el formato del Registro (. reg): 
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
@@ -105,6 +105,8 @@ Use los pasos siguientes para instalar al agente de máquina virtual en modo sin
 Si ha creado la máquina virtual mediante el modelo de implementación de Resource Manager, ya ha terminado.
 
 ### <a name="use-the-provisionguestagent-property-for-classic-vms"></a>Utilice la propiedad ProvisionGuestAgent para las máquinas virtuales clásicas
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 Si ha creado la VM mediante el modelo clásico, use el módulo de Azure PowerShell para actualizar la propiedad **ProvisionGuestAgent**. La propiedad informa a Azure de que la máquina virtual tiene instalado el agente de máquina virtual.
 

@@ -1,19 +1,15 @@
 ---
 title: Supervisar el estado y el uso de su aplicación con Application Insights
 description: Introducción a Application Insights. Analice el uso, la disponibilidad y el rendimiento de sus aplicaciones web de Microsoft Azure o local.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: ebf6fa6d3dac6c63dfaa349a77a08bc81d402ef8
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e398f23559729580ae4ad8b6507c2f09328052b5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899294"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670906"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Supervisar el rendimiento de aplicaciones web
 
@@ -57,7 +53,7 @@ Las solicitudes HTTP incluyen todas las solicitudes GET o POST de páginas, dato
 
 Haga clic en el mosaico para obtener las cuentas de URL específicas.
 
-### <a name="average-response-time"></a>Tiempo de respuesta promedio
+### <a name="average-response-time"></a>Tiempo medio de respuesta
 Mide el tiempo entre la entrada de una solicitud web y la devolución de la respuesta correspondiente.
 
 Los puntos muestran una media móvil. Si hay muchas solicitudes, es posible que algunas de ellas se desvíen de la media sin que en el gráfico se muestre ningún pico o descenso evidente.

@@ -7,14 +7,14 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 12/04/2019
+ms.date: 02/26/2020
 ms.author: tamram
-ms.openlocfilehash: c5d32b91043d310e51143357ad51631463f7e991
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 4cc58838827d1ee9337216d9ccb56696735ead7e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892505"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664259"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante PowerShell
 
@@ -22,7 +22,7 @@ Use el módulo de Azure PowerShell para crear y administrar los recursos de Azur
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para acceder a Azure Storage, necesitará una suscripción de Azure. Si todavía no tiene una suscripción, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -97,16 +97,13 @@ Get-AzStorageBlobContent -Blob "Image002.png" `
 
 ## <a name="data-transfer-with-azcopy"></a>Transferencia de datos con AzCopy
 
-La utilidad [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) es otra opción para la transferencia de datos que permite ejecutar scripts de alto rendimiento para Azure Storage. Use AzCopy para transferir datos a y desde Blob Storage, File Storage y Table Storage.
+La utilidad de línea de comandos AzCopy ofrece transferencia de datos de alto rendimiento mediante scripts para Azure Storage. Puede utilizar AzCopy para transferir datos a y desde Blob Storage y Azure Files. Para más información sobre AzCopy v10, la versión más reciente de AzCopy, consulte [Introducción a AzCopy](../common/storage-use-azcopy-v10.md). Para más información acerca del uso de AzCopy v10 con el almacenamiento de blobs, consulte [Transferencia de datos con AzCopy y Blob Storage](../common/storage-use-azcopy-blobs.md).
 
-A modo de un ejemplo rápido, aquí está el comando de AzCopy para cargar un archivo denominado *myfile.txt* al contenedor *mystoragecontainer* desde dentro de una ventana de PowerShell.
+En el ejemplo siguiente se usa AzCopy para cargar un archivo local en un blob. No olvide reemplazar los valores de ejemplo por sus propios valores:
 
 ```powershell
-./AzCopy `
-    /Source:C:\myfolder `
-    /Dest:https://mystorageaccount.blob.core.windows.net/mystoragecontainer `
-    /DestKey:<storage-account-access-key> `
-    /Pattern:"myfile.txt"
+azcopy login
+azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'
 ```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
@@ -128,6 +125,6 @@ En esta guía de inicio rápido, transfirió archivos entre un disco local y Azu
 
 * [Cmdlets de PowerShell de almacenamiento](/powershell/module/az.storage)
 
-### <a name="microsoft-azure-storage-explorer"></a>Explorador de almacenamiento de Microsoft Azure
+### <a name="microsoft-azure-storage-explorer"></a>Explorador de Microsoft Azure Storage
 
 * El [Explorador de Microsoft Azure Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Azure Storage en Windows, macOS y Linux.

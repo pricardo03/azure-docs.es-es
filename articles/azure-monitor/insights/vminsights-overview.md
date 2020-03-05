@@ -1,18 +1,17 @@
 ---
 title: ¿Qué es Azure Monitor para VM (versión preliminar)? | Microsoft Docs
 description: Información general de Azure Monitor para VM, que se encarga de supervisar el estado y el rendimiento de las máquinas virtuales de Azure, además de detectar y asignar automáticamente los componentes de la aplicación y sus dependencias.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/14/2019
-ms.openlocfilehash: 17aa81c626c1bfa8a8a344552b7a0fe61dd85a7e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1dcce3ab9f975fcf5910c382df3489d5d4ed425a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365791"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670674"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>¿Qué es Azure Monitor para VM (versión preliminar)?
 

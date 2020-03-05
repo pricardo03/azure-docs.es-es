@@ -1,20 +1,20 @@
 ---
-author: mmacy
+author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
-ms.author: marsma
-ms.openlocfilehash: 0ab9302909f86ff4559ece217f8d702710733691
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: mimart
+ms.openlocfilehash: 31d4b65c6cd6a3dfe3cb779022329f338436c69b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75368015"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184370"
 ---
 Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la experiencia **Aplicaciones** actual o la nueva experiencia **Registros de aplicaciones (versión preliminar)** unificada. [Más información acerca de la nueva experiencia](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
+#### <a name="applications"></a>[Aplicaciones](#tab/applications/)
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
@@ -27,7 +27,7 @@ Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la e
 1. Seleccione **Crear**.
 1. Anote el **identificador de aplicación** que aparece en la página de información general **Aplicación registrada**. Se usará este valor en un paso posterior.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.

@@ -1,18 +1,15 @@
 ---
 title: Servicios y esquemas admitidos de los registros de recursos de Azure
 description: Conozca el esquema de los eventos y servicios admitidos para los registros de recurso de Azure.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
-author: rboucher
-ms.author: robb
-ms.openlocfilehash: 044c453152d44420d5e78855751a2680698e89f3
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: de102c5dc4104aafc44b87b14aeea0b30cb7c083
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76120152"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670396"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Servicios, esquemas y categorías admitidos en los registros de recursos de Azure
 

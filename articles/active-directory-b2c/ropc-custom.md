@@ -3,20 +3,20 @@ title: Configuración del flujo de credenciales de contraseña del propietario d
 titleSuffix: Azure AD B2C
 description: Aprenda a configurar el flujo de credenciales de contraseña del propietario del recurso (ROPC) mediante el uso de directivas personalizadas en Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: marsma
+ms.date: 02/27/2020
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 95601735064451a91530907e5e6b59f579ff0e28
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 55b4750d2c601a4d3c66bcd8235a9718d6daaf9d
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840271"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187018"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configure el flujo de credenciales de contraseña de propietario del recurso en Azure Active Directory B2C con una directiva personalizada.
 
@@ -24,19 +24,9 @@ ms.locfileid: "76840271"
 
 En Azure Active Directory B2C (Azure AD B2C), el flujo de las credenciales de contraseña de propietario del recurso (ROPC) es un flujo de autenticación estándar de OAuth. En este flujo, una aplicación (que también se conoce como usuario de confianza), intercambia credenciales válidas por tokens. En las credenciales, se incluye un identificador de usuario y una contraseña. Los tokens devueltos son un token de identificador, un token de acceso y un token de actualización.
 
-Las opciones siguientes se admiten en el flujo de ROPC:
+[!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
-- **Cliente nativo**: la interacción del usuario durante la autenticación se produce cuando se ejecuta el código en un dispositivo en el lado del usuario.
-- **Flujo de cliente público**: en la llamada API, solo se envían credenciales de usuario recopiladas por una aplicación. No se envían las credenciales de la aplicación.
-- **Add new claims (Agregar nuevas notificaciones)** : se puede cambiar el contenido del token de identificador para agregar nuevas notificaciones.
-
-No se admiten los siguientes flujos:
-
-- **Entre servidores**: el sistema de protección de identidades necesita una dirección IP de confianza que recopile el autor de la llamada (el cliente nativo) como parte de la interacción. En una llamada API del lado servidor, se utiliza sólo la dirección IP del servidor. Si se producen demasiados errores de inicios de sesión, el sistema de protección de identidades puede tratar de identificar una dirección IP repetida como un atacante.
-- **Aplicación de página única**: una aplicación de front-end que se escribe principalmente en JavaScript. A menudo, la aplicación se escribe con un marco como AngularJS, Ember.js o Durandal.
-- **Flujo de cliente confidencial**: se valida el identificador de cliente de la aplicación, pero no el secreto de aplicación.
-
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Siga los pasos de [Introducción a las directivas personalizadas en Azure Active Directory B2C](custom-policy-get-started.md).
 

@@ -1,18 +1,17 @@
 ---
 title: 'Conectividad de servicio de la solución Monitor de rendimiento de red: Azure Log Analytics'
 description: Use la funcionalidad del Monitor de conectividad de servicio en Network Performance Monitor para supervisar la conectividad de red con cualquier punto de conexión que tenga un puerto TCP abierto.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 11975a86b5d9135b42dd51bdd787c2f76cabe259
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 93f3820b7cf1db85b9ff4cd514fe22efc75a90d9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551512"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654552"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de conectividad de servicio
 
@@ -122,8 +121,8 @@ Si observa un comportamiento anormal, siga estos pasos:
 
 * Si la aplicación se ejecuta demasiado lento, determine si el rendimiento de una aplicación es deficiente debido a la red o a un problema en el extremo del proveedor de la aplicación.
 
-## <a name="gcc-office-urls-for-us-government-customers"></a>Direcciones URL de Office para GCC para los clientes del gobierno de Estados Unidos
-En la región de Virginia del gobierno de Estados Unidos, solo las direcciones de DOD están incorporadas en el NPM. Los clientes que usen las direcciones URL de GCC deben crear pruebas personalizadas y agregar individualmente cada dirección URL.
+## <a name="gcc-office-urls-for-us-government-customers"></a>Direcciones URL de Office para GCC para los clientes del US Gov
+En la región de Virginia del US Gov, solo las direcciones de DOD están incorporadas en el NPM. Los clientes que usen las direcciones URL de GCC deben crear pruebas personalizadas y agregar individualmente cada dirección URL.
 
 | Campo | GCC |
 |:---   |:--- |

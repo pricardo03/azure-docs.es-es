@@ -1,18 +1,15 @@
 ---
 title: Esquema de alertas comunes para las alertas de supervisión de Azure
 description: Descripción del esquema de alertas comunes, por qué debería usarlo y cómo habilitarlo
-ms.service: azure-monitor
-ms.subservice: alerts
 ms.topic: conceptual
-author: anantr
-ms.author: robb
+ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: ff5c0d96bd4bc87f36a69ca7e8014e118ac7b7bf
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 1445e8cf38b2694146fc8749ba5e77f2297de969
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552458"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668186"
 ---
 # <a name="common-alert-schema"></a>Esquema de alertas comunes
 
@@ -20,7 +17,7 @@ Este artículo describe qué es el esquema de alertas comunes, las ventajas de u
 
 ## <a name="what-is-the-common-alert-schema"></a>¿Qué es el esquema de alertas comunes?
 
-El esquema de alertas comunes estandariza hoy en día la experiencia de consumo para las notificaciones de alerta en Azure. Históricamente, los tres tipos de alerta en Azure actuales (métrica, registro y registro de actividad) han tenido sus propias plantillas de correo electrónico, esquemas de webhook, etc. Con el esquema de alerta comunes, ahora puede recibir notificaciones de alertas con un esquema coherente.
+Actualmente, el esquema de alerta común normaliza la experiencia de consumo de notificaciones de alerta en Azure. Históricamente, los tres tipos de alerta de Azure (métrica, registro y registro de actividad) han tenido sus propias plantillas de correo electrónico, esquemas de webhook, etc. Con el esquema de alerta comunes, ahora puede recibir notificaciones de alertas con un esquema coherente.
 
 Cualquier instancia de alerta describe **el recurso que resultó afectado** y **la causa de la alerta**, y estas instancias se describen en el esquema común en las secciones siguientes:
 * **Información esencial**: Un conjunto de **campos estandarizados** común a todos los tipos de alertas, que describen en **qué recurso** se encuentra la alerta junto con otros metadatos de alerta comunes (por ejemplo, gravedad o descripción). 
@@ -34,7 +31,7 @@ Esto significa que puede tener potencialmente menos integraciones, con lo que el
 
 El esquema de alertas comunes se manifestará principalmente en las notificaciones de alertas. Las mejoras que verá son las siguientes:
 
-| . | Mejoras|
+| Acción | Mejoras|
 |:---|:---|
 | sms | Una plantilla SMS coherente para todos los tipos de alerta. |
 | Email | Una plantilla de correo electrónico detallada y coherente, que le permite diagnosticar fácilmente los problemas de un vistazo. Vínculos profundos insertados en la instancia de alerta en el portal y los recursos afectados garantizan que pueda pasar rápidamente al proceso de corrección. |

@@ -119,8 +119,6 @@
       items:
         - name: Migración a Azure File Sync
           href: storage-sync-offline-data-transfer.md
-        - name: Migración a Azure File Sync desde StorSimple
-          href: storage-sync-files-storsimple-migration.md
         - name: "Guía de migración de StorSimple\_8100 y 8600"
           href: storage-files-migration-storsimple-8000.md
         - name: "Guía de migración de StorSimple\_1200"

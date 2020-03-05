@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/19/2019
+ms.date: 03/03/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: eb9231a84295240c20e34bfad56f406317c107da
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 1003b862d7fbe19545cf705570866479132c1f03
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845490"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273171"
 ---
 ::: zone target="chromeless"
 
@@ -34,7 +34,7 @@ En este tutorial, aprenderá a:
 > * Envío de Data Box Disk a Microsoft
 > * Recogida de Data Box Disk en distintas regiones
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar, asegúrese de que ha completado [Tutorial: Copia de datos a Azure Data Box Disk y comprobación de los mismos](data-box-disk-deploy-copy-data.md).
 
@@ -51,7 +51,7 @@ Antes de comenzar, asegúrese de que ha completado [Tutorial: Copia de datos a A
 
 Los siguientes pasos vienen determinados por el lugar al que se vaya a devolver el dispositivo. Las instrucciones son diferentes para EE. UU. o Canadá, Unión Europea (UE), Australia o países de Asia.
 
-### <a name="in-us-or-canadatabin-us-or-canada"></a>[En Estados Unidos o Canadá](#tab/in-us-or-canada)
+### <a name="in-us-or-canada"></a>[En Estados Unidos o Canadá](#tab/in-us-or-canada)
 
 Realice los pasos siguientes si va a devolver el dispositivo en Estados Unidos o Canadá.
 
@@ -67,7 +67,7 @@ Realice los pasos siguientes si va a devolver el dispositivo en Estados Unidos o
     - Si no se indica el número de seguimiento, UPS solicitará que el abono de una cantidad adicional en la recogida.
     - En lugar de programar la recogida, también puede devolver la instancia de Data Box Disk en el punto de recogida más cercano.
 
-### <a name="in-europetabin-europe"></a>[En Europa](#tab/in-europe)
+### <a name="in-europe"></a>[En Europa](#tab/in-europe)
 
 Realice los pasos siguientes si va a devolver el dispositivo en Europa.
 
@@ -80,7 +80,7 @@ Realice los pasos siguientes si va a devolver el dispositivo en Europa.
 4. Visite el sitio Web de DHL Express del país o región y elija **Book a Courier Collection > eReturn Shipment** (Reservar una colección Courier > Envío eReturn).    
 3. Especifique el número de factura de porte aéreo y haga clic en **Schedule Pickup** (Programar la recogida) para organizar la recogida.
 
-### <a name="in-australiatabin-australia"></a>[En Australia](#tab/in-australia)
+### <a name="in-australia"></a>[En Australia](#tab/in-australia)
 
 Los centros de datos de Azure en Australia tienen una notificación de seguridad adicional. Todos los envíos entrantes deben tener una notificación avanzada. Realice los pasos siguientes para la recogida en Australia.
 
@@ -88,7 +88,7 @@ Los centros de datos de Azure en Australia tienen una notificación de seguridad
 3. Pegue la etiqueta en la caja. 
 4. Utilice el vínculo https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference para reservar en línea una recogida. 
 
-### <a name="in-japantabin-japan"></a>[En Japón](#tab/in-japan)
+### <a name="in-japan"></a>[En Japón](#tab/in-japan)
 
 1. Escriba el nombre y la dirección de la empresa en la nota de entrega como información del remitente.
 2. Envíe un correo electrónico a Quantium Solutions mediante la plantilla de correo electrónico que tiene a continuación.
@@ -115,7 +115,7 @@ Si es necesario, puede ponerse en contacto con el soporte técnico de Quantium S
 - Correo electrónico: Customerservice.JP@quantiumsolutions.com 
 - Teléfono：03-5755-0150 
 
-### <a name="in-koreatabin-korea"></a>[En Corea](#tab/in-korea)
+### <a name="in-korea"></a>[En Corea](#tab/in-korea)
 
 1. Asegúrese de incluir la nota de entrega de la devolución.
 2. Para solicitar la recogida con la nota de entrega:
@@ -130,7 +130,7 @@ Si es necesario, puede ponerse en contacto con el soporte técnico de Quantium S
     4. Recibirá una confirmación verbal si la solicitud se realiza por teléfono.
 
 
-### <a name="in-singaporetabin-singapore"></a>[En Singapur](#tab/in-singapore)
+### <a name="in-singapore"></a>[En Singapur](#tab/in-singapore)
 
 1. Imprima la etiqueta de envío y colóquela en la caja. Si la etiqueta se daña o se pierde:
     - Vaya a **Información general > Descargar la etiqueta de envío** y obtenga una etiqueta de envío de devolución.
@@ -157,7 +157,7 @@ Si es necesario, puede ponerse en contacto con el soporte técnico de Quantium S
 
 3. Realice la entrega al mensajero.
 
-### <a name="in-self-managedtabin-selfmanaged"></a>[En entorno autoadministrado](#tab/in-selfmanaged)
+### <a name="in-self-managed"></a>[En entorno autoadministrado](#tab/in-selfmanaged)
 
 Si usa Data Box Disk en Japón, Singapur, Corea y Europa Occidental, y ha seleccionado la opción de envío autoadministrada durante la creación del pedido, siga estas instrucciones. 
 
@@ -175,8 +175,6 @@ Si usa Data Box Disk en Japón, Singapur, Corea y Europa Occidental, y ha selecc
 3. El equipo de operaciones de Azure Data Box trabajará con usted para organizar la devolución en el centro de datos de Azure.
 
 ::: zone target="docs"
-
----
 
 ## <a name="next-steps"></a>Pasos siguientes
 

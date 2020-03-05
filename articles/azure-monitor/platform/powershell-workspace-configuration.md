@@ -1,18 +1,17 @@
 ---
 title: Uso de PowerShell para crear y configurar un área de trabajo de Log Analytics | Microsoft Docs
 description: Las áreas de trabajo de Log Analytics en Azure Monitor almacenan datos de servidores en su infraestructura local o en la nube. Puede recopilar datos de equipo del almacenamiento de Azure cuando son generados por Diagnósticos de Azure.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/19/2019
-ms.openlocfilehash: 68cd0d51c16ecd63a1446c284f81c5dea07b8c06
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6f3f21a7148c59de452d6407fd9a1067b86faae4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363547"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659312"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Administre el área de trabajo de Log Analytics en Azure Monitor con PowerShell
 
@@ -37,7 +36,7 @@ Este artículo proporciona dos ejemplos de código que muestran algunas de las f
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Estos ejemplos funcionan con la versión 1.0.0 o posterior del módulo Az.OperationalInsights.
 
 

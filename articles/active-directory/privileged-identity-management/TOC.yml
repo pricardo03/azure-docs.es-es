@@ -83,7 +83,7 @@
           href: pim-resource-roles-configure-role-settings.md
         - name: Configurar alertas
           href: pim-resource-roles-configure-alerts.md
-        - name: Ver historial de actividades y de auditorías
+        - name: Visualización del historial de auditoría
           href: azure-pim-resource-rbac.md
         - name: Uso de roles personalizados
           href: pim-resource-roles-custom-role-policy.md

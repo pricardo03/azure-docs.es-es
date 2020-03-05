@@ -7,12 +7,12 @@ ms.date: 08/23/2019
 ms.custom: seodec18
 experimental: false
 experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: c02caf7c70dfe88bd3312742fce08137bc360a2e
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 585eb1f11a285722e34c6dd084f4c6cb26a06249
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671418"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247616"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Creación de una aplicación web de Node.js en Azure
 
@@ -34,7 +34,7 @@ Estos pasos se pueden realizar en este caso con una máquina Mac, Windows o Linu
 
 En Cloud Shell, cree un directorio de inicio rápido y luego cambie a él.
 
-```azurecli-interactive
+```console
 mkdir quickstart
 
 cd $HOME/quickstart
@@ -42,13 +42,13 @@ cd $HOME/quickstart
 
 A continuación, ejecute el comando siguiente para clonar el repositorio de la aplicación de ejemplo en el directorio de inicio rápido.
 
-```azurecli-interactive
+```console
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 ```
 
 Durante la ejecución, muestra información similar a la del ejemplo siguiente:
 
-```bash
+```output
 Cloning into 'nodejs-docs-hello-world'...
 remote: Counting objects: 40, done.
 remote: Total 40 (delta 0), reused 0 (delta 0), pack-reused 40
@@ -102,7 +102,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 
 Vaya a la aplicación web recién creada. Reemplace `<app_name>` por un nombre de aplicación único.
 
-```
+```http
 http://<app_name>.azurewebsites.net
 ```
 
@@ -112,7 +112,7 @@ Este es el aspecto que debería tener su nueva aplicación web: ![Página de la 
 
 En Cloud Shell, desplácese al directorio raíz de la aplicación y cree un nuevo archivo ZIP para el proyecto de muestra.
 
-```azurecli-interactive
+```console
 cd nodejs-docs-hello-world  
 
 zip -r myUpdatedAppFiles.zip *.*
@@ -130,7 +130,7 @@ Este comando implementa los archivos y directorios del archivo ZIP en la carpeta
 
 Vaya a la aplicación implementada mediante el explorador web.
 
-```
+```http
 http://<app_name>.azurewebsites.net
 ```
 

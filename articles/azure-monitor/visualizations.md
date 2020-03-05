@@ -1,18 +1,17 @@
 ---
 title: Visualizar datos de Azure Monitor | Microsoft Docs
 description: Proporciona un resumen de los métodos disponibles para visualizar los datos de métricas y de registro almacenados en Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/24/2018
-ms.openlocfilehash: c350cb1f8e7343f6d8e7a416aa0bba71388eaa86
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 7bace6ff6eb7dd1c02e4907e338fc0be9d66471c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597830"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657816"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizar datos de Azure Monitor
 En este artículo se proporciona un resumen de los métodos disponibles para visualizar los datos de métricas y de registro almacenados en Azure Monitor.
@@ -24,7 +23,7 @@ Visualizaciones como gráficos y diagramas pueden ayudarlo a analizar los datos 
 ## <a name="azure-dashboards"></a>Paneles de Azure
 Los [paneles de Azure](../azure-portal/azure-portal-dashboards.md) son la tecnología de panel principal de Azure. Son especialmente útiles para proporcionar una hoja de cristal sobre su infraestructura de Azure y servicios, lo que permite identificar rápidamente problemas importantes.
 
-![panel](media/visualizations/dashboard.png)
+![Panel](media/visualizations/dashboard.png)
 
 ### <a name="advantages"></a>Ventajas
 - Integración profunda en Azure. Las visualizaciones se pueden anclar a paneles desde varias páginas de Azure, que incluyen el Explorador de métricas, Log Analytics y Application Insights.
@@ -127,7 +126,7 @@ Puede tener acceso a datos de métricas y de registro en Azure Monitor mediante 
 - Flexibilidad completa en cuanto a interfaz de usuario, visualización, interactividad y características.
 - Combine las métricas y los datos de registro con otros orígenes de datos.
 
-### <a name="disadvantages"></a>Desventajas
+### <a name="disadvantages"></a>Inconvenientes
 - Se requiere un trabajo de ingeniería importante.
 
 

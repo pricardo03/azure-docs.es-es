@@ -3,20 +3,20 @@ title: 'Tutorial: Registro de una aplicación'
 titleSuffix: Azure AD B2C
 description: Aprenda a registrar una aplicación web en Azure Active Directory B2C con Azure Portal.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 10/16/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dbb689182a45367061ae129304a98a8ee9962051
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: a688f5e75f7513d0ea4308b751f87f75a2c9510a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840118"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183098"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Tutorial: Registro de una aplicación en Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ En este artículo aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si aún no ha creado su propio [inquilino de Azure AD B2C](tutorial-create-tenant.md), cree una ahora. Puede usar un inquilino de Azure AD B2C existente.
 
@@ -38,7 +38,7 @@ Si aún no ha creado su propio [inquilino de Azure AD B2C](tutorial-create-tenan
 
 Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la experiencia **Aplicaciones** actual o la nueva experiencia **Registros de aplicaciones (versión preliminar)** unificada. [Más información acerca de la nueva experiencia](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
+#### <a name="applications"></a>[Aplicaciones](#tab/applications/)
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
@@ -57,7 +57,7 @@ Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la e
 
 1. Seleccione **Crear** para completar el registro de la aplicación.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
@@ -90,13 +90,13 @@ Una vez completado el registro de la aplicación, habilite el flujo de concesió
 
 Si la aplicación intercambia un código de autorización para un token de acceso, debe crear un secreto de aplicación.
 
-#### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
+#### <a name="applications"></a>[Aplicaciones](#tab/applications/)
 
 1. En la página de **aplicaciones de Azure AD B2C**, seleccione la aplicación que ha creado, por ejemplo, *webapp1*.
 1. Seleccione **Claves** y haga clic en **Generar clave**.
 1. Seleccione **Guardar** para ver la clave. Anote el valor de la **Clave de la aplicación**. Use este valor como secreto de aplicación en el código de la aplicación.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
 
 1. En la página **Azure AD B2 - Registros de aplicaciones (versión preliminar)** , seleccione la aplicación que ha creado, por ejemplo, *webapp1*.
 1. En **Administrar**, seleccione **Certificados y secretos**.

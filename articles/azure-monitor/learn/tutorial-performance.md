@@ -1,19 +1,18 @@
 ---
 title: Diagnóstico de problemas de rendimiento mediante Azure Application Insights | Microsoft Docs
 description: Tutorial para buscar y diagnosticar problemas de rendimiento en un aplicación mediante Azure Application Insights.
-ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/13/2019
 ms.custom: mvc
-ms.openlocfilehash: f9074a004683393df18d621a679fbb7378dc6704
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 98d7c1552a7b1f2b02ae4df1cad24e20f7ac76e1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75398634"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661573"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Búsqueda y diagnóstico de problemas de rendimiento con Azure Application Insights
 
@@ -26,7 +25,7 @@ Azure Application Insights recopila datos de telemetría de cualquier aplicació
 > * Analizar los detalles de las vistas de página mediante el lenguaje de consulta
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial:
 

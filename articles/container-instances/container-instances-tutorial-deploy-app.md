@@ -4,12 +4,12 @@ description: 'Tutorial de Azure Container Instances, parte 3 de 3: implementaci�
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: d3cbf16feea299e320cf7e24092d00e93cb7cf5b
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 757b41bd69d69deb901e3b5b9a633dce3b9e133a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533361"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249969"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Tutorial: Implementación de una aplicación de contenedor en Azure Container Instances
 
@@ -66,13 +66,12 @@ Repita el comando [az container show][az-container-show] hasta que el estado cam
 
 Cuando se complete correctamente la implementación, utilice el comando [az container show][az-container-show] para mostrar el nombre de dominio completo (FQDN) del contenedor con el comando:
 
-```bash
+```azurecli
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
 Por ejemplo:
-```console
-$ az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
+```output
 "aci-demo.eastus.azurecontainer.io"
 ```
 
@@ -88,8 +87,7 @@ az container logs --resource-group myResourceGroup --name aci-tutorial-app
 
 Salida de ejemplo:
 
-```bash
-$ az container logs --resource-group myResourceGroup --name aci-tutorial-app
+```output
 listening on port 80
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"

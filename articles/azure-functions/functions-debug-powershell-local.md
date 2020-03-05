@@ -6,18 +6,16 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 36d15858e1fb535189891303a89b00021027f1e8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 133e89bd9187ae5e48fa208b407678760d31adfd
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227033"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163767"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Depuración local de Azure Functions de PowerShell
 
 Azure Functions le permite desarrollar sus funciones como scripts de PowerShell.
-
-[!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
 Puede depurar las funciones de PowerShell de forma local como lo haría con cualquier script de PowerShell con las siguientes herramientas de desarrollo estándar:
 
@@ -108,7 +106,7 @@ PowerShell Core se instala en paralelo con Windows PowerShell. Establezca PowerS
 
 1. Presione F1 para mostrar la paleta de comandos y luego busque `Session`.
 
-1. Elija **PowerShell: Show Session Menu** (Mostrar menú de sesiones).
+1. Elija **PowerShell: Show Session Menu** (PowerShell: Mostrar menú de sesión).
 
 1. Si su **sesión actual** no es **PowerShell Core 6**, elija **Cambiar a: PowerShell Core 6**.
 

@@ -3,12 +3,12 @@ title: Habilitación del cifrado de discos para clústeres de Windows
 description: En este artículo se describe cómo habilitar el cifrado de disco para los nodos de un clúster de Azure Service Fabric mediante Azure Key Vault en Azure Resource Manager.
 ms.topic: article
 ms.date: 03/22/2019
-ms.openlocfilehash: 24405c3c34bfd7b88932101c42a8d0fc96c90fa1
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: b08cdb63aa6f334c5a6f7c230b1624d232206c3b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614458"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251814"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-windows"></a>Habilitación del cifrado de disco para nodos de clústeres de Azure Service Fabric en Windows 
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ En esta guía se tratan los temas siguientes:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 **Registro automático** 
 
@@ -200,7 +200,7 @@ Disable-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssNam
 
 ```
 
-```CLI
+```azurecli
 
 az vmss encryption disable -g <resourceGroupName> -n <VMSS name>
 

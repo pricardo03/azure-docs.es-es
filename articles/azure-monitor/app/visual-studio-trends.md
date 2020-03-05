@@ -1,20 +1,18 @@
 ---
 title: Análisis de tendencias en Visual Studio | Microsoft Docs
 description: Analizar, mostrar y explorar las tendencias de la telemetría de Application Insights en Visual Studio.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
-ms.openlocfilehash: da1cd3ed9d07b1eb1304f6b26999af92d2704537
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: bb94d3596fde541f16edd1b7012f57b89ebf52eb
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899315"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670872"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Análisis de tendencias en Visual Studio
 La herramienta Tendencias de Application Insights muestra cómo los eventos de telemetría importantes de la aplicación web cambian a lo largo del tiempo, lo que ayuda a identificar rápidamente los problemas y las anomalías. Al vincularle a información de diagnóstico más detallada, Tendencias puede ayudarle a mejorar el rendimiento de la aplicación, realizar un seguimiento de las causas de las excepciones y revelar información de los eventos personalizados.

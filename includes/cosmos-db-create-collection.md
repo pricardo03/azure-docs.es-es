@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 45fa6a332697cf298b2446212701025007682357
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 9bc5be37f3892186233fac197c08066dbfacb43f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754288"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77780345"
 ---
 Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear una base de datos y un contenedor. 
 
@@ -25,9 +25,9 @@ Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear u
 
 2. En la página **Agregar contenedor**, especifique la configuración del nuevo contenedor.
 
-    |Configuración|Valor sugerido|DESCRIPCIÓN
+    |Configuración|Valor sugerido|Descripción
     |---|---|---|
-    |**Identificador de base de datos**|Tareas|Escriba *ToDoList* como nombre de la nueva base de datos. Los nombres de base de datos tienen que tener entre 1 y 255 caracteres y no pueden contener `/, \\, #, ?` o espacios finales. Seleccione la opción **Provision database throughput** (Aprovisionar rendimiento de la base de datos) que le permite compartir el rendimiento aprovisionado de la base de datos entre todos los contenedores de esta. Esta opción también le ayudará a reducir los costos. |
+    |**Identificador de base de datos**|Tareas|Escriba *Tareas* como nombre de la nueva base de datos. Los nombres de base de datos tienen que tener entre 1 y 255 caracteres y no pueden contener `/, \\, #, ?` o espacios finales. Seleccione la opción **Provision database throughput** (Aprovisionar rendimiento de la base de datos) que le permite compartir el rendimiento aprovisionado de la base de datos entre todos los contenedores de esta. Esta opción también le ayudará a reducir los costos. |
     |**Rendimiento**|400|Deje el rendimiento en 400 unidades de solicitud por segundo (RU/s). Si quiere reducir la latencia, puede escalar verticalmente el rendimiento más adelante.| 
     |**ID de contenedor**|Elementos|Escriba *Elementos* como nombre del nuevo contenedor. Los identificadores de contenedor tienen los mismos requisitos de caracteres que los nombres de las bases de datos.|
     |**Clave de partición**| /categoría| El ejemplo que se describe en este artículo usa */category* como clave de partición.|

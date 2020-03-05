@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 3abcfe61f365c3c96dfb6b8eb2ca6cc9e5d3797e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c7d53ae71ac68559877561bf9fd15fe0f341e03a
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572370"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273676"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutorial: Configuración de los roles de administrador del servidor y de usuario
 
@@ -27,7 +27,7 @@ ms.locfileid: "73572370"
 
 Para más información sobre la seguridad del usuario en Azure Analysis Services, consulte [Autenticación y permisos de usuario](../analysis-services-manage-users.md). 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Azure Active Directory en la suscripción.
 - Un [servidor de Azure Analysis Services](../analysis-services-create-server.md) creado en la suscripción.
@@ -82,7 +82,7 @@ En esta tarea se agrega una cuenta de grupo o de usuario de Azure AD al rol de a
 
 ## <a name="add-a-user-to-the-model-database-administrator-role"></a>Incorporación de un usuario al rol de administrador de la base de datos modelo
 
-En esta tarea se agrega una cuenta de grupo o de usuario para el rol de administrador de ventas por Internet que ya existe en el modelo. Este rol tiene permisos de control total (administrador) para la base de datos del modelo de ejemplo de adventureworks. En esta tarea se usa el comando TMSL [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) en un script creado automáticamente.
+En esta tarea se agrega una cuenta de grupo o de usuario para el rol de administrador de ventas por Internet que ya existe en el modelo. Este rol tiene permisos de control total (administrador) para la base de datos del modelo de ejemplo de adventureworks. En esta tarea se usa el comando TMSL [CreateOrReplace](https://docs.microsoft.com/analysis-services/tmsl/createorreplace-command-tmsl) en un script creado automáticamente.
 
 1. En el **Explorador de objetos**, expanda **Bases de datos** > **adventureworks** > **Roles**. 
 2. Haga clic con el botón derecho en **Internet Sales Administrator** (Administrador de ventas por Internet) y haga clic en **Script Role as** > **CREATE OR REPLACE To** > **New Query Editor Window** (Crear rol en el script como > CREAR O REEMPLAZAR como) > (Nueva ventana del editor de consultas).
@@ -98,7 +98,7 @@ En esta tarea se agrega una cuenta de grupo o de usuario para el rol de administ
 
 ## <a name="add-a-new-model-database-role-and-add-a-user-or-group"></a>Incorporación de un nuevo rol de base de datos modelo y de un usuario o grupo
 
-En esta tarea se debe usar el comando [Create](https://docs.microsoft.com/bi-reference/tmsl/create-command-tmsl) en un script TMSL para crear un nuevo rol Internet Sales Global, especificar permisos de *lectura* para el rol y agregar una cuenta de usuario o de grupo de Azure AD.
+En esta tarea se debe usar el comando [Create](https://docs.microsoft.com/analysis-services/tmsl/create-command-tmsl) en un script TMSL para crear un nuevo rol Internet Sales Global, especificar permisos de *lectura* para el rol y agregar una cuenta de usuario o de grupo de Azure AD.
 
 1. En el **Explorador de objetos**, haga clic con el botón derecho en **adventureworks** y, después, haga clic en **Nueva consulta** > **XMLA**. 
 2. Copie y pegue el script TMSL siguiente en el editor de consultas:

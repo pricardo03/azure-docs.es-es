@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: a505145eeba47eda9950c5a4c8221e4c9ae4b3a4
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 8c7c9c2e3a1195422db30ba913b1cea3a1a360e4
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024082"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301699"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: Extracción, transformación y carga de datos mediante Azure Databricks
 
@@ -43,7 +43,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 > Este tutorial no puede llevarse a cabo mediante una **suscripción de evaluación gratuita de Azure**.
 > Si tiene una cuenta gratuita, vaya a su perfil y cambiar la suscripción a **pago por uso**. Para más información consulte el sitio de [cuentas gratuitas de Azure](https://azure.microsoft.com/free/). Después, [quite el límite de gasto](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit) y [solicite un aumento de la cuota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) para las vCPU de su región. Cuando crea su área de trabajo de Azure Databricks, puede seleccionar el plan de tarifa de la **Trial (Premium - 14-Days Free DBUs)** para que el área de trabajo acceda a las DBU Premium de Azure Databricks gratis durante 14 días.
      
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Complete estas tareas antes de comenzar este tutorial:
 
@@ -59,7 +59,7 @@ Complete estas tareas antes de comenzar este tutorial:
 
    Hay un par de cosas que tendrá que hacer cuando realice los pasos de este artículo.
 
-   * Al realizar los pasos de la sección [Asignación de la aplicación a un rol](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) del artículo, asegúrese de asignar el rol **Colaborador de datos de blobs de almacenamiento** a la entidad de servicio en el ámbito de la cuenta de Data Lake Storage Gen2. Si asigna el rol al grupo de recursos o a la suscripción principales, recibirá errores relacionados con los permisos hasta que esas asignaciones de roles se propaguen a la cuenta de almacenamiento.
+   * Al realizar los pasos de la sección [Asignación de la aplicación a un rol](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) del artículo, asegúrese de asignar el rol **Colaborador de datos de blobs de almacenamiento** a la entidad de servicio en el ámbito de la cuenta de Data Lake Storage Gen2. Si asigna el rol al grupo de recursos o a la suscripción principales, recibirá errores relacionados con los permisos hasta que esas asignaciones de roles se propaguen a la cuenta de almacenamiento.
 
       Si prefiere usar una lista de control de acceso (ACL) para asociar la entidad de servicio con un archivo o un directorio específicos, consulte [Control de acceso en Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
 
@@ -227,7 +227,7 @@ En la celda, presione **MAYÚS + ENTRAR** para ejecutar el código.
     ```
    Debe ver una salida similar al siguiente fragmento de código:
 
-   ```bash
+   ```output
    +---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
    |               artist|     auth|firstName|gender|itemInSession|  lastName|   length|  level|            location|method|    page| registration|sessionId|                song|status|           ts|userId|
    +---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
@@ -253,7 +253,7 @@ Los datos de ejemplo sin procesar del archivo **small_radio_json.json** capturan
 
    Recibirá una salida como la que se muestra en el fragmento de código siguiente:
 
-   ```bash
+   ```output
    +---------+----------+------+--------------------+-----+
    |firstname|  lastname|gender|            location|level|
    +---------+----------+------+--------------------+-----+
@@ -289,7 +289,7 @@ Los datos de ejemplo sin procesar del archivo **small_radio_json.json** capturan
 
    Recibirá una salida como la que se muestra en el fragmento de código siguiente.
 
-   ```bash
+   ```output
    +---------+----------+------+--------------------+-----------------+
    |firstname|  lastname|gender|            location|subscription_type|
    +---------+----------+------+--------------------+-----------------+

@@ -3,20 +3,20 @@ title: Intercambios de notificaciones de API REST como validación
 titleSuffix: Azure AD B2C
 description: Tutorial para la creación de un recorrido del usuario de Azure AD B2C que interactúe con servicios RESTful.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 209cddcc8648f7d396f048057bb4367e2ae9f66c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7100498d99068941bcd7ca48b6cbcaa271fbb095
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850363"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189079"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Tutorial: Integración de intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario
 
@@ -37,7 +37,7 @@ En el ejemplo de perfil de validación, usaremos el recorrido de usuario de edic
 
 Podemos comprobar que el nombre proporcionado por el usuario en la edición del perfil no es parte de una lista de exclusión.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Configuración de un inquilino de Azure AD B2C para completar el registro o inicio de sesión de una cuenta local como se describe en [Introducción](custom-policy-get-started.md).
 - Un punto de conexión de API de REST con el que interactuar. En este tutorial, hemos configurado un sitio de demostración denominado [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) con un servicio de API de REST.

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5d3dc951c8cb2948a4cd0b9d9f5c2a9b213c6e7e
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: c9cea52e04a991e6e3ac64426f0443939f8aaa3a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514993"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914388"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabajar con la versión anterior de Azure Migrate
 
@@ -229,7 +229,7 @@ Para instalar al agente en una máquina Windows, siga estos pasos:
 4. En **Opciones de instalación del agente**, seleccione **Azure Log Analytics** > **Siguiente**.
 5. Haga clic en **Agregar** para agregar un área de trabajo de Log Analytics nueva. Pegue la clave y el identificador de área de trabajo que ha copiado desde el portal. Haga clic en **Next**.
 
-Puede instalar al agente desde la línea de comandos o mediante un método automatizado, como Configuration Manager. [Obtenga más información](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sobre el uso de estos métodos para instalar el agente MMA.
+Puede instalar al agente desde la línea de comandos o mediante un método automatizado, como Configuration Manager. [Obtenga más información](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) sobre el uso de estos métodos para instalar el agente MMA.
 
 #### <a name="install-the-mma-agent-on-a-linux-machine"></a>Instalar el agente MMA en una máquina Linux
 

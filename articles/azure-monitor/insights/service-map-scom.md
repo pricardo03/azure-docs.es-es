@@ -1,18 +1,17 @@
 ---
 title: Integración de Map de Azure Monitor para VM con Operations Manager | Microsoft Docs
 description: Azure Monitor para VM detecta automáticamente los componentes de aplicaciones de los sistemas Windows y Linux y asigna la comunicación entre servicios. En este artículo se aborda el uso de la característica Asignar para crear automáticamente diagramas de aplicaciones distribuidas en Operations Manager.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: a8d0e0980b0d3634626bc1332e8219bdca7fbe01
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 112413720f969474369555a74bc89846666e2ef9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402635"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663460"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integración de System Center Operations Manager con la característica Map de Azure Monitor para VM
 
@@ -21,7 +20,7 @@ En Azure Monitor para VM, puede ver los componentes de la aplicación detectados
 >[!NOTE]
 >Si ya ha implementado Service Map, ahora puede ver las asignaciones en Azure Monitor para VM, lo que incluye características adicionales para supervisar el rendimiento y el estado de las VM. La característica Asignar de Azure Monitor para VM está pensada para reemplazar la solución de Service Map independiente. Para obtener más información, consulte [¿Qué es Azure Monitor para máquinas virtuales?](vminsights-overview.md)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un grupo de administración de System Center Operations Manager (2012 R2 o posterior).
 * Un área de trabajo de Log Analytics configurada para admitir Azure Monitor para VM.

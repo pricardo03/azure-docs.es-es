@@ -1,18 +1,17 @@
 ---
 title: Conexión de Operations Manager con Azure Monitor | Microsoft Docs
 description: Para mantener su inversión existente en System Center Operations Manager y usar las capacidades ampliadas con Log Analytics, puede integrar Operations Manager con el área de trabajo.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 5dc9412c7884eb62795fd04240f6cfa7d103e3be
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 92b6737f48d8d8704f461c9adac92284b323b05f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363666"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659414"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Conexión de Operations Manager con Azure Monitor
 
@@ -34,25 +33,25 @@ En el siguiente diagrama se muestra la conexión entre los agentes y servidores 
 
 Si las directivas de seguridad de TI no permiten que los equipos de la red se conecten a Internet, se pueden configurar los servidores de administración de forma que se conecten a la puerta de enlace de Log Analytics para recibir información de configuración y enviar los datos recopilados según las soluciones que haya habilitado. Para obtener más información y conocer los pasos para configurar el grupo de administración de Operations Manager con el fin de que se comunique mediante una puerta de enlace de Log Analytics con Azure Monitor, consulte [Conexión de equipos a Azure Monitor con la puerta de enlace de Log Analytics](../../azure-monitor/platform/gateway.md).  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar, revise los siguientes requisitos.
 
 * Azure Monitor solo admite System Center Operations Manager 2016 y versiones posteriores, Operations Manager 2012 SP1 UR6 y versiones posteriores, y Operations Manager 2012 R2 UR2 y versiones posteriores. Se agregó compatibilidad con proxy en Operations Manager 2012 SP1 UR7 y Operations Manager 2012 R2 UR3.
-* La integración de System Center Operations Manager 2016 con la nube del gobierno de Estados Unidos requiere un módulo de administración de Advisor actualizado incluido con el paquete acumulativo de actualizaciones 2 o posterior. System Center Operations Manager 2012 R2 requiere un módulo de administración de Advisor actualizado incluido con el paquete acumulativo de actualizaciones 3 o posterior.
+* La integración de System Center Operations Manager 2016 con la nube del US Gov requiere un módulo de administración de Advisor actualizado incluido con el paquete acumulativo de actualizaciones 2 o posterior. System Center Operations Manager 2012 R2 requiere un módulo de administración de Advisor actualizado incluido con el paquete acumulativo de actualizaciones 3 o posterior.
 * Todos los agentes de Operations Manager deben cumplir los requisitos mínimos de compatibilidad. Asegúrese de que los agentes están actualizados con los requisitos mínimos ya que, de lo contrario, se podría producir un error de comunicación en el agente de Windows así como errores en el registro de eventos de Operations Manager.
 * Un área de trabajo de Log Analytics. Para más información, consulte la [introducción a las áreas de trabajo de Log Analytics](design-logs-deployment.md). 
 * El usuario se autentica en Azure con una cuenta que es miembro del [rol Colaborador de Log Analytics](manage-access.md#manage-access-using-azure-permissions).
 
 * Regiones admitidas: System Center Operations Manager solo es compatible con las siguientes regiones de Azure para conectarse a un área de trabajo de Log Analytics:
-    - Centro occidental de EE.UU.
+    - Centro-Oeste de EE. UU.
     - Sudeste de Australia
-    - Europa occidental
-    - East US
+    - Oeste de Europa
+    - Este de EE. UU.
     - Sudeste de Asia
-    - Este de Japón
+    - Japón Oriental
     - Sur de Reino Unido 2
-    - India Central
+    - Centro de la India
     - Centro de Canadá
     - Oeste de EE. UU. 2
 

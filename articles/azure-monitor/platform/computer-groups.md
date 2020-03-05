@@ -1,18 +1,17 @@
 ---
 title: Grupos de equipos en las consultas de registros de Azure Monitor | Microsoft Docs
 description: Los grupos de equipos en Azure Monitor permiten limitar las consultas de registros a un conjunto concreto de equipos.  En este artículo se describen los distintos métodos que puede utilizar para crear grupos de equipos y cómo usar estos grupos en una consulta de registros.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: eedf04a2168c67449f97d8e462d4ff82653a22b3
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: a005b6cec811b8a584123dc4c8abab77766961e0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513715"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655347"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de equipos en las consultas de registros de Azure Monitor
 Los grupos de equipos en Azure Monitor permiten limitar las [consultas de registros](../log-query/log-query-overview.md) a un conjunto concreto de equipos.  Cada grupo se rellena con equipos mediante una consulta que defina o a través de la importación de grupos de diferentes orígenes.  Cuando el grupo se incluye en una consulta de registros, los resultados se limitan a los registros que coinciden con los equipos del grupo.

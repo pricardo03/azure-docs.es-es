@@ -1,18 +1,17 @@
 ---
 title: Recopilación de datos de CollectD en Azure Monitor | Microsoft Docs
 description: CollectD es un demonio de Linux de código abierto que recopila periódicamente datos de aplicaciones e información de nivel de sistema.  En este artículo se proporciona información sobre la recopilación de datos de CollectD en Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
-ms.openlocfilehash: 277e6c9736266b64fd717b719dc740525047ae88
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b8c09d4ac5d0856eb0d448a1cabd9adc567850c4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75395872"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670617"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Recopilación de datos de CollectD en agentes de Linux en Azure Monitor
 [CollectD](https://collectd.org/) es un demonio de Linux de código abierto que recopila periódicamente métricas de rendimiento de aplicaciones e información de nivel de sistema. Las aplicaciones de ejemplo incluyen la máquina virtual Java (JVM), MySQL Server y Nginx. En este artículo se proporciona información sobre la recopilación de datos de rendimiento de CollectD en Azure Monitor.

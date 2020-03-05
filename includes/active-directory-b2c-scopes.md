@@ -1,18 +1,18 @@
 ---
-author: mmacy
+author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
-ms.author: marsma
-ms.openlocfilehash: 59cf0b81363c724d709d85105525bece13743f26
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.author: mimart
+ms.openlocfilehash: 9d394b07ff17ab24305b2580efc8bedfc5e7d384
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474850"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183400"
 ---
-#### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
+#### <a name="applications"></a>[Aplicaciones](#tab/applications/)
 
 1. Seleccione **Aplicaciones**.
 1. Seleccione la aplicación *webapi1* para abrir su página **Propiedades**.
@@ -21,7 +21,7 @@ ms.locfileid: "73474850"
 1. En **ÁMBITO** escriba `demo.write` y en **DESCRIPCIÓN**, `Write access to the web API`.
 1. Seleccione **Guardar**.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
 
 1. Seleccione **Registros de aplicaciones (versión preliminar)** .
 1. Seleccione la aplicación *webapi1* para abrir su página **Información general**.

@@ -1,19 +1,18 @@
 ---
 title: Creación y uso compartido de paneles de datos de Azure Log Analytics | Microsoft Docs
 description: Con este tutorial le resultará más fácil comprender cómo los paneles de Log Analytics pueden mostrar todas las consultas de registros guardadas, lo que le permite ver su entorno en una sola vista.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
 ms.custom: mvc
-ms.openlocfilehash: d06ead285321b780490c816dc3d902dac1b6916f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 76ba79561df4a75004369d24c4c6af82de9b1cfc
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365587"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661539"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Creación y uso compartido de paneles de datos de Log Analytics
 

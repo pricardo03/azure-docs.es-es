@@ -1,18 +1,17 @@
 ---
 title: Habilitar Azure Monitor para VM mediante Azure Policy | Microsoft Docs
 description: En este artículo se describe cómo habilitar Azure Monitor para VM para varias máquinas virtuales o conjuntos de escalado de máquinas virtuales de Azure mediante Azure Policy.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: d9458230d07c1c40a3eec2d51879f58fac6543b5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 267072b06d936822eae7e7257d62566a020471bb
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365825"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656235"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-by-using-azure-policy"></a>Habilitar Azure Monitor para VM (vista preliminar) mediante Azure Policy
 

@@ -3,12 +3,12 @@ title: Cómo detener la supervisión del clúster de Azure Kubernetes Service | 
 description: En este artículo se describe cómo puede interrumpir la supervisión del clúster de Azure AKS con Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 08/19/2019
-ms.openlocfilehash: fb75379ba6c8109316f78288222039627bcb5902
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 618a4d7e10212dd2b042724b1ea11c97920dad57
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715964"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250738"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Cómo detener la supervisión de Azure Kubernetes Service (AKS) con Azure Monitor para contenedores
 
@@ -139,7 +139,7 @@ az group deployment create --resource-group <ResourceGroupName> --template-file 
 
 El cambio de configuración puede tardar unos minutos en completarse. Cuando termine, verá un mensaje similar al siguiente que incluye el resultado:
 
-```azurecli
+```output
 ProvisioningState       : Succeeded
 ```
 
@@ -157,7 +157,7 @@ New-AzResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupNam
 
 El cambio de configuración puede tardar unos minutos en completarse. Cuando termine, verá un mensaje similar al siguiente que incluye el resultado:
 
-```powershell
+```output
 ProvisioningState       : Succeeded
 ```
 

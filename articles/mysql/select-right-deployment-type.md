@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 8cff61d547e75b186869b3ab4d57c5eb12e6e2f5
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 50bcd42189b1bcc945d726277975892f07f1baa1
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935462"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255532"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Selección de la opción adecuada de MySQL Server en Azure
 
@@ -102,4 +102,4 @@ En la lista siguiente se describen las consideraciones administrativas para cada
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Consulte [Precios de Azure Database for MySQL](https://azure.microsoft.com/pricing/details/MySQL/).
-* Comenzar por [crear el primer servidor](https://review.docs.microsoft.com/azure/MySQL/quickstart-create-MySQL-server-database-using-azure-portal).
+* Comenzar por [crear el primer servidor](https://docs.microsoft.com/azure/MySQL/quickstart-create-MySQL-server-database-using-azure-portal).

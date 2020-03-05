@@ -1,18 +1,17 @@
 ---
 title: Visualización y análisis de datos en Azure Log Analytics | Microsoft Docs
 description: Asistencia para las consultas de registro de Azure Monitor para los usuarios de búsqueda de registros de Log Analytics.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
-ms.openlocfilehash: a8d0469d57901f53d8e615f800b5d804944163fa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6cc7fc94162ed101d06fbbbc4722867be46987b6
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75398158"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670141"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Transición desde la búsqueda de registros de Log Analytics a los registros de Azure Monitor
 La búsqueda de registros en Log Analytics se ha reemplazado recientemente por una nueva experiencia para analizar los registros de Azure Monitor. La página de búsqueda de registros sigue siendo accesible con el elemento de menú **Registros (clásicos)** de la página **Áreas de trabajo de Log Analytics** en Azure Portal, pero se retirará el 15 de febrero de 2019. En este artículo se describen las diferencias entre las dos experiencias para ayudar a realizar la transición desde la búsqueda de registros. 

@@ -3,17 +3,16 @@ title: 'Tutorial: Creación de un gráfico de métricas en Azure Monitor'
 description: Aprenda a crear su primer gráfico de métricas con el Explorador de métricas de Azure.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: bwren
-ms.openlocfilehash: 7d9360840912614b6ae89d958d90de962b36506d
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: be4f026ba20ce1582f5626ec7483740831c25c1a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689958"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661471"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Tutorial: Creación de un gráfico de métricas en Azure Monitor
 El explorador de métricas es una característica de Azure Monitor de Azure Portal que permite crear gráficos a partir de valores de métricas, correlacionar visualmente las tendencias e investigar los repuntes o las caídas en los valores de las métricas. Utilice el explorador de métricas para investigar el estado y el uso de los recursos de Azure o para trazar gráficos a partir de métricas personalizadas. 
@@ -25,7 +24,7 @@ En este tutorial, aprenderá a:
 > * Realizar agregaciones diferentes de valores de métricas
 > * Modificar el intervalo de tiempo y la granularidad del gráfico
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesitará un recurso de Azure para supervisarlo. Puede usar cualquier recurso de la suscripción de Azure que admita métricas. Para determinar si un recurso es compatible con las métricas, vaya a su menú en Azure Portal y busque la opción **Métricas** en la sección **Supervisión** del menú.
 

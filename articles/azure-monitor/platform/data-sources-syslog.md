@@ -1,18 +1,17 @@
 ---
 title: Recopilación y análisis de mensajes de Syslog en Azure Monitor | Microsoft Docs
 description: Syslog es un protocolo de registro de eventos que es común a Linux. En este artículo se describe cómo configurar la recopilación de mensajes de Syslog en Log Analytics y detalles de los registros que se crean.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/22/2019
-ms.openlocfilehash: ffc6c48a6b49edded97570fd1ac421933b5f6b72
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8d68a8d6d28d79c50a92cd2d18df2abab26c30ec
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450625"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670498"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Orígenes de datos de Syslog en Azure Monitor
 Syslog es un protocolo de registro de eventos que es común a Linux. Las aplicaciones envían mensajes que pueden almacenarse en la máquina local o entregarse a un recopilador de Syslog. Al instalar el agente de Log Analytics para Linux, este configura el demonio Syslog local para que reenvíe mensajes al agente. En ese momento, el agente envía el mensaje a Azure Monitor, donde se crea un registro correspondiente.  

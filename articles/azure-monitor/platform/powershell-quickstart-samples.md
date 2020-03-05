@@ -1,18 +1,15 @@
 ---
 title: Ejemplos de inicio rápido de PowerShell de Azure Monitor
 description: Use PowerShell para acceder a las características de Azure Monitor, como el escalado automático, alertas, webhooks y buscar registros de actividad.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 2/14/2018
-ms.openlocfilehash: d1aa4b4e2d72f10ca73616bc7e69b0d02f13a501
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 9f039f71954998ef561d1efd1e559318740c86ab
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72551841"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659307"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Ejemplos de inicio rápido de PowerShell de Azure Monitor
 En este artículo se muestran comandos de PowerShell de ejemplo para ayudarle a acceder a las características de Azure Monitor.
@@ -149,10 +146,10 @@ Puede crear propiedades de correo electrónico y webhook mediante `New-AzAlertRu
 
 En la tabla siguiente se describen los parámetros y valores utilizados para crear una alerta con una métrica.
 
-| Parámetro | value |
+| parámetro | value |
 | --- | --- |
-| NOMBRE |simpletestdiskwrite |
-| Ubicación (Location) de esta regla de alerta |East US |
+| Nombre |simpletestdiskwrite |
+| Ubicación (Location) de esta regla de alerta |Este de EE. UU. |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
 | Nombre de la métrica (MetricName) de la alerta que se crea |\PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |

@@ -8,27 +8,27 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 6a59cf83b3912e31b8aae67319902ce516519af8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 85e3589d7467691e2b9a11879510ab980bbd875a
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491286"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273460"
 ---
 # <a name="number-prebuilt-entity-for-a-luis-app"></a>Entidad precompilada Number para una aplicación de LUIS
-Hay muchas maneras en que los valores numéricos se utilizan para cuantificar, expresar y describir información. En este artículo, se cubren solo algunos de los ejemplos posibles. LUIS interpreta las variaciones en expresiones de usuario y devuelve los valores numéricos coherentes. Dado que esta entidad ya está entrenada, no es necesario agregar expresiones de ejemplo que contengan el número de intenciones de la aplicación. 
+Hay muchas maneras en que los valores numéricos se utilizan para cuantificar, expresar y describir información. En este artículo, se cubren solo algunos de los ejemplos posibles. LUIS interpreta las variaciones en expresiones de usuario y devuelve los valores numéricos coherentes. Dado que esta entidad ya está entrenada, no es necesario agregar expresiones de ejemplo que contengan el número de intenciones de la aplicación.
 
 ## <a name="types-of-number"></a>Tipos de número
 El número se administra desde el repositorio de GitHub [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml)
 
 ## <a name="examples-of-number-resolution"></a>Ejemplos de resolución de números
 
-| Expresión        | Entidad   | Resolución |
+| Expresión        | Entidad   | Solución |
 | ------------- |:----------------:| --------------:|
-| ```one thousand times```  | ```"one thousand"``` |   ```"1000"```      | 
+| ```one thousand times```  | ```"one thousand"``` |   ```"1000"```      |
 | ```1,000 people```        | ```"1,000"```    |   ```"1000"```      |
 | ```1/2 cup```         | ```"1 / 2"```    |    ```"0.5"```      |
 |  ```one half the amount```     | ```"one half"```     |    ```"0.5"```      |
@@ -42,11 +42,11 @@ LUIS incluye el valor reconocido de una entidad **`builtin.number`** en el campo
 
 ## <a name="resolution-for-prebuilt-number"></a>Resolución del número precompilado
 
-Se devuelven los siguientes objetos entidad para la consulta:
+La consulta devuelve los siguientes objetos de entidad:
 
 `order two dozen eggs`
 
-#### <a name="v3-responsetabv3"></a>[Respuesta de V3](#tab/V3)
+#### <a name="v3-response"></a>[Respuesta de V3](#tab/V3)
 
 El siguiente JSON es con el parámetro `verbose` establecido en `false`:
 
@@ -57,7 +57,7 @@ El siguiente JSON es con el parámetro `verbose` establecido en `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-responsetabv3-verbose"></a>[Respuesta detallada de V3](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[Respuesta detallada de V3](#tab/V3-verbose)
 
 El siguiente JSON es con el parámetro `verbose` establecido en `true`:
 
@@ -83,7 +83,7 @@ El siguiente JSON es con el parámetro `verbose` establecido en `true`:
     }
 }
 ```
-#### <a name="v2-responsetabv2"></a>[Respuesta de V2](#tab/V2)
+#### <a name="v2-response"></a>[Respuesta de V2](#tab/V2)
 
 En el siguiente ejemplo, se muestra una respuesta JSON de LUIS, que incluye la resolución del valor 24, para la expresión "dos docenas".
 
@@ -101,10 +101,10 @@ En el siguiente ejemplo, se muestra una respuesta JSON de LUIS, que incluye la r
   }
 ]
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
 
-Obtenga información acerca de las entidades [currency](luis-reference-prebuilt-currency.md), [ordinal](luis-reference-prebuilt-ordinal.md) y [percentage](luis-reference-prebuilt-percentage.md). 
+Obtenga información acerca de las entidades [currency](luis-reference-prebuilt-currency.md), [ordinal](luis-reference-prebuilt-ordinal.md) y [percentage](luis-reference-prebuilt-percentage.md).

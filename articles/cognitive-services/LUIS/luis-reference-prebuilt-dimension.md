@@ -8,18 +8,18 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 6699b1617ccd1fef9a507e71fdd73a02b0e98bea
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3c7bebb38d0331c76eeaaa1d9d6464c568a61b83
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73465040"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270635"
 ---
 # <a name="dimension-prebuilt-entity-for-a-luis-app"></a>Entidad precompilada Dimension para una aplicación de LUIS
-La entidad de dimensión precompilada detecta varios tipos de dimensiones, con independencia de la referencia cultural de la aplicación LUIS. Dado que esta entidad ya está entrenada, no se necesita agregar expresiones de ejemplo que contengan dimensiones en las intenciones de la aplicación. La entidad de dimensión se admite en [muchas referencias culturales](luis-reference-prebuilt-entities.md). 
+La entidad de dimensión precompilada detecta varios tipos de dimensiones, con independencia de la referencia cultural de la aplicación LUIS. Dado que esta entidad ya está entrenada, no se necesita agregar expresiones de ejemplo que contengan dimensiones en las intenciones de la aplicación. La entidad de dimensión se admite en [muchas referencias culturales](luis-reference-prebuilt-entities.md).
 
 ## <a name="types-of-dimension"></a>Tipos de dimensión
 
@@ -31,7 +31,7 @@ La consulta devuelve los siguientes objetos de entidad:
 
 `10 1/2 miles of cable`
 
-#### <a name="v3-responsetabv3"></a>[Respuesta de V3](#tab/V3)
+#### <a name="v3-response"></a>[Respuesta de V3](#tab/V3)
 
 El siguiente JSON es con el parámetro `verbose` establecido en `false`:
 
@@ -45,7 +45,7 @@ El siguiente JSON es con el parámetro `verbose` establecido en `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-responsetabv3-verbose"></a>[Respuesta detallada de V3](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[Respuesta detallada de V3](#tab/V3-verbose)
 El siguiente JSON es con el parámetro `verbose` establecido en `true`:
 
 ```json
@@ -74,7 +74,7 @@ El siguiente JSON es con el parámetro `verbose` establecido en `true`:
 }
 ```
 
-#### <a name="v2-responsetabv2"></a>[Respuesta de V2](#tab/V2)
+#### <a name="v2-response"></a>[Respuesta de V2](#tab/V2)
 
 En el siguiente ejemplo, se muestra la resolución de la entidad **builtin.ordinal**.
 
@@ -90,10 +90,10 @@ En el siguiente ejemplo, se muestra la resolución de la entidad **builtin.ordin
     }
 }
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
 
-Obtenga información acerca de las entidades de [correo electrónico](luis-reference-prebuilt-email.md), [número](luis-reference-prebuilt-number.md) y [ordinal](luis-reference-prebuilt-ordinal.md). 
+Obtenga información acerca de las entidades de [correo electrónico](luis-reference-prebuilt-email.md), [número](luis-reference-prebuilt-number.md) y [ordinal](luis-reference-prebuilt-ordinal.md).

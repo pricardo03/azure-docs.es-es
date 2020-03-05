@@ -2,20 +2,20 @@
 title: ClaimsTransformations - Azure Active Directory B2C | Microsoft Docs
 description: Definición del elemento ClaimsTransformations en el esquema del marco de experiencia de identidad de Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 66c94f08638895c85836fda37c3ae61f3857ee51
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e71d521dce40f6a8ec81286fcc95dc97bf10078c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836707"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189743"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -51,7 +51,7 @@ El elemento **ClaimsTransformation** contiene los elementos siguientes:
   </InputClaims>
   <InputParameters>
     ...
-  </InputParameters>                
+  </InputParameters>
   <OutputClaims>
     ...
   </OutputClaims>
@@ -62,7 +62,7 @@ El elemento **ClaimsTransformation** contiene los elementos siguientes:
 | Elemento | Repeticiones | Descripción |
 | ------- | -------- | ----------- |
 | InputClaims | 0:1 | Una lista de elementos **InputClaim** que especifican los tipos de notificación que se toman como entrada en la transformación de notificaciones. Cada uno de esto elementos contiene una referencia a un ClaimType ya definido en la sección ClaimsSchema de la directiva. |
-| InputParameters | 0:1 | Una lista de elementos **InputParameter** que se proporcionan como entrada para la transformación de notificaciones.  
+| InputParameters | 0:1 | Una lista de elementos **InputParameter** que se proporcionan como entrada para la transformación de notificaciones.
 | OutputClaims | 0:1 | Una lista de elementos **OutputClaim** que especifican los tipos de notificación que se producen después de que se invoque ClaimsTransformation. Cada uno de esto elementos contiene una referencia a un ClaimType ya definido en la sección ClaimsSchema. |
 
 ### <a name="inputclaims"></a>InputClaims
@@ -106,7 +106,7 @@ El elemento **OutputClaims** contiene el elemento siguiente:
 | ------- | ----------- | ----------- |
 | OutputClaim | 0:n | Un tipo de notificación de salida esperado. |
 
-#### <a name="outputclaim"></a>OutputClaim 
+#### <a name="outputclaim"></a>OutputClaim
 
 El elemento **OutputClaim** contiene los atributos siguientes:
 
@@ -114,7 +114,7 @@ El elemento **OutputClaim** contiene los atributos siguientes:
 | --------- | ----------- |----------- |
 | ClaimTypeReferenceId | Sí | Una referencia a un ClaimType ya definido en la sección ClaimsSchema de la directiva.
 | TransformationClaimType | Sí | Un identificador para hacer referencia a un tipo de notificación de transformación. Cada transformación de notificación tiene sus propios valores. Consulte la [referencia de la transformación de notificaciones](#claims-transformations-reference) para obtener una lista completa de los valores disponibles. |
- 
+
 Si la notificación de entrada y la notificación de salida son del mismo tipo (cadena o booleano), puede usar la misma notificación de entrada como de salida. En este caso, la transformación de notificaciones cambia la notificación de entrada por el valor de salida.
 
 ## <a name="example"></a>Ejemplo

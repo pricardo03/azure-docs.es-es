@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: c04b27ab4a8ea53e09ca3a133d6aef6457fe1526
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 69d2bfe4576a9350e905fc10f3d7617619e6284a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073046"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915493"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual del agente de Network Watcher para Linux
 
@@ -29,7 +29,7 @@ ms.locfileid: "74073046"
 
 En este artículo, se especifican las plataformas compatibles y las opciones de implementación de la extensión de VM del agente de Network Watcher para Linux. La instalación del agente no interrumpe la VM ni requiere reiniciarla. Puede implementar la extensión en máquinas virtuales que implemente. Si la máquina virtual se ha implementado mediante un servicio de Azure, consulte la documentación del servicio para decidir si permite o no la instalación de extensiones en la máquina virtual.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="operating-system"></a>Sistema operativo
 
@@ -75,7 +75,7 @@ El siguiente JSON muestra el esquema para la extensión del agente de Network Wa
 
 ### <a name="property-values"></a>Valores de propiedad
 
-| NOMBRE | Valor / ejemplo |
+| Nombre | Valor / ejemplo |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Azure.NetworkWatcher |
@@ -87,6 +87,8 @@ El siguiente JSON muestra el esquema para la extensión del agente de Network Wa
 Puede implementar las extensiones de VM de Azure con una plantilla de Azure Resource Manager. Para implementar la extensión del agente de Network Watcher, utilice el esquema JSON anterior en la plantilla.
 
 ## <a name="azure-classic-cli-deployment"></a>Implementación de la CLI de Azure clásica
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 En el ejemplo siguiente, se implementa la extensión de VM del agente de Network Watcher en una VM existente implementada a través del modelo de implementación clásica:
 
@@ -105,21 +107,9 @@ az vm extension set --resource-group myResourceGroup1 --vm-name myVM1 --name Net
 
 ## <a name="troubleshooting-and-support"></a>Solución de problemas y soporte técnico
 
-### <a name="troubleshooting"></a>solución de problemas
+### <a name="troubleshooting"></a>Solución de problemas
 
 Puede recuperar los datos sobre el estado de las implementaciones de extensiones mediante Azure Portal o la CLI de Azure.
-
-En el ejemplo siguiente, se muestra el estado de implementación de extensiones en una máquina virtual implementada mediante el modelo de implementación clásica, mediante la CLI de Azure clásica:
-
-```azurecli
-azure config mode asm
-azure vm extension get myVM1
-```
-El resultado de la ejecución de las extensiones se registra en los archivos que se encuentran en el siguiente directorio:
-
-```
-/var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
-```
 
 En el ejemplo siguiente, se muestra el estado de implementación de la extensión NetworkWatcherAgentLinux en una máquina virtual implementada mediante Resource Manager, mediante la CLI de Azure:
 

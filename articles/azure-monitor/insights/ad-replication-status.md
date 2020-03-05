@@ -1,18 +1,17 @@
 ---
 title: Supervisión de Active Directory Replication Status con Azure Monitor | Microsoft Docs
 description: El paquete de la solución Active Directory Replication Status supervisa con regularidad el entorno de Active Directory para comprobar si existen errores de replicación.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
-ms.openlocfilehash: 31e6d0c8b374bd494ae8fda36f4f38aabb1ac96b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bfc9572e8b21692a386c510ffd3409c571eff8f4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406095"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667183"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Supervisión de Active Directory Replication Status con Azure Monitor
 
@@ -27,7 +26,7 @@ La solución AD Replication Status supervisa con regularidad el entorno de Activ
 ## <a name="installing-and-configuring-the-solution"></a>Instalación y configuración de la solución
 Utilice la siguiente información para instalar y configurar la solución.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 
 * La solución AD Replication Status requiere que esté instalada una versión compatible de .NET Framework 4.6.2 o superior en todos los equipos que tengan instalado el agente de Log Analytics para Windows (también conocido como Microsoft Monitoring Agent [MMA]).  System Center 2016 - Operations Manager, Operations Manager 2012 R2 y Azure Monitor usan el agente.
 * La solución es compatible con controladores de dominio que ejecutan Windows Server 2008, y 2008 R2, Windows Server 2012, y 2012 R2 y Windows Server 2016.

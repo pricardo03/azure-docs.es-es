@@ -1,19 +1,18 @@
 ---
 title: 'Inicio rápido: Supervisión de Node.js con Application Insights de Azure Monitor'
 description: Proporciona instrucciones para configurar rápidamente una aplicación web de Node.js para realizar labores de supervisión con Application Insights de Azure Monitor
-ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: a6d6d70336badeaa86c9982dfa977ea389ed5402
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 694d2ae529202223869fcbb2a084e32bccaedbf1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963536"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660230"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Inicio rápido: Empiece a supervisar su aplicación web creada con Node.js con Azure Application Insights
 
@@ -21,7 +20,7 @@ En este inicio rápido, se agrega la versión 0.22 del SDK de Application Insig
 
 Con Azure Application Insights puede supervisar fácilmente la disponibilidad, el rendimiento y el uso de su aplicación web. También puede identificar y diagnosticar errores en la aplicación rápidamente sin tener que esperar a que un usuario informe de ellos. Con la versión 0.20 del SDK y posteriores, puede supervisar los paquetes externos comunes, como MongoDB, MySQL y Redis.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Una aplicación de Node.js en funcionamiento.

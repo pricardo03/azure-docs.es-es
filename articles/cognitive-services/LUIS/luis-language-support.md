@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: f6b95f76af4c83459ac81ff1703d8588f649326c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 4b6d954d06f09bef5240bddc4860ddbc83513d69
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970549"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916598"
 ---
 # <a name="language-and-region-support-for-luis"></a>Compatibilidad de idiomas y regiones para LUIS
 
@@ -61,7 +61,7 @@ La compatibilidad con idiomas varía para las [entidades creadas previamente](lu
 [!INCLUDE [Text Analytics support notes](includes/text-analytics-support-notes.md)]
 
 ### <a name="speech-api-supported-languages"></a>Idiomas admitidos en Speech API
-Vea los [idiomas admitidos](https://docs.microsoft.com/azure/cognitive-services/Speech/api-reference-rest/supportedlanguages##interactive-and-dictation-mode) en Voz para obtener los idiomas de modo de dictado de Voz.
+Vea los [idiomas admitidos](../speech-service/speech-to-text.md) en Voz para obtener los idiomas de modo de dictado de Voz.
 
 ### <a name="bing-spell-check-supported-languages"></a>Idiomas admitidos de Bing Spell Check
 Vea los [idiomas admitidos](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) de Bing Spell Check para obtener una lista de los idiomas admitidos y el estado.

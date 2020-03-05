@@ -1,18 +1,17 @@
 ---
 title: Registros de IIS en Azure Monitor | Microsoft Docs
 description: Internet Information Services (IIS) almacena la actividad de usuario en archivos de registro que Azure Monitor puede recopilar.  En este artículo se describe cómo configurar la recopilación de registros de IIS y detalles de los registros que crean en Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: a865f43585ccbb31569e2ca0987aae62a89a9281
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 1b3ae6295a639c3d59643b106b920cb606572e0a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932486"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670583"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Recopilación de registros de IIS en Azure Monitor
 Internet Information Services (IIS) almacena la actividad de usuario en archivos de registro que Azure Monitor puede recopilar y almacenar como [datos de registro](data-platform.md).
@@ -27,7 +26,7 @@ Azure Monitor solo admite archivos de registro de IIS almacenados en el formato 
 Configure los registros de IIS en Azure Monitor e el [menú Configuración avanzada](agent-data-sources.md#configuring-data-sources).  No se requiere otra configuración que seleccionar **Collect W3C format IIS log files**(Recopilar archivos de registro de IIS en formato W3C).
 
 
-## <a name="data-collection"></a>Colección de datos
+## <a name="data-collection"></a>datos, recopilación
 Azure Monitor recopila las entradas de registro IIS de todos los agentes cada vez que cambia la marca de tiempo del registro. El registro se lee cada **5 minutos**. Si por alguna razón IIS no actualiza la marca de tiempo antes de la hora de sustitución, cuando se crea un archivo, las entradas se recopilarán después de la creación del archivo. La frecuencia de creación de un registro se controla mediante la opción **Log File Rollover Schedule** (Programación de sustitución incremental de archivos de registro) para el sitio IIS, que es una vez al día de forma predeterminada. Si la configuración es **Hourly** (Por hora), Azure Monitor recopila el registro cada hora. Si la configuración es **Daily** (Diario), Azure Monitor recopila el registro cada 24 horas.
 
 
@@ -36,7 +35,7 @@ Los registros de IIS son del tipo **W3CIISLog** y tienen las propiedades que apa
 
 | Propiedad | Descripción |
 |:--- |:--- |
-| Equipo |Nombre del equipo desde el que se recopiló el evento. |
+| Computer |Nombre del equipo desde el que se recopiló el evento. |
 | cIP |Dirección IP del cliente. |
 | csMethod |Método de la solicitud, como GET o POST. |
 | csReferer |Sitio cuyo vínculo el usuario siguió desde el sitio actual. |

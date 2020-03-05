@@ -1,19 +1,15 @@
 ---
 title: 'Inicio rápido: Supervisión de sitios web con Azure Monitor Application Insights'
 description: Proporciona instrucciones para configurar la supervisión de sitios web en el lado cliente/explorador con Azure Monitor Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: quickstart
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/15/2019
 ms.custom: mvc
-ms.openlocfilehash: 408b24c83c5b3d795a86d1ad0275d732bb54a6db
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 1c581867f1e7ebc29f2aaff97124a08bec4e3b40
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963626"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670855"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Inicio rápido: Empezar a supervisar un sitio web con Azure Monitor Application Insights
 
@@ -21,7 +17,7 @@ En este inicio rápido, aprenderá a agregar el SDK de JavaScript para Applicati
 
 Con Application Insights de Azure Monitor puede supervisar fácilmente la disponibilidad, el rendimiento y el uso del sitio web. También puede identificar y diagnosticar errores en la aplicación rápidamente sin tener que esperar a que un usuario informe de ellos. Application Insights proporciona funcionalidades de supervisión tanto del lado servidor como del lado cliente/explorador.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Un sitio web al que puede agregar el SDK de JavaScript para Application Insights.
@@ -41,7 +37,7 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
     | Configuración        | Value           | Descripción  |
    | ------------- |:-------------|:-----|
    | **Nombre**      | Nombre único global | Nombre que identifica la aplicación que está supervisando. |
-   | **Grupo de recursos**     | myResourceGroup      | Nombre del nuevo grupo de recursos que hospeda los datos de Application Insights. Puede crear un grupo de recursos o usar uno existente. |
+   | **Grupo de recursos**     | myResourceGroup      | Nombre del nuevo grupo de recursos que hospeda los datos de Application Insights. puede crear un grupo de recursos o use uno existente. |
    | **Ubicación** | Este de EE. UU. | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |
 
 3. Haga clic en **Crear**.

@@ -2,20 +2,20 @@
 title: Administración del acceso de usuarios en Azure Active Directory B2C | Microsoft Docs
 description: Aprenda a identificar a los menores, recopilar datos sobre la fecha y el país o región de nacimiento y a obtener la aceptación de los términos de uso de la aplicación mediante el uso de Azure AD B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/24/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fcdbf0d56b79662cccd90380489ede672e6a0a66
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: f04a3fea3801f917a3ae4aced04ef3824d1cfa82
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484118"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184526"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Administración del acceso de usuario en Azure Active Directory B2C
 

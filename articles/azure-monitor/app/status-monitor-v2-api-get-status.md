@@ -1,24 +1,22 @@
 ---
 title: Referencia de la API de Azure Application Insights Agent
 description: Referencia de la API de Application Insights Agent. Get-ApplicationInsightsMonitoringStatus. Supervise el rendimiento de los sitios web sin volver a implementarlos. Funciona con las aplicaciones web de ASP.NET hospedadas en local, en las máquinas virtuales o en Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 9b1010404cb876ed818dd54cf527987c6cf0ffe0
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 159dab4a228c822ef62c45c9ccceff638a9bea45
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899687"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671263"
 ---
 # <a name="application-insights-agent-api-get-applicationinsightsmonitoringstatus"></a>API de Application Insights Agent: Get-ApplicationInsightsMonitoringStatus
 
 Este artículo describe un cmdlet que forma parte del [módulo Az.ApplicationMonitor de PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
-## <a name="description"></a>DESCRIPCIÓN
+## <a name="description"></a>Descripción
 
 Este cmdlet proporciona información de solución de problemas sobre el Monitor de estado.
 Use este cmdlet para investigar el estado de supervisión, la versión del módulo de PowerShell y para inspeccionar el proceso en ejecución.

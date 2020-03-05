@@ -2,20 +2,20 @@
 title: 'Adición de una aplicación API web: Azure Active Directory B2C | Microsoft Docs'
 description: Obtenga información sobre cómo agregar una aplicación API web en su inquilino de Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-ms.author: marsma
+ms.author: mimart
 ms.date: 04/16/2019
 ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 37cb242f667190fcd29bed1b7a82ca44ba2c94e9
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: e6dbf3d6fd5a43ab2d075c193c5bc589dc3566a0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641561"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190184"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Adición de una aplicación de API web al inquilino de Azure Active Directory B2C
 
@@ -23,9 +23,9 @@ ms.locfileid: "73641561"
 
 Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la experiencia **Aplicaciones** actual o la nueva experiencia **Registros de aplicaciones (versión preliminar)** unificada. [Más información acerca de la nueva experiencia](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
+#### <a name="applications"></a>[Aplicaciones](#tab/applications/)
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio y suscripciones** del menú superior y elija el directorio que contiene el inquilino.
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 4. Seleccione **Aplicaciones** y **Agregar**.
@@ -33,12 +33,12 @@ Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la e
 6. En **Incluir aplicación web o API web** y **Permitir flujo implícito**, seleccione **Sí**.
 7. En **Dirección URL de respuesta**, escriba un punto de conexión donde Azure AD B2C devolverá los tokens que solicite la aplicación. En la aplicación de producción, puede establecer la dirección URL de respuesta en un valor como `https://localhost:44332`. Para fines de prueba, establezca la dirección URL de respuesta en `https://jwt.ms`.
 8. En **URI de id. de aplicación**, escriba el identificador usado para la API web. Se genera el identificador URI completo, incluido el dominio. Por ejemplo, `https://contosotenant.onmicrosoft.com/api`.
-9. Haga clic en **Create**(Crear).
+9. Haga clic en **Crear**.
 10. En la página de propiedades, registre el identificador de la aplicación que usará cuando configure la aplicación web.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
 1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
 1. Seleccione **Registros de aplicaciones (versión preliminar)** y luego **Nuevo registro**.

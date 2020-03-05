@@ -12,18 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: be0f61b1458fa8bd63d85669c7956a789892996a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8046e4f42db50db15c840a13b95ae1f3620a8c7f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981325"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918264"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Se produce un error interno al intentar conectarse a una máquina virtual de Azure a través de Escritorio remoto
 
 En este artículo se describe un error que puede experimentar al intentar conectarse a una máquina virtual (VM) en Microsoft Azure.
-> [!NOTE]
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../azure-resource-manager/management/deployment-models.md). En este artículo se explica el uso del modelo de implementación de Resource Manager, que es el que se recomienda usar para las nuevas implementaciones, en lugar del modelo de implementación clásica.
+
 
 ## <a name="symptoms"></a>Síntomas
 

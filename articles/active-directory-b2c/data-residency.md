@@ -3,20 +3,20 @@ title: Disponibilidad de regiones y residencia de datos
 titleSuffix: Azure AD B2C
 description: Disponibilidad de regiones, residencia de datos e información sobre los inquilinos de versión preliminar de Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 532136be69356b634959a762f4eeb1c1c4af5a82
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 3df0f581d0d2a1e5ca02202b4eeaede5a1dd5362
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76851151"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188858"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Disponibilidad de región y residencia de datos
 

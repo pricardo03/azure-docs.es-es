@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 7b907cf5bf64aa1a8a458a8d2b42c30dffd0dfd1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: e8f2753ac9062803a2d6252eca1829cb0b168f02
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74029790"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921358"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migración de VM de Azure a Managed Disks en Azure
 
@@ -29,6 +29,8 @@ Puede migrar a Managed Disks en los escenarios siguientes:
 |Conversión de una sola máquina virtual del modelo clásico a Resource Manager en discos administrados     |[Creación de una VM desde un disco duro virtual clásico](create-vm-specialized-portal.md)         |
 |Conversión de todas las máquinas virtuales de una red virtual desde el modelo clásico a Resource Manager en discos administrados     |[Migración de recursos de IaaS desde el modelo clásico a Resource Manager](migration-classic-resource-manager-ps.md) y luego [Conversión de una VM desde discos no administrados a discos administrados](convert-unmanaged-to-managed-disks.md)         |
 |Actualización de las máquinas virtuales con discos no administrados estándar a máquinas virtuales con discos administrados prémium     | En primer lugar, [convierta una máquina virtual Windows con discos no administrados a discos administrados](convert-unmanaged-to-managed-disks.md). Después, [actualice el tipo de almacenamiento de un disco administrado](convert-disk-storage.md).         |
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,12 +3,12 @@ title: 'Inicio rápido: Creación, entrenamiento y publicación de la base de co
 description: Puede crear una base de conocimiento (KB) de QnA Maker a partir de contenido propio, como por ejemplo preguntas más frecuentes o manuales de productos. En este artículo se incluye un ejemplo de la creación de una base de conocimiento de QnA Maker a partir de una página web sencilla de preguntas más frecuentes para responder a preguntas de QnA Maker.
 ms.topic: quickstart
 ms.date: 02/08/2020
-ms.openlocfilehash: a4c4d9b2e8f4b816510fb35a75b3c9b8b2afa5e2
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: fd4e6a4c4288caaf714f4bfc15282b6c4b1e1111
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108730"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299098"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Inicio rápido: Creación, entrenamiento y publicación de la base de conocimiento de QnA Maker
 
@@ -154,6 +154,5 @@ Para obtener más información:
 
 * [Formato Markdown en las respuestas](../reference-markdown-format.md)
 * [Orígenes de datos](../concepts/knowledge-base.md) de QnA Maker
-* [Opciones de configuración de recursos de bot](../tutorials/create-qna-bot.md)
 
 

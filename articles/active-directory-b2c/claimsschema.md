@@ -2,20 +2,20 @@
 title: ClaimsSchema - Azure Active Directory B2C | Microsoft Docs
 description: Especifique el elemento ClaimsSchema de una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/24/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2861b882d9b4c00a1c4db87b2dd49d49dfeb53a6
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: b997e15b4e987b7a18890606326f52a82cb15212
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77581113"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189931"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -64,7 +64,7 @@ PredicateValidationReference| 0:1 | Una referencia a un elemento **PredicateVali
 El elemento **DataType** admite los siguientes valores:
 
 | Tipo | Descripción |
-| ------- | ----------- | 
+| ------- | ----------- |
 |boolean|Representa un valor booleano (`true` o `false`).|
 |date| Representa un instante de tiempo, normalmente expresado en forma de fecha de un día. El valor de la fecha sigue la convención ISO 8601.|
 |dateTime|Representa un instante de tiempo, normalmente expresado en forma de fecha y hora del día. El valor de la fecha sigue la convención ISO 8601.|

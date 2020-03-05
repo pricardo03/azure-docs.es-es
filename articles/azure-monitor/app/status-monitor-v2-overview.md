@@ -1,18 +1,16 @@
 ---
 title: Introducción a Azure Application Insights Agent | Microsoft Docs
 description: Introducción a Application Insights Agent. Supervise el rendimiento de los sitios web sin volver a implementarlos. Funciona con las aplicaciones web de ASP.NET hospedadas en local, en las máquinas virtuales o en Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 61c3721745550b43aea730d0bcd2230b0435ff53
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 4a240bc62816a46bc37108777a8b081b74047738
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899611"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671178"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Implementación de Azure Application Insights Agent para servidores locales
 
@@ -33,7 +31,7 @@ Application Insights Agent se encuentra aquí: https://www.powershellgallery.com
 ![Galería de PowerShell](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
 
-## <a name="instructions"></a>Instrucciones
+## <a name="instructions"></a>Instructions
 - Consulte las [instrucciones de introducción](status-monitor-v2-get-started.md) para empezar con ejemplos concisos de código.
 - Consulte las [instrucciones detalladas](status-monitor-v2-detailed-instructions.md) para profundizar.
 
@@ -47,7 +45,7 @@ Application Insights Agent se encuentra aquí: https://www.powershellgallery.com
 - [Set-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
 - [Start-ApplicationInsightsMonitoringTrace](status-monitor-v2-api-start-trace.md)
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 - [Solución de problemas](status-monitor-v2-troubleshoot.md)
 - [Problemas conocidos](status-monitor-v2-troubleshoot.md#known-issues)
 

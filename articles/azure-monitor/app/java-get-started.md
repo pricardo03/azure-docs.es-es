@@ -1,18 +1,16 @@
 ---
 title: 'Inicio rápido: Análisis de aplicaciones web Java con Azure Application Insights'
 description: 'Supervisión del rendimiento de aplicaciones web de Java con Application Insights. '
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: abc16f8e1fdc6b81634b926eeb287e5d03efdc40
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 484d4e8df8a8fdceed62a65858126a16d028121e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963689"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670090"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Inicio rápido: Introducción a Application Insights en un proyecto web de Java
 
@@ -20,7 +18,7 @@ En este inicio rápido, se usa Application Insights para instrumentar automátic
 
 Application Insights es un servicio de análisis extensible para desarrolladores web que ayuda a comprender el rendimiento y el uso de la aplicación activa. Application Insights es compatible con aplicaciones Java que se ejecutan en Linux, Unix o Windows.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Una aplicación Java en funcionamiento.
@@ -38,7 +36,7 @@ Application Insights es un servicio de análisis extensible para desarrolladores
 
 *Elija el tipo de proyecto.*
 
-# <a name="maventabmaven"></a>[Maven](#tab/maven)
+# <a name="maven"></a>[Maven](#tab/maven)
 
 Si su proyecto ya se ha configurado para usar Maven para la compilación, combine el siguiente código en el archivo *pom.xml*.
 
@@ -56,7 +54,7 @@ A continuación, actualice las dependencias del proyecto, para obtener los archi
     </dependencies>
 ```
 
-# <a name="gradletabgradle"></a>[Gradle](#tab/gradle)
+# <a name="gradle"></a>[Gradle](#tab/gradle)
 
 Si su proyecto ya se ha configurado para usar Gradle para la compilación, combine el siguiente código al archivo *build.gradle*.
 
@@ -70,7 +68,7 @@ A continuación, actualice las dependencias del proyecto, para obtener los archi
     }
 ```
 
-# <a name="other-typestabother"></a>[Otros tipos](#tab/other)
+# <a name="other-types"></a>[Otros tipos](#tab/other)
 
 Descargue el [versión más reciente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest), copie los archivos necesarios en el proyecto y reemplace todos los de las versiones anteriores.
 

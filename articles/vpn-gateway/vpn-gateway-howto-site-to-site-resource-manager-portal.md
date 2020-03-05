@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 03/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2e6aeda0e84b11221af110bda738d6d93f258978
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 857b50a04466f43a25cf80d7930cfb4639dc9d65
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894985"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301967"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Creación de una conexión de sitio a sitio mediante Azure Portal
 
@@ -47,11 +47,11 @@ Los ejemplos de este artículo utilizan los valores siguientes. Puede usar estos
 * **Espacio de direcciones:** 10.1.0.0/16
 * **Subscription** (Suscripción): Suscripción que desea usar.
 * **Grupos de recursos:** TestRG1
-* **Región:** East US
+* **Región:** Este de EE. UU.
 * **Subred:** front-end: 10.1.0.0/24, back-end: 10.1.1.0/24 (opcional para este ejercicio)
 * **Intervalo de direcciones de subred de puerta de enlace:** 10.1.255.0/27
 * **Nombre de la puerta de enlace de red virtual:** VNet1GW
-* **Nombre de dirección IP pública:** VNet1GWIP
+* **Nombre de dirección IP pública:** VNet1GWpip
 * **Tipo de VPN:** basada en rutas
 * **Tipo de conexión**: de sitio a sitio (IPsec)
 * **Tipo de puerta de enlace:** VPN
@@ -61,7 +61,7 @@ Los ejemplos de este artículo utilizan los valores siguientes. Puede usar estos
 
 ## <a name="CreatVNet"></a>1. Creación de una red virtual
 
-[!INCLUDE [Create a virtual network](../../includes/vpn-gateway-create-virtual-network-portal-include.md)]
+[!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
 ## <a name="VNetGateway"></a>2. Creación de la puerta de enlace VPN
 
@@ -71,13 +71,13 @@ En este paso, se crea la puerta de enlace para la red virtual. La creación de u
 
 ### <a name="example-settings"></a>Configuración de ejemplo
 
-* **Detalles de instancia > Región:** East US
+* **Detalles de instancia > Región:** Este de EE. UU.
 * **Red virtual > Red virtual:** VNet1
 * **Detalles de instancia > Nombre:** VNet1GW
 * **Detalles de instancia > Tipo de puerta de enlace:** VPN
 * **Detalles de instancia > Tipo de VPN:** basada en rutas
 * **Red virtual > Intervalo de direcciones de subred de la puerta de enlace:** 10.1.255.0/27
-* **Dirección IP pública > Nombre de dirección IP pública:** VNet1GWIP
+* **Dirección IP pública > Nombre de dirección IP pública:** VNet1GWpip
 
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
@@ -92,7 +92,7 @@ La puerta de enlace de red local suele hacer referencia a la ubicación local. A
 
 * **Nombre:** Site1
 * **Grupos de recursos:** TestRG1
-* **Ubicación:** East US
+* **Ubicación:** Este de EE. UU.
 
 
 [!INCLUDE [Add a local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-include.md)]

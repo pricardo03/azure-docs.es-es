@@ -3,20 +3,20 @@ title: Operaciones de Microsoft Graph admitidas
 titleSuffix: Azure AD B2C
 description: Índice de las operaciones de Microsoft Graph compatibles con la administración de recursos de Azure AD B2C, incluidos usuarios, flujos de usuarios, proveedores de identidades, directivas personalizadas, claves de directivas, etc.
 services: B2C
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/20/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5eeae1ab6866435311eeec944b4a51ecf2793dee
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 27fe1a41365d96a4179f8c659b63dc22c7b9fc93
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522975"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184255"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Operaciones de Microsoft Graph disponibles para Azure AD B2C
 

@@ -3,20 +3,20 @@ title: Configuración del flujo de credenciales de contraseña de propietario de
 titleSuffix: Azure AD B2C
 description: Aprenda a configurar el flujo de ROPC en Azure AD B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: marsma
+ms.date: 02/27/2020
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 03ff564848298d31c8bf92169d9e5f66d024d711
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 70cd4f2ca3a4ac37bdf1d1e465d1f1a7d06ef9e1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949191"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189708"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configuración del flujo de credenciales de contraseña de propietario del recurso en Azure AD B2C
 
@@ -24,16 +24,7 @@ El flujo de credenciales de contraseña de propietario del recurso (ROPC) es un 
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-En Azure Active Directory B2C (Azure AD B2C), se admiten las siguientes opciones:
-
-- **Cliente nativo**: la interacción del usuario durante la autenticación se produce cuando se ejecuta el código en un dispositivo en el lado del usuario. El dispositivo puede ser una aplicación móvil que se ejecuta en un sistema operativo nativo como, por ejemplo, Android e iOS.
-- **Public client flow** (Flujo de cliente público): en la llamada API, solo se envían credenciales de usuario recopiladas por una aplicación. No se envían las credenciales de la aplicación.
-- **Add new claims** (Agregar nuevas notificaciones): se puede cambiar el contenido del token de id. para agregar nuevas notificaciones.
-
-No se admiten los siguientes flujos:
-
-- **De servidor a servidor**: el sistema de protección de identidades necesita una dirección IP de confianza que recopile el autor de la llamada (el cliente nativo) como parte de la interacción. En una llamada API del lado servidor, se utiliza sólo la dirección IP del servidor. Si se supera un umbral dinámico de errores de autenticación, el sistema de protección de identidad puede identificar una dirección IP repetida como un atacante.
-- **Confidential client flow (Flujo de cliente confidencial)** : se valida el identificador de cliente de la aplicación, pero no el secreto de la aplicación.
+[!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
 ##  <a name="create-a-resource-owner-user-flow"></a>Creación de un flujo de usuario del propietario del recurso
 
@@ -60,12 +51,12 @@ No se admiten los siguientes flujos:
 
 Use su aplicación favorita de desarrollo de API para generar una llamada API y revise la respuesta para depurar el flujo de usuario. Cree una llamada similar a esta con la información que se muestra en la tabla siguiente como el cuerpo de la solicitud POST:
 - Reemplace *\<yourtenant.onmicrosoft.com>* con el nombre del inquilino B2C.
-- Reemplace  *\<B2C_1A_ROPC_Auth >* con el nombre completo de la directiva de credenciales de contraseña del propietario de recursos.
+- Reemplace *\<B2C_1A_ROPC_Auth >* con el nombre completo de la directiva de credenciales de contraseña del propietario de recursos.
 - Reemplace *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* con el id. de la aplicación desde el registro.
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Clave | Valor |
+| Clave | Value |
 | --- | ----- |
 | username | leadiocl@outlook.com |
 | password | Passxword1 |
@@ -105,7 +96,7 @@ Cree una llamada POST similar a la que se muestra aquí, con la información que
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Clave | Valor |
+| Clave | Value |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | ID_token |

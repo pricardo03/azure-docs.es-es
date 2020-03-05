@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: a042e768ef6693d2ced6d679947a6fe321d259bf
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: a80446317a289f27cdbbff3b2939cfe0db45748f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934716"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918060"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimización de la máquina virtual Linux en Azure
 Crear una máquina virtual con Linux es muy sencillo desde la línea de comandos o desde el Portal. Este tutorial muestra cómo asegurarse de que está configurada para optimizar su rendimiento en la Plataforma Microsoft Azure. Este tema usa una VM de servidor Ubuntu, pero también puede crear máquinas virtuales Linux mediante [sus propias imágenes como plantillas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 En este tema se da por supuesto que ya tiene una suscripción de Azure activa ([suscripción de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)) y ya ha aprovisionado una VM en su suscripción de Azure. Asegúrese de que dispone de la [CLI de Azure](/cli/azure/install-az-cli2) más reciente instalada y de que ha iniciado sesión en su suscripción de Azure con [az login](/cli/azure/reference-index) antes de [crear una máquina virtual](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Disco de sistema operativo de Azure
@@ -135,5 +135,4 @@ Recuerde que, como en todos los debates sobre optimización, debe realizar prueb
 Algunos vínculos útiles a recursos adicionales:
 
 * [Guía de usuario del Agente de Linux de Azure](../extensions/agent-linux.md)
-* [Optimización del rendimiento de MySQL en máquinas virtuales de Azure con Linux](classic/optimize-mysql.md)
 * [Configuración del software RAID en Linux](configure-raid.md)

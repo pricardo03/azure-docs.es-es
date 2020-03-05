@@ -1,18 +1,17 @@
 ---
 title: Solución Azure Key Vault en Azure Monitor | Microsoft Docs
 description: Puede utilizar la solución Azure Key Vault en Azure Monitor para revisar los registros de Azure Key Vault.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: 8d9c5f63a00179903c0920912aba642311a354e7
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 7a2becf8cb43568383c324bb9f4f5b2e7b844268
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74889114"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667150"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solución Azure Key Vault Analytics en Azure Monitor
 
@@ -97,10 +96,10 @@ Tras hacer clic en el icono de **Key Vault Analytics**, puede ver resúmenes de 
 ## <a name="azure-monitor-log-records"></a>Registros de Azure Monitor
 La solución de Azure Key Vault analiza los registros que tienen un tipo de **KeyVaults** que se recopilan desde los [registros AuditEvent](../../key-vault/key-vault-logging.md) de Diagnóstico de Azure.  Las propiedades de estos registros se muestran en la tabla siguiente:  
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | `Type` |*AzureDiagnostics* |
-| `SourceSystem` |*Las tablas de Azure* |
+| `SourceSystem` |*Azure* |
 | `CallerIpAddress` |Dirección IP del cliente que realizó la solicitud. |
 | `Category` | *AuditEvent* |
 | `CorrelationId` |Un GUID opcional que el cliente puede pasar para correlacionar los registros del lado cliente con los registros del lado servicio (Key Vault). |
@@ -143,7 +142,7 @@ Para usar la solución actualizada:
 
 Los datos recopilados antes del cambio no aparecen en la nueva solución. Puede seguir consultando estos datos con el tipo y los nombres de campo anteriores.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes

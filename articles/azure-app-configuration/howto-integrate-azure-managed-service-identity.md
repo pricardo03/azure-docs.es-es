@@ -7,12 +7,12 @@ author: lisaguthrie
 ms.topic: conceptual
 ms.date: 2/25/2020
 ms.author: lcozzens
-ms.openlocfilehash: 66bf27c1b1e8349c1a0e822c457412fdfca58e82
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 957fef32702f35b4b509d829eba6a41914c4fc53
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77619461"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205864"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integración con identidades administradas de Azure
 
@@ -143,10 +143,16 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
                     .ConfigureAppConfiguration((hostingContext, config) =>
                     {
                         var settings = config.Build();
-                        AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
-                        KeyVaultClient kvClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
-                        
-                        config.AddAzureAppConfiguration(options => options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()).UseAzureKeyVault(kvClient));
+                        var credentials = new ManagedIdentityCredential();
+
+                        config.AddAzureAppConfiguration(options =>
+                        {
+                            options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
+                                    .ConfigureKeyVault(kv =>
+                                    {
+                                        kv.SetCredential(credentials);
+                                    });
+                        });
                     })
                     .UseStartup<Startup>();
     ```
@@ -158,12 +164,18 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
             Host.CreateDefaultBuilder(args)
             .ConfigureWebHostDefaults(webBuilder =>
             webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-            {
-                var settings = config.Build();
-                        AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
-                        KeyVaultClient kvClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
-                        
-                        config.AddAzureAppConfiguration(options => options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()).UseAzureKeyVault(kvClient));
+                    {
+                        var settings = config.Build();
+                        var credentials = new ManagedIdentityCredential();
+
+                        config.AddAzureAppConfiguration(options =>
+                        {
+                            options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
+                                    .ConfigureKeyVault(kv =>
+                                    {
+                                        kv.SetCredential(credentials);
+                                    });
+                        });
                     })
                     .UseStartup<Startup>());
     ```
@@ -212,7 +224,7 @@ En la _ventana del terminal local_, agregue una instancia remota de Azure al rep
 git remote add azure <url>
 ```
 
-Inserte en la instancia remota de Azure para implementar la aplicación con el comando siguiente. Cuando se le pida una contraseña, escriba la contraseña que creó en [Configuración de un usuario de implementación](#configure-a-deployment-user). No use la misma contraseña que para iniciar sesión en Azure Portal.
+Realice la insercion en la instancia remota de Azure para implementar la aplicación con el comando siguiente. Cuando se le pida una contraseña, escriba la contraseña que creó en [Configuración de un usuario de implementación](#configure-a-deployment-user). No use la misma contraseña que para iniciar sesión en Azure Portal.
 
 ```bash
 git push azure master

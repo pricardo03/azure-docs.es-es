@@ -8,18 +8,18 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 6f262752a50b58eae8ffbea81b8e7fc4d8c65b98
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f7aa2a341a82d30f7022af49e626a3cd358854b7
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464983"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273480"
 ---
 # <a name="email-prebuilt-entity-for-a-luis-app"></a>Entidad precompilada Email para una aplicación de LUIS
-La extracción de correo electrónico incluye la dirección de correo electrónico completa de un mensaje. Dado que esta entidad ya está entrenada, no se necesita agregar expresiones de ejemplo que contengan el correo electrónico en las intenciones de la aplicación. La entidad de correo electrónico se admite solamente en la referencia cultural `en-us`. 
+La extracción de correo electrónico incluye la dirección de correo electrónico completa de un mensaje. Dado que esta entidad ya está entrenada, no se necesita agregar expresiones de ejemplo que contengan el correo electrónico en las intenciones de la aplicación. La entidad de correo electrónico se admite solamente en la referencia cultural `en-us`.
 
 ## <a name="resolution-for-prebuilt-email"></a>Resolución del correo electrónico precompilado
 
@@ -27,7 +27,7 @@ La consulta devuelve los siguientes objetos de entidad:
 
 `please send the information to patti@contoso.com`
 
-#### <a name="v3-responsetabv3"></a>[Respuesta de V3](#tab/V3)
+#### <a name="v3-response"></a>[Respuesta de V3](#tab/V3)
 
 El siguiente JSON es con el parámetro `verbose` establecido en `false`:
 
@@ -38,7 +38,7 @@ El siguiente JSON es con el parámetro `verbose` establecido en `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-responsetabv3-verbose"></a>[Respuesta detallada de V3](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[Respuesta detallada de V3](#tab/V3-verbose)
 
 El siguiente JSON es con el parámetro `verbose` establecido en `true`:
 
@@ -64,7 +64,7 @@ El siguiente JSON es con el parámetro `verbose` establecido en `true`:
     }
 }
 ```
-#### <a name="v2-responsetabv2"></a>[Respuesta de V2](#tab/V2)
+#### <a name="v2-response"></a>[Respuesta de V2](#tab/V2)
 
 En el siguiente ejemplo, se muestra la resolución de la entidad **builtin.email**.
 
@@ -81,10 +81,10 @@ En el siguiente ejemplo, se muestra la resolución de la entidad **builtin.email
     }
 ]
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
 
-Obtenga información acerca de las entidades de [número](luis-reference-prebuilt-number.md), [ordinal](luis-reference-prebuilt-ordinal.md) y [porcentaje](luis-reference-prebuilt-percentage.md). 
+Obtenga información acerca de las entidades de [número](luis-reference-prebuilt-number.md), [ordinal](luis-reference-prebuilt-ordinal.md) y [porcentaje](luis-reference-prebuilt-percentage.md).

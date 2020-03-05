@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/19/2019
-ms.openlocfilehash: 6e2fa96584570e5837c4367c8be4701b7398fb0f
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/19/2020
+ms.openlocfilehash: 9606768288cc74afc24491149eb471944f45e2dc
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152217"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921171"
 ---
 # <a name="module-k-means-clustering"></a>Módulo: Agrupación en clústeres K-Means
 
@@ -107,11 +107,11 @@ Cuando procesa los datos de entrenamiento, el algoritmo K-means comienza con un 
   
     -   Si establece **Create trainer mode** (Crear modo de entrenador) en **Single Parameter** (Parámetro único), agregue un conjunto de datos etiquetado y entrene el modelo con el módulo [Train Clustering Model](train-clustering-model.md) (Entrenamiento del modelo de agrupación en clústeres).  
   
-### <a name="results"></a>Results
+## <a name="results"></a>Results
 
 Cuando haya terminado de configurar y entrenar el modelo, puede usarlo para generar puntuaciones. Sin embargo, hay varias formas de entrenar el modelo y varias maneras de ver y usar los resultados: 
 
-#### <a name="capture-a-snapshot-of-the-model-in-your-workspace"></a>Captura de una instantánea del modelo en el área de trabajo
+### <a name="capture-a-snapshot-of-the-model-in-your-workspace"></a>Captura de una instantánea del modelo en el área de trabajo
 
 Si usó el módulo [Train Clustering Model clústeres](train-clustering-model.md) (Entrenamiento del modelo de agrupación en clústeres):
 
@@ -121,7 +121,7 @@ Si usó el módulo [Train Clustering Model clústeres](train-clustering-model.md
 
 El modelo guardado representa los datos de entrenamiento en el momento de guardar el modelo. Si más tarde actualiza los datos de entrenamiento utilizados en la canalización, no actualiza el modelo guardado. 
 
-#### <a name="see-the-clustering-result-dataset"></a>Ver el conjunto de datos de resultado de la agrupación en clústeres 
+### <a name="see-the-clustering-result-dataset"></a>Ver el conjunto de datos de resultado de la agrupación en clústeres 
 
 Si usó el módulo [Train Clustering Model clústeres](train-clustering-model.md) (Entrenamiento del modelo de agrupación en clústeres):
 
@@ -142,3 +142,7 @@ Puede evitar este problema de dos maneras:
 -   Cree varios modelos, variando la métrica o la iteración más.  
   
 En general, con los modelos de clústeres, es posible que una determinada configuración de como resultado un conjunto de clústeres optimizado localmente. En otras palabras, el conjunto de clústeres que devuelve el modelo se adapta solo a los puntos de datos actuales y no es generalizable a otros datos. Si usa una configuración inicial diferente, el método K-means podría encontrar una configuración diferente y superior. 
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

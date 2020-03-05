@@ -3,12 +3,12 @@ title: Ejecución de comandos en una instancia de contenedor en ejecución
 description: Obtenga información sobre cómo ejecutar un comando en un contenedor actualmente en ejecución en Azure Container Instances
 ms.topic: article
 ms.date: 03/30/2018
-ms.openlocfilehash: 10d0ea0c2dfa60aad64d0ae11532aff24a7ce773
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: de48e6ac246e2b0751561b4c60bb63d88b599bdf
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481575"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250014"
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>Ejecución de un comando en una instancia de contenedor de Azure en ejecución
 
@@ -30,8 +30,7 @@ az container exec --resource-group myResourceGroup --name mynginx --exec-command
 
 En la salida de ejemplo siguiente, el shell de Bash se inicia en un contenedor Linux en ejecución, lo que proporciona un terminal en el que se ejecuta `ls`:
 
-```console
-$ az container exec --resource-group myResourceGroup --name mynginx --exec-command "/bin/bash"
+```output
 root@caas-83e6c883014b427f9b277a2bba3b7b5f-708716530-2qv47:/# ls
 bin   dev  home  lib64  mnt  proc  run   srv  tmp  var
 boot  etc  lib   media  opt  root  sbin  sys  usr
@@ -42,8 +41,11 @@ Bye.
 
 En este ejemplo, el símbolo del sistema se inicia en un contenedor Nanoserver en ejecución:
 
-```console
-$ az container exec --resource-group myResourceGroup --name myiis --exec-command "cmd.exe"
+```azurecli
+az container exec --resource-group myResourceGroup --name myiis --exec-command "cmd.exe"
+```
+
+```output
 Microsoft Windows [Version 10.0.14393]
 (c) 2016 Microsoft Corporation. All rights reserved.
 

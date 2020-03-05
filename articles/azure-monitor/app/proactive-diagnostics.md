@@ -1,18 +1,14 @@
 ---
 title: Detección inteligente en Azure Application Insights | Microsoft Docs
 description: Application Insights realiza un análisis profundo automático de la telemetría de la aplicación y le advierte de los posibles problemas.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 02/07/2019
-ms.openlocfilehash: ae9af5721e53277f6c939840721ca50ea67ca51e
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: e232295f9da2a2ae8f3c6fafdd1dc33a42e92e69
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72818818"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671807"
 ---
 # <a name="smart-detection-in-application-insights"></a>Detección inteligente en Application Insights
  La detección inteligente avisa automáticamente de posibles problemas de rendimiento y anomalías en los errores en su aplicación web. Realiza un análisis proactivo de la telemetría que su aplicación envía a [Application Insights](../../azure-monitor/app/app-insights-overview.md). Si hay un aumento repentino de las tasas de error o patrones de rendimiento anormales en el cliente o el servidor, recibirá una alerta. Esta característica no necesita ninguna configuración. Funciona si la aplicación envía suficiente telemetría.

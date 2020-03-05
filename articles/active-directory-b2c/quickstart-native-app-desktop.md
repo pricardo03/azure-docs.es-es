@@ -3,21 +3,21 @@ title: 'Inicio rápido: Configuración del inicio de sesión de una aplicación 
 titleSuffix: Azure AD B2C
 description: En este inicio rápido se ejecuta una aplicación de escritorio de Windows Presentation Foundation de ejemplo que usa Azure Active Directory B2C para proporcionar el inicio de sesión de la cuenta.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f36b705d590f34a79aefe14355f25f7639562d2a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: ebed2f5e8664bd4336219f9387b8d27c8f3a1c59
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76908979"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187345"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Inicio rápido: Configuración del inicio de sesión en una aplicación de escritorio mediante Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Azure Active Directory B2C (Azure AD B2C) proporciona administración de id
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) con la carga de trabajo de **ASP.NET y desarrollo web**.
 - Una cuenta de redes sociales de Facebook, Google o Microsoft.

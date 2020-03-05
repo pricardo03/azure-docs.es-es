@@ -1,18 +1,17 @@
 ---
 title: Campos personalizados en Azure Monitor (versión preliminar) | Microsoft Docs
 description: La característica Campos personalizados de Azure Monitor le permite crear sus propios campos de búsqueda a partir de registros de un área de trabajo de Log Analytics y agregarlos a las propiedades de un registro recopilado.  En este artículo, se describe el proceso que debe seguir para crear un campo personalizado y se incluye un tutorial detallado con un evento de ejemplo.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: 880d3ffa9914a8fc6f27edce06c5d353d7903db4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bfb0a73631564c96a4af745fe9d7540a3a84f9c3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75396877"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655368"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Creación de campos personalizados en un área de trabajo de Log Analytics en Azure Monitor (versión preliminar)
 

@@ -5,16 +5,17 @@ services: key-vault
 author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 15650de776b481d1635b58f2b8ecf2bf2921d12f
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 3c80a206af74eb370470c38a7af9c7f1fe840406
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242421"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198157"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Tutorial: Uso de una máquina virtual Linux y una aplicación Python para almacenar secretos en Azure Key Vault
 
@@ -32,10 +33,10 @@ En este tutorial, configurará una aplicación web de Azure para leer informaci�
 
 Antes de continuar, asegúrese de conocer los [conceptos básicos sobre Key Vault](basic-concepts.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * [Git](https://git-scm.com/downloads).
-* Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 * [CLI de Azure versión 2.0.4 o posterior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) o Azure Cloud Shell.
 
 [!INCLUDE [Azure Cloud Shell](../../includes/cloud-shell-try-it.md)]
@@ -197,7 +198,7 @@ El código anterior lleva a cabo un proceso de dos pasos:
    1. Captura un token del punto de conexión MSI local en la máquina virtual. El punto de conexión captura a continuación un token de Azure Active Directory.
    1. Pasa el token al almacén de claves y captura el secreto.
 
-Ejecute el siguiente comando. Debería ver el valor del secreto.
+Ejecute el siguiente comando: Debería ver el valor del secreto.
 
 ```console
 python Sample.py

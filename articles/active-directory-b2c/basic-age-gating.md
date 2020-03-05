@@ -2,20 +2,20 @@
 title: Habilitar la restricción de acceso por edad en Azure Active Directory B2C | Microsoft Docs
 description: Obtenga información acerca de cómo identificar a los menores mediante la aplicación.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1fc63b222fd2f08bb4b5596d58f825c8f6b1910e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 56cbeb8e8fe21f4b39c2f5c6af43e83ae330e5d5
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836243"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189980"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Habilitación de la restricción de acceso por edad en Azure Active Directory B2C
 

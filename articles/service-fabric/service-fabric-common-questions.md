@@ -4,12 +4,12 @@ description: Preguntas más frecuentes sobre Service Fabric, incluyendo funcione
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 17c1d05e119df8207c0599283f1d04b869e8297b
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: bf61858b446c1ac6d4a0210571fffaa721ad0166
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293528"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254896"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Preguntas frecuentes sobre Service Fabric
 
@@ -22,7 +22,7 @@ Hay muchas preguntas que se plantean con frecuencia acerca de qué puede hacer S
 
 ### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>¿Cómo se revierte el certificado de clúster de Service Fabric?
 
-Revertir cualquier actualización de la aplicación requiere la detección de errores de mantenimiento antes de que el cuórum de clúster de Service Fabric confirme el cambio; solo se pueden poner al día los cambios confirmados. Puede ser necesario el escalamiento a otro ingeniero a través de los servicios de soporte técnico al cliente para recuperar el clúster, si se ha introducido un cambio de certificado importante no supervisado.  La [actualización de la aplicación de Service Fabric](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master) aplica [parámetros de actualización de la aplicación](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master), y ofrece la promesa de actualización sin tiempo de inactividad.  Al seguir el modo supervisado recomendado de actualización de la aplicación, el progreso automático de actualización de los dominios se basa en pasar comprobaciones de mantenimiento y se revierte automáticamente si se produce un error en la actualización de un servicio predeterminado.
+Revertir cualquier actualización de la aplicación requiere la detección de errores de mantenimiento antes de que el cuórum de clúster de Service Fabric confirme el cambio; solo se pueden poner al día los cambios confirmados. Puede ser necesario el escalamiento a otro ingeniero a través de los servicios de soporte técnico al cliente para recuperar el clúster, si se ha introducido un cambio de certificado importante no supervisado.  La [actualización de la aplicación de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master) aplica [parámetros de actualización de la aplicación](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master), y ofrece la promesa de actualización sin tiempo de inactividad.  Al seguir el modo supervisado recomendado de actualización de la aplicación, el progreso automático de actualización de los dominios se basa en pasar comprobaciones de mantenimiento y se revierte automáticamente si se produce un error en la actualización de un servicio predeterminado.
  
 Si el clúster todavía utiliza la propiedad clásica de huella digital del certificado en la plantilla de Resource Manager, se recomienda [cambiar el clúster de huella digital del certificado por el nombre común](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), para aprovechar las modernas características de administración de secretos.
 

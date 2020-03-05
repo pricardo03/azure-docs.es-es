@@ -1,18 +1,17 @@
 ---
 title: Uso de la solución Service Map en Azure | Microsoft Docs
 description: Service Map es una solución de Azure que detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. En este artículo se proporciona información para implementar la solución Mapa de servicio en su entorno y utilizarla en distintos escenarios.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 0f2181a388a5329dbc16ce8968da79529b22ea85
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: c177589bea76770f8f72dd3267b856b00d57699c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76168175"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663630"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso de la solución Service Map en Azure
 
@@ -380,7 +379,7 @@ Para mayor comodidad, la dirección IP del extremo remoto de una conexión se in
 
 | Propiedad | Descripción |
 |:--|:--|
-| `RemoteCountry` |Nombre del país o región que hospeda la dirección IP de RemoteIp.  Por ejemplo: *United States* |
+| `RemoteCountry` |Nombre del país o región que hospeda la dirección IP de RemoteIp.  Por ejemplo: *Estados Unidos* |
 | `RemoteLatitude` |Latitud de geolocalización.  Por ejemplo, *47.68* |
 | `RemoteLongitude` |Longitud de geolocalización.  Por ejemplo, *-122.12* |
 

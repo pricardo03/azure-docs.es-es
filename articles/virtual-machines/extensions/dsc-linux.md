@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 102433b88ffb140cae46433be1c0edef90857e6d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2f04b5ecb2019a77bbb38e97c3869cc0a9447955
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969932"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921528"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensión de DSC para Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -38,7 +38,7 @@ Microsoft publica y admite la extensión DSCForLinux. La extensión instala los 
 
  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="operating-system"></a>Sistema operativo
 
@@ -290,6 +290,9 @@ Para más información sobre la plantilla de Resource Manager, consulte [Creaci�
 Antes de implementar la extensión DSCForLinux, configure `public.json` y `protected.json`, según los diferentes escenarios de la sección 3.
 
 #### <a name="classic"></a>Clásico
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 El modo de implementación clásica también se denomina modo de administración de servicios de Azure. Puede cambiarlo mediante la ejecución de:
 ```
 $ azure config mode asm

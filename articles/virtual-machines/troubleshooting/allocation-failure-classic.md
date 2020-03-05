@@ -12,14 +12,16 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: d43176e04337c2faf7be0bea682428056bc4ab46
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 20e64e5225987a8045e406a0e8fcae098c580c61
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059193"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913385"
 ---
 # <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Pasos para solucionar problemas específicos para los escenarios de error de asignación en el modelo de implementación clásica
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 A continuación se presentan los escenarios de asignación comunes que ocasionan que una solicitud de asignación quede anclada. Nos dedicaremos a cada escenario más adelante en este artículo.
 

@@ -1,18 +1,17 @@
 ---
 title: Creación de un área de trabajo de Log Analytics mediante la CLI de Azure | Microsoft Docs
 description: Aprenda a crear un área de trabajo de Log Analytics para habilitar soluciones de administración y recopilación de datos en sus entornos tanto locales como en la nube con la CLI de Azure.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2019
-ms.openlocfilehash: b696d57919383e87f8e5e647b774fc9e4dbdf16b
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 89d397574c423e28bcbb0fec5ddd45959a737a93
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513480"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659893"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Creación de un área de trabajo de Log Analytics con la CLI de Azure 2.0
 

@@ -4,19 +4,19 @@ ms.author: baanders
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 10/24/2019
-ms.openlocfilehash: 7a0ea2330e682e1e60eca6540151b0f5f620571c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3f3e7c54ec59c42ed102da682fc9aa077709ef3f
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453713"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78262300"
 ---
 ## <a name="prepare-an-iot-hub"></a>Preparación de un centro de IoT
 
 También necesitará un centro de IoT de Azure en la suscripción de Azure para completar este inicio rápido. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. Si no tiene una instancia de IoT Hub, siga [estas instrucciones para crear una](../articles/iot-hub/iot-hub-create-using-cli.md).
 
 > [!IMPORTANT]
-> Durante la versión preliminar pública, las características de IoT Plug and Play solo están disponibles en los centros de IoT creados en las regiones **Centro de EE. UU.** , **Norte de Europa** y **Este de Japón**.
+> Durante la versión preliminar pública, las características de IoT Plug and Play solo están disponibles en los centros de IoT creados en las regiones **Centro de EE. UU.** , **Norte de Europa** y **Japón Oriental**.
 
 Si utiliza la CLI de Azure de forma local, inicie sesión primero en la suscripción de Azure mediante `az login`. Si está ejecutando estos comandos en Azure Cloud Shell, su sesión se iniciará automáticamente.
 
@@ -25,7 +25,7 @@ Si usa la CLI de Azure localmente, la versión de `az` debe ser la **2.0.73** o 
 Ejecute el siguiente comando para agregar la extensión de IoT de Microsoft Azure para la CLI de Azure a la instancia:
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
 
 Ejecute el siguiente comando la nueva identidad del dispositivo en su centro de IoT. Reemplace los marcadores de posición **YourIoTHubName** y **YourDeviceID** por su propio _nombre de IoT Hub_ y un _identificador de dispositivo_ de su elección.

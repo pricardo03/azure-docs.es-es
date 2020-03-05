@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 4a0593ccd6bdf37520e73ba8ed421ec4b10ea52c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 279130fa310b107bd1a016c717c48af3d905251b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623302"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270155"
 ---
 # <a name="streaming-ingestion-preview"></a>Ingesta de streaming (versión preliminar)
 
@@ -37,7 +37,7 @@ Use la ingesta clásica (masiva) en lugar de la ingesta de streaming cuando la c
  
     ![Ingesta de streaming activada](media/ingest-data-streaming/streaming-ingestion-on.png)
  
-1. En la [interfaz de usuario web](https://dataexplorer.azure.com/), defina la [directiva de ingesta de streaming](/azure/kusto/concepts/streamingingestionpolicy) en las tablas o las bases de datos que van a recibir los datos de streaming. 
+1. En la [interfaz de usuario web](https://dataexplorer.azure.com/), defina la [directiva de ingesta de streaming](/azure/kusto/management/streamingingestionpolicy) en las tablas o las bases de datos que van a recibir los datos de streaming. 
 
     > [!NOTE]
     > * Si la directiva está definida en el nivel de base de datos, todas las tablas de la base de datos están habilitadas para la ingesta de streaming.
@@ -63,7 +63,7 @@ Hay dos tipos de ingesta de streaming admitidos:
 > [!WARNING]
 > La deshabilitación de la ingesta de streaming puede tardar unas horas.
 
-1. Quite la [directiva de ingesta de streaming](/azure/kusto/concepts/streamingingestionpolicy) de todas las tablas y bases de datos pertinentes. La eliminación de la directiva de ingesta de streaming desencadena el movimiento de datos de ingesta de streaming desde el almacenamiento inicial hasta el almacenamiento permanente en el almacén de columnas (extensiones o particiones). El movimiento de datos puede durar entre unos segundos y algunas horas, según la cantidad de datos en el almacenamiento inicial y el uso de CPU y memoria del clúster.
+1. Quite la [directiva de ingesta de streaming](/azure/kusto/management/streamingingestionpolicy) de todas las tablas y bases de datos pertinentes. La eliminación de la directiva de ingesta de streaming desencadena el movimiento de datos de ingesta de streaming desde el almacenamiento inicial hasta el almacenamiento permanente en el almacén de columnas (extensiones o particiones). El movimiento de datos puede durar entre unos segundos y algunas horas, según la cantidad de datos en el almacenamiento inicial y el uso de CPU y memoria del clúster.
 1. En Azure Portal, vaya al clúster de Azure Data Explorer. En **Configuración**, seleccione **Configuraciones**. 
 1. En el panel **Configuraciones**, seleccione **Desactivado** para deshabilitar la **ingesta de streaming**.
 1. Seleccione **Guardar**.
@@ -76,11 +76,11 @@ Hay dos tipos de ingesta de streaming admitidos:
 * El límite de tamaño de datos por solicitud de ingesta es de 4 MB.
 * Las actualizaciones de esquema, como la creación y modificación de tablas y asignaciones de ingesta, pueden tardar hasta cinco minutos en el servicio de ingesta de streaming.
 * Cuando se habilita la ingesta de streaming en un clúster, incluso cuando los datos no se ingieren a través de streaming, se usa parte del disco SSD local de las máquinas del clúster para los datos de ingesta de streaming y se reduce el almacenamiento disponible para la caché activa.
-* No se pueden establecer [etiquetas de extensión](/azure/kusto/management/extents-overview.md#extent-tagging) en los datos de ingesta de streaming.
+* No se pueden establecer [etiquetas de extensión](/azure/kusto/management/extents-overview#extent-tagging) en los datos de ingesta de streaming.
 
 La ingesta de streaming no admite las siguientes características:
 * [Cursores de base de datos](/azure/kusto/management/databasecursor).
-* [Asignación de datos](/azure/kusto/management/mappings). Solo se admite la asignación de datos [creada previamente](/azure/kusto/management/tables#create-ingestion-mapping). 
+* [Asignación de datos](/azure/kusto/management/mappings). Solo se admite la asignación de datos [creada previamente](/azure/kusto/management/create-ingestion-mapping-command). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

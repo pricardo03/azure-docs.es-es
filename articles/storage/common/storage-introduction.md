@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ddd4f45e88c0bcc63fb62cc816fae4dbad255841
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 602f5a794f90e52ac80ea71ea2ed3656a7e0e5e7
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157591"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269472"
 ---
 # <a name="introduction-to-azure-storage"></a>Introducción a Azure Storage
 
@@ -141,7 +141,7 @@ Es posible acceder a los recursos de Azure Storage por medio de cualquier lengua
 - [API de REST de Azure Storage](https://docs.microsoft.com/rest/api/storageservices/)
 - [Biblioteca cliente de Azure Storage para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 - [Biblioteca cliente de Azure Storage para Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-- [Biblioteca cliente de Azure Storage para Node.js](https://docs.microsoft.com/javascript/api/overview/azure/storage)
+- [Biblioteca cliente de Azure Storage para Node.js](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
 - [Biblioteca cliente de Azure Storage para Python](https://github.com/Azure/azure-storage-python)
 - [Biblioteca cliente de Azure Storage para PHP](https://github.com/Azure/azure-storage-php)
 - [Biblioteca cliente de Azure Storage para Ruby](https://github.com/Azure/azure-storage-ruby)

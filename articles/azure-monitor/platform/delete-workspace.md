@@ -1,18 +1,17 @@
 ---
 title: Eliminación y recuperación de un área de trabajo de Azure Log Analytics | Microsoft Docs
 description: Obtenga información para eliminar el área de trabajo de Log Analytics si creó uno en una suscripción personal o reestructure el modelo de área de trabajo.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/14/2020
-ms.openlocfilehash: 038cfe04193b734bd26ed0ffd4dec5ae9b267c22
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 6f50450702c9ecdc1c1d910514d94e0a759176b8
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901276"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670481"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Eliminación y restauración de un área de trabajo de Azure Log Analytics
 

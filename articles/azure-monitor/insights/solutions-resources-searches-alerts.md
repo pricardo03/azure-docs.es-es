@@ -1,19 +1,18 @@
 ---
 title: Búsquedas guardadas en soluciones de administración | Microsoft Docs
 description: Las soluciones de administración incluyen por lo general consultas de registro guardadas para analizar los datos recopilados por la solución. En este artículo se describe cómo definir búsquedas guardadas de Log Analytics en una plantilla de Resource Manager.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/29/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ff9c45ffb636f53951a763f617c25a2e8c09088
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 61fc64e140af091b5ff3f631398daf901557791b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977719"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663035"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adición de búsquedas y alertas guardadas de Log Analytics en la solución de administración (versión preliminar)
 
@@ -28,7 +27,7 @@ Las [soluciones de administración](solutions.md) suelen incluir [búsquedas gua
 > [!NOTE]
 > En los ejemplos de este artículo se usan parámetros y variables que son necesarios o comunes para las soluciones de administración, y se describen en [Diseño y compilación de una solución de administración en Azure](solutions-creating.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 En este artículo se supone que ya está familiarizado con la manera de [crear una solución de administración](solutions-creating.md) y la estructura de una [plantilla de Resource Manager](../../azure-resource-manager/templates/template-syntax.md) y un archivo de solución.
 
 
@@ -168,7 +167,7 @@ En las tablas siguientes se describen las propiedades para los recursos de acci�
 |:--|:--|:--|
 | `type` | Sí | Tipo de la acción.  Es **Alert** para las acciones de alerta. |
 | `name` | Sí | Nombre para mostrar de la alerta.  Es el nombre que se muestra en la consola para la regla de alerta. |
-| `description` | No | Descripción opcional de la alerta. |
+| `description` | Sin | Descripción opcional de la alerta. |
 | `severity` | Sí | Gravedad del registro de alertas según los siguientes valores:<br><br> **crítica**<br>**advertencia**<br>**informativa**
 
 #### <a name="threshold"></a>Umbral
@@ -204,8 +203,8 @@ Para los usuarios que han extendido sus alertas a Azure, ahora una programación
 | Nombre del elemento | Obligatorio | Descripción |
 |:--|:--|:--|
 | AzNsNotification | Sí | El identificador de recurso del grupo de acciones de Azure que se asociará con la alerta para realizar las acciones necesarias cuando se cumplan los criterios de alerta. |
-| CustomEmailSubject | No | Línea de asunto personalizada del correo enviado a todas las direcciones especificadas en el grupo de acciones asociado. |
-| CustomWebhookPayload | No | Carga personalizada para enviarse a todos los puntos de conexión de webhook definidos en el grupo de acciones asociadas. El formato depende de lo que espera el webhook y debe ser un valor JSON serializado válido. |
+| CustomEmailSubject | Sin | Línea de asunto personalizada del correo enviado a todas las direcciones especificadas en el grupo de acciones asociado. |
+| CustomWebhookPayload | Sin | Carga personalizada para enviarse a todos los puntos de conexión de webhook definidos en el grupo de acciones asociadas. El formato depende de lo que espera el webhook y debe ser un valor JSON serializado válido. |
 
 ## <a name="sample"></a>Muestra
 

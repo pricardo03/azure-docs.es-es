@@ -1,19 +1,17 @@
 ---
 title: Actualización de Snapshot Debugger de Azure Application Insights
 description: Cómo actualizar Snapshot Debugger para aplicaciones .NET a la versión más reciente en Azure App Services o mediante paquetes de Nuget
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: pharring
 ms.author: pharring
 ms.date: 03/28/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: d246fb36cc56a90faaf00c5b47ba69580a9c8a5d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6991db6055ca8556adff67f194bac0f4aa04cb06
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927190"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671399"
 ---
 # <a name="upgrading-the-snapshot-debugger"></a>Actualización de Snapshot Debugger
 
@@ -27,7 +25,7 @@ Para proporcionar la máxima seguridad posible para los datos, Microsoft está d
 
 Si ha habilitado Snapshot Debugger mediante la extensión de sitio, puede realizar fácilmente la actualización mediante el siguiente procedimiento:
 
-1. Inicie sesión en el Portal de Azure.
+1. Inicie sesión en Azure Portal.
 2. Vaya al recurso que tiene habilitado Snapshot Debugger y Application Insights. Por ejemplo, para una aplicación web, navegue hasta el recurso de App Service:
 
    ![Captura de pantalla de recurso individual de App Service denominado DiagService01](./media/snapshot-debugger-upgrade/app-service-resource.png)
@@ -57,7 +55,7 @@ Si ha habilitado Snapshot Debugger mediante la extensión de sitio, puede reali
     > [!NOTE]
     > El sitio se reiniciará como parte del proceso de actualización.
 
-   ![Captura de pantalla de la solicitud de aplicar supervisión de App Service El cuadro de texto muestra el mensaje: "Ahora vamos a aplicar cambios a la configuración de la aplicación e instalaremos nuestras herramientas para vincular el recurso de Application Insights a la aplicación web. Al hacerlo, se reiniciará el sitio. ¿Desea continuar?"](./media/snapshot-debugger-upgrade/apply-monitoring-settings.png)
+   ![Captura de pantalla de la solicitud de aplicar supervisión de App Service El cuadro de texto muestra el mensaje: "Ahora vamos a aplicar cambios a la configuración de la aplicación e instalaremos nuestras herramientas para vincular el recurso de Application Insights a la aplicación web. Al hacerlo, se reiniciará el sitio. ¿Quiere continuar?".](./media/snapshot-debugger-upgrade/apply-monitoring-settings.png)
 
 9. Haga clic en **Sí** para aplicar los cambios y espere a que se complete el proceso.
 

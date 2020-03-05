@@ -1,19 +1,17 @@
 ---
 title: Generación de perfiles de aplicaciones activas de Azure App Service con Application Insights | Microsoft Docs
 description: Cree perfiles de aplicaciones activas de Azure App Service con Application Insights Profiler.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: d463732fc8e8f488851a57fe520f138b101eb6cf
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: ba9a2aca73dbdb8de298b68670fd6ab16f810a4d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899937"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671549"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Generación de perfiles de aplicaciones activas de Azure App Service con Application Insights
 
@@ -45,7 +43,7 @@ Application Insights Profiler viene preinstalado en el entorno de ejecución d
 Application Insights Profiler puede habilitarse mediante la creación de la configuración de la aplicación para Azure App Service. La página con las opciones mostradas anteriormente crea esta configuración de aplicación de forma automática. Sin embargo, es posible automatizar la creación de estas opciones mediante una plantilla u otros medios. Esta configuración también funciona si el recurso de Application Insights está en otra suscripción de Azure App Service.
 Estos son los valores necesarios para habilitar el generador de perfiles:
 
-|Configuración de aplicación    | Valor    |
+|Configuración de aplicación    | Value    |
 |---------------|----------|
 |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey para el recurso de Application Insights    |
 |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |

@@ -1,19 +1,15 @@
 ---
 title: 'Exploración de los registros de seguimiento de .NET con ILogger: Azure Application Insights'
 description: Ejemplos de uso del proveedor ILogger para Azure Application Insights con aplicaciones de ASP.NET Core y de consola.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: b538196467ba1d69e679a111ca313f922738b048
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 2c97c79229c6f136c154169253f2299b7756a105
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716022"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192479"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider para los registros de ILogger de .NET Core
 
@@ -396,7 +392,7 @@ Si se produce un registro doble cuando se depura desde Visual Studio, establezca
  }
 ```
 
-### <a name="i-updated-to-microsoftapplicationinsightsaspnet-sdkhttpswwwnugetorgpackagesmicrosoftapplicationinsightsaspnetcore-version-271-and-logs-from-ilogger-are-captured-automatically-how-do-i-turn-off-this-feature-completely"></a>Actualicé al [SDK de Microsoft.ApplicationInsights.AspNet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versión 2.7.1 y los registros de ILogger se capturan automáticamente. ¿Cómo desactivo por completo esta característica?
+### <a name="i-updated-to-microsoftapplicationinsightsaspnet-sdk-version-271-and-logs-from-ilogger-are-captured-automatically-how-do-i-turn-off-this-feature-completely"></a>Actualicé al [SDK de Microsoft.ApplicationInsights.AspNet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versión 2.7.1 y los registros de ILogger se capturan automáticamente. ¿Cómo desactivo por completo esta característica?
 
 Consulte en la sección [Control del nivel de registro](../../azure-monitor/app/ilogger.md#control-logging-level) cómo filtrar los registros en general. Para desactivar ApplicationInsightsLoggerProvider, utilice `LogLevel.None`:
 
@@ -430,7 +426,7 @@ Cuando se usa el paquete independiente, `TelemetryClient` no se inserta en el co
 ```csharp
 public class MyController : ApiController
 {
-   // This telemtryclient can be used to track additional telemetry using TrackXXX() api.
+   // This telemetryclient can be used to track additional telemetry using TrackXXX() api.
    private readonly TelemetryClient _telemetryClient;
    private readonly ILogger _logger;
 

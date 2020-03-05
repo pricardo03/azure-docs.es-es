@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: En este inicio rápido se muestra cómo usar Azure Dev Spaces y Visual Studio Code para depurar e iterar rápidamente una aplicación Node.js en Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: edece2d2100ce24d244cfd70936d850e1cf2f66e
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 74063e03e8298e388efd6888fc05bcbbc9aefa4b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602671"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245059"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-nodejs---azure-dev-spaces"></a>Inicio rápido: Depuración e iteración en Kubernetes con Visual Studio Code y Node.js: Azure Dev Spaces
 
@@ -30,7 +30,7 @@ En este inicio rápido, se configura Azure Dev Spaces con un clúster de Kuberne
 
 Debe crear un clúster de AKS en una [región admitida][supported-regions]. Los siguientes comandos crean un grupo de recursos llamado *MyResourceGroup* y un clúster de AKS denominado *MyAKS*.
 
-```cmd
+```azurecli
 az group create --name MyResourceGroup --location eastus
 az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 ```
@@ -42,9 +42,11 @@ Use el comando `use-dev-spaces` para habilitar Dev Spaces en el clúster de AKS 
 > [!NOTE]
 > El comando `use-dev-spaces` también instalará la CLI de Azure Dev Spaces si aún no se ha instalado. La CLI de Azure Dev Spaces no se puede instalar en Azure Cloud Shell.
 
-```cmd
-$ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+```azurecli
+az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+```
 
+```output
 'An Azure Dev Spaces Controller' will be created that targets resource 'MyAKS' in resource group 'MyResourceGroup'. Continue? (y/N): y
 
 Creating and selecting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAKS' in resource group 'MyResourceGroup'...2m 24s
@@ -155,7 +157,7 @@ Mientras se está ejecutando *nodemon*, el proceso de nodo se reinicia automáti
 
 ## <a name="clean-up-your-azure-resources"></a>Limpieza de los recursos de Azure
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 

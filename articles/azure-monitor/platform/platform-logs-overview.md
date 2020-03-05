@@ -3,17 +3,16 @@ title: Introducción a los registros de plataforma de Azure | Microsoft Docs
 description: Información general sobre los registros de Azure Monitor, que proporcionan datos exhaustivos y frecuentes sobre el funcionamiento de un recurso de Azure.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 5f02368bfb0c084691376300980d4cdee0d9b3be
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 89de6b3737c8a1e91832aba8f749078806b64e90
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530891"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659327"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Introducción a los registros de plataforma Azure
 Los registros de plataforma proporcionan información detallada de diagnóstico y auditoría para los recursos de Azure y la plataforma Azure de la que dependen. Se generan automáticamente, aunque es necesario configurar determinados registros de plataforma para que se reenvíen a uno o varios destinos para la conservación. En este artículo se proporciona información general sobre los registros de plataforma, incluida la información que proporcionan y cómo puede configurarlos para la recopilación y el análisis.

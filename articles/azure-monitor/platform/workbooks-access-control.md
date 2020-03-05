@@ -4,18 +4,17 @@ description: Simplifique la creación de informes complejos con libros parametri
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: c9b9f9ca2a9c08c05a3ce32230a39ca79625cd72
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 20116ab105e4eb12875ba3cb279fb261eb5c70e4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872934"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658428"
 ---
 # <a name="access-control"></a>Control de acceso
 
@@ -42,4 +41,4 @@ Agregue `microsoft.insights/workbooks/write` para guardar los libros compartidos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Vaya a [Introducción](workbooks-visualizations.md) para obtener más información acerca de las muchas opciones de visualizaciones enriquecidas para libros.
+* [Comience](workbooks-visualizations.md) a aprender más sobre las muchas opciones de visualizaciones enriquecidas de los libros.

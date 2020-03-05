@@ -1,18 +1,15 @@
 ---
 title: Integración del esquema común de alertas con Logic Apps
 description: Obtenga información sobre cómo crear una aplicación lógica que aprovecha el esquema común de alertas para controlar todas las alertas.
-ms.service: azure-monitor
-ms.subservice: alerts
 ms.topic: conceptual
-author: ananthradhakrishnan
-ms.author: robb
+ms.subservice: alerts
 ms.date: 05/27/2019
-ms.openlocfilehash: 50a6067d271ad824f17df1ece36c3dd919c7b55b
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 9042ed8ddbb698192e638fa7538f74561574c262
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555651"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668237"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Integración del esquema común de alertas con Logic Apps
 
@@ -23,7 +20,7 @@ En este artículo se muestra cómo crear una aplicación lógica que aprovecha e
 El [esquema común de alerta](https://aka.ms/commonAlertSchemaDocs) proporciona un esquema JSON estandarizado y extensible a través de todos los diferentes tipos de alerta. El esquema común de alerta es especialmente útil cuando se aprovecha mediante programación: con webhooks, runbooks y aplicaciones lógicas. En este artículo, se muestra cómo se puede crear una única aplicación lógica para controlar todas las alertas. Los mismos principios se pueden aplicar a otros métodos de programación. La aplicación lógica descrita en este artículo crea variables bien definidas para los [campos "esenciales"](alerts-common-schema-definitions.md#essentials)y también se describe cómo puede controlar la lógica específica del [tipos de alerta](alerts-common-schema-definitions.md#alert-context).
 
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Prerrequisitos 
 
 En este artículo se supone que el lector está familiarizado con los conceptos siguientes: 
 * Configuración de reglas de alerta ([métrica](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric), [registro](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log), [registro de actividad](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log))

@@ -4,19 +4,19 @@ description: Aprenda a controlar las admisiones de pods mediante PodSecurityPoli
 services: container-service
 ms.topic: article
 ms.date: 04/17/2019
-ms.openlocfilehash: bc22a577777e50724fbafa04cf01f28362113cc7
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 74177136a7a61186ab1d273b57dbfce550a18ecf
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592839"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914541"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Versión preliminar: Protección del clúster con directivas de seguridad de pod en Azure Kubernetes Service (AKS)
 
 Para mejorar la seguridad del clúster de AKS, puede limitar los pods que se pueden programar. Los pods que soliciten recursos que no permita no podrán ejecutarse en el clúster de AKS. Defina este acceso mediante directivas de seguridad de pod. En este artículo se muestra cómo usar las directivas de seguridad de pod para limitar la implementación de pods en AKS.
 
 > [!IMPORTANT]
-> Las características en vista previa de AKS son de autoservicio y se tienen que habilitar. Las versiones preliminares se proporcionan "tal cual" y "como están disponibles", y están excluidas de los contratos de nivel de servicio y la garantía limitada. Las versiones preliminares de AKS reciben cobertura parcial del soporte al cliente en la medida de lo posible. Por lo tanto, estas características no están diseñadas para usarse en producción. Para obtener información adicional, consulte los siguientes artículos de soporte:
+> Las características en vista previa de AKS son de autoservicio y se tienen que habilitar. Las versiones preliminares se proporcionan "tal cual" y "como están disponibles", y están excluidas de los contratos de nivel de servicio y la garantía limitada. Las versiones preliminares de AKS reciben cobertura parcial del soporte al cliente en la medida de lo posible. Por lo tanto, estas características no están diseñadas para usarse en producción. Para más información, consulte los siguientes artículos de soporte:
 >
 > * [Directivas de soporte técnico para AKS][aks-support-policies]
 > * [Preguntas más frecuentes de soporte técnico de Azure][aks-faq]

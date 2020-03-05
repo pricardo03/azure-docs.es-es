@@ -1,22 +1,20 @@
 ---
 title: Alertas de registro de actividad en Azure Monitor
 description: Reciba notificaciones por SMS, webhook y correo electrónico, entre otros, cuando se produzcan determinados eventos en el registro de actividad.
-ms.service: azure-monitor
 ms.subservice: alerts
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 09/17/2018
-ms.openlocfilehash: c42f72800a93de714f0cc126939a28a8a6b5fce4
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 26ecfdb33b92c91010af63ec14089dd148d6bad0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747530"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669020"
 ---
-# <a name="alerts-on-activity-log"></a>Alertas de registro de actividad 
+# <a name="alerts-on-activity-log"></a>Alertas de registro de actividad
 
 ## <a name="overview"></a>Información general
+
 Las alertas del registro de actividad son alertas que se activan cuando un nuevo [evento del registro de actividad](activity-log-schema.md) cumple las condiciones especificadas en la alerta. Según el orden y el volumen de los eventos registrados en el [registro de actividad de Azure](platform-logs-overview.md), se activará la regla de alerta. Las regla de alertas del registro de actividad son recursos de Azure, por lo que pueden crearse con una plantilla de Azure Resource Manager. También se pueden crear, actualizar o eliminar en Azure Portal. Este artículo presenta los conceptos relativos a las alertas del registro de actividad. Para más información sobre cómo crear o usar reglas de alertas de registro de actividad, consulte [Creación y administración de alertas del registro de actividad](alerts-activity-log.md).
 
 > [!NOTE]

@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 3f98aabb9459e4895243eec7f3d759d5a2ee88c6
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: c297a7d34e8b85420329abaca0e15029ce207861
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74047324"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246613"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con terminación SSL mediante la CLI de Azure
 
 Puede usar la CLI de Azure para crear una [puerta de enlace de aplicaciones](overview.md) con un certificado para la [terminación SSL](ssl-overview.md). En el caso de los servidores back-end, puede usar un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). En este ejemplo, el conjunto de escalado contiene dos instancias de máquina virtual que se agregan al grupo de servidores back-end predeterminado de la puerta de enlace de aplicaciones.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Creación de un certificado autofirmado
@@ -39,13 +39,13 @@ Si decide instalar y usar la CLI de forma local, en este artículo necesitará l
 
 Para su uso en producción, debe importar un certificado válido firmado por un proveedor de confianza. En este artículo, creará un certificado autofirmado y un archivo pfx con el comando openssl.
 
-```azurecli-interactive
+```console
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
 ```
 
 Escriba valores que tengan sentido para su certificado. Puede aceptar los valores predeterminados.
 
-```azurecli-interactive
+```console
 openssl pkcs12 -export -out appgwcert.pfx -inkey privateKey.key -in appgwcert.crt
 ```
 

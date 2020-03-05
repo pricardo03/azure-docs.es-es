@@ -1,18 +1,15 @@
 ---
 title: Tutorial sobre la API de REST de supervisión de Azure
 description: Cómo autenticar las solicitudes y usar la API de REST de Azure Monitor para recuperar las definiciones de métricas y valores de métricas disponibles.
-ms.service: azure-monitor
-ms.subservice: ''
+ms.subservice: metrics
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 03/19/2018
-ms.openlocfilehash: 6dff1fe974ad4ffa993e4df03b4903d7e46e1990
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 42a7034c586f4e01066e989dcb2b9fae4eebfa85
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162266"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250823"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Tutorial sobre la API de REST de supervisión de Azure
 
@@ -119,7 +116,7 @@ Invoke-RestMethod -Uri $request `
 
 El cuerpo de respuesta JSON resultante sería similar al siguiente ejemplo: (Observe que la segunda métrica tiene dimensiones)
 
-```JSON
+```json
 {
     "value": [
         {
@@ -257,7 +254,7 @@ Invoke-RestMethod -Uri $request `
 
 El cuerpo de respuesta JSON resultante sería similar al siguiente ejemplo:
 
-```JSON
+```json
 {
   "timespan": "2018-03-01T00:00:00Z/2018-03-02T00:00:00Z",
   "value": [
@@ -330,7 +327,7 @@ Invoke-RestMethod -Uri $request `
 
 El cuerpo de respuesta JSON resultante sería similar al siguiente ejemplo:
 
-```JSON
+```json
 {
   "cost": 0,
   "timespan": "2018-03-01T02:00:00Z/2018-03-01T02:05:00Z",
@@ -414,7 +411,7 @@ Invoke-RestMethod -Uri $request `
 
 El cuerpo de respuesta JSON resultante sería similar al siguiente ejemplo:
 
-```JSON
+```json
 {
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricdefinitions",
   "value": [
@@ -482,7 +479,7 @@ Invoke-RestMethod -Uri $request `
 
 El cuerpo de respuesta JSON resultante sería similar al siguiente ejemplo:
 
-```JSON
+```json
 {
   "value": [
     {
@@ -530,7 +527,7 @@ Invoke-RestMethod -Uri $request `
 
 El cuerpo de respuesta JSON resultante sería similar al siguiente ejemplo:
 
-```JSON
+```json
 {
   "value": [
     {
@@ -590,7 +587,7 @@ Un enfoque más consiste en utilizar [ARMClient](https://github.com/projectkudu/
 
 Por ejemplo, para recuperar las definiciones de métricas para una aplicación lógica específica, ejecute el comando siguiente:
 
-```
+```console
 armclient GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricDefinitions?api-version=2016-03-01
 ```
 
@@ -636,7 +633,7 @@ Get-AzLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
 
 El resultado debería asemejarse al ejemplo siguiente:
 
-```
+```output
 Id             : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets
 Name           : ContosoTweets
 Type           : Microsoft.Logic/workflows
@@ -658,13 +655,13 @@ Version        : 08586982649483762729
 
 Para recuperar el identificador de recurso para una cuenta de Azure Storage mediante la CLI de Azure, ejecute el comando `az storage account show`, tal como se muestra en el ejemplo siguiente:
 
-```
+```azurecli
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017
 ```
 
 El resultado debería asemejarse al ejemplo siguiente:
 
-```JSON
+```json
 {
   "accessTier": null,
   "creationTime": "2017-08-18T19:58:41.840552+00:00",

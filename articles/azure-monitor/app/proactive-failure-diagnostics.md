@@ -1,19 +1,15 @@
 ---
 title: 'Detección inteligente: anomalías de error en Application Insights | Microsoft Docs'
 description: Alerta de cambios no habituales en la frecuencia de solicitudes con errores a la aplicación web y proporciona análisis del diagnóstico. No necesita ninguna configuración.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: c556f726cd63971abe1e9b6d8b87117bb3e378db
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: e1c07fca3a4eee19e56c313a889e5b86ce2b4c42
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75912854"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671756"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Detección inteligente: anomalías de error
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) le avisa automáticamente casi en tiempo real si la aplicación web sufre un aumento anómalo en la frecuencia de solicitudes erróneas. Asimismo, detecta un aumento inusual de la tasa de solicitudes HTTP o llamadas de dependencia notificadas como errores. En el caso de las solicitudes, las solicitudes con error suelen tener códigos de respuesta de 400 o superiores. Para ayudarle a evaluar las prioridades y a diagnosticar el problema, en los detalles de la alerta se proporciona un análisis de las características de los errores, así como datos de la aplicación relacionados. También hay vínculos en el portal de Application Insights para obtener un diagnóstico más amplio. La característica no necesita ninguna instalación o configuración, ya que usa algoritmos de aprendizaje automático para predecir la tasa normal de errores.

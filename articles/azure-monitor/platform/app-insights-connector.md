@@ -1,18 +1,17 @@
 ---
 title: Visualización de datos de aplicación de Azure Application Insights | Microsoft Docs
 description: Puede usar la solución Application Insights Connector para diagnosticar problemas de rendimiento y comprender lo que los usuarios hacen con su aplicación cuando se supervisa mediante Application Insights.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: d0cfca44878130e870c633040afcfbdd55ba8b7b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c143d8aa24d3479f4619ea2c220d4a0c593f9cb1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75396544"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665164"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solución de administración de Application Insights Connector (en desuso)
 
@@ -45,12 +44,12 @@ A diferencia de la mayoría de las demás soluciones de Log Analytics, los agent
 
 | Origen conectado | Compatible | Descripción |
 | --- | --- | --- |
-| [Agentes de Windows](../../azure-monitor/platform/agent-windows.md) | No | La solución no recopila información de los agentes de Windows. |
-| [Agentes de Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No | La solución no recopila información de los agentes de Linux. |
-| [Grupo de administración de SCOM](../../azure-monitor/platform/om-agents.md) | No | La solución no recopila información de los agentes de un grupo de administración SCOM conectado. |
-| [Cuenta de Almacenamiento de Azure](collect-azure-metrics-logs.md) | No | La solución no recopila información de Azure Storage. |
+| [Agentes de Windows](../../azure-monitor/platform/agent-windows.md) | Sin | La solución no recopila información de los agentes de Windows. |
+| [Agentes de Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Sin | La solución no recopila información de los agentes de Linux. |
+| [Grupo de administración de SCOM](../../azure-monitor/platform/om-agents.md) | Sin | La solución no recopila información de los agentes de un grupo de administración SCOM conectado. |
+| [Cuenta de Almacenamiento de Azure](collect-azure-metrics-logs.md) | Sin | La solución no recopila información de Azure Storage. |
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Para obtener acceso a la información sobre Application Insights Connector, debe tener una suscripción de Azure
 - Debe tener como mínimo un recurso de Application Insights configurado.

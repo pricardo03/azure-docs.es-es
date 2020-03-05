@@ -1,18 +1,14 @@
 ---
 title: Diagnóstico de errores y excepciones con Application Insights
 description: Capture las excepciones de las aplicaciones ASP.NET junto con la telemetría de solicitudes.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/11/2019
-ms.openlocfilehash: f89149de9b1173a659176f686053e8dc564ab85c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 24b7acfa6610c2040daf0f7d8d25f25391140303
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432649"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666163"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnóstico de excepciones en aplicaciones web con Application Insights
 Las excepciones en la aplicación web en directo se notifican mediante [Application Insights](../../azure-monitor/app/app-insights-overview.md). Puede correlacionar las solicitudes con error con excepciones y otros eventos en el cliente y en el servidor, de modo que pueda diagnosticar rápidamente las causas.

@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 3aba570bd7f80eab205fe52a731a1be933067012
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 1ead7fcd9d474369e3a62e372a971d88d26f4e9c
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492445"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273566"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Desencadenador de Azure Service Bus para Azure Functions
 
@@ -369,9 +369,6 @@ El desencadenador de Service Bus proporciona varias [propiedades de metadatos](.
 |`To`|`string`|Dirección de envío.|
 |`Label`|`string`|Etiqueta específica de la aplicación.|
 |`CorrelationId`|`string`|Identificador de correlación.|
-
-> [!NOTE]
-> Actualmente, el desencadenador de Service Bus que funciona con las suscripciones y las colas habilitadas para la sesión está en versión preliminar. Realice un seguimiento de [este elemento](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) para comprobar si hay actualizaciones relacionadas con él. 
 
 Consulte los [ejemplos de código](#example) que utilizan estas propiedades más arriba en este artículo.
 

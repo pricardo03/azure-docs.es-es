@@ -3,12 +3,12 @@ title: Tipos de recursos que compatibles con Azure Resource Health | Microsoft D
 description: Tipos de recursos que se admiten a través de Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 3a61c8b90f4dc5e52a875488afb5374e3d6b7ce4
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: f5d1c720d3cbafafc81276a968abf2003bbd46ce
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76717070"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303960"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos y comprobaciones de estado en Azure Resource Health
 A continuación se muestra una lista completa de todas las comprobaciones que se ejecutan a través de Resource Health por tipos de recursos.
@@ -28,7 +28,7 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 |---|
 |<ul><li>¿Funciona la cuenta de Batch?</li><li>¿Se ha superado la cuota de grupos de esta cuenta de Batch?</li></ul>|
 
-## <a name="microsoftcacheredisredis"></a>Microsoft.CacheRedis/Redis
+## <a name="microsoftcacheredis"></a>Microsoft.Cache/Redis
 |Comprobaciones ejecutadas|
 |---|
 |<ul><li>¿Funcionan todos los nodos de la memoria caché?</li><li>¿Se puede acceder a la memoria caché desde el centro de datos?</li><li>¿Ha alcanzado la memoria caché el número máximo de conexiones?</li><li> ¿Ha agotado la caché su memoria disponible? </li><li>¿Sufre la memoria caché un gran número de errores de página?</li><li>¿Tiene mucha carga la memoria caché?</li></ul>|

@@ -3,20 +3,20 @@ title: Habilitación de la verificación de la contraseña de un solo uso (OTP)
 titleSuffix: Azure AD B2C
 description: Obtenga información sobre cómo configurar un escenario de contraseña de un solo uso (OTP) mediante directivas personalizadas de Azure AD B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/10/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9becb91cfffd4553b2b8aa1a2d616963eae92ab0
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: 701fb64dd85526bc79cab48bf36d4583da71ca76
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114059"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184033"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definición de un perfil técnico de una contraseña de un solo uso en una directiva personalizada de Azure AD B2C
 
@@ -73,12 +73,12 @@ La configuración siguiente se puede usar para establecer la generación de cód
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| CodeExpirationInSeconds | No | Tiempo en segundos hasta la expiración del código. Mínimo: `60`; máximo: `1200`; valor predeterminado: `600`. |
-| CodeLength | No | Longitud del código. El valor predeterminado es `6`. |
-| CharacterSet | No | Juego de caracteres del código, con formato para usarse en una expresión regular. Por ejemplo, `a-z0-9A-Z`. El valor predeterminado es `0-9`. El juego de caracteres debe incluir un mínimo de 10 caracteres diferentes en el conjunto especificado. |
-| NumRetryAttempts | No | Número de intentos de verificación antes de que el código se considere no válido. El valor predeterminado es `5`. |
+| CodeExpirationInSeconds | Sin | Tiempo en segundos hasta la expiración del código. Mínimo: `60`; máximo: `1200`; valor predeterminado: `600`. |
+| CodeLength | Sin | Longitud del código. El valor predeterminado es `6`. |
+| CharacterSet | Sin | Juego de caracteres del código, con formato para usarse en una expresión regular. Por ejemplo, `a-z0-9A-Z`. El valor predeterminado es `0-9`. El juego de caracteres debe incluir un mínimo de 10 caracteres diferentes en el conjunto especificado. |
+| NumRetryAttempts | Sin | Número de intentos de verificación antes de que el código se considere no válido. El valor predeterminado es `5`. |
 | Operación | Sí | La operación que se va a realizar. Valores posibles: `GenerateCode` o `VerifyCode`. |
-| ReuseSameCode | No | Indica si se debe proporcionar un código duplicado en lugar de generar un código nuevo cuando el código proporcionado no ha expirado y sigue siendo válido. El valor predeterminado es `false`. |
+| ReuseSameCode | Sin | Indica si se debe proporcionar un código duplicado en lugar de generar un código nuevo cuando el código proporcionado no ha expirado y sigue siendo válido. El valor predeterminado es `false`. |
 
 ### <a name="returning-error-message"></a>Devolución de mensajes de error
 
@@ -136,9 +136,9 @@ La configuración siguiente se puede usar para establecer el mensaje de error qu
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| UserMessageIfSessionDoesNotExist | No | Mensaje que se mostrará al usuario si la sesión de verificación de código ha expirado. Es posible que el código haya expirado o que nunca se haya generado para un identificador determinado. |
-| UserMessageIfMaxRetryAttempted | No | Mensaje que se mostrará al usuario si ha superado el número máximo de intentos de verificación permitidos. |
-| UserMessageIfInvalidCode | No | Mensaje que se mostrará al usuario si ha proporcionado un código no válido. |
+| UserMessageIfSessionDoesNotExist | Sin | Mensaje que se mostrará al usuario si la sesión de verificación de código ha expirado. Es posible que el código haya expirado o que nunca se haya generado para un identificador determinado. |
+| UserMessageIfMaxRetryAttempted | Sin | Mensaje que se mostrará al usuario si ha superado el número máximo de intentos de verificación permitidos. |
+| UserMessageIfInvalidCode | Sin | Mensaje que se mostrará al usuario si ha proporcionado un código no válido. |
 
 ### <a name="returning-error-message"></a>Devolución de mensajes de error
 

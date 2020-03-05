@@ -3,20 +3,20 @@ title: Configuración del inicio de sesión con una cuenta de Amazon mediante di
 titleSuffix: Azure AD B2C
 description: Configure el inicio de sesión con una cuenta de Amazon en Azure Active Directory B2C mediante directivas personalizadas.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/05/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4a0767938f8a470c63ec7fe3d7789212b1baf871
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2de891ee109677f92ff603759701f7732f5951ba
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850367"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188518"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión con una cuenta de Amazon mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76850367"
 
 En este artículo se muestra cómo habilitar el inicio de sesión para los usuarios desde una cuenta de Amazon mediante [directivas personalizadas](custom-policy-overview.md) en Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Realice los pasos del artículo [Introducción a las directivas personalizadas](custom-policy-get-started.md).
 - Si aún no tiene una cuenta de Amazon, cree una en [https://www.amazon.com/](https://www.amazon.com/).

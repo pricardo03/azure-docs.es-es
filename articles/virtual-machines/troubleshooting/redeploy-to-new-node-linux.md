@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: d8096a14bf2abc0b06b7ab7c3d340a313b1cd24c
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 2c4152ec5e67761ce9be9a81bfbf39e1591787da
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057300"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913521"
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Nueva implementación de una máquina virtual Linux en un nuevo nodo de Azure
 Si encuentra dificultades para solucionar los problemas de acceso de SSH o de las aplicaciones a una máquina virtual (VM) Linux en Azure, puede que lo ayude volverla a implementar. Cuando se vuelve a implementar una máquina virtual, se mueve a otro nodo dentro de la infraestructura de Azure y después se vuelve a conectar. Se conservan todas las opciones de configuración y los recursos asociados. En este artículo se muestra cómo volver a implementar una máquina virtual con la CLI de Azure o el Portal de Azure.
@@ -37,6 +37,10 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="use-the-azure-classic-cli"></a>Uso de la CLI de Azure clásica
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
+
 Instale la versión más reciente de la [CLI de Azure clásica](../../cli-install-nodejs.md) e inicie sesión en su cuenta de Azure. Asegúrese de que está en modo de Resource Manager (`azure config mode arm`).
 
 En el ejemplo siguiente se reimplementa la máquina virtual llamada *myVM* en el grupo de recursos denominado *myResourceGroup*:

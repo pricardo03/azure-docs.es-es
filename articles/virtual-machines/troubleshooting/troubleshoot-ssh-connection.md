@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: f0a79fb0f90a633095343c162ccdc80ebc48f1d4
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 1194b2d90e5a12b1ecf3664a48055ca763f31a4f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747670"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919454"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Solución de problemas de conexiones SSH a una máquina virtual Linux de Azure que producen error o se rechazan.
 Este artículo le ayudará a detectar y corregir los problemas que se producen como consecuencia de errores de Secure Shell (SSH), errores de conexión de SSH o que se rechace SSH al intentar conectarse a una máquina virtual Linux. Para solucionar problemas de conexión, puede usar Azure Portal, la CLI de Azure o la extensión de acceso de máquina virtual para Linux.
@@ -216,6 +216,9 @@ az vm restart --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="azure-classic-cli"></a>CLI de Azure clásica
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 En el ejemplo siguiente se reinicia la máquina virtual llamada `myVM` en el grupo de recursos llamado `myResourceGroup`: Use sus propios valores, como se indica a continuación:
 
 ```azurecli
@@ -243,6 +246,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="azure-classic-cli"></a>CLI de Azure clásica
+
 En el ejemplo siguiente se vuelve a implementar la máquina virtual llamada `myVM` en el grupo de recursos llamado `myResourceGroup`. Use sus propios valores, como se indica a continuación:
 
 ```azurecli
@@ -250,6 +254,9 @@ azure vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="vms-created-by-using-the-classic-deployment-model"></a>Máquinas virtuales creadas con el modelo de implementación clásica
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 Siga estos pasos para intentar resolver los errores de conexión SSH más habituales en las máquinas virtuales creadas con el modelo de implementación clásica: Después de cada paso, pruebe a conectarse a la máquina virtual.
 
 * Restablezca el acceso remoto desde [Azure Portal](https://portal.azure.com). En Azure Portal, seleccione su máquina virtual y, después, seleccione **Restablecer acceso remoto...** .

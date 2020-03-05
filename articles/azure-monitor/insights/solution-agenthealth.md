@@ -1,18 +1,17 @@
 ---
 title: Solución Agent Health en Azure Monitor | Microsoft Docs
 description: Este artículo está pensado para ayudarle a entender cómo usar esta solución para supervisar el mantenimiento de los agentes que informan directamente a Log Analytics o System Center Operations Manager.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2020
-ms.openlocfilehash: 9a7cb80b5510ff0ac4a2491d896aded866180c19
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 7093e20473b799a3f05ddf30803721636732241e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77062139"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663269"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Solución Agent Health en Azure Monitor
 La solución Agent Health en Azure le ayuda a entender, para todos los agentes que informan directamente al área de trabajo de Log Analytics en Azure Monitor o a un grupo de administración de System Center Operations Manager conectado a Azure Monitor, cuáles no responden y cuáles envían datos operativos.  También puede realizar un seguimiento del número de agentes que se implementan, dónde están distribuidos geográficamente y llevar a cabo otras consultas para mantener el conocimiento de la distribución de los agentes implementados en Azure, en otros entornos de nube o en un entorno local.    

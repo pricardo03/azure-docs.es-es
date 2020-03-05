@@ -3,17 +3,16 @@ title: Transmisión de registros de plataforma de Azure a un centro de eventos
 description: Aprenda a transmitir los registros de recurso de Azure a un centro de eventos para enviar datos a sistemas externos, como SIEM de terceros y otras soluciones de análisis de registros.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 00dcc1c1a1d823ab0f2497e47641916d391ee37b
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 72341b6da0068ba4b7e3f53b08e6015cafb70f09
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750345"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658921"
 ---
 # <a name="stream-azure-platform-logs-to-azure-event-hubs"></a>Transmisión de registros de plataforma de Azure a Azure Event Hubs
 Los [registros de plataforma](platform-logs-overview.md) en Azure, incluidos los registros de recurso y los registros de actividad de Azure, proporcionan información detallada de diagnóstico y auditoría para los recursos de Azure y la plataforma de Azure de la que dependen.  En este artículo se describe la transmisión de los registros de plataforma a Event Hubs para enviar datos a sistemas externos, como SIEM de terceros y otras soluciones de análisis de registros.
@@ -40,7 +39,7 @@ Transmita los registros de plataforma de Azure a centros de eventos para proporc
     CROSS APPLY GetArrayElements(e.records) AS records
     ```
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Si no lo tiene, [cree un centro de eventos](../../event-hubs/event-hubs-create.md). Si ya tiene una configuración de diagnóstico que usa este espacio de nombres de Event Hubs, se volverá a usar el centro de eventos.
 
 La directiva de acceso compartido del espacio de nombres define los permisos que tiene el mecanismo de transmisión. Para transmitir a Event Hubs, se necesitan permisos de administración, envío y escucha. Puede crear o modificar directivas de acceso compartido en la pestaña Configurar de Azure Portal para su espacio de nombres de Event Hubs.

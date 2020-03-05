@@ -1,19 +1,18 @@
 ---
 title: 'Inicio rápido: ASP.NET Core (Azure Monitor Application Insights)'
 description: Proporciona instrucciones para configurar rápidamente una aplicación web de ASP.NET Core para la supervisión con Application Insights de Azure Monitor
-ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: e05926d7a76f47cc3c95088fa2d8f1a6e385bbbc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fa1651e88226080cca970cc756f2c0522b39f1be
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75399031"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670634"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Inicio de la supervisión de la aplicación web ASP.NET Core
 
@@ -21,7 +20,7 @@ Con Azure Application Insights puede supervisar fácilmente la disponibilidad, e
 
 Esta guía de inicio rápido le ayudará a agregar el SDK de Application Insights a una aplicación web ASP.NET Core existente. Para información sobre cómo configurar Application Insights sin Visual Studio, consulte este [artículo](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar esta guía de inicio rápido:
 
@@ -54,7 +53,7 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
    | ------------- |:-------------|:-----|
    | **Nombre**      | Nombre único global | Nombre que identifica la aplicación que se está supervisando |
    | **Grupo de recursos**     | myResourceGroup      | Nombre del nuevo grupo de recursos que hospedará los datos de Application Insights. puede crear un grupo de recursos o use uno existente. |
-   | **Ubicación** | East US | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |
+   | **Ubicación** | Este de EE. UU. | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |
 
 2. Haga clic en **Crear**.
 

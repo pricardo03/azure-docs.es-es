@@ -1,14 +1,14 @@
 ---
 title: ¿Qué son las notificaciones de mantenimiento del servicio de Azure?
 description: Las notificaciones de mantenimiento del servicio permiten ver los mensajes de mantenimiento del servicio que publica Microsoft Azure.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 4/12/2018
-ms.openlocfilehash: f2d79dc920129241c801c75cc9009b3ba8f34b78
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e40538ac98bbc7b79311d4fb0da7568d56a84e18
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451551"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77653975"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visualización de las notificaciones de mantenimiento del servicio mediante Azure Portal
 

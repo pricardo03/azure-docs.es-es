@@ -7,12 +7,12 @@ ms.date: 12/10/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: a34fdc2f6d6698f53dc2ff7fdc11d0a985b23415
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d6ccd3cc61f9d8244874823be76496a4f4e1073c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358764"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199774"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para Python
 
@@ -28,9 +28,9 @@ Use la biblioteca cliente de Azure Queue Storage v12 para Python para realizar 
 * Eliminación de mensajes de una cola
 * Eliminación de una cola
 
-[Documentación de referencia de API](https://docs.microsoft.com/python/api/azure-storage-queue/index) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue) | [Paquete (índice de paquetes de Python)](https://pypi.org/project/azure-storage-queue/) | [Ejemplos](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples)
+[Documentación de referencia de API](https://docs.microsoft.com/python/api/azure-storage-queue/index) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue) | [Paquete (índice de paquetes de Python)](https://pypi.org/project/azure-storage-queue/) | [Ejemplos](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 * Una cuenta de Azure Storage: [cree una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)

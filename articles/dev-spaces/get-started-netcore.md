@@ -5,12 +5,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: En este tutorial se muestra cómo usar Azure Dev Spaces y Visual Studio Code para depurar e iterar rápidamente una aplicación .NET Core en Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
-ms.openlocfilehash: bcdae06af8c3f6314e94ba35f748a0b4352339ca
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: e23685d410b2d663efde8c530be01adaab637bf8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605357"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252425"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-net-core-with-azure-dev-spaces"></a>Creación de un espacio de desarrollo de Kubernetes: Visual Studio Code y .NET Core con Azure Dev Spaces
 
@@ -29,7 +29,7 @@ Azure Dev Spaces requiere una configuración mínima de la máquina local. La ma
 ### <a name="sign-in-to-azure-cli"></a>Inicio de sesión en la CLI de Azure
 Inicie sesión en Azure. Escriba el siguiente comando en una ventana de terminal:
 
-```cmd
+```azurecli
 az login
 ```
 
@@ -39,14 +39,14 @@ az login
 #### <a name="if-you-have-multiple-azure-subscriptions"></a>Si tiene varias suscripciones a Azure...
 Para ver sus suscripciones, ejecute: 
 
-```cmd
+```azurecli
 az account list --output table
 ```
 
 Busque la suscripción que tiene *True* para *IsDefault*.
 Si esta no es la suscripción que desea usar, puede cambiar la suscripción predeterminada:
 
-```cmd
+```azurecli
 az account set --subscription <subscription ID>
 ```
 
@@ -54,13 +54,13 @@ az account set --subscription <subscription ID>
 
 En el símbolo del sistema, cree el grupo de recursos en una [región que admita Azure Dev Spaces][supported-regions].
 
-```cmd
+```azurecli
 az group create --name MyResourceGroup --location <region>
 ```
 
 Crear un clúster de Kubernetes con el siguiente comando:
 
-```cmd
+```azurecli
 az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
 ```
 
@@ -70,7 +70,7 @@ La operación de creación del clúster tarda unos minutos.
 
 Escriba el siguiente comando de la CLI de Azure, mediante el grupo de recursos que contiene el clúster de AKS, y su nombre del clúster de AKS. El comando configura el clúster para la compatibilidad con Azure Dev Spaces.
 
-   ```cmd
+   ```azurecli
    az aks use-dev-spaces -g MyResourceGroup -n MyAKS
    ```
    

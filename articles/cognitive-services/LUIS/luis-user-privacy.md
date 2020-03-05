@@ -8,19 +8,19 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: 061f019fe36e4d5495a41fc81e56d9673ad595fc
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4e3e0d04b0086905b80e26fb4f838c36b5b5545e
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953453"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273363"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exportación y eliminación de datos del cliente en Language Understanding (LUIS) en Cognitive Services
 
-Elimine datos de clientes para garantizar la privacidad y el cumplimiento. 
+Elimine datos de clientes para garantizar la privacidad y el cumplimiento.
 
 ## <a name="summary-of-customer-data-request-features"></a>Resumen de características de solicitud de datos del cliente
 Language Understanding Intelligent Service (LUIS) conserva el contenido del cliente para que el servicio funcione, pero el usuario de LUIS tiene control total sobre la visualización, la exportación y la eliminación de sus datos. Esto se puede realizar a través del [portal](luis-reference-regions.md) web de LUIS o las [API de creación de LUIS (también conocidas como API de programación)](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
@@ -58,17 +58,17 @@ Para habilitar el [aprendizaje activo](luis-how-to-review-endpoint-utterances.md
 * [Australia](#australia)
 * [Estados Unidos](#united-states)
 
-A excepción de los datos de aprendizaje activo (que se detallan a continuación), LUIS sigue los [procedimientos de almacenamiento para los servicios regionales](https://azuredatacentermap.azurewebsites.net/). 
+A excepción de los datos de aprendizaje activo (que se detallan a continuación), LUIS sigue los [procedimientos de almacenamiento para los servicios regionales](https://azuredatacentermap.azurewebsites.net/).
 
 ### <a name="europe"></a>Europa
 
-El portal [eu.luis.ai](https://eu.luis.ai) y Europe Authoring (que también se conoce como API de programación) se hospedan en la región geográfica Europa de Azure. El portal eu.luis.ai y Europe Authoring (que también se conoce como API de programación) admiten la implementación de puntos de conexión en las siguientes regiones geográficas de Azure:
+El portal [eu.luis.ai](https://eu.luis.ai) y Europe Authoring (que también se conoce como API de programación) se hospedan en la región geográfica Europa de Azure. El portal eu.luis.ai y Europa Authoring (que también se conoce como API de programación) admiten la implementación de puntos de conexión en las siguientes regiones geográficas de Azure:
 
 * Europa
 * Francia
 * Reino Unido
 
-Al implementar en estas ubicaciones geográficas de Azure, las expresiones recibidas por el punto de conexión de los usuarios finales de la aplicación se almacenarán en la ubicación geográfica Europa de Azure para el aprendizaje activo. Para deshabilitar el aprendizaje activo, consulte [Deshabilitar el aprendizaje activo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Para administrar las expresiones almacenadas, consulte [Eliminar la expresión](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
+Al implementar en estas ubicaciones geográficas de Azure, las expresiones recibidas por el punto de conexión de los usuarios finales de la aplicación se almacenarán en la ubicación geográfica Europa de Azure para el aprendizaje activo. Para deshabilitar el aprendizaje activo, consulte [Deshabilitar el aprendizaje activo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Para administrar las expresiones almacenadas, consulte [Eliminar la expresión](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 
 ### <a name="australia"></a>Australia
 
@@ -76,15 +76,15 @@ El portal [au.luis.ai](https://au.luis.ai) y Australia Authoring (que también s
 
 * Australia
 
-Al implementar en estas ubicaciones geográficas de Azure, las expresiones recibidas por el punto de conexión de los usuarios finales de la aplicación se almacenarán en la ubicación geográfica Australia de Azure para el aprendizaje activo. Para deshabilitar el aprendizaje activo, consulte [Deshabilitar el aprendizaje activo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Para administrar las expresiones almacenadas, consulte [Eliminar la expresión](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
+Al implementar en estas ubicaciones geográficas de Azure, las expresiones recibidas por el punto de conexión de los usuarios finales de la aplicación se almacenarán en la ubicación geográfica Australia de Azure para el aprendizaje activo. Para deshabilitar el aprendizaje activo, consulte [Deshabilitar el aprendizaje activo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Para administrar las expresiones almacenadas, consulte [Eliminar la expresión](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 
 ### <a name="united-states"></a>Estados Unidos
 
-El portal [luis.ai](https://www.luis.ai) y United States Authoring (que también se conoce como API de programación) se hospedan en la región geográfica Estados Unidos de Azure. El portal luis.ai y United States Authoring (que también se conoce como API de programación) admiten la implementación de puntos de conexión en las siguientes regiones geográficas de Azure:
+El portal [luis.ai](https://www.luis.ai) y United States Authoring (que también se conoce como API de programación) se hospedan en la región geográfica Estados Unidos de Azure. El portal luis.ai y Estados Unidos Authoring (que también se conoce como API de programación) admiten la implementación de puntos de conexión en las siguientes regiones geográficas de Azure:
 
 * Ubicaciones geográficas de Azure no admitidas en las regiones de creación Europa o Australia
 
-Al implementar en estas ubicaciones geográficas de Azure, las expresiones recibidas por el punto de conexión de los usuarios finales de la aplicación se almacenarán en la ubicación geográfica Estados Unidos de Azure para el aprendizaje activo. Para deshabilitar el aprendizaje activo, consulte [Deshabilitar el aprendizaje activo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Para administrar las expresiones almacenadas, consulte [Eliminar la expresión](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
+Al implementar en estas ubicaciones geográficas de Azure, las expresiones recibidas por el punto de conexión de los usuarios finales de la aplicación se almacenarán en la ubicación geográfica Estados Unidos de Azure para el aprendizaje activo. Para deshabilitar el aprendizaje activo, consulte [Deshabilitar el aprendizaje activo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Para administrar las expresiones almacenadas, consulte [Eliminar la expresión](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

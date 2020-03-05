@@ -3,8 +3,8 @@ title: 'Tutorial: Migración de RDS SQL Server en línea a SQL Database'
 titleSuffix: Azure Database Migration Service
 description: Aprenda a realizar una migración en línea de RDS SQL Server a una sola base de datos o a una instancia administrada de Azure SQL Database mediante Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 52a6ee282e12f0ece5f16c1fa67c38f07f9d86e7
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: db561761acbd5ff991f88cfd18cec8d4625336f2
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751280"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255519"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migración de RDS SQL Server a Azure SQL Database o a una instancia administrada de Azure SQL Database en línea mediante DMS
 Azure Database Migration Service se puede usar para migrar las bases de datos de una instancia de RDS SQL Server local a [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) o a una [instancia administrada de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) con un tiempo de inactividad mínimo. En este tutorial migrará la base de datos **Adventureworks2012** restaurada en una instancia de RDS SQL Server de SQL 2012 (o posterior) a Azure SQL Database o a una instancia administrada de Azure SQL Database mediante Azure Database Migration Service.
@@ -42,7 +42,7 @@ En este tutorial, aprenderá a:
 
 En este artículo se describe una migración en línea desde RDS SQL Server a Azure SQL Database o a una instancia administrada de Azure SQL Database.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Para completar este tutorial, necesita:
 
 * Crear una [base datos de RDS SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.SQLServer.html).

@@ -1,18 +1,17 @@
 ---
 title: Configuración de los orígenes de datos de agente en Azure Monitor | Microsoft Docs
 description: Los orígenes de datos definen los datos de registro que Azure Monitor recopila de agentes y otros orígenes conectados.  En este artículo se describe el concepto de cómo Azure Monitor usa los orígenes de datos, se explican los detalles de cómo configurarlos y se brinda un resumen de los distintos orígenes de datos disponibles.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: f7960adca1c3665dbf8737cb10a898c58b1542ec
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: aec3fe2386ce916c556f6da295a8554fff140259
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932831"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668781"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Orígenes de datos de agente en Azure Monitor
 Los orígenes de datos que configura definen los datos que recopila Azure Monitor de los agentes.  Los datos de los agentes se almacenan como [datos de registro](data-platform-logs.md) con un conjunto de registro.  Cada origen de datos crea registros de un tipo determinado, donde cada tipo tiene su propio conjunto de propiedades.
@@ -39,13 +38,13 @@ Los orígenes de datos se configuran en el menú **Datos** en **Configuración a
 
 ![Configurar eventos de Windows](media/agent-data-sources/configure-events.png)
 
-1. En Azure Portal, seleccione **Log Analytics > áreas de trabajo** > su área de trabajo > **Configuración avanzada**.
+1. En Azure Portal, seleccione las **áreas de trabajo de Log Analytics**  > su área de trabajo > **Configuración avanzada**.
 2. Seleccione **Datos**.
 3. Haga clic en el origen de datos que quiere configurar.
 4. Siga el vínculo a la documentación correspondiente a cada origen de datos de la tabla anterior para obtener detalles sobre su configuración.
 
 
-## <a name="data-collection"></a>Colección de datos
+## <a name="data-collection"></a>datos, recopilación
 Las configuraciones de orígenes de datos se entregan en cuestión de minutos a los agentes que están directamente conectados con Azure Monitor.  Los datos especificados se recopilan desde el agente y se entregan directamente a Azure Monitor a intervalos específicos a cada origen de datos.  Consulte la documentación de cada origen de datos para ver estas especificaciones.
 
 En el caso de los agentes de System Center Operations Manager de un grupo de administración conectado, la configuración de origen de datos se convierte en módulos de administración y se proporciona al grupo de administración cada 5 minutos, de manera predeterminada.  El agente descarga el módulo de administración de la forma habitual y recopila los datos especificados. En función del origen de datos, los datos se enviarán a un servidor de administración que los reenvía a Azure Monitor o el agente los enviará a Azure Monitor sin pasar por el servidor de administración. Consulte [Detalles de la recopilación de datos para las soluciones de supervisión en Azure](../insights/solutions-inventory.md) para más información.  Puede leer detalles sobre cómo conectar Operations Manager y Azure Monitor y modificar la frecuencia con que la configuración se proporciona en [Configuración de integración con System Center Operations Manager](om-agents.md).

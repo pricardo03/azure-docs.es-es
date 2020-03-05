@@ -1,19 +1,18 @@
 ---
 title: Compilación de una solución de administración en Azure | Microsoft Docs
 description: Las soluciones de administración incluyen escenarios de administración empaquetados en Azure que los clientes pueden agregar a su área de trabajo de Log Analytics.  En este artículo se proporciona información sobre cómo crear soluciones de administración que se pueden usar en su propio entorno o ponerse a disposición de sus clientes.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5465c177cf174ebf8d6b7d4f43c5387bce3adb70
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f1605597c7716ba6a896c7ecdae968f07d66027b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969693"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663222"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Diseño y compilación de una solución de administración en Azure (versión preliminar)
 > [!NOTE]

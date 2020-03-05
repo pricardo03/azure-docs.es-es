@@ -3,20 +3,20 @@ title: 'Tutorial: Concesión de acceso a una API web de ASP.NET'
 titleSuffix: Azure AD B2C
 description: Tutorial sobre cómo usar Active Directory B2C para proteger una API web de ASP.NET y llamarla desde una aplicación web para ASP.NET.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-ms.author: marsma
+ms.author: mimart
 ms.date: 10/14/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: fe6f8469354922dcf38a987b9b4371547678eb36
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 23531bd4c53dc2fc4851a1e4718fca0e9c3bfc1c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849955"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187430"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Tutorial: Concesión de acceso a una API web de ASP.NET mediante Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Complete los pasos y requisitos previos en [Tutorial: Habilitación de la autenticación en una aplicación web mediante Azure Active Directory B2C](tutorial-web-app-dotnet.md).
 
@@ -42,7 +42,7 @@ Los recursos de API web tienen que registrarse en el inquilino antes de que pued
 
 Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la experiencia **Aplicaciones** actual o la nueva experiencia **Registros de aplicaciones (versión preliminar)** unificada. [Más información acerca de la nueva experiencia](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
+#### <a name="applications"></a>[Aplicaciones](#tab/applications/)
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
@@ -55,7 +55,7 @@ Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la e
 9. Haga clic en **Crear**.
 10. En la página de propiedades, registre el identificador de la aplicación que usará cuando configure la aplicación web.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.

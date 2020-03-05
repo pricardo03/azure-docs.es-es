@@ -1,18 +1,14 @@
 ---
 title: 'Aumento anómalo del volumen de excepciones: Azure Application Insights'
 description: Supervise las excepciones de las aplicaciones con la detección inteligente en Azure Application Insights para detectar patrones poco habituales del volumen de excepciones.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/08/2017
-ms.openlocfilehash: b524000f78741b2ff8cf442d2daaef0c7945799a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a08fae4774a8afb9959f55ea3196cd1a45c33439
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432435"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671773"
 ---
 # <a name="abnormal-rise-in-exception-volume-preview"></a>Aumento anormal del volumen de excepciones (versión preliminar)
 

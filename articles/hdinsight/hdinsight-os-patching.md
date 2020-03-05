@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
-ms.openlocfilehash: 102ae56bb9dce2898c14bdc710420759a527a9e9
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: f8e694f658d6e9de04c92001214ecd5c32ff7753
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514704"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206867"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configuración de la programación de aplicación de revisiones del SO para clústeres de HDInsight basado en Linux
 
@@ -69,5 +69,5 @@ El script `install-updates-schedule-reboots` acepta dos parámetros numéricos, 
 
 Para conocer los pasos específicos sobre cómo usar las acciones de script, consulte las secciones siguientes en [Personalización de los clústeres de HDInsight basado en Linux mediante acciones de script](hdinsight-hadoop-customize-cluster-linux.md):
 
-- [Uso de una acción de script durante la creación de un clúster](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
-- [Aplicación de una acción de script a un clúster en ejecución](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)
+- [Uso de una acción de script durante la creación de un clúster](hdinsight-hadoop-customize-cluster-linux.md#script-action-during-cluster-creation)
+- [Aplicación de una acción de script a un clúster en ejecución](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster)

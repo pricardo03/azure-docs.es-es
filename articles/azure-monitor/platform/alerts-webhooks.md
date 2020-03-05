@@ -2,20 +2,19 @@
 title: Llamada a un webhook con una alerta de métrica clásica en Azure Monitor
 description: Obtenga información sobre cómo redirigir las alertas de métrica de Azure a otros sistemas que no son de Azure.
 author: harelbr
-services: azure-monitor
-ms.service: azure-monitor
+ms.author: harelbr
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: fd4bf2d404a7152da04e72d323f463c18167f5bf
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 27510871f9a022cb27c6b03b812ce1d37b47312c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705520"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665075"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Llamada a un webhook con una alerta de métrica clásica en Azure Monitor
+
 Puede usar los webhooks para redirigir una notificación de alerta de Azure a otros sistemas para su procesamiento posterior o acciones personalizadas. Puede usar un webhook en una alerta para redirigirla a servicios que envían mensajes SMS, para registrar errores, para notificar a un equipo mediante servicios de chat y mensajería o llevar a cabo otras acciones. 
 
 En este artículo se describe cómo establecer un webhook en una alerta de métrica de Azure. También muestra el aspecto de la carga útil para HTTP POST a un webhook. Para obtener información sobre la configuración y el esquema de una alerta de registro de actividad de Azure (alerta de eventos), consulte [Llamada a un webhook cuando se activan alertas del registro de actividades de Azure](alerts-log-webhook.md).

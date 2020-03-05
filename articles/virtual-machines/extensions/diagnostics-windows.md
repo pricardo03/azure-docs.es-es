@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: 61b94e95c5292b4013409deed6565a90890b66d1
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 55afeb52323ead7db8be7e8fd1dabc880328e888
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892641"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921545"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Uso de PowerShell para habilitar Diagnósticos de Azure en una máquina virtual con Windows
 
@@ -62,6 +62,9 @@ El cmdlet devuelve *PublicSettings*, que contiene la configuración de diagnóst
 El cmdlet [Remove-AzVmDiagnosticsExtension](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmdiagnosticsextension) puede usarse para quitar la extensión de diagnósticos de la VM.  
 
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-classic-deployment-model"></a>Habilite la extensión de diagnósticos si usa el modelo de implementación clásico
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 Puede usar el cmdlet [Set-AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) para habilitar la extensión de diagnósticos en una VM creada mediante el modelo de implementación clásica. En el ejemplo siguiente se muestra cómo crear una nueva VM mediante el modelo de implementación clásica con la extensión de diagnósticos habilitada.
 
     $VM = New-AzureVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage

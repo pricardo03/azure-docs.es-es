@@ -13,12 +13,12 @@ ms.subservice: pim
 ms.date: 10/18/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f54382d652c3fc59b8ff462d41ec8c0fbdbe8498
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 474f2634e6f7ddc1840548c39ae86cb54c3bf08e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596687"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299693"
 ---
 # <a name="troubleshoot-a-problem-with-privileged-identity-management"></a>Solución de un problema con Privileged Identity Management
 
@@ -34,9 +34,9 @@ Como administrador de acceso de usuario o propietario activo de un recurso de Az
 
 Este problema puede ocurrir cuando el rol de administrador de acceso de usuario de la entidad de servicio de PIM se quitó accidentalmente de la suscripción. Para que el servicio Privileged Identity Management pueda acceder a los recursos de Azure, la entidad de servicio MS-PIM debe tener siempre asignado el [rol de administrador de acceso de usuario](../../role-based-access-control/built-in-roles.md#user-access-administrator) a través de la suscripción de Azure.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
-Asigne el rol de administrador de acceso de usuario al nombre de entidad de seguridad de servicio de Privileged Identity Management (MS–PIM) en el nivel de suscripción. Esta asignación debe permitir que el servicio Privileged Identity Management acceda a los recursos de Azure. El rol puede asignarse en el nivel de grupo de administración o el nivel de suscripción, según sus requisitos. Para obtener más información sobre las entidades de servicio, consulte el artículo sobre [asignación de una aplicación a un rol](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role).
+Asigne el rol de administrador de acceso de usuario al nombre de entidad de seguridad de servicio de Privileged Identity Management (MS–PIM) en el nivel de suscripción. Esta asignación debe permitir que el servicio Privileged Identity Management acceda a los recursos de Azure. El rol puede asignarse en el nivel de grupo de administración o el nivel de suscripción, según sus requisitos. Para obtener más información sobre las entidades de servicio, consulte el artículo sobre [asignación de una aplicación a un rol](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: b2d49eeadf068cbaacaa5e147f38025c55f33ff4
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 9595ee87801fa4ce187a50197fc58d6c448eac24
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651368"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303229"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configuración de una instancia de clúster de conmutación por error de SQL Server con un recurso compartido de archivos Premium en Azure Virtual Machines
 
@@ -53,7 +53,7 @@ Compruebe la actividad de IOPS de su entorno y compruebe que los recursos compar
 
 Muchas cargas de trabajo tienen ráfagas de E/S, por lo que es una buena idea realizar comprobaciones durante períodos de uso intensivo y anotar tanto el valor IOPS máximo como el valor IOPS medio. Los recursos compartidos de archivos Premium proporcionan IOPS en función del tamaño del recurso compartido. Los recursos compartidos de archivos Premium también proporcionan ráfagas gratuitas que le permiten aumentar la capacidad de E/S para triplicar la cantidad de base de referencia durante un máximo de una hora.
 
-Para obtener más información sobre el rendimiento del recurso compartido de archivos premium, consulte [Niveles de rendimiento de un recurso compartido de archivos](https://docs.microsoft.com/azure/storage/files/storage-files-planning#file-share-performance-tiers).
+Para obtener más información sobre el rendimiento del recurso compartido de archivos premium, consulte [Niveles de rendimiento de un recurso compartido de archivos](https://docs.microsoft.com/azure/storage/files/storage-files-planning#storage-tiers).
 
 ### <a name="licensing-and-pricing"></a>Licencias y precios
 

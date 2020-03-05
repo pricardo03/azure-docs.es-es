@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 11/12/2019
 ms.author: diberry
-ms.openlocfilehash: bae4f09b539e26ca8c0d4ce97999776dc0911601
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: d1ead09f6248a6ad14646371aa70b42b57cf8e3f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961785"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270814"
 ---
 # <a name="application-settings"></a>Configuración de la aplicación
 
@@ -27,14 +27,14 @@ Esta configuración de la aplicación se almacena en la aplicación [exportada](
 |NormalizePunctuation|True|Quita los signos de puntuación.|
 |NormalizeDiacritics|True|Quita las marcas diacríticas.|
 
-## <a name="diacritics-normalization"></a>Normalización de las marcas diacríticas 
+## <a name="diacritics-normalization"></a>Normalización de las marcas diacríticas
 
 Active la normalización de expresiones para las marcas diacríticas en el archivo de aplicación JSON de LUIS en el parámetro `settings`.
 
 ```JSON
 "settings": [
     {"name": "NormalizeDiacritics", "value": "true"}
-] 
+]
 ```
 
 Las declaraciones siguientes muestran cómo afecta la normalización de las marcas diacríticas a las grabaciones de voz:
@@ -61,7 +61,7 @@ Las declaraciones siguientes muestran cómo afecta la normalización de las marc
 |`ó`|`o`|
 |`ô`|`o`|
 |`õ`|`o`|
-|`ú`|`u`| 
+|`ú`|`u`|
 |||
 
 #### <a name="dutch-nl-nl-diacritics"></a>Marcas diacríticas `nl-nl` del neerlandés
@@ -77,7 +77,7 @@ Las declaraciones siguientes muestran cómo afecta la normalización de las marc
 |`í`|`i`|
 |`ó`|`o`|
 |`ö`|`o`|
-|`ú`|`u`| 
+|`ú`|`u`|
 |`ü`|`u`|
 |||
 
@@ -91,24 +91,24 @@ Esto incluye las referencias culturales secundarias del francés y canadiense.
 |`à`|`a`|
 |`è`|`e`|
 |`ù`|`u`|
-|`â`|`a`| 
-|`ê`|`e`| 
-|`î`|`i`| 
-|`ô`|`o`| 
-|`û`|`u`| 
-|`ç`|`c`| 
-|`ë`|`e`| 
-|`ï`|`i`| 
-|`ü`|`u`| 
-|`ÿ`|`y`| 
+|`â`|`a`|
+|`ê`|`e`|
+|`î`|`i`|
+|`ô`|`o`|
+|`û`|`u`|
+|`ç`|`c`|
+|`ë`|`e`|
+|`ï`|`i`|
+|`ü`|`u`|
+|`ÿ`|`y`|
 
 #### <a name="german-de-de-diacritics"></a>Marcas diacríticas `de-de` del alemán
 
 |Marcas diacríticas establecidas en false|Marcas diacríticas establecidas en true|
 |--|--|
 |`ä`|`a`|
-|`ö`|`o`| 
-|`ü`|`u`| 
+|`ö`|`o`|
+|`ü`|`u`|
 
 #### <a name="italian-it-it-diacritics"></a>Marcas diacríticas `it-it` del italiano
 
@@ -117,11 +117,11 @@ Esto incluye las referencias culturales secundarias del francés y canadiense.
 |`à`|`a`|
 |`è`|`e`|
 |`é`|`e`|
-|`ì`|`i`| 
-|`í`|`i`| 
-|`î`|`i`| 
-|`ò`|`o`| 
-|`ó`|`o`| 
+|`ì`|`i`|
+|`í`|`i`|
+|`î`|`i`|
+|`ò`|`o`|
+|`ó`|`o`|
 |`ù`|`u`|
 |`ú`|`u`|
 
@@ -133,8 +133,8 @@ Esto incluye tanto al mexicano y español.
 |-|-|
 |`á`|`a`|
 |`é`|`e`|
-|`í`|`i`| 
-|`ó`|`o`| 
+|`í`|`i`|
+|`ó`|`o`|
 |`ú`|`u`|
 |`ü`|`u`|
 |`ñ`|`u`|
@@ -147,7 +147,7 @@ Active la normalización de expresiones para la puntuación en el archivo de apl
 ```JSON
 "settings": [
     {"name": "NormalizePunctuation", "value": "true"}
-] 
+]
 ```
 
 Las expresiones siguientes muestran cómo la puntuación influye en las expresiones:
@@ -163,8 +163,8 @@ Se quita la siguiente puntuación con `NormalizePunctuation` establecido en true
 
 |Signos de puntuación|
 |--|
-|`-`| 
-|`.`| 
+|`-`|
+|`.`|
 |`'`|
 |`"`|
 |`\`|

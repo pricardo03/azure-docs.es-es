@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/24/2019
+ms.date: 03/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: a44bdf654842d964a02f6aebe60e3632aabcd64d
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: f2b8791c4a8714257f1e085fcf1af5517634daf1
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151673"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303399"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Creación de una instancia de VPN Gateway basada en rutas mediante Azure Portal
 
@@ -23,7 +23,7 @@ Los pasos que se describen en este artículo crearán una red virtual, una subre
 
 ## <a name="vnet"></a>Creación de una red virtual
 
-[!INCLUDE [create-gateway](../../includes/vpn-gateway-create-virtual-network-portal-include.md)]
+[!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
 ## <a name="gwvalues"></a>Configuración y creación de la puerta de enlace
 

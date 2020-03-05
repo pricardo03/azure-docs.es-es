@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 4c29658473aaa50168175c76234dfca34fcdad83
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 4a695957c287e69ff6b40e5a01254a729eaae441
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77594170"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273002"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Uso del enrutamiento inteligente y de las versiones de valor controlado con Istio en Azure Kubernetes Service (AKS)
 
@@ -68,25 +68,25 @@ cd aks-voting-app/scenarios/intelligent-routing-with-istio
 
 Primero, cree un espacio de nombres denominado `voting` en el clúster de AKS para la aplicación de votación de AKS de ejemplo como se indica a continuación:
 
-```azurecli
+```console
 kubectl create namespace voting
 ```
 
 Etiquete el espacio de nombres con `istio-injection=enabled`. Esta etiqueta indica a Istio que inyecte automáticamente los servidores proxy de Istio como patrones sidecar en todos los pods de este espacio de nombres.
 
-```azurecli
+```console
 kubectl label namespace voting istio-injection=enabled
 ```
 
 Ahora vamos a crear los componentes de la aplicación de votación de AKS. Cree estos componentes en el espacio de nombres `voting` creado en un paso anterior.
 
-```azurecli
+```console
 kubectl apply -f kubernetes/step-1-create-voting-app.yaml --namespace voting
 ```
 
 La siguiente salida de ejemplo muestra los recursos que van a crearse:
 
-```console
+```output
 deployment.apps/voting-storage-1-0 created
 service/voting-storage created
 deployment.apps/voting-analytics-1-0 created
@@ -100,13 +100,13 @@ service/voting-app created
 
 Para ver los pods creados, use el comando [kubectl get pods][kubectl-get] como sigue:
 
-```azurecli
+```console
 kubectl get pods -n voting --show-labels
 ```
 
 En la salida de ejemplo siguiente se muestra que hay tres instancias del pod `voting-app` y una única instancia de los pods `voting-analytics` y `voting-storage`. Cada pod tiene dos contenedores. Uno de estos contenedores es el componente y el otro es `istio-proxy`:
 
-```console
+```output
 NAME                                    READY     STATUS    RESTARTS   AGE   LABELS
 voting-analytics-1-0-57c7fccb44-ng7dl   2/2       Running   0          39s   app=voting-analytics,pod-template-hash=57c7fccb44,version=1.0
 voting-app-1-0-956756fd-d5w7z           2/2       Running   0          39s   app=voting-app,pod-template-hash=956756fd,version=1.0
@@ -144,26 +144,26 @@ No puede conectarse a la aplicación de votación hasta que se cree la [puerta d
 
 Use el comando `kubectl apply` para implementar la puerta de enlace y el servicio virtual yaml. Recuerde especificar el espacio de nombres en el que se implementan estos recursos.
 
-```azurecli
+```console
 kubectl apply -f istio/step-1-create-voting-app-gateway.yaml --namespace voting
 ```
 
 La siguiente salida de ejemplo muestra la creación de la puerta de enlace y el servicio virtual:
 
-```console
+```output
 virtualservice.networking.istio.io/voting-app created
 gateway.networking.istio.io/voting-app-gateway created
 ```
 
 Obtenga la dirección IP de la puerta de enlace de entrada de Istio con el comando siguiente:
 
-```azurecli
+```output
 kubectl get service istio-ingressgateway --namespace istio-system -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
 ```
 
 En la siguiente salida de ejemplo se muestra la dirección IP de la puerta de enlace de entrada:
 
-```
+```output
 20.188.211.19
 ```
 
@@ -183,13 +183,13 @@ En el diagrama siguiente se muestra lo que se va a ejecutar al final de esta sec
 
 Vamos a implementar la versión `1.1` del componente `voting-analytics`. Cree este componente en el espacio de nombres `voting`:
 
-```azurecli
+```console
 kubectl apply -f kubernetes/step-2-update-voting-analytics-to-1.1.yaml --namespace voting
 ```
 
 La siguiente salida de ejemplo muestra los recursos que van a crearse:
 
-```console
+```output
 deployment.apps/voting-analytics-1-1 created
 ```
 
@@ -223,7 +223,7 @@ Puede visualizar el cambio entre las dos versiones del componente `voting-analyt
 
 La salida de ejemplo siguiente muestra la parte pertinente del sitio web devuelto a medida que el sitio cambia entre versiones:
 
-```console
+```output
   <div id="results"> Cats: 2 | Dogs: 4 </div>
   <div id="results"> Cats: 2 | Dogs: 4 </div>
   <div id="results"> Cats: 2/6 (33%) | Dogs: 4/6 (67%) </div>
@@ -244,13 +244,13 @@ Use el comando `kubectl apply` para reemplazar la definición de servicio virtua
 * La directiva tiene `peers.mtls.mode` establecido en `STRICT` para garantizar la aplicación del certificado Mutual TLS entre los servicios dentro del espacio de nombres `voting`.
 * También se establece `trafficPolicy.tls.mode` en `ISTIO_MUTUAL` en todas nuestras reglas de destino. Istio ofrece servicios con identidades seguras y protege las comunicaciones entre los servicios con certificados cliente y Mutual TLS que Istio administra de forma transparente.
 
-```azurecli
+```console
 kubectl apply -f istio/step-2-update-and-add-routing-for-all-components.yaml --namespace voting
 ```
 
 En la siguiente salida de ejemplo se muestra la creación o actualización de la directiva, las reglas de destino y los servicios virtuales nuevos:
 
-```console
+```output
 virtualservice.networking.istio.io/voting-app configured
 policy.authentication.istio.io/default created
 destinationrule.networking.istio.io/voting-app created
@@ -286,7 +286,7 @@ Puede visualizar que ahora solo se le redirige a la versión `1.1` del component
 
 La salida de ejemplo siguiente muestra la parte pertinente del sitio web devuelto:
 
-```console
+```output
   <div id="results"> Cats: 2/6 (33%) | Dogs: 4/6 (67%) </div>
   <div id="results"> Cats: 2/6 (33%) | Dogs: 4/6 (67%) </div>
   <div id="results"> Cats: 2/6 (33%) | Dogs: 4/6 (67%) </div>
@@ -322,7 +322,7 @@ Este conjunto de comandos proporcionan información sobre el acceso a los servic
 
 La salida de ejemplo siguiente muestra que el certificado Mutual TLS se ha aplicado en todas las consultas anteriores. La salida también muestra las reglas de directiva y destino que exige Mutual TLS:
 
-```console
+```output
 # mTLS configuration between istio ingress pods and the voting-app service
 HOST:PORT                                    STATUS     SERVER     CLIENT     AUTHN POLICY       DESTINATION RULE
 voting-app.voting.svc.cluster.local:8080     OK         mTLS       mTLS       default/voting     voting-app/voting
@@ -364,13 +364,13 @@ En el diagrama siguiente se muestra lo que se ejecutará al final de esta secci�
 
 En primer lugar, actualice las reglas de destino y los servicios virtuales de Istio destinados a estos nuevos componentes. Estas actualizaciones garantizan que el tráfico no se enrute incorrectamente a los nuevos componentes y que los usuarios no tengan un acceso inesperado:
 
-```azurecli
+```console
 kubectl apply -f istio/step-3-add-routing-for-2.0-components.yaml --namespace voting
 ```
 
 En la siguiente salida de ejemplo se muestran las reglas de destino y los servicios virtuales que van a actualizarse:
 
-```console
+```output
 destinationrule.networking.istio.io/voting-app configured
 virtualservice.networking.istio.io/voting-app configured
 destinationrule.networking.istio.io/voting-analytics configured
@@ -381,13 +381,13 @@ virtualservice.networking.istio.io/voting-storage configured
 
 A continuación, vamos a agregar los objetos de Kubernetes para los componentes de la nueva versión `2.0`. Actualice también el servicio `voting-storage` para que incluya el puerto `3306` para MySQL:
 
-```azurecli
+```console
 kubectl apply -f kubernetes/step-3-update-voting-app-with-new-storage.yaml --namespace voting
 ```
 
 En la siguiente salida de ejemplo se muestra que los objetos de Kubernetes se han actualizado o creado correctamente:
 
-```console
+```output
 service/voting-storage configured
 secret/voting-storage-secret created
 deployment.apps/voting-storage-2-0 created
@@ -398,7 +398,7 @@ deployment.apps/voting-app-2-0 created
 
 Espere hasta que todos los pods de la versión `2.0` estén en ejecución. Use el comando [kubectl get pods][kubectl-get] con el conmutador de inspección `-w` para ver los cambios en todos los pods del espacio de nombres `voting`:
 
-```azurecli
+```console
 kubectl get pods --namespace voting -w
 ```
 
@@ -428,13 +428,13 @@ Ya ha lanzado correctamente una versión nueva de la aplicación de votación de
 
 Para quitar la aplicación de votación de AKS utilizada en este escenario de su clúster de AKS, puede eliminar el espacio de nombres `voting` como se muestra a continuación:
 
-```azurecli
+```console
 kubectl delete namespace voting
 ```
 
 La siguiente salida de ejemplo muestra que se quitaron todos los componentes de la aplicación de votación de AKS del clúster de AKS.
 
-```console
+```output
 namespace "voting" deleted
 ```
 

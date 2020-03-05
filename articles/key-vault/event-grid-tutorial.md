@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5c959dc7fa36fb41307d286b1e7d0b475d5b56c6
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 5eaf4cf702e56df932a61ab277dff6b34d97854d
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988471"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78185036"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Recibir notificaciones del almacén de claves y responder con Azure Event Grid (versión preliminar)
 
@@ -22,7 +23,7 @@ La integración de Azure Key Vault en Azure Event Grid (actualmente en versión 
 
 En esta guía se describe cómo recibir notificaciones de Key Vault mediante Event Grid, y cómo responder a los cambios de estado con Azure Automation.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 - Un almacén de claves en la suscripción de Azure. Puede crear rápidamente un almacén de claves si sigue los pasos descritos en [Establecimiento y recuperación de un secreto desde Azure Key Vault mediante la CLI de Azure](quick-create-cli.md).

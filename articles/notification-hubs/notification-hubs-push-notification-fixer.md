@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: NA
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 02/25/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: 3c84277603420567485b5199cdd2fa63ee3a2654
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1f3c16e6fe1855cf7882d83e620c70d15ce3cb92
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75378388"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657590"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnóstico de notificaciones eliminadas en Azure Notification Hubs
 
@@ -41,7 +41,7 @@ Durante la fase inicial de prueba o de ensayo puede ocurrir que no se entreguen 
 
 La siguiente sección examina los escenarios en los que las notificaciones podrían resultar eliminadas, desde los más comunes hasta los poco frecuentes.
 
-## <a name="notification-hubs-misconfiguration"></a>Configuración incorrecta de Notification Hubs ##
+## <a name="notification-hubs-misconfiguration"></a>Configuración incorrecta de Notification Hubs
 
 Para poder enviar notificaciones al servicio de notificaciones push, Notification Hubs debe autenticarse a sí mismo en el contexto de la aplicación. Debe crear una cuenta de desarrollador con el servicio de notificaciones de la plataforma de destino (Microsoft, Apple, Google, etc.). A continuación, debe registrar la aplicación con el sistema operativo donde obtener un token o una clave que se utiliza para trabajar con el PNS de destino.
 
@@ -54,19 +54,20 @@ Estos son algunos errores comunes de configuración para comprobar:
 ### <a name="notification-hub-name-location"></a>La ubicación del nombre del centro de notificaciones.
 
 Asegúrese de que el nombre de su centro de notificaciones (escrito sin errores) sea el mismo en cada una de estas ubicaciones:
-   * Donde se registra en el cliente.
-   * Donde envía notificaciones desde el back-end.
-   * Donde ha configurado las credenciales de servicios de notificaciones push.
+
+* Donde se registra en el cliente.
+* Donde envía notificaciones desde el back-end.
+* Donde ha configurado las credenciales de servicios de notificaciones push.
 
 Asegúrese de que usa las cadenas de configuración de firmas de acceso compartido correctas en el cliente y en el back-end de la aplicación. Por lo general, debe usar **DefaultListenSharedAccessSignature** en el cliente y **DefaultFullSharedAccessSignature** en el back-end de la aplicación. Esto concede permisos para enviar notificaciones a Notification Hubs.
 
-### <a name="apn-configuration"></a>Configuración de APN ###
+### <a name="apn-configuration"></a>Configuración de APN
 
 Debe mantener dos centros diferentes: uno para producción y otro para pruebas. Debe cargar el certificado que va a usar en un entorno de espacio aislado en un centro distinto del certificado o del centro que usará en producción. No intente cargar diferentes tipos de certificados en el mismo centro, ya que provocará errores de notificación.
 
 Si carga involuntariamente diferentes tipos de certificados en el mismo centro, debe eliminar el centro y volver a empezar con uno nuevo. Si, por algún motivo, no puede eliminar el centro, debe eliminar al menos todos los registros existentes del centro.
 
-### <a name="fcm-configuration"></a>Configuración de FCM ###
+### <a name="fcm-configuration"></a>Configuración de FCM
 
 1. Asegúrese de que la *clave de servidor* que obtuvo de Firebase coincide con la clave de servidor registrada en Azure Portal.
 
@@ -76,9 +77,9 @@ Si carga involuntariamente diferentes tipos de certificados en el mismo centro, 
 
    ![Identificador del proyecto de Firebase][1]
 
-## <a name="application-issues"></a>Problemas de la aplicación ##
+## <a name="application-issues"></a>Problemas de la aplicación
 
-### <a name="tags-and-tag-expressions"></a>Etiquetas y expresiones de etiqueta ###
+### <a name="tags-and-tag-expressions"></a>Etiquetas y expresiones de etiqueta
 
 Si usa etiquetas o expresiones de etiqueta para segmentar la audiencia, es posible que cuando envía la notificación no se encuentre ningún destino. Este error se basa en las etiquetas o expresiones de etiqueta que especifica en la llamada de envío.
 
@@ -86,11 +87,11 @@ Revise los registros para asegurarse de que las etiquetas coincidan cuando enví
 
 Por ejemplo, supongamos que todos los registros con Notification Hubs usan la etiqueta "Política". Si, a continuación, envía una notificación con la etiqueta "Deportes", no se enviará la notificación a ningún dispositivo. Un caso complejo podría incluir expresiones de etiqueta donde se registró con "Etiqueta A" *o* "Etiqueta B", pero dirigió "Etiqueta A && Etiqueta B". En la sección de sugerencias de autodiagnóstico, más adelante en el artículo, se muestra cómo revisar los registros y sus etiquetas.
 
-### <a name="template-issues"></a>Problemas de plantillas ###
+### <a name="template-issues"></a>Problemas de plantillas
 
 Si utiliza plantillas, asegúrese de seguir las directrices descritas en [Templates].
 
-### <a name="invalid-registrations"></a>Registros no válidos ###
+### <a name="invalid-registrations"></a>Registros no válidos
 
 Si el centro de notificaciones se ha configurado correctamente y las etiquetas o expresiones de etiqueta se han usado correctamente, se encuentran destinos válidos. Las notificaciones se enviarán a estos destinos. Después, Notification Hubs desactiva varios lotes de procesamiento en paralelo. Cada lote envía mensajes a un conjunto de registros.
 
@@ -121,13 +122,13 @@ Con Notification Hubs, puede pasar una clave de fusión a través de un encabeza
 
 Estas son rutas de acceso para diagnosticar la causa principal de las notificaciones eliminadas en Notification Hubs.
 
-### <a name="verify-credentials"></a>Comprobar las credenciales ###
+### <a name="verify-credentials"></a>Comprobar las credenciales
 
-#### <a name="push-notification-service-developer-portal"></a>Portal para desarrolladores del servicio de notificaciones push ####
+#### <a name="push-notification-service-developer-portal"></a>Portal para desarrolladores del servicio de notificaciones push
 
 Compruebe las credenciales en el portal para desarrolladores de los servicios de notificaciones push respectivos (APN, FCM, servicio de notificaciones de Windows, etc.). Para más información, consulte el [Tutorial: Envío de notificaciones a aplicaciones de Plataforma universal de Windows mediante Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
 
-#### <a name="azure-portal"></a>Portal de Azure ####
+#### <a name="azure-portal"></a>Portal de Azure
 
 Para revisar y comparar las credenciales con las que obtuvo en el portal para desarrolladores de los servicios de notificaciones push, vaya a la pestaña **Directivas de acceso** en Azure Portal.
 
@@ -135,46 +136,48 @@ Para revisar y comparar las credenciales con las que obtuvo en el portal para de
 
 ### <a name="verify-registrations"></a>Verificar los registros
 
-#### <a name="visual-studio"></a>Visual Studio ####
+#### <a name="visual-studio"></a>Visual Studio
 
 En Visual Studio, puede conectarse a Azure mediante el Explorador de servidores para ver y administrar muchos servicios de Azure, incluido Notification Hubs. Este acceso directo es especialmente útil para su entorno de desarrollo y prueba.
 
 ![Explorador de servidores de Visual Studio][9]
 
+![Explorador de servidores](media/notification-hubs-push-notification-fixer/vsserverexplorer2.png)
+
 Puede ver y administrar todos los registros de su centro. Los registros se pueden clasificar por plataforma, registro nativo o de plantilla, etiqueta, identificador del servicio de notificaciones push, identificador de registro y fecha de expiración. También puede editar un registro en esta página. Esto es especialmente útil para editar etiquetas.
 
 Haga clic con el botón derecho en el centro de notificaciones en **Explorador de servidores** y seleccione **Diagnosticar**. 
 
-![Explorador de servidores de Visual Studio: Menú de diagnóstico](./media/notification-hubs-diagnosing/diagnose-menu.png)
+![Explorador de servidores de Visual Studio: Menú de diagnóstico](./media/notification-hubs-push-notification-fixer/diagnose-menu.png)
 
 Verá la página siguiente:
 
-![Visual Studio: Página de diagnóstico](./media/notification-hubs-diagnosing/diagnose-page.png)
+![Visual Studio: Página de diagnóstico](./media/notification-hubs-push-notification-fixer/diagnose-page.png)
 
 Cambie a la página **Registros de dispositivos**:
 
-![Visual Studio: Registros de dispositivos](./media/notification-hubs-diagnosing/VSRegistrations.png)
+![Visual Studio: Registros de dispositivos](./media/notification-hubs-push-notification-fixer/VSRegistrations.png)
 
 Puede usar la página **Envío de prueba** para enviar un mensaje de notificación de prueba:
 
-![Visual Studio: Envío de prueba](./media/notification-hubs-diagnosing/test-send-vs.png)
+![Visual Studio: Envío de prueba](./media/notification-hubs-push-notification-fixer/test-send-vs.png)
 
 > [!NOTE]
 > Use Visual Studio para editar registros solo durante las pruebas o el desarrollo, y con un número limitado de registros. Si necesita modificar sus registros en bloque, considere la posibilidad de usar la función para exportar o importar registros que se describe en [Procedimiento: exportar y modificar registros en bloque](https://msdn.microsoft.com/library/dn790624.aspx).
 
-#### <a name="service-bus-explorer"></a>Explorador de Service Bus ####
+#### <a name="service-bus-explorer"></a>Explorador de Service Bus
 
 Muchos clientes usan el [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer) para consultar y administrar su centro de notificaciones. El Explorador de Service Bus es un proyecto de código abierto. 
 
 ### <a name="verify-message-notifications"></a>Comprobar las notificaciones de mensajes
 
-#### <a name="azure-portal"></a>Portal de Azure ####
+#### <a name="azure-portal"></a>Portal de Azure
 
 Para enviar una notificación de prueba a los clientes sin que el back-end del servicio esté en funcionamiento, en **SOPORTE TÉCNICO Y SOLUCIÓN DE PROBLEMAS**, seleccione **Envío de prueba**.
 
 ![Funcionalidad Envío de prueba en Azure][7]
 
-#### <a name="visual-studio"></a>Visual Studio ####
+#### <a name="visual-studio"></a>Visual Studio
 
 También puede enviar notificaciones de prueba desde Visual Studio.
 
@@ -188,7 +191,7 @@ Para más información acerca del uso de Notification Hubs con el Explorador de 
 
 ### <a name="debug-failed-notifications-and-review-notification-outcome"></a>Depuración de las notificaciones incorrectas y revisión del resultado de la notificación
 
-#### <a name="enabletestsend-property"></a>Propiedad EnableTestSend ####
+#### <a name="enabletestsend-property"></a>Propiedad EnableTestSend
 
 Cuando se envía una notificación mediante Notification Hubs, la notificación se pone en cola inicialmente. Notification Hubs determina los destinos correctos y después envía la notificación al servicio de notificaciones push. Si usa la API REST o cualquiera de los SDK de cliente, la devolución de su llamada de envío solo implica que el mensaje se ha puesto en cola en Notification Hubs. No proporciona información de lo que ocurrió cuando Notification Hubs envió finalmente la notificación al servicio de notificaciones push.
 
@@ -202,7 +205,7 @@ Para usar la propiedad `EnableTestSend` con la llamada a REST, anexe un parámet
 https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
 ```
 
-#### <a name="net-sdk-example"></a>Ejemplo de SDK de .NET ####
+#### <a name="net-sdk-example"></a>Ejemplo de SDK de .NET
 
 Este es un ejemplo de uso de .NET SDK para enviar una notificación emergente nativa (notificación del sistema):
 
@@ -229,7 +232,7 @@ A continuación, puede usar la propiedad booleana `EnableTestSend`. Use la propi
     }
 ```
 
-#### <a name="sample-output"></a>Salida de ejemplo ####
+#### <a name="sample-output"></a>Salida de ejemplo
 
 ```text
 DetailedStateAvailable
@@ -243,9 +246,9 @@ Este mensaje indica que se han configurado credenciales no válidas en Notificat
 > [!NOTE]
 > El uso de la propiedad `EnableTestSend` está muy limitado. Use esta opción únicamente en un entorno de desarrollo y pruebas y con un conjunto limitado de registros. Las notificaciones de depuración se envían únicamente a 10 dispositivos. También hay un límite de procesamiento de envíos de depuración (10 por minuto).
 
-### <a name="review-telemetry"></a>Revisar la telemetría ###
+### <a name="review-telemetry"></a>Revisar la telemetría
 
-#### <a name="azure-portal"></a>Portal de Azure ####
+#### <a name="azure-portal"></a>Portal de Azure
 
 En el portal, puede obtener una rápida introducción de toda la actividad que tiene lugar en el centro de notificaciones.
 
@@ -261,7 +264,7 @@ En el portal, puede obtener una rápida introducción de toda la actividad que t
 
 4. Si la configuración de autenticación para el centro de notificaciones no es correcta, se muestra el mensaje **Error de autenticación PNS**. Es un buen indicio de que se deben comprobar las credenciales del servicio de notificaciones push.
 
-#### <a name="programmatic-access"></a>Acceso mediante programación ####
+#### <a name="programmatic-access"></a>Acceso mediante programación
 
 Para más información sobre el acceso mediante programación, consulte [Acceso mediante programación](https://docs.microsoft.com/previous-versions/azure/azure-services/dn458823(v=azure.100)).
 
@@ -271,16 +274,16 @@ Para más información sobre el acceso mediante programación, consulte [Acceso 
 > Para usar las características relacionadas con la telemetría, asegúrese primero en Azure Portal de que está usando el nivel de servicio Estándar.  
 
 <!-- IMAGES -->
-[0]: ./media/notification-hubs-diagnosing/Architecture.png
-[1]: ./media/notification-hubs-diagnosing/FCMConfigure.png
-[3]: ./media/notification-hubs-diagnosing/FCMServerKey.png
+[0]: ./media/notification-hubs-push-notification-fixer/Architecture.png
+[1]: ./media/notification-hubs-push-notification-fixer/FCMConfigure.png
+[3]: ./media/notification-hubs-push-notification-fixer/FCMServerKey.png
 [4]: ../../includes/media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png
-[5]: ./media/notification-hubs-diagnosing/PortalDashboard.png
-[6]: ./media/notification-hubs-diagnosing/PortalAnalytics.png
+[5]: ./media/notification-hubs-push-notification-fixer/PortalDashboard.png
+[6]: ./media/notification-hubs-push-notification-fixer/PortalAnalytics.png
 [7]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
-[8]: ./media/notification-hubs-diagnosing/VSRegistrations.png
-[9]: ./media/notification-hubs-diagnosing/VSServerExplorer.png
-[10]: ./media/notification-hubs-diagnosing/VSTestNotification.png
+[8]: ./media/notification-hubs-push-notification-fixer/VSRegistrations.png
+[9]: ./media/notification-hubs-push-notification-fixer/vsserverexplorer.png
+[10]: ./media/notification-hubs-push-notification-fixer/VSTestNotification.png
 
 <!-- LINKS -->
 [Introducción a Notification Hubs]: notification-hubs-push-notification-overview.md

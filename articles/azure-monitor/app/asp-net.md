@@ -1,18 +1,14 @@
 ---
 title: Configuración del análisis de aplicaciones web para ASP.NET con Azure Application Insights | Microsoft Docs
 description: Configure las herramientas de análisis del rendimiento, la disponibilidad y de comportamiento de usuarios para un sitio web de ASP.NET, hospedado localmente o en Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/08/2019
-ms.openlocfilehash: a72bb5dd02776fe8410bb515e4e17a292d12048f
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 0843d6c04bf6fc9bab07207072990fb3fb8f1844
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677668"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665925"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configuración de Application Insights para un sitio web de ASP.NET
 
@@ -20,7 +16,7 @@ Este procedimiento configura una aplicación web de ASP.NET para que envíe dato
 
 Su instalación se realiza desde Visual Studio con unos pocos clics. Tiene la opción para evitar cargos. Para ello, solo debe limitar el volumen de la telemetría. Esta funcionalidad le permite probar y depurar un sitio con no muchos usuarios, o incluso supervisarlo. Si decide que desea supervisar su sitio de producción, no le costará trabajo aumentar el límite más adelante.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Para agregar Application Insights al sitio web de ASP.NET, necesita:
 
 - Instale [Visual Studio 2019 para Windows](https://www.visualstudio.com/downloads/) con las cargas de trabajo siguientes:

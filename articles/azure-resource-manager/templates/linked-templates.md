@@ -3,12 +3,12 @@ title: Plantillas de vínculo para la implementación
 description: Describe cómo usar plantillas vinculadas en una plantilla del Administrador de recursos de Azure para crear una solución de plantilla modular. Muestra cómo pasar valores de parámetros y especificar un archivo de parámetros y las direcciones URL creadas dinámicamente.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: c6a5dced0f8607e760422bebd114a08ca0a238e3
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: e26b795a645ab9128dd738ba6a54b66ac0b7da2a
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207611"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272573"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas y anidadas al implementar recursos de Azure
 
@@ -707,7 +707,7 @@ En el ejemplo siguiente se muestra cómo pasar un token de SAS al vincular a una
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-  "containerSasToken": { "type": "string" }
+  "containerSasToken": { "type": "securestring" }
   },
   "resources": [
   {

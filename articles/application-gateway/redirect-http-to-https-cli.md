@@ -8,18 +8,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: victorh
-ms.openlocfilehash: ff615507723b949105fc2b604d6bff869bdb33dc
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 41b2fb754f1d6ead3a7475ca146ab99758aa8134
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74108762"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246870"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con redirección de HTTP a HTTPS mediante la CLI de Azure
 
 Puede usar la CLI de Azure para crear una [puerta de enlace de aplicaciones](overview.md) con un certificado para la terminación SSL. Para redirigir el tráfico HTTP al puerto HTTPS en la puerta de enlace de aplicaciones se usa una regla de enrutamiento. En este ejemplo, también crea un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para el grupo de back-end de la puerta de enlace de aplicaciones que contiene dos instancias de máquina virtual.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Creación de un certificado autofirmado
@@ -38,13 +38,13 @@ Si decide instalar y usar la CLI localmente, para esta guía de inicio rápido e
 
 Para su uso en producción, debe importar un certificado válido firmado por un proveedor de confianza. En este tutorial, creará un certificado autofirmado y un archivo pfx con el comando openssl.
 
-```azurecli-interactive
+```console
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
 ```
 
 Escriba valores que tengan sentido para su certificado. Puede aceptar los valores predeterminados.
 
-```azurecli-interactive
+```console
 openssl pkcs12 -export -out appgwcert.pfx -inkey privateKey.key -in appgwcert.crt
 ```
 
@@ -208,7 +208,7 @@ az vmss extension set \
 
 Para obtener la dirección IP pública de la puerta de enlace de aplicaciones, puede usar [az network public-ip show](/cli/azure/network/public-ip). Copie la dirección IP pública y péguela en la barra de direcciones del explorador.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
@@ -224,7 +224,7 @@ Para aceptar la advertencia de seguridad si usó un certificado autofirmado, sel
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Creación de un certificado autofirmado

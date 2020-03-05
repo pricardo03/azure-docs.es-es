@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 354f7db2a634ae2adee2f2fa0e2a6055c1c20613
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b7754a289c06dff37aedcf8da76d35dfac4b183d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465283"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252799"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Tutorial: Implementación de una aplicación para Java en un clúster de Service Fabric en Azure
 
@@ -32,7 +32,7 @@ En esta serie de tutoriales, se aprende a:
 > * [Configurar la supervisión y el diagnóstico para la aplicación](service-fabric-tutorial-java-elk.md)
 > * [Configure CI/CD](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de empezar este tutorial:
 
@@ -53,13 +53,13 @@ Con los pasos siguientes se crean los recursos necesarios para implementar la ap
 
 2. Inicio de sesión en la cuenta de Azure.
 
-    ```bash
+    ```azurecli
     az login
     ```
 
 3. Configure la suscripción de Azure que quiera usar para crear los recursos
 
-    ```bash
+    ```azurecli
     az account set --subscription [SUBSCRIPTION-ID]
     ```
 
@@ -73,7 +73,7 @@ Con los pasos siguientes se crean los recursos necesarios para implementar la ap
 
     El comando anterior devuelve la siguiente información, anótela para usarla más adelante.
 
-    ```
+    ```output
     Source Vault Resource Id: /subscriptions/<subscription_id>/resourceGroups/testkeyvaultrg/providers/Microsoft.KeyVault/vaults/<name>
     Certificate URL: https://<name>.vault.azure.net/secrets/<cluster-dns-name-for-certificate>/<guid>
     Certificate Thumbprint: <THUMBPRINT>
@@ -81,7 +81,7 @@ Con los pasos siguientes se crean los recursos necesarios para implementar la ap
 
 5. Cree un grupo de recursos para la cuenta de Storage que almacena los registros.
 
-    ```bash
+    ```azurecli
     az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
 
     Example: az group create --location westus --name teststorageaccountrg
@@ -89,7 +89,7 @@ Con los pasos siguientes se crean los recursos necesarios para implementar la ap
 
 6. Cree una cuenta de Storage que se usará para almacenar los registros que se produzcan.
 
-    ```bash
+    ```azurecli
     az storage account create -g [RESOURCE-GROUP-NAME] -l [REGION] --name [STORAGE-ACCOUNT-NAME] --kind Storage
 
     Example: az storage account create -g teststorageaccountrg -l westus --name teststorageaccount --kind Storage
@@ -101,13 +101,13 @@ Con los pasos siguientes se crean los recursos necesarios para implementar la ap
 
 8. Copie la dirección URL de la firma de acceso compartido de la cuenta y establézcala como reserva para usarla al crear el clúster de Service Fabric. Se parece a la siguiente dirección URL:
 
-    ```
+    ```output
     ?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-01-31T03:24:04Z&st=2018-01-30T19:24:04Z&spr=https,http&sig=IrkO1bVQCHcaKaTiJ5gilLSC5Wxtghu%2FJAeeY5HR%2BPU%3D
     ```
 
 9. Cree un grupo de recursos que contenga los recursos de Event Hubs. Con Event Hubs se envían mensajes de Service Fabric al servidor que ejecuta los recursos de ELK.
 
-    ```bash
+    ```azurecli
     az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
 
     Example: az group create --location westus --name testeventhubsrg
@@ -115,7 +115,7 @@ Con los pasos siguientes se crean los recursos necesarios para implementar la ap
 
 10. Cree un recurso de Event Hubs mediante el siguiente comando. Siga las instrucciones para escribir detalles en namespaceName, eventHubName, consumerGroupName, sendAuthorizationRule y receiveAuthorizationRule.
 
-    ```bash
+    ```azurecli
     az group deployment create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json
 
     Example:
@@ -158,7 +158,7 @@ Con los pasos siguientes se crean los recursos necesarios para implementar la ap
 
     Copie el valor del campo **sr** del JSON devuelto. El valor del campo **sr** es el token de firma de acceso compartido de Event Hubs. La dirección URL siguiente es un ejemplo de campo **sr**:
 
-    ```bash
+    ```output
     https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
@@ -185,7 +185,7 @@ Con los pasos siguientes se crean los recursos necesarios para implementar la ap
 
 14. Ejecute el comando siguiente para crear el clúster de Service Fabric.
 
-    ```bash
+    ```azurecli
     az sf cluster create --location 'westus' --resource-group 'testlinux' --template-file sfdeploy.json --parameter-file sfdeploy.parameters.json --secret-identifier <certificate_url_from_step4>
     ```
 

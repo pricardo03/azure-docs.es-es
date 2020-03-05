@@ -1,18 +1,17 @@
 ---
 title: Conexión de equipos mediante la puerta de enlace de Log Analytics | Microsoft Docs
 description: Conecte los dispositivos y los equipos supervisados por Operations Manager con la puerta de enlace de Log Analytics para enviar datos al servicio de Log Analytics y Azure Automation cuando no tengan acceso a Internet.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 30854382b5a6dfd0faabfc2f59340dc21518d6f2
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 6c5325a21ffa74f5679a74b991f1c814eadc64ff
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773291"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672300"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conexión de equipos sin acceso a Internet mediante la puerta de enlace de Log Analytics en Azure Monitor
 

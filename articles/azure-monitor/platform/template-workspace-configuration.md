@@ -1,18 +1,17 @@
 ---
 title: Uso de las plantillas de Azure Resource Manager para crear y configurar un área de trabajo de Log Analytics | Microsoft Docs
 description: Puede utilizar las plantillas de Azure Resource Manager para crear y configurar áreas de trabajo de Log Analytics.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: 5fb33a592601a0511fa2523ee0cf8114bc66ca99
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 1b084b8cbf87817a4ff12fdb56f44b740a6d6a12
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591972"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658904"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Administración del área de trabajo de Log Analytics mediante las plantillas de Azure Resource Manager
 

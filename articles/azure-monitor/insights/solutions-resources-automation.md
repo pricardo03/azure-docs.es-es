@@ -1,19 +1,18 @@
 ---
 title: Recursos de Azure Automation en soluciones de administración | Microsoft Docs
 description: Normalmente, las soluciones de administración incluyen runbooks de Azure Automation para automatizar procesos como la recopilación y el procesamiento de datos de supervisión.  En este artículo se describe cómo incluir runbooks y sus recursos relacionados en una solución.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/24/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d55af7354ea7d78263e55872e257a2814ebe4130
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8ef9f27546e9db95d5a41769e1b5bc7bc0c2f851
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75401817"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663069"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Adición de recursos de Azure Automation a una solución de administración (versión preliminar)
 > [!NOTE]
@@ -26,7 +25,7 @@ Normalmente, las [soluciones de administración]( solutions.md) incluyen runbook
 > En los ejemplos de este artículo se usan parámetros y variables que son necesarios o comunes para las soluciones de administración, y se describen en [Diseño y compilación de una solución de administración en Azure]( solutions-creating.md). 
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 En este artículo se supone que ya está familiarizado con la información siguiente.
 
 - Cómo [crear una solución de administración]( solutions-creating.md).

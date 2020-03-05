@@ -9,12 +9,13 @@ ms.author: mbaldwin
 ms.date: 08/28/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: 6996a5965454dfd5997f0c0404e0c348c68b626f
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.subservice: general
+ms.openlocfilehash: 6377edf72651c9cddf570d0c6db9d5ceb40409f4
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177465"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200726"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticación entre servicios en Azure Key Vault mediante .NET
 
@@ -24,7 +25,7 @@ La administración de estas credenciales puede ser complicada. Resulta tentador 
 
 La biblioteca `Microsoft.Azure.Services.AppAuthentication` administra la autenticación automáticamente, que a su vez le permite centrarse en la solución, en lugar de en las credenciales. Admite el desarrollo local con Microsoft Visual Studio, la CLI de Azure o la autenticación integrada de Azure AD. Cuando se implementa en un recurso de Azure que admite una identidad administrada, la biblioteca usa automáticamente [identidades administradas para los recursos de Azure](../active-directory/msi-overview.md). No se requieren cambios de configuración o código. La biblioteca también admite el uso directo de las [credenciales de cliente](../azure-resource-manager/resource-group-authenticate-service-principal.md) de Azure AD cuando una identidad administrada no está disponible o cuando no se puede determinar el contexto de seguridad del desarrollador durante el desarrollo local.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) o [Visual Studio 2017 v15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/).
 

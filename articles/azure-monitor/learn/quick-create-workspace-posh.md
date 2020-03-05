@@ -1,18 +1,17 @@
 ---
 title: Creación de un área de trabajo de Log Analytics mediante Azure PowerShell | Microsoft Docs
 description: Aprenda a crear un área de trabajo de Log Analytics para habilitar soluciones de administración y recopilación de datos en sus entornos tanto locales como en la nube con Azure PowerShell.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2019
-ms.openlocfilehash: 87550e7ee3008418fde84596a811d44d02191cee
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: a2765aaf36aa5f7e541e0ee7fb3178246d2cca5d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513531"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659907"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Creación de un área de trabajo de Log Analytics con Azure PowerShell
 

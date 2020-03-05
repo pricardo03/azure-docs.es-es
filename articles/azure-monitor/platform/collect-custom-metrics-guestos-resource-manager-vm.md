@@ -3,17 +3,16 @@ title: Recopilación de métricas de máquinas virtuales Windows en Azure Monito
 description: Envío de métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Resource Manager para una máquina virtual Windows
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 05a05c46a49c0262bd5db33390bb995ebe849fd7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e747ca89912c36538bfb9d02986629fe57c5adcb
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364125"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657374"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Envío de métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Resource Manager para una máquina virtual Windows
 
@@ -27,7 +26,7 @@ Almacenarlas en esta ubicación permite tener acceso a las mismas acciones para 
 
 Si no está familiarizado con las plantillas de Resource Manager, obtenga información sobre las [implementaciones de plantilla](../../azure-resource-manager/management/overview.md) y su estructura y sintaxis.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - La suscripción debe estar registrada en [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
 

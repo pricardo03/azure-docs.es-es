@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: 66bb054ab75c5a4e387995bc64dbc026c073413f
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.custom: hdinsightactive
+ms.date: 03/04/2020
+ms.openlocfilehash: 36ff0d5f1fc96b2013555d37a869ebf629a22be7
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122622"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302141"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Conexión con Apache Kafka en HDInsight mediante una instancia de Azure Virtual Network
 
@@ -38,7 +38,7 @@ HDInsight no permite la conexión directa a Kafka a través de la red pública d
   4. Configure el reenvío entre el servidor DNS de cada red.
   5. Cree una instancia de Kafka en un clúster de HDInsight en la red virtual.
 
-     Para más información, vea la sección [Conexión a Apache Kafka desde una red](#on-premises). 
+     Para más información, vea la sección [Conexión a Apache Kafka desde una red](#on-premises).
 
 * Conectar equipos individuales a la red virtual mediante una puerta de enlace de red privada virtual y un cliente de red privada virtual. Para habilitar esta configuración, realice las siguientes tareas:
 

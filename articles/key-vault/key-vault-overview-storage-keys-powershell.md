@@ -3,16 +3,17 @@ title: 'Cuenta de almacenamiento administrado por Azure Key Vault: versión de P
 description: La característica de cuenta de almacenamiento administrado ofrece una integración sin problemas entre Azure Key Vault y una cuenta de almacenamiento de Azure.
 ms.topic: conceptual
 ms.service: key-vault
+ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 584a37ffb9727a48e2adb5e339697314cffe93f7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 833f78d89a1a9033e62c10c3b16c5adfc65e1da4
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980851"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195131"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Administración de claves de cuenta de almacenamiento con Key Vault y Azure PowerShell
 
@@ -48,7 +49,7 @@ Key Vault es una aplicación de Microsoft que previamente se ha registrado en to
 | Azure AD | Pública de Azure | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | Otros  | Any | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar esta guía, antes debe completar los pasos siguientes:
 

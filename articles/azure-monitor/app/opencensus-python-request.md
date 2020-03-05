@@ -1,18 +1,16 @@
 ---
 title: Seguimiento de solicitudes entrantes en Azure Application Insights con OpenCensus para Python | Microsoft Docs
 description: Supervise las llamadas de solicitud de las aplicaciones Python a través de OpenCensus para Python.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
-ms.openlocfilehash: 475ba601c61169f92eddd7f203b7fa34ed2e4916
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 0396bd8d150c6145a39f36e7be9e6e2dcacef2c4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368259"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669954"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>Seguimiento de las solicitudes entrantes con OpenCensus para Python
 

@@ -1,18 +1,17 @@
 ---
 title: Habilitar Azure Monitor (versión preliminar) para un entorno híbrido | Microsoft Docs
 description: En este artículo se describe cómo habilitar Azure Monitor para VM para un entorno de nube híbrida que contenga una o más máquinas virtuales.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 0afc67bf6d9e997ef615ecadc6836b36ed73e2ea
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bd44eebf8aceaf7fe32cf8cf1b1152db32acb344
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969682"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669631"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Habilitar Azure Monitor para VM (versión preliminar) para un entorno híbrido
 

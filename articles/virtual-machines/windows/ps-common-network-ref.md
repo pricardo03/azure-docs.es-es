@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 3abde706ddff297094c7fbb1579b534894b349d2
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b9debe04759772ef51946dc99943ec4eff6f61dd
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032929"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77911838"
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Comandos comunes de PowerShell para Azure Virtual Network
 
@@ -73,6 +73,6 @@ Algunas de las variables podrían serle útiles si ejecuta más de uno de los co
 | Eliminar una dirección IP pública |[Remove-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/remove-azpublicipaddress)-Name "myIPAddress" -ResourceGroupName $myResourceGroup<BR><BR>Quita la dirección IP pública especificada del grupo de recursos. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Utilice la interfaz de red que acaba de crear cuando [cree una VM](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Obtenga información sobre cómo puede [crear una máquina virtual con varias interfaces de red](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md).
+Utilice la interfaz de red que acaba de crear cuando [cree una VM](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
 

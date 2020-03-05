@@ -2,26 +2,26 @@
 title: Protección de una API de Azure API Management mediante Azure Active Directory B2C
 description: Obtenga información sobre el uso de tokens de acceso emitidos por Azure Active Directory B2C para proteger un punto de conexión de API de Azure API Management.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/31/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 942c565c885d59a14d64e7ec06beee0354e7c4ca
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 00938d831e70289b24acb599b81016aa6e564d78
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641618"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186937"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Protección de una API de Azure API Management con Azure AD B2C
 
 Obtenga información sobre cómo restringir el acceso a la API de Azure API Management (APIM) a los clientes que se han autenticado con Azure Active Directory B2C (Azure AD B2C). Siga los pasos de este artículo para crear y probar una directiva de entrada en APIM que restrinja el acceso solo a aquellas solicitudes que incluyan un token de acceso válido emitido por Azure AD B2C.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Necesitará los siguientes recursos antes de continuar con los pasos de este artículo:
 
@@ -37,17 +37,17 @@ Cuando se protege una API en Azure API Management con Azure AD B2C, se necesi
 
 Para obtener el identificador de aplicación, puede usar la experiencia **Aplicaciones** actual o la nueva experiencia **Registros de aplicaciones (versión preliminar)** unificada. [Más información acerca de la nueva experiencia](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
+#### <a name="applications"></a>[Aplicaciones](#tab/applications/)
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
 1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
 1. En **Administrar**, seleccione **Aplicaciones**.
 1. Anote el valor de la columna **Identificador de aplicación** de *webapp1* u otra aplicación que haya creado previamente.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
 1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
 1. Seleccione **Registros de aplicaciones (versión preliminar)** y, a continuación, la pestaña **Aplicaciones propias**.
@@ -160,7 +160,7 @@ Con el token de acceso y la clave de suscripción de APIM anotadas, ya está lis
 
 1. A continuación, agregue los encabezados siguientes:
 
-    | Clave | Valor |
+    | Clave | Value |
     | --- | ----- |
     | `Authorization` | Valor del token codificado que anotó anteriormente, con el prefijo `Bearer ` (incluya el espacio después de "Bearer") |
     | `Ocp-Apim-Subscription-Key` | Clave de suscripción de APIM que anotó anteriormente |

@@ -7,12 +7,12 @@ ms.service: vs-appcenter
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: emalani
-ms.openlocfilehash: bc7d8d4aaec6ebe27a0f8d2ecc11ca408266f7ef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 261c12e63f8f348e1673dbc46c89c614caf3283b
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453237"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296361"
 ---
 # <a name="add-authentication-and-manage-user-identities-in-your-mobile-apps"></a>Incorporación de autenticación y administración de identidades de usuario en las aplicaciones móviles
 
@@ -21,7 +21,7 @@ Tener una vista de los usuarios y su comportamiento en la aplicación permite a 
 Use los servicios siguientes para permitir la autenticación de usuarios en las aplicaciones móviles.
 
 ## <a name="visual-studio-app-center"></a>Visual Studio App Center
-[App Center Auth](/appcenter/auth/) es un servicio de administración de identidades basado en la nube que los desarrolladores pueden usar para autenticar a los usuarios y administrar sus identidades. App Center auth también se integra con otras partes de Visual Studio App Center. Los desarrolladores pueden usar la identidad del usuario para [ver datos del usuario](/appcenter/data/index) en otros servicios e incluso [enviar notificaciones de inserción a los usuarios, en lugar de a dispositivos individuales](/appcenter/push/push-to-user#app-center-auth-set-identity). 
+[App Center Auth](/appcenter/auth/) es un servicio de administración de identidades basado en la nube que los desarrolladores pueden usar para autenticar a los usuarios y administrar sus identidades. App Center auth también se integra con otras partes de Visual Studio App Center. Los desarrolladores pueden usar la identidad del usuario para [ver datos del usuario](/appcenter/data/index) en otros servicios e incluso [enviar notificaciones de inserción a los usuarios, en lugar de a dispositivos individuales](/appcenter/push/push-to-user#setting-user-identity). 
 
 **Características principales**
 - Con tecnología de Azure Active Directory B2C (Azure AD B2C). 

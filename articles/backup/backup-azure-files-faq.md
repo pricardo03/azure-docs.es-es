@@ -3,12 +3,12 @@ title: Preguntas frecuentes sobre la copia de seguridad de archivos de Azure
 description: En este artículo, encontrará respuestas a preguntas habituales sobre cómo proteger los recursos compartidos de archivos de Azure con el servicio Azure Backup.
 ms.date: 07/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 053fe38b07fff5d289c72024ef185fbf5d647f70
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: c69d4642aefbd599d3783dcdfa059a0cd9d129d9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294004"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302549"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Preguntas acerca de la copia de seguridad de archivos de Azure
 
@@ -48,22 +48,22 @@ La copia de seguridad de recursos compartidos de archivos de Azure se encuentra 
 - Centro de Canadá (CNC)
 - Este de Canadá (CE)
 - Centro de EE. UU. (CUS)
-- Asia Oriental (EA)
+- Este de Asia (EA)
 - Este de EE. UU. (EUS)
 - Este de EE. UU. 2 (EUS2)
-- Este de Japón (JPE)
-- Oeste de Japón (JPE)
+- Japón Oriental (JPE)
+- Japón Occidental (JPW)
 - India central (INC)
 - India del Sur (INS)
 - Centro de Corea del Sur (KRC)
 - Sur de Corea del Sur (KRS)
 - Centro-norte de EE. UU. (NCUS)
-- Europa del Norte (NE)
-- Centro-sur de EE. UU. (SCUS)
-- Asia Suroriental (SEA)
+- Norte de Europa (NE)
+- Centro-sur de EE. UU. (SCUS)
+- Sudeste de Asia (SEA)
 - Sur de Reino Unido (UKS)
 - Oeste de Reino Unido (UKW)
-- Europa Occidental (WE)
+- Oeste de Europa (WE)
 - Oeste de EE. UU. (WUS)
 - Centro-oeste de EE. UU. (WCUS)
 - Oeste de EE. UU. 2 (WUS 2)
@@ -83,7 +83,7 @@ La copia de seguridad de recursos compartidos de archivos de Azure se encuentra 
 - NWW (Oeste de Noruega)
 - SZN (Norte de Suiza)
 
-Escriba a [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) si tiene que usarla en una zona geográfica específica que no se haya indicado anteriormente.
+Escriba a [AskAzureBackupTeam@microsoft.com](mailto:askazurebackupteam@microsoft.com) si tiene que usarla en una zona geográfica específica que no se haya indicado anteriormente.
 
 ### <a name="how-many-azure-file-shares-can-i-protect-in-a-vault"></a>¿Cuántos recursos compartidos de archivos de Azure se pueden proteger en un almacén?
 

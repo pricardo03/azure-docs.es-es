@@ -1,18 +1,17 @@
 ---
 title: Solución Monitor de rendimiento de red en Azure Log Analytics | Microsoft Docs
 description: Use la funcionalidad de Supervisión de ExpressRoute en Network Performance Monitor para supervisar la conectividad de un extremo a otro y el rendimiento entre sus sucursales y Azure, a través de Azure ExpressRoute.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
-ms.openlocfilehash: 5383402816eddba4c631c240585723b7c7119cef
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 6ac610d7dcf9849b6b439741957684867b9d01aa
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898898"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660757"
 ---
 # <a name="expressroute-monitor"></a>Supervisión de ExpressRoute
 
@@ -110,7 +109,7 @@ Network Performance Monitor le ayuda a diagnosticar diferentes problemas de cone
 
 Puede ver los códigos de notificación y establecer alertas para ellos a través de **LogAnalytics**. En la página de **diagnósticos de NPM** puede ver las descripciones de cada mensaje de diagnóstico que se desencadena.
 
-| Código de notificación (registros) | DESCRIPCIÓN |
+| Código de notificación (registros) | Descripción |
 | --- | --- |
 | 5501 | No se puede atravesar una conexión secundaria del circuito ExpressRoute. |
 | 5502 | No se puede atravesar una conexión primaria del circuito ExpressRoute. |

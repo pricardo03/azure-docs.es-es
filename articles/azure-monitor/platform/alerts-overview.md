@@ -1,25 +1,19 @@
 ---
 title: Información general de alertas y supervisión de notificaciones en Azure
 description: Información general de las alertas de Azure Alertas, alertas clásicas e interfaz de alertas.
-ms.service: azure-monitor
 ms.subservice: alerts
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: 7f6c7f22cef1cf49a9ff7b2cb87716abd61821c4
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: 7ca77531ed3e1fae8ec297e430597452c7512aea
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830333"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665671"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Información general sobre las alertas en Microsoft Azure 
 
 En este artículo se explica qué son las alertas, sus beneficios y cómo empezar a utilizarlas.  
-
-
-
 
 ## <a name="what-are-alerts-in-microsoft-azure"></a>¿Qué son las alertas en Microsoft Azure?
 Las alertas le informan de forma proactiva cuando se detectan condiciones importantes en los datos que supervisa. Le permiten identificar y solucionar los problemas antes de que los usuarios del sistema puedan verlos. 
@@ -41,26 +35,29 @@ Los atributos clave de las reglas de alertas son:
 **Señal**: la emite el recurso de destino. Las señales pueden ser de los siguientes tipos: métrica, registro de actividad, Application Insights y registro.
 
 **Criterios**: Combinación de señales y lógica aplicadas en un recurso de destino. Ejemplos: 
-   - Porcentaje de la CPU superior al 70 %
-   - Tiempo de respuesta del servidor superior a 4 ms 
-   - Recuento de resultados de una consulta de registro superior a 100
+
+- Porcentaje de la CPU superior al 70 %
+- Tiempo de respuesta del servidor superior a 4 ms 
+- Recuento de resultados de una consulta de registro superior a 100
 
 **Nombre de la alerta**: nombre específico para la regla de alertas que haya configurado el usuario.
 
 **Descripción de la alerta**: descripción de la regla de alertas que haya configurado el usuario.
 
 **Gravedad**: gravedad de la alerta, una vez que se cumplen los criterios especificados en la regla de alertas. La gravedad puede tener un valor entre 0 y 4.
-   - Sev 0 = Crítica
-   - Sev 1 = Error
-   - Sev 2 - Advertencia
-   - Sev 3 = Informativa
-   - Sev 4 = Detallada 
+
+- Sev 0 = Crítica
+- Sev 1 = Error
+- Sev 2 - Advertencia
+- Sev 3 = Informativa
+- Sev 4 = Detallada 
 
 **Acción**: una acción específica llevada a cabo al desencadenarse la alerta. Para más información, vea [Grupos de acciones](../../azure-monitor/platform/action-groups.md).
 
 ## <a name="what-you-can-alert-on"></a>Tipo de alertas que se pueden realizar
 
 Puede enviar alertas sobre métricas y registros tal y como se describe en el artículo sobre los [orígenes de datos de supervisión](../../azure-monitor/platform/data-sources.md). Estas incluyen, pero no se limitan a:
+
 - Valores de métrica
 - Consultas de búsqueda de registros
 - Eventos del registro de actividad
@@ -69,7 +66,7 @@ Puede enviar alertas sobre métricas y registros tal y como se describe en el ar
 
 Anteriormente, las métricas de Azure Monitor, Application Insights, Log Analytics y Service Health tenían funcionalidades independientes de generación de alertas. Con el tiempo, Azure ha mejorado y combinado la interfaz de usuario y los distintos métodos de generación de alertas. Esta consolidación aún está en proceso. Como resultado, algunas funcionalidades de alertas aún no se encuentran en el nuevo sistema de alertas.  
 
-| **Origen de supervisión** | **Tipo de señal**  | **Descripción** | 
+| **Origen de supervisión** | **Tipo de señal**  | **Descripción** |
 |-------------|----------------|-------------|
 | Estado del servicio | Registro de actividades  | No compatible. Consulte [Creación de alertas del registro de actividad en notificaciones del servicio](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
 | Application Insights | Pruebas de disponibilidad web | No compatible. Consulte [Alertas de pruebas web](../../azure-monitor/app/monitor-web-app-availability.md). Disponible para cualquier sitio web instrumentado para enviar datos a Application Insights. Reciba una notificación cuando la disponibilidad o la capacidad de respuesta de un sitio web está por debajo de las expectativas. |

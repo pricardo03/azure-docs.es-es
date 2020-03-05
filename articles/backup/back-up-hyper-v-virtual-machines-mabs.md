@@ -3,12 +3,12 @@ title: Copia de seguridad de máquinas virtuales de Hyper-V con MABS
 description: Este artículo contiene los procedimientos para realizar copias de seguridad y recuperar máquinas virtuales mediante Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: e23a3a5ad57e07f95958d8a21e091d663a5c1185
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 00d1dd04522c51e4d68450a7b8f25d7159d63724
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586519"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255066"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Copia de seguridad de máquinas virtuales de Hyper-V con Azure Backup Server
 
@@ -171,7 +171,7 @@ Después de completar los pasos de las secciones anteriores, y una vez finalizad
 
 1. Abra SQL Server Management Studio y conéctese a la instancia en la que se hospeda la base de datos MABS.
 
-2. Ejecute la consulta siguiente: `select * from tbl_SCH_ScheduleDefinition where JobDefinitionID='9B30D213-B836-4B9E-97C2-DB03C3EB39D7'`. Esta consulta devuelve el valor **ScheduleID**. Anote este identificador ya que lo usará en el paso siguiente.
+2. Ejecute la consulta siguiente: `SELECT SCH.ScheduleId FROM tbl_JM_JobDefinition JD JOIN tbl_SCH_ScheduleDefinition SCH ON JD.JobDefinitionId = SCH.JobDefinitionId WHERE JD.Type = '282faac6-e3cb-4015-8c6d-4276fcca11d4' AND JD.IsDeleted = 0 AND SCH.IsDeleted = 0`. Esta consulta devuelve el valor **ScheduleID**. Anote este identificador ya que lo usará en el paso siguiente.
 
 3. En SQL Server Management Studio, expanda **Agente SQL Server** y después **Trabajos**. Haga clic con el botón derecho en el valor **ScheduleID** que ha anotado y seleccione **Iniciar trabajo en el paso**.
 

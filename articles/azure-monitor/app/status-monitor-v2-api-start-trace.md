@@ -1,24 +1,22 @@
 ---
 title: Referencia de la API de Azure Application Insights Agent
 description: Referencia de la API de Application Insights Agent. Start-Trace. Recopile registros de ETW desde el Monitor de estado y el SDK de Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: c97315b3a215f10e5b8f9533bf09fa5ac30ee16f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: b9680101f1a22dd6d9c1617c8afc13a10ad1c594
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899647"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671229"
 ---
 # <a name="application-insights-agent-api-start-applicationinsightsmonitoringtrace"></a>API de Application Insights Agent: Start-ApplicationInsightsMonitoringTrace
 
 Este artículo describe un cmdlet que forma parte del [módulo Az.ApplicationMonitor de PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
-## <a name="description"></a>DESCRIPCIÓN
+## <a name="description"></a>Descripción
 
 Recopila [eventos de ETW](https://docs.microsoft.com/windows/desktop/etw/event-tracing-portal) desde el runtime para adjuntar sin código. Este cmdlet es una alternativa a la ejecución de [PerfView](https://github.com/microsoft/perfview).
 

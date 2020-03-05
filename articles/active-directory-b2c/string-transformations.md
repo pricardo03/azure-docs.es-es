@@ -3,20 +3,20 @@ title: Ejemplos de transformación de notificaciones de cadena para directivas p
 titleSuffix: Azure AD B2C
 description: Ejemplos de transformación de notificaciones de cadena para el esquema de Identity Experience Framework (IEF) de Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/24/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e220009ec04ce732d99a53432077d681707e28d1
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 678385d9ed16a9821fc61be476e7eb9eaf6fd4f1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585737"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183710"
 ---
 # <a name="string-claims-transformations"></a>Transformaciones de notificaciones de cadena
 
@@ -363,7 +363,7 @@ Use esta transformación de notificaciones para dar formato a cualquier cadena c
 - Notificaciones de salida:
     - **outputClaim**: Joe Fernando
 
-## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation 
+## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation
 
 Copia las cadenas localizadas en las notificaciones.
 
@@ -428,9 +428,9 @@ La transformación de notificaciones establece el valor del tipo de notificació
 
 - Notificaciones de salida:
   - **subject**: Código de verificación del correo electrónico de la cuenta de Contoso
-  - **message**: Gracias por comprobar la cuenta 
-  - **codeIntro**: Su código es 
-  - **signature**: Atentamente  
+  - **message**: Gracias por comprobar la cuenta
+  - **codeIntro**: Su código es
+  - **signature**: Atentamente
 
 
 ## <a name="getmappedvaluefromlocalizedcollection"></a>GetMappedValueFromLocalizedCollection
@@ -618,7 +618,7 @@ Comprueba que una notificación de cadena `claimToMatch` y el parámetro de entr
 | OutputClaim | outputClaim | string | Si la expresión regular coincide, esta notificación de salida contiene el valor del parámetro de entrada `outputClaimIfMatched`. Si no hay coincidencia, el valor es NULL. |
 | OutputClaim | regexCompareResultClaim | boolean | Tipo de la notificación de salida del resultado de la coincidencia de la expresión regular, que debe establecerse en `true` o `false` en función del resultado de la coincidencia. |
 
-Por ejemplo, comprueba si el número de teléfono indicado es válido, en función del patrón de expresión regular de número de teléfono.  
+Por ejemplo, comprueba si el número de teléfono indicado es válido, en función del patrón de expresión regular de número de teléfono.
 
 ```XML
 <ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="setClaimsIfRegexMatch">
@@ -755,7 +755,7 @@ Determina si una subcadena especificada aparece dentro de la notificación de en
 Use esta transformación de notificaciones para comprobar si un tipo de notificación de cadena contiene una subcadena. En el siguiente ejemplo se comprueba si el tipo de notificación de cadena `roles` contiene el valor **admin**.
 
 ```XML
-<ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains"> 
+<ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
   </InputClaims>
@@ -765,7 +765,7 @@ Use esta transformación de notificaciones para comprobar si un tipo de notifica
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="isAdmin" TransformationClaimType="outputClaim"/>
-  </OutputClaims>         
+  </OutputClaims>
 </ClaimsTransformation>
 ```
 
@@ -777,7 +777,7 @@ Use esta transformación de notificaciones para comprobar si un tipo de notifica
     - **contains**: "admin,"
     - **ignoreCase**: true
 - Notificaciones de salida:
-    - **outputClaim**: true 
+    - **outputClaim**: true
 
 ## <a name="stringsubstring"></a>StringSubstring
 
@@ -790,7 +790,7 @@ Extrae partes de un tipo de notificación de cadena, comenzando por el carácter
 | InputParameter | length | int | Número de caracteres de la subcadena. |
 | OutputClaim | outputClaim | boolean | Cadena equivalente a la subcadena de longitud que comienza en el valor de startIndex de esta instancia, o bien, un valor vacío si el valor de startIndex es igual a la longitud de esta instancia y length es cero. |
 
-Por ejemplo, obtiene el prefijo de país del número de teléfono.  
+Por ejemplo, obtiene el prefijo de país del número de teléfono.
 
 
 ```XML
@@ -828,7 +828,7 @@ Busca un valor especificado en una notificación de tipo cadena y devuelve una n
 | InputParameter | newValue | string | Cadena que va a reemplazar todas las apariciones de `oldValue`. |
 | OutputClaim | outputClaim | boolean | Cadena que es equivalente a la cadena actual salvo en que todas las instancias de oldValue se reemplazan por el valor de newValue. Si no se encuentra el valor de oldValue en la instancia actual, el método devuelve la instancia actual sin modificar. |
 
-Por ejemplo, normaliza un número de teléfono quitando los caracteres `-`.  
+Por ejemplo, normaliza un número de teléfono quitando los caracteres `-`.
 
 
 ```XML
@@ -864,7 +864,7 @@ Concatena los elementos de un tipo de notificación de colección de cadenas esp
 | InputClaim | inputClaim | stringCollection | Colección que contiene las cadenas que se van a concatenar. |
 | InputParameter | delimiter | string | Cadena que se va a usar como separador; por ejemplo, coma `,`. |
 | OutputClaim | outputClaim | string | Cadena que consta de los miembros de la colección de cadenas `inputClaim`, delimitadas por el parámetro de entrada `delimiter`. |
-  
+
 En el ejemplo siguiente se toma una colección de cadenas de roles de usuario y se convierte en una cadena con delimitador de comas. Puede usar este método para almacenar una colección de cadenas en la cuenta de usuario de Azure AD. Más adelante, cuando lea la cuenta desde el directorio, podrá usar `StringSplit` para volver a convertir la cadena con delimitador de coma en una colección de cadenas.
 
 ```XML
@@ -900,7 +900,7 @@ Devuelve una matriz de cadenas que contiene las subcadenas de esta instancia que
 | InputClaim | inputClaim | string | Tipo de notificación de cadena que contiene las subcadenas que se van a dividir. |
 | InputParameter | delimiter | string | Cadena que se va a usar como separador; por ejemplo, coma `,`. |
 | OutputClaim | outputClaim | stringCollection | Colección de cadenas cuyos elementos contienen las subcadenas de esta cadena que están delimitadas por el parámetro de entrada `delimiter`. |
-  
+
 En el siguiente ejemplo se toma una cadena con delimitador de coma de roles de usuario y se convierte en una colección de cadenas.
 
 ```XML
@@ -925,7 +925,7 @@ En el siguiente ejemplo se toma una cadena con delimitador de coma de roles de u
   - **delimiter**: ","
 - Notificaciones de salida:
   - **outputClaim**: [ "Admin", "Author", "Reader" ]
-  
+
 ## <a name="string-claim-transformations-expressions"></a>Expresiones de transformaciones de notificaciones de cadena
 Las expresiones de transformaciones de notificaciones de las directivas personalizadas de Azure AD B2C proporcionan información contextual sobre el identificador de inquilino y el identificador de perfil técnico.
 

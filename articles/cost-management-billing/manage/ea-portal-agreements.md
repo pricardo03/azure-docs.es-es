@@ -3,16 +3,16 @@ title: Acuerdos y enmiendas de Contrato Enterprise de Azure
 description: En este artículo se explica cómo los acuerdos y enmiendas del Contrato Enterprise de Azure afectan al uso del portal del Contrato Enterprise de Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 03/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: c38f28120b7c84077d8d5012c4be4698680e5fdb
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 5198bd240f0c4e23910504fd039d64a73ddb41c9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200819"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301427"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Acuerdos y enmiendas de Contrato Enterprise de Azure
 
@@ -25,10 +25,6 @@ Cualquier enmienda de los clientes de Azure debe pasar por su asociado o equipo 
 ## <a name="enrollment-provisioning-status"></a>Estado de aprovisionamiento de inscripciones
 
 La fecha de inicio de un nuevo compromiso monetario se define por la fecha en que el centro de operaciones regional lo ha procesado. Como los pedidos de compromiso monetario a través de Azure EA Portal se procesan en la zona horaria UTC, puede producirse algún retraso si el pedido de compra del compromiso monetario se procesó en otra región. La fecha de inicio de la cobertura en el pedido de compra en https://www.explore.ms muestra el inicio del compromiso monetario. La fecha de inicio de la cobertura es cuando el compromiso monetario aparece en el portal del Contrato Enterprise de Azure.
-
-## <a name="special-pricing-and-azure-commitment-discount-amendments"></a>Precios especiales y modificaciones en el Descuento por compromiso de Azure
-
-Si necesita un precio especial y enmiendas del Descuento por compromiso de Azure (ACD), debe hablar con el equipo de cuentas. El equipo de operaciones de Azure puede aplicar el ACD después de que el departamento de soporte técnico empresarial haya procesado una enmienda y lo haya solicitado al equipo de operaciones de Azure. El descuento de ACD solo se aplica al mes actual. Los meses anteriores se compensan con crédito retroactivo. 
 
 ## <a name="support-offer-not-provisioned"></a>Oferta de soporte técnico no aprovisionada
 

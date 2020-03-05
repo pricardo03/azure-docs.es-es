@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 3807f713065d16d4c6743c65f6a770d158ac7191
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: ee6d437915f6c87ce9ef5f9c711d90793a96048c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058498"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920134"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Pasos detallados de solución de problemas de SSH para los problemas de conexión a una máquina virtual Linux en Azure
 Hay muchas razones posibles por las que el cliente SSH podría no ser capaz de ponerse en contacto con el servicio SSH en la máquina virtual. Si ha seguido los [pasos más generales de solución de problemas de SSH](troubleshoot-ssh-connection.md), debe solucionar además el problema de conexión. Este artículo le guiará por los pasos de solución de problemas detallados para determinar dónde se producen errores en la conexión SSH y cómo resolverlos.
@@ -90,7 +90,10 @@ Si puede crear una conexión SSH con un equipo que esté conectado directamente 
 
 Trabaje con el administrador de red para corregir la configuración de los dispositivos perimetrales de la organización para permitir el tráfico SSH a Internet.
 
-## <a name="source-3-cloud-service-endpoint-and-acl"></a>Causa 3: Punto de conexión de servicio de en la nube y ACL
+## <a name="source-3-cloud-service-endpoint-and-acl"></a>Causa 3: Punto de conexión de servicio en la nube y ACL
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 > [!NOTE]
 > Esta causa se aplica solo a las máquinas virtuales creadas con el modelo de implementación clásica. Si la máquina virtual se creó mediante Resource Manager, vaya a [Causa 4: Grupos de seguridad de red](#nsg)
 
@@ -113,7 +116,7 @@ Para descartar el punto de conexión como causa del problema, quite el actual, c
 Los grupos de seguridad de red permiten un control pormenorizado del tráfico entrante y saliente permitido. Puede crear reglas que abarquen subredes y servicios en la nube en una red virtual de Azure. Compruebe las reglas de los grupos de seguridad de red para asegurarse de que se permite el tráfico de SSH tanto a Internet como desde Internet.
 Para obtener más información, consulte [Acerca de los grupos de seguridad de red](../../virtual-network/security-overview.md).
 
-También puede usar la comprobación de IP para validar la configuración de NSG. Para más información, consulte [Información general sobre la supervisión de red de Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
+También puede usar la comprobación de IP para validar la configuración del grupo de seguridad de red. Para más información, consulte [Información general sobre la supervisión de red de Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="source-5-linux-based-azure-virtual-machine"></a>Causa 5: Máquina virtual de Azure basada en Linux
 La última causa de los posibles problemas puede residir en la propia máquina virtual de Azure.

@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 26a427baddc99fa702b638c36b5378750364c849
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 988bd6dbb157276a9ee37c8ca3051a808f8b6499
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587029"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661080"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>Tutorial: Creación de una puerta de enlace de NAT mediante la CLI de Azure y prueba del servicio NAT
 
@@ -62,7 +62,7 @@ Para acceder a la red pública de Internet, necesita una o varias direcciones IP
 
 ### <a name="create-a-public-ip-prefix"></a>Creación de un prefijo de dirección IP pública
 
-Puede usar uno o varios recursos de dirección IP pública, prefijos de dirección IP pública, o ambos, con la puerta de enlace de NAT. Para demostrarlo, vamos a agregar un recurso de prefijo de dirección IP pública a este escenario.   Use [az network public-ip prefix create](https://docs.microsoft.com/cli/azure/network/public-ip-prefix) para crear un recurso de prefijo de dirección IP pública llamado **myPublicIPprefixsource** en **myResourceGroupNAT**.
+Puede usar uno o varios recursos de dirección IP pública, prefijos de dirección IP pública, o ambos, con la puerta de enlace de NAT. Para demostrarlo, vamos a agregar un recurso de prefijo de dirección IP pública a este escenario.   Use [az network public-ip prefix create](/cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-create) para crear un recurso de prefijo de dirección IP pública llamado **myPublicIPprefixsource** en **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network public-ip prefix create \

@@ -12,19 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
-ms.openlocfilehash: 636973110e11770e33c635e312c86b25110705da
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c22a401a6b25f7bb2c27a10e52214fa42ac6089b
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981347"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918230"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Escritorio remoto se desconecta con frecuencia en la máquina virtual de Azure
 
 En este artículo se explica cómo solucionar problemas de desconexiones frecuentes en una máquina virtual de Azure mediante el protocolo de Escritorio remoto (RDP).
 
-> [!NOTE] 
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../azure-resource-manager/management/deployment-models.md). Este artículo trata sobre el uso del modelo de implementación del Administrador de recursos. Se recomienda usar este modelo para las nuevas implementaciones, en lugar de usar el modelo de implementación clásica.
 
 ## <a name="symptom"></a>Síntoma
 

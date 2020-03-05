@@ -2,19 +2,19 @@
 title: 'Azure Compute: extensión de Diagnostic de Linux'
 description: Instrucciones de configuración de la extensión Diagnostics de Linux (LAD) de Azure para recopilar métricas y registrar eventos de máquinas virtuales Linux que se ejecuten en Azure.
 services: virtual-machines-linux
-author: MicahMcKittrick-MSFT
+author: axayjo
 manager: gwallace
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
-ms.author: mimckitt
-ms.openlocfilehash: 5b4ddc177359a08aad404c78b5cc0793f8d80e93
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.author: akjosh
+ms.openlocfilehash: d9375d09219d2655bd9947c0953557f4a1bf8f3c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156529"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199621"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Uso de la extensión Diagnostics de Linux para supervisar métricas y registros
 
@@ -49,7 +49,7 @@ Mediante estas instrucciones de instalación y una [configuración de ejemplo de
 
 La configuración que se puede descargar es solo un ejemplo; modifíquela como corresponda para adaptarla a sus necesidades.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 
 * **Versión 2.2.0 o posterior del agente Linux de Azure**. La mayoría de las imágenes de la galería de máquina virtual Linux de Azure incluyen la versión 2.2.7 o posterior. Ejecute `/usr/sbin/waagent -version` para confirmar la versión instalada en la máquina virtual. Si la máquina virtual está ejecutando una versión anterior del agente invitado, siga [estas instrucciones](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para actualizarla.
 * **Azure CLI**. [Instale el entorno de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) en la máquina.
@@ -94,80 +94,29 @@ La URL de la configuración de muestreo y su contenido están sujetos a cambios.
 #### <a name="powershell-sample"></a>Ejemplo de PowerShell
 
 ```Powershell
-// Set your Azure VM diagnostics variables correctly below - don't forget to replace the VMResourceID
+$storageAccountName = "yourStorageAccountName"
+$storageAccountResourceGroup = "yourStorageAccountResourceGroupName"
+$vmName = "yourVMName"
+$VMresourceGroup = "yourVMResourceGroupName"
 
-$SASKey = '<SASKeyForDiagStorageAccount>'
+# Get the VM object
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $VMresourceGroup
 
-$ladCfg = "{
-'diagnosticMonitorConfiguration': {
-'performanceCounters': {
-'sinks': 'WADMetricEventHub,WADMetricJsonBlob',
-'performanceCounterConfiguration': [
-{
-'unit': 'Percent',
-'type': 'builtin',
-'counter': 'PercentProcessorTime',
-'counterSpecifier': '/builtin/Processor/PercentProcessorTime',
-'annotation': [
-{
-'locale': 'en-us',
-'displayName': 'Aggregate CPU %utilization'
-}
-],
-'condition': 'IsAggregate=TRUE',
-'class': 'Processor'
-},
-{
-'unit': 'Bytes',
-'type': 'builtin',
-'counter': 'UsedSpace',
-'counterSpecifier': '/builtin/FileSystem/UsedSpace',
-'annotation': [
-{
-'locale': 'en-us',
-'displayName': 'Used disk space on /'
-}
-],
-'condition': 'Name='/'',
-'class': 'Filesystem'
-}
-]
-},
-'metrics': {
-'metricAggregation': [
-{
-'scheduledTransferPeriod': 'PT1H'
-},
-{
-'scheduledTransferPeriod': 'PT1M'
-}
-],
-'resourceId': '<VMResourceID>'
-},
-'eventVolume': 'Large',
-'syslogEvents': {
-'sinks': 'SyslogJsonBlob,LoggingEventHub',
-'syslogEventConfiguration': {
-'LOG_USER': 'LOG_INFO'
-}
-}
-}
-}"
-$ladCfg = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($ladCfg))
-$perfCfg = "[
-{
-'query': 'SELECT PercentProcessorTime, PercentIdleTime FROM SCX_ProcessorStatisticalInformation WHERE Name='_TOTAL'',
-'table': 'LinuxCpu',
-'frequency': 60,
-'sinks': 'LinuxCpuJsonBlob'
-}
-]"
+# Get the public settings template from GitHub and update the templated values for storage account and resource ID
+$publicSettings = (Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json).Content
+$publicSettings = $publicSettings.Replace('__DIAGNOSTIC_STORAGE_ACCOUNT__', $storageAccountName)
+$publicSettings = $publicSettings.Replace('__VM_RESOURCE_ID__', $vm.Id)
 
-// Get the VM Resource
-Get-AzureRmVM -ResourceGroupName <RGName> -VMName <VMName>
+# If you have your own customized public settings, you can inline those rather than using the template above: $publicSettings = '{"ladCfg":  { ... },}'
 
-// Finally tell Azure to install and enable the extension
-Set-AzureRmVMExtension -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -ResourceGroupName <RGName> -VMName <VMName> -Location <Location> -Name LinuxDiagnostic -Settings @{'StorageAccount'='<DiagStorageAccount>'; 'sampleRateInSeconds' = '15' ; 'ladCfg'=$ladCfg; 'perfCfg' = $perfCfg} -ProtectedSettings @{'storageAccountName' = '<DiagStorageAccount>'; 'storageAccountSasToken' = $SASKey } -TypeHandlerVersion 3.0
+# Generate a SAS token for the agent to use to authenticate with the storage account
+$sasToken = New-AzStorageAccountSASToken -Service Blob,Table -ResourceType Service,Container,Object -Permission "racwdlup" -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup -AccountName $storageAccountName).Context
+
+# Build the protected settings (storage account SAS token)
+$protectedSettings="{'storageAccountName': '$storageAccountName', 'storageAccountSasToken': '$sasToken'}"
+
+# Finally install the extension with the settings built above
+Set-AzVMExtension -ResourceGroupName $VMresourceGroup -VMName $vmName -Location $vm.Location -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 3.0 
 ```
 
 ### <a name="updating-the-extension-settings"></a>Actualización de la configuración de la extensión

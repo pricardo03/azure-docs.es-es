@@ -3,17 +3,16 @@ title: Envío de métricas de máquina virtual de Windows clásica a la base de 
 description: Envío de métricas de SO invitado al almacén de datos de Azure Monitor para una máquina virtual Windows (clásica)
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: d911a6b65ba0d63bca09437f6451019addcbc0b3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 65bb1a3915ece384974da12b4e7a1ad0c1e08133
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977615"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655825"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Envío de métricas de SO invitado a la base de datos de métricas de Azure Monitor para una máquina virtual Windows (clásica)
 
@@ -27,7 +26,7 @@ Almacenarlas en esta ubicación permite acceder a las mismas acciones disponible
 
 El proceso descrito en este artículo solo funciona para máquinas virtuales clásicas que ejecutan el sistema operativo Windows.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Debe ser [administrador de servicios o administrador](../../cost-management-billing/manage/add-change-subscription-administrator.md) en su suscripción de Azure. 
 

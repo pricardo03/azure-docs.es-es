@@ -3,20 +3,20 @@ title: Personalización de la interfaz de usuario de la aplicación con una dire
 titleSuffix: Azure AD B2C
 description: Obtenga información acerca de cómo personalizar una interfaz de usuario mediante una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8bb65e07a8360c434f73ff826ed21f380b036604
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: 8e07d3e1815c1b47b9d37c08e8fac5359b71fe7c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77373078"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189041"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario de la aplicación mediante una directiva personalizada en Azure Active Directory B2C
 

@@ -4,18 +4,17 @@ description: Simplifique los informes complejos con libros de Azure Monitor para
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: e3d29beab7b1d82f73c706897af9650b68be11f5
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 2c2d70d1c945e700a3fa42609f8aa0e1607ba77c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872917"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658411"
 ---
 # <a name="programmatically-manage-workbooks"></a>Administración de libros mediante programación
 
@@ -29,7 +28,7 @@ El libro se creará en el grupo o subgrupo de recursos deseado y con el contenid
 
 ## <a name="azure-resource-manager-template-for-deploying-workbooks"></a>Plantilla de Azure Resource Manager para implementar libros
 1. Abra un libro que desee implementar mediante programación.
-2. Para cambiar el libro al modo de edición, haga clic en _Editar_ en la barra de herramientas.
+2. Para cambiar el libro al modo de edición, haga clic en el elemento de la barra de herramientas _Editar_.
 3. Abra el _Editor avanzado_ con el botón _</>_ de la barra de herramientas.
 4. En el editor, cambie _Tipo de plantilla_ a _Plantilla de Resource Manager_.
 5. La plantilla de Resource Manager para la creación se muestra en el editor. Copie el contenido y úselo tal cual o mézclelo con una plantilla más grande que también implemente el recurso de destino.

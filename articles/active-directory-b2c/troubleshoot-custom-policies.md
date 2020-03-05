@@ -2,20 +2,20 @@
 title: Solución de problemas de directivas personalizadas en Azure Active Directory B2C
 description: Información sobre los métodos para resolver errores al trabajar con directivas personalizadas en Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/13/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b9a0e370643d7f2a19e6ca1629b6b522bfa396b9
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2f65e98cec04991fe9edef1b81bcb3ecc3d93d76
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850831"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186374"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Solución de problemas de directivas personalizadas de Azure AD B2C y el marco de experiencia de identidad
 

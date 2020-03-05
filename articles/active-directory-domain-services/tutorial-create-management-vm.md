@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 0c997fffc1adc60f774e651ed458d253b35a3bdd
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: f422d1dd6c76d78448ae4fb1012a5dae8d6108b3
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612213"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299081"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Creación de una máquina virtual de administración para configurar y administrar un dominio administrado de Azure Active Directory Domain Services
 
@@ -59,7 +59,6 @@ Azure AD DS proporciona un dominio administrado para que lo consuman los usuar
 
 A los miembros del grupo *Administradores del controlador de dominio de AAD* se les conceden privilegios en el dominio administrado de Azure AD DS que les permiten realizar tareas como:
 
-* Unir máquinas al dominio administrado.
 * Configurar el objeto de directiva de grupo (GPO) integrado para los contenedores *Equipos de AADDC* y *Usuarios de AADDC* en el dominio administrado.
 * Administrar DNS en el dominio administrado.
 * Crear y administrar unidades organizativas (OU) personalizadas en el dominio administrado.

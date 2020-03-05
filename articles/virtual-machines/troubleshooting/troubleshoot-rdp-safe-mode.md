@@ -12,19 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 14cd43f7bd7965b755eca14e5914c64e2ec8e044
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7bc2c0f472a03c3f069a889c360bea9017a780f2
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981290"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918213"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>No se puede usar RDP en una máquina virtual porque esta se inicia en modo seguro
 
 En este artículo se muestra cómo resolver un problema en el que no se puede conectar a Azure Windows Virtual Machines (máquinas virtuales) porque la máquina virtual está configurada para iniciarse en modo seguro.
 
-> [!NOTE]
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../azure-resource-manager/management/deployment-models.md). En este artículo se explica el uso del modelo de implementación de Resource Manager, que es el que se recomienda usar para las nuevas implementaciones, en lugar del modelo de implementación clásica.
 
 ## <a name="symptoms"></a>Síntomas
 

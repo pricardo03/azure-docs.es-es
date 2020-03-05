@@ -1,19 +1,18 @@
 ---
 title: Creación de un archivo de solución de administración en Azure | Microsoft Docs
 description: Las soluciones de administración ofrecen escenarios de administración empaquetados que los clientes pueden agregar a su entorno de Azure.  En este artículo se proporciona información sobre cómo crear soluciones de administración que se pueden usar en su propio entorno o ponerse a disposición de sus clientes.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d583f47a9c83abb1119262a2a6b70292cfa4ab69
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 999177f821b98adfa015520252bd3323d0892533
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977693"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662544"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Creación de un archivo de solución de administración en Azure (versión preliminar)
 > [!NOTE]

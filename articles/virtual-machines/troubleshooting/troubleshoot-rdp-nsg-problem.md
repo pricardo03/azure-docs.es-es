@@ -12,20 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: aedb9c8d178cb210efedf8ff4bcbbeca39f89e60
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 6c877690cf27edd73f1d828b8a1dda6f4f34e780
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981801"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918179"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>No puede conectarse de forma remota a una VM porque el puerto RDP no está habilitado en NSG
 
 En este artículo se explica cómo resolver un problema por el que no puede conectarse a una máquina virtual (VM) Windows de Azure porque el puerto del protocolo de escritorio remoto (RDP) no está habilitado en el grupo de seguridad de red (NSG).
 
-
-> [!NOTE] 
-> Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../azure-resource-manager/management/deployment-models.md). Se recomienda usar el modelo de implementación de Resource Manager, en lugar del modelo de implementación clásica para las nuevas implementaciones. 
 
 ## <a name="symptom"></a>Síntoma
 

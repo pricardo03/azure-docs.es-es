@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 35e7b85d31e9696f04dce610b6f2cf942543dc68
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 1a96b5e4d03ce72bac29126028ca61e11e8c7324
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383473"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78262198"
 ---
 ### <a name="deploy-the-key-phrase-extraction-container-to-an-aks-cluster"></a>Implementación del contenedor de extracción de frases clave en un clúster de AKS
 
@@ -32,7 +32,7 @@ ms.locfileid: "74383473"
 
     Después de la ejecución de este comando, se muestra un mensaje similar al siguiente:
 
-    ```console
+    ```output
     Merged "your-cluster-name" as current context in /home/username/.kube/config
     ```
 
@@ -44,7 +44,7 @@ ms.locfileid: "74383473"
 
 1. Abra el editor de texto que prefiera. En este ejemplo se utiliza Visual Studio Code.
 
-    ```azurecli
+    ```console
     code .
     ```
 
@@ -103,7 +103,7 @@ ms.locfileid: "74383473"
 
     Una vez que el comando ha aplicado correctamente la configuración de implementación, se muestra un mensaje similar al siguiente:
 
-    ```console
+    ```output
     deployment.apps "keyphrase" created
     service "keyphrase" created
     ```
@@ -115,7 +115,7 @@ ms.locfileid: "74383473"
 
     La salida del estado de ejecución del pod:
 
-    ```console
+    ```output
     NAME                         READY     STATUS    RESTARTS   AGE
     keyphrase-5c9ccdf575-mf6k5   1/1       Running   0          1m
     ```
@@ -128,7 +128,7 @@ ms.locfileid: "74383473"
 
     La salida del estado de ejecución del servicio *keyphrase* en el pod:
 
-    ```console
+    ```output
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE
     kubernetes   ClusterIP      10.0.0.1      <none>           443/TCP          2m
     keyphrase    LoadBalancer   10.0.100.64   168.61.156.180   5000:31234/TCP   2m

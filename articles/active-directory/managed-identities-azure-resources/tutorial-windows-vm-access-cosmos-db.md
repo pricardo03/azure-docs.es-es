@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f99859fb695281324148683fac24c9e7b8463ef5
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9648c714ddbac93bcc76d84e7f6d8f2fcfaed992
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977897"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248234"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutorial: Uso de las identidades administradas asignadas por el sistema de una máquina virtual Windows para acceder a Azure Cosmos DB
 
@@ -34,7 +34,7 @@ En este tutorial se muestra cómo usar una identidad administrada asignada por e
 > * Obtener un token de acceso mediante una identidad administrada asignada por el sistema de la máquina virtual Windows para llamar a Azure Resource Manager
 > * Obtención de las claves de acceso desde Azure Resource Manager para realizar llamadas a Cosmos DB
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -128,13 +128,13 @@ La respuesta proporciona la lista de claves.  Por ejemplo, si obtiene las claves
 ```
 Ahora que tiene la clave de acceso de la cuenta de Cosmos DB, puede pasársela al SDK de Cosmos DB y realizar llamadas para acceder a la cuenta.  Como ejemplo rápido, puede pasar la clave de acceso a la CLI de Azure.  Puede obtener el valor de `<COSMOS DB CONNECTION URL>` en la pestaña **Información general** de la hoja de la cuenta de Cosmos DB en Azure Portal.  Reemplace `<ACCESS KEY>` por el valor obtenido anteriormente:
 
-```bash
+```azurecli
 az cosmosdb collection show -c <COLLECTION ID> -d <DATABASE ID> --url-connection "<COSMOS DB CONNECTION URL>" --key <ACCESS KEY>
 ```
 
 Este comando de la CLI devuelve detalles acerca de la colección:
 
-```bash
+```output
 {
   "collection": {
     "_conflicts": "conflicts/",

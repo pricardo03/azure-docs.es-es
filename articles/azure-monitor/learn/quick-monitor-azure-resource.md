@@ -1,18 +1,17 @@
 ---
 title: Supervisión de recursos de Azure con Azure Monitor
 description: Aprenda a recopilar y analizar los datos de un recurso de Azure en Azure Monitor.
-ms.service: azure-monitor
 ms. subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 3081c0f8fa8450643a992c8e82840a44db263f76
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: c4b80e62d3800392b847a411dfc66c3278e72bba
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863985"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661871"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>Inicio rápido: Supervisión de recursos de Azure con Azure Monitor
 [Azure Monitor](../overview.md) comienza a recopilar datos de los recursos de Azure en el momento en que se crean. Este inicio rápido proporciona un breve tutorial de los datos que se recopilan automáticamente para un recurso y de cómo verlos en la instancia de Azure Portal de un recurso determinado. Posteriormente puede agregar la configuración necesaria para recopilar datos adicionales y puede ir al menú de Azure Monitor para usar las mismas herramientas para acceder a los datos recopilados de todos los recursos de la suscripción.

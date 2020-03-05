@@ -1,15 +1,14 @@
 ---
 title: Obtención de eventos de estado de recursos con la API de REST | Microsoft Docs
 description: Use las API de REST de Azure para obtener los eventos de estado de los recursos de Azure.
-ms.custom: REST
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/06/2017
-ms.openlocfilehash: 353bd65b0466902e450e38677a350a177a1d602c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6964a6c4e85c38d532b12e730a02c4df73be76e5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451392"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654008"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>Obtención de eventos de estado de recursos con la API de REST 
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9f6286f0a9c15b8089ff5ce9d6f3879b40aceaef
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 631266f983886e3ca34d609b425f8a71b808b39f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033161"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919403"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Instalación de controladores de GPU de NVIDIA en VM de la serie N con Windows 
 
@@ -63,7 +63,7 @@ Para instalar la versión más reciente de la extensión HpcVMDrivers 1.1 en una
   ```powershell
   Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
-  Para obtener más información, consulte [Características y extensiones de las máquinas virtuales para Windows](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+  Para obtener más información, consulte [Características y extensiones de las máquinas virtuales para Windows](extensions-features.md).
 
 Ahora, la red RDMA admite el tráfico de interfaz de paso de mensajes (MPI) para aplicaciones que se ejecutan con [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) o Intel MPI 5.x. 
 

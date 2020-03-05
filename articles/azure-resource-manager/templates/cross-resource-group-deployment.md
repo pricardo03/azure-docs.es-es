@@ -3,12 +3,12 @@ title: Implementación de recursos entre suscripciones y grupo de recursos
 description: Muestra cómo tener como destino más de un grupo de recursos y una suscripción de Azure durante la implementación.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 8f5fbd51456003059f6a32fc32b32194a936434a
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 47573fedd7915d95d6ed98e3fd0aaf840331552b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154217"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250604"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Implementación de recursos de Azure en más de un grupo de recursos o una suscripción
 
@@ -119,7 +119,7 @@ Si establece `resourceGroup` en el nombre de un grupo de recursos que no existe,
 
 Para probar la plantilla anterior y ver los resultados, use PowerShell o la CLI de Azure.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para implementar dos cuentas de almacenamiento en dos grupos de recursos de la **misma suscripción**, use:
 
@@ -162,7 +162,7 @@ New-AzResourceGroupDeployment `
   -secondSubscriptionID $secondSub
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Para implementar dos cuentas de almacenamiento en dos grupos de recursos de la **misma suscripción**, use:
 
@@ -317,7 +317,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 Para probar la plantilla anterior y ver los resultados, use PowerShell o la CLI de Azure.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name parentGroup -Location southcentralus
@@ -340,7 +340,7 @@ El resultado del ejemplo anterior es:
  linkedRG         String                     Linked resource group is linkedgroup
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 az group create --name parentGroup --location southcentralus
@@ -355,7 +355,7 @@ az group deployment create \
 
 El resultado del ejemplo anterior es:
 
-```azurecli
+```output
 "outputs": {
   "defaultScopeRG": {
     "type": "String",

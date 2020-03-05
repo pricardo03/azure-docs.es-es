@@ -3,17 +3,16 @@ title: Exportación del registro de actividad de Azure
 description: Exporte el registro de actividad de Azure al almacenamiento para archivar o a Azure Event Hubs para la exportación fuera de Azure.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 1c2047fc4b92ecd5776cb835a2f2138c25f5cb65
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: edaa585ffb3448a80b021aa924a9d654ac829931
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845467"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668968"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportación del registro de actividad de Azure al almacenamiento o a Azure Event Hubs
 
@@ -31,7 +30,7 @@ El archivo del registro de actividad en una cuenta de almacenamiento es útil si
 * **Transmisión a sistemas de registro y telemetría de terceros**: con el tiempo, el streaming de Azure Event Hubs se convertirá en el mecanismo para canalizar el registro de actividad a sistemas de información de seguridad y administración de eventos (SIEM) y soluciones de análisis de registros de terceros.
 * **Creación de una plataforma personalizada de registro y telemetría**: si ya tiene una plataforma de telemetría integrada personalizada o está pensando en crear una, la gran escalabilidad en cuanto a suscripción y publicación de Event Hubs permite ingerir el registro de actividad de manera flexible.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="storage-account"></a>Cuenta de almacenamiento
 Si va a archivar el registro de actividad, deberá [crear una cuenta de almacenamiento](../../storage/common/storage-account-create.md) si aún no tiene una. No debe utilizar una cuenta de almacenamiento existente que tenga otros datos sin supervisión almacenados en ella, para que pueda controlar mejor el acceso a los datos de supervisión. Sin embargo, si también va a archivar las métricas y los registros en una cuenta de almacenamiento, puede que tenga sentido utilizar esa misma cuenta de almacenamiento para mantener todos los datos de supervisión en una ubicación central.
@@ -121,11 +120,11 @@ Si ya existe un perfil de registro, primero debe quitarlo y luego crear uno nuev
     | Propiedad | Obligatorio | Descripción |
     | --- | --- | --- |
     | Nombre |Sí |Nombre de su perfil de registro. |
-    | StorageAccountId |No |Identificador de recurso de la cuenta de almacenamiento donde se debe guardar el registro de actividad. |
-    | serviceBusRuleId |No |Identificador de regla de Service Bus para el espacio de nombres de Service Bus donde desea que se creen centros de eventos. Se trata de una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
+    | StorageAccountId |Sin |Identificador de recurso de la cuenta de almacenamiento donde se debe guardar el registro de actividad. |
+    | serviceBusRuleId |Sin |Identificador de regla de Service Bus para el espacio de nombres de Service Bus donde desea que se creen centros de eventos. Se trata de una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
     | Location |Sí |Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. |
     | RetentionInDays |Sí |Número de días que deben retenerse los eventos en la cuenta de almacenamiento, entre 1 y 365. Con el valor cero, se almacenan los registros indefinidamente. |
-    | Category |No |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son _Write_, _Delete_ y _Action_. |
+    | Category |Sin |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son _Write_, _Delete_ y _Action_. |
 
 ### <a name="example-script"></a>Script de ejemplo
 A continuación se muestra un script de ejemplo de PowerShell para crear un perfil de registro que escribe el registro de actividad en una cuenta de almacenamiento y en un centro de eventos.

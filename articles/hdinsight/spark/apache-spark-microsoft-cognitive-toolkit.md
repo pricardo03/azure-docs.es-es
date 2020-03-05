@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/14/2020
-ms.openlocfilehash: 587de168a17c407abf3c2a7797969df013760a9f
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 1933db624dfef2ffa747ecb043be6730b6b884b5
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156648"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206561"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Uso del modelo de aprendizaje profundo de Microsoft Cognitive Toolkit con un clúster de Azure HDInsight Spark
 
@@ -23,7 +23,7 @@ En este artículo, realice los pasos siguientes.
 
 2. Cargue un cuaderno de [Jupyter Notebook](https://jupyter.org/) en el clúster de [Apache Spark](https://spark.apache.org/) para ver cómo aplicar un modelo de aprendizaje profundo de Microsoft Cognitive Toolkit formado a los archivos de una cuenta de Azure Blob Storage mediante la [API de Spark Python (PySpark)](https://spark.apache.org/docs/latest/api/python/index.html).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un clúster de Apache Spark en HDInsight. Vea [Creación de un clúster de Apache Spark](./apache-spark-jupyter-spark-sql-use-portal.md).
 
@@ -56,7 +56,7 @@ En este artículo se utiliza el portal para instalar el kit de herramientas una 
 
 ### <a name="using-the-azure-portal"></a>Uso de Azure Portal
 
-Para obtener instrucciones sobre cómo usar Azure Portal con el fin de ejecutar acciones de scripts, consulte [Personalizar los clústeres de HDInsight mediante la acción de script](../hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation). Asegúrese de que proporciona las siguientes entradas para instalar Microsoft Cognitive Toolkit. Use los siguientes valores para la acción de script:
+Para obtener instrucciones sobre cómo usar Azure Portal con el fin de ejecutar acciones de scripts, consulte [Personalizar los clústeres de HDInsight mediante la acción de script](../hdinsight-hadoop-customize-cluster-linux.md#script-action-during-cluster-creation). Asegúrese de que proporciona las siguientes entradas para instalar Microsoft Cognitive Toolkit. Use los siguientes valores para la acción de script:
 
 |Propiedad |Value |
 |---|---|

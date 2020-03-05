@@ -12,19 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 92c4a40de7e35d0580fe407e36305a50ad68094c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 4b314fbdb9cbc0c0b797cbee8e92ee4702bbea81
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981788"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919471"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Los Servicios de Escritorio remoto no se inician en la máquina virtual de Azure
 
 En este artículo se describe cómo solucionar problemas de conexión a una máquina virtual (VM) de Azure cuando los Servicios de escritorio remoto (TermService) no se inician o devuelven un error.
 
-> [!NOTE]  
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Azure Resource Manager y clásico](../../azure-resource-manager/management/deployment-models.md). En este artículo se describe el uso del modelo de implementación del Administrador de recursos. Se recomienda usar este modelo para las nuevas implementaciones, en lugar de usar el modelo de implementación clásica.
 
 ## <a name="symptoms"></a>Síntomas
 

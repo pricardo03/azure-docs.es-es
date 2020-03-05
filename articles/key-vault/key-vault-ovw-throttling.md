@@ -5,15 +5,16 @@ services: key-vault
 author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 28e79dffb206e8a62410bf3b4e0e239879b51224
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 6c4923e86f8678458d6301503043413fb8a5629b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806684"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197375"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Guía de las limitaciones de Azure Key Vault
 
@@ -95,7 +96,7 @@ En el código de error HTTP 429, comience la limitación del cliente mediante un
 
 En este momento, se deben no está recibiendo los códigos de respuesta HTTP 429.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 Para obtener una orientación más profunda de la limitación en Microsoft Cloud, consulte [Patrón de limitación](https://docs.microsoft.com/azure/architecture/patterns/throttling).
 

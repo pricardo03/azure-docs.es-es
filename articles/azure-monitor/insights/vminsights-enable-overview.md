@@ -1,18 +1,17 @@
 ---
 title: Introducción a la habilitación de Azure Monitor para VM (versión preliminar) | Microsoft Docs
 description: Aprenda a implementar y configurar Azure Monitor para VM. Más información sobre los requisitos del sistema.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/14/2019
-ms.openlocfilehash: ce95223e9501ad7bec2bd260a8fe6f1537db5593
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 44422f66f6fc995dcaf96947ea05b183c7131ea3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75400618"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669580"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Habilitación de Azure Monitor para VM (versión preliminar)
 
@@ -25,7 +24,7 @@ Para configurar Azure Monitor para VM:
 * Use PowerShell para habilitar dos o más máquinas virtuales o conjuntos de escalado de máquinas virtuales de Azure en una suscripción o grupo de recursos concreto.
 * Habilite Azure Monitor para VM para supervisar las máquinas virtuales o equipos físicos hospedados en la red corporativa o en otro entorno de nube.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de empezar, asegúrese de conocer la información de los apartados siguientes. 
 
@@ -36,22 +35,22 @@ Antes de empezar, asegúrese de conocer la información de los apartados siguien
 
 Azure Monitor para VM admite un área de trabajo de Log Analytics en las siguientes regiones:
 
-- Centro occidental de EE.UU.
+- Centro-Oeste de EE. UU.
 - Oeste de EE. UU.
 - Oeste de EE. UU. 2
-- Centro-Sur de EE. UU
-- East US
+- Centro-sur de EE. UU.
+- Este de EE. UU.
 - Este de EE. UU. 2
 - Centro de EE. UU.
 - Centro-Norte de EE. UU
 - Centro de Canadá
 - Sur de Reino Unido 2
-- Europa del Norte
-- Europa occidental
-- Asia oriental
-- Sudeste asiático
-- India Central
-- Este de Japón
+- Norte de Europa
+- Oeste de Europa
+- Este de Asia
+- Sudeste de Asia
+- Centro de la India
+- Japón Oriental
 - Este de Australia
 - Sudeste de Australia
 
@@ -170,7 +169,7 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 |:--|:--|:--|
 | Agentes de Windows | Sí | Junto con el [agente de Log Analytics para Windows](../../azure-monitor/platform/log-analytics-agent.md), los agentes de Windows requieren Dependency Agent. Para más información, consulte el artículo sobre los [sistemas operativos compatibles](#supported-operating-systems). |
 | Agentes de Linux | Sí | Junto con el [agente de Log Analytics para Linux](../../azure-monitor/platform/log-analytics-agent.md), los agentes de Linux requieren Dependency Agent. Para más información, consulte el artículo sobre los [sistemas operativos compatibles](#supported-operating-systems). |
-| Grupo de administración de System Center Operations Manager | No | |
+| Grupo de administración de System Center Operations Manager | Sin | |
 
 Puede descargar Dependency Agent desde estas ubicaciones:
 

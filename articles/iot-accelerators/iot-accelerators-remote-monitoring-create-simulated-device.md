@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5044f8b85e59911633a4ffab509efc000948144a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb8b23513738a6696d65bf7f06a741be2ada7a93
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65832578"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250254"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Crear y probar un nuevo dispositivo simulado
 
@@ -76,7 +76,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar esta guía paso a paso, necesita:
 
@@ -123,7 +123,7 @@ En esta sección, agregará un nuevo tipo de telemetría de **temperatura intern
 
 1. Copie los siguientes archivos en su nueva carpeta desde la copia descargada del microservicio de simulación de dispositivo:
 
-    | Origen | Destino |
+    | Source | Destination |
     | ------ | ----------- |
     | Services\data\devicemodels\chiller-01.json | C:\temp\devicemodels\chiller-01.json |
     | Services\data\devicemodels\scripts\chiller-01-state.js | C:\temp\devicemodels\scripts\chiller-01-state.js |
@@ -446,7 +446,7 @@ En el siguiente script se da por supuesto que el nombre de su IoT Hub es**device
 
 ```azurecli-interactive
 # Install the IoT extension if it's not already installed
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Monitor telemetry sent to your hub
 az iot hub monitor-events --hub-name device-simulation-test

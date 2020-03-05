@@ -1,24 +1,21 @@
 ---
 title: Administración de alertas de System Center Operations Manager, Zabbix y Nagios en Azure Monitor
 description: Administración de alertas de System Center Operations Manager, Zabbix y Nagios en Azure Monitor
-ms.service: azure-monitor
-ms.subservice: alerts
 ms.topic: conceptual
-author: anantr
-ms.author: robb
 ms.date: 09/24/2018
-ms.openlocfilehash: 0e774633542f9b7f8b7de9f8f187821bfbe6b9cf
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.subservice: alerts
+ms.openlocfilehash: 5ef03f522fb91302bfdec985f1e3c5cf8138ae97
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555618"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667455"
 ---
 # <a name="manage-alerts-from-system-center-operations-manager-zabbix-and-nagios-in-azure-monitor"></a>Administración de alertas de System Center Operations Manager, Zabbix y Nagios en Azure Monitor
 
 Ahora puede ver las alertas de Nagios, Zabbix y System Center Operations Manager en [Azure Monitor](https://aka.ms/azure-alerts-overview). Estas alertas proceden de integraciones con servidores Nagios o Zabbix o con System Center Operations Manager en Log Analytics. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Los registros del repositorio de Log Analytics con un tipo de alerta se importarán a Azure Monitor, por lo que debe realizar las configuraciones que sean necesarias para recopilar estos registros.
 1. Para las alertas de **Nagios** y **Zabbix**, [configure esos servidores](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) para que [envíen alertas](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-alerts-nagios-zabbix?toc=%2Fazure%2Fazure-monitor%2Ftoc.json) a Log Analytics.
 1. Para las alertas de **System Center Operations Manager**,[conecte el grupo de administración de Operations Manager al área de trabajo de Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents). A continuación, implemente la solución [Alert Management](https://docs.microsoft.com/azure/azure-monitor/platform/alert-management-solution) desde Azure Marketplace. Una vez hecho esto, las alertas creadas en System Center Operations Manager se importan en Log Analytics.

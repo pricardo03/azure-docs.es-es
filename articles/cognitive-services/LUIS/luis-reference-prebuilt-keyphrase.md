@@ -8,26 +8,26 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 51d1bd515651824545d486207ad4a74476aa7092
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 53be1b13f1e2744e143a4be0777e3a8e3135460e
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491268"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270531"
 ---
 # <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>Entidad precompilada KeyPhrase para una aplicación de LUIS
-keyPhrase extrae diversas frases clave de una expresión. No es necesario agregar a la aplicación expresiones de ejemplo que contengan keyPhrase. La entidad keyPhrase es compatible con [muchas referencias culturales](luis-language-support.md#languages-supported) como parte de las características de [análisis de texto](../text-analytics/overview.md). 
+keyPhrase extrae diversas frases clave de una expresión. No es necesario agregar a la aplicación expresiones de ejemplo que contengan keyPhrase. La entidad keyPhrase es compatible con [muchas referencias culturales](luis-language-support.md#languages-supported) como parte de las características de [análisis de texto](../text-analytics/overview.md).
 
 ## <a name="resolution-for-prebuilt-keyphrase-entity"></a>Resolución de la entidad keyPhrase precompilada
 
-Se devuelven los siguientes objetos entidad para la consulta:
+La consulta devuelve los siguientes objetos de entidad:
 
 `where is the educational requirements form for the development and engineering group`
 
-#### <a name="v3-responsetabv3"></a>[Respuesta de V3](#tab/V3)
+#### <a name="v3-response"></a>[Respuesta de V3](#tab/V3)
 
 El siguiente JSON es con el parámetro `verbose` establecido en `false`:
 
@@ -39,7 +39,7 @@ El siguiente JSON es con el parámetro `verbose` establecido en `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-responsetabv3-verbose"></a>[Respuesta detallada de V3](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[Respuesta detallada de V3](#tab/V3-verbose)
 El siguiente JSON es con el parámetro `verbose` establecido en `true`:
 
 ```json
@@ -76,7 +76,7 @@ El siguiente JSON es con el parámetro `verbose` establecido en `true`:
     }
 }
 ```
-#### <a name="v2-responsetabv2"></a>[Respuesta de V2](#tab/V2)
+#### <a name="v2-response"></a>[Respuesta de V2](#tab/V2)
 
 En el ejemplo siguiente se muestra la resolución de la entidad **built.keyPhrase**.
 
@@ -96,7 +96,7 @@ En el ejemplo siguiente se muestra la resolución de la entidad **built.keyPhras
     }
 ]
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Pasos siguientes
 

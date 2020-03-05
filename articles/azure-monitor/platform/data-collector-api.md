@@ -1,18 +1,17 @@
 ---
 title: HTTP Data Collector API de Azure Monitor | Microsoft Docs
 description: Puede usar HTTP Data Collector API de Azure Monitor para agregar datos POST JSON en un área de trabajo de Log Analytics desde cualquier cliente que pueda llamar a la API REST. Este artículo describe cómo utilizar la API y contiene algunos ejemplos de cómo publicar datos mediante diferentes lenguajes de programación.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/01/2019
-ms.openlocfilehash: 136644dbcfe9e2835f799b284d21263913bc67b4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: f12e9e90b99a055945c34398ff5351334c344253
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932590"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666759"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Envío de datos de registro a Azure Monitor con HTTP Data Collector API (versión preliminar pública)
 En este artículo se muestra cómo utilizar HTTP Data Collector API para enviar datos de registro a Azure Monitor desde un cliente de API REST.  Describe cómo dar formato a los datos recopilados por el script o la aplicación, incluirlos en una solicitud y hacer que esa solicitud la autorice Azure Monitor.  Se proporcionan ejemplos de PowerShell, C# y Python.
@@ -43,16 +42,16 @@ Para usar la API de recopilador de datos de HTTP, cree una solicitud POST que in
 | Tipo de contenido |application/json |
 
 ### <a name="request-uri-parameters"></a>Parámetros de URI de solicitud
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |:--- |:--- |
 | CustomerID |El identificador único del área de trabajo de Log Analytics. |
 | Resource |Nombre de recurso de la API: /api/logs. |
 | Versión de API |Versión de la API que se usará con esta solicitud. Actualmente, es 2016-04-01. |
 
 ### <a name="request-headers"></a>Encabezados de solicitud
-| Encabezado | DESCRIPCIÓN |
+| Encabezado | Descripción |
 |:--- |:--- |
-| Autorización |Firma de la autorización. Más adelante en este artículo, encontrará información acerca de cómo crear un encabezado HMAC-SHA256. |
+| Authorization |Firma de la autorización. Más adelante en este artículo, encontrará información acerca de cómo crear un encabezado HMAC-SHA256. |
 | Log-Type |Especifica el tipo de registro de los datos que se envían. Solo puede contener letras, números y guiones bajos (_) y no puede superar los 100 caracteres. |
 | x-ms-date |Fecha en que se procesó la solicitud, en formato RFC 1123. |
 | x-ms-AzureResourceId | Identificador de recurso del recurso de Azure con el que se deben asociar los datos. Esto rellena la propiedad [_ResourceId](log-standard-properties.md#_resourceid) y permite que los datos se incluyan en las consultas de [contexto del recurso](design-logs-deployment.md#access-mode). Si no se especifica este campo, los datos no se incluirán en las consultas de contexto del recurso. |
@@ -135,7 +134,7 @@ Para identificar el tipo de datos de una propiedad, Azure Monitor agrega un sufi
 
 | Tipo de datos de la propiedad | Sufijo |
 |:--- |:--- |
-| Cadena |_s |
+| String |_s |
 | Boolean |_b |
 | Double |_d |
 | Fecha/hora |_t |
@@ -181,9 +180,9 @@ El código de estado HTTP 200 significa que se ha recibido la solicitud para su 
 
 Esta tabla muestra el conjunto completo de códigos de estado que el servicio puede devolver:
 
-| Código | Status | Código de error | DESCRIPCIÓN |
+| Código | Status | Código de error | Descripción |
 |:--- |:--- |:--- |:--- |
-| 200 |OK | |La solicitud se aceptó correctamente. |
+| 200 |Aceptar | |La solicitud se aceptó correctamente. |
 | 400 |Solicitud incorrecta |InactiveCustomer |El área de trabajo se cerró. |
 | 400 |Solicitud incorrecta |InvalidApiVersion |El servicio no reconoció la versión de API especificada. |
 | 400 |Solicitud incorrecta |InvalidCustomerId |El identificador de área de trabajo especificado no es válido. |
@@ -199,7 +198,7 @@ Esta tabla muestra el conjunto completo de códigos de estado que el servicio pu
 | 500 |Internal Server Error |UnspecifiedError |El servicio detectó un error interno. Vuelva a intentar realizar la solicitud. |
 | 503 |Servicio no disponible |ServiceUnavailable |El servicio actualmente no está disponible para recibir solicitudes. Vuelva a intentar realizar la solicitud. |
 
-## <a name="query-data"></a>Datos de consulta
+## <a name="query-data"></a>Consultar datos
 Para consultar los datos enviados por HTTP Data Collector API de Azure Monitor, busque los registros cuyo **Type** sea igual al valor de **LogType** que especificó, con el sufijo **_CL**. Por ejemplo, si utilizó **MyCustomLog**, se devolverán todos los registros con `MyCustomLog_CL`.
 
 ## <a name="sample-requests"></a>Solicitudes de ejemplo
@@ -468,7 +467,7 @@ post_data(customer_id, shared_key, body, log_type)
 ## <a name="alternatives-and-considerations"></a>Alternativas y consideraciones
 Aunque la API del recopilador de datos debe cubrir la mayor parte de sus necesidades para recopilar datos de formato libre en los registros de Azure, hay casos en los que podría ser necesaria una alternativa para solucionar algunas de las limitaciones de la API. Las siguientes son todas las opciones, junto con las consideraciones principales:
 
-| Alternativa | DESCRIPCIÓN | Idónea para |
+| Alternativa | Descripción | Idónea para |
 |---|---|---|
 | [Eventos personalizados](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Ingesta basada en SDK nativa de Application Insights | Application Insights, instrumentado normalmente a través de un SDK dentro de la aplicación, ofrece la capacidad de enviar datos personalizados a través de los eventos personalizados. | <ul><li> Los datos se generan dentro de la aplicación, pero el SDK no los recibe a través de uno de los tipos de datos predeterminados (solicitudes, dependencias, excepciones, etc.).</li><li> Datos que está correlacionados con mayor frecuencia con otros datos de aplicación en Application Insights </li></ul> |
 | API del recopilador de datos en registros de Azure Monitor | La API del recopilador de datos en registros de Azure Monitor es una forma completamente libre para la ingesta de datos. Pueden enviársele todos los datos cuyo formato sea un objeto JSON. Una vez enviados, se procesarán y estarán disponibles en los registros, para que se correlacionen con otros datos en los registros u otros datos de Application Insights. <br/><br/> Es bastante fácil cargar los datos como archivos en un blob de Azure Blob, desde donde se procesarán y cargarán estos archivos en Log Analytics. Consulte [este](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) artículo para ver un ejemplo de implementación de una canalización de este tipo. | <ul><li> Datos que no necesariamente se generaron dentro de una aplicación instrumentada en Application Insights.</li><li> Algunos ejemplos son tablas de hechos y de búsqueda, datos de referencia, estadísticas agregadas previamente, etc. </li><li> Diseñado para datos a los que se harán referencia cruzadas con otros datos de Azure Monitor (Application Insights, otros tipos de datos de registros, Security Center, Azure Monitor para contenedores y máquinas virtuales, etc.). </li></ul> |

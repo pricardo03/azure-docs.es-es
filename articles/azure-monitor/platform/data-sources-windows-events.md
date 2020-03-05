@@ -1,18 +1,17 @@
 ---
 title: Recopilación y análisis de registros de eventos de Windows en Azure Monitor | Microsoft Docs
 description: Se describe cómo configurar la recopilación de registros de eventos de Windows mediante Azure Monitor y se incluyen detalles de los registros que crean.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: dd8f1e0e79f85c5d91966bcba13052f297422e67
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932406"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670515"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Orígenes de datos de registros de eventos de Windows en Azure Monitor
 Muchas aplicaciones escriben en el registro de eventos de Windows, por lo que constituye uno de los [orígenes de datos](agent-data-sources.md) más comunes para recopilar información mediante agentes de Windows.  Puede recopilar eventos de registros estándar, como el sistema y la aplicación, además de especificar cualquier registro personalizado creado por las aplicaciones que debe supervisar.
@@ -31,7 +30,7 @@ A medida que escribe el nombre de un registro de eventos, Azure Monitor da suger
 > [!NOTE]
 > Los eventos críticos del registro de eventos de Windows tendrán una gravedad de "error" en los registros de Azure Monitor.
 
-## <a name="data-collection"></a>Colección de datos
+## <a name="data-collection"></a>datos, recopilación
 Azure Monitor recopila cada evento que coincide con una gravedad seleccionada de un registro de eventos supervisado al crear el evento.  El agente registra su lugar en cada registro de eventos del que recopila entradas.  Si el agente queda sin conexión durante un período, recopila los eventos desde donde quedó, aunque esos eventos se hayan creado mientras el agente estaba sin conexión.  Sin embargo, existe la posibilidad de que estos eventos no se recopilen si el registro de eventos hace que los eventos no recopilados se sobrescriban mientras el agente está sin conexión.
 
 >[!NOTE]
@@ -43,7 +42,7 @@ Los registros de eventos de Windows tienen un tipo **Event** y las propiedades q
 
 | Propiedad | Descripción |
 |:--- |:--- |
-| Equipo |Nombre del equipo desde el que se recopiló el evento. |
+| Computer |Nombre del equipo desde el que se recopiló el evento. |
 | EventCategory |Categoría del evento. |
 | EventData |Todos los datos con formato sin procesar. |
 | EventId |El número del evento. |
@@ -53,7 +52,7 @@ Los registros de eventos de Windows tienen un tipo **Event** y las propiedades q
 | ParameterXml |Los valores de parámetro de evento en formato XML. |
 | ManagementGroupName |Nombre del grupo de administración de agentes de System Center Operations Manager.  En el caso de los otros agentes, este valor es `AOI-<workspace ID>`. |
 | RenderedDescription |La descripción del evento con valores de parámetro. |
-| Source |El origen del evento. |
+| Source |Origen del evento. |
 | SourceSystem |El tipo de agente desde el que se recopiló el evento. <br> OpsManager: agente de Windows, ya sea una conexión directa o administrado por Operations Manager <br> Linux: todos los agentes de Linux.  <br> AzureStorage: Diagnósticos de Azure |
 | TimeGenerated |La fecha y la hora de creación del evento en Windows. |
 | UserName |El nombre de usuario de la cuenta que registró el evento. |
@@ -61,7 +60,7 @@ Los registros de eventos de Windows tienen un tipo **Event** y las propiedades q
 ## <a name="log-queries-with-windows-events"></a>Consultas de registros con eventos de Windows
 La tabla siguiente proporciona distintos ejemplos de consultas de registros que recuperan registros de eventos de Windows.
 
-| Consultar | DESCRIPCIÓN |
+| Consultar | Descripción |
 |:---|:---|
 | Evento |Todos los eventos de Windows. |
 | Event &#124; where EventLevelName == "error" |Todos los eventos de Windows con gravedad de error. |

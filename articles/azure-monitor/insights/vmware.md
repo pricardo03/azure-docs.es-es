@@ -1,18 +1,17 @@
 ---
 title: Solución VMware Monitoring en Azure Monitor | Microsoft Docs
 description: Obtenga información sobre cómo la solución de supervisión de VMware puede ayudar a administrar registros y supervisar los hosts ESXi.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: ac735c9131ebe7b7273d93a927cb4d4a8be24508
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c1622ef16155206d779c6d703fc7da568d233e7e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75399186"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664786"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Solución VMware Monitoring (en desuso) en Azure Monitor
 

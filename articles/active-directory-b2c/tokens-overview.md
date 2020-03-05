@@ -2,20 +2,20 @@
 title: 'Información general sobre los tokens: Azure Active Directory B2C'
 description: Obtenga información sobre los tokens que se utilizan en Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 543a3558333933e9d8d6262c76c1e6e9419be877
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: cbbd083a6b62733d71c316af95dffaa188b28955
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850847"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186495"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Configuración de tokens en Azure Active Directory B2C
 

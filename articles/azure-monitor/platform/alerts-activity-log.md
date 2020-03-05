@@ -1,22 +1,20 @@
 ---
 title: Crear, ver y administrar las alertas del registro de actividad en Azure Monitor
 description: Crear alertas del registro de actividad mediante Azure Portal, una plantilla de Azure Resource Manager y Azure PowerShell.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 4835f1034149a015963569a0b1fc5f9195e3cfca
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9791ebaadeb1ee724692a9e1a0d61aff5cbae6a3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969534"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668492"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor  
 
 ## <a name="overview"></a>Información general
+
 Las alertas del registro de actividad son alertas que se activan cuando un nuevo evento del registro de actividad cumple las condiciones especificadas en la alerta.
 
 Estas alertas son recursos de Azure, por lo que pueden crearse con una plantilla de Azure Resource Manager. También se pueden crear, actualizar o eliminar en Azure Portal. Normalmente es necesario crear alertas del registro de actividad para recibir una notificación si se producen cambios específicos en los recursos de la suscripción de Azure. Las alertas a menudo se limitan a grupos de recursos o recursos determinados. Por ejemplo, es posible que quiera recibir una notificación cuando se elimine cualquier máquina virtual del grupo de recursos de ejemplo **myProductionResourceGroup**. O bien, podría querer recibir una notificación si se asigna algún rol nuevo a un usuario de la suscripción.
@@ -30,7 +28,6 @@ Cuando cree reglas de alertas, asegúrese de lo siguiente:
 - La alerta se configurará según los siguientes tipos de criterios: nivel, estado, autor de la llamada, grupo de recursos, id. del recurso o categoría de eventos del tipo de recurso.
 - No hay condición "anyOf" o condiciones anidadas en la configuración de alertas JSON. Básicamente, solo se permite una condición "allOf" sin más condiciones "allOf" o "anyOf".
 - Cuando la categoría es "administrativo", debe especificar al menos uno de los criterios anteriores en la alerta. No puede crear una alerta que se active cada vez que se crea un evento en los registros de actividad.
-
 
 ## <a name="azure-portal"></a>Portal de Azure
 

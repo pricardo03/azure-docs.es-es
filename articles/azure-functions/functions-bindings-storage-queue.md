@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 16c325f2d6ea78ba980406f56839dd4d0b64bee1
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 71321fa631bafde5b1dbaac2d165cb68fd8116d4
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482265"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164600"
 ---
 # <a name="azure-queue-storage-trigger-and-bindings-for-azure-functions-overview"></a>Introducción al desencadenador y enlaces de Azure Queue Storage para Azure Functions
 
@@ -20,18 +20,18 @@ Azure Functions puede ejecutarse a medida que se crean nuevos mensajes de Azure 
 | Acción | Tipo |
 |---------|---------|
 | Ejecución de una función cuando cambian los datos de Queue Storage | [Desencadenador](./functions-bindings-storage-queue-trigger.md) |
-| Escritura de mensajes de Queue Storage |[Enlace de salida](./functions-bindings-storage-blob-output.md) |
+| Escritura de mensajes de Queue Storage |[Enlace de salida](./functions-bindings-storage-queue-output.md) |
 
 ## <a name="add-to-your-functions-app"></a>Adición a la aplicación de Functions
 
-### <a name="functions-2x-and-higher"></a>Functions 2.x y superior
+### <a name="functions-2x-and-higher"></a>Functions 2.x y superiores
 
-Para trabajar con el desencadenador y los enlaces es necesario hacer referencia al paquete adecuado. En las bibliotecas de clases de .NET se usa el paquete NuGet, mientras que en los demás tipos de aplicaciones se emplea el conjunto de extensiones.
+Para trabajar con el desencadenador y los enlaces, es necesario hacer referencia al paquete adecuado. En las bibliotecas de clases de .NET se usa el paquete NuGet, mientras que en los demás tipos de aplicaciones se emplea el conjunto de extensiones.
 
 | Idioma                                        | Agregar mediante...                                   | Observaciones 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Instalación del [paquete NuGet], versión 3.x | |
-| Script de C#, Java, JavaScript, Python, PowerShell | Registro del [conjunto de extensiones]          | Se recomienda usar la [extensión Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) con Visual Studio Code. |
+| Script de C#, Java, JavaScript, Python, PowerShell | Registro de [conjunto de extensiones]          | Se recomienda usar la [extensión Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) con Visual Studio Code. |
 | Script de C# (solo en línea en Azure Portal)         | Adición de un enlace                            | Para actualizar extensiones de enlace existentes sin tener que volver a publicar la aplicación de funciones, vea [Actualización de las extensiones]. |
 
 [core tools]: ./functions-run-local.md
@@ -42,11 +42,11 @@ Para trabajar con el desencadenador y los enlaces es necesario hacer referencia 
 
 ### <a name="functions-1x"></a>Functions 1.x
 
-Las aplicaciones de Functions 1.x tienen automáticamente una referencia al paquete NuGet [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs), versión 2.x.
+Las aplicaciones de Functions 1.x tienen automáticamente una referencia al paquete NuGet [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs), versión 2.x.
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [ de una función cuando cambian los datos de Queue Storage (desencadenador)](./functions-bindings-storage-queue-trigger.md)
-- [Escritura de mensajes de Queue Storage (enlace de salida)](./functions-bindings-storage-blob-output.md)
+- [Escritura de mensajes de Queue Storage (enlace de salida)](./functions-bindings-storage-queue-output.md)

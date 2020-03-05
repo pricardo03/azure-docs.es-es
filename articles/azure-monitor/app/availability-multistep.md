@@ -1,19 +1,15 @@
 ---
 title: 'Supervisión con pruebas web de varios pasos: Azure Application Insights'
 description: Configuración de pruebas web de varios pasos para supervisar las aplicaciones web con Azure Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/23/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 8e630f324a7a0ebdfcc74941e760b80fabefa8d3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3b8baad127b16a1bd9d071d0c3d4df68da8c3304
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928963"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655947"
 ---
 # <a name="multi-step-web-tests"></a>Pruebas web de varios pasos
 
@@ -27,7 +23,7 @@ Puede supervisar una secuencia registrada de direcciones URL e interacciones con
 * Visual Studio 2017 Enterprise posterior.
 * Herramientas de rendimiento web y pruebas de carga de Visual Studio.
 
-Para encontrar el requisito de las herramientas de prueba. Inicie el **Instalador de Visual Studio** > **Componentes individuales** > **Depuración y pruebas**  >  **Herramientas de rendimiento web y pruebas de carga**.
+Para encontrar el requisito de las herramientas de prueba. Inicie el **Instalador de Visual Studio** > **Componentes individuales** > **Depuración y pruebas** > **Herramientas de rendimiento web y pruebas de carga**.
 
 ![Captura de pantalla de la interfaz de usuario del instalador de Visual Studio con los componentes individuales seleccionados con una casilla situada junto al elemento de las herramientas de rendimiento Web y pruebas de carga](./media/availability-multistep/web-performance-load-testing.png)
 
@@ -108,7 +104,7 @@ En todos los casos, debe crear una cuenta en su aplicación para realizar prueba
 
 **Autenticación SAML**
 
-|Nombre de propiedad| DESCRIPCIÓN|
+|Nombre de propiedad| Descripción|
 |----|-----|
 | URI de audiencia | El URI de audiencia para el token SAML.  Se trata del URI para Access Control Service (ACS), incluido el nombre de host y el espacio de nombres de ACS. |
 | Contraseña de certificado | La contraseña del certificado de cliente que concederá acceso a la clave privada insertada. |
@@ -141,7 +137,7 @@ Mediante la comparación de diferentes sesiones, identifique el token pasado des
 Grabe una prueba web con Visual Studio.
 Parametrice los tokens, estableciendo el parámetro cuando se devuelve el token desde el autenticador y utilizándolo en la consulta al sitio. (Visual Studio intenta parametrizar la prueba pero no parametriza correctamente los tokens).
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 [Artículo de solución de problemas](troubleshoot-availability.md) dedicado.
 

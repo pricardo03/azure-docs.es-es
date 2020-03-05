@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/01/2019
+ms.date: 02/27/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 08c14135ba17df4de446de5625352c8cffdc60a1
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: e8d82011fe4fdd40bb07c77411ad0e948ddad049
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138071"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916530"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Roles de administrador de suscripciones clásico de RBAC de Azure y de administrador de Azure AD
 
@@ -75,7 +75,7 @@ RBAC de Azure es un sistema de autorización basado en [Azure Resource Manager](
 | Rol de RBAC de Azure | Permisos | Notas |
 | --- | --- | --- |
 | [Propietario](built-in-roles.md#owner) | <ul><li>Acceso total a todos los recursos</li><li>Delegar el acceso a otros usuarios</li></ul> | Al administrador de servicios y a los coadministradores se les asigna el rol de propietario en el ámbito de suscripción.<br>Se aplica a todos los tipos de recursos. |
-| [Colaborador](built-in-roles.md#contributor) | <ul><li>Crear y administrar todos los tipos de recursos de Azure</li><li>No se puede conceder acceso a otros usuarios</li></ul> | Se aplica a todos los tipos de recursos. |
+| [Colaborador](built-in-roles.md#contributor) | <ul><li>Crear y administrar todos los tipos de recursos de Azure</li><li>Creación de un inquilino en Azure Active Directory</li><li>No se puede conceder acceso a otros usuarios</li></ul> | Se aplica a todos los tipos de recursos. |
 | [Lector](built-in-roles.md#reader) | <ul><li>Ver recursos de Azure</li></ul> | Se aplica a todos los tipos de recursos. |
 | [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator) | <ul><li>Administrar el acceso de usuarios a los recursos de Azure</li></ul> |  |
 

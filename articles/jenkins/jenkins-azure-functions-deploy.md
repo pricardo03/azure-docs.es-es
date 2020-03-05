@@ -4,12 +4,12 @@ description: Aprenda a implementar en Azure Functions con el complemento para Az
 keywords: jenkins, azure, devops, java, azure functions
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: edf8c763a46a6f519175842a6525b2c1b314fb66
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 731bac13a596bbeaf970b3f6ce976a582d1f11ae
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470673"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250921"
 ---
 # <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plug-in"></a>Implementación en Azure Functions con el complemento para Azure Functions de Jenkins
 
@@ -31,19 +31,19 @@ Los siguientes pasos muestran cómo crear una función de Java mediante la CLI d
 
 1. Cree un grupo de recursos y sustituya el marcador de posición **&lt;resource_group>** por el nombre de este.
 
-    ```cli
+    ```azurecli
     az group create --name <resource_group> --location eastus
     ```
 
 1. Cree una cuenta de almacenamiento de Azure y sustituya los marcadores de posición por los valores adecuados.
  
-    ```cli
+    ```azurecli
     az storage account create --name <storage_account> --location eastus --resource-group <resource_group> --sku Standard_LRS    
     ```
 
 1. Cree la aplicación de función de prueba y sustituya los marcadores de posición por los valores adecuados.
 
-    ```cli
+    ```azurecli
     az functionapp create --resource-group <resource_group> --consumption-plan-location eastus --name <function_app> --storage-account <storage_account>
     ```
 
@@ -148,7 +148,7 @@ Ahora es el momento de ejecutar el trabajo de Jenkins.
 
 Si no va a seguir usando esta aplicación, elimine los recursos que ha creado con el siguiente paso:
 
-```cli
+```azurecli
 az group delete -y --no-wait -n <resource_group>
 ```
 

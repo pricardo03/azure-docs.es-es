@@ -1,19 +1,15 @@
 ---
 title: 'Modelo de datos para la telemetría de solicitudes: Azure Application Insights'
 description: Modelo de datos de Application Insights para la telemetría de solicitudes
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: b253a95a39f118efe82e36ac7261a4d6c62a99d6
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d8a28063bf6780c3cace4ead81e289779b95eb9a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928835"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671909"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetría de solicitudes: Modelo de datos de Application Insights
 
@@ -21,13 +17,13 @@ Un elemento de telemetría de solicitud (en [Application Insights](../../azure-m
 
 La telemetría de solicitudes admite el modelo de extensibilidad estándar mediante el uso de `properties` y `measurements` personalizadas.
 
-## <a name="name"></a>NOMBRE
+## <a name="name"></a>Nombre
 
 El nombre de la solicitud representa la ruta de código seguida para procesar la solicitud. Un valor de cardinalidad bajo permite una mejor agrupación de las solicitudes. En las solicitudes de HTTP, representa el método HTTP y la plantilla de la ruta URL como `GET /values/{id}` sin el valor de `id` real.
 
 SDK web de Application Insights envía el nombre de la solicitud tal cual en cuanto a mayúsculas y minúsculas. El agrupamiento de la IU distingue entre mayúsculas y minúsculas, de modo que `GET /Home/Index` se cuenta por separado de `GET /home/INDEX`, incluso aunque a menudo producen la misma ejecución de controlador y acción. El motivo es que las URL suelen [distinguir entre mayúsculas y minúsculas](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Puede comprobar si todos los errores `404` se produjeron con las URL escritas en mayúsculas. En la [entrada de blog ](https://apmtips.com/blog/2015/02/23/request-name-and-url/) encontrará más información sobre la colección de nombres de solicitud del SDK web de ASP.NET.
 
-Longitud máxima: 1024 caracteres
+Longitud máxima: 1024 caracteres
 
 ## <a name="id"></a>id
 
@@ -35,7 +31,7 @@ Identificador de una instancia de llamada de solicitud. Se utiliza para la corre
 
 Longitud máxima: 128 caracteres
 
-## <a name="url"></a>URL
+## <a name="url"></a>Url
 
 URL de solicitud con todos los parámetros de la cadena de consulta.
 
@@ -45,7 +41,7 @@ Longitud máxima: 2048 caracteres
 
 Origen de la solicitud. Algunos ejemplos son la clave de instrumentación del autor de la llamada o la dirección IP del autor de la llamada. Para obtener más información, vea la página de [correlación](../../azure-monitor/app/correlation.md).
 
-Longitud máxima: 1024 caracteres
+Longitud máxima: 1024 caracteres
 
 ## <a name="duration"></a>Duration
 
@@ -55,7 +51,7 @@ Duración de la solicitud en formato: `DD.HH:MM:SS.MMMMMM`. Debe ser positiva y 
 
 Resultado de una ejecución de solicitudes. Código de estado de HTTP para solicitudes HTTP. Puede ser un valor `HRESULT` o un tipo de excepción para otros tipos de solicitudes.
 
-Longitud máxima: 1024 caracteres
+Longitud máxima: 1024 caracteres
 
 ## <a name="success"></a>Correcto
 
@@ -78,6 +74,6 @@ Puede leer más sobre el código de resultados de solicitudes y el código de es
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Escritura de telemetría de solicitud personalizada](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)
-- Consulte el [modelo de datos](data-model.md) para ver los tipos y el modelo de datos de Application Insights.
+- Consulte [modelo de datos](data-model.md) para los tipos y el modelo de datos de Application Insights.
 - Aprenda a [configurar la aplicación ASP.NET Core](../../azure-monitor/app/asp-net.md) con Application Insights.
 - Consulte las [plataformas](../../azure-monitor/app/platforms.md) compatibles con Application Insights.

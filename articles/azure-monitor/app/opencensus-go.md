@@ -1,24 +1,20 @@
 ---
 title: Seguimiento de Go en OpenCensus con Azure Application Insights | Microsoft Docs
 description: Este artículo contiene instrucciones acerca de cómo integrar el seguimiento de Go en OpenCensus con el reenviador local y Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/15/2018
-ms.openlocfilehash: ef67801fee574ae43d83af650d6b715e12426c7e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ddb8dfbf14f2c75e4d16693076e56a711d8861ad
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432560"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669988"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Recopilación de seguimientos distribuidos en Go (versión preliminar)
 
 Ahora, Application Insights permite realizar seguimientos distribuidos de las aplicaciones de Go mediante la integración con [OpenCensus](https://opencensus.io) y el nuevo [reenviador local](./opencensus-local-forwarder.md). En este artículo, encontrará instrucciones paso a paso que le guiarán por el proceso de configuración de OpenCensus para Go y le ayudarán a llevar los datos de seguimiento a Application Insights.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Necesita una suscripción de Azure.
 - Go debe estar instalado (en este artículo, se utiliza usa la versión 1.11; [Descarga de Go](https://golang.org/dl/)).
@@ -47,7 +43,7 @@ En primer lugar, tiene que crear un recurso de Application Insights. Este recurs
    | ------------- |:-------------|:-----|
    | **Nombre**      | Nombre único global | Nombre que identifica la aplicación que se está supervisando |
    | **Grupo de recursos**     | myResourceGroup      | Nombre para el nuevo grupo de recursos que hospedará los datos de Application Insights |
-   | **Ubicación** | East US | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |
+   | **Ubicación** | Este de EE. UU. | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |
 
 2. Haga clic en **Crear**.
 

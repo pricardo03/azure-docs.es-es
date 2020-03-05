@@ -3,20 +3,20 @@ title: JavaScript y versiones de diseño de página
 titleSuffix: Azure AD B2C
 description: Aprenda a habilitar JavaScript y a usar versiones de diseño de página en Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 78fc3af10bde5e9dd25d02f7a21d77e958b15190
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 23d345ea9f22be5c4dac20e6e8784a8de079bccb
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77149531"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78185850"
 ---
 # <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>JavaScript y versiones de diseño de página en Azure Active Directory B2C
 

@@ -12,18 +12,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: 590505d954d52ebec9f8a5c344d6e750f11ef677
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 54ba87b681a055bb46b81ca81d2bcdd103491f27
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981362"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921460"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows muestra el mensaje "Error crítico del servicio" en pantalla azul al arrancar una máquina virtual de Azure
 En este artículo se describe el error "Error crítico del servicio" que puede surgir al iniciar una máquina virtual Windows en Microsoft Azure. Proporciona pasos de solución de problemas para ayudar a resolver los problemas. 
 
-> [!NOTE] 
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../azure-resource-manager/management/deployment-models.md). En este artículo se describe el uso del modelo de implementación de Resource Manager, que es el que se recomienda para realizar la mayoría de las nuevas implementaciones en lugar del modelo de implementación clásica.
 
 ## <a name="symptom"></a>Síntoma 
 

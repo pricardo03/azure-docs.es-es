@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor for Networks (versión preliminar)
 description: Información general rápida de Azure Monitor for Networks que ofrece una vista completa del estado y las métricas de todos los recursos de red implementados sin ninguna configuración.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
-ms.openlocfilehash: 3bb92b85779366081349dab777be67e063469678
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0f5b2fbd13cb9658e255fde727e115df748aaed9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839985"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654875"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Azure Monitor for Networks (versión preliminar)
 Azure Monitor for Networks ofrece una vista completa del estado y las métricas de todos los recursos de red implementados sin ninguna configuración. La capacidad de búsqueda avanzada ayuda a identificar dependencias de recursos, lo que habilita escenarios tales como la identificación de recursos que hospedan el sitio web con una simple búsqueda del nombre del sitio web hospedado.

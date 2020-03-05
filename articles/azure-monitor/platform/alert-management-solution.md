@@ -1,18 +1,17 @@
 ---
 title: Solución Alert Management en Log Analytics | Microsoft Azure
 description: La solución Administración de alertas de Log Analytics le ayuda a analizar todas las alertas de su entorno.  Además de consolidar las alertas generadas dentro de Log Analytics, importa las alertas de los grupos de administración conectados de System Center Operations Manager en Log Analytics.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
-ms.openlocfilehash: fe484d8b5a06946b844acb5e506ec4dcc99ebc23
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 48a825f31a1c5f2eab2fbb71b6f030b8acb5617d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932725"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668390"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solución Alert Management en Azure Log Analytics
 
@@ -25,7 +24,7 @@ ms.locfileid: "72932725"
 
 La solución Administración de alertas le ayuda a analizar todas las alertas del repositorio de Log Analytics.  Estas alertas pueden proceder de diversos orígenes, incluidos los [creados por Log Analytics ](../../azure-monitor/platform/alerts-overview.md) o los [importados de Nagios o Zabbix](../../azure-monitor/learn/quick-collect-linux-computer.md). La solución también importa alertas desde cualquier [grupo de administración conectado de System Center Operations Manager](../../azure-monitor/platform/om-agents.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 La solución funciona con todos los registros del repositorio de Log Analytics con un tipo de **Alerta**, por lo que debe realizar las configuraciones que sean necesarias para recopilar estos registros.
 
 - Para las alertas de Log Analytics, [cree reglas de alerta](../../azure-monitor/platform/alerts-overview.md) para crear registros de alerta directamente en el repositorio.
@@ -42,11 +41,11 @@ Si el grupo de administración de System Center Operations Manager está conecta
 
 Para obtener más información sobre cómo se actualizan los módulos de administración de soluciones, consulte [Conexión de Operations Manager con Log Analytics](../../azure-monitor/platform/om-agents.md).
 
-## <a name="data-collection"></a>Colección de datos
+## <a name="data-collection"></a>datos, recopilación
 ### <a name="agents"></a>Agentes
 En la tabla siguiente se describen los orígenes conectados que son compatibles con esta solución.
 
-| Origen conectado | Soporte técnico | DESCRIPCIÓN |
+| Origen conectado | Soporte técnico | Descripción |
 |:--- |:--- |:--- |
 | [Agentes de Windows](agent-windows.md) | Sin |Los agentes directos de Windows no generan alertas.  Se pueden crear alertas de Log Analytics de eventos y datos de rendimiento recopilados desde agentes de Windows. |
 | [Agentes de Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Sin |Los agentes directos de Linux no generan alertas.  Se pueden crear alertas de Log Analytics de eventos y datos de rendimiento recopilados desde agentes de Linux.  Las alertas de Nagios y Zabbix se recopilan desde los servidores que requieren el agente de Linux. |
@@ -64,7 +63,7 @@ Al agregar la solución Alert Management al área de trabajo de Log Analytics, s
 
 Haga clic en el icono **Administración de alertas** para abrir el panel **Administración de alertas**.  El panel incluye las columnas de la tabla siguiente.  Cada columna muestra las diez principales alertas por recuento que coinciden con los criterios de esa columna para el ámbito e intervalo de tiempo especificados.  Puede ejecutar una búsqueda de registros que proporcione toda la lista haciendo clic en **Ver todo** en la parte inferior de la columna o haciendo clic en el encabezado de columna.
 
-| Columna | DESCRIPCIÓN |
+| Columna | Descripción |
 |:--- |:--- |
 | Alertas críticas |Todas las alertas con una gravedad crítica agrupadas por nombre de alerta.  Haga clic en un nombre de la alerta para ejecutar una búsqueda de registros que devuelva todos los registros de esa alerta. |
 | Alertas de advertencia |Todas las alertas con una gravedad de advertencia agrupadas por nombre de alerta.  Haga clic en un nombre de la alerta para ejecutar una búsqueda de registros que devuelva todos los registros de esa alerta. |
@@ -81,7 +80,7 @@ La solución Administración de alertas analiza todos los registros con un tipo 
 
 La solución importa alertas desde System Center Operations Manager y crea un registro correspondiente para cada una con un tipo de **Alerta** y un SourceSystem de **OpsManager**.  Estos registros tienen las propiedades de la tabla siguiente:  
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | `Type` |*Alerta* |
 | `SourceSystem` |*OpsManager* |
@@ -107,7 +106,7 @@ La solución importa alertas desde System Center Operations Manager y crea un re
 ## <a name="sample-log-searches"></a>Búsquedas de registros de ejemplo
 La tabla siguiente proporciona búsquedas de registros de ejemplo para los registros de alerta recopilados por esta solución: 
 
-| Consultar | DESCRIPCIÓN |
+| Consultar | Descripción |
 |:---|:---|
 | Alert &#124; where SourceSystem == "OpsManager" and AlertSeverity == "error" and TimeRaised > ago(24h) |Alertas críticas generadas durante las últimas 24 horas |
 | Alert &#124; where AlertSeverity == "warning" and TimeRaised > ago(24h) |Alertas de advertencia generadas durante las últimas 24 horas |

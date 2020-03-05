@@ -1,18 +1,14 @@
 ---
 title: Reemplazo de los puntos de conexión de SDK predeterminados con Azure Application Insights
 description: Modifique los puntos de conexión de SDK predeterminados de Azure Monitor Application Insights para regiones como Azure Government.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/26/2019
-ms.openlocfilehash: c04b793512eccf6aaff7d3ed3cc65efdd3dfc303
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3aa18a6b96458533c3dc53f3f420ed264b298a3e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432586"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671994"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Reemplazo de puntos de conexión predeterminados de Application Insights
 

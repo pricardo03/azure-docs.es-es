@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 3cdabbd5f527934492ce7ff37ae7d0f756d91fc1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 083ed0001adb5524c124295eb3bc31f4afad99cf
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979432"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250993"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Creación y administración de cuentas de integración para la integración empresarial B2B en Azure Logic Apps
 
@@ -33,7 +33,7 @@ En este tema se muestra cómo realizar estas tareas:
 * Mover la cuenta de integración a otra suscripción o grupo de recursos de Azure.
 * Eliminar la cuenta de integración.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
@@ -62,7 +62,7 @@ Para esta tarea, puede usar Azure Portal si sigue los pasos de esta sección, [A
    | **Grupos de recursos** | Sí | <*nombre del grupo de recursos de Azure*> | Nombre del [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) que se va a usar para organizar recursos relacionados. Para este ejemplo, cree un grupo de recursos con el nombre "FabrikamIntegration-RG". |
    | **Plan de tarifa** | Sí | <*pricing-level*> | Plan de tarifa de la cuenta de integración, que puede cambiar más adelante. En este ejemplo, seleccione **Gratis**. Para más información, consulte los temas siguientes: <p>- [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Límites y configuración de Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) |
    | **Ubicación** | Sí | <*Azure-region*> | Región en la que quiere almacenar los metadatos de la cuenta de integración. Seleccione la misma ubicación que la aplicación lógica o cree las aplicaciones lógicas en la misma ubicación que la cuenta de integración. En este ejemplo, use "Oeste de EE. UU.". <p>**Nota**: Para crear una cuenta de integración en un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), seleccione ese ISE como ubicación. Para obtener más información, consulte [Creación de cuentas de integración en un ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
-   | **Log Analytics** | No | Activado, desactivado | Mantenga el valor **Activado** para este ejemplo. |
+   | **Log Analytics** | Sin | Activado, desactivado | Mantenga el valor **Activado** para este ejemplo. |
    |||||
 
 1. Cuando haya finalizado, seleccione **Crear**.
@@ -140,13 +140,13 @@ Para cambiarlo, puede usar Azure Portal si sigue los pasos de esta sección o la
 
 1. En el símbolo del sistema, escriba el comando [**az resource**](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update) y establezca `skuName` en el nivel superior que quiera.
 
-   ```Azure CLI
+   ```azurecli
    az resource update --resource-group {ResourceGroupName} --resource-type Microsoft.Logic/integrationAccounts --name {IntegrationAccountName} --subscription {AzureSubscriptionID} --set sku.name={SkuName}
    ```
   
    Por ejemplo, si tiene el nivel básico, puede establecer `skuName` en `Standard`:
 
-   ```Azure CLI
+   ```azurecli
    az resource update --resource-group FabrikamIntegration-RG --resource-type Microsoft.Logic/integrationAccounts --name Fabrikam-Integration --subscription XXXXXXXXXXXXXXXXX --set sku.name=Standard
    ```
 
@@ -164,13 +164,13 @@ Para cambiarlo, use la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-s
 
 1. En el símbolo del sistema, escriba el comando [**az resource**](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update) y establezca `skuName` en el nivel inferior que quiera.
 
-   ```Azure CLI
+   ```azurecli
    az resource update --resource-group <resourceGroupName> --resource-type Microsoft.Logic/integrationAccounts --name <integrationAccountName> --subscription <AzureSubscriptionID> --set sku.name=<skuName>
    ```
   
    Por ejemplo, si tiene el nivel estándar, puede establecer `skuName` en `Basic`:
 
-   ```Azure CLI
+   ```azurecli
    az resource update --resource-group FabrikamIntegration-RG --resource-type Microsoft.Logic/integrationAccounts --name Fabrikam-Integration --subscription XXXXXXXXXXXXXXXXX --set sku.name=Basic
    ```
 

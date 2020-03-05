@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: e850984bd03f4b1e630db5beceed36e122340ead
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 1ec8944ea0b4cf44c05efe92d350ae0db66d338b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500432"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247803"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Creación de una aplicación web HTML estática en Azure
 
@@ -48,7 +48,9 @@ En el siguiente ejemplo, reemplace <app_name > por un nombre único.
 
 ```bash
 cd html-docs-hello-world
+```
 
+```azurecli
 az webapp up --location westeurope --name <app_name> --html
 ```
 
@@ -100,7 +102,7 @@ Guarde los cambios y salga de nano. Use el comando `^O` para guardar y `^X` para
 
 Ahora podrá volver a implementar la aplicación con el mismo comando `az webapp up`.
 
-```bash
+```azurecli
 az webapp up --location westeurope --name <app_name> --html
 ```
 
@@ -128,7 +130,7 @@ El menú izquierdo proporciona distintas páginas para configurar la aplicación
 
 En los pasos anteriores, creó recursos de Azure en un grupo de recursos. Si prevé que no necesitará estos recursos en el futuro, elimine el grupo de recursos ejecutando el siguiente comando en Cloud Shell. Recuerde que el nombre del grupo de recursos se generó automáticamente para el usuario en el paso [Creación de una aplicación web](#create-a-web-app).
 
-```bash
+```azurecli
 az group delete --name appsvc_rg_Windows_westeurope
 ```
 

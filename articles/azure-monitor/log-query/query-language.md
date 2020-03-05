@@ -1,18 +1,17 @@
 ---
 title: Consultas de registros de Azure Monitor | Microsoft Docs
 description: Referencias a recursos para aprender a escribir consultas de registros en Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2019
-ms.openlocfilehash: 7c6530416f0eb6b822b6f5f3eb53f59aeae05d53
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: fc943ac3cf82d22a58d0ba3390ad8d9bbee6a4c9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894346"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669394"
 ---
 # <a name="azure-monitor-log-queries"></a>Consultas de registros de Azure Monitor
 Los registros de Azure Monitor se crean en Azure Data Explorer y las consultas de registros de Azure Monitor usan una versión del mismo lenguaje de consulta de Kusto. La [documentación del lenguaje de consulta de Kusto](/azure/kusto/query) incluye todos los detalles del lenguaje y debe ser el principal recurso para escribir consultas de registros de Azure Monitor. Esta página proporciona vínculos a otros recursos para aprender a escribir consultas y conocer las diferencias con la implementación de Azure Monitor del lenguaje.

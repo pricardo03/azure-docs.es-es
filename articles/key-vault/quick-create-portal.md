@@ -6,16 +6,17 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2530fb0bd27cd98b702d804b0cb5a1dc60419f2f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a57370b7bf63ad73318ba13eff1b554aead7e186
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490408"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197766"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante Azure Portal
 
@@ -34,7 +35,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 3. En la lista de resultados, elija **Key Vault**.
 4. En la sección Key Vault, elija **Crear**.
 5. En la sección **Crear Key Vault**, proporcione la siguiente información:
-    - **Nombre**: se requiere un nombre único. En esta guía de inicio rápido se usará **Contoso-vault2**. 
+    - **Name**: se requiere un nombre único. En esta guía de inicio rápido se usará **Contoso-vault2**. 
     - **Suscripción**: Elija una suscripción.
     - En **Grupo de recursos** elija **Crear nuevo** y escriba un nombre para el grupo de recursos.
     - En el menú desplegable **Ubicación**, elija una ubicación.
@@ -58,9 +59,9 @@ Para agregar un secreto al almacén, simplemente debe realizar un par de pasos a
 2. Haga clic en **Generar o Importar**.
 3. En la pantalla **Crear un secreto**, elija los siguientes valores:
     - **Opciones de carga**: Manual.
-    - **Nombre**: ExamplePassword.
+    - **Name**: ExamplePassword.
     - **Valor**: hVFkk965BuUv
-    - Deje las restantes opciones con sus valores predeterminados. Haga clic en **Create**(Crear).
+    - Deje las restantes opciones con sus valores predeterminados. Haga clic en **Crear**.
 
 Una vez recibido el mensaje de que el secreto se ha creado correctamente, puede hacer clic en él en la lista. A continuación, puede ver algunas de las propiedades. Si hace clic en la versión actual puede ver el valor especificado en el paso anterior.
 

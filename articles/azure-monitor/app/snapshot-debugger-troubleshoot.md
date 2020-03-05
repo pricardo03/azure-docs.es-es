@@ -1,19 +1,16 @@
 ---
 title: Solución de problemas de Snapshot Debugger de Azure Application Insights
 description: Este artículo muestra información y los pasos a seguir para la solución de problemas para ayudar a los desarrolladores que tienen dificultades para habilitar o usar Application Insights Snapshot Debugger.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: brahmnes
-ms.author: mbullwin
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4544f42e7c024b21c4ae050d9b11e0f9e2786d57
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 485f35ed249ab7f6bbb987d8c79afe20287cd25a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432338"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671416"
 ---
 # <a id="troubleshooting"></a> Solucionar problemas de habilitación de Application Insights Snapshot Debugger o ver instantáneas
 Si habilitó Application Insights Snapshot Debugger para la aplicación, pero no puede ver las instantáneas para las excepciones, puede usar estas instrucciones para solucionar problemas. Puede haber muchas razones diferentes de por qué no se generan las instantáneas. Puede ejecutar la comprobación de estado de instantáneas para identificar algunas de las posibles causas comunes.

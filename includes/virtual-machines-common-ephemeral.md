@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: c3a7fb14dbd22730d95a5aaed146b59ad790ce6b
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: d848b92da5d4181832adff8499b3531d020c30c9
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775895"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78155396"
 ---
 Los discos del sistema operativo efímeros se crean en el almacenamiento local de la máquina virtual y no se guardan en la instancia remota de Azure Storage. Estos discos están indicados para cargas de trabajo sin estado, donde las aplicaciones toleran errores de máquinas virtuales individuales, pero tienen más en cuenta el tiempo de implementación de las máquinas virtuales o el restablecimiento de la imagen inicial de dichas máquinas. Con los discos del sistema operativo efímeros, observará una latencia de lectura y escritura inferior en el disco del sistema operativo y un restablecimiento más rápido de la imagen inicial de la máquina virtual. 
  
@@ -33,7 +33,7 @@ Principales diferencias entre discos del sistema operativo efímeros y persisten
 |                             | Disco del sistema operativo persistente                          | Disco de sistema operativo efímero                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | Límite de tamaño del disco del sistema operativo      | 2 TiB                                                                                        | El tamaño de caché para el tamaño de máquina virtual o 2 TiB, el que sea menor. Para el **tamaño de caché en GiB**, consulte [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md) y [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series).              |
-| Tamaños de máquina virtual admitidos          | Todo                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
+| Tamaños de máquina virtual admitidos          | All                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
 | Compatibilidad con los tipos de discos           | Disco del sistema operativo administrado y no administrado                                                                | Solo disco del sistema operativo administrado                                                               |
 | Regiones admitidas              | Todas las regiones                                                                                  | Todas las regiones                              |
 | Persistencia de los datos            | Los datos del disco del sistema operativo escritos en un disco del sistema operativo se almacenan en Azure Storage.                                  | Los datos escritos en un disco del sistema operativo se almacenan en el almacenamiento de máquina virtual local y no se conservan en Azure Storage. |
@@ -44,7 +44,7 @@ Principales diferencias entre discos del sistema operativo efímeros y persisten
 
 ## <a name="size-requirements"></a>Requisitos de tamaño
 
-Puede implementar imágenes de instancias y de máquinas virtuales hasta el tamaño de la caché de máquina virtual. Por ejemplo, las imágenes estándar de Windows Server de Marketplace son de aproximadamente 127 GiB, lo que significa que necesita un tamaño de máquina virtual que tenga una caché de más de 127 GiB. En este caso, las máquinas virtuales [Standard_DS2_v2](/azure/virtual-machines/windows/sizes-general#dsv2-series) tienen un tamaño de caché de 86 GiB, que no es lo suficientemente grande. Las máquinas virtuales Standard_DS3_v2 tienen un tamaño de caché de 172 GiB, que es lo suficientemente grande. En este caso, Standard_DS3_v2 tienen el tamaño menor de la serie DSv2 que se puede usar con esta imagen. Las imágenes básicas de Linux en Marketplace y las imágenes de Windows Server indicadas por `[smallsize]` tienden a tener alrededor de 30 GiB y pueden usar la mayoría de los tamaños de máquinas virtuales disponibles.
+Puede implementar imágenes de instancias y de máquinas virtuales hasta el tamaño de la caché de máquina virtual. Por ejemplo, las imágenes estándar de Windows Server de Marketplace son de aproximadamente 127 GiB, lo que significa que necesita un tamaño de máquina virtual que tenga una caché de más de 127 GiB. En este caso, las máquinas virtuales [Standard_DS2_v2](~/articles/virtual-machines/dv2-dsv2-series.md) tienen un tamaño de caché de 86 GiB, que no es lo suficientemente grande. Las máquinas virtuales Standard_DS3_v2 tienen un tamaño de caché de 172 GiB, que es lo suficientemente grande. En este caso, Standard_DS3_v2 tienen el tamaño menor de la serie DSv2 que se puede usar con esta imagen. Las imágenes básicas de Linux en Marketplace y las imágenes de Windows Server indicadas por `[smallsize]` tienden a tener alrededor de 30 GiB y pueden usar la mayoría de los tamaños de máquinas virtuales disponibles.
 
 Los discos efímeros también requieren que el tamaño de la máquina virtual admita Premium Storage. Los tamaños normalmente (pero no siempre) tienen un `s` en el nombre, como DSv2 y EsV3. Para más información, consulte [Tamaños de máquinas virtuales de Azure](../articles/virtual-machines/linux/sizes.md) para más información sobre qué tamaños se admiten Premium Storage.
 
@@ -186,35 +186,35 @@ id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}
 
 **P: ¿Cuál es el tamaño de los discos del sistema operativo locales?**
 
-R: Admitiremos la plataforma o las imágenes personalizadas, hasta el tamaño de caché de la máquina virtual, donde todas las operaciones de lectura y escritura en el disco del sistema operativo serán locales en el mismo nodo que la máquina virtual. 
+A. Admitiremos la plataforma o las imágenes personalizadas, hasta el tamaño de caché de la máquina virtual, donde todas las operaciones de lectura y escritura en el disco del sistema operativo serán locales en el mismo nodo que la máquina virtual. 
 
 **P: ¿Se puede cambiar el tamaño del disco del sistema operativo efímero?**
 
-R: No, una vez que se aprovisiona el disco del sistema operativo efímero, no puede cambiarse su tamaño. 
+A. No, una vez que se aprovisiona el disco del sistema operativo efímero, no puede cambiarse su tamaño. 
 
 **P: ¿Puedo asociar un disco administrado a una máquina virtual efímera?**
 
-R: Sí, puede asociar un disco de datos administrado a una máquina virtual que use un disco del sistema operativo efímero. 
+A. Sí, puede asociar un disco de datos administrado a una máquina virtual que use un disco del sistema operativo efímero. 
 
 **P: ¿Se admitirán todos los tamaños de máquina virtual con los discos del sistema operativo efímeros?**
 
-R: No, se admiten todos los tamaños de máquina virtual Premium Storage (DS, ES, FS, GS y M), excepto los tamaños de las series B, N y H.  
+A. No, se admiten todos los tamaños de máquina virtual Premium Storage (DS, ES, FS, GS y M), excepto los tamaños de las series B, N y H.  
  
 **P: ¿Se puede aplicar el disco del sistema operativo efímero a máquinas virtuales y conjuntos de escalado existentes?**
 
-R: No, el disco del sistema operativo efímero solo se puede usar durante la creación de la máquina virtual y el conjunto de escalado. 
+A. No, el disco del sistema operativo efímero solo se puede usar durante la creación de la máquina virtual y el conjunto de escalado. 
 
 **P: ¿Se pueden combinar discos del sistema operativo efímeros y normales en un conjunto de escalado?**
 
-R: No, no se puede tener una combinación de instancias de disco del sistema operativo efímeras y persistentes dentro del mismo conjunto de escalado. 
+A. No, no se puede tener una combinación de instancias de disco del sistema operativo efímeras y persistentes dentro del mismo conjunto de escalado. 
 
 **P: ¿Se puede crear el disco del sistema operativo efímero con PowerShell o la CLI?**
 
-R: Sí, puede crear máquinas virtuales con discos del sistema operativo efímeros mediante REST, plantillas, PowerShell y la CLI.
+A. Sí, puede crear máquinas virtuales con discos del sistema operativo efímeros mediante REST, plantillas, PowerShell y la CLI.
 
 **P: ¿Qué características no se admiten con los discos del sistema operativo efímeros?**
 
-R: Los discos efímeros no admiten:
+A. Los discos efímeros no admiten:
 - Captura de imágenes de máquina virtual
 - Instantáneas de disco. 
 - Azure Disk Encryption 

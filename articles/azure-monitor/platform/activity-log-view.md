@@ -3,17 +3,16 @@ title: Visualización de eventos del registro de actividad de Azure en Azure Mon
 description: Vea el registro de actividad de Azure en Azure Monitor y recupérelo con PowerShell, la CLI y la API REST.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 46d26aa5dccd32438b2028e21eaa94f7993944d1
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 9df7593a9fd191d3a734fba5e81fb1aecba08345
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749523"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668832"
 ---
 # <a name="view-and-retrieve-azure-activity-log-events"></a>Visualización y recuperación de eventos del registro de actividad de Azure
 
@@ -174,7 +173,7 @@ GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5
 ## <a name="activity-logs-analytics-monitoring-solution"></a>Solución de supervisión de Activity Log Analytics
 La solución de supervisión de Azure Log Analytics incluye varias vistas y consultas de registros para analizar las entradas del registro de actividad en el área de trabajo de Log Analytics.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 Debe crear una configuración de diagnóstico para enviar el registro de actividad de la suscripción a un área de trabajo de Log Analytics. Consulte el artículo sobre la [recopilación de registros de plataforma de Azure en el área de trabajo de Log Analytics de Azure Monitor](resource-logs-collect-workspace.md)
 
 ### <a name="install-the-solution"></a>Instalar la solución

@@ -1,18 +1,17 @@
 ---
 title: IT Service Management Connector en Azure Log Analytics | Microsoft Docs
 description: En este artículo se proporciona información general sobre el Conector de Administración de servicios de TI (ITSMC) e información sobre cómo usar esta solución para supervisar y administrar de forma centralizada los elementos de trabajo de ITSM en Azure Log Analytics y resolver rápidamente cualquier problema.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 68aff01ea541a24be1f8d526fecbb6a9d2c30086
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 50bab4c26046059b993c19a030a8f840ae336ef2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990681"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672232"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar Azure a las herramientas de ITSM mediante el Conector de Administración de servicios de TI
 
@@ -58,7 +57,7 @@ Para poder crear una conexión, debe agregar la solución del conector de ITSM.
 3. En la sección **Área de trabajo de OMS**, seleccione el área de trabajo de Azure Log Analytics donde quiera instalar la solución.
    >[!NOTE]
    > * Como parte de la transición continuada de Microsoft Operations Management Suite (OMS) a Azure Monitor, las áreas de trabajo de OMS ahora se conocen como áreas de trabajo de Log Analytics.
-   > * Solo se puede instalar el conector ITSM en áreas de trabajo de Log Analytics en las siguientes regiones: Este de EE. UU., Oeste de EE. UU.2, Centro Sur de EE. UU., Centro-oeste de EE. UU., Centro de Canadá, Oeste de Europa, Sur de Reino Unido, Sudeste Asiático, Este de Japón, Centro de la India y Sudeste de Australia.
+   > * Solo se puede instalar el conector ITSM en áreas de trabajo de Log Analytics en las siguientes regiones: Este de EE. UU., Oeste de EE. UU.2, Centro Sur de EE. UU., Centro-oeste de EE. UU., Centro de Canadá, Oeste de Europa, Sur de Reino Unido, Sudeste de Asia, Este de Japón, Centro de la India y Sudeste de Australia.
 
 4. En la sección **Configuración del área de trabajo de OMS**, seleccione el grupo de recursos donde quiera crear el recurso de la solución.
 

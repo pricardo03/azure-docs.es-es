@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 6f1efa365b4f3a1ab65cc89c84af57c88325e9d2
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: a8de821abcedf6bb9a331852a2c0af9b6439667a
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597289"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303586"
 ---
 # <a name="security-recommendations"></a>Recomendaciones de seguridad
 
@@ -32,34 +32,34 @@ En este artículo, encontrará una lista de recomendaciones que se pueden activa
 
 Las recomendaciones de dispositivo proporcionan información y sugerencias para mejorar la posición de seguridad de los dispositivos. 
 
-| severity | NOMBRE                                                      | Origen de datos | DESCRIPCIÓN                                                                                                                                                                                           |
+| severity | Nombre                                                      | Origen de datos | Descripción                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Mediano   | Puertos abiertos en el dispositivo                                      | Agente       | Se encontró un punto de conexión de escucha en el dispositivo.                                                                                                                                                        |
-| Mediano   | Se encontró una directiva de firewall permisiva en una de las cadenas. | Agente       | Se encontró una directiva de firewall permitida en las cadenas de firewall principales (ENTRADA/SALIDA). La directiva debe denegar todo el tráfico de manera predeterminada y definir reglas para permitir la comunicación necesaria hacia y desde el dispositivo.                               |
-| Mediano   | Se encontró una regla de firewall permisiva en la cadena de entrada     | Agente       | Se encontró una regla en el firewall que contiene un patrón permisivo para una amplia gama de direcciones IP o puertos.                                                                                    |
-| Mediano   | Se encontró una regla de firewall permisiva en la cadena de salida    | Agente       | Se encontró una regla en el firewall que contiene un patrón permisivo para una amplia gama de direcciones IP o puertos.                                                                                   |
-| Mediano   | Error de validación de línea base de sistema operativo           | Agente       | El dispositivo no cumple las [pruebas comparativas de CIS Linux](https://www.cisecurity.org/cis-benchmarks/).                                                                                                        |
+| Media   | Puertos abiertos en el dispositivo                                      | Agente       | Se encontró un punto de conexión de escucha en el dispositivo.                                                                                                                                                        |
+| Media   | Se encontró una directiva de firewall permisiva en una de las cadenas. | Agente       | Se encontró una directiva de firewall permitida en las cadenas de firewall principales (ENTRADA/SALIDA). La directiva debe denegar todo el tráfico de manera predeterminada y definir reglas para permitir la comunicación necesaria hacia y desde el dispositivo.                               |
+| Media   | Se encontró una regla de firewall permisiva en la cadena de entrada     | Agente       | Se encontró una regla en el firewall que contiene un patrón permisivo para una amplia gama de direcciones IP o puertos.                                                                                    |
+| Media   | Se encontró una regla de firewall permisiva en la cadena de salida    | Agente       | Se encontró una regla en el firewall que contiene un patrón permisivo para una amplia gama de direcciones IP o puertos.                                                                                   |
+| Media   | Error de validación de línea base de sistema operativo           | Agente       | El dispositivo no cumple las [pruebas comparativas de CIS Linux](https://www.cisecurity.org/cis-benchmarks/).                                                                                                        |
 
 ### <a name="operational-recommendations-for-iot-devices"></a>Recomendaciones operativas para dispositivos IoT
 
 Las recomendaciones operativas proporcionan información y sugerencias para mejorar la configuración de los agentes de seguridad.
 
-| severity | NOMBRE                                    | Origen de datos | DESCRIPCIÓN                                                                       |
+| severity | Nombre                                    | Origen de datos | Descripción                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
 | Bajo      | El agente envía mensajes sin utilizar          | Agente       | 10 % o más de los mensajes de seguridad tenían un tamaño inferior a 4 KB durante las últimas 24 horas.  |
 | Bajo      | Configuración de gemelo de seguridad no óptima | Agente       | La configuración del gemelo de seguridad no es óptima.                                        |
 | Bajo      | Conflicto de configuración de gemelo de seguridad    | Agente       | Se identificaron conflictos en la configuración del gemelo de seguridad. |                          |
-
+|
 
 ## <a name="recommendations-for-iot-hub"></a>Recomendaciones para IoT Hub
 
 Las alertas de recomendación proporcionan información y sugerencias relativas a las acciones para mejorar la posición de seguridad del entorno.  
 
-| severity | NOMBRE                                                     | Origen de datos | DESCRIPCIÓN                                                                                                                                                                                                             |
+| severity | Nombre                                                     | Origen de datos | Descripción                                                                                                                                                                                                             |
 |----------|----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alto     | Credenciales de autenticación idénticas utilizadas por varios dispositivos | IoT Hub     | Hay varios dispositivos que usan las mismas credenciales de autenticación de IoT Hub. Esto puede indicar que hay un dispositivo ilegítimo que suplanta un dispositivo legítimo. El uso de credenciales duplicadas aumenta el riesgo de suplantación del dispositivo a manos de un individuo malintencionado. |
-| Mediano   | La directiva del filtro de IP predeterminada debe ser Denegar.                  | IoT Hub     | La configuración del filtro IP debe tener reglas definidas para el tráfico permitido y debe denegar el resto del tráfico de forma predeterminada.                                                                                                     |
-| Mediano   | La regla del filtro IP incluye un amplio intervalo de IP                   | IoT Hub     | Un intervalo IP de origen de la regla de filtro IP permitido es demasiado grande. Las reglas excesivamente permisivas podrían exponer su instancia de IoT Hub a agentes malintencionados.                                                                                       |
+| Media   | La directiva del filtro de IP predeterminada debe ser Denegar.                  | IoT Hub     | La configuración del filtro IP debe tener reglas definidas para el tráfico permitido y debe denegar el resto del tráfico de forma predeterminada.                                                                                                     |
+| Media   | La regla del filtro IP incluye un amplio intervalo de IP                   | IoT Hub     | Un intervalo IP de origen de la regla de filtro IP permitido es demasiado grande. Las reglas excesivamente permisivas podrían exponer su instancia de IoT Hub a agentes malintencionados.                                                                                       |
 | Bajo      | Habilitar registros de diagnóstico en IoT Hub                       | IoT Hub     | Habilite los registros y consérvelos por hasta un año. Conservar los registros le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red.                                       |
 |
 

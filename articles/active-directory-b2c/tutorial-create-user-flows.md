@@ -2,20 +2,20 @@
 title: 'Tutorial: Creación de flujos de usuario en Azure Active Directory B2C'
 description: Aprenda a crear flujos de usuario en Azure Portal para habilitar el registro, el inicio de sesión y la edición de perfiles de usuario para las aplicaciones en Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 06/07/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 21a3597a8c3675a060359b5e4feb9561e02f0149
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 51adbb74635f66ca86347b536dc2607566dcb725
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840152"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183574"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Creación de flujos de usuario en Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ En este tutorial se muestra cómo crear flujos de usuario recomendados mediante 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 [Registre las aplicaciones](tutorial-register-applications.md) que formen parte de los flujos de usuario que desee crear.
 

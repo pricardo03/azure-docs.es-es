@@ -3,20 +3,20 @@ title: Incorporación de notificaciones y personalización de la entrada del usu
 titleSuffix: Azure AD B2C
 description: Aprenda a personalizar la entrada del usuario y a agregar notificaciones en el proceso de registro o inicio de sesión en Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ebbc0c8ac067635d31714468f1aee047b3683eb0
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2d279a2a368e606e036b24172eb94b667b3255db
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850475"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267951"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Adición de notificaciones y personalización de la entrada del usuario mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76850475"
 
 En este artículo, va a agregar una nueva entrada (notificación) que el usuario proporciona durante el recorrido de registro en Azure Active Directory B2C (Azure AD B2C).  Tendrá que configurar la entrada como una lista desplegable y especificar si es o no necesaria.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Complete los pasos del artículo [Introducción a las directivas personalizadas](custom-policy-get-started.md). Pruebe el recorrido de suscripción o inicio de sesión del usuario para registrar una nueva cuenta local antes de continuar.
 
@@ -264,7 +264,7 @@ Los elementos siguientes se usan para definir la notificación:
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD. Para ello, seleccione el filtro **Directorio y suscripción** que se encuentra en el menú superior y elija el directorio que contiene el inquilino de Azure AD.
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Registros de aplicaciones**.
-4. Seleccione **Identity Experience Framework (versión preliminar)** .
+4. Seleccione **Marco de experiencia de identidad**.
 5. Seleccione **Cargar directiva personalizada** y cargue los dos archivos de directiva modificados.
 2. Seleccione la directiva de registro o inicio de sesión que cargó y haga clic en el botón **Ejecutar ahora**.
 3. Debe poder registrarse con una dirección de correo electrónico.

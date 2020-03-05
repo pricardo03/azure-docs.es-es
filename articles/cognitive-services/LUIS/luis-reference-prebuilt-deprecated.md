@@ -8,15 +8,15 @@ ms.custom: seodec18
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 8c15ebacd0fd959fe789d7f3a9b33b16ee29a1b2
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 46da828b7553fdf9cdded817febd3bb95cd4cbb9
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933618"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270675"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Entidades precompiladas en desuso en una aplicación de LUIS
 Las siguientes entidades precompiladas están en desuso y no se pueden agregar a las nuevas aplicaciones de LUIS.
@@ -30,7 +30,7 @@ Las siguientes entidades precompiladas están en desuso y no se pueden agregar a
 
 #### <a name="3-geography-subtypes"></a>3 subtipos de Geography
 
-Entidad precompilada   |   Expresión de ejemplo   |   JSON
+Entidad creada previamente   |   Expresión de ejemplo   |   JSON
 ------|------|------|
 `builtin.geography.city`   |  `seattle`    |`{ "type": "builtin.geography.city", "entity": "seattle" }`|
 `builtin.geography.city`   |  `paris`    |`{ "type": "builtin.geography.city", "entity": "paris" }`|
@@ -43,7 +43,7 @@ Entidad precompilada   |   Expresión de ejemplo   |   JSON
 **Encyclopedia** sólo está disponible en la configuración regional `en-US`.
 
 #### <a name="encyclopedia-subtypes"></a>Subtipos de Encyclopedia
-La entidad integrada Encyclopedia incluye más de 100 subtipos de la tabla siguiente: Además, las entidades Encyclopedia a menudo se corresponden con varios tipos. Por ejemplo, los campos Ronald Reagan de la consulta: 
+La entidad integrada Encyclopedia incluye más de 100 subtipos de la tabla siguiente: Además, las entidades Encyclopedia a menudo se corresponden con varios tipos. Por ejemplo, los campos Ronald Reagan de la consulta:
 
 ```json
 {
@@ -65,7 +65,7 @@ La entidad integrada Encyclopedia incluye más de 100 subtipos de la tabla sigui
  ```
 
 
-Entidad precompilada   |   Entidad precompilada (subtipos)   |   Expresión de ejemplo
+Entidad creada previamente   |   Entidad precompilada (subtipos)   |   Expresión de ejemplo
 ------|------|------|
 `builtin.encyclopedia.people.person`| `builtin.encyclopedia.people.person`| `bryan adams` |
 `builtin.encyclopedia.people.person`| `builtin.encyclopedia.film.producer`| `walt disney` |
@@ -163,5 +163,5 @@ Entidad precompilada   |   Entidad precompilada (subtipos)   |   Expresión de e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información acerca de las entidades [dimensión](luis-reference-prebuilt-dimension.md), [correo electrónico](luis-reference-prebuilt-email.md) y [número](luis-reference-prebuilt-number.md). 
+Obtenga información acerca de las entidades [dimensión](luis-reference-prebuilt-dimension.md), [correo electrónico](luis-reference-prebuilt-email.md) y [número](luis-reference-prebuilt-number.md).
 

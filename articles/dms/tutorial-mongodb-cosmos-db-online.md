@@ -3,8 +3,8 @@ title: 'Tutorial: Migración de MongoDB en línea a la API de Azure Cosmos DB pa
 titleSuffix: Azure Database Migration Service
 description: Aprenda a migrar desde el entorno local de MongoDB a la API de Azure Cosmos DB para MongoDB en línea mediante Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: 896ae35e1039548ea56967ff73d6a1781aa3c8a6
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 66375d83dca4edef17919e3b493d5e45be37cc40
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751383"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255620"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Tutorial: Migración de MongoDB a la API de Azure Cosmos DB para MongoDB en línea mediante DMS
 
@@ -44,7 +44,7 @@ En este tutorial, migrará un conjunto de datos de MongoDB hospedado en una máq
 
 En este artículo se describe una migración en línea desde MongoDB a la API de Azure Cosmos DB para MongoDB. Para realizar una migración sin conexión, consulte [Migración de MongoDB a la API de Azure Cosmos DB para MongoDB sin conexión mediante DMS](tutorial-mongodb-cosmos-db.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesita:
 

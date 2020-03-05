@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c90dc7877bced8a4ceececc04b8e3d1ebdcbfe44
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 79c24eb078cc3de764ecc1c814e5b8772777eab6
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74968636"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199502"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Uso del cifrado dinámico común de PlayReady o Widevine
 
 > [!NOTE]
-> Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).   > No se van a agregar características o funcionalidades nuevas a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a la v3](../latest/migrate-from-v2-to-v3.md).
+> Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).   > No se van a agregar características o funcionalidades nuevas a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
 >   
 
 ## <a name="overview"></a>Información general
@@ -35,7 +35,7 @@ Media Services proporciona un servicio para entregar licencias DRM de PlayReady 
 
 También puede usar los siguientes asociados de Media Services para ayudarle a entregar licencias de Widevine: 
 
-* [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/) 
+* [Axinom](https://www.axinom.com) 
 * [EZDRM](https://ezdrm.com/) 
 * [castLabs](https://castlabs.com/company/partners/azure/) 
 
@@ -607,7 +607,7 @@ namespace DynamicEncryptionWithDRM
 
 ## <a name="additional-notes"></a>Notas adicionales
 
-* Widevine es un servicio que ofrece Google Inc. y está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
+* Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -616,7 +616,7 @@ namespace DynamicEncryptionWithDRM
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [Use the CENC with multi-DRM and access control](media-services-cenc-with-multidrm-access-control.md) (Uso de CENC con DRM múltiple y control de acceso)
 * [Configure Widevine packaging with Media Services](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services) (Configuración del empaquetado Widevine con Media Services)

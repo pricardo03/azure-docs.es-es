@@ -7,20 +7,20 @@ ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 03f298b49e6a1eba84e8adf5ca6039df0bfe1abd
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 1eff8bbd7ce601a0145bb3c6c05bc09ee0024daf
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906420"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196763"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>Inicio rápido: Administración de blobs con el SDK de Python v12
 
 En este inicio rápido, se aprende a administrar blobs mediante Python. Los blobs son objetos que pueden contener grandes cantidades de texto o datos binarios, como imágenes, documentos, medios de transmisión y datos de archivo. Cargará, descargará y enumerará los blobs, y creará y eliminará los contenedores.
 
-[Documentación de referencia de API](/python/api/azure-storage-blob) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [Paquete (índice de paquetes de Python)](https://pypi.org/project/azure-storage-blob/) | [Ejemplos](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
+[Documentación de referencia de API](/python/api/azure-storage-blob) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [Paquete (índice de paquetes de Python)](https://pypi.org/project/azure-storage-blob/) | [Ejemplos](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Una cuenta de Azure Storage. [Crear una cuenta de almacenamiento](../common/storage-account-create.md).

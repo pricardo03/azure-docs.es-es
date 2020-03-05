@@ -2,20 +2,20 @@
 title: 'Localization: Azure Active Directory B2C'
 description: Especifique el elemento Localization de una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 08/27/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ec9b4e7ce761d524d047f4d12cab9e5b782e6032
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 9a9fb1d64fb27507e4ee42c39be9ea80fbe5f168
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70033455"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184458"
 ---
 # <a name="localization"></a>Localización
 
@@ -39,13 +39,13 @@ El elemento **Localization** permite incluir varios idiomas o configuraciones re
 
 El elemento **Localization** contiene los atributos siguientes:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | habilitado | Sin | Valores posibles: `true` o `false`. |
 
 El elemento **Localization** contiene los siguientes elementos XML:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | SupportedLanguages | 1:n | Lista de idiomas admitidos. |
 | LocalizedResources | 0:n | Lista de recursos localizados. |
@@ -54,7 +54,7 @@ El elemento **Localization** contiene los siguientes elementos XML:
 
 El elemento **SupportedLanguages** contiene los atributos siguientes:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | DefaultLanguage | Sí | El idioma que se usará como el predeterminado para los recursos localizados. |
 | MergeBehavior | Sin | Valores de enumeración de los valores combinados con cualquier elemento ClaimType presente en una directiva principal con el mismo identificador. Use este atributo al sobrescribir una notificación especificada en la directiva de base. Valores posibles: `Append`, `Prepend` o `ReplaceAll`. El valor `Append` especifica que la colección de datos presente tiene que anexarse al final de la colección especificada en la directiva principal. El valor `Prepend` especifica que la colección de datos presente tiene que agregarse antes de la colección especificada en la directiva principal. El valor `ReplaceAll` especifica que la colección de datos definidos en la directiva principal tiene que omitirse y, en su lugar, tienen que usarse los datos definidos en la directiva actual. |
@@ -63,7 +63,7 @@ El elemento **SupportedLanguages** contiene los atributos siguientes:
 
 El elemento **SupportedLanguages** contiene los elementos siguientes:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | SupportedLanguage | 1:n | Muestra contenido que cumple con una etiqueta de idioma según RFC 5646 (etiquetas para identificar idiomas). |
 
@@ -71,13 +71,13 @@ El elemento **SupportedLanguages** contiene los elementos siguientes:
 
 El elemento **LocalizedResources** contiene los atributos siguientes:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| Id | Sí | Identificador único para recursos localizados. |
+| Identificador | Sí | Identificador único para recursos localizados. |
 
 El elemento **LocalizedResources** contiene los elementos siguientes:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | LocalizedCollections | 0:n | Define colecciones enteras de distintas referencias culturales. Una colección puede tener un número distinto de elementos y cadenas diferentes para varias referencias culturales. Entre los ejemplos de colecciones, se incluyen las enumeraciones que aparecen en los tipos de notificación. Por ejemplo, una lista de países o regiones se muestra al usuario en una lista desplegable. |
 | LocalizedStrings | 0:n | Define todas las cadenas en distintas referencias culturales, excepto las que aparecen en colecciones. |
@@ -86,7 +86,7 @@ El elemento **LocalizedResources** contiene los elementos siguientes:
 
 El elemento **LocalizedCollections** contiene los elementos siguientes:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | LocalizedCollection | 1:n | Lista de idiomas admitidos. |
 
@@ -94,7 +94,7 @@ El elemento **LocalizedCollections** contiene los elementos siguientes:
 
 El elemento **LocalizedCollection** contiene los atributos siguientes:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | ElementType | Sí | Hace referencia a un elemento ClaimType o a un elemento de la interfaz de usuario en el archivo de directiva. |
 | ElementId | Sí | Cadena que contiene una referencia a un tipo de notificación que ya se ha definido en la sección ClaimsSchema y que se usa si se establece **ElementType** en un elemento ClaimType. |
@@ -102,16 +102,16 @@ El elemento **LocalizedCollection** contiene los atributos siguientes:
 
 El elemento **LocalizedCollection** contiene los elementos siguientes:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
-| item | 0:n | Define una opción disponible para que el usuario seleccione una notificación en la interfaz de usuario, como un valor en una lista desplegable. |
+| Elemento | 0:n | Define una opción disponible para que el usuario seleccione una notificación en la interfaz de usuario, como un valor en una lista desplegable. |
 
 El elemento **Item** contiene los atributos siguientes:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | Texto | Sí | Cadena para mostrar fácil de identificar que se mostrará al usuario en la interfaz de usuario para esta opción. |
-| Valor | Sí | Valor de notificación de cadena asociado a la selección de esta opción. |
+| Value | Sí | Valor de notificación de cadena asociado a la selección de esta opción. |
 | SelectByDefault | Sin | Indica si esta opción se puede seleccionar o no de forma predeterminada en la interfaz de usuario. Valores posibles: True o False. |
 
 En el ejemplo siguiente, se muestra cómo usar el elemento **LocalizedCollections**. Contiene dos elementos **LocalizedCollection**, uno para inglés y otro para español. Ambos establecen la colección **Restriction** de la notificación `Gender` con una lista de elementos para inglés y español.
@@ -138,13 +138,13 @@ En el ejemplo siguiente, se muestra cómo usar el elemento **LocalizedCollection
 
 El elemento **LocalizedStrings** contiene los elementos siguientes:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | LocalizedString | 1:n | Cadena localizada. |
 
 El elemento **LocalizedString** contiene los atributos siguientes:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | ElementType | Sí | Referencia a un elemento de tipo de notificación o a un elemento de la interfaz de usuario en la directiva. Valores posibles: `ClaimType`, `UxElement`, `ErrorMessage` o `Predicate`. El valor `ClaimType` se usa para localizar uno de los atributos de la notificación, según se especifica en el elemento StringId. El valor `UxElement` se usa para localizar uno de los elementos de la interfaz de usuario, según se especifica en el elemento StringId. El valor `ErrorMessage` se usa para localizar uno de los mensajes de error del sistema, según se especifica en el elemento StringId. El valor `Predicate` se usa para localizar uno de los mensajes de error de [Predicate](predicates.md), según se especifica en el elemento StringId. El valor `InputValidation` se usa para localizar uno de los mensajes de error de grupo de [PredicateValidation](predicates.md), según se especifica en el elemento StringId. |
 | ElementId | Sí | Si **ElementType** se establece en `ClaimType`, `Predicate` o `InputValidation`, este elemento contiene una referencia a un tipo de notificación que ya se ha definido en la sección ClaimsSchema. |

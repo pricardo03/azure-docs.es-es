@@ -1,33 +1,29 @@
 ---
 title: Modelo de datos de dependencias de Application Insights de Azure Monitor
 description: Modelo de datos de Application Insights para la telemetría de dependencias
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 5021d3b34816159fc78590a5947ddd3a790303ee
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: ba0d848904d1ba885dc53e2941953d8dfb4864cf
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872645"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671926"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetría de dependencia: Modelo de datos de Application Insights
 
 La telemetría de dependencias (en [Application Insights](../../azure-monitor/app/app-insights-overview.md)) representa una interacción del componente supervisado con un componente remoto como SQL o un punto de conexión HTTP.
 
-## <a name="name"></a>NOMBRE
+## <a name="name"></a>Nombre
 
 Nombre del comando que se inició con esta llamada de dependencia. Valor de cardinalidad bajo. Algunos ejemplos son el nombre del procedimiento almacenado y la plantilla de ruta de acceso de dirección URL.
 
 ## <a name="id"></a>id
 
-Identificador de una instancia de llamada de dependencia. Se usa para la correlación con el elemento de telemetría de solicitud correspondiente a esta llamada de dependencia. Para más información, vea la página de [correlación](../../azure-monitor/app/correlation.md).
+Identificador de una instancia de llamada de dependencia. Se usa para la correlación con el elemento de telemetría de solicitud correspondiente a esta llamada de dependencia. Para obtener más información, vea la página de [correlación](../../azure-monitor/app/correlation.md).
 
-## <a name="data"></a>Datos
+## <a name="data"></a>data
 
 Comando iniciado por esta llamada de dependencia. Algunos ejemplos son la instrucción SQL y la dirección URL HTTP con todos los parámetros de consulta.
 

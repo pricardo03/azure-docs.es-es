@@ -4,17 +4,16 @@ description: Simplifique la creación de informes complejos con libros parametri
 author: mrbullwinkle
 manager: carmonm
 services: azure-monitor
-ms.service: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: cf11ce3a77fb47b7d8586ef56141a72cd0a10c2e
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 29e675f3ae35df9211f58d45ad8450566d67a588
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872866"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658241"
 ---
 # <a name="azure-monitor-workbooks"></a>Libros de Azure Monitor
 
@@ -40,7 +39,7 @@ Los libros son compatibles actualmente con los siguientes orígenes de datos:
 
 Los libros proporcionan un amplio conjunto de funciones para visualizar los datos. Para obtener ejemplos detallados de cada tipo de visualización, puede consultar los siguientes vínculos de ejemplo:
 
-* [Text](workbooks-visualizations.md#text)
+* [Texto](workbooks-visualizations.md#text)
 * [Gráficos](workbooks-visualizations.md#charts)
 * [Cuadrículas](workbooks-visualizations.md#grids)
 * [Iconos](workbooks-visualizations.md#tiles)
@@ -127,5 +126,5 @@ Una vez que empiece a crear sus propias plantillas de libro, es posible que quie
 
 ## <a name="next-step"></a>Paso siguiente
 
-* Vaya a [Introducción](workbooks-visualizations.md) para obtener más información acerca de las muchas opciones de visualizaciones enriquecidas para libros.
+* [Comience](workbooks-visualizations.md) a aprender más sobre las muchas opciones de visualizaciones enriquecidas de los libros.
 * [Controle](workbooks-access-control.md) y comparta el acceso a los recursos del libro.

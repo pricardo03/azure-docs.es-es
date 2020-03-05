@@ -16,12 +16,12 @@ ms.date: 06/25/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be67a6f287e2d6e77070928cbe12542857696011
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5486a8d8bd4c295f49e0ab847daf45d0fcab47ad
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60347555"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300543"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Características del servicio de sincronización de Azure AD Connect
 
@@ -62,8 +62,8 @@ Las siguientes opciones se configuran mediante Azure AD Connect y no se pueden m
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Permite poner un atributo en cuarentena si es un duplicado de otro objeto en lugar de consignar un error en todo el objeto durante la exportación. |
 | Sincronización de hash de contraseñas |[Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect](how-to-connect-password-hash-synchronization.md) |
 |Autenticación de paso a través|[Inicio de sesión del usuario con la autenticación de paso a través de Azure Active Directory](how-to-connect-pta.md)|
-| UnifiedGroupWriteback |[Versión preliminar: Escritura diferida de grupos](how-to-connect-preview.md#group-writeback) |
-| UserWriteback |No se admite actualmente. |
+| UnifiedGroupWriteback |[Vista previa: Escritura diferida de grupos](how-to-connect-preview.md#group-writeback) |
+| UserWriteback |Actualmente no se admite. |
 
 ## <a name="duplicate-attribute-resiliency"></a>Resistencia de atributos duplicados
 
@@ -96,7 +96,7 @@ Históricamente, las actualizaciones para el atributo UserPrincipalName con el s
 
 Para obtener más información, consulte [Nombres de usuario en Office 365, Azure o Intune no coinciden con el UPN local o el identificador de inicio de sesión alternativo](https://support.microsoft.com/kb/2523192).
 
-La habilitación de esta característica permite al motor de sincronización actualizar el valor de userPrincipalName cuando se modifica de manera local y se usa la sincronización de hash de contraseñas o la autenticación de paso a través. Si utiliza la federación, no se admite esta característica.
+La habilitación de esta característica permite al motor de sincronización actualizar el valor de userPrincipalName cuando se modifica de manera local y se usa la sincronización de hash de contraseñas o la autenticación de paso a través.
 
 Esta característica está activa de forma predeterminada para los directorios de Azure AD recién creados. Puede ver si esta característica está habilitada en su caso ejecutando lo siguiente:  
 
@@ -112,7 +112,7 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 
 Después de habilitar esta característica, los valores existentes de userPrincipalName permanecerán tal cual. En el próximo cambio del atributo userPrincipalName en la instancia local, la sincronización diferencial normal de los usuarios actualizará el UPN.  
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [Sincronización de Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md).

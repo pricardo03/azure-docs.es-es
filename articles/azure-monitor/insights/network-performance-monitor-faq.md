@@ -1,18 +1,17 @@
 ---
 title: 'Preguntas más frecuentes: Solución Network Performance Monitor en Azure | Microsoft Docs'
 description: En este artículo se incluyen las preguntas más frecuentes sobre Network Performance Monitor en Azure. Network Performance Monitor (NPM) ayuda a supervisar el rendimiento de sus redes (en tiempo casi real) para detectar y localizar los cuellos de botella de rendimiento que afectan a la red.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 7ee593a8db020134e13ea853f17f097d716f7814
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 0ef50dfd4d9c6eb0066e54b76167b9934fbb9cf0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538182"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654440"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Preguntas más frecuentes sobre la solución Network Performance Monitor.
 

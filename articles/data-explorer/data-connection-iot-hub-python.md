@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: cfd92546def21972e37781bd8a4b0bfefda9111f
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 76c8ca24882f465bf2a973dc59736745178fc61f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444220"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669529"
 ---
 # <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-python-preview"></a>Creación de una conexión de datos de IoT Hub para Azure Data Explorer con Python (versión preliminar)
 
@@ -22,7 +22,7 @@ ms.locfileid: "77444220"
 > * [Python](data-connection-iot-hub-python.md)
 > * [Plantilla de Azure Resource Manager](data-connection-iot-hub-resource-manager.md)
 
-En este artículo, va a crear una conexión de datos de IoT Hub para Azure Data Explorer con Python. El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. Azure Data Explorer permite ingerir (cargar) datos procedentes de Event Hubs, IoT Hubs y blobs escritos en contenedores de blobs.
+En este artículo, va a crear una conexión de datos de IoT Hub para Azure Data Explorer con Python. El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. Azure Data Explorer permite ingerir, o cargar, datos procedentes de Event Hubs, IoT Hubs y blobs escritos en contenedores de blobs.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -30,7 +30,7 @@ En este artículo, va a crear una conexión de datos de IoT Hub para Azure Data 
 
 * [Python 3.4+](https://www.python.org/downloads/).
 
-* [Un clúster y una base de datos](/create-cluster-database-python.md).
+* [Un clúster y una base de datos](create-cluster-database-python.md).
 
 * [Asignación de tablas y columnas](net-standard-ingest-data.md#create-a-table-on-your-test-cluster).
 

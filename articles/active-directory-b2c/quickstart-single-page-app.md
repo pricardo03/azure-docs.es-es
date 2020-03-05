@@ -3,20 +3,20 @@ title: 'Inicio rápido: Configuración del inicio de sesión de una aplicación 
 titleSuffix: Azure AD B2C
 description: En este inicio rápido, se ejecuta una aplicación de página única de ejemplo que usa Azure Active Directory B2C para proporcionar el inicio de sesión de la cuenta.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/12/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 98b4e7e6b64d68d98597c40c6aea3d6cfe104be0
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: a5d4319f47530a91bcceb9b2dba94c6aa8e4c388
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841323"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183899"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Inicio rápido: Configuración del inicio de sesión en una aplicación de una sola página mediante Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ Azure Active Directory B2C (Azure AD B2C) proporciona administración de id
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) con la carga de trabajo de **ASP.NET y desarrollo web**
 - [Node.js](https://nodejs.org/en/download/)

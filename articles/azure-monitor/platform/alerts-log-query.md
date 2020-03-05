@@ -2,18 +2,16 @@
 title: Consultas de alertas de registro en Azure Monitor | Microsoft Docs
 description: Proporciona recomendaciones sobre cómo escribir consultas eficaces para las alertas de registro en las actualizaciones de Azure Monitor y un proceso para convertir las consultas existentes.
 author: yossi-y
-services: azure-monitor
-ms.service: azure-monitor
+ms.author: yossiy
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: bwren
 ms.subservice: alerts
-ms.openlocfilehash: 429770b7651a93473c03f5e386d8f7b72692c161
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fdf492b8f103e725046b9b1cbbd079c4d249664a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60996008"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667795"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Consultas de alertas de registro en Azure Monitor
 Las [reglas de alertas basadas en registros de Azure Monitor](alerts-unified-log.md) se ejecutan a intervalos regulares, por lo que debe asegurarse de que están escritas de manera eficiente para minimizar la sobrecarga y la latencia. Este artículo proporciona recomendaciones sobre cómo escribir consultas eficaces para las alertas de registro y un proceso para convertir las consultas existentes. 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3eb76535a8047840a577f5b044001d85c20b13f0
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 84b36c1357bedfc120cec72af84fdd79f52a2f57
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188388"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245383"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferencia de la propiedad de facturación de una suscripción de Azure a otra cuenta
 
@@ -45,7 +45,7 @@ Si es un cliente de Contrato Enterprise (EA), los administradores de la empresa 
 
     > [!IMPORTANT]
     >
-    > Si opta por mover la suscripción al inquilino de Azure AD de la nueva cuenta, todas las asignaciones de [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md) para administrar los recursos de la suscripción se quitan de forma permanente. Solo el usuario de la nueva cuenta que acepte la solicitud de transferencia tendrá acceso para administrar los recursos de la suscripción. Para obtener más información, consulte [Transferencia de la suscripción a un usuario en otro inquilino de Azure AD](../../cognitive-services/acoustics/known-issues.md). También puede desactivar la casilla Subscription Azure AD tenant (Inquilino de Azure AD de la suscripción) para transferir la propiedad de facturación sin mover la suscripción al inquilino de la nueva cuenta. Si lo hace así, se mantendrán los permisos RBAC existentes para administrar los recursos de Azure.
+    > Si opta por mover la suscripción al inquilino de Azure AD de la nueva cuenta, todas las asignaciones de [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md) para administrar los recursos de la suscripción se quitan de forma permanente. Solo el usuario de la nueva cuenta que acepte la solicitud de transferencia tendrá acceso para administrar los recursos de la suscripción. Para obtener más información, consulte [Transferencia de la suscripción a un usuario en otro inquilino de Azure AD](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories). También puede desactivar la casilla Subscription Azure AD tenant (Inquilino de Azure AD de la suscripción) para transferir la propiedad de facturación sin mover la suscripción al inquilino de la nueva cuenta. Si lo hace así, se mantendrán los permisos RBAC existentes para administrar los recursos de Azure.
 
     ![Envío de la página de transferencia](./media/billing-subscription-transfer/billing-send-transfer-request.PNG)
 

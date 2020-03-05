@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 00fc836f098f3c03afc9adebe2450f00750eb5ff
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4882206692c334d6ab6af28feb5d2cba5277eea1
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954099"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303943"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Traslado de máquinas virtuales de Azure a otra región
 
@@ -34,7 +34,7 @@ En este tutorial, aprenderá lo siguiente:
 > [!NOTE]
 > En este tutorial se muestra cómo trasladar las máquinas virtuales de Azure de una región a otra tal cual. Si tiene que mejorar la disponibilidad moviendo las máquinas virtuales en un conjunto de disponibilidad a máquinas virtuales ancladas a la zona en una región distinta, consulte el [tutorial Traslado de máquinas virtuales de Azure a zonas de disponibilidad](move-azure-vms-avset-azone.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Asegúrese de tener las máquinas virtuales de Azure en la región de Azure desde la que va a realizar el traslado.
 - Compruebe si [se admite la combinación de región de origen y región de destino](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support) que ha elegido y tome una decisión informada sobre la región de destino.
@@ -53,7 +53,7 @@ En este tutorial, aprenderá lo siguiente:
 
 - Para las máquinas virtuales de Windows, instale las actualizaciones de Windows más recientes en la máquina virtual, de modo que todos los certificados raíz de confianza estén en ella. En un entorno desconectado, siga los procesos estándar de actualización de certificados y de Windows Update en su organización.
     
-- En las máquinas virtuales Linux, para obtener los certificados raíz de confianza y la lista de revocación de certificados en la máquina virtual, siga las instrucciones proporcionadas por su distribuidor de Linux.
+- En las máquinas virtuales Linux, para obtener los últimos certificados raíz de confianza y la lista de revocación de certificados en la máquina virtual, siga las instrucciones proporcionadas por su distribuidor de Linux.
 - Asegúrese de que no utiliza un proxy de autenticación para controlar la conectividad de red de las máquinas virtuales que quiere trasladar.
 
 - Si la máquina virtual que está intentando trasladar no tiene acceso a Internet, o utiliza un proxy de firewall para controlar el acceso de salida, [compruebe los requisitos](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
@@ -73,7 +73,7 @@ En este tutorial, aprenderá lo siguiente:
     - [Grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Equilibradores de carga](https://docs.microsoft.com/azure/load-balancer)
     -  [Dirección IP pública](../virtual-network/virtual-network-public-ip-address.md)
-    - Para cualquier otro componente de red, consulte la [documentación de red](https://docs.microsoft.com/azure/#pivot=products&panel=network).
+    - Para cualquier otro componente de red, consulte la [documentación de red](https://docs.microsoft.com/azure/?pivot=products&panel=network).
 
 
 
@@ -99,7 +99,7 @@ Site Recovery recupera una lista de las máquinas virtuales asociadas a la suscr
 
 1. En el paso siguiente, seleccione la máquina virtual que desee mover y, después, seleccione **Aceptar**.
 1. En **Configuración**, haga clic en **Recuperación ante desastres**.
-1. En **Configurar recuperación ante desastres** > **Región de destino**, seleccione la región de destino en la que quiere realizar la replicación.
+1. En **Configurar la recuperación ante desastres** > **Región de destino**, seleccione la región de destino en la que quiere realizar la replicación.
 1. Para este tutorial, acepte los valores predeterminados.
 1. Seleccione **Habilitar replicación**. Este paso inicia un trabajo para habilitar la replicación de la máquina virtual.
 
@@ -120,7 +120,7 @@ En los pasos siguientes se muestra cómo realizar el traslado a la región de de
 En caso de que haya comprobado la máquina virtual que se ha trasladado y tenga que cambiarla al punto de conmutación por error o desee volver a un punto anterior, en los **Elementos replicados**, haga clic con el botón de derecho para seleccionar la máquina virtual y **cambie el punto de recuperación**. Este paso le ofrece la opción de especificar un punto de recuperación diferente y conmutar por error a ese mismo. 
 
 
-## <a name="commit"></a>Confirmación 
+## <a name="commit"></a>Commit 
 
 Una vez que haya comprobado la máquina virtual que se ha trasladado y esté preparado para confirmar el cambio **, en los**elementos replicados, seleccione con el botón derecho la máquina virtual y **confirme**. Esto finaliza el proceso de traslado a la región de destino. Espere hasta que el trabajo de confirmación finalice.
 

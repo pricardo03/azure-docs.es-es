@@ -1,18 +1,17 @@
 ---
 title: Seguridad de datos de Log Analytics | Microsoft Docs
 description: Obtenga información sobre cómo Log Analytics protege su privacidad y sus datos.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2019
-ms.openlocfilehash: 4ad762cc3a7388628b7385afb07b45819ef882b5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0ac169060f7ba0e58aeb3e36e3af1629b6453fc1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363853"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667370"
 ---
 # <a name="log-analytics-data-security"></a>Seguridad de datos de Log Analytics
 Este documento está diseñado para proporcionar información específica sobre Log Analytics, que es una característica de Azure Monitor, para complementar la información que se halla en el [Centro de confianza de Azure](../../security/fundamentals/trust-center.md).  

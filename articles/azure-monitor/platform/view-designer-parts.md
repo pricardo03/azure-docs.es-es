@@ -1,18 +1,17 @@
 ---
 title: Guía de referencia de los elementos del Diseñador de vistas en Azure Monitor | Microsoft Docs
 description: Con el uso del Diseñador de vistas en Azure Monitor se pueden crear vistas personalizadas que se muestran en Azure Portal y que contienen diferentes visualizaciones de datos en el área de trabajo de Log Analytics. Este artículo es una guía de referencia para la configuración de los elementos de visualización que están disponibles en las vistas personalizadas.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
-ms.openlocfilehash: 853f0153283f31c9242b884babf5778f96cce141
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7dc4164cac1998a02ae62d7682f9630aa4faa619
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931988"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658564"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guía de referencia de los elementos de visualización del Diseñador de vistas en Azure Monitor
 Con el uso del Diseñador de vistas en Azure Monitor, puede crear una variedad de vistas personalizadas en Azure Portal que pueden ayudarle a visualizar datos en el área de trabajo de Log Analytics. Este artículo es una guía de referencia para la configuración de los elementos de visualización que están disponibles en las vistas personalizadas.
@@ -25,7 +24,7 @@ Para más información acerca del Diseñador de vistas, consulte:
 
 En la tabla siguiente se describen los tipos de icono disponibles del Diseñador de vistas:
 
-| Tipo de vista | DESCRIPCIÓN |
+| Tipo de vista | Descripción |
 |:--- |:--- |
 | [Lista de consultas](#list-of-queries-part) |Muestra una lista de las consultas de registros. Puede seleccionar cada una de las consultas para mostrar los resultados. |
 | [Number and list](#number-and-list-part) (Número y lista) |El encabezado presenta un solo número que muestra la cantidad de registros de una consulta de registros. La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un período. |
@@ -47,7 +46,7 @@ El elemento Lista de consultas muestra una lista de las consultas de registros. 
 
 ![Vista Lista de consultas](media/view-designer-parts/view-list-queries.png)
 
-| Configuración | DESCRIPCIÓN |
+| Configuración | Descripción |
 |:--- |:--- |
 | **General** | |
 | Título |Texto que se muestra en la parte superior de la vista. |
@@ -63,7 +62,7 @@ El encabezado presenta un solo número que muestra la cantidad de registros de u
 
 ![Vista Lista de consultas](media/view-designer-parts/view-number-list.png)
 
-| Configuración | DESCRIPCIÓN |
+| Configuración | Descripción |
 |:--- |:--- |
 | **General** | |
 | Título de grupo |Texto que se muestra en la parte superior de la vista. |
@@ -82,8 +81,8 @@ El encabezado presenta un solo número que muestra la cantidad de registros de u
 | Name and Value Separator (Separador de nombre y valor) |Delimitador de carácter único para analizar la propiedad text en varios valores. Para más información, consulte [Configuración común](#sparklines). |
 | Navegación a través de un clic | Acción realizada al hacer clic en un elemento de la lista.  Para más información, consulte [Configuración común](#click-through-navigation). |
 | **Lista** |**> Títulos de columna** |
-| NOMBRE |Texto que se muestra en la parte superior de la primera columna. |
-| Valor |Texto que se muestra en la parte superior de la segunda columna. |
+| Nombre |Texto que se muestra en la parte superior de la primera columna. |
+| Value |Texto que se muestra en la parte superior de la segunda columna. |
 | **Lista** |**&gt; Umbrales** |
 | Enable Thresholds (Habilitar umbrales) |Seleccione este vínculo para habilitar los umbrales. Para más información, consulte [Configuración común](#thresholds). |
 
@@ -92,7 +91,7 @@ El encabezado tiene dos números que presentan la cantidad de registros de consu
 
 ![Vista Dos números y lista](media/view-designer-parts/view-two-numbers-list.png)
 
-| Configuración | DESCRIPCIÓN |
+| Configuración | Descripción |
 |:--- |:--- |
 | **General** | |
 | Título de grupo |Texto que se muestra en la parte superior de la vista. |
@@ -113,8 +112,8 @@ El encabezado tiene dos números que presentan la cantidad de registros de consu
 | Name and Value Separator (Separador de nombre y valor) |Delimitador de carácter único para analizar la propiedad text en varios valores. Para más información, consulte [Configuración común](#sparklines). |
 | Navegación a través de un clic | Acción realizada al hacer clic en un elemento de la lista.  Para más información, consulte [Configuración común](#click-through-navigation). |
 | **Lista** |**> Títulos de columna** |
-| NOMBRE |Texto que se muestra en la parte superior de la primera columna. |
-| Valor |Texto que se muestra en la parte superior de la segunda columna. |
+| Nombre |Texto que se muestra en la parte superior de la primera columna. |
+| Value |Texto que se muestra en la parte superior de la segunda columna. |
 | **Lista** |**&gt; Umbrales** |
 | Enable Thresholds (Habilitar umbrales) |Seleccione este vínculo para habilitar los umbrales. Para más información, consulte [Configuración común](#thresholds). |
 
@@ -123,7 +122,7 @@ El encabezado muestra un solo número que resume una columna de valor de una con
 
 ![Vista Donut and list (Anillo y lista)](media/view-designer-parts/view-donut-list.png)
 
-| Configuración | DESCRIPCIÓN |
+| Configuración | Descripción |
 |:--- |:--- |
 | **General** | |
 | Título de grupo |Texto que se muestra en la parte superior del icono. |
@@ -154,8 +153,8 @@ El encabezado muestra un solo número que resume una columna de valor de una con
 | Name and Value Separator (Separador de nombre y valor) |Delimitador de carácter único para analizar la propiedad text en varios valores. Para más información, consulte [Configuración común](#sparklines). |
 | Navegación a través de un clic | Acción realizada al hacer clic en un elemento de la lista.  Para más información, consulte [Configuración común](#click-through-navigation). |
 | **Lista** |**> Títulos de columna** |
-| NOMBRE |Texto que se muestra en la parte superior de la primera columna. |
-| Valor |Texto que se muestra en la parte superior de la segunda columna. |
+| Nombre |Texto que se muestra en la parte superior de la primera columna. |
+| Value |Texto que se muestra en la parte superior de la segunda columna. |
 | **Lista** |**&gt; Umbrales** |
 | Enable Thresholds (Habilitar umbrales) |Seleccione este vínculo para habilitar los umbrales. Para más información, consulte [Configuración común](#thresholds). |
 
@@ -164,7 +163,7 @@ El encabezado presenta los resultados de dos consultas de registro en un períod
 
 ![Vista Two timelines and list (Dos escalas de tiempo y lista)](media/view-designer-parts/view-two-timelines-list.png)
 
-| Configuración | DESCRIPCIÓN |
+| Configuración | Descripción |
 |:--- |:--- |
 | **General** | |
 | Título de grupo |Texto que se muestra en la parte superior del icono. |
@@ -186,8 +185,8 @@ El encabezado presenta los resultados de dos consultas de registro en un períod
 | Operación |Operación que se realiza en el minigráfico. Para más información, consulte [Configuración común](#sparklines). |
 | Navegación a través de un clic | Acción realizada al hacer clic en un elemento de la lista.  Para más información, consulte [Configuración común](#click-through-navigation). |
 | **Lista** |**> Títulos de columna** |
-| NOMBRE |Texto que se muestra en la parte superior de la primera columna. |
-| Valor |Texto que se muestra en la parte superior de la segunda columna. |
+| Nombre |Texto que se muestra en la parte superior de la primera columna. |
+| Value |Texto que se muestra en la parte superior de la segunda columna. |
 | **Lista** |**&gt; Umbrales** |
 | Enable Thresholds (Habilitar umbrales) |Seleccione este vínculo para habilitar los umbrales. Para más información, consulte [Configuración común](#thresholds). |
 
@@ -196,7 +195,7 @@ El encabezado muestra texto estático y un vínculo opcional. La lista muestra u
 
 ![Vista Información](media/view-designer-parts/view-information.png)
 
-| Configuración | DESCRIPCIÓN |
+| Configuración | Descripción |
 |:--- |:--- |
 | **General** | |
 | Título de grupo |Texto que se muestra en la parte superior del icono. |
@@ -207,7 +206,7 @@ El encabezado muestra texto estático y un vínculo opcional. La lista muestra u
 | Etiqueta |Texto que se muestra en el encabezado. |
 | **Encabezado** |**&gt; Vínculo** |
 | Etiqueta |Texto del vínculo. |
-| URL |Dirección URL del vínculo. |
+| Url |Dirección URL del vínculo. |
 | **Elementos de información** | |
 | Título |Texto que se muestra en el título de cada elemento. |
 | Contenido |Texto que se muestra en cada elemento. |
@@ -217,7 +216,7 @@ El encabezado muestra un gráfico de líneas con varias series de una consulta d
 
 ![Vista Line chart, callout, and list (Gráfico de líneas, llamada y lista)](media/view-designer-parts/view-line-chart-callout-list.png)
 
-| Configuración | DESCRIPCIÓN |
+| Configuración | Descripción |
 |:--- |:--- |
 | **General** | |
 | Título de grupo |Texto que se muestra en la parte superior del icono. |
@@ -247,8 +246,8 @@ El encabezado muestra un gráfico de líneas con varias series de una consulta d
 | Name and Value Separator (Separador de nombre y valor) |Delimitador de carácter único para analizar la propiedad text en varios valores. Para más información, consulte [Configuración común](#sparklines). |
 | Navegación a través de un clic | Acción realizada al hacer clic en un elemento de la lista.  Para más información, consulte [Configuración común](#click-through-navigation). |
 | **Lista** |**> Títulos de columna** |
-| NOMBRE |Texto que se muestra en la parte superior de la primera columna. |
-| Valor |Texto que se muestra en la parte superior de la segunda columna. |
+| Nombre |Texto que se muestra en la parte superior de la primera columna. |
+| Value |Texto que se muestra en la parte superior de la segunda columna. |
 | **Lista** |**&gt; Umbrales** |
 | Enable Thresholds (Habilitar umbrales) |Seleccione este vínculo para habilitar los umbrales. Para más información, consulte [Configuración común](#thresholds). |
 
@@ -257,7 +256,7 @@ El encabezado muestra un gráfico de líneas con varias series de una consulta d
 
 ![Vista Line chart and list (Gráfico de líneas y lista)](media/view-designer-parts/view-line-chart-callout-list.png)
 
-| Configuración | DESCRIPCIÓN |
+| Configuración | Descripción |
 |:--- |:--- |
 | **General** | |
 | Título de grupo |Texto que se muestra en la parte superior del icono. |
@@ -283,8 +282,8 @@ El encabezado muestra un gráfico de líneas con varias series de una consulta d
 | Name and Value Separator (Separador de nombre y valor) |Delimitador de carácter único para analizar la propiedad text en varios valores. Para más información, consulte [Configuración común](#sparklines). |
 | Navegación a través de un clic | Acción realizada al hacer clic en un elemento de la lista.  Para más información, consulte [Configuración común](#click-through-navigation). |
 | **Lista** |**> Títulos de columna** |
-| NOMBRE |Texto que se muestra en la parte superior de la primera columna. |
-| Valor |Texto que se muestra en la parte superior de la segunda columna. |
+| Nombre |Texto que se muestra en la parte superior de la primera columna. |
+| Value |Texto que se muestra en la parte superior de la segunda columna. |
 | **Lista** |**&gt; Umbrales** |
 | Enable Thresholds (Habilitar umbrales) |Seleccione este vínculo para habilitar los umbrales. Para más información, consulte [Configuración común](#thresholds). |
 
@@ -293,7 +292,7 @@ La pila del gráfico de líneas muestra tres gráficos de líneas independientes
 
 ![Stack of line charts (Pila de gráficos de líneas)](media/view-designer-parts/view-stack-line-charts.png)
 
-| Configuración | DESCRIPCIÓN |
+| Configuración | Descripción |
 |:--- |:--- |
 | **General** | |
 | Título de grupo |Texto que se muestra en la parte superior del icono. |
@@ -323,7 +322,7 @@ La navegación a través de un clic define la acción que se realizará al hacer
 
 En la tabla siguiente se describe la configuración de la navegación a través de un clic.
 
-| Configuración           | DESCRIPCIÓN |
+| Configuración           | Descripción |
 |:--|:--|
 | Búsqueda de registros (Automático) | La consulta de registros que se ejecuta cuando se selecciona un elemento de encabezado.  Se trata de la misma consulta de registros en la que se basa el elemento.
 | Búsqueda de registros        | La consulta de registros que se ejecuta cuando se selecciona un elemento de una lista.  Escriba la consulta en el cuadro **Consulta de navegación**.   Use *{selected item}* para incluir la sintaxis del elemento que ha seleccionado el usuario.  Por ejemplo, si la consulta tiene una columna llamada *Equipo* y la consulta de navegación es *{selected item}* , al seleccionar un equipo se ejecuta una consulta como *Equipo="miEquipo"* . Si la consulta de navegación es *Type=Event {selected item}* , se ejecuta la consulta *Type=Event Equipo="miEquipo"* . |
@@ -336,7 +335,7 @@ Un minigráfico es un pequeño gráfico de líneas que muestra el valor de una e
 
 En la tabla siguiente se describe la configuración de los minigráficos:
 
-| Configuración | DESCRIPCIÓN |
+| Configuración | Descripción |
 |:--- |:--- |
 | Enable sparklines (Habilitar los minigráficos) |Seleccione este vínculo para mostrar un minigráfico en lugar de la barra horizontal. |
 | Operación |Si los minigráficos están habilitados, será la operación que se realizará en cada propiedad de la lista para calcular los valores del minigráfico.<ul><li>Último ejemplo: último valor de la serie en el intervalo de tiempo.</li><li>Máx.: valor máximo de la serie en el intervalo de tiempo.</li><li>Mín.: valor mínimo de la serie en el intervalo de tiempo.</li><li>Suma: suma de los valores de la serie en el intervalo de tiempo.</li><li>Resumen: utiliza el mismo comando `measure` que la consulta del encabezado.</li></ul> |
@@ -350,10 +349,10 @@ Cada conjunto de umbral tiene un umbral con un valor de **Predeterminado**. Este
 
 En la tabla siguiente se describe la configuración de los umbrales:
 
-| Configuración | DESCRIPCIÓN |
+| Configuración | Descripción |
 |:--- |:--- |
 | Enable Thresholds (Habilitar umbrales) |Seleccione este vínculo para mostrar un icono de color a la izquierda de cada valor. El icono indica el mantenimiento del valor en relación con los umbrales especificados. |
-| NOMBRE |Nombre del valor de umbral. |
+| Nombre |Nombre del valor de umbral. |
 | Umbral |Valor del umbral. El color de mantenimiento de cada elemento de lista se establece en el color del valor de umbral máximo que se ve superado por el valor del elemento. Si no se supera ningún valor de umbral, se utiliza un color predeterminado. |
 | Color |Color que indica el valor de umbral. |
 

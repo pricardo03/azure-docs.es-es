@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
-ms.openlocfilehash: 47e38d79e8aa4656b8164c94b4ef439bf431e01d
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: af5ab05cb772909cd36e2e6bfe1c100a5b83841c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049665"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660043"
 ---
 # <a name="linux-support"></a>Compatibilidad de Linux
 
@@ -21,6 +21,9 @@ Puede usar el SDK de Linux para Windows Virtual Desktop para compilar un cliente
 ## <a name="what-is-the-linux-sdk"></a>¿Qué es el SDK de Linux?
 
 Puede usar las API del SDK para recuperar fuentes de recursos, conectarse a sesiones de escritorio o de aplicaciones remotas y usar muchos de los redireccionamientos que admiten los clientes de nuestra plataforma.
+
+> [!NOTE]
+> El SDK está actualmente en desarrollo. Este documento se actualizará con instrucciones para acceder al SDK cuando esté disponible.
 
 ### <a name="supported-linux-distributions"></a>Distribuciones de Linux compatibles
 
@@ -54,8 +57,6 @@ Antes de que pueda desarrollar un cliente Linux para Windows Virtual Desktop, de
 2. Pruebe los clientes de Microsoft disponibles para familiarizarse con la experiencia del usuario de Windows Virtual Desktop.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-El SDK está actualmente en desarrollo. Este documento se actualizará con instrucciones para acceder al SDK cuando esté disponible.
 
 Consulte la documentación de los siguientes clientes:
 

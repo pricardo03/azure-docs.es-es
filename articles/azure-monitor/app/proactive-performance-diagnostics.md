@@ -1,19 +1,15 @@
 ---
 title: 'Detección inteligente: anomalías de rendimiento de Smart | Microsoft Docs'
 description: Application Insights realiza un análisis inteligente de la telemetría de su aplicación y le advierte de los posibles problemas. Esta característica no necesita ninguna configuración.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: b9a95bb2ee6ab137e974b46e24738ca5194f3bd2
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 3d8de08605d3dd693eb74a84a29c2efa6cad669a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820571"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671739"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detección inteligente: anomalías de rendimiento
 

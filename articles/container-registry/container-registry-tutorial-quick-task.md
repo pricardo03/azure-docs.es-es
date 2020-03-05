@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a compilar una imagen de contenedor de
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b8a45cf3a72ed8f38f6f28a2f0225d0913f906da
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 51891d7b17fad7e438cc31652b6a0769d024e8e0
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456057"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252111"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: Compilación e implementación de imágenes de contenedor en la nube con Azure Container Registry Tasks
 
@@ -32,7 +32,7 @@ En tutoriales posteriores, aprenderá a usar ACR Tasks para compilaciones automa
 
 Si quiere usar la CLI de Azure de forma local, debe tener la versión **2.0.46** u otra posterior instalada y registrada con [az login][az-login]. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli].
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="github-account"></a>Cuenta de GitHub
 
@@ -52,13 +52,13 @@ Una vez que se ha bifurcado el repositorio, clone la bifurcación y especifique 
 
 Clone el repositorio con `git`, reemplace **\<your-github-username\>** por su nombre de usuario de GitHub:
 
-```azurecli-interactive
+```console
 git clone https://github.com/<your-github-username>/acr-build-helloworld-node
 ```
 
 Especifique el directorio que contiene el código fuente:
 
-```azurecli-interactive
+```console
 cd acr-build-helloworld-node
 ```
 
@@ -72,7 +72,9 @@ Ahora que ha extraído el código fuente en su máquina, siga estos pasos para c
 
 Para facilitar la ejecución de comandos de ejemplo, los tutoriales de esta serie usan variables de entorno de shell. Ejecute el siguiente comando para establecer la variable `ACR_NAME`. Reemplace **\<registry-name\>** por un nombre único para el nuevo registro de contenedor. El nombre del registro debe ser único en Azure y contener solo minúsculas, y entre 5 y 50 caracteres alfanuméricos. Los demás recursos que cree en el tutorial se basan en este nombre con lo cual solo tendría que modificar esta primera variable.
 
-```azurecli-interactive
+[![Insertar inicio](https://shell.azure.com/images/launchcloudshell.png "Inicio de Azure Cloud Shell")](https://shell.azure.com)
+
+```console
 ACR_NAME=<registry-name>
 ```
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 80b13cb9a926837604e2a10fed75b976ba3393b6
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: bf4c7e9fc623ad7dc74b6da943232d5c558d43a4
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934919"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920270"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensión de la secuencia de comandos personalizada para Windows
 
@@ -23,7 +23,7 @@ La extensión de script personalizado descarga y ejecuta scripts en máquinas vi
 
 En este documento se detalla cómo usar la extensión de script personalizado mediante el módulo de Azure PowerShell y plantillas de Azure Resource Manager, y se detallan también los pasos para solucionar problemas en los sistemas Windows.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 > [!NOTE]  
 > No use la extensión de script personalizado para ejecutar Update-AzVM con la misma VM como su parámetro, ya tendrá que hacerlo ella misma.  
@@ -273,6 +273,8 @@ The response content cannot be parsed because the Internet Explorer engine is no
 Para implementar la extensión de script personalizado en un conjunto de escalado, consulte [Add-AzVmssExtension](https://docs.microsoft.com/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0).
 
 ## <a name="classic-vms"></a>Máquinas virtuales clásicas
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 Para implementar la extensión de script personalizado en máquinas virtuales clásicas, puede usar Azure Portal o los cmdlets clásicos de Azure PowerShell.
 

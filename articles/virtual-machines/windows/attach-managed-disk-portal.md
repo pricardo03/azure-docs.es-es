@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 8b651d6e5ca9262d38f5bfb9e10c404e2614809e
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 0fe04941821de2ac6e4e873e8d073c3e9b9d9508
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77055675"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919386"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Conexión de un disco de datos administrado a una máquina virtual Windows en Azure Portal
 
@@ -48,4 +48,4 @@ En este artículo se muestra cómo conectar un nuevo disco de datos administrado
 ## <a name="next-steps"></a>Pasos siguientes
 
 - También puede [conectar un disco de datos mediante PowerShell](attach-disk-ps.md).
-- Si la aplicación necesita usar la unidad *D:* para almacenar datos, puede [cambiar la letra de la unidad del disco temporal de Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+- Si la aplicación necesita usar la unidad *D:* para almacenar datos, puede [cambiar la letra de la unidad del disco temporal de Windows](change-drive-letter.md).

@@ -3,20 +3,20 @@ title: Migración de las API web basadas en OWIN a b2clogin.com
 titleSuffix: Azure AD B2C
 description: Obtenga información sobre cómo habilitar una API web de .NET para admitir tokens emitidos por varios emisores de token mientras migra las aplicaciones a b2clogin.com.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e6a92d12e7f2f24289aafa7e4a9acc9edccbd34c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 5daf88e746ea803f345c79bd31d656f2615b6754
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840407"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184101"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migración de una API web basada en OWIN a b2clogin.com
 
@@ -29,7 +29,7 @@ En las secciones siguientes se muestra un ejemplo de cómo habilitar varios emis
 > [!NOTE]
 > Este artículo está destinado a clientes de Azure AD B2C con API actualmente implementadas aplicaciones que hacen referencia a `login.microsoftonline.com` y a quienes quieran migrar al punto de conexión recomendado `b2clogin.com`. Si va a configurar una nueva aplicación, use [b2clogin.com](b2clogin.md) como se indica.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de continuar con los pasos de este artículo, necesita tener los siguientes recursos de Azure AD B2C:
 

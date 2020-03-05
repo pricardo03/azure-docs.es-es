@@ -1,18 +1,17 @@
 ---
 title: Uso de Blob Storage para IIS y Table Storage para eventos en Azure Monitor | Microsoft Docs
 description: Azure Monitor puede leer los registros de los servicios de Azure que escriben los diagnósticos en Table Storage o los registros de IIS escritos en Blob Storage.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 7edf778dc2429cc1054d1550a513d7461f8e7928
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 44368ab90abd189c6a8a0792494828c87142eb20
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77473180"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672402"
 ---
 # <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Recopilación de datos de Azure Diagnostics Extension en los registros de Azure Monitor
 Azure Diagnostics Extension es un [agente de Azure Monitor](agents-overview.md) que recopila datos de supervisión del sistema operativo invitado de los recursos de proceso de Azure, incluidas las máquinas virtuales. En este artículo, se explica cómo se recopilan los datos obtenidos por la extensión de diagnóstico de Azure Storage en los registros de Azure Monitor.

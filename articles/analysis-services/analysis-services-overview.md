@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 02/20/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a61bc852d3042d0bd8828bf89dce6ab6b760d092
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 3a18218635b5fc576bd9255eb73c136756ac3caa
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77459691"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272949"
 ---
 # <a name="what-is-azure-analysis-services"></a>¿Qué es Azure Analysis Services?
 
@@ -214,7 +214,7 @@ Las tareas de administración de los recursos del servidor como crear los recurs
 
 ### <a name="object-model-and-scripting"></a>Modelo de objetos y scripting
 
-Los modelos tabulares ofrecen un desarrollo rápido y son altamente personalizables. Los modelos tabulares incluyen el [Modelo de objetos tabulares](https://docs.microsoft.com/bi-reference/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (TOM) para describir los objetos del modelo. El modelo de objetos tabulares se expone en JSON por medio del [lenguaje de scripting de modelos tabulares (TMSL)](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) y el lenguaje de definición de datos AMO mediante el espacio de nombres [Microsoft.AnalysisServices.Tabular](/dotnet/api/microsoft.analysisservices.tabular). 
+Los modelos tabulares ofrecen un desarrollo rápido y son altamente personalizables. Los modelos tabulares incluyen el [Modelo de objetos tabulares](https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (TOM) para describir los objetos del modelo. El modelo de objetos tabulares se expone en JSON por medio del [lenguaje de scripting de modelos tabulares (TMSL)](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) y el lenguaje de definición de datos AMO mediante el espacio de nombres [Microsoft.AnalysisServices.Tabular](/dotnet/api/microsoft.analysisservices.tabular). 
 
 ## <a name="supports-the-latest-client-tools"></a>Compatibilidad con las herramientas de cliente más recientes
 

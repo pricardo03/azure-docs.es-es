@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 2baa82bda1f92fe81bb0db69b84e6865b2709e42
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: cdbaeb5a97beba342bc471e75d1b07be0d0141ae
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058030"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921418"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Solución de problemas de implementación de máquinas virtuales Windows en Azure
 
@@ -106,6 +106,8 @@ En este [artículo](../windows/client-images.md) se describen los requisitos de 
 Cuando una máquina virtual se está ejecutando, se implementa en un servidor físico. Los servidores físicos en regiones de Azure se agrupan en clústeres de hardware físico común. El modo de cambiar el tamaño de una máquina virtual que requiere que esta se mueva a clústeres de hardware diferentes difiere en función del modelo de implementación que se usara para implementarla.
 
 - En el caso de las máquinas virtuales implementadas en el modelo de implementación clásico, la implementación del servicio de nube debe quitarse y volver a implementarse para cambiar su tamaño por uno de otra familia de tamaño.
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 - En el caso de las máquinas virtuales implementadas en el modelo de implementación Resource Manager, debe detener todas las máquinas virtuales dentro del conjunto de disponibilidad antes de cambiar el tamaño de cualquiera de estas.
 

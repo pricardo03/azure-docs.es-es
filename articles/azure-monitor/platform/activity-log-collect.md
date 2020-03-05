@@ -1,18 +1,17 @@
 ---
 title: Recopilación y análisis de los registros de actividad de Azure en un área de trabajo de Log Analytics | Microsoft Docs
 description: Recopile el registro de actividad de Azure en los registros de Azure Monitor y utilice la solución de supervisión para analizar tal registro y hacer búsquedas en él en todas las suscripciones de Azure.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: 2bf2f012e553e08a1eb829f93d9af0f0e74f638b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 044f974d83eba098820639e67412110329d5ad7d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977652"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668985"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Recopilación y análisis de los registros de actividad de Azure en un área de trabajo de Log Analytics en Azure Monitor
 

@@ -4,12 +4,12 @@ description: Obtenga información sobre las preguntas más frecuentes y respuest
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 3fe6289ad7616dec97706c2f1779a74c508a0f76
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2a5c2ea63d162eb6fb78ab702e0519f8ac25dcc7
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461998"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252501"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Preguntas frecuentes sobre Service Fabric Mesh
 
@@ -46,8 +46,11 @@ Si se diera el caso, puede validar que el sistema la apague mediante la ejecuci�
 
 Por ejemplo: 
 
-```cli
-~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
+```azurecli
+az mesh app show --resource-group myResourceGroup --name helloWorldApp
+```
+
+```output
 {
   "debugParams": null,
   "description": "Service Fabric Mesh HelloWorld Application!",

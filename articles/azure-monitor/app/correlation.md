@@ -1,19 +1,17 @@
 ---
 title: Correlación de telemetría de Azure Application Insights | Microsoft Docs
 description: Correlación de Telemetría de Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: bc73dfb1c4dc77abe0bd135ecf572fa05ddf6322
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 06897fffda490cdfcbb2a9cf6f55c7945e8afda0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951333"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672062"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlación de Telemetría en Application Insights
 
@@ -47,7 +45,7 @@ Puede analizar la telemetría resultante ejecutando una consulta:
 
 En los resultados, observe que todos los elementos de telemetría comparten la raíz `operation_Id`. Cuando se realiza una llamada Ajax desde la página, se asigna un nuevo identificador único (`qJSXU`) a la telemetría de dependencia y el identificador de pageView se usa como `operation_ParentId`. La solicitud al servidor utiliza después el identificador de Ajax como `operation_ParentId`.
 
-| itemType   | Nombre                      | id           | operation_ParentId | operation_Id |
+| itemType   | name                      | id           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Stock page                |              | STYz               | STYz         |
 | dependency | GET /Home/Stock           | qJSXU        | STYz               | STYz         |

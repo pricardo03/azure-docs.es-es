@@ -1,18 +1,17 @@
 ---
 title: Optimización del entorno de SQL Server con Azure Monitor | Microsoft Docs
 description: Con Azure Monitor, puede usar periódicamente la solución SQL Health Check para evaluar el riesgo y el estado de los entornos.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/28/2019
-ms.openlocfilehash: 23b1391033713fc8eeccf2d0872c49a4291b8292
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: ceaed0800df01bf2c44fee13d98b01b6e726200d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76168893"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662491"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Optimización del entorno de SQL con la solución SQL Server Health Check en Azure Monitor
 
@@ -32,7 +31,7 @@ Después de haber agregado la solución y completar una evaluación, se muestra 
 
 ![imagen del panel de SQL Health Check](./media/sql-assessment/sql-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * La solución SQL Health Check requiere que esté instalada una versión compatible de .NET Framework 4.6.2 en todos los equipos que tengan Microsoft Monitoring Agent (MMA) instalado.  System Center 2016 - Operations Manager y Operations Manager 2012 R2, y Azure Monitor, usan el agente de MMA.  
 * La solución es compatible con las versiones 2012, 2014 y 2016 de SQL Server.

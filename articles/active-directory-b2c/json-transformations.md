@@ -3,20 +3,20 @@ title: Ejemplos de transformación de notificaciones de JSON para directivas per
 titleSuffix: Azure AD B2C
 description: Ejemplos de transformación de notificaciones de JSON para el esquema de Identity Experience Framework (IEF) de Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 12/10/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 56c46b8f2804e37544c94ec2d6ced7e8879b1ffa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ad8fcf578ae1c89856a9d7929af0aec813cb4082
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75367134"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187600"
 ---
 # <a name="json-claims-transformations"></a>Transformaciones de notificaciones de JSON
 

@@ -1,18 +1,17 @@
 ---
 title: Ubicaciones de datos de supervisión en Azure Monitor | Microsoft Docs
 description: Se describen las diferentes ubicaciones de Azure donde se almacenan datos de supervisión, incluida la plataforma de datos de Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/21/2019
-ms.openlocfilehash: 2ec1f0161713c7014f71fb3eaee31b0abdf52902
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7d4459867081d920fefb9471b1a682d21040da9d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932558"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666622"
 ---
 # <a name="monitoring-data-locations-in-azure-monitor"></a>Ubicaciones de datos de supervisión en Azure Monitor
 
@@ -22,10 +21,10 @@ Azure Monitor se basa en una [plataforma de datos](data-platform.md) de [Registr
 
 En la siguiente tabla se identifican las diferentes ubicaciones de Azure a las que se envían datos de supervisión y los distintos métodos para tener acceso a estos.
 
-| Location | DESCRIPCIÓN | Métodos de acceso |
+| Location | Descripción | Métodos de acceso |
 |:---|:---|:---|:--|
 | Métricas de Azure Monitor | Base de datos de serie temporal que está optimizada para el análisis de los datos con marca de tiempo. | [Explorador de métricas](metrics-getting-started.md)<br>[API de métricas de Azure Monitor ](/rest/api/monitor/metrics) |
-| Registros de Azure Monitor    | Área de trabajo de Log Analytics basada en Azure Data Explorer que proporciona un motor de análisis eficaz y un lenguaje de consulta completo. | [Log Analytics](../log-query/portals.md)<br>[API de Log Analytics](https://dev.loganalytics.io/)<br>[API de Application Insights](https://dev.applicationinsights.io/reference/get-query) |
+| Registros de Azure Monitor    | Área de trabajo de Log Analytics basada en Azure Data Explorer que proporciona un motor de análisis eficaz y un lenguaje de consulta completo. | [Log Analytics](../log-query/portals.md)<br>[API de Log Analytics](https://dev.loganalytics.io/)<br>[API de Application Insights](https://dev.applicationinsights.io/reference/get-query) |
 | Registro de actividades | Los datos del registro de actividades son muy útiles cuando se envían a registros de Azure Monitor para analizarlos con otros datos, pero también se recopilan por separado de manera que se pueden ver directamente en Azure Portal. | [Azure Portal](activity-log-view.md#azure-portal)<br>[API de eventos de Azure Monitor](/rest/api/monitor/eventcategories) |
 | Azure Storage | Algunos orígenes de datos escribirán directamente en Azure Storage y requieren una configuración para mover datos a registros. También puede enviar datos a Azure Storage para archivado e integración con sistemas externos.  | [Storage Analytics](/rest/api/storageservices/storage-analytics)<br>[Explorador de servidores](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)<br>[Explorador de Storage](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) |
 | Event Hubs | Envíe datos a Azure Event Hubs para transmitirlos a otras ubicaciones. | [Captura en almacenamiento](../../event-hubs/event-hubs-capture-overview.md)  |

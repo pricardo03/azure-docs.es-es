@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 74863823f3e8ef32565e01981d3a742d696a8165
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 699ee2c2c3b1a90231f24663619cc590aae9889d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708315"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252079"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Preguntas más frecuentes sobre Azure Container Registry
 
@@ -114,13 +114,13 @@ ACR admite Docker Registry HTTP API V2. Se puede acceder a las API en `https://<
 
 Si se encuentra en bash:
 
-```bash
+```azurecli
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv  | xargs -I% az acr repository delete -n myRegistry -t myRepository@%
 ```
 
 Para PowerShell:
 
-```powershell
+```azurecli
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
 ```
 
@@ -151,13 +151,13 @@ docker push myregistry.azurecr.io/1gb:latest
 
 Debería poder ver que el uso del almacenamiento ha aumentado en Azure Portal, o puede consultar el uso mediante la CLI.
 
-```bash
+```azurecli
 az acr show-usage -n myregistry
 ```
 
 Elimine la imagen con la CLI o Azure Portal y compruebe el uso actualizado en pocos minutos.
 
-```bash
+```azurecli
 az acr repository delete -n myregistry --image 1gb
 ```
 
@@ -216,12 +216,12 @@ ACR admite los [roles personalizados](container-registry-roles.md) que proporcio
   Después, puede asignar el rol de `AcrPull` o `AcrPush` a un usuario (en el ejemplo siguiente se usa `AcrPull`):
 
   ```azurecli
-    az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
-    ```
+  az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
+  ```
 
   O bien, asigne el rol a una entidad de servicio identificada por su identificador de la aplicación:
 
-  ```
+  ```azurecli
   az role assignment create --scope resource_id --role AcrPull --assignee 00000000-0000-0000-0000-000000000000
   ```
 
@@ -239,9 +239,9 @@ El usuario asignado es capaz entonces de autenticar y acceder a las imágenes en
   az acr repository list -n myRegistry
   ```
 
- Para extraer una imagen:
-    
-  ```azurecli
+* Para extraer una imagen:
+
+  ```console
   docker pull myregistry.azurecr.io/hello-world
   ```
 
@@ -275,9 +275,10 @@ Para solucionar problemas de registro y de entorno comunes, consulte [Check the 
  - Si `docker pull` produce un error continuamente, entonces podría haber un problema con el demonio de Docker. Por lo general, el problema se puede mitigar con el reinicio del demonio de Docker. 
  - Si continúa apareciendo este problema después de reiniciar el demonio de Docker, el problema podría tener que ver con algunos problemas de conectividad de red con la máquina. Para comprobar si la red general de la máquina está en buen estado, ejecute el siguiente comando para probar la conectividad de los puntos de conexión. La versión de `az acr` mínima que contiene este comando de comprobación de conectividad es 2.2.9. Actualice la CLI de Azure si está usando una versión anterior.
  
-   ```azurecli
-    az acr check-health -n myRegistry
-    ```
+  ```azurecli
+  az acr check-health -n myRegistry
+  ```
+
  - Siempre debe tener un mecanismo de reintento en todas las operaciones del cliente de Docker.
 
 ### <a name="docker-pull-is-slow"></a>El comando docker pull es lento
@@ -437,7 +438,7 @@ Estos son algunos escenarios en los que es posible que no se permitan operacione
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>¿Cómo se pueden recopilar los seguimientos http en Windows?
 
-#### <a name="prerequisites"></a>Prerequisites
+#### <a name="prerequisites"></a>Prerrequisitos
 
 - Habilite el descifrado de https en Fiddler: <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
 - Habilite Docker para que use un proxy mediante la interfaz de usuario de Docker: <https://docs.docker.com/docker-for-windows/#proxies>
@@ -493,8 +494,8 @@ Actualmente no se admite GitLab como desencadenadores de origen.
 |---|---|---|---|
 | GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | Sí | Sí |
 | Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | Sí | Sí |
-| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | Sí | No |
-| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | Sí | No |
+| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | Sí | Sin |
+| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | Sí | Sin |
 
 ## <a name="run-error-message-troubleshooting"></a>Solución de problemas de mensajes de error de ejecución
 

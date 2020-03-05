@@ -3,20 +3,20 @@ title: Integración de intercambios de notificaciones de API REST en un recorrid
 titleSuffix: Azure AD B2C
 description: Integre intercambios de notificaciones de API de REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 780d575bd7f035673510d5b1e62cff4dfd6ede16
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 5976b6ef747b27a5a04c755d47ae4383fc4b2447
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76851023"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187362"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integración de intercambios de notificaciones de API de REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario
 
@@ -57,7 +57,7 @@ Introducción:
 * Devolución de un número de fidelidad
 * Incorporación del número de fidelidad a JSON Web Token (JWT)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Complete los pasos del artículo [Introducción a las directivas personalizadas](custom-policy-get-started.md).
 

@@ -1,18 +1,17 @@
 ---
 title: Orígenes de datos en Azure Monitor | Microsoft Docs
 description: Describe los datos disponibles para supervisar el estado y rendimiento de los recursos de Azure y las aplicaciones que se ejecutan en ellos.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/19/2019
-ms.openlocfilehash: d429a21f409afc9780b3cd90d16d46b4f4671912
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: b2ec9fd70d1eb64c5968de0312941bfbc98d3033
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467358"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670532"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Orígenes de datos de supervisión para Azure Monitor
 Azure Monitor se basa en una [plataforma de datos de supervisión común](data-platform.md) que incluye [registros](data-platform-logs.md) y [métricas](data-platform-metrics.md). La recopilación de datos en esta plataforma permite que los datos de múltiples recursos se analicen juntos mediante un conjunto común de herramientas en Azure Monitor. Los datos de supervisión también pueden enviarse a otras ubicaciones para admitir determinados escenarios, y algunos recursos pueden realizar operaciones de escritura en otras ubicaciones para poder recopilarse en registros o métricas.

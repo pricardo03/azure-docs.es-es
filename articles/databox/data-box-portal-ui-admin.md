@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: overview
+ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: a7681ba815533296deae2b585e377a733074b6c9
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 01e3ed9f94b575aae4ce0ed12eb63e3cf40d99ce
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147914"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77911821"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Uso de Azure Portal para administrar Data Box Disk
 
@@ -51,7 +51,7 @@ Realice los pasos siguientes para clonar un pedido.
 
     ![Clonación del pedido 1](media/data-box-portal-ui-admin/clone-order1.png)
 
-2.  Todos los detalles del pedido permanecen iguales. El nombre del pedido es el del pedido original seguido de *-Clone*. Seleccione la casilla para confirmar que ha revisado la información de privacidad. Haga clic en **Create**(Crear).    
+2.  Todos los detalles del pedido permanecen iguales. El nombre del pedido es el del pedido original seguido de *-Clone*. Seleccione la casilla para confirmar que ha revisado la información de privacidad. Haga clic en **Crear**.    
 
 El clon se crea en unos minutos y el portal se actualiza para mostrar el nuevo pedido.
 
@@ -71,7 +71,7 @@ Solo se pueden eliminar pedidos completados o cancelados. Realice los siguientes
 
     ![Eliminación del pedido de Data Box Disk 1](media/data-box-portal-ui-admin/delete-order1.png)
 
-3. Escriba el nombre del pedido cuando se le pida que confirme su eliminación. Hacer clic en **Eliminar**.
+3. Escriba el nombre del pedido cuando se le pida que confirme su eliminación. Haga clic en **Eliminar**.
 
      ![Eliminación del pedido de Data Box Disk 2](media/data-box-portal-ui-admin/delete-order2.png)
 
@@ -119,7 +119,7 @@ Realice los siguientes pasos para editar una plantilla de notificación.
 
 ## <a name="view-order-status"></a>Visualización del estado del pedido
 
-|Estado del pedido |DESCRIPCIÓN |
+|Estado del pedido |Descripción |
 |---------|---------|
 |Ordered (Realizado)     | Se ha realizado correctamente un pedido. <br> Si los discos no están disponibles, recibirá una notificación. <br>Si los discos están disponibles, Microsoft identifica un disco para el envío y prepara el paquete.        |
 |Processed (Procesado)     | El procesamiento del pedido está completado. <br> Durante el procesamiento del pedido, se producen las acciones siguientes:<li>Con los discos se usa el cifrado BitLocker AES-128. </li> <li>Data Box Disk se bloquea para evitar el acceso no autorizado.</li><li>Durante este proceso se genera la clave de paso que desbloquea los discos.</li>        |

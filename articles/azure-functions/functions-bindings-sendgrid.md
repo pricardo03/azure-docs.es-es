@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: e318e5f9b192b9f857a0b97d076ce4cc87cfb73d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9ed2b81c12c698822b9542bb6903189c865b572b
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76710984"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304011"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Enlaces de SendGrid de Azure Functions
 
@@ -32,13 +32,17 @@ Los enlaces de SendGrid se proporcionan en el paquete NuGet [Microsoft.Azure.Web
 
 ## <a name="example"></a>Ejemplo
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que usa un desencadenador de cola de Service Bus y un enlace de salida de SendGrid.
 
 ### <a name="synchronous"></a>Sincrónica
 
 ```cs
+using SendGrid.Helpers.Mail;
+
+...
+
 [FunctionName("SendEmail")]
 public static void Run(
     [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
@@ -65,6 +69,10 @@ public class OutgoingEmail
 ### <a name="asynchronous"></a>Asincrónica
 
 ```cs
+using SendGrid.Helpers.Mail;
+
+...
+
 [FunctionName("SendEmail")]
 public static async void Run(
  [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
@@ -92,7 +100,7 @@ public class OutgoingEmail
 
 Puede omitir la propiedad `ApiKey` del atributo si tiene la clave de API en una configuración de aplicación denominada "AzureWebJobsSendGridApiKey".
 
-# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
 En el ejemplo siguiente se muestra un enlace de salida de SendGrid en un archivo *function.json* y una [función de script de C#](functions-reference-csharp.md) que usa el enlace.
 
@@ -151,7 +159,7 @@ public class Message
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 En el ejemplo siguiente se muestra un enlace de salida de SendGrid en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace.
 
@@ -193,7 +201,7 @@ module.exports = function (context, input) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 En el ejemplo siguiente se muestra una función desencadenada por HTTP que envía un correo electrónico mediante el enlace de SendGrid. Puede proporcionar valores predeterminados en la configuración del enlace. Por ejemplo, la dirección de correo electrónico *de* se configura en *function.json*. 
 
@@ -250,7 +258,7 @@ def main(req: func.HttpRequest, sendGridMessage: func.Out[str]) -> func.HttpResp
     return func.HttpResponse(f"Sent")
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 En el ejemplo siguiente se usa la anotación `@SendGridOutput` de la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime) para enviar un correo electrónico mediante el enlace de salida de SendGrid.
 
@@ -306,7 +314,7 @@ public class HttpTriggerSendGrid {
 
 ## <a name="attributes-and-annotations"></a>Atributos y anotaciones
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs).
 
@@ -324,19 +332,19 @@ public static void Run(
 
 Para obtener un ejemplo completo, consulte [Ejemplo de C#](#example).
 
-# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
 El script de C# no admite atributos.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript no admite atributos.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Python no admite atributos.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 La anotación [SendGridOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/SendGridOutput.java) permite configurar el enlace de SendGrid mediante declaración proporcionando valores de configuración. Para más información, consulte las secciones [Ejemplo](#example) y [Configuración](#configuration).
 
@@ -348,10 +356,10 @@ En la siguiente tabla se enumeran las propiedades de configuración de enlace di
 
 | Propiedad de *function.json* | Propiedad de atributo/anotación | Descripción | Opcional |
 |--------------------------|-------------------------------|-------------|----------|
-| type |N/D| Se debe establecer en `sendGrid`.| No |
-| direction |N/D| Se debe establecer en `out`.| No |
-| name |N/D| El nombre de variable que se usa en el código de función para la solicitud o el cuerpo de la solicitud. Este valor es `$return` cuando hay solo un valor de devuelto. | No |
-| apiKey | ApiKey | El nombre de una configuración de aplicación que contiene la clave de API. Si no está establecido, el nombre predeterminado de la configuración de aplicación es *AzureWebJobsSendGridApiKey*.| No |
+| type |N/D| Se debe establecer en `sendGrid`.| Sin |
+| direction |N/D| Se debe establecer en `out`.| Sin |
+| name |N/D| El nombre de variable que se usa en el código de función para la solicitud o el cuerpo de la solicitud. Este valor es `$return` cuando hay solo un valor de devuelto. | Sin |
+| apiKey | ApiKey | El nombre de una configuración de aplicación que contiene la clave de API. Si no está establecido, el nombre predeterminado de la configuración de aplicación es *AzureWebJobsSendGridApiKey*.| Sin |
 | to| A | La dirección de correo electrónico del destinatario. | Sí |
 | desde| De | La dirección de correo electrónico del remitente. |  Sí |
 | subject| Asunto | El asunto del correo electrónico. | Sí |

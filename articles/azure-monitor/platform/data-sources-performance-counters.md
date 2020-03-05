@@ -1,18 +1,17 @@
 ---
 title: Recopilación y análisis de contadores de rendimiento en Azure Monitor | Microsoft Docs
 description: Azure Monitor recopila contadores de rendimiento para analizar el rendimiento de los agentes de Windows y Linux.  En este artículo se describe cómo configurar la colección de contadores de rendimiento de los agentes de Windows y Linux, se proporcionan detalles dela ubicación en que se almacenan en área de trabajo y se indica cómo analizarlos en Azure Portal.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 624996c86423bf486111fde8743117ea888862e7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d1a972a1d89066b961f2dcc28fba830e3a04ebc1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363836"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670549"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Orígenes de datos de rendimiento de Windows y Linux en Azure Monitor
 Los contadores de rendimiento de Windows y Linux ofrecen información acerca del rendimiento de los componentes de hardware, los sistemas operativos y las aplicaciones.  Azure Monitor puede recopilar contadores de rendimiento a intervalos frecuentes para el análisis casi en tiempo real (NRT), además de agregar datos de rendimiento para el análisis a más largo plazo y la creación de informes.

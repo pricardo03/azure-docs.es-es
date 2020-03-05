@@ -1,18 +1,17 @@
 ---
 title: Cómo consultar registros de Azure Monitor para VM (versión preliminar) | Microsoft Docs
 description: La solución Azure Monitor para VM recopila datos de registro y métricas. En este artículo se describen los registros y se incluyen consultas de ejemplo.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/19/2019
-ms.openlocfilehash: 690c7ba04cf849d973295a6ec27eaa38f9b807c3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e679345669d0954008e46f48d986930038a84c10
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75399319"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670719"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Cómo consultar registros de Azure Monitor para VM (versión preliminar)
 
@@ -101,7 +100,7 @@ Para mayor comodidad, la dirección IP del extremo remoto de una conexión se in
 
 | Propiedad | Descripción |
 |:--|:--|
-|RemoteCountry |Nombre del país o región que hospeda la dirección IP de RemoteIp.  Por ejemplo: *United States* |
+|RemoteCountry |Nombre del país o región que hospeda la dirección IP de RemoteIp.  Por ejemplo: *Estados Unidos* |
 |RemoteLatitude |Latitud de geolocalización. Por ejemplo, *47.68* |
 |RemoteLongitude |Longitud de geolocalización. Por ejemplo, *-122.12* |
 

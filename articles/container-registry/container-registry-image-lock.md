@@ -3,12 +3,12 @@ title: Bloqueo de imágenes
 description: Establezca atributos para una imagen de contenedor o un repositorio a fin de que pueda eliminarse o sobrescribirse en una instancia de Azure Container Registry.
 ms.topic: article
 ms.date: 09/30/2019
-ms.openlocfilehash: 93a99f65d5bb21d696ce24365e7c819d2c34a8b0
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: da84767523bb6d948b71b1c1ad2ddaffb628354a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972929"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659703"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Bloqueo de una imagen de contenedor en una instancia de Azure Container Registry
 
@@ -44,7 +44,7 @@ Para ver los atributos actuales de un repositorio, ejecute el siguiente comando 
 
 ```azurecli
 az acr repository show \
-    --name myregistry --repository myrepo
+    --name myregistry --repository myrepo \
     --output jsonc
 ```
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: b5a6b62e423b982cd7a852de844cd561997ba1e7
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 9d8aeba65a566cc93d3344a532a4636d709c1084
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048419"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303671"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solución de problemas de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -325,7 +325,7 @@ Para ver estos errores, ejecute el script de PowerShell **FileSyncErrorsReport.p
 | 0x80c80205 | -2134375931 | ECS_E_SYNC_ITEM_SKIP | Se omitió el archivo o directorio, pero se sincronizará durante la siguiente sesión de sincronización. Si se notifica este error al descargar el elemento, es más que probable que el nombre del archivo o directorio no sea válido. | No es necesario realizar ninguna acción si se notifica este error al cargar el archivo. Si se notifica el error al descargar el archivo, cambie el nombre del archivo o directorio en cuestión. Consulte [Tratamiento de caracteres no admitidos](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) para más información. |
 | 0x800700B7 | -2147024713 | ERROR_ALREADY_EXISTS | La creación de un archivo o directorio no se puede sincronizar porque el elemento ya existe en el destino y la sincronización no tiene constancia del cambio. | No es necesaria ninguna acción. La sincronización dejará de registrar este error una vez que la detección de cambios se ejecute en el destino y la sincronización tenga constancia de este nuevo elemento. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | El archivo no se puede sincronizar porque se ha alcanzado el límite de recursos compartidos de archivos de Azure. | Para resolver este problema, consulte la sección [Se ha alcanzado el límite de almacenamiento del recurso compartido de archivos de Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) en la Guía de solución de problemas. |
-| 0x80c8027C | -2134375812 | ECS_E_ACCESS_DENIED_EFS | El archivo está cifrado mediante una solución no compatible (como el Sistema de cifrado de archivos de NTFS). | Descifre el archivo y use una solución de cifrado compatible. Para obtener una lista de soluciones de soporte técnico, consulte la sección [Soluciones de cifrado](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) en la Guía de planeamiento. |
+| 0x80c8027C | -2134375812 | ECS_E_ACCESS_DENIED_EFS | El archivo está cifrado mediante una solución no compatible (como el Sistema de cifrado de archivos de NTFS). | Descifre el archivo y use una solución de cifrado compatible. Para obtener una lista de soluciones de soporte técnico, consulte la sección [Soluciones de cifrado](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption) en la Guía de planeamiento. |
 | 0x80c80283 | -2160591491 | ECS_E_ACCESS_DENIED_DFSRRO | El archivo se encuentra en una carpeta de replicación de solo lectura de DFS-R. | El archivo se encuentra en una carpeta de replicación de solo lectura de DFS-R. Azure Files Sync no admite puntos de conexión de servidor en carpetas de replicación de solo lectura de DFS-R. Vea la [guía de planeamiento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) para más información. |
 | 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | El archivo tiene un estado pendiente de eliminación. | No es necesaria ninguna acción. El archivo se eliminará una vez que se cierren todos los identificadores de archivos abiertos. |
 | 0x80c86044 | -2134351804 | ECS_E_AZURE_AUTHORIZATION_FAILED | El archivo no se puede sincronizar porque el firewall y la configuración de red virtual de la cuenta de almacenamiento están habilitados y el servidor no tiene acceso a la cuenta de almacenamiento. | Agregue la dirección IP del servidor o la red virtual siguiendo los pasos descritos en la sección [Configuración de los ajustes de red virtual y del firewall](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings) en la guía de implementación. |
@@ -357,7 +357,7 @@ La siguiente tabla contiene todos los caracteres Unicode que Azure File Sync aú
 | **HRESULT** | 0x800704c7 |
 | **HRESULT (decimal)** | -2147023673 | 
 | **Cadena de error** | ERROR_CANCELLED |
-| **Se requiere una corrección** | No |
+| **Se requiere una corrección** | Sin |
 
 Las sesiones de sincronización pueden producir un error por varias razones, incluido el reinicio o actualización del servidor o instantáneas de VSS, entre otras. Aunque este error parece que requiere seguimiento, es seguro pasar por alto este error a menos que persista durante un período de varias horas.
 
@@ -379,7 +379,7 @@ Las sesiones de sincronización pueden producir un error por varias razones, inc
 | **HRESULT** | 0x80c8004c |
 | **HRESULT (decimal)** | -2134376372 |
 | **Cadena de error** | ECS_E_USER_REQUEST_THROTTLED |
-| **Se requiere una corrección** | No |
+| **Se requiere una corrección** | Sin |
 
 No se requiere ninguna acción; el servidor lo intentará de nuevo. Si este error persiste durante varias horas, cree una solicitud de soporte técnico.
 
@@ -390,7 +390,7 @@ No se requiere ninguna acción; el servidor lo intentará de nuevo. Si este erro
 | **HRESULT** | 0x80c83075 |
 | **HRESULT (decimal)** | -2134364043 |
 | **Cadena de error** | ECS_E_SYNC_BLOCKED_ON_CHANGE_DETECTION_POST_RESTORE |
-| **Se requiere una corrección** | No |
+| **Se requiere una corrección** | Sin |
 
 No se requiere ninguna acción. Cuando se restaura un archivo o un recurso compartido de archivos (punto de conexión en la nube) mediante Azure Backup, la sincronización está bloqueada hasta que se completa la detección de cambios en el recurso compartido de archivos de Azure. La detección de cambios se ejecuta inmediatamente después de completarse la restauración y la duración se basa en el número de archivos en el recurso compartido de archivos.
 
@@ -401,7 +401,7 @@ No se requiere ninguna acción. Cuando se restaura un archivo o un recurso compa
 | **HRESULT** | 0x80041295 |
 | **HRESULT (decimal)** | -2147216747 |
 | **Cadena de error** | SYNC_E_METADATA_INVALID_OPERATION |
-| **Se requiere una corrección** | No |
+| **Se requiere una corrección** | Sin |
 
 Este error suele producirse cuando una aplicación de copia de seguridad crea una instantánea de VSS y se descarga la base de datos de sincronización. Si este error persiste durante varias horas, cree una solicitud de soporte técnico.
 
@@ -570,7 +570,7 @@ Este error se produce cuando no se puede acceder al recurso compartido de archiv
 | **HRESULT** | 0x80c80219 |
 | **HRESULT (decimal)** | -2134375911 |
 | **Cadena de error** | ECS_E_SYNC_METADATA_WRITE_LOCK_TIMEOUT |
-| **Se requiere una corrección** | No |
+| **Se requiere una corrección** | Sin |
 
 Este error suele resolverse solo y puede producirse si hay:
 
@@ -704,7 +704,7 @@ Este error se produce porque el volumen se ha llenado. Este error suele producir
 | **HRESULT** | 0x80c8300f |
 | **HRESULT (decimal)** | -2134364145 |
 | **Cadena de error** | ECS_E_REPLICA_NOT_READY |
-| **Se requiere una corrección** | No |
+| **Se requiere una corrección** | Sin |
 
 Este error se produce porque el punto de conexión en la nube se creó con contenido que ya existe en el recurso compartido de archivos de Azure. Azure File Sync debe examinar en el recurso compartido de archivos de Azure todo el contenido antes de permitir que el punto de conexión del servidor realice la sincronización inicial.
 
@@ -761,7 +761,7 @@ Este error se debe a que la versión del controlador del filtro de la nube por n
 | **HRESULT** | 0x80c8004b |
 | **HRESULT (decimal)** | -2134376373 |
 | **Cadena de error** | ECS_E_SERVICE_UNAVAILABLE |
-| **Se requiere una corrección** | No |
+| **Se requiere una corrección** | Sin |
 
 Este error se produce porque el servicio Azure File Sync no está disponible. Este error se resolverá automáticamente cuando el servicio Azure File Sync vuelva a estar disponible.
 
@@ -772,7 +772,7 @@ Este error se produce porque el servicio Azure File Sync no está disponible. Es
 | **HRESULT** | 0x80131500 |
 | **HRESULT (decimal)** | -2146233088 |
 | **Cadena de error** | COR_E_EXCEPTION |
-| **Se requiere una corrección** | No |
+| **Se requiere una corrección** | Sin |
 
 Este error se produce porque se produjo un error de sincronización debido a una excepción. Si este error persiste durante varias horas, cree una solicitud de soporte técnico.
 
@@ -794,7 +794,7 @@ Este error se produce porque la cuenta de almacenamiento ha conmutado por error 
 | **HRESULT** | 0x80c8020e |
 | **HRESULT (decimal)** | -2134375922 |
 | **Cadena de error** | ECS_E_SYNC_METADATA_WRITE_LEASE_LOST |
-| **Se requiere una corrección** | No |
+| **Se requiere una corrección** | Sin |
 
 Este error se produce debido a un problema interno con la base de datos de sincronización. Este error se resolverá automáticamente cuando se vuelva a intentar la sincronización. Si este error continúa durante un período de tiempo prolongado, el usuario debe crear una solicitud de soporte técnico y nos pondremos en contacto con él para ayudarle a resolver este problema.
 
@@ -881,7 +881,7 @@ Este error se produce porque Azure File Sync no admite el redireccionamiento de 
 | **HRESULT** | 0x80c83085 |
 | **HRESULT (decimal)** | -2134364027 |
 | **Cadena de error** | ECS_E_DATA_INGESTION_WAIT_TIMEOUT |
-| **Se requiere una corrección** | No |
+| **Se requiere una corrección** | Sin |
 
 Este error se produce cuando una operación de ingesta de datos supera el tiempo de espera. Este error se puede pasar por alto si la sincronización está progresando (AppliedItemCount es mayor que 0). Consulte [¿Cómo se puede supervisar el progreso de una sesión de sincronización actual?](#how-do-i-monitor-the-progress-of-a-current-sync-session)
 

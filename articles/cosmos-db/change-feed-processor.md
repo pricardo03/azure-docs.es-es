@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: f8ae85ffc16bd953f04f1c3d7790231939c1f2cf
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: e71b2807595aebeb1f0c8682fde119f4e267e55d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588914"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273305"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Procesadores de fuente de cambios de Azure Cosmos DB 
 
@@ -41,13 +41,14 @@ Para comprender mejor cómo funcionan estos cuatro elementos del procesador de f
 
 El punto de entrada es siempre el contenedor supervisado, desde una instancia de `Container` se llama a `GetChangeFeedProcessorBuilder`:
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs" id="DefineProcessor":::
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
 
 El primer parámetro es un nombre distintivo que describe el objetivo de este procesador y el segundo nombre es la implementación de delegado que controlará los cambios. 
 
 Un ejemplo de un delegado sería:
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs" id="Delegate":::
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
 
 Por último, se define un nombre para esta instancia del procesador con `WithInstanceName`, que es el contenedor con el que se mantiene el estado de concesión con `WithLeaseContainer`.
 

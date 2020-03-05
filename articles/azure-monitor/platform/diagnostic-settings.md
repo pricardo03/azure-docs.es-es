@@ -3,17 +3,16 @@ title: Creación de una configuración de diagnóstico para recopilar registros 
 description: Cree una configuración de diagnóstico para reenviar los registros de plataforma de Azure a los registros de Azure Monitor, a Azure Storage o a Azure Event Hubs.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 22932121b97c1b0fe91c46b5eea0222a022a4e61
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: fb2f9ff5af68575d9f9d29e9a6aca83d603395b3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751074"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672419"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure
 Los [registros de plataforma](platform-logs-overview.md) de Azure, incluidos los registros de recursos y los registros de actividad de Azure, proporcionan información detallada de diagnóstico y auditoría sobre los recursos de Azure y la plataforma de Azure de la que dependen. En este artículo, se proporcionan detalles sobre la creación y la configuración de las opciones de diagnóstico para enviar registros de plataforma a diferentes destinos.

@@ -1,18 +1,14 @@
 ---
 title: API de Application Insights para eventos y métricas personalizados | Microsoft Docs
 description: Inserte unas cuantas líneas de código en su aplicación de dispositivo o de escritorio, página o servicio web, para realizar el seguimiento del uso y diagnosticar problemas.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 03/27/2019
-ms.openlocfilehash: 2136ab9a6d0cef7ad5650c8414f9a17b78498abc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 74736966013581296483d1444f4ab2b8a35bbd98
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432666"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666503"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para eventos y métricas personalizados
 

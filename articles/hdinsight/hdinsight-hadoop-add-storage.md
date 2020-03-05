@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 6ad583fdb880e36e6ac9c2dfda56bb68378ea598
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 87eb04b7323186175195babf6a602fa12d25176f
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314015"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206714"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adición de más cuentas de almacenamiento a HDInsight
 
@@ -21,7 +21,7 @@ Aprenda a usar acciones de script para agregar *cuentas* adicionales de Azure St
 > [!IMPORTANT]  
 > La información de este documento trata sobre cómo agregar cuentas de almacenamiento adicionales a un clúster después de que se ha creado. Para información sobre cómo agregar cuentas de almacenamiento durante la creación de clústeres, consulte [Configuración de clústeres en HDInsight con Apache Hadoop, Apache Spark, Apache Kafka, etc](hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un clúster de Hadoop en HDInsight. Consulte [Introducción a HDInsight en Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Nombre y clave de la cuenta de almacenamiento. Vea [Administración de las claves de acceso de la cuenta de almacenamiento](../storage/common/storage-account-keys-manage.md).
@@ -46,7 +46,7 @@ Durante el procesamiento, el script realiza las siguientes acciones:
 
 ## <a name="add-storage-account"></a>Agregar cuenta de almacenamiento
 
-Use [Acción de script](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) para aplicar los cambios con las siguientes consideraciones:
+Use [Acción de script](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster) para aplicar los cambios con las siguientes consideraciones:
 
 |Propiedad | Value |
 |---|---|

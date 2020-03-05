@@ -1,18 +1,17 @@
 ---
 title: Recopilación de datos de rendimiento de aplicaciones de Linux en Azure Monitor | Microsoft Docs
 description: En este artículo, se proporciona información sobre cómo configurar el agente de Log Analytics para Linux con el fin de recopilar los contadores de rendimiento de MySQL y el servidor HTTP de Apache.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2017
-ms.openlocfilehash: 75fd0453534e3a656bb1d8e2940b716dadfdf869
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2fd148dbb85a4fd60fe63d4fb73128bf92dea1d8
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75395845"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670566"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Recopilación de contadores de rendimiento para aplicaciones de Linux en Azure Monitor 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]

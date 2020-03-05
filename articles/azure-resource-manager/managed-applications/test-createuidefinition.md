@@ -5,18 +5,18 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: fe6fbb2c27dcc18cca114e6d10cd382d376a27e2
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: e2d075a58872f9337c7d1faa642a48047e2f9ddf
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75649460"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250191"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Prueba de la interfaz de su portal para Azure Managed Applications
 
 Después de [crear el archivo createUiDefinition.json](create-uidefinition-overview.md) para la aplicación administrada, debe probar la experiencia del usuario. Para simplificar las pruebas, use un entorno de espacio aislado que cargue el archivo en el portal. No es necesario implementar la aplicación administrada. El espacio aislado presenta la interfaz de usuario en la experiencia del portal actual y en pantalla completa. O bien, puede usar un script para probar la interfaz. En este artículo se muestran ambos enfoques. El espacio aislado es la manera recomendada de obtener una vista previa de la interfaz.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un archivo **createUiDefinition.json**. Si no tiene este archivo, copie el [archivo de ejemplo](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json).
 
@@ -68,7 +68,7 @@ Para PowerShell, use:
 
 Para la CLI de Azure, utilice:
 
-```azurecli
+```bash
 ./sideload-createuidef.sh \
   -l southcentralus \
   -a .\100-Marketplace-Sample
@@ -84,7 +84,7 @@ Para PowerShell, use:
 
 Para la CLI de Azure, utilice:
 
-```azurecli
+```bash
 ./sideload-createuidef.sh
 ```
 

@@ -1,18 +1,17 @@
 ---
 title: Estructura de registros de Azure Monitor | Microsoft Docs
 description: Requiere una consulta de registros para recuperar datos de registro desde Azure Monitor.  Este artículo describe cómo se usan las nuevas consultas de registros en Azure Monitor y proporciona los conceptos que debe comprender antes de crear una.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: 6ce8470da6b444cedb7bff1d14bcc6448b52fe94
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1d647ba7e8d4f0e29252dfff95099e39bab87895
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893644"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662083"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Estructura de registros de Azure Monitor
 La capacidad de obtener rápidamente información sobre sus datos mediante una [consulta de registro](log-query-overview.md) es una versátil característica de Azure Monitor. Para crear consultas eficaces y útiles, debe comprender algunos conceptos básicos, como dónde se encuentran los datos que desea y cómo se estructuran. En este artículo se proporcionan los conceptos básicos que necesita para empezar a trabajar.
@@ -53,7 +52,7 @@ Al crear una aplicación en Application Insights, se crea automáticamente una a
 
 A diferencia de un área de trabajo de Log Analytics, una aplicación de Application Insights tiene un conjunto fijo de tablas. No puede configurar otros orígenes de datos para escribir en la aplicación, por lo que no se puede crear ninguna tabla adicional. 
 
-| Tabla | DESCRIPCIÓN | 
+| Tabla | Descripción | 
 |:---|:---|
 | availabilityResults | Datos de resumen de las pruebas de disponibilidad. |
 | browserTimings      | Datos sobre el rendimiento del cliente, como el tiempo que se tardan en procesar los datos entrantes. |
@@ -73,7 +72,7 @@ Puede ver el esquema para cada tabla de la pestaña **Esquema** en Log Analytics
 ## <a name="standard-properties"></a>Propiedades estándar
 Aunque cada tabla de los registros de Azure Monitor tiene su propio esquema, hay propiedades estándar compartidas por todas las tablas. Consulte [Propiedades estándar de los registros de Azure Monitor](../platform/log-standard-properties.md) para detalles.
 
-| Área de trabajo de Log Analytics | Aplicación de Application Insights | DESCRIPCIÓN |
+| Área de trabajo de Log Analytics | Aplicación de Application Insights | Descripción |
 |:---|:---|:---|
 | TimeGenerated | timestamp  | Fecha y hora en que se creó el registro. |
 | Tipo          | itemType   | Nombre de la tabla de la que se recuperó el registro. |

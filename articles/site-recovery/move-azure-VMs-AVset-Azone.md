@@ -7,20 +7,20 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: c9513ca38c665a53bc14f284e87a1cc01035d135
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5728ce7125695b191de4f91d5bd9003384f428a7
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693189"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298315"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Traslado de máquinas virtuales de Azure a zonas de disponibilidad
-Availability Zones de Azure ayuda a proteger las aplicaciones y los datos de errores del centro de datos. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. Para garantizar la resistencia, hay tres zonas independientes como mínimo en todas las regiones habilitadas. La separación física de Availability Zones dentro de una región ayuda a proteger las aplicaciones y los datos frente a los errores del centro de datos. Con la incorporación de Availability Zones, ofrecemos un acuerdo de nivel de servicio (SLA) que garantiza un tiempo de actividad de las máquinas virtuales (VM) del 99,99 %. Availability Zones se admite en regiones exclusivas, tal como se indica en [¿Qué es Availability Zones en Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region).
+En Azure, Availability Zones ayuda a proteger las aplicaciones y los datos de errores del centro de datos. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. Para garantizar la resistencia, hay tres zonas independientes como mínimo en todas las regiones habilitadas. La separación física de Availability Zones dentro de una región ayuda a proteger las aplicaciones y los datos frente a los errores del centro de datos. Con la incorporación de Availability Zones, Azure ofrece un acuerdo de nivel de servicio (SLA) que garantiza un tiempo de actividad de las máquinas virtuales (VM) del 99,99 %. Availability Zones se admite en regiones exclusivas, tal como se indica en [¿Qué es Availability Zones en Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region)
 
-En un escenario en el que se implementan las máquinas virtuales como de *instancia única* en una región específica y desea mejorar la disponibilidad trasladándolas a una instancia de Availability Zones, puede hacerlo con Azure Site Recovery. Esta acción se puede categorizar más adelante en:
+En un escenario en el que se implementan las máquinas virtuales como de *instancia única* en una región específica y desea mejorar la disponibilidad trasladándolas a una instancia de Availability Zones, puede hacerlo con Azure Site Recovery. Esta acción se puede categorizar aún más al hacer lo siguiente:
 
-- Traslado de máquinas virtuales de instancia única a Availability Zones en una región de destino
-- Traslado de máquinas virtuales de un conjunto de disponibilidad en Availability Zones de región de destino
+- Trasladar máquinas virtuales de instancia única a Availability Zones en una región de destino
+- Trasladar máquinas virtuales de un conjunto de disponibilidad a Availability Zones en una región de destino
 
 > [!IMPORTANT]
 > Actualmente Azure Site Recovery permite trasladar máquinas virtuales de una región a otra, pero no admite el traslado dentro de una misma región.
@@ -41,10 +41,10 @@ En un escenario en el que se implementan las máquinas virtuales como de *instan
 
 ## <a name="prepare-the-source-vms"></a>Preparación de las máquinas virtuales de origen
 
-1. Las máquinas virtuales deben usar discos administrados si desea trasladarlas a una instancia de Availability Zones mediante Site Recovery. Puede convertir VM Windows existentes que usan discos no administrados para que usen discos administrados. Siga los pasos en [Conversión de una máquina virtual Windows con discos no administrados a discos administrados](https://docs.microsoft.com/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks). Asegúrese de que el conjunto de disponibilidad esté configurado como *administrado*.
+1. Las máquinas virtuales deben usar discos administrados si desea trasladarlas a una instancia de Availability Zones mediante Site Recovery. Puede convertir VM Windows existentes que usan discos no administrados para que usen discos administrados. Siga los pasos en [Conversión de una máquina virtual Windows con discos no administrados en discos administrados](https://docs.microsoft.com/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks). Asegúrese de que el conjunto de disponibilidad esté configurado como *administrado*.
 2. Asegúrese de que todos los certificados raíz más recientes estén presentes en las máquinas virtuales de Azure que quiera trasladar. Si los últimos certificados raíz no están presentes, la copia de datos en la región de destino no se puede habilitar debido a las restricciones de seguridad.
 
-3. Para las máquinas virtuales de Windows, instale las actualizaciones de Windows más recientes en la máquina virtual, de modo que todos los certificados raíz de confianza estén en ella. En un entorno desconectado, siga los procesos estándar de actualización de certificados y de Windows Update en su organización.
+3. Para las máquinas virtuales de Windows, instale las actualizaciones de Windows más recientes en la máquina virtual, de modo que todos los certificados raíz de confianza estén en ella. En un entorno desconectado, siga los procesos estándar de actualización de certificados y de Windows Update de su organización.
 
 4. En las máquinas virtuales Linux, para obtener los últimos certificados raíz de confianza y la lista de revocación de certificados en la máquina virtual, siga las instrucciones proporcionadas por su distribuidor de Linux.
 5. Asegúrese de que no utiliza ningún proxy de autenticación para controlar la conectividad de red de las máquinas virtuales que quiere trasladar.
@@ -62,7 +62,7 @@ En un escenario en el que se implementan las máquinas virtuales como de *instan
 3. Cree un recurso de destino para cada componente identificado en el diseño de la red de origen. Esta acción garantiza que, tras la migración a la región de destino, las máquinas virtuales tengan toda la funcionalidad y características que tenían en el origen.
 
     > [!NOTE]
-    > Azure Site Recovery automáticamente detecta y crea una red virtual y una cuenta de almacenamiento al habilitar la replicación para la máquina virtual de origen. También puede crear previamente estos recursos y asignar a la máquina virtual como parte del paso para habilitar la replicación. Pero para cualquier otro recurso, como se menciona posteriormente, es necesario crearlo manualmente en la región de destino.
+    > Azure Site Recovery detecta y crea automáticamente una red virtual y una cuenta de almacenamiento al habilitar la replicación para la máquina virtual de origen. También puede crear previamente estos recursos y asignar a la máquina virtual como parte del paso para habilitar la replicación. Pero para cualquier otro recurso, como se menciona posteriormente, es necesario crearlo manualmente en la región de destino.
 
      En los siguientes documentos se explica cómo crear los recursos de red más utilizados y que considere más relevantes, en función de la configuración de la máquina virtual de origen.
 
@@ -70,7 +70,7 @@ En un escenario en el que se implementan las máquinas virtuales como de *instan
     - [Equilibradores de carga](https://docs.microsoft.com/azure/load-balancer)
     - [Dirección IP pública](../virtual-network/virtual-network-public-ip-address.md)
     
-   Para cualquier otro componente de red, consulte la [documentación](https://docs.microsoft.com/azure/#pivot=products&panel=network) de red.
+   Para cualquier otro componente de red, consulte la [documentación](https://docs.microsoft.com/azure/?pivot=products&panel=network) de red.
 
     > [!IMPORTANT]
     > Asegúrese de usar un equilibrador de carga con redundancia de zona en el destino. Puede leer más en [Standard Load Balancer y Availability Zones](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
@@ -81,13 +81,13 @@ En un escenario en el que se implementan las máquinas virtuales como de *instan
 Los siguientes pasos le guiarán al usar Azure Site Recovery para permitir la replicación de datos en la región de destino, antes de que finalmente los traslade a Availability Zones.
 
 > [!NOTE]
-> Estos pasos son para una sola máquina virtual. Puede ampliar los mismos para varias máquinas virtuales. Vaya al almacén de Recovery Services, seleccione **+ Replicar** y seleccione las máquinas virtuales pertinentes de forma conjunta.
+> Estos pasos son para una sola máquina virtual. Puede ampliarlos para varias máquinas virtuales. Vaya al almacén de Recovery Services, seleccione **+ Replicar** y elija las máquinas virtuales pertinentes de forma conjunta.
 
-1. En Azure Portal, seleccione **Máquinas virtuales** y seleccione la máquina virtual que desea trasladar a Availability Zones.
+1. En Azure Portal, seleccione **Máquinas virtuales** y elija la máquina virtual que desea trasladar a Availability Zones.
 2. En **Operaciones**, seleccione **Recuperación ante desastres**.
-3. En **Configurar recuperación ante desastres** > **Región de destino**, seleccione la región de destino en la que quiere realizar la replicación. Asegúrese de que esta región [admita](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region) Availability Zones.
+3. En **Configurar la recuperación ante desastres** > **Región de destino**, seleccione la región de destino en la que quiere realizar la replicación. Asegúrese de que esta región [admita](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region) Availability Zones.
 
-    ![Selección de región de destino](media/azure-vms-to-zones/enable-rep-1.PNG)
+    ![Selección de una región de destino](media/azure-vms-to-zones/enable-rep-1.PNG)
 
 4. Seleccione **Siguiente: Configuración avanzada**.
 5. Elija los valores adecuados para la suscripción de destino, el grupo de recursos de la máquina virtual de destino y la red virtual.
@@ -112,7 +112,7 @@ Cuando haya finalizado el trabajo de replicación, puede comprobar el estado de 
 
 1. En el menú de la máquina virtual, seleccione **Recuperación ante desastres**.
 2. Seleccione el icono **Conmutación por error de prueba**.
-3. En **Conmutación por error de prueba**, seleccione el punto de recuperación que usar para la conmutación por error:
+3. En **Conmutación por error**, seleccione el punto de recuperación que usará para la conmutación por error:
 
    - **Procesado más recientemente**: error de la VM en el último punto de recuperación procesado por el servicio Site Recovery. Se muestra la marca de tiempo. Con esta opción, no se emplea tiempo en el procesamiento de datos, por lo que se proporciona un objetivo de tiempo de recuperación (RTO) bajo.
    - **Más reciente coherente con la aplicación**: esta opción conmuta por error todas las VM en el punto de recuperación más reciente coherente con la aplicación. Se muestra la marca de tiempo.
@@ -123,7 +123,7 @@ Cuando haya finalizado el trabajo de replicación, puede comprobar el estado de 
     > [!IMPORTANT]
     > Le recomendamos que utilice una red de máquinas virtuales de Azure independiente para la conmutación por error de prueba y no la red de producción de la región de destino a la que desea trasladar las máquinas virtuales.
 
-4. Para comenzar a probar el traslado, seleccione **Aceptar**. Para realizar el seguimiento del progreso, seleccione la máquina virtual para abrir sus propiedades. También puede seleccionar el trabajo **Conmutación por error de prueba** en el nombre del almacén > **Configuración** > **Trabajos** > **Trabajos de Site Recovery**.
+4. Para comenzar el traslado de prueba, seleccione **Aceptar**. Para realizar el seguimiento del progreso, seleccione la máquina virtual para abrir sus propiedades. También puede seleccionar el trabajo **Conmutación por error de prueba** en el nombre del almacén > **Configuración** > **Trabajos** > **Trabajos de Site Recovery**.
 5. Una vez finalizada la conmutación por error, la VM de Azure de réplica aparece en Azure Portal > **Virtual Machines**. Asegúrese de que la máquina virtual está en funcionamiento, tiene el tamaño adecuado y está conectada a la red apropiada.
 6. Si desea eliminar la máquina virtual creada como parte de la prueba del traslado, seleccione **Limpiar conmutación por error de prueba** en el elemento replicado. En **Notas**, registre y guarde las observaciones asociadas a la prueba.
 

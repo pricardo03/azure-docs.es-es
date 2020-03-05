@@ -15,12 +15,12 @@ ms.date: 02/18/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d6d621646aaa5c8c44a20cf327cd10fa31990b0
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 4ac09fb3faf55be6c07a1e0a88b6e2032c9ab8ce
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484543"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299336"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Información sobre el esquema de Azure AD
 Un objeto de Azure Active Directory (Azure AD), al igual que cualquier directorio, es una construcción de datos general mediante programación que representa elementos como usuarios, grupos y contactos. Al crear un nuevo usuario o contacto en Azure AD, está creando una nueva instancia de ese objeto. Estas instancias se pueden diferenciar en función de sus propiedades.
@@ -75,7 +75,7 @@ Para ver el esquema y comprobarlo, siga estos pasos.
 1.  Vaya al [Probador de Graph](https://developer.microsoft.com/graph/graph-explorer).
 1.  Inicie sesión con la cuenta de administrador global.
 1.  A la izquierda, seleccione **modificar permisos** y asegúrese de que **Directory.ReadWrite.All** tiene *consentimiento*.
-1.  Ejecute la consulta https://graph.microsoft.com/beta/serviceprincipals/? $filter=startswith(Displayname,'Active'). Esta consulta devuelve una lista filtrada de entidades de servicio.
+1.  Ejecute la consulta `https://graph.microsoft.com/beta/serviceprincipals/?$filter=startswith(Displayname,'Active')`. Esta consulta devuelve una lista filtrada de entidades de servicio.
 1.  Busque `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"` y anote el valor de `"id"`.
     ```
     "value": [

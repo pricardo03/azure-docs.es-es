@@ -3,17 +3,16 @@ title: Recopilación de registros de recursos de Azure en el área de trabajo de
 description: Aprenda a transmitir registros de Azure Diagnostics a un área de trabajo de Log Analytics en Azure Monitor.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: b0b8757590876669e00e81378411c010514e3036
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 36bd464624118b7671a3879bcc1d34114bba9ce3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750364"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659006"
 ---
 # <a name="collect-azure-platform-logs-in-log-analytics-workspace-in-azure-monitor"></a>Recopilación de registros de plataforma de Azure en el área de trabajo de Log Analytics en Azure Monitor
 Los [registros de plataforma](platform-logs-overview.md) en Azure, incluidos los registros de recurso y los registros de actividad de Azure, proporcionan información detallada de diagnóstico y auditoría para los recursos de Azure y la plataforma de Azure de la que dependen. En este artículo se describe la recopilación de registros de recurso en un área de trabajo de Log Analytics que permita el análisis con otros datos de supervisión recopilados en los registros de Azure Monitor mediante consultas de registro eficaces y también el aprovechamiento de otras características de Azure Monitor, como las alertas y las visualizaciones. 
@@ -26,7 +25,7 @@ La recopilación de registros de plataforma en un área de trabajo de Log Analyt
 * **Alertas**: obtenga una notificación proactiva de los patrones y las condiciones críticas identificados en los registros de recurso mediante [alertas de registro en Azure Monitor](alerts-log.md).
 * **Visualizaciones**: ancle los resultados de una consulta de registro a un panel de Azure o inclúyala en un libro como parte de un informe interactivo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Si no la tiene, [cree un área de trabajo](../learn/quick-create-workspace.md). El área de trabajo no tiene que estar en la misma suscripción que la del recurso que envía los registros, siempre que el usuario que realiza la configuración tenga el acceso RBAC adecuado a ambas suscripciones.
 
 ## <a name="create-a-diagnostic-setting"></a>Creación de una configuración de diagnóstico

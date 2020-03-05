@@ -1,18 +1,14 @@
 ---
 title: Supervisión de aplicaciones de Docker en Azure Application Insights | Microsoft Docs
 description: En Application Insights, se pueden mostrar los contadores de rendimiento, los eventos y las excepciones de Docker, además de la telemetría de las aplicaciones en contenedor.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 03/14/2019
-ms.openlocfilehash: 66a2481d25c863bbdbf4d72c4683a309918776db
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 5ff3d6a2b31425a3fb6857c8c6aed45f7ef18d64
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677934"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669614"
 ---
 # <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Supervisar aplicaciones de Docker en Application Insights (en desuso)
 

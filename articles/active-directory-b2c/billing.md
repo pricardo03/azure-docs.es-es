@@ -2,20 +2,20 @@
 title: Modelo de facturación para Azure Active Directory B2C
 description: Obtenga información sobre el modelo de facturación de usuarios activos mensuales (MAU) de Azure AD B2C y cómo habilitar la facturación para una suscripción de Azure específica.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/25/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e3cdf44c2fc4c16bba283b6f884078dd947b1f34
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 30ecb1e6faa29482a8d69dd1d08e4f127f515596
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77564780"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190014"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modelo de facturación para Azure Active Directory B2C
 

@@ -3,17 +3,16 @@ title: Envío de métricas de Cloud Services clásico a la base de datos de mét
 description: Se describe el proceso de envío de métricas de rendimiento del sistema operativo invitado para Cloud Services clásico de Azure al almacén de métricas de Azure Monitor.
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: fb13bb7ec2de2633796aecb5216ae8b9e2574a57
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 3b390ffa20cf3cf79b8fb6311ad05b2978bd5d24
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75971188"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655809"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Envío de métricas de SO invitado al almacén de métricas de Azure Monitor en Cloud Services clásico 
 
@@ -27,7 +26,7 @@ Almacenarlas en esta ubicación permite tener acceso a las mismas acciones dispo
 
 El proceso descrito en este artículo solo funciona para los contadores de rendimiento en Azure Cloud Services. No funciona para otras métricas personalizadas. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Debe ser [administrador de servicios o administrador](../../cost-management-billing/manage/add-change-subscription-administrator.md) en su suscripción de Azure. 
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: ee2fb3757b0e3a7015a98f4e04084fd9c6a4850d
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: ea448b87f9e6954abecead2934bfb7f4ed04a9c5
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747549"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920151"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Pasos detallados para solucionar problemas de conexión a Escritorio remoto a máquinas virtuales Windows en Azure
 Este artículo ofrece pasos detallados de solución de problemas para diagnosticar y corregir errores complejos de Escritorio remoto en máquinas virtuales de Azure basadas en Windows.
@@ -92,6 +92,9 @@ Si puede crear una conexión a Escritorio remoto con un equipo conectado directa
 Trabaje con el administrador de red para corregir la configuración del dispositivo perimetral de intranet de la organización para permitir conexiones a Escritorio remoto a Internet basadas en HTTPS.
 
 ## <a name="source-3-cloud-service-endpoint-and-acl"></a>Causa 3: Punto de conexión de servicio en la nube y ACL
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 Para las máquinas virtuales creadas mediante el modelo de implementación clásica, compruebe que otra máquina virtual de Azure que se encuentre en el mismo servicio en la nube o la misma red virtual pueda establecer conexiones a Escritorio remoto a su máquina virtual de Azure.
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_3.png)

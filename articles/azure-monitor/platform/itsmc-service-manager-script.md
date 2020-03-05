@@ -1,18 +1,17 @@
 ---
 title: Script automatizado para crear la aplicación web de Service Manager para conectarse con Conector de Administración de servicios de TI en Azure | Microsoft Docs
 description: Cree una aplicación web de Service Manager con un script automatizado para conectar con Conector de administración de servicios de TI en Azure y supervise y administre de manera centralizada de los elementos de trabajo ITSM.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: a97ea4d505d17d1d5fb2f2035fb23f3fce94aebe
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: f224e58905e2989caf16259e383726595c0206d5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990953"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672198"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Creación de una aplicación web de Service Manager mediante el script automatizado
 
@@ -33,7 +32,7 @@ Guarde estos valores, ya que los necesitará cuando cree una conexión con el Co
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
  Windows Management Framework 5.0 o posterior.
 Windows 10 tiene la versión 5.1 de forma predeterminada. Puede descargar el marco desde [aquí](https://www.microsoft.com/download/details.aspx?id=50395):

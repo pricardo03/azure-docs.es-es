@@ -2,20 +2,20 @@
 title: 'Tutorial: Concesión de acceso a una API web de Node.js desde una aplicación de escritorio'
 description: Tutorial acerca de cómo usar Active Directory B2C para proteger una API web de Node.js y llamarla desde una aplicación de escritorio de .NET.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-ms.author: marsma
+ms.author: mimart
 ms.date: 10/12/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: a72c45f80d03cda7b176c421cc5498dd16c242ec
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 59670cda68f54e4c0b20b361f0688e6766acba61
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849875"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183399"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutorial: Concesión de acceso a una API web de Node.js desde una aplicación de escritorio mediante Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ En este tutorial, aprenderá a:
 > * Conceder permisos a la API web
 > * Actualizar el ejemplo para que use la aplicación
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Complete los pasos y requisitos previos en [Tutorial: Autenticación de usuarios en una aplicación cliente de escritorio nativa](tutorial-desktop-app.md).
 
@@ -51,7 +51,7 @@ Para llamar a una API web protegida desde una aplicación cliente nativa, debe c
 
 En el tutorial de requisitos previos, registró una aplicación cliente nativa denominada *nativeapp1*. En los pasos siguientes se configura el registro de la aplicación nativa con los ámbitos de API expuestos para *webapi1* en la sección anterior. Esto permite que la aplicación de escritorio obtenga un token de acceso de Azure AD B2C que la API web puede usar para comprobar y proporcionar acceso de ámbito a sus recursos. Más adelante en el tutorial configurará y ejecutará los códigos de ejemplo de la aplicación de escritorio y de la API web.
 
-#### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
+#### <a name="applications"></a>[Aplicaciones](#tab/applications/)
 
 1. Seleccione **Aplicaciones** y, a continuación, *nativeapp1*.
 1. Seleccione **Acceso de API** y, a continuación, seleccione **Agregar**.
@@ -59,7 +59,7 @@ En el tutorial de requisitos previos, registró una aplicación cliente nativa d
 1. En la lista desplegable **Seleccionar ámbitos**, seleccione los ámbitos que ha definido anteriormente. Por ejemplo, *demo.read* y *demo.write*.
 1. Seleccione **Aceptar**.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
 
 1. Seleccione **Registros de aplicaciones (versión preliminar)** y, después, seleccione la aplicación cliente nativa que debe tener acceso a la API. Por ejemplo, *nativeapp1*.
 1. En **Administrar**, seleccione **Permisos de API**.

@@ -1,18 +1,17 @@
 ---
 title: Supervisión de los servicios de Azure Storage con Azure Monitor para Storage (versión preliminar) | Microsoft Docs
 description: En este artículo se describe la característica Azure Monitor para Storage que proporciona a los administradores de almacenamiento una comprensión rápida de los problemas de uso y rendimiento de sus cuentas de Azure Storage.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/15/2019
-ms.openlocfilehash: 790d6ad9fb26253697ea36b402799d3eb488ca47
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f23be7e764ad180a23c76abb7f9bb2218fd61e4c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75401131"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662526"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Supervisión del servicio de almacenamiento con Azure Monitor para Storage (versión preliminar)
 

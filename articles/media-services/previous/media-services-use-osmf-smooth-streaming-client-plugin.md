@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c40d8b93a7487619cc94586c7e6b4cdc550435cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45a2829411ea4713df898c90be73792718160cd2
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60825598"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255107"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Uso del complemento Smooth Streaming de Microsoft para Open Source Media Framework de Adobe  
 ## <a name="overview"></a>Información general
@@ -47,7 +47,7 @@ El complemento admite la carga y reproducción de contenido Smooth Streaming baj
 * Esta versión solo admite OSMF 2.0.
 
 ## <a name="supported-features-and-known-issues"></a>Características admitidas y problemas conocidos
-Para obtener una lista completa de características compatibles, características no compatibles y problemas conocidos, consulte [este documento](https://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf).
+Para obtener una lista completa de características compatibles, características no compatibles y problemas conocidos, consulte [este documento](https://azure.microsoft.com/blog/microsoft-adaptive-streaming-plugin-for-osmf-update/).
 
 ## <a name="loading-the-plugin"></a>Carga del complemento
 Los complementos de OSMF se pueden cargar estáticamente (en el momento de la compilación) o dinámicamente (en el tiempo de ejecución). La descarga del complemento Smooth Streaming para OSMF incluye las versiones dinámicas y estáticas.
@@ -391,6 +391,6 @@ Para obtener más información acerca del desarrollo de OSMF general, consulte l
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 [Actualización del complemento de streaming adaptable para OSMF](https://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/) 
 

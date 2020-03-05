@@ -1,18 +1,17 @@
 ---
 title: Conexiones compatibles con IT Service Management Connector en Azure Log Analytics | Microsoft Docs
 description: En este artículo, se proporciona información sobre cómo conectar los productos y servicios de ITSM al Conector de Administración de servicios de TI (ITSMC) en Azure Monitor para supervisar y administrar de forma centralizada los elementos de trabajo de ITSM.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: a4b8e1ca245d90018647577f338ed0833cbaf324
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: c6cad29b6cc392746a2e56323302521302835b2f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990290"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665874"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar productos o servicios de ITSM con el Conector de Administración de servicios de TI
 En este artículo se proporciona información sobre cómo configurar la conexión entre los productos y servicios de ITSM y el Conector de Administración de servicios de TI (ITSMC) en Log Analytics para administrar de forma centralizada los elementos de trabajo. Para obtener más información sobre ITSMC, vea [Información general](../../azure-monitor/platform/itsmc-overview.md).
@@ -32,7 +31,7 @@ Se admiten los siguientes productos y servicios de ITSM. Seleccione un producto 
 
 En las secciones siguientes se proporcionan detalles sobre cómo conectar su producto de System Center Service Manager con ITSMC en Azure.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 
 Asegúrese de que se cumplen los siguientes requisitos previos:
 
@@ -177,7 +176,7 @@ En la siguiente imagen de ejemplo se muestran los detalles de una conexión corr
 
 En las secciones siguientes se proporcionan detalles sobre cómo conectar su producto de ServiceNow a ITSMC en Azure.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 Asegúrese de que se cumplen los siguientes requisitos previos:
 - ITSMC instalado Más información: [Agregar la solución IT Service Management Connector](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Versiones compatibles con ServiceNow: Nueva York, Madrid, Londres, Kingston, Yakarta, Estambul, Helsinki, Ginebra.
@@ -283,7 +282,7 @@ Cuando el usuario se crea correctamente, el estado de **Check Installation Check
 En las secciones siguientes se proporcionan detalles sobre cómo conectar su producto de Provance a ITSMC en Azure.
 
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 
 Asegúrese de que se cumplen los siguientes requisitos previos:
 
@@ -336,7 +335,7 @@ Más información: [Creación de elementos de trabajo de ITSM a partir de alerta
 
 En las secciones siguientes se proporcionan detalles sobre cómo conectar su producto de Cherwell a ITSMC en Azure.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 
 Asegúrese de que se cumplen los siguientes requisitos previos:
 

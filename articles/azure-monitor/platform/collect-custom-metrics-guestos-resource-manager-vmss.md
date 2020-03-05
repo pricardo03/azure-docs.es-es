@@ -3,17 +3,16 @@ title: Recopilación de métricas del conjunto de escalado de Windows en Azure M
 description: Enviar métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Resource Manager para un conjunto de escalado de máquinas virtuales de Windows
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: ec9f7ecf218b635588065c14bd4d11283d027c11
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 24f83e4f6285d045e67bdaef431ebcff2345ef84
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364091"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663903"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Enviar métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Azure Resource Manager para un conjunto de escalado de máquinas virtuales de Windows
 
@@ -25,7 +24,7 @@ En este artículo se describe el proceso de envío de métricas de rendimiento d
 
 Si no está familiarizado con las plantillas de Resource Manager, obtenga información sobre las [implementaciones de plantilla](../../azure-resource-manager/management/overview.md) y su estructura y sintaxis.  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - La suscripción debe estar registrada en [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 

@@ -1,18 +1,14 @@
 ---
 title: 'Supervisión del rendimiento de aplicaciones web Java: Azure Application Insights'
 description: Supervisión extendida del rendimiento y el uso de su sitio web de Java con Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/10/2019
-ms.openlocfilehash: 8194c4b16d114be9b2b95ff56dea59d98cfdae10
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b29618179d22eac97a07bf41906465aba1fd7929
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931138"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657034"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Supervisión de dependencias, excepciones detectadas y tiempos de ejecución del método en aplicaciones web de Java
 
@@ -102,7 +98,7 @@ El agente debe estar empaquetado como un recurso en el proyecto de forma que ter
 
 #### <a name="enable-w3c-distributed-tracing"></a>Habilitación del seguimiento distribuido de W3C
 
-Agregue lo siguiente a AI-Agent.xml:
+Agregue lo siguiente al archivo AI-Agent.xml:
 
 ```xml
 <Instrumentation>
@@ -127,7 +123,7 @@ Para buscar instancias individuales de informes de dependencia, excepción y mé
 [Más información sobre diagnósticos de problemas de dependencia](../../azure-monitor/app/asp-net-dependencies.md#diagnosis).
 
 ## <a name="questions-problems"></a>¿Tiene preguntas? ¿Tiene problemas?
-* ¿No hay datos? [Establezca excepciones del firewall](../../azure-monitor/app/ip-addresses.md)
+* ¿No hay datos? [Establecer excepciones del firewall](../../azure-monitor/app/ip-addresses.md)
 * [Solución de problemas de Java](java-troubleshoot.md)
 
 <!--Link references-->

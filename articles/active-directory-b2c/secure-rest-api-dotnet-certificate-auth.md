@@ -3,20 +3,20 @@ title: Protección de un servicio RESTful mediante certificados de cliente
 titleSuffix: Azure AD B2C
 description: Proteja los intercambios de notificaciones de la API de REST personalizada en Azure AD B2C mediante certificados de cliente
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b6f4c24bb5587ca67fd2de0d8aad2c6f5218a41b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 98606443707c183a15a4bacd26646c3eac6c8a69
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850947"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186920"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Proteja los servicios REST mediante certificados de cliente
 
@@ -34,7 +34,7 @@ En este artículo se detalla cómo:
 * Cargar el certificado en las claves de la directiva de Azure AD B2C.
 * Configurar una directiva personalizada para usar el certificado de cliente.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 * Complete los pasos del artículo [Integración de intercambios de notificaciones de API de REST en los recorridos de usuario de Azure AD B2C como un paso de orquestación](rest-api-claims-exchange-dotnet.md).
 * Obtener tener un certificado válido (un archivo .pfx con clave privada).
 

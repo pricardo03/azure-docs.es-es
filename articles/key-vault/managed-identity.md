@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 75317f73ad724b4ce8ad7a894890b2269bd8c5d0
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 36a4871339401629300eedd77b6441aed10aabf3
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837494"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199842"
 ---
 # <a name="provide-key-vault-authentication-with-a-managed-identity"></a>Autenticación de Key Vault con una identidad administrada
 
@@ -25,7 +26,7 @@ En este artículo se describe cómo crear una identidad administrada para una ap
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Prerrequisitos 
 
 Para completar esta guía, necesitará los recursos siguientes: 
 
@@ -53,7 +54,7 @@ Para configurar una identidad administrada en el portal, primero creará una apl
 
     ![](./media/managed-identity-system-assigned.png)
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 Para realizar este inicio rápido es necesaria la versión 2.0.4 o superior de la CLI de Azure. Ejecute `az --version` para buscar la versión actual. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
@@ -101,7 +102,7 @@ Anote `PrincipalId`, que se necesitará en la siguiente sección.
 
     ![](./media/managed-identity-access-policy.png)
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 Para conceder a la aplicación acceso al almacén de claves, use el comando de la CLI de Azure [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) y proporcione el parámetro **ObjectId** con el valor de **principalId** que anotó anteriormente.
 

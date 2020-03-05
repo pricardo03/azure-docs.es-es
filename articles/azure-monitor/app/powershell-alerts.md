@@ -1,18 +1,14 @@
 ---
 title: Uso de PowerShell para configurar alertas en Application Insights | Microsoft Docs
 description: Automatice la configuración de Application Insights para recibir correos electrónicos sobre los cambios en las métricas.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/31/2016
-ms.openlocfilehash: cf03fa0055710dde86a0f74cd58344575494faf1
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: c19cb43d08b44b55c786e750e64a83e6f0c67381
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928568"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669852"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Uso de PowerShell para configurar alertas en Application Insights
 
@@ -33,7 +29,7 @@ Instale el módulo de Azure Powershell en el equipo donde desea ejecutar los scr
 * Instale el [Instalador de plataforma web de Microsoft (v5 o superior)](https://www.microsoft.com/web/downloads/platform.aspx).
 * Úselo para instalar Microsoft Azure Powershell.
 
-## <a name="connect-to-azure"></a>Conexión a Azure
+## <a name="connect-to-azure"></a>Conexión con Azure
 Inicie Azure PowerShell y [conéctese a su suscripción](/powershell/azure/overview):
 
 ```powershell
@@ -93,7 +89,7 @@ Tengo una aplicación en la que uso [TrackMetric()](../../azure-monitor/app/api-
 La misma regla puede usarse con la métrica notificada mediante el [parámetro de medida](../../azure-monitor/app/api-custom-events-metrics.md#properties) de otra llamada de seguimiento, como TrackEvent o trackPageView.
 
 ## <a name="metric-names"></a>Nombres de métrica
-| Nombre de métrica | Nombre de pantalla | DESCRIPCIÓN |
+| Nombre de métrica | Nombre de pantalla | Descripción |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |Excepciones de explorador |Recuento de excepciones no detectadas en el explorador. |
 | `basicExceptionServer.count` |Excepciones de servidor |Número de excepciones no controladas producidas por la aplicación |
@@ -122,7 +118,7 @@ Las métricas se envían por módulos de telemetría diferentes:
 
 | Grupo de métricas | Módulo de recopilador |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>view |[JavaScript de explorador](../../azure-monitor/app/javascript.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>ver |[JavaScript de explorador](../../azure-monitor/app/javascript.md) |
 | performanceCounter |[Rendimiento](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | remoteDependencyFailed |[Dependencia](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | request,<br/>requestFailed |[Solicitud de servidor](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
@@ -130,8 +126,8 @@ Las métricas se envían por módulos de telemetría diferentes:
 ## <a name="webhooks"></a>webhooks
 También puede [automatizar la respuesta ante una alerta](../../azure-monitor/platform/alerts-webhooks.md). Azure llamará a una dirección web de su elección cuando se genere una alerta.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 * [Script para configurar Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
 * [Crear Application Insights y recursos de pruebas web a partir de plantillas](powershell.md)
 * [Uso de PowerShell para enviar Azure Diagnostics a Application Insights](powershell-azure-diagnostics.md)
-* [Automatización de la respuesta ante una alerta](../../azure-monitor/platform/alerts-webhooks.md)
+* [Automatización de la respuesta a una alerta](../../azure-monitor/platform/alerts-webhooks.md)

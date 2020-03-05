@@ -1,18 +1,17 @@
 ---
 title: Introducción a Insights en Azure Monitor | Microsoft Docs
 description: Insights proporcionan una experiencia de supervisión personalizada en Azure Monitor para determinadas aplicaciones y servicios. En este artículo se proporciona una breve descripción de cada una de las informaciones que están actualmente disponibles.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/22/2019
-ms.openlocfilehash: d1b53267daa2d47baf9976727bbaf3fa56172432
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 15ea7698c9e90fa8b0dfa20f71b552a2b0e9c7d2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832089"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657255"
 ---
 # <a name="overview-of-insights-in-azure-monitor"></a>Introducción a Insights en Azure Monitor
 Insights proporciona una experiencia de supervisión personalizada para determinadas aplicaciones y servicios. Almacena datos en la [plataforma de datos de Azure Monitor](../platform/data-platform.md) y aprovecha otras características de Azure Monitor para el análisis y la creación de alertas, pero puede recopilar datos adicionales y proporcionar una experiencia de usuario única en Azure Portal. Obtener acceso a información a partir de la sección **Insights** del menú de Azure Monitor en Azure Portal.

@@ -1,20 +1,18 @@
 ---
 title: Uso de la API REST de alertas de Log Analytics
 description: Con la API REST de alertas de Log Analytics, se pueden crear y administrar alertas de Log Analytics.  En este artículo encontrará información detallada sobre la API y varios ejemplos para realizar distintas operaciones.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
 ms.date: 07/29/2018
-ms.openlocfilehash: 7112f86ca123c66c5969236617f35fcb8d698030
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: a85dad2ba638505233e5df769e55fa5bd7b8dafd
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680671"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665007"
 ---
-# <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Creación y administración de reglas de alerta de Log Analytics con la API de REST
+# <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Creación y administración de reglas de alerta de Log Analytics con la API de REST 
+
 La API REST de alertas de Log Analytics le permite crear y administrar alertas en Log Analytics.  En este artículo encontrará información detallada sobre la API y varios ejemplos para realizar distintas operaciones.
 
 > [!IMPORTANT]
@@ -22,7 +20,7 @@ La API REST de alertas de Log Analytics le permite crear y administrar alertas e
 
 La API de REST de búsqueda de Log Analytics es de tipo RESTful y se puede obtener acceso a ella a través de la API de REST de Azure Resource Manager. En este documento encontrará ejemplos donde se tiene acceso a la API desde una línea de comandos de PowerShell a través de [ARMClient](https://github.com/projectkudu/ARMClient), una herramienta de línea de comandos de código abierto que simplifica la tarea de invocar a la API de Azure Resource Manager. El uso de ARMClient y PowerShell es una de las muchas opciones para tener acceso a la API de búsqueda de Log Analytics. Con estas herramientas, puede usar la API de RESTful de Azure Resource Manager para realizar llamadas a las áreas de trabajo de Log Analytics y ejecutar comandos de búsqueda dentro de ellas. La API generará resultados de búsqueda, en formato JSON, lo que le permite usar los resultados de búsqueda de muchas formas distintas mediante programación.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Actualmente, solo se pueden crear alertas con una búsqueda guardada en Log Analytics.  Para obtener más información, consulte [API de búsqueda de registros de Log Analytics](../../azure-monitor/log-query/log-query-overview.md) .
 
 ## <a name="schedules"></a>Programaciones

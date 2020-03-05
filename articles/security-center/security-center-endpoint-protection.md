@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/29/2019
 ms.author: memildin
-ms.openlocfilehash: 899f4cba31afed812fa1643b925a38812308042e
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: dcf7df501665ea3885d00b9f7668a95cbbf02428
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552940"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208549"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Valoración y recomendaciones de Endpoint Protection en Azure Security Center
 
-Azure Security Center proporciona evaluaciones de estado de las versiones [admitidas](security-center-services.md#supported-endpoint-protection-solutions-) de las soluciones de Endpoint Protection. En este artículo se explican los escenarios que llevan a Security Center a generar las dos recomendaciones siguientes:
+Azure Security Center proporciona evaluaciones de estado de las versiones [admitidas](security-center-services.md#endpoint-supported) de las soluciones de Endpoint Protection. En este artículo se explican los escenarios que llevan a Security Center a generar las dos recomendaciones siguientes:
 
 * **Instalar soluciones de Endpoint Protection en la máquina virtual**
 * **Resolver problemas de mantenimiento de Endpoint Protection en las máquinas**

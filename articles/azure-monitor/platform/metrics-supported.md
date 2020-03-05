@@ -3,17 +3,16 @@ title: Métricas compatibles de Azure Monitor por tipo de recurso
 description: Lista de métricas disponibles para cada tipo de recurso con Azure Monitor.
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: reference
 ms.date: 12/18/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: e67cd8c85d9ba85e32ef7aece402f97ab24243e5
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 3e43d2baf4337e7a986d59c47f805183a920c7a1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963451"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659686"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 

@@ -1,23 +1,20 @@
 ---
 title: Ejemplos de inicio rápido de la CLI de Azure Monitor
 description: Comandos de CLI de ejemplo para características de Azure Monitor. Azure Monitor es un servicio de Microsoft Azure que permite enviar notificaciones de alerta, llamar a direcciones URL web en función de los valores de datos de telemetría configurados y escalar automáticamente Cloud Services, Virtual Machines y Web Apps.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 05/16/2018
-ms.openlocfilehash: 0def528e0c432ecbc706622f0b8c29c2d610c663
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 69687cee8b8a907b82f2c848242ac64d54dedb87
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893542"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663511"
 ---
 # <a name="azure-monitor-cli-quick-start-samples"></a>Ejemplos de inicio rápido de la CLI de Azure Monitor
 En este artículo se muestran comandos de la interfaz de la línea de comandos (CLI) de ejemplo que lo ayudarán a acceder a las características de supervisión de Azure Monitor. Azure Monitor permite escalar automáticamente Cloud Services, Virtual Machines y Web Apps para enviar notificaciones de alerta o llamar a direcciones URL web en función de los valores de datos de telemetría configurados.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si aún no ha instalado la CLI de Azure, siga las instrucciones para [instalar la CLI de Azure](/cli/azure/install-azure-cli). También puede usar [Azure Cloud Shell](/azure/cloud-shell) para ejecutar la CLI como una experiencia interactiva en el explorador. Consulte una referencia completa de todos los comandos disponibles en la [referencia de la CLI de Azure Monitor](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
 

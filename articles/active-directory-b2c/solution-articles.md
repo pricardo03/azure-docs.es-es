@@ -2,25 +2,25 @@
 title: Soluciones y aprendizaje para Azure Active Directory B2C | Microsoft Docs
 description: En este artículo se proporcionan vínculos a información de soluciones y aprendizaje que puede ayudarle a entender y usar Azure Active Directory B2C para soluciones de negocio integrales.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-ms.author: marsma
+ms.author: mimart
 ms.date: 11/05/2018
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 82f78ba50a6717c1d14e4921bb3c46a3525ad2cf
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 9e00c872bb2794cdd8eb2560392ce058ae41b257
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063500"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186733"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Soluciones y aprendizaje para Azure Active Directory B2C
 
 Azure Active Directory B2C (Azure AD B2C) permite a las organizaciones implementar soluciones de negocio que les ayudan a conectarse con sus clientes. Las siguientes guías de soluciones y aprendizaje son documentos descargables que le guiará por estas soluciones.
 
-| Título | DESCRIPCIÓN |
+| Título | Descripción |
 | ----- | ----------- |
 | [Customer Identity Management with Azure AD B2C](https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C) (Administración de identidades de clientes con Azure AD B2C) | En esta introducción al servicio, Parakh Jain ([@jainparakh](https://twitter.com/jainparakh)) del equipo de Azure AD B2C proporciona una visión general de cómo funciona el servicio y también muestra cómo podemos conectar rápidamente B2C a una aplicación ASP.NET Core. |
 | [Ventajas de usar Azure AD B2C](https://aka.ms/b2coverview) | Comprender las ventajas y escenarios comunes de Azure AD B2C y cómo las aplicaciones pueden aprovechar este servicio CIAM. |

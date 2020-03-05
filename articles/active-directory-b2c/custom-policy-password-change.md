@@ -3,20 +3,20 @@ title: Configuración del cambio de contraseñas mediante directivas personaliza
 titleSuffix: Azure AD B2C
 description: Obtenga información sobre cómo habilitar a los usuarios para el cambio de contraseñas mediante directivas personalizadas en Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6bb4b762fead279bcc8492cb902e2059d7cfc68c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2c351f8a95110a32c53c68c5eb6095918578bc5b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76851079"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189181"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del cambio de contraseñas con directivas personalizadas en Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76851079"
 
 En Azure Active Directory B2C (Azure AD B2C), puede permitir que los usuarios que han iniciado sesión con una cuenta local cambien su contraseña sin tener que demostrar su autenticidad por comprobación de correo electrónico. Si la sesión expira cuando el usuario llega al flujo de cambio de contraseña, se le solicita que inicie sesión de nuevo. En este artículo se muestra cómo configurar el cambio de contraseñas en [directivas personalizadas](custom-policy-overview.md). También es posible configurar el [restablecimiento de contraseña de autoservicio](user-flow-self-service-password-reset.md) para flujos de usuario.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Siga los pasos de [Introducción a las directivas personalizadas en Active Directory B2C](custom-policy-get-started.md).
 

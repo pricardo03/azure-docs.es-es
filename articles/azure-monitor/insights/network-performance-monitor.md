@@ -1,18 +1,17 @@
 ---
 title: Solución Network Performance Monitor en Azure | Microsoft Docs
 description: Network Performance Monitor en Azure ayuda a supervisar el rendimiento de las redes, casi en tiempo real, para detectar y localizar cuellos de botella de rendimiento.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 396652e3f8a0a8d9e18effb94a48a362054dde96
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cb906f6b3cf333e3fb3a24a934e5d9f11fc10cda
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75403146"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654484"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solución Network Performance Monitor en Azure
 
@@ -37,15 +36,15 @@ Hay más información sobre las diferentes funcionalidades compatibles con [Netw
  
 ## <a name="supported-regions"></a>Regiones admitidas
 NPM puede supervisar la conectividad entre redes y aplicaciones en cualquier parte del mundo, desde un área de trabajo que se hospede en una de las siguientes regiones:
-* Europa del Norte
-* Europa occidental
+* Norte de Europa
+* Oeste de Europa
 * Centro de Francia
 
-* Centro occidental de EE.UU.
+* Centro-Oeste de EE. UU.
 * Centro-Norte de EE. UU
-* Centro-Sur de EE. UU
+* Centro-sur de EE. UU.
 * Centro de EE. UU.
-* East US
+* Este de EE. UU.
 * Este de EE. UU. 2
 * Oeste de EE. UU. 2
 * Este de Japón
@@ -54,10 +53,10 @@ NPM puede supervisar la conectividad entre redes y aplicaciones en cualquier par
 * Centro de Australia
 * Este de Australia
 * Sur de Reino Unido
-* Asia oriental
-* Corea Central
-* India Central
-* Gobierno de EE. UU. Virginia
+* Este de Asia
+* Centro de Corea del Sur
+* Centro de la India
+* US Gov Virginia
 * Este de China 2
 
 

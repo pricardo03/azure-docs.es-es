@@ -1,18 +1,17 @@
 ---
 title: Solución DNS Analytics en Azure Monitor | Microsoft Docs
 description: Configure y use la solución DNS Analytics en Azure Monitor para recopilar información en la infraestructura de DNS sobre seguridad, rendimiento y operaciones.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: bca77db3452aecb31852c4c50e7754c7777fc458
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2471c29f559df5c347c62ceb4c7fd9b4ae1e5eec
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75971258"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657340"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recopilación de información sobre la infraestructura de DNS con la solución DNS Analytics
 
@@ -37,9 +36,9 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 | **Origen conectado** | **Soporte técnico** | **Descripción** |
 | --- | --- | --- |
 | [Agentes de Windows](../platform/agent-windows.md) | Sí | La solución recopila información de DNS de los agentes de Windows. |
-| [Agentes de Linux](../learn/quick-collect-linux-computer.md) | No | La solución no recopila información de DNS de los agentes directos de Linux. |
+| [Agentes de Linux](../learn/quick-collect-linux-computer.md) | Sin | La solución no recopila información de DNS de los agentes directos de Linux. |
 | [Grupo de administración de System Center Operations](../platform/om-agents.md) | Sí | La solución recopila información de DNS de los agentes en un grupo de administración de Operations Manager conectado. No se requiere ninguna conexión directa entre el agente de Operations Manager y Azure Monitor. Los datos se reenvían desde el grupo de administración al área de trabajo de Log Analytics. |
-| [Cuenta de Almacenamiento de Azure](../platform/collect-azure-metrics-logs.md) | No | La solución no usa Azure Storage. |
+| [Cuenta de Almacenamiento de Azure](../platform/collect-azure-metrics-logs.md) | Sin | La solución no usa Azure Storage. |
 
 ### <a name="data-collection-details"></a>Detalles de la recopilación de datos
 

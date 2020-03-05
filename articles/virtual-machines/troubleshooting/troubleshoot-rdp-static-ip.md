@@ -12,19 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/08/2018
 ms.author: genli
-ms.openlocfilehash: 7756d4c808e104b0de14e1cea4af5e843cff755c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 92ad33fbc759605ae901c3bcf09283c8e0b1c4b5
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981775"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918196"
 ---
 #  <a name="cannot-remote-desktop-to-azure-virtual-machines-because-of-static-ip"></a>No se puede conectar mediante escritorio remoto a Azure Virtual Machines debido a una dirección IP estática
 
 En este artículo se describe un problema en el que no se puede conectar mediante escritorio remoto a Azure Windows Virtual Machines (máquinas virtuales) después de configurar una dirección IP estática en la máquina virtual.
 
-> [!NOTE]
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../azure-resource-manager/management/deployment-models.md). En este artículo se explica el uso del modelo de implementación de Resource Manager, que es el que se recomienda usar para las nuevas implementaciones, en lugar del modelo de implementación clásica.
 
 ## <a name="symptoms"></a>Síntomas
 

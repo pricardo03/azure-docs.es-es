@@ -3,20 +3,20 @@ title: Definición de un perfil técnico de validación en una directiva persona
 titleSuffix: Azure AD B2C
 description: Valide las notificaciones mediante un perfil técnico de validación en una directiva personalizada de Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: facef1e1288f2a64872efbf37a9a31fa05244a7e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 65a2eab05e7c475431602d9c2d3fc44b59bbc8f7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950806"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78185733"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de validación en una directiva personalizada en Azure Active Directory B2C
 
@@ -47,13 +47,13 @@ Un perfil técnico autoafirmado puede definir un perfil técnico de validación 
 
 El elemento **ValidationTechnicalProfiles** contiene los elementos siguientes:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | ValidationTechnicalProfile | 1:n | Un perfil técnico se usa para validar algunas o todas las notificaciones de salida del perfil técnico de referencia. |
 
 El elemento **ValidationTechnicalProfile** contiene el atributo siguiente:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | ReferenceId | Sí | Un identificador de un perfil técnico que ya se ha definido en la directiva o en la directiva principal. |
 |ContinueOnError|Sin| Indica si la validación de los perfiles técnicos de validación posteriores debe continuar si este perfil técnico de validación genera un error. Los valores posibles: `true` o `false` (de forma predeterminada, se detendrá el procesamiento de más perfiles de validación y se devolverá un error). |
@@ -61,23 +61,23 @@ El elemento **ValidationTechnicalProfile** contiene el atributo siguiente:
 
 El elemento **ValidationTechnicalProfile** contiene el elemento siguiente:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | Preconditions | 0:1 | Lista de las condiciones previas que deben cumplirse para que se ejecute el perfil técnico de validación. |
 
 El elemento **Precondition** contiene el atributo siguiente:
 
-| Atributo | Obligatorio | DESCRIPCIÓN |
+| Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | `Type` | Sí | El tipo de comprobación o consulta que hay que llevar a cabo para la condición previa. Se especifica `ClaimsExist` para asegurar que las acciones deben llevarse a cabo si las notificaciones especificadas existen en el conjunto de notificaciones actual del usuario, o `ClaimEquals` especifica que las acciones deben realizarse si la notificación especificada existe y su valor es igual al valor especificado. |
 | `ExecuteActionsIf` | Sí | Indica si las acciones en la condición previa deben realizarse si la prueba es verdadera o falsa. |
 
 El elemento **Precondition** contiene los elementos siguientes:
 
-| Elemento | Repeticiones | DESCRIPCIÓN |
+| Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
-| Valor | 1:n | Los datos que se usan en la comprobación. Si el tipo de esta comprobación es `ClaimsExist`, este campo especifica un ClaimTypeReferenceId para la consulta. Si el tipo de comprobación es `ClaimEquals`, este campo especifica un ClaimTypeReferenceId para la consulta. Mientras que otro elemento de valor contiene el valor que se va a comprobar.|
-| . | 1:1 | La acción que debe realizarse si se cumple la comprobación de condición previa dentro de un paso de orquestación. El valor de la **Action** está establecido en `SkipThisValidationTechnicalProfile`. Especifica que el perfil técnico de validación asociado no debe ejecutarse. |
+| Value | 1:n | Los datos que se usan en la comprobación. Si el tipo de esta comprobación es `ClaimsExist`, este campo especifica un ClaimTypeReferenceId para la consulta. Si el tipo de comprobación es `ClaimEquals`, este campo especifica un ClaimTypeReferenceId para la consulta. Mientras que otro elemento de valor contiene el valor que se va a comprobar.|
+| Acción | 1:1 | La acción que debe realizarse si se cumple la comprobación de condición previa dentro de un paso de orquestación. El valor de la **Action** está establecido en `SkipThisValidationTechnicalProfile`. Especifica que el perfil técnico de validación asociado no debe ejecutarse. |
 
 ### <a name="example"></a>Ejemplo
 

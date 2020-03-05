@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 03ea130011b23704731d68e5685e4ea0938e19b5
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: e6b2f73540a0af7ed9c12469406a77d1bed8a2b4
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771809"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268458"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Supervisión de métricas y ejecuciones de experimentos de Azure ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -40,7 +40,7 @@ Las siguientes métricas se pueden agregar a una ejecución durante el entrenami
 |Listas|Función:<br>`run.log_list(name, value, description='')`<br><br>Ejemplo:<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | Registra una lista de valores en la ejecución con el nombre especificado.|
 |Row|Función:<br>`run.log_row(name, description=None, **kwargs)`<br>Ejemplo:<br>run.log_row("Y over X", x=1, y=0.4) | Al usar *log_row* se crea una métrica de varias columnas, tal y como se describe en los argumentos kwargs. Cada parámetro con nombre genera una columna con el valor especificado.  Se puede llamar una vez a *log_row* para registrar una tupla arbitraria, o varias veces en un bucle para generar una tabla completa.|
 |Tabla|Función:<br>`run.log_table(name, value, description='')`<br><br>Ejemplo:<br>run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]}) | Registra un objeto de diccionario en la ejecución con el nombre especificado. |
-|Imágenes|Función:<br>`run.log_image(name, path=None, plot=None)`<br><br>Ejemplo:<br>`run.log_image("ROC", plt)` | Registra una imagen en el registro de ejecución. Use log_image para registrar un archivo de imagen o un trazado matplotlib en la ejecución.  Estas imágenes serán visibles y comparables en el registro de ejecución.|
+|Imágenes|Función:<br>`run.log_image(name, path=None, plot=None)`<br><br>Ejemplo:<br>`run.log_image("ROC", plot=plt)` | Registra una imagen en el registro de ejecución. Use log_image para registrar un archivo de imagen o un trazado matplotlib en la ejecución.  Estas imágenes serán visibles y comparables en el registro de ejecución.|
 |Etiquetar una ejecución|Función:<br>`run.tag(key, value=None)`<br><br>Ejemplo:<br>run.tag("selected", "yes") | Etiqueta la ejecución con una clave de cadena y un valor de cadena opcional.|
 |Cargar archivo o directorio|Función:<br>`run.upload_file(name, path_or_stream)`<br> <br> Ejemplo:<br>run.upload_file("best_model.pkl", "./model.pkl") | Carga un archivo en el registro de ejecución. Las ejecuciones capturan automáticamente el archivo en el directorio de salida especificado, cuyo valor predeterminado es "./outputs" para la mayoría de tipos de ejecución.  Use upload_file solo cuando sea necesario cargar archivos adicionales o no se especifique un directorio de salida. Se recomienda agregar `outputs` al nombre, para que se cargue en el directorio de salida. Puede enumerar todos los archivos que están asociados con este registro de ejecución por el parámetro `run.get_file_names()` invocado.|
 
@@ -297,7 +297,7 @@ El entrenamiento y la supervisión de modelos tienen lugar en segundo plano, de 
 Puede ver las métricas de un modelo entrenado con ```run.get_metrics()```. Ahora puede obtener todas las métricas que se registraron en el ejemplo anterior para determinar el mejor modelo.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
-## <a name="view-the-experiment-in-your-workspace-in-azure-machine-learning-studiohttpsmlazurecom"></a>Visualización del experimento en su área de trabajo en [Azure Machine Learning Studio](https://ml.azure.com)
+## <a name="view-the-experiment-in-your-workspace-in-azure-machine-learning-studio"></a>Visualización del experimento en su área de trabajo en [Azure Machine Learning Studio](https://ml.azure.com)
 
 Cuando un experimento ha terminado de ejecutarse, puede ir al registro de ejecución del experimento grabado. Puede acceder al historial desde [Azure Machine Learning Studio](https://ml.azure.com).
 

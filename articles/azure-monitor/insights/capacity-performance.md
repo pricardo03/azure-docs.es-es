@@ -1,18 +1,17 @@
 ---
 title: Solución Capacidad y rendimiento en Azure Monitor | Microsoft Docs
 description: Use la solución Capacidad y rendimiento en Azure Monitor para conocer la capacidad de los servidores de Hyper-V.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: c444991166d9c7d3f1d8ed39e19e333d3c27f982
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 75c65cf9f76e711a3aeed764de8b92ed619bad2f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75405744"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666950"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Con la solución Capacidad y rendimiento (en desuso) puede planear la capacidad de máquinas virtuales de Hyper-V.
 
@@ -43,11 +42,11 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 | Origen conectado | Soporte técnico | Descripción |
 |---|---|---|
 | [Agentes de Windows](../../azure-monitor/platform/agent-windows.md) | Sí | La solución recopila información de datos de rendimiento y capacidad de los agentes de Windows. |
-| [Agentes de Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No    | La solución no recopila información de datos de rendimiento y capacidad de los agentes directos de Linux.|
+| [Agentes de Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Sin    | La solución no recopila información de datos de rendimiento y capacidad de los agentes directos de Linux.|
 | [Grupo de administración de SCOM](../../azure-monitor/platform/om-agents.md) | Sí |La solución recopila datos de rendimiento y capacidad de los agentes de un grupo de administración de SCOM conectado. No se requiere una conexión directa entre el agente de SCOM y Log Analytics.|
-| [Cuenta de Almacenamiento de Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md) | No | Azure Storage no incluye datos de capacidad y rendimiento.|
+| [Cuenta de Almacenamiento de Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Sin | Azure Storage no incluye datos de capacidad y rendimiento.|
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Los agentes de Windows o de Operations Manager deben instalarse en hosts de Hyper-V, no máquinas virtuales, con Windows Server 2012, o cualquier versión superior.
 

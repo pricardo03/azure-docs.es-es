@@ -3,12 +3,12 @@ title: Implementación de recursos con una plantilla y la CLI de Azure
 description: Use Azure Resource Manager y la CLI de Azure para implementar recursos en Azure. Los recursos se definen en una plantilla de Resource Manager.
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 242b9f2a4bc39f8aa083d9c89d3dd7ed850b3489
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 64f60a6e15a0c51e5ee506340c064804f7588693
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154302"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250659"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Implementación de recursos con plantillas de Resource Manager y la CLI de Azure
 
@@ -63,7 +63,7 @@ az group deployment create \
 
 La implementación puede demorar unos minutos en completarse. Cuando termine, verá un mensaje que incluye el resultado:
 
-```azurecli
+```output
 "provisioningState": "Succeeded",
 ```
 
@@ -183,7 +183,7 @@ az group deployment validate \
 
 Si no se detectan errores, el comando devuelve información sobre la implementación de prueba. En concreto, tenga en cuenta que el valor **error** es null.
 
-```azurecli
+```output
 {
   "error": null,
   "properties": {
@@ -192,7 +192,7 @@ Si no se detectan errores, el comando devuelve información sobre la implementac
 
 Si se detecta un error, el comando devuelve un mensaje de error. Por ejemplo, si se pasa un valor incorrecto para la SKU de la cuenta de almacenamiento, se devuelve el error siguiente:
 
-```azurecli
+```output
 {
   "error": {
     "code": "InvalidTemplate",
@@ -208,7 +208,7 @@ Si se detecta un error, el comando devuelve un mensaje de error. Por ejemplo, si
 
 Si la plantilla tiene un error de sintaxis, el comando devuelve un error que indica que la plantilla no se pudo analizar. El mensaje indica el número de línea y la posición del error de análisis.
 
-```azurecli
+```output
 {
   "error": {
     "code": "InvalidTemplate",

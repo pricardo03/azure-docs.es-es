@@ -1,18 +1,17 @@
 ---
 title: Supervisión de los recursos de Azure con Azure Monitor | Microsoft Docs
 description: Describe cómo recopilar y analizar los datos de supervisión de los recursos de Azure mediante Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: b092b037cc10671e89f18af287b52f8ad1c0060e
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 01d188e0e39888297ff8d6a57129a3a17e1654fe
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747312"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654926"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Supervisión de recursos de Azure con Azure Monitor
 Si tiene aplicaciones y procesos empresariales críticos que dependen de recursos de Azure, querrá supervisar esos recursos para su disponibilidad, rendimiento y funcionamiento. En este artículo se describen los datos de supervisión generados por los recursos de Azure y cómo puede usar las características de Azure Monitor para analizar y alertar sobre estos datos.

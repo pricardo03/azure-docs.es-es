@@ -3,20 +3,20 @@ title: Transmisión de un token de acceso a la aplicación mediante una directiv
 titleSuffix: Azure AD B2C
 description: Aprenda cómo puede pasar un token de acceso para proveedores de identidades de OAuth 2.0 como una notificación a la aplicación en Azure Active Directory B2C mediante una directiva personalizada.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/17/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 697c904f98ea29395d5c4e95abe27556c06bb479
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ff5ef8f742914129d868152814d84d2112267c09
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76839098"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187802"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Pase de un token de acceso a través de una directiva personalizada a la aplicación en Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ Un [directiva personalizada](custom-policy-get-started.md) en Azure Active Direc
 
 Azure AD B2C admite pasar el token de acceso de los proveedores de identidades de [OAuth 2.0](authorization-code-flow.md) y [OpenID Connect](openid-connect.md). Para todos los demás proveedores de identidades, la notificación se devuelve en blanco.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * La directiva personalizada se configura con un proveedor de identidades de OAuth 2.0. o de OpenID Connect.
 

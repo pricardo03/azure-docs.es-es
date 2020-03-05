@@ -1,18 +1,17 @@
 ---
 title: Trabajo con cadenas en consultas de registro de Azure Monitor | Microsoft Docs
 description: En este artículo se proporciona un tutorial para usar el análisis de registros de Azure Monitor en Azure Portal para consultar y analizar datos de registro en Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 940c82e9ef7016639a3ab334040c408f83996e2b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8be4f318149590ff08b73fda719e99a17220ec2e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365315"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670158"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Trabajo con JSON y estructuras de datos en consultas de registro de Azure Monitor
 

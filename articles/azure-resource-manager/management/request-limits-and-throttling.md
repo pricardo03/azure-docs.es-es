@@ -4,12 +4,12 @@ description: En este artículo se describe cómo usar la limitación con las sol
 ms.topic: conceptual
 ms.date: 10/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 129ca3ba32d48345bde931c6bd2084c3da79be39
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 43ccf4f2e8098f6577f18943c4ab4132884b66f2
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659379"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251337"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitación de solicitudes de Resource Manager
 
@@ -162,7 +162,7 @@ az group list --verbose --debug
 
 Esta operación devuelve muchos valores, incluidos los siguientes:
 
-```azurecli
+```output
 msrest.http_logger : Response status: 200
 msrest.http_logger : Response headers:
 msrest.http_logger :     'Cache-Control': 'no-cache'
@@ -182,7 +182,7 @@ az group create -n myresourcegroup --location westus --verbose --debug
 
 Esta operación devuelve muchos valores, incluidos los siguientes:
 
-```azurecli
+```output
 msrest.http_logger : Response status: 201
 msrest.http_logger : Response headers:
 msrest.http_logger :     'Cache-Control': 'no-cache'

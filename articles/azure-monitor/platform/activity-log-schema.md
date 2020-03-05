@@ -3,17 +3,16 @@ title: Esquema de eventos del registro de actividad de Azure
 description: Describe el esquema de eventos para cada categoría en el registro de actividad de Azure.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: reference
 ms.date: 12/04/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 272b71fe5fddea9299e5d660484fcbb3eb367d58
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: ccbb4175701c3535b790f25c9ed522911dda6707
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749467"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668849"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos del registro de actividad de Azure
 El [registro de actividad de Azure](platform-logs-overview.md) proporciona información sobre los eventos que se han producido en Azure en el nivel de la suscripción. En este artículo, se describe el esquema de eventos de cada categoría. 

@@ -1,16 +1,16 @@
 ---
-title: Conexión de una máquina de desarrollo a un clúster de AKS
+title: Conexión de una máquina de desarrollo a un clúster de AKS (versión preliminar)
 services: azure-dev-spaces
 ms.date: 11/04/2019
 ms.topic: conceptual
 description: Obtenga información sobre cómo conectar la máquina de desarrollo a un clúster de AKS con Azure Dev Spaces
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: cba68702155475832930c791c3a7be014375ba04
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 13e6f16e66941be0ae463e8280827dc0b8183450
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770686"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196100"
 ---
 # <a name="connect-your-development-machine-to-an-aks-cluster-preview"></a>Conexión de una máquina de desarrollo a un clúster de AKS (versión preliminar)
 
@@ -35,7 +35,7 @@ En esta guía se usa la [aplicación de ejemplo Bike Sharing de Azure Dev Spaces
 
 * UDP no se admite en este momento.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita](https://azure.microsoft.com/free).
 * [La CLI de Azure instalada][azure-cli].

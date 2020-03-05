@@ -3,20 +3,20 @@ title: Configuración de la complejidad de contraseñas mediante directivas pers
 titleSuffix: Azure AD B2C
 description: Cómo configurar los requisitos de complejidad de las contraseñas con una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d0caa029bd33da499db23f218b2392344c4585ec
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2de1130e28b5071913e4cf3632c3fe4407597a98
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76851119"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189147"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración de la complejidad de las contraseñas con directivas personalizadas en Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76851119"
 
 En Azure Active Directory B2C (Azure AD B2C), puede configurar los requisitos de complejidad de las contraseñas que proporciona un usuario al crear una cuenta. De forma predeterminada, Azure AD B2C utiliza contraseñas **seguras**. En este artículo se muestra cómo configurar la complejidad de las contraseñas en [directivas personalizadas](custom-policy-overview.md). También es posible configurar la complejidad de las contraseñas en [flujos de usuario](user-flow-password-complexity.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Siga los pasos de [Introducción a las directivas personalizadas en Active Directory B2C](custom-policy-get-started.md).
 

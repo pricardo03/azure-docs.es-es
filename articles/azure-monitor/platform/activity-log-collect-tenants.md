@@ -1,18 +1,17 @@
 ---
 title: Recopilación de registros de actividad de Azure en un área de trabajo de Log Analytics entre inquilinos de Azure | Microsoft Docs
 description: Use Event Hubs y Logic Apps para recopilar datos del registro de actividad de Azure y enviarlos a un área de trabajo de Log Analytics en Azure Monitor en un inquilino diferente.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: e3b368f8a59d201f70bfad05125ed59b4b8551c5
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 52bf8b955ef4dc9cfae7fd74fbad0df744609196
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530007"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669274"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Recopilación de registros de actividad de Azure en Azure Monitor en inquilinos de Azure Active Directory (heredado)
 

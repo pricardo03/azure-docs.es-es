@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 01/27/2020
-ms.openlocfilehash: f2c18a1e858fcebf8d2c82210f2290cf4a14d061
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 03/03/2020
+ms.openlocfilehash: 8a4205002a98a5b9670839b0de7b53d81e0221a6
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846005"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271929"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extracción, transformación y carga de datos (ETL) a escala
 

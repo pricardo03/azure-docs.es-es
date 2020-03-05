@@ -3,7 +3,7 @@ title: Actualización del agente de Linux de Azure desde GitHub
 description: Aprenda a actualizar el agente Linux de Azure para la máquina virtual Linux en Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mimckitt
-ms.openlocfilehash: 86ddda8537a4b61c5432072077c183ded2556624
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e4489f7c810799ca8e89565fe698f398f942b089
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973152"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251722"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Actualización del agente Linux de Azure en una máquina virtual
 
@@ -347,7 +347,7 @@ Restart the waagent service
 sudo systemctl restart walinuxagent.service
 ```
 
-## <a name="oracle-linux-6-and-oracle-linux-7"></a>Oracle Linux 6 y Oracle Linux 7
+## <a name="oracle-linux-6-and-oracle-linux-7"></a>Oracle Linux 6 y Oracle Linux 7
 
 Para Oracle Linux, asegúrese de que el repositorio `Addons` está habilitado. Elija editar el archivo `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) u `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux) y cambie la línea `enabled=0` a `enabled=1` en **[ol6_addons]** o **[ol7_addons]** en este archivo.
 

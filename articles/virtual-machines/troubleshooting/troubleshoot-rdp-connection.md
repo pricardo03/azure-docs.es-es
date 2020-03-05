@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: akjosh
-ms.openlocfilehash: d3ad0e6d88ed849074989dc36698c01209921449
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: cbca8e631da8b99aa0ea4bdc6d099f3dbd2ed9b1
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749685"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916615"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure
 La conexión de Protocolo de escritorio remoto (RDP) a la máquina virtual (VM) de Azure basada en Windows puede presentar errores por varios motivos que le impedirán acceder a la máquina virtual. El problema puede originar en el servicio de Escritorio remoto de la máquina virtual, la conexión de red o el cliente de Escritorio remoto en el equipo host. Este artículo le guía por algunos de los métodos más comunes para resolver problemas de conexión de RDP. 
@@ -67,7 +67,7 @@ Después de cada paso de solución de problemas, intente conectarse de nuevo a l
     Seleccione la máquina virtual en Azure Portal. Desplácese hacia abajo en el panel de configuración a la sección **Soporte y solución de problemas** cerca de la parte inferior de la lista. Haga clic en el botón **Restablecer contraseña**. Establezca el **Modo** en **Reset configuration only** (Configuración del restablecimiento solo) y, después, haga clic en el botón **Actualizar**:
    
     ![Restablecimiento de la configuración de RDP en Azure Portal](./media/troubleshoot-rdp-connection/reset-rdp.png)
-2. **Compruebe las reglas del grupo de seguridad de red**. Use la [verificación del flujo IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) para confirmar si una regla en un grupo de seguridad de red está bloqueando el tráfico hacia o desde una máquina virtual. También puede revisar cómo crear reglas de grupo de seguridad eficaces para garantizar que exista la regla NSG "Permitir" de entrada y tenga prioridad para el puerto RDP (valor predeterminado 3389). Para obtener más información, consulte [Uso de las reglas de seguridad vigentes para solucionar problemas de flujo de tráfico de máquinas virtuales](../../virtual-network/diagnose-network-traffic-filter-problem.md).
+2. **Compruebe las reglas del grupo de seguridad de red**. Use la [verificación del flujo IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) para confirmar si una regla en un grupo de seguridad de red está bloqueando el tráfico hacia o desde una máquina virtual. También puede revisar cómo crear reglas de grupo de seguridad eficaces para garantizar que exista la regla NSG "Permitir" de entrada y tenga prioridad para el puerto RDP (valor predeterminado 3389). Para más información, vea [Uso de las reglas de seguridad vigentes para solucionar problemas de flujo de tráfico de máquinas virtuales](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 3. **Revise los diagnósticos de arranque de la máquina virtual**. En este paso para solucionar problemas se revisan los registros de la consola de la máquina virtual para determinar si la máquina virtual está notificando de un problema. No todas las máquinas virtuales tienen diagnósticos de arranque habilitados, por lo que este paso para solucionar problemas puede ser opcional.
    
@@ -193,6 +193,10 @@ Después de cada paso de solución de problemas, intente conectarse de nuevo a l
 Si sigue teniendo problemas con RDP, puede [abrir una solicitud de soporte técnico](https://azure.microsoft.com/support/options/) o leer [más pasos y conceptos detallados de solución de problemas de RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="troubleshoot-vms-created-using-the-classic-deployment-model"></a>Solución de problemas de máquinas virtuales creadas con el modelo de implementación clásica
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
+
 Después de cada paso de solución de problemas, intente volver a conectarse a la máquina virtual.
 
 1. **Restablezca la conexión RDP**. En este paso para solucionar problemas se restablece la configuración de RDP cuando las conexiones remotas están deshabilitadas o las reglas de Firewall de Windows están bloqueando el RDP, por ejemplo.

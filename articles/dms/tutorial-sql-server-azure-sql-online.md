@@ -3,8 +3,8 @@ title: 'Tutorial: Migración de SQL Server en línea a una base de datos única 
 titleSuffix: Azure Database Migration Service
 description: Aprenda a migrar de SQL Server local en línea a una base de datos única o agrupada en Azure SQL Database mediante Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/21/2020
-ms.openlocfilehash: 012e6eca13c2b1afe00343da98dd58ca1f683dd5
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 4fb8fbc0a0880d2e73839c4de3e1993dc86bd815
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76315106"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255285"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Tutorial: Migración de SQL Server a una base de datos única o agrupada en Azure SQL Database en línea mediante DMS
 
@@ -44,7 +44,7 @@ En este tutorial, aprenderá a:
 
 En este artículo se describe una migración en línea desde SQL Server a una base de datos única o agrupada de Azure SQL Database. Para migraciones sin conexión, consulte [Migración de SQL Server a Azure SQL Database sin conexión mediante DMS](tutorial-sql-server-to-azure-sql.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesita:
 

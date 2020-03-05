@@ -3,17 +3,16 @@ title: Archivado de registros de recurso de Azure en la cuenta de almacenamiento
 description: Aprenda a archivar los registros de recurso de Azure para su retención a largo plazo en una cuenta de almacenamiento.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: f4109359adaaeae0a1ba027ac04439ff60b5a939
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 843c179826b2064a1be24d3cee84b398987b4aed
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467188"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658978"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Archivado de registros de recurso de Azure en la cuenta de almacenamiento
 Los [registros de plataforma](platform-logs-overview.md) en Azure, incluidos los registros de recurso y los registros de actividad de Azure, proporcionan información detallada de diagnóstico y auditoría para los recursos de Azure y la plataforma de Azure de la que dependen.  En este artículo se describe la recopilación de registros de plataforma en una cuenta de almacenamiento de Azure para conservar los datos para su archivado.

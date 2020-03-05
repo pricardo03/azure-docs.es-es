@@ -1,18 +1,17 @@
 ---
 title: Registros de Azure Monitor para proveedores de servicios | Microsoft Docs
 description: Los registros de Azure Monitor pueden ayudar a proveedores de servicios administrados (MSP), grandes empresas, proveedores de software independientes (ISV) y proveedores de servicios de hospedaje a administrar y supervisar servidores en infraestructuras locales o en la nube del cliente.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 1b5c181569ea569ecc4808284683501cb20f7bf5
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: ed398e12ee90f2eef2cfa78e2ed02701e6012517
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117058"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658887"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Registros de Azure Monitor para proveedores de servicios
 

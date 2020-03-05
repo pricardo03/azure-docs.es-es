@@ -3,12 +3,12 @@ title: Cómo detener la supervisión del clúster de Red Hat OpenShift en Azure 
 description: En este artículo se describe cómo puede detener la supervisión del clúster de Red Hat OpenShift en Azure con Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 97ca333f724dc4914dabda2912c4512a40520253
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: eff5203aeedd3c7ad283b55ba12f0e45a556460d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977782"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250729"
 ---
 # <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-cluster-with-azure-monitor-for-containers"></a>Cómo detener la supervisión del clúster de Red Hat OpenShift en Azure con Azure Monitor para contenedores
 
@@ -104,7 +104,7 @@ az group deployment create --resource-group <ResourceGroupName> --template-file 
 
 El cambio de configuración puede tardar unos minutos en completarse. Cuando termine, verá un mensaje similar al siguiente que incluye el resultado:
 
-```azurecli
+```output
 ProvisioningState       : Succeeded
 ```
 
@@ -122,7 +122,7 @@ New-AzResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupNam
 
 El cambio de configuración puede tardar unos minutos en completarse. Cuando termine, verá un mensaje similar al siguiente que incluye el resultado:
 
-```powershell
+```output
 ProvisioningState       : Succeeded
 ```
 

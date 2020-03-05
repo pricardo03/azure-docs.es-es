@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: peterlu
 author: peterclu
-ms.date: 01/13/2020
+ms.date: 02/24/2020
 ms.custom: Ignite2019
-ms.openlocfilehash: 95a3c1b892cacd802f359fdc03de74fa60a1e118
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: fdda35d3a617a30169748f4f6b42c8726e7e3512
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138105"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920695"
 ---
-# <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Ejecución de predicciones por lotes mediante el diseñador de Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Ejecución de predicciones por lotes mediante el diseñador de Azure Machine Learning (versión preliminar)
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 En este artículo, aprenderá a usar el diseñador para crear una canalización de predicción por lotes. La predicción por lotes permite puntuar continuamente grandes conjuntos de valores a petición mediante un servicio web que se puede desencadenar desde cualquier biblioteca HTTP.
 

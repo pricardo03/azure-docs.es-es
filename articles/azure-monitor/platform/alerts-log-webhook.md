@@ -2,18 +2,17 @@
 title: Acciones de webhook para alertas de registro en alertas de Azure
 description: En este artículo se describe cómo crear una regla de alertas de registro mediante el área de trabajo de Log Analytics o Application Insights, cómo la alerta envía los datos como un webhook de HTTP y los detalles de las diferentes personalizaciones posibles.
 author: yanivlavi
+ms.author: yalavi
 services: monitoring
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 3a072ae64104f8fded49ff6a00f5b58902c39903
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 7b1956ad2bf9bf38ba9edc4c7234078557564071
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838570"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667710"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Acciones de webhook para reglas de alertas de registro
 Cuando se [crea una alerta de registro en Azure](alerts-log.md), se puede [configurar mediante grupos de acciones](action-groups.md), para así poder realizar una o varias acciones. En este artículo se describen las diferentes acciones de webhook que están disponibles y se muestra cómo configurar un webhook personalizado basado en JSON.
@@ -27,7 +26,7 @@ Las acciones de webhook permiten invocar un proceso externo a través de una sol
 
 Las acciones de webhook requieren las propiedades de la siguiente tabla.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | **Dirección URL de Webhook** |La dirección URL del webhook. |
 | **Carga de JSON personalizada** |La carga personalizada que se envía con el webhook, cuando se elige esta opción durante la creación de la alerta. Para más información, consulte [Administración de alertas de registro](alerts-log.md).|
@@ -38,7 +37,7 @@ Las acciones de webhook requieren las propiedades de la siguiente tabla.
 Los webhooks incluyen una dirección URL y una carga con formato JSON que corresponde a los datos enviados al servicio externo. De forma predeterminada, la carga incluye los valores en la tabla siguiente. Puede optar por reemplazar esta carga con una personalizada de su propiedad. En ese caso, puede utilizar las variables de la tabla para cada uno de los parámetros e incluir así sus valores en la carga personalizada.
 
 
-| Parámetro | Variable | DESCRIPCIÓN |
+| Parámetro | Variable | Descripción |
 |:--- |:--- |:--- |
 | *AlertRuleName* |#alertrulename |Nombre de la regla de alerta. |
 | *Gravedad* |#severity |Gravedad establecida en la alerta de registros activada. |

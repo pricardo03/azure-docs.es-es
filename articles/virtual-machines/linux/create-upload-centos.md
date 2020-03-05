@@ -3,7 +3,7 @@ title: Creación y carga de un VHD de Linux basado en CentOS en Azure
 description: Aprenda a crear y cargar un disco duro virtual de Azure (VHD) que contiene un sistema operativo Linux basado en CentOS.
 services: virtual-machines-linux
 documentationcenter: ''
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/25/2019
 ms.author: mimckitt
-ms.openlocfilehash: a5a6dd7e451d3204c8ab2bd2eae95db93c2f0837
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: dff90df255d6b7e050fad9a278666f81fade500c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750229"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246141"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Preparación de una máquina virtual basada en CentOS para Azure
 
@@ -26,7 +26,7 @@ Aprenda a crear y cargar un disco duro virtual de Azure (VHD) que contiene un si
 * [Preparación de una máquina virtual CentOS 7.0+ para Azure](#centos-70)
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este artículo se supone que ya ha instalado un sistema operativo Linux CentOS (o un derivado similar) en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, una solución de virtualización como Hyper-V. Para obtener instrucciones, consulte [Instalación del rol de Hyper-V y configuración de una máquina Virtual](https://technet.microsoft.com/library/hh846766.aspx).
 

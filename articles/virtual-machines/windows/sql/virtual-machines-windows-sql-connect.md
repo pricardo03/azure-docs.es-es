@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ae5c4cdd76f164d13da349c355a30d8b6dc83058
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: deb337d989a3658e909cefa7a9ab028e37792562
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102099"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918383"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Conexión a una máquina virtual de SQL Server en Azure
 
@@ -39,7 +39,7 @@ Si se aprovisiona una VM con SQL Server en Azure Portal, tiene la opción de esp
 
 Estas son algunas de las opciones de conectividad:
 
-| Opción | DESCRIPCIÓN |
+| Opción | Descripción |
 |---|---|
 | **Pública** | Conexión a SQL Server a través de Internet |
 | **Privada** | Conexión a SQL Server en la misma red virtual |
@@ -135,9 +135,9 @@ Aunque el portal proporciona opciones para configurar automáticamente la conect
 
 En la tabla siguiente se enumeran los requisitos para conectarse a SQL Server que se ejecuta en una máquina virtual de Azure.
 
-| Requisito | DESCRIPCIÓN |
+| Requisito | Descripción |
 |---|---|
-| [Habilitación del modo de autenticación de SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode#SSMSProcedure) | Para la conexión remota a la máquina virtual se necesita autenticación de SQL Server, a menos que se haya configurado Active Directory en una red virtual. |
+| [Habilitación del modo de autenticación de SQL Server](/sql/database-engine/configure-windows/change-server-authentication-mode#use-ssms) | Para la conexión remota a la máquina virtual se necesita autenticación de SQL Server, a menos que se haya configurado Active Directory en una red virtual. |
 | [Creación de un inicio de sesión de SQL](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | Si usa la autenticación de SQL, necesita un inicio de sesión de SQL con nombre de usuario y contraseña que también tenga permisos para la base de datos de destino. |
 | [Habilitación del protocolo TCP/IP](#manualtcp) | SQL Server debe permitir conexiones a través de TCP. |
 | [Habilitación de la regla de firewall para el puerto de SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | El firewall de la máquina virtual debe permitir el tráfico entrante en el puerto de SQL Server (predeterminado: 1433). |

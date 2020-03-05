@@ -1,18 +1,17 @@
 ---
 title: Introducción a Azure Diagnostics Extension
 description: Use Diagnósticos de Azure para realizar tareas de depuración, medición de rendimiento, supervisión y análisis de tráfico en servicios en la nube, en máquinas virtuales y en Service Fabric
-ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: d9db4b4c8e6d82f29d227b9f8afe528e000c651e
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 6cb514312db525ffd2ccf9f7b70968daaa94f322
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468004"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672385"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Introducción a Azure Diagnostics Extension
 Azure Diagnostics Extension es un [agente de Azure Monitor](agents-overview.md) que recopila datos de supervisión del sistema operativo invitado de los recursos de proceso de Azure, máquinas virtuales incluidas. En este artículo se proporciona información general sobre Azure Diagnostics Extension, incluida la funcionalidad específica que admite y las opciones de instalación y configuración. 
@@ -86,7 +85,7 @@ LAD escribe los datos en tablas en Azure Storage. Es compatible con los receptor
 
 
 ## <a name="installation-and-configuration"></a>Instalación y configuración
-La extensión Diagnostics se implementa como una [extensión de máquina virtual](/virtual-machines/extensions/overview) en Azure, por lo que admite las mismas opciones de instalación con las plantillas de Resource Manager, PowerShell y la CLI. Consulte [Características y extensiones de máquina virtual de Windows](/virtual-machines/extensions/features-windows) y [Características y extensiones de máquina virtual de Linux](/virtual-machines/extensions/features-linux) para información general sobre la instalación y el mantenimiento de extensiones de máquina virtual.
+La extensión Diagnostics se implementa como una [extensión de máquina virtual](../../virtual-machines/extensions/overview.md) en Azure, por lo que admite las mismas opciones de instalación con las plantillas de Resource Manager, PowerShell y la CLI. Consulte [Características y extensiones de máquina virtual de Windows](../../virtual-machines/extensions/features-windows.md) y [Características y extensiones de máquina virtual de Linux](../../virtual-machines/extensions/features-linux.md) para información general sobre la instalación y el mantenimiento de extensiones de máquina virtual.
 
 También puede instalar y configurar la extensión Diagnostics de Windows y Linux en Azure Portal en **Configuración de diagnóstico** en la sección **Supervisión** del menú de la máquina virtual.
 

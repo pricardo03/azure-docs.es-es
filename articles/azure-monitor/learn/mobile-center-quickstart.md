@@ -1,7 +1,6 @@
 ---
 title: Supervisión de aplicaciones móviles con Azure Monitor Application Insights
 description: Proporciona instrucciones para configurar rápidamente la supervisión de una aplicación móvil con Application Insights y App Center
-ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
 author: mrbullwinkle
@@ -9,18 +8,18 @@ ms.author: mbullwin
 ms.date: 06/26/2019
 ms.reviewer: daviste
 ms.custom: mvc
-ms.openlocfilehash: 07e162dc74a514c9e7e6c82c38b51460a2f797fa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a59a6841a1db3cecfe52c54135b42f5b6a095ce3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75398881"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660298"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Comience a analizar la aplicación móvil con App Center y Application Insights.
 
 Esta guía de inicio rápido le orienta a través de la conexión de la instancia de App Center de la aplicación a Application Insights. Con Application Insights, puede consultar, segmentar, filtrar y analizar la telemetría con herramientas más eficaces que las disponibles en el servicio [Analytics](https://docs.microsoft.com/mobile-center/analytics/) de App Center.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este inicio rápido necesita instalar:
 
