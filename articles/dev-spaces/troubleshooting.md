@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Obtenga información sobre cómo solucionar problemas y resolver problemas comunes al habilitar y usar Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s '
-ms.openlocfilehash: 3a2eb98af2c73b5a920f3e3bcedb7ab18e9f0430
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: b926e651200a4ab23306b0ec2443cb64400b8f7b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548856"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605258"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solución de problemas de Azure Dev Spaces
 
@@ -24,7 +24,7 @@ Para solucionar problemas de forma más eficaz, puede ser útil crear registros 
 
 Para la extensión de Visual Studio, establezca la variable de entorno `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` en 1. Asegúrese de reiniciar Visual Studio para que la variable de entorno surta efecto. Una vez habilitados, los registros detallados se escribirán en su directorio `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools`.
 
-En la CLI, puede generar más información durante la ejecución del comando mediante el uso del conmutador `--verbose`. También puede examinar registros más detallados en `%TEMP%\Azure Dev Spaces`. En un equipo Mac, para encontrar el directorio TEMP hay que ejecutar `echo $TMPDIR` desde una ventana de terminal. En un equipo Linux, el directorio TEMP es normalmente `/tmp`.
+En la CLI, puede generar más información durante la ejecución del comando mediante el uso del conmutador `--verbose`. También puede examinar registros más detallados en `%TEMP%\Azure Dev Spaces`. En un equipo Mac, para encontrar el directorio *TEMP* hay que ejecutar `echo $TMPDIR` desde una ventana de terminal. En un equipo Linux, el directorio *TEMP* es normalmente `/tmp`. Además, compruebe que el registro está habilitado en el [archivo de configuración de la CLI de Azure](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables).
 
 Azure Dev Spaces también funciona mejor cuando se depura una sola instancia o pod. El archivo `azds.yaml` contiene un valor, *replicaCount*, que indica el número de pods que Kubernetes ejecuta para el servicio. Si cambia el valor de *replicaCount* para configurar la aplicación de forma que ejecute varios pods para un servicio determinado, el depurador se asocia al primer pod (cuando se muestran en orden alfabético). El depurador se asocia a un pod diferente cuando se recicla el pod original, lo que da lugar posiblemente a un comportamiento inesperado.
 
@@ -395,7 +395,7 @@ Para actualizar el rol de RBAC del usuario para el controlador:
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Se produce un error en la resolución de nombres DNS para una dirección URL pública asociada con un servicio Dev Spaces
 
-Puede configurar un punto de conexión de dirección URL pública para el servicio si especifica el modificador `--public` para el comando `azds prep` o si activa la casilla `Publicly Accessible` en Visual Studio. El nombre DNS público se registra automáticamente cuando el servicio se ejecuta en Dev Spaces. Si no está registrado, verá un error *No se puede mostrar la página* o *No se puede acceder a este sitio* en el explorador web cuando se conecte a la dirección URL pública.
+Puede configurar un punto de conexión de dirección URL pública para el servicio si especifica el modificador `--enable-ingress` para el comando `azds prep` o si activa la casilla `Publicly Accessible` en Visual Studio. El nombre DNS público se registra automáticamente cuando el servicio se ejecuta en Dev Spaces. Si no está registrado, verá un error *No se puede mostrar la página* o *No se puede acceder a este sitio* en el explorador web cuando se conecte a la dirección URL pública.
 
 Para corregir este problema:
 
