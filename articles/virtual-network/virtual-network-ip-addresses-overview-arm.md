@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
 ms.openlocfilehash: 176cd9b0bf72a123bc644ebc27ee0e091aa54e97
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024626"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357526"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de direcciones IP y métodos de asignación en Azure
 
@@ -138,7 +138,7 @@ La siguiente tabla muestra la propiedad específica a través de la cual una dir
 | --- | --- | --- | --- |
 | Máquina virtual |interfaz de red |Sí |Sí |
 | Equilibrador de carga accesible desde Internet |Configuración de front-end |Sí |Sí |
-| puerta de enlace de VPN |Configuración de dirección IP de puerta de enlace |Sí |No |
+| puerta de enlace de VPN |Configuración de dirección IP de puerta de enlace |Sí |Sin |
 | puerta de enlace de aplicaciones |Configuración de front-end |Sí (solo en V1) |Sí (solo en V2) |
 
 ## <a name="private-ip-addresses"></a>Direcciones IP privadas
