@@ -39,6 +39,8 @@
   items:
     - name: Aspectos básicos
       items:
+        - name: Características de Application Gateway
+          href: features.md
         - name: Funcionamiento de Application Gateway
           href: how-application-gateway-works.md
         - name: Componentes de Application Gateway

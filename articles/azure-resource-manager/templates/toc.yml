@@ -1,8 +1,8 @@
-- name: Documentación sobre plantillas de Azure Resource Manager
+- name: Documentación de las plantillas de Resource Manager
   href: index.yml
 - name: Información general
   items:
-    - name: ¿Qué son las plantillas de Azure Resource Manager?
+    - name: ¿Qué son las plantillas de Resource Manager?
       href: overview.md
 - name: Guías de inicio rápido
   items:

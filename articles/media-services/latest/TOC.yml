@@ -121,6 +121,7 @@
         - name: Manifiestos dinámicos
           href: filters-dynamic-manifest-overview.md
         - name: Filtros
+          displayName: "manifest, dynamic manifest, filter, hls, dash, m3u8, mpd,\tcontent delivery"
           href: filters-concept.md
         - name: Extremos de streaming
           displayName: 'origin, packager, cdn'
@@ -307,6 +308,8 @@
       items:
         - name: 'Publicación de un recurso: CLI'
           href: cli-publish-asset.md
+        - name: Creación de un localizador de streaming y compilación de direcciones URL
+          href: create-streaming-locator-build-url.md
         - name: Descarga de resultados
           href: download-results-howto.md
         - name: Audio descriptivo de señal

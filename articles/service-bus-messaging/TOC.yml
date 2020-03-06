@@ -28,11 +28,7 @@
             - name: Java
               href: service-bus-java-how-to-use-queues.md
             - name: Node.js
-              items:
-                - name: Paquete de Azure o Service Bus
-                  href: service-bus-nodejs-how-to-use-queues-new-package.md
-                - name: Paquete de Azure-sb
-                  href: service-bus-nodejs-how-to-use-queues.md
+              href: service-bus-nodejs-how-to-use-queues-new-package.md
             - name: PHP
               href: service-bus-php-how-to-use-queues.md
             - name: Python
@@ -54,11 +50,7 @@
             - name: Java
               href: service-bus-java-how-to-use-topics-subscriptions.md
             - name: Node.js
-              items:
-                - name: Paquete de Azure o Service Bus
-                  href: service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md
-                - name: Paquete de Azure-sb
-                  href: service-bus-nodejs-how-to-use-topics-subscriptions.md
+              href: service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md
             - name: PHP
               href: service-bus-php-how-to-use-topics-subscriptions.md
             - name: Python
@@ -184,6 +176,10 @@
           href: service-bus-end-to-end-tracing.md
         - name: Compilación de una aplicación de Service Bus de niveles múltiples
           href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+        - name: Envío y recepción de mensajes de colas (azure-sb heredado)
+          href: service-bus-nodejs-how-to-use-queues.md
+        - name: Publicación y suscripción de mensajes (azure-sb heredado)
+          href: service-bus-nodejs-how-to-use-topics-subscriptions.md
     - name: Administrar
       items:
         - name: Uso de Azure PowerShell para aprovisionar entidades

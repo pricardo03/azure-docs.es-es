@@ -15,11 +15,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 40db6e9f429569bc19641aa5f0f371f287db7b18
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77158033"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357769"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs: recuperación ante desastres geográfica 
 
@@ -60,7 +60,7 @@ Se admiten las siguientes combinaciones de espacios de nombres principales y sec
 | Estándar | Estándar | Sí | 
 | Estándar | Dedicado | Sí | 
 | Dedicado | Dedicado | Sí | 
-| Dedicado | Estándar | No | 
+| Dedicado | Estándar | Sin | 
 
 > [!NOTE]
 > No se pueden emparejar espacios de nombres que se encuentran en el mismo clúster dedicado. Puede emparejar espacios de nombres que se encuentran en clústeres independientes. 

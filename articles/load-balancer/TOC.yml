@@ -12,7 +12,8 @@
       href: quickstart-load-balancer-standard-public-cli.md
     - name: 'Creación de un equilibrador de carga: PowerShell'
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: 'Creación de un equilibrador de carga: plantilla'
+    - name: 'Creación de un equilibrador de carga: plantilla de Resource Manager'
+      displayName: Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
   expanded: true
 - name: Tutoriales
