@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
 ms.openlocfilehash: f009b438cb0dc227289d65604d89c11fd382b675
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892977"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356287"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure Synapse Analytics (antes Azure SQL Data Warehouse) mediante Azure Data Factory 
 
@@ -65,7 +65,7 @@ Las siguientes propiedades son compatibles con un servicio vinculado de Azure Sy
 | servicePrincipalId  | Especifique el id. de cliente de la aplicación.                         | Sí, al utilizar la autenticación de Azure AD con una entidad de servicio. |
 | servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí, al utilizar la autenticación de Azure AD con una entidad de servicio. |
 | tenant              | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí, al utilizar la autenticación de Azure AD con una entidad de servicio. |
-| connectVia          | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Se puede usar Azure Integration Runtime o un IR autohospedado (si el almacén de datos se encuentra en una red privada). Si no se especifica, se usará Azure Integration Runtime. | No                                                           |
+| connectVia          | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Se puede usar Azure Integration Runtime o un IR autohospedado (si el almacén de datos se encuentra en una red privada). Si no se especifica, se usará Azure Integration Runtime. | Sin                                                           |
 
 Para ver los distintos tipos de autenticación, consulte las secciones siguientes acerca de requisitos previos y ejemplos de JSON, respectivamente:
 
@@ -258,9 +258,9 @@ Para copiar datos desde Azure Synapse Analytics, establezca la propiedad **type*
 | Propiedad                     | Descripción                                                  | Obligatorio |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | La propiedad **type** del origen de la actividad de copia debe establecerse en **SqlDWSource**. | Sí      |
-| sqlReaderQuery               | Use la consulta SQL personalizada para leer los datos. Ejemplo: `select * from MyTable`. | No       |
-| sqlReaderStoredProcedureName | Nombre del procedimiento almacenado que lee datos de la tabla de origen. La última instrucción SQL debe ser una instrucción SELECT del procedimiento almacenado. | No       |
-| storedProcedureParameters    | Parámetros del procedimiento almacenado.<br/>Los valores permitidos son pares de nombre o valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. | No       |
+| sqlReaderQuery               | Use la consulta SQL personalizada para leer los datos. Ejemplo: `select * from MyTable`. | Sin       |
+| sqlReaderStoredProcedureName | Nombre del procedimiento almacenado que lee datos de la tabla de origen. La última instrucción SQL debe ser una instrucción SELECT del procedimiento almacenado. | Sin       |
+| storedProcedureParameters    | Parámetros del procedimiento almacenado.<br/>Los valores permitidos son pares de nombre o valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. | Sin       |
 
 **Ejemplo: con la consulta SQL**
 
@@ -372,8 +372,8 @@ Para copiar datos en Azure SQL Data Warehouse, establezca el tipo de receptor de
 | copyCommandSettings | Un grupo de propiedades que se pueden especificar cuando el valor de la propiedad `allowCopyCommand` está establecido en TRUE. | No.<br/>Se aplica cuando se usa COPY. |
 | writeBatchSize    | Número de filas que se va a insertar en la tabla SQL **por lote**.<br/><br/>El valor que se permite es un **entero** (número de filas). De manera predeterminada, Data Factory determina dinámicamente el tamaño adecuado del lote en función del tamaño de fila. | No.<br/>Se aplica cuando se usa inserción masiva.     |
 | writeBatchTimeout | Tiempo que se concede a la operación de inserción por lotes para que finalice antes de que se agote el tiempo de espera.<br/><br/>El valor permitido es **intervalo de tiempo**. Ejemplo: "00:30:00" (30 minutos). | No.<br/>Se aplica cuando se usa inserción masiva.        |
-| preCopyScript     | Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Azure SQL Data Warehouse en cada ejecución. Esta propiedad se usa para limpiar los datos cargados previamente. | No                                            |
-| tableOption | Especifica si se crea automáticamente la tabla de receptores según el esquema de origen, si no existe. No se admite la creación automática de tablas cuando hay una copia preconfigurada en la actividad de copia. Los valores permitidos son: `none` (valor predeterminado), `autoCreate`. |No |
+| preCopyScript     | Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Azure SQL Data Warehouse en cada ejecución. Esta propiedad se usa para limpiar los datos cargados previamente. | Sin                                            |
+| tableOption | Especifica si se crea automáticamente la tabla de receptores según el esquema de origen, si no existe. No se admite la creación automática de tablas cuando hay una copia preconfigurada en la actividad de copia. Los valores permitidos son: `none` (valor predeterminado), `autoCreate`. |Sin |
 | disableMetricsCollection | Data Factory recopila métricas, como las DWU de SQL Data Warehouse, para la optimización del rendimiento de copia y la obtención de recomendaciones. Si le preocupa este comportamiento, especifique `true` para desactivarlo. | No (el valor predeterminado es `false`) |
 
 #### <a name="sql-data-warehouse-sink-example"></a>Ejemplo de receptor de SQL Data Warehouse
@@ -406,10 +406,10 @@ Esta configuración de PolyBase es compatible con `polyBaseSettings` en la activ
 
 | Propiedad          | Descripción                                                  | Obligatorio                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| rejectValue       | Especifica el número o porcentaje de filas que se pueden rechazar antes de que se produzca un error en la consulta.<br/><br/>Más información sobre las opciones de rechazo de PolyBase en la sección Argumentos de [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Los valores permitidos son 0 (valor predeterminado), 1, 2, etc. | No                                            |
-| rejectType        | Especifica si la opción **rejectValue** es un valor literal o un porcentaje.<br/><br/>Los valores permitidos son **Value** (valor predeterminado) y **Percentage**. | No                                            |
+| rejectValue       | Especifica el número o porcentaje de filas que se pueden rechazar antes de que se produzca un error en la consulta.<br/><br/>Más información sobre las opciones de rechazo de PolyBase en la sección Argumentos de [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Los valores permitidos son 0 (valor predeterminado), 1, 2, etc. | Sin                                            |
+| rejectType        | Especifica si la opción **rejectValue** es un valor literal o un porcentaje.<br/><br/>Los valores permitidos son **Value** (valor predeterminado) y **Percentage**. | Sin                                            |
 | rejectSampleValue | Determina el número de filas que se van a recuperar antes de que PolyBase vuelva a calcular el porcentaje de filas rechazadas.<br/><br/>Los valores permitidos son 1, 2, etc. | Sí, si el valor de **rejectType** es **percentage**. |
-| useTypeDefault    | Especifica cómo administrar valores que faltan en archivos de texto delimitado cuando PolyBase recupera datos del archivo de texto.<br/><br/>Más información sobre esta propiedad en la sección de argumentos de [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Los valores válidos son **True** y **False** (valor predeterminado).<br><br> | No                                            |
+| useTypeDefault    | Especifica cómo administrar valores que faltan en archivos de texto delimitado cuando PolyBase recupera datos del archivo de texto.<br/><br/>Más información sobre esta propiedad en la sección de argumentos de [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Los valores válidos son **True** y **False** (valor predeterminado).<br><br> | Sin                                            |
 
 ### <a name="direct-copy-by-using-polybase"></a>Copia directa con PolyBase
 
@@ -629,8 +629,8 @@ Esta configuración de la instrucción COPY es compatible con `allowCopyCommand`
 
 | Propiedad          | Descripción                                                  | Obligatorio                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| defaultValues | Especifica los valores predeterminados para cada columna de destino en SQL Data Warehouse.  Los valores predeterminados de la propiedad sobrescriben el conjunto de restricciones predeterminado en el almacenamiento de datos, y la columna de identidad no puede tener un valor predeterminado. | No |
-| additionalOptions | Opciones adicionales que se pasarán directamente a la instrucción COPY de SQL Data Warehouse en la cláusula "With" en la [instrucción COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Incluye el valor entre comillas si es necesario para ajustarlo a los requisitos de la instrucción COPY. | No |
+| defaultValues | Especifica los valores predeterminados para cada columna de destino en SQL Data Warehouse.  Los valores predeterminados de la propiedad sobrescriben el conjunto de restricciones predeterminado en el almacenamiento de datos, y la columna de identidad no puede tener un valor predeterminado. | Sin |
+| additionalOptions | Opciones adicionales que se pasarán directamente a la instrucción COPY de SQL Data Warehouse en la cláusula "With" en la [instrucción COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Incluye el valor entre comillas si es necesario para ajustarlo a los requisitos de la instrucción COPY. | Sin |
 
 ```json
 "activities":[
@@ -719,16 +719,16 @@ La configuración específica de Azure Synapse Analytics está disponible en la 
 
 La configuración específica de Azure Synapse Analytics está disponible en la pestaña **Configuración** de la transformación de receptor.
 
-**Update method** (Método de actualización): determina qué operaciones se permiten en el destino de la base de datos. El valor predeterminado es permitir solamente las inserciones. Para realizar operaciones de actualización, upsert o eliminación de filas, hay que hacer transformación de alteración de filas para etiquetar esas acciones. En el caso de las actualizaciones, upserts y eliminaciones, se debe establecer una o varias columnas de clave para determinar la fila que se va a modificar.
+**Update method** (Método de actualización): determina qué operaciones se permiten en el destino de la base de datos. El valor predeterminado es permitir solamente las inserciones. Para realizar las operaciones update, upsert o delete rows, se requiere una transformación de alteración de filas para etiquetar esas acciones. En el caso de las actualizaciones, upserts y eliminaciones, se debe establecer una o varias columnas de clave para determinar la fila que se va a modificar.
 
-**Table action** (Acción de tabla): determina si se deben volver a crear o quitar todas las filas de la tabla de destino antes de escribir.
+**Acción de tabla**: determina si se deben volver a crear o quitar todas las filas de la tabla de destino antes de escribir.
 * None (Ninguna): no se realizará ninguna acción en la tabla.
 * Recreate (Volver a crear): se quitará la tabla y se volverá a crear. Obligatorio si se crea una nueva tabla dinámicamente.
 * Truncate (Truncar): se quitarán todas las filas de la tabla de destino.
 
 **Enable staging** (Permitir almacenamiento provisional): determina si se debe usar [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15) al escribir en Azure Synapse Analytics
 
-**Tamaño del lote**: Controla el número de filas que se escriben en cada cubo. Los tamaños de lote más grandes mejoran la compresión y la optimización de memoria, pero se arriesgan a obtener excepciones de memoria al almacenar datos en caché.
+**Tamaño del lote**: controla el número de filas que se escriben en cada cubo. Los tamaños de lote más grandes mejoran la compresión y la optimización de memoria, pero se arriesgan a obtener excepciones de memoria al almacenar datos en caché.
 
 **Scripts SQL anteriores y posteriores**: escriba scripts de SQL de varias líneas que se ejecutarán antes (preprocesamiento) y después (procesamiento posterior) de que los datos se escriban en la base de datos del receptor.
 

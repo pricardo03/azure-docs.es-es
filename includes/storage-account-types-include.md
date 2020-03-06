@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 01/17/2020
+ms.date: 03/05/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 5672334ab42ab474d862ae4c9649b94b58bb6af4
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: ab7496c82e3a2b1f70a5de38b8008bb5ff504a01
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157283"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672108"
 ---
 Azure Storage ofrece varios tipos de cuentas de almacenamiento. Cada tipo admite diferentes características y tiene su propio modelo de precios. Tenga en cuenta estas diferencias antes de crear una cuenta de almacenamiento para determinar el tipo de cuenta más adecuada para sus aplicaciones. Estos son los tipos de cuentas de almacenamiento:
 
@@ -33,14 +33,14 @@ En la siguiente tabla se describen los tipos de cuentas de almacenamiento y sus 
 | FileStorage   | Solo archivo | Premium                       | N/D                            | LRS, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div>                               | Resource Manager             | Cifrados              |
 | BlobStorage         | Blob (solo blobs en bloques y blobs en anexos) | Estándar                      | Frecuente, esporádico, archivo<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS                  | Resource Manager             | Cifrados              |
 
-<div id="deployment-model"><sup>1</sup>Se recomienda usar el modelo de implementación de Azure Resource Manager. Las cuentas de almacenamiento que usan el modelo de implementación clásico aún se pueden crear en algunas ubicaciones; asimismo, se seguirán admitiendo las cuentas clásicas ya existentes. Para obtener más información, consulte <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model">Implementación de Azure Resource Manager frente a la implementación clásica: Conozca los modelos de implementación y el estado de los recursos</a>.</div>
+<div id="deployment-model"><sup>1</sup>Se recomienda usar el modelo de implementación de Azure Resource Manager. Las cuentas de almacenamiento que usan el modelo de implementación clásico aún se pueden crear en algunas ubicaciones; asimismo, se seguirán admitiendo las cuentas clásicas ya existentes. Para obtener más información, consulte <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model">Implementación de Azure Resource Manager frente a la implementación clásica: Conozca los modelos de implementación y el estado de los recursos</a>.</div><br/>
 
-<div id="encryption"><sup>2</sup>Todas las cuentas de almacenamiento se encriptan mediante Storage Service Encryption (SSE) para los datos en reposo. Para más información, consulte <a href="https://docs.microsoft.com/azure/storage/common/storage-service-encryption">Cifrado del servicio Azure Storage para datos en reposo</a>.</div>
+<div id="encryption"><sup>2</sup>Todas las cuentas de almacenamiento se encriptan mediante Storage Service Encryption (SSE) para los datos en reposo. Para más información, consulte <a href="https://docs.microsoft.com/azure/storage/common/storage-service-encryption">Cifrado del servicio Azure Storage para datos en reposo</a>.</div><br/>
 
-<div id="archive"><sup>3</sup>El nivel de archivo está disponible solo en el nivel de un blob individual, y no en el nivel de la cuenta de almacenamiento. Solo se pueden archivar los blobs en bloques y los blocs adjuntos. Para obtener más información, consulte <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers">Azure Blob Storage: Niveles de almacenamiento de acceso frecuente, de acceso esporádico y de acceso de archivo</a>.</div>
+<div id="archive"><sup>3</sup>El nivel de archivo está disponible solo en el nivel de un blob individual, y no en el nivel de la cuenta de almacenamiento. Solo se pueden archivar los blobs en bloques y los blocs adjuntos. Para obtener más información, consulte <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers">Azure Blob Storage: Niveles de almacenamiento de acceso frecuente, de acceso esporádico y de acceso de archivo</a>.</div><br/>
 
-<div id="zone-redundant-storage"><sup>4</sup>El almacenamiento con redundancia de zona (ZRS) y el almacenamiento con redundancia de zona geográfica (GZRS/RA-GZRS) (versión preliminar) solo están disponibles para las cuentas estándar de uso general V2, BlockBlobStorage y FileStorage en determinadas regiones. Para más información sobre las opciones de redundancia de Azure Storage, consulte <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy">Redundancia de Azure Storage</a>.</div>
+<div id="zone-redundant-storage"><sup>4</sup>El almacenamiento con redundancia de zona (ZRS) y el almacenamiento con redundancia de zona geográfica (GZRS/RA-GZRS) (versión preliminar) solo están disponibles para las cuentas estándar de uso general V2, BlockBlobStorage y FileStorage en determinadas regiones. Para más información sobre las opciones de redundancia de Azure Storage, consulte <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy">Redundancia de Azure Storage</a>.</div><br/>
 
-<div id="premium-performance"><sup>5</sup>El rendimiento prémium para las cuentas v2 y v1 de uso general está disponible solo para blobs en páginas y en disco. El rendimiento Premium para blobs en bloque o en anexos solo está disponible en las cuentas de BlockBlobStorage. El rendimiento Premium para archivos solo está disponible en las cuentas de FileStorage.</div>
+<div id="premium-performance"><sup>5</sup>El rendimiento prémium para las cuentas v2 y v1 de uso general está disponible solo para blobs en páginas y en disco. El rendimiento Premium para blobs en bloque o en anexos solo está disponible en las cuentas de BlockBlobStorage. El rendimiento Premium para archivos solo está disponible en las cuentas de FileStorage.</div><br/>
 
 <div id="data-lake-gen2"><sup>6</sup>Azure Data Lake Storage Gen2 es un conjunto de funcionalidades dedicadas al análisis de macrodatos basado en Azure Blob Storage. Data Lake Storage Gen2 solo se admite en las cuentas de almacenamiento de uso general V2 con un espacio de nombres jerárquico habilitado. Para más información sobre Data Lake Storage Gen2, consulte <a href="https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction">Introducción a Azure Data Lake Storage Gen2</a>.</div>

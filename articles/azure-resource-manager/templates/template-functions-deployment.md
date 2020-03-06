@@ -4,11 +4,11 @@ description: Describe las funciones para usar en una plantilla de Azure Resource
 ms.topic: conceptual
 ms.date: 11/27/2019
 ms.openlocfilehash: b241aaf43ee3204c9960d0099ce3c61d4c1a80ee
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207288"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357384"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funciones de implementación para las plantillas de Azure Resource Manager 
 

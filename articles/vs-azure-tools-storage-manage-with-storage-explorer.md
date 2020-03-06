@@ -9,23 +9,23 @@ ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
 ms.openlocfilehash: 7886d5a1ad0745550767b7d6f19592ca3c84b00a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891232"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356185"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introducción al Explorador de Storage
 
 ## <a name="overview"></a>Información general
 
-Explorador de Microsoft Azure Storage es una aplicación independiente que facilita el trabajo con los datos de Azure Storage en Windows, macOS y Linux. En este artículo aprenderá varias maneras de conectarse a cuentas de Azure Storage y de administrarlas.
+Explorador de Microsoft Azure Storage es una aplicación independiente que facilita el trabajo con los datos de Azure Storage en Windows, macOS y Linux. En este artículo aprenderá varias maneras de conectarse a cuentas de Azure Storage y de administrarlas.
 
 ![Explorador de Microsoft Azure Storage][0]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 El Explorador de Storage es compatible con las siguientes versiones de Windows:
 
@@ -35,13 +35,13 @@ El Explorador de Storage es compatible con las siguientes versiones de Windows:
 
 En todas las versiones de Windows, el Explorador de Storage requiere .NET Framework 4.6.2 o posterior.
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 El Explorador de Storage es compatible con las siguientes versiones de macOS:
 
 * macOS 10.12 Sierra y versiones posteriores
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 El Explorador de Storage está disponible en [Snap Store](https://snapcraft.io/storage-explorer) para las distribuciones más comunes de Linux. Para esta instalación, se recomienda Snap Store. El complemento de Explorador de Storage instala todas sus dependencias y actualizaciones cuando se publican nuevas versiones en Snap Store.
 
