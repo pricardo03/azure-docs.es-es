@@ -4,12 +4,12 @@ description: Obtenga información sobre qué puertos y direcciones son necesario
 services: container-service
 ms.topic: article
 ms.date: 01/21/2020
-ms.openlocfilehash: a76f4eb8680d07193feb29450fdba7bb2a710a68
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: d69921ce23e961879fea6be68838f86bfcc703d0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595015"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191306"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Control del tráfico de salida de los nodos de clúster en Azure Kubernetes Service (AKS)
 
@@ -143,7 +143,7 @@ Los clústeres de AKS que tienen habilitado Azure Dev Spaces necesitan las regla
 | cloudflare.docker.com | HTTPS:443 | Esta dirección se usa para extraer Linux Alpine y otras imágenes de Azure Dev Spaces |
 | gcr.io | HTTP:443 | Esta dirección se usa para extraer imágenes de Helm/Tiller |
 | storage.googleapis.com | HTTP:443 | Esta dirección se usa para extraer imágenes de Helm/Tiller |
-| azds-<guid>.<location>.azds.io | HTTPS:443 | Comunicarse con los servicios de back-end de Azure Dev Spaces para el controlador. El FQDN exacto se puede encontrar en "dataplaneFqdn" en %USERPROFILE%\.azds\settings.json |
+| azds-\<guid\>.\<location\>.azds.io | HTTPS:443 | Comunicarse con los servicios de back-end de Azure Dev Spaces para el controlador. El FQDN exacto se puede encontrar en "dataplaneFqdn" en %USERPROFILE%\.azds\settings.json |
 
 ## <a name="required-addresses-and-ports-for-aks-clusters-with-azure-policy-in-public-preview-enabled"></a>Direcciones y puertos necesarios para los clústeres de AKS que tienen habilitado Azure Policy (en versión preliminar pública)
 
@@ -156,7 +156,7 @@ Los clústeres de AKS que tienen habilitado Azure Policy necesitan las reglas de
 |-----------------------------------------|-----------|----------|
 | gov-prod-policy-data.trafficmanager.net | HTTPS:443 | Esta dirección se usa para el funcionamiento correcto de Azure Policy. (Actualmente en versión preliminar en AKS) |
 | raw.githubusercontent.com | HTTPS:443 | Esta dirección se usa para extraer las directivas integradas de GitHub para garantizar el funcionamiento correcto de Azure Policy. (Actualmente en versión preliminar en AKS) |
-| *.gk.<location>.azmk8s.io | HTTPS:443 | El complemento de Azure Policy que se comunica con el punto de conexión de auditoría de Gatekeeper que se ejecuta en el servidor maestro para obtener los resultados de la auditoría. |
+| *.gk.\<location\>.azmk8s.io | HTTPS:443   | El complemento de Azure Policy que se comunica con el punto de conexión de auditoría de Gatekeeper que se ejecuta en el servidor maestro para obtener los resultados de la auditoría. |
 | dc.services.visualstudio.com | HTTPS:443 | El complemento de Azure Policy que envía datos de telemetría al punto de conexión de Application Insights. |
 
 ## <a name="required-by-windows-server-based-nodes-in-public-preview-enabled"></a>Requerido por los nodos basados en Windows Server (en versión preliminar pública) habilitados

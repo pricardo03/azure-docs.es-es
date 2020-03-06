@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 5492850944b04ea4b4d30dd206e7b297b34c075c
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 8e607a4447448ee0e822dbee721b701d677d4f63
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77062853"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197460"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expresiones de transformación de datos en Asignación de Data Flow 
 
@@ -142,7 +142,7 @@ Calcula la síntesis del mensaje CRC32 del conjunto de columnas de diferentes ti
 ___
 ### <code>currentDate</code>
 <code><b>currentDate([<i>&lt;value1&gt;</i> : string]) => date</b></code><br/><br/>
-Obtiene la fecha actual cuando este trabajo empieza a ejecutarse. Puede pasar una zona horaria opcional en forma de "GMT", "PST", "UTC", "America/Cayman". La zona horaria local se utiliza como valor SimpleDateFormat de Java default.Refer para obtener los formatos disponibles. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``currentDate() == toDate('2250-12-31') -> false``
+Obtiene la fecha actual cuando este trabajo empieza a ejecutarse. Puede pasar una zona horaria opcional en forma de "GMT", "PST", "UTC", "America/Cayman". La zona horaria local se utiliza como valor SimpleDateFormat de Java default.Refer para obtener los formatos disponibles. (https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) * ``currentDate() == toDate('2250-12-31') -> false``
 * ``currentDate('PST')  == toDate('2250-12-31') -> false``
 * ``currentDate('America/New_York')  == toDate('2250-12-31') -> false``
 ___
