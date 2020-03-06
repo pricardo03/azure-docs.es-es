@@ -155,8 +155,8 @@
           href: active-directory-acs-migration.md
         - name: Reactivación de los espacios de nombres deshabilitados de Access Control Service
           href: howto-reactivate-disabled-acs-namespaces.md
-    - name: Usar Graph API de Azure AD
-      href: ../develop/active-directory-graph-api-quickstart.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+    - name: Uso de Microsoft Graph API
+      href: ../develop/microsoft-graph-intro.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: AD FS para desarrolladores
       href: 'https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers'
 - name: Referencias
@@ -164,8 +164,8 @@
     - name: Bibliotecas de autenticación
       displayName: ADAL
       href: active-directory-authentication-libraries.md
-    - name: Graph API de Azure AD
-      href: ../develop/active-directory-graph-api.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+    - name: Microsoft Graph API
+      href: ../develop/microsoft-graph-intro.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: Manifiesto de aplicación
       href: ../develop/reference-app-manifest.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: Códigos de error de autenticación y autorización
