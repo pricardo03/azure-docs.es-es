@@ -12,12 +12,12 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
-ms.openlocfilehash: 56a5221504a3905855fa5dc713707f34ae357aea
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: d910a76397a40a14d960b59f60561cbee470f5c4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163705"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358446"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Motivos para actualizar a la Plataforma de identidad de Microsoft (v2.0)
 
@@ -34,7 +34,7 @@ Al desarrollar una nueva aplicación, es importante conocer las diferencias entr
 * El punto de conexión de la Plataforma de identidad de Microsoft permite iniciar sesión con cuentas profesionales y educativas de Azure AD y con cuentas Microsoft personales (MSA), como hotmail.com, outlook.com y msn.com.
 * Ambos puntos de conexión aceptan inicios de sesión de *[usuarios invitados](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* de un directorio de Azure AD para las aplicaciones configuradas como *[inquilino único](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* o para las aplicaciones configuradas como *multiinquilino* para el punto de conexión específico del inquilino (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
-El punto de conexión de la Plataforma de identidad de Microsoft le permite escribir aplicaciones que aceptan inicios de sesión desde cuentas Microsoft personales y cuentas profesionales y educativas. Esto le permite escribir la aplicación con independencia absoluta de la cuenta. Por ejemplo, si su aplicación llama a [Microsoft Graph](https://graph.microsoft.io), las cuentas profesionales tendrán a su disposición algunos datos y funcionalidades adicionales, como los sitios de SharePoint o datos de directorio. Pero, para muchas acciones, como [leer correo de un usuario](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_messages), el mismo código puede acceder al correo electrónico tanto para cuentas personales como profesionales y educativas.
+El punto de conexión de la Plataforma de identidad de Microsoft le permite escribir aplicaciones que aceptan inicios de sesión desde cuentas Microsoft personales y cuentas profesionales y educativas. Esto le permite escribir la aplicación con independencia absoluta de la cuenta. Por ejemplo, si su aplicación llama a [Microsoft Graph](https://graph.microsoft.io), las cuentas profesionales tendrán a su disposición algunos datos y funcionalidades adicionales, como los sitios de SharePoint o datos de directorio. Pero, para muchas acciones, como [leer correo de un usuario](https://docs.microsoft.com/graph/api/user-list-messages?view=graph-rest-1.0), el mismo código puede acceder al correo electrónico tanto para cuentas personales como profesionales y educativas.
 
 En el caso del punto de conexión de la Plataforma de identidad de Microsoft, puede usar la Biblioteca de autenticación de Microsoft (MSAL) para obtener acceso a entornos educativos, de consumidor y de empresa. El punto de conexión v1.0 de Azure AD acepta inicios de sesión solo desde cuentas profesionales y educativas.
 
@@ -70,7 +70,7 @@ Para el punto de conexión v1.0, una solicitud de autorización de OAuth 2.0 par
 ```text
 GET https://login.microsoftonline.com/common/oauth2/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
-&resource=https://graph.windows.net/
+&resource=https://graph.microsoft.com/
 ...
 ```
 
@@ -81,7 +81,7 @@ Para las aplicaciones que usan el punto de conexión de la Plataforma de identid
 ```text
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
-&scope=https://graph.windows.net/directory.read%20https://graph.windows.net/directory.write
+&scope=https://graph.microsoft.com/directory.read%20https://graph.microsoft.com/directory.write
 ...
 ```
 
