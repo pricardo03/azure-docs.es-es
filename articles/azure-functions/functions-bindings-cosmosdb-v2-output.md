@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.openlocfilehash: 9360a90b457f99cb9c15deda80dce8233069100d
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77606520"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357478"
 ---
 # <a name="azure-cosmos-db-output-binding-for-azure-functions-2x"></a>Enlace de salida de Azure Cosmos DB para Azure Functions 2.x
 

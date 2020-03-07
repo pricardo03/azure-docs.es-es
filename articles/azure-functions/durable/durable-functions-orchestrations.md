@@ -6,11 +6,11 @@ ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
 ms.openlocfilehash: caa62483373a240991cfec96437cea7849d9b19c
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261558"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356660"
 ---
 # <a name="durable-orchestrations"></a>Orquestaciones de Durable Functions
 
@@ -57,7 +57,7 @@ Cuando una función de orquestación recibe más trabajo para realizar (por ejem
 
 El comportamiento del origen de eventos de Durable Task Framework está estrechamente relacionado con el código de la función de orquestador que se escriba. Supongamos que tiene una función de orquestador de encadenamiento de actividad, como la siguiente función de orquestador:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -75,7 +75,7 @@ public static async Task<List<string>> Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -216,7 +216,7 @@ La característica de sección crítica también es útil para coordinar los cam
 
 No se permite la E/S de las funciones de orquestador, según se describe en las [restricciones de código de las funciones de orquestador](durable-functions-code-constraints.md). La solución alternativa habitual para esta limitación es ajustar cualquier código que necesite realizar operaciones de E/S en una función de actividad. Las orquestaciones que interactúan con sistemas externos usan con frecuencia funciones de actividad para realizar llamadas HTTP y devolver el resultado a la orquestación.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Para simplificar este patrón común, las funciones de orquestador pueden usar el método `CallHttpAsync` de .NET para invocar directamente a las API HTTP.
 
@@ -238,7 +238,7 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -265,7 +265,7 @@ Para más información y ejemplos detallados, consulte el artículo [Caracterís
 
 No es posible pasar varios parámetros a una función de actividad directamente. Se recomienda pasar una matriz de objetos o de objetos compuestos.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 En .NET también puede usar objetos [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples). El ejemplo siguiente utiliza las nuevas características de [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) agregado con [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
 
@@ -304,7 +304,7 @@ public static async Task<object> Mapper([ActivityTrigger] IDurableActivityContex
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 #### <a name="orchestrator"></a>Orquestador
 
