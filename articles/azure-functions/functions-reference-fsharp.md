@@ -7,11 +7,11 @@ ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
 ms.openlocfilehash: 669701f91ab28a4eb734b0346be6515dc44e8685
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975013"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357000"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Referencia para desarrolladores de F# de Azure Functions
 
@@ -287,7 +287,7 @@ La directiva `#load` solo funciona con archivos `.fsx` (script de F#) y no con a
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información, consulte los siguientes recursos:
 
-* [Guía de F#](/dotnet/articles/fsharp/index)
+* [F# Guide](/dotnet/articles/fsharp/index)
 * [Procedimientos recomendados de Azure Functions](functions-best-practices.md)
 * [Referencia para desarrolladores de Azure Functions](functions-reference.md)
 * [Enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md)
