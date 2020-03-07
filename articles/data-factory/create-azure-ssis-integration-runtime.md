@@ -12,11 +12,11 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.openlocfilehash: 4146191453e7c7a589dacc41345a36a29a540de5
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964363"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360467"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Crear una instancia de Integration Runtime de Azure SSIS en Azure Data Factory
 
@@ -37,7 +37,7 @@ En el tutorial [Aprovisionamiento de Azure-SSIS IR ](tutorial-create-azure-ssis-
 
 En este artículo se muestra cómo aprovisionar una instancia de Azure-SSIS IR mediante Azure Portal, Azure PowerShell y una plantilla de Azure Resource Manager.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

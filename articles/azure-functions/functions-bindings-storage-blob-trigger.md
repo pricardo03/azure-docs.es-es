@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.openlocfilehash: 0cdff3ac6eb2faed0c0b6b8796fdb3b6b0411018
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201965"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356457"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Desencadenador de Azure Blob Storage para Azure Functions
 
@@ -426,4 +426,4 @@ El sondeo funciona como un híbrido entre la inspección de registros y la ejecu
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Lectura de datos de almacenamiento de blobs cuando se ejecuta una función](./functions-bindings-storage-blob-input.md)
-- [Escritura de datos de almacenamiento de blobs desde una función](./functions-bindings-storage-blob-output.md)
+- [Escritura de datos de Blob Storage desde una función](./functions-bindings-storage-blob-output.md)

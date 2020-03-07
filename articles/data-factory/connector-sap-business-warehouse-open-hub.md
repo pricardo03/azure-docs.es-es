@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: 84098901d58e2087c7ece77049e445bb5c76f2a9
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923793"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357258"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copia de datos desde SAP Business Warehouse con Open Hub en Azure Data Factory
 
@@ -73,7 +73,7 @@ Por lo general, el Identificador de solicitud copiado máximo se almacena en la 
 
 Para una correcta administración de la diferencia, no está permitido disponer de identificadores de solicitud de diferentes DTP en la misma tabla de Open Hub. Por lo tanto, no debe crear más de un DTP para cada destino de Open Hub (OHD). Cuando necesite la extracción completa y diferencial del mismo InfoProvider, debe crear dos OHD para el mismo InfoProvider. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para usar este conector de Open Hub para SAP Business Warehouse, necesita:
 
@@ -104,7 +104,7 @@ En las secciones siguientes se proporcionan detalles sobre las propiedades que s
 
 Las siguientes propiedades son compatibles con el servicio vinculado de Open Hub para SAP Business Warehouse:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **SapOpenHub** | Sí |
 | server | Nombre del servidor en el que reside la instancia de SAP BW. | Sí |
@@ -115,7 +115,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Open Hub
 | password | Contraseña del usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 {
@@ -146,14 +146,14 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde y hacia Open Hub para SAP BW, establezca la propiedad type del conjunto de datos en **SapOpenHubTable**. Se admiten las siguientes propiedades.
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en **SapOpenHubTable**.  | Sí |
+| type | La propiedad type debe establecerse en **SapOpenHubTable**.  | Sí |
 | openHubDestinationName | Nombre del destino Open Hub desde el que copiar los datos. | Sí |
 
 Si estaba configurando `excludeLastRequest` y `baseRequestId` en el conjunto de datos, todavía se admite tal cual, aunque se aconseja usar el nuevo modelo en el origen de la actividad en el futuro.
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 {
@@ -180,9 +180,9 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde Open Hub para SAP BW, en la sección **origen** de la actividad de copia se admiten las siguientes propiedades:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** del origen de la actividad de copia debe establecerse en **SapOpenHubSource**. | Sí |
+| type | La propiedad **type** del origen de la actividad de copia debe establecerse en **SapOpenHubSource**. | Sí |
 | excludeLastRequest | Si desea excluir los registros de la última solicitud. | No (el valor predeterminado es **true**) |
 | baseRequestId | El identificador de la solicitud para la carga diferencial. Una vez establecido, solo se recuperarán los datos con el identificador de solicitud **mayor que** el valor de esta propiedad.  | Sin |
 
@@ -191,7 +191,7 @@ Para copiar datos desde Open Hub para SAP BW, en la sección **origen** de la ac
 
 Para acelerar la carga de datos, puede establecer [`parallelCopies`](copy-activity-performance.md#parallel-copy) en la actividad de copia para cargar datos desde Open Hub para SAP BW en paralelo. Por ejemplo, si establece `parallelCopies` en cuatro, Data Factory ejecutará simultáneamente cuatro llamadas de RFC, y cada llamada de RFC recuperará una parte de los datos de la tabla de Open Hub para SAP BW, particionada por el identificador de solicitud de DTP y por el identificador de paquete. Esto se aplica cuando la suma de identificadores únicos de solicitud de DTP y de paquete es superior al valor de `parallelCopies`. Cuando se copian datos en un almacén de datos basado en archivos, también se recomienda escribir en una carpeta como varios archivos (solo especifique el nombre de la carpeta), en cuyo caso el rendimiento es mejor que escribir en un único archivo.
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 "activities":[
@@ -230,14 +230,14 @@ Al copiar datos desde Open Hub para SAP BW, se usan las siguientes asignaciones 
 
 | Tipo ABAP para SAP | Tipo de datos provisionales de Data Factory |
 |:--- |:--- |
-| C (cadena) | Cadena |
+| C (cadena) | String |
 | I (entero) | Int32 |
 | F (flotante) | Double |
-| D (fecha) | Cadena |
-| T (hora) | Cadena |
+| D (fecha) | String |
+| T (hora) | String |
 | P (BCD empaquetado, moneda, decimal, cantidad) | Decimal |
-| N (número) | Cadena |
-| X (binario y sin procesar) | Cadena |
+| N (número) | String |
+| X (binario y sin procesar) | String |
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
 
