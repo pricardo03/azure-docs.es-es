@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: aahi
 ms.openlocfilehash: dd4444bf42bcc8dda95f8fa37b42a365538efa85
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482877"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362468"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Creación de un recurso de Cognitive Services con Azure Portal
 
@@ -23,7 +23,7 @@ Use esta guía de inicio rápido para empezar a usar Azure Cognitive Services. D
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una suscripción a Azure válida: [cree una de manera gratuita](https://azure.microsoft.com/free/).
 
@@ -31,7 +31,7 @@ Use esta guía de inicio rápido para empezar a usar Azure Cognitive Services. D
 
 1. Crea un recurso.
 
-    #### <a name="multi-service-resourcetabmultiservice"></a>[Recurso de varios servicios](#tab/multiservice)
+    #### <a name="multi-service-resource"></a>[Recurso de varios servicios](#tab/multiservice)
     
     El recurso multiservicio se denomina **Cognitive Services** en el portal. [Cree un recurso de Cognitive Services](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
     
@@ -43,7 +43,7 @@ Use esta guía de inicio rápido para empezar a usar Azure Cognitive Services. D
     | Translator Text  | Bing Search versión 7 <br>(Web, imágenes, noticias, vídeos, contenido visual) | Bing Custom Search | Bing Entity Search            | Bing Autosuggest |
     | Bing Spell Check |                                                      |                    |                               |                  |
     
-    #### <a name="single-service-resourcetabsingleservice"></a>[Recurso de servicio único](#tab/singleservice)
+    #### <a name="single-service-resource"></a>[Recurso de servicio único](#tab/singleservice)
 
     Use los vínculos siguientes si desea crear un recurso para los servicios de Cognitive Services disponibles:
 
@@ -58,7 +58,7 @@ Use esta guía de inicio rápido para empezar a usar Azure Cognitive Services. D
 
 3. En la página **Crear**, proporcione la siguiente información:
 
-    #### <a name="multi-service-resourcetabmultiservice"></a>[Recurso de varios servicios](#tab/multiservice)
+    #### <a name="multi-service-resource"></a>[Recurso de varios servicios](#tab/multiservice)
 
     |    |    |
     |--|--|
@@ -70,9 +70,9 @@ Use esta guía de inicio rápido para empezar a usar Azure Cognitive Services. D
 
     ![Pantalla de creación de recursos](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)
 
-    Haga clic en **Create**(Crear).
+    Haga clic en **Crear**.
 
-    #### <a name="single-service-resourcetabsingleservice"></a>[Recurso de servicio único](#tab/singleservice)
+    #### <a name="single-service-resource"></a>[Recurso de servicio único](#tab/singleservice)
 
     |    |    |
     |--|--|
@@ -84,7 +84,7 @@ Use esta guía de inicio rápido para empezar a usar Azure Cognitive Services. D
 
     ![Pantalla de creación de recursos](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
-    Haga clic en **Create**(Crear).
+    Haga clic en **Crear**.
 
     ***
 
@@ -109,7 +109,7 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 2. Busque el grupo de recursos que contiene el recurso que quiere eliminar.
 3. Haga clic con el botón derecho en la lista de grupos de recursos. Seleccione **Eliminar grupo de recursos** y confirme.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [Autenticación de solicitudes en Azure Cognitive Services](authentication.md)
 * [¿Qué es Azure Cognitive Services?](Welcome.md)

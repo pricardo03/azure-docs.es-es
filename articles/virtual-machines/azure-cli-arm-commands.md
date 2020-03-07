@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: cynthn
 ms.openlocfilehash: ad213cc02f707609a837ea66b79e51c6f2a617f8
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919777"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358902"
 ---
 # <a name="azure-classic-cli-commands"></a>Comandos de la CLI clásica de Azure 
 

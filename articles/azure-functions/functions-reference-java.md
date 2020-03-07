@@ -4,11 +4,11 @@ description: Aprenda a desarrollar funciones con Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.openlocfilehash: 4af2a860657f6066112146e1f88d81861d9430ea
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769037"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357051"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guía de Azure Functions para desarrolladores de Java
 

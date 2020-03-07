@@ -12,11 +12,11 @@ manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 06/18/2019
 ms.openlocfilehash: 0d04ea7d7003f274b252e057b7afced7759bfaae
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928520"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358507"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creación y configuración de un entorno de ejecución de integración autohospedado
 
@@ -102,7 +102,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 
 A continuación se incluyen algunos detalles de las propiedades y los parámetros de la aplicación: 
 
-| Propiedad                                                    | DESCRIPCIÓN                                                  | Obligatorio |
+| Propiedad                                                    | Descripción                                                  | Obligatorio |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
 | **RegisterNewNode** "`<AuthenticationKey>`"                     | Permite registrar un nodo de entorno de ejecución de integración autohospedado con la clave de autenticación especificada. | Sin       |
 | **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | Registre un nodo del entorno de ejecución de integración autohospedado con la clave de autenticación y el nombre de nodo especificados. | Sin       |
@@ -148,7 +148,7 @@ A continuación se muestra un resumen de alto nivel de los pasos del flujo de da
 - Use el entorno de ejecución de integración autohospedado aunque el almacén de datos esté en la nube en una máquina virtual de infraestructura como servicio (IaaS) de Azure.
 - Las tareas pueden generar error en un entorno de ejecución de integración autohospedado que esté instalado en un equipo con Windows Server para el que está habilitado el cifrado compatible con FIPS. Para solucionar este problema, deshabilite el cifrado compatible con FIPS en el servidor. Para deshabilitar el cifrado compatible con FIPS, cambie el valor de la subclave del registro siguiente de 1 (habilitado) a 0 (deshabilitado): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Las versiones compatibles de Windows son:
   + Windows 7 Service Pack 1
