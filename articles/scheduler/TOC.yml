@@ -6,15 +6,15 @@
       href: scheduler-intro.md
 - name: Introducción
   items:
-    - name: 'Creación y administración de trabajos: Portal'
-      href: scheduler-get-started-portal.md
+    - name: 'Creación y administración de programaciones: Azure PowerShell'
+      href: scheduler-powershell-reference.md
     - name: Migración de Scheduler a Logic Apps
       href: migrate-from-scheduler-to-logic-apps.md
 - name: Conceptos
   items:
     - name: 'Conceptos, términos y entidades'
       href: scheduler-concepts-terms.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Planeamiento y diseño
       items:
@@ -24,13 +24,13 @@
           href: scheduler-limits-defaults-errors.md
         - name: Alta disponibilidad y confiabilidad
           href: scheduler-high-availability-reliability.md
-    - name: Desarrollo
+    - name: Desarrollar
       items:
         - name: Creación de programaciones complejas y periodicidad avanzada
           href: scheduler-advanced-complexity.md
         - name: 'Creación y administración de programaciones: Azure PowerShell'
           href: scheduler-powershell-reference.md
-    - name: Protección
+    - name: Seguridad
       items:
         - name: Autenticación de llamadas salientes
           href: scheduler-outbound-authentication.md

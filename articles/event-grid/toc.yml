@@ -96,8 +96,12 @@
   items:
     - name: Conceptos de Event Grid
       href: concepts.md
-    - name: Seguridad y autenticación
-      href: security-authentication.md
+    - name: Seguridad
+      items:
+        - name: Authentication
+          href: security-authentication.md
+        - name: Authorization
+          href: security-authorization.md
     - name: Entrega y nuevo intento
       href: delivery-and-retry.md
     - name: Filtro de evento
