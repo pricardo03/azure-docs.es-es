@@ -13,11 +13,11 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: fbaa8c3544b35978786404619879f59ab91a6979
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931917"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358532"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Movimiento de datos con la actividad de copia
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -87,39 +87,39 @@ Por ejemplo, puede realizar las siguientes actividades de copia:
 * Copiar datos en formato de texto comprimido GZip (CSV) desde Azure Blob Storage y escribirlos en Azure SQL Database.
 
 ## <a name="global"></a>Movimiento de datos disponible globalmente
-Azure Data Factory solo está disponible en las regiones oeste de EE. UU., este de EE. UU. y Europa del Norte. Sin embargo, el servicio que ofrece la actividad de copia está disponible globalmente en las siguientes regiones y zonas geográficas. La topología disponible globalmente garantiza un movimiento de datos eficiente que, normalmente, evita saltos entre regiones. Consulte la sección [Servicios por región](https://azure.microsoft.com/regions/#services) para conocer la disponibilidad de Data Factory y el movimiento de datos en una región.
+Azure Data Factory solo está disponible en las regiones Oeste de EE. UU., Este de EE. UU. y Norte de Europa. Sin embargo, el servicio que ofrece la actividad de copia está disponible globalmente en las siguientes regiones y zonas geográficas. La topología disponible globalmente garantiza un movimiento de datos eficiente que, normalmente, evita saltos entre regiones. Consulte la sección [Servicios por región](https://azure.microsoft.com/regions/#services) para conocer la disponibilidad de Data Factory y el movimiento de datos en una región.
 
 ### <a name="copy-data-between-cloud-data-stores"></a>Copia de datos entre almacenes de datos en la nube
 Si los almacenes de datos del origen y del receptor residen en la nube, Data Factory utiliza una implementación de servicio en la región más cercana a la ubicación del receptor en la misma ubicación geográfica para realizar el movimiento de datos. Consulte la tabla siguiente para la asignación:
 
 | Geografía de los almacenes de datos de destino | Región del almacén de datos de destino | Región usada para el movimiento de datos |
 |:--- |:--- |:--- |
-| Estados Unidos | East US | East US |
+| Estados Unidos | Este de EE. UU. | Este de EE. UU. |
 | &nbsp; | Este de EE. UU. 2 | Este de EE. UU. 2 |
 | &nbsp; | Centro de EE. UU. | Centro de EE. UU. |
 | &nbsp; | Centro-Norte de EE. UU | Centro-Norte de EE. UU |
-| &nbsp; | Centro-Sur de EE. UU | Centro-Sur de EE. UU |
-| &nbsp; | Centro occidental de EE.UU. | Centro occidental de EE.UU. |
+| &nbsp; | Centro-sur de EE. UU. | Centro-sur de EE. UU. |
+| &nbsp; | Centro-Oeste de EE. UU. | Centro-Oeste de EE. UU. |
 | &nbsp; | Oeste de EE. UU. | Oeste de EE. UU. |
 | &nbsp; | Oeste de EE. UU. 2 | Oeste de EE. UU. 2 |
 | Canadá | Este de Canadá | Centro de Canadá |
 | &nbsp; | Centro de Canadá | Centro de Canadá |
 | Brasil | Sur de Brasil | Sur de Brasil |
-| Europa | Europa del Norte | Europa del Norte |
-| &nbsp; | Europa occidental | Europa occidental |
+| Europa | Norte de Europa | Norte de Europa |
+| &nbsp; | Oeste de Europa | Oeste de Europa |
 | Reino Unido | Oeste de Reino Unido | Sur de Reino Unido 2 |
 | &nbsp; | Sur de Reino Unido 2 | Sur de Reino Unido 2 |
-| Asia Pacífico | Sudeste asiático | Sudeste asiático |
-| &nbsp; | Asia oriental | Sudeste asiático |
+| Asia Pacífico | Sudeste de Asia | Sudeste de Asia |
+| &nbsp; | Este de Asia | Sudeste de Asia |
 | Australia | Este de Australia | Este de Australia |
 | &nbsp; | Sudeste de Australia | Sudeste de Australia |
-| India | India Central | India Central |
-| &nbsp; | Oeste de la India | India Central |
-| &nbsp; | Sur de la India | India Central |
-| Japón | Este de Japón | Este de Japón |
-| &nbsp; | Oeste de Japón | Este de Japón |
-| Corea | Corea Central | Corea Central |
-| &nbsp; | Corea del Sur | Corea Central |
+| India | Centro de la India | Centro de la India |
+| &nbsp; | Oeste de la India | Centro de la India |
+| &nbsp; | Sur de la India | Centro de la India |
+| Japón | Japón Oriental | Japón Oriental |
+| &nbsp; | Japón Occidental | Japón Oriental |
+| Corea | Centro de Corea del Sur | Centro de Corea del Sur |
+| &nbsp; | Corea del Sur | Centro de Corea del Sur |
 
 También puede indicar explícitamente la región del servicio de Data Factory que se usará para realizar la copia especificando la propiedad `executionLocation` en la actividad de copia `typeProperties`. Los valores admitidos para esta propiedad se muestran en la columna **Región usada para el movimiento de datos** anterior. Tenga en cuenta que los datos se transmitirán por Internet por esa región durante la copia. Por ejemplo, para realizar copias entre almacenes de Azure de Corea, puede especificar `"executionLocation": "Japan East"` para redirigir los datos a través de la región de Japón (consulte el [ejemplo de JSON](#by-using-json-scripts) como referencia).
 
@@ -137,7 +137,7 @@ Puede crear una canalización con actividad de copia de dos maneras:
 El Asistente para copia de Data Factory lo ayuda a crear una canalización con la actividad de copia. Esta canalización permite copiar datos de orígenes compatibles en destinos *sin escribir definiciones de JSON* para los servicios vinculados, los conjuntos de datos ni las canalizaciones. Consulte [Asistente para copia de Data Factory](data-factory-copy-wizard.md) para obtener más información sobre el asistente.  
 
 ### <a name="by-using-json-scripts"></a>Mediante scripts de JSON
-Puede utilizar el Editor de Data Factory en Visual Studio o Azure PowerShell para crear una definición de JSON para una canalización (mediante la actividad de copia). Después, puede implementarla para crear la canalización en Data Factory. Vea [Tutorial: Uso de la actividad de copia en una canalización de Azure Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso.    
+Puede utilizar el Editor de Data Factory en Visual Studio o Azure PowerShell para crear una definición de JSON para una canalización (mediante la actividad de copia). Después, puede implementarla para crear la canalización en Data Factory. Consulte [Tutorial: Uso de la actividad de copia en una canalización de Azure Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso.    
 
 Las propiedades JSON (como nombre, descripción, tablas de entrada y salida, y directivas) están disponibles para todos los tipos de actividades. Las propiedades que están disponibles en la sección `typeProperties` de la actividad varían con cada tipo de actividad.
 
