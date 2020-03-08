@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: a25658677e436edf4d001599bb4981f527016596
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210685"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356064"
 ---
 # <a name="azure-functions-http-output-bindings"></a>Enlaces de salida HTTP de Azure Functions
 
@@ -18,7 +18,7 @@ Use el enlace de salida HTTP para responder al remitente de la solicitud HTTP. E
 
 El valor devuelto predeterminado para una función desencadenada por HTTP es:
 
-- `HTTP 204 No Content` con el cuerpo vacío en Functions 2.x y posteriores
+- `HTTP 204 No Content` con el cuerpo vacío en Functions 2.x y posterior
 - `HTTP 200 OK` con el cuerpo vacío en Functions 1.x
 
 ## <a name="configuration"></a>Configuración
