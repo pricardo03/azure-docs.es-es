@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 9d86fa9bfe9c17867b8a30519b79d9ee8c5af363
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932004"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358584"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -71,7 +71,7 @@ A continuación se encuentran el flujo de datos de alto nivel y el resumen de lo
 * Debe **usar la puerta de enlace** incluso cuando el almacén de datos esté en la nube, en una **VM de IaaS de Azure**.
 
 ## <a name="installation"></a>Instalación
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 * Las versiones de **sistema operativo** compatibles son Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2. En estos momentos, no se admite la instalación de Data Management Gateway en un controlador de dominio.
 * Es necesario .NET Framework 4.5.1 o posterior. Si está instalando la puerta de enlace en una máquina con Windows 7, instale .NET Framework 4.5 o posterior. Consulte [Requisitos de sistema de .NET Framework](https://msdn.microsoft.com/library/8z6watww.aspx) para más información.
 * La **configuración** recomendada de la máquina de la puerta de enlace es de al menos 2 GHz, 4 núcleos, 8 GB de RAM y disco de 80 GB.
@@ -80,7 +80,7 @@ A continuación se encuentran el flujo de datos de alto nivel y el resumen de lo
 
 Puesto que las ejecuciones de la actividad de copia suceden con una frecuencia determinada, el uso de recursos (CPU, memoria) en la máquina también sigue el mismo patrón, con horas pico y tiempos de inactividad. El uso de recursos también depende en gran medida de la cantidad de datos que se mueven. Cuando hay varios trabajos de copia en curso, puede ver que el uso de los recursos aumenta durante las horas pico.
 
-### <a name="installation-options"></a>Opciones de instalación
+### <a name="installation-options"></a>Opción de instalación
 Data Management Gateway se puede instalar de las siguientes maneras:
 
 * Descargando un paquete de instalación MSI desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). El paquete MSI también puede usarse para actualizar la versión existente de Data Management Gateway a la versión más reciente, conservando toda la configuración.
@@ -140,7 +140,7 @@ Existen dos firewalls que tiene que tener en cuenta: el **firewall corporativo**
 
 En el firewall corporativo, debe configurar los siguientes dominios y puertos de salida:
 
-| Nombres de dominio | Puertos | DESCRIPCIÓN |
+| Nombres de dominio | Puertos | Descripción |
 | --- | --- | --- |
 | *.servicebus.windows.net |443 |Usado para la comunicación con el back-end del servicio de movimiento de datos |
 | *.core.windows.net |443 |Usado para la copia de almacenamiento provisional que usa el blob de Azure (si está configurado)|
@@ -362,9 +362,9 @@ En Azure Portal, puede ver una instantánea casi en tiempo real de la utilizaci�
 
 En la tabla siguiente se proporcionan las descripciones de las columnas de la lista **Nodos de la puerta de enlace**:
 
-Propiedad de supervisión | DESCRIPCIÓN
+Propiedad de supervisión | Descripción
 :------------------ | :----------
-NOMBRE | Nombre de la puerta de enlace lógica y de los nodos asociados a la puerta de enlace. Un nodo es una máquina de Windows local que tiene la puerta de enlace instalada. Para obtener información sobre cómo tener más de un nodo (hasta cuatro nodos) en una sola puerta de enlace lógica, consulte [Data Management Gateway: alta disponibilidad y escalabilidad](data-factory-data-management-gateway-high-availability-scalability.md).
+Nombre | Nombre de la puerta de enlace lógica y de los nodos asociados a la puerta de enlace. Un nodo es una máquina de Windows local que tiene la puerta de enlace instalada. Para obtener información sobre cómo tener más de un nodo (hasta cuatro nodos) en una sola puerta de enlace lógica, consulte [Data Management Gateway: alta disponibilidad y escalabilidad](data-factory-data-management-gateway-high-availability-scalability.md).
 Status | Estado de la puerta de enlace lógica y de los nodos de la puerta de enlace. Ejemplo: En línea, Sin conexión, Limitado, etc. Para obtener información acerca de estos estados, consulte la sección [Estado de la puerta de enlace](#gateway-status).
 Versión | Muestra la versión de la puerta de enlace lógica y de cada nodo de la puerta de enlace. La versión de la puerta de enlace lógica se determina basándose en la versión de la mayoría de los nodos del grupo. Si hay nodos con versiones diferentes en la configuración de la puerta de enlace lógica, solo los nodos con el mismo número de versión que la puerta de enlace lógica funcionan correctamente. Los otros están en el modo limitado y deben actualizarse manualmente (solo en caso de que se produzca un error en la actualización automática).
 Memoria disponible | Memoria disponible en un nodo de la puerta de enlace. Este valor es una instantánea casi en tiempo real.
