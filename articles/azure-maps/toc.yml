@@ -165,6 +165,22 @@
               href: map-get-information-from-coordinate.md
             - name: Presentación de indicaciones de ruta de A a B
               href: map-route.md
+        - name: Módulo de E/S espacial
+          items:
+            - name: Uso del módulo de E/S espacial
+              href: how-to-use-spatial-io-module.md
+            - name: Adición de una capa de datos simple
+              href: spatial-io-add-simple-data-layer.md
+            - name: Lectura y escritura de datos espaciales
+              href: spatial-io-read-write-spatial-data.md
+            - name: Adición de una capa de mapa de OGC
+              href: spatial-io-add-ogc-map-layer.md
+            - name: Conexión a un servicio WFS
+              href: spatial-io-connect-wfs-service.md
+            - name: Aprovechamiento de las operaciones básicas
+              href: spatial-io-core-operations.md
+            - name: Detalles de formatos de datos admitidos
+              href: spatial-io-supported-data-format-details.md
         - name: Exploradores admitidos por el SDK web
           href: supported-browsers.md
     - name: Desarrollo con Android SDK

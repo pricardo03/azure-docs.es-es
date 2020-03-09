@@ -81,8 +81,12 @@
           href: batch-aad-auth-management.md
         - name: Acceso seguro a Key Vault con Batch
           href: credential-access-key-vault.md
-    - name: Uso de paquetes de aplicaciones
-      href: batch-application-packages.md
+    - name: Copia de archivos y aplicaciones en nodos de grupo
+      items:
+        - name: Uso de paquetes de aplicaciones
+          href: batch-application-packages.md
+        - name: Creación de archivos de recursos
+          href: resource-files.md
     - name: Creación y administración de grupos
       items:
         - name: Escalado automático de nodos de proceso
@@ -123,12 +127,12 @@
           href: batch-user-accounts.md
         - name: Envío de un gran número de tareas
           href: large-number-tasks.md
+        - name: Programación de trabajos para mejorar la eficacia
+          href: batch-job-schedule.md
         - name: Comprobación de errores de trabajos y tareas
           href: batch-job-task-error-checking.md
         - name: Detección y control de errores en el servicio Batch
           href: batch-retry-after-errors.md
-    - name: Creación de archivos de recursos
-      href: resource-files.md
     - name: Trabajo persistente y resultado de la tarea
       href: batch-task-output.md
       items:

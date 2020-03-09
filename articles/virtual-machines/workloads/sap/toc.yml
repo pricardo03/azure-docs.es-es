@@ -24,6 +24,8 @@
           href: hana-data-tiering-extension-nodes.md
         - name: Modelo de operaciones y responsabilidades
           href: hana-operations-model.md
+        - name: Sistemas operativos compatibles
+          href: os-compatibility-matrix-hana-large-instance.md
     - name: Architecture
       items:
         - name: Arquitectura general

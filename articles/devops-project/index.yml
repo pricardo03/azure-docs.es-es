@@ -1,74 +1,60 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure DevOps Projects
+### YamlMime:Landing
+title: Documentación de Azure DevOps Projects
+summary: Azure DevOps Projects ofrece una experiencia simplificada en la que puede utilizar su código existente y el repositorio de Git, o elegir una de las aplicaciones de ejemplo para crear una canalización de integración continua (CI) y entrega continua (CD) en Azure.
 metadata:
-  title: 'Documentación de Azure DevOps Projects: guías de inicio rápido y tutoriales'
-  meta.description: null
-  services: devops-project
-  author: mlearned
-  manager: gwallace
+  title: Documentación de Azure DevOps Projects
+  description: Azure DevOps Projects ofrece una experiencia simplificada en la que puede utilizar su código existente y el repositorio de Git, o elegir una de las aplicaciones de ejemplo para crear una canalización de integración continua (CI) y entrega continua (CD) en Azure.
   ms.service: devops-project
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/06/2018
-  ms.author: mlearned
-abstract:
-  description: 'Azure DevOps Projects ofrece una experiencia simplificada en la que puede utilizar su código existente y el repositorio de Git, o elegir una de las aplicaciones de ejemplo para crear una canalización de integración continua (CI) y entrega continua (CD) en Azure.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: _img\video-devops-project.png
-      width: 250
-    title: 'Creación de integración continua y entrega continua con DevOps Project (vídeo, 8:53)'
-    href: 'https://channel9.msdn.com/Events/Connect/2017/T174/player/'
-    width: 250
-sections:
-  - title: Guías de inicio rápido de 5 minutos
-    items:
-      - type: paragraph
-        text: 'Vea cómo crear su tipo de aplicación e implementarla en el servicio de Azure que elija:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media\logo_net.svg
-            text: .NET
-            href: /azure/devops-project/azure-devops-project-aspnet-core
-          - image:
-              src: media\logo_nodejs.svg
-            text: Node.js
-            href: /azure/devops-project/azure-devops-project-nodejs
-          - image:
-              src: media\logo_java.svg
-            text: Java
-            href: /azure/devops-project/azure-devops-project-java
-          - image:
-              src: media\logo_python.svg
-            text: Python
-            href: /azure/devops-project/azure-devops-project-python
-          - image:
-              src: media\logo_php.svg
-            text: PHP
-            href: /azure/devops-project/azure-devops-project-php
-          - image:
-              src: media\logo_ruby.svg
-            text: Ruby
-            href: /azure/devops-project/azure-devops-project-ruby
-          - image:
-              src: media\logo_gopher.svg
-            text: Go
-            href: /azure/devops-project/azure-devops-project-go
-  - title: Tutoriales detallados
-    items:
-      - type: paragraph
-        text: Aprenda a usar DevOps Project para crear canalizaciones de versiones
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/devops-project/azure-devops-project-github">Traiga su propio código con GitHub</a>
-          - html: <a href="/azure/devops-project/azure-devops-project-vms">Implementación de la aplicación ASP.NET en Azure Virtual Machines</a>
-          - html: <a href="/azure/devops-project/azure-devops-project-sql-database">Implementación de la aplicación ASP.NET y de Azure SQL Database</a>
-          - html: <a href="/azure/devops-project/azure-devops-project-aks">Implementación de la aplicación en Azure Container Service y Kubernetes</a>
-          - html: <a href="/azure/devops-project/azure-devops-project-service-fabric">Implementación de la aplicación en Azure Service Fabric</a>
+  author: 
+  ms.author: 
+  ms.date: 03/05/2020
+  ms.openlocfilehash: 0c67ed2fdffd80c447608348429985477dd426df
+  ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 03/06/2020
+  ms.locfileid: "78674193"
+landingContent:
+- title: Acerca de Azure DevOps Projects
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure DevOps Projects?
+      url: overview.md
+  - linkListType: video
+    links:
+    - text: Creación de integración continua y entrega continua con DevOps Project (vídeo, 8:53)
+      url: https://channel9.msdn.com/Events/Connect/2017/T174/player/
+- title: Creación de una canalización de CI/CD
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: .NET
+      url: /azure/devops-project/azure-devops-project-aspnet-core
+    - text: Node.js
+      url: /azure/devops-project/azure-devops-project-nodejs
+    - text: Java
+      url: /azure/devops-project/azure-devops-project-java
+    - text: Python
+      url: /azure/devops-project/azure-devops-project-python
+    - text: PHP
+      url: /azure/devops-project/azure-devops-project-php
+    - text: Ruby
+      url: /azure/devops-project/azure-devops-project-ruby
+    - text: Go
+      url: /azure/devops-project/azure-devops-project-go
+- title: Creación de canalizaciones de versión
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Traiga su propio código con GitHub
+      url: azure-devops-project-vms.md
+    - text: Implementación de una aplicación ASP.NET en Azure Virtual Machines
+      url: azure-devops-project-vms.md
+    - text: Implementación de una aplicación ASP.NET y Azure SQL Database
+      url: azure-devops-project-sql-database.md
+    - text: Implementación de una aplicación en Azure Container Service y Kubernetes
+      url: azure-devops-project-aks.md
+    - text: Implementación de una aplicación en Azure Service Fabric
+      url: azure-devops-project-service-fabric.md

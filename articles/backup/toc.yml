@@ -142,10 +142,16 @@
       items:
         - name: Información general
           href: backup-azure-about-mars.md
+        - name: Instalar o actualizar
+          items:
+            - name: Instalación de un agente de MARS
+              href: install-mars-agent.md
+            - name: Actualización de un agente de MARS
+              href: upgrade-mars-agent.md
         - name: Copia de seguridad
           items:
             - name: Copia de seguridad de carpetas y archivos de Windows Server
-              href: backup-configure-vault.md
+              href: backup-windows-with-mars-agent.md
             - name: Copia de seguridad del estado del sistema de Windows Server
               href: backup-azure-system-state.md
         - name: Restauración
