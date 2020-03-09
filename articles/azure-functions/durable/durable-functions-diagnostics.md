@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4cb832f8fe11ac2581e97d9cdcc777eaff702ee9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231468"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356705"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnóstico con Durable Functions en Azure
 
@@ -38,7 +38,7 @@ Cada evento de ciclo de vida de una instancia de orquestación provoca uno de se
   * **Awaited**: el orquestador ha programado trabajo y está esperando a que finalice.
   * **Listening**: el orquestador está escuchando una notificación de eventos externa.
   * **Completed**: la función se ha completado correctamente.
-  * **Failed**: se ha producido un error en la función.
+  * **Error**: se ha producido un error en la función.
 * **reason**: información adicional asociada al evento de seguimiento. Por ejemplo, si una instancia está esperando una notificación de eventos externa, este campo indica el nombre del evento al que espera. Si se produce un error en una función, este campo contiene los detalles del error.
 * **isReplay**: valor booleano que indica si el evento de seguimiento va a volver a reproducir la ejecución.
 * **extensionVersion**: versión de la extensión Durable Task. La información de versión es especialmente importante al notificar posibles errores en la extensión. Las instancias de ejecución prolongada pueden notificar varias versiones si se produce una actualización mientras se están ejecutando.
@@ -60,7 +60,7 @@ El nivel de detalle de los datos de seguimiento que se emiten para Application I
 }
 ```
 
-#### <a name="functions-20"></a>Functions 2.0
+#### <a name="functions-20"></a>Functions 2.0
 
 ```json
 {
@@ -86,7 +86,7 @@ Para habilitar la emisión de los eventos de reproducción de orquestación deta
 }
 ```
 
-#### <a name="functions-20"></a>Functions 2.0
+#### <a name="functions-20"></a>Functions 2.0
 
 ```javascript
 {
@@ -189,7 +189,7 @@ public static async Task Run(
 }
 ```
 
-### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
+### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
 
 ```javascript
 const df = require("durable-functions");
@@ -260,7 +260,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
+#### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
 
 ```javascript
 const df = require("durable-functions");
@@ -305,7 +305,7 @@ Done!
 ```
 
 > [!NOTE]
-> Los ejemplos de C# anteriores corresponden a Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
+> Los ejemplos de C# anteriores corresponden a Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
 
 ## <a name="custom-status"></a>Estado personalizado
 
@@ -330,7 +330,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrat
 > [!NOTE]
 > El ejemplo de C# anterior corresponde a Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
 
-### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
+### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
 
 ```javascript
 const df = require("durable-functions");
