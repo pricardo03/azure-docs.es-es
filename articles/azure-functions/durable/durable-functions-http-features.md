@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
 ms.openlocfilehash: a7d8891c6f925cfac326685f01ba5f6149a1b233
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76262867"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357802"
 ---
 # <a name="http-features"></a>Características de HTTP
 
@@ -41,11 +41,11 @@ Consulte el [artículo API HTTP](durable-functions-http-api.md) para obtener una
 
 El [enlace del cliente de orquestación](durable-functions-bindings.md#orchestration-client) expone las API que pueden generar las cargas de respuesta HTTP útiles. Por ejemplo, puede crear una respuesta que contenga vínculos a las API de administración de una instancia de orquestación específica. Los siguientes ejemplos muestran una función de desencadenador HTTP que muestra cómo utilizar esta API para una nueva instancia de orquestación:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 **index.js**
 
@@ -114,7 +114,7 @@ A partir de Durable Functions 2.0, las orquestaciones pueden consumir de forma n
 
 En el ejemplo de código siguiente se muestra una función de orquestador que realiza una solicitud HTTP saliente:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -134,7 +134,7 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -172,7 +172,7 @@ Durable Functions admite de forma nativa llamadas a las API que aceptan tokens d
 
 El código siguiente es un ejemplo de una función de orquestadoror de .NET. La función realiza llamadas autenticadas para reiniciar una máquina virtual mediante la API de REST de [máquinas virtuales de Azure Resource Manager](https://docs.microsoft.com/rest/api/compute/virtualmachines).
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("RestartVm")]
@@ -198,7 +198,7 @@ public static async Task RunOrchestrator(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
