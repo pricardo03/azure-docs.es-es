@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: kumud
 ms.openlocfilehash: fa933b820d8677e4d080b54ce5e6a5d506ea38fc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978929"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360541"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Crear, modificar o eliminar un grupo de seguridad de red
 
