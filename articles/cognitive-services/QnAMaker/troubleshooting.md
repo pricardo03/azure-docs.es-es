@@ -1,15 +1,15 @@
 ---
 title: 'Solución de problemas: QnA Maker'
 description: La lista de las preguntas frecuentes seleccionadas sobre QnA Maker le ayudará a adoptar este servicio de forma más rápida y a obtener mejores resultados.
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/21/2020
 ms.author: diberry
-ms.openlocfilehash: 9032f2cdc134289fef6c0cbc2e874198aefa90ee
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 4596c16a5d7c9053bf0e27af476c66fe8fa9ed35
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650391"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296106"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Solución de problemas para QnA Maker
 
@@ -224,7 +224,7 @@ Si tiene contenido en varios idiomas, asegúrese de crear un servicio independie
 <details>
 <summary><b>¿Cómo se puede crear un bot con QnA Maker?</b></summary>
 
-**Respuesta**: Siga las instrucciones de [esta](./Tutorials/create-qna-bot.md) documentación para crear su Bot con Azure Bot Service.
+**Respuesta**: Siga las instrucciones de [esta](./Quickstarts/create-publish-knowledge-base.md) documentación para crear su Bot con Azure Bot Service.
 
 </details>
 
@@ -255,7 +255,7 @@ La clave del punto de conexión de la base de conocimiento se llama `QnAAuthkey`
 
 **Respuesta**: Siga estos pasos para insertar el servicio QnA Maker como control de chat en web en su sitio web:
 
-1. Cree su bot de P+F siguiendo las instrucciones que encontrará [aquí](./Tutorials/create-qna-bot.md).
+1. Cree su bot de P+F siguiendo las instrucciones que encontrará [aquí](./Quickstarts/create-publish-knowledge-base.md).
 2. Habilite el chat en web mediante los pasos que se indican [aquí](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-webchat).
 
 </details>
