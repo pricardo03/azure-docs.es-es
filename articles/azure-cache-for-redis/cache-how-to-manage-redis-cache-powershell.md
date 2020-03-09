@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: a385d3ed7ef46389f96de72c98ffc29cebf60ec4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978844"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355835"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Administración de Azure Cache for Redis con Azure PowerShell
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ Este tema muestra cómo realizar tareas comunes, como crear, actualizar y escala
 
 Para más información sobre el modelo de implementación clásico, consulte [Implementación mediante Azure Resource Manager frente al modelo clásico. Conozca los modelos de implementación y el estado de los recursos](../azure-resource-manager/management/deployment-models.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Si ya ha instalado Azure PowerShell, debe tener la versión 1.0.0 (o posterior) de Azure PowerShell. Puede comprobar la versión de Azure PowerShell que ha instalado con este comando en el símbolo del sistema de Azure PowerShell.
 
     Get-Module Az | format-table version
@@ -110,7 +110,7 @@ or
 Para crear una memoria caché en Microsoft Azure Alemania, use una de las siguientes ubicaciones.
 
 * Centro de Alemania
-* Noreste de Alemania
+* Nordeste de Alemania
 
 Para obtener más información acerca de Microsoft Azure Alemania, consulte [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/).
 
