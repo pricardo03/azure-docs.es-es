@@ -393,6 +393,7 @@
           href: media-services-deliver-asset-download.md
         - name: Escenario de streaming de conmutación por error
           href: media-services-implement-failover.md
+          displayName: 'HA, high availability'
     - name: Consumo
       items:
         - name: Reproducción de multimedia con los reproductores existentes
