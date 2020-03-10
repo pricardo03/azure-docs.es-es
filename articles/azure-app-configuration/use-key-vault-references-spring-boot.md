@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 17d86f25de6eecee535d6f812f4ef0b078a4b6db
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: d1fb963753577e9518d93262f9c9c7a1cf984005
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75752501"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656014"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Tutorial: Uso de referencias de Key Vault en una aplicación de Java Spring
 
@@ -41,11 +41,11 @@ En este tutorial, aprenderá a:
 > * Crear una clave de App Configuration que hace referencia a un valor almacenado en Key Vault.
 > * Acceder al valor de esta clave desde una aplicación de Java Spring.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
-Antes de iniciar este tutorial, instale el [SDK de .NET Core](https://dotnet.microsoft.com/download).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
+* Un [kit de desarrollo de Java (JDK)](https://docs.microsoft.com/java/azure/jdk) admitido, versión 8.
+* [Apache Maven](https://maven.apache.org/download.cgi), versión 3.0 o posterior.
 
 ## <a name="create-a-vault"></a>Creación de un almacén
 
@@ -56,10 +56,10 @@ Antes de iniciar este tutorial, instale el [SDK de .NET Core](https://dotnet.mic
 1. En la lista de resultados, seleccione **Key Vaults** a la izquierda.
 1. En **Key Vaults**, seleccione **Agregar**.
 1. En la sección **Crear almacén de claves**, a la derecha, proporcione la siguiente información:
-    - Seleccione **Suscripción** para elegir una suscripción.
-    - En **Grupo de recursos**, seleccione **Crear nuevo** y escriba un nombre de grupo de recursos.
-    - En **Nombre del almacén de claves** se requiere un nombre único. Para este tutorial, escriba **Contoso-vault2**.
-    - En la lista desplegable **Región**, elija una ubicación.
+    * Seleccione **Suscripción** para elegir una suscripción.
+    * En **Grupo de recursos**, seleccione **Crear nuevo** y escriba un nombre de grupo de recursos.
+    * En **Nombre del almacén de claves** se requiere un nombre único. Para este tutorial, escriba **Contoso-vault2**.
+    * En la lista desplegable **Región**, elija una ubicación.
 1. Deje las demás opciones de **Crear almacén de claves** con sus valores predeterminados.
 1. Seleccione **Crear**.
 
@@ -74,9 +74,9 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
 1. En las páginas de propiedades de Key Vault, seleccione **Secretos**.
 1. Seleccione **Generar o importar**.
 1. En el panel **Crear un secreto**, escriba los valores siguientes:
-    - **Opciones de carga**: escriba **Manual**.
-    - **Name**: escriba **Message**.
-    - **Valor**: escriba **Hello from Key Vault**.
+    * **Opciones de carga**: escriba **Manual**.
+    * **Name**: escriba **Message**.
+    * **Valor**: escriba **Hello from Key Vault**.
 1. Deje las demás propiedades de **Crear un secreto** con sus valores predeterminados.
 1. Seleccione **Crear**.
 
@@ -87,10 +87,10 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
 1. Seleccione **Explorador de configuración**.
 
 1. Seleccione **+ Crear** > **Referencia del almacén de claves** y, a continuación, especifique los valores siguientes:
-    - **Clave**: seleccione **/application/config.keyvaultmessage**.
-    - **Etiqueta**: deje este valor en blanco.
-    - **Suscripción**, **Grupo de recursos** y **Key Vault**: escriba los valores correspondientes a los valores del almacén de claves que creó en la sección anterior.
-    - **Secreto**: seleccione el secreto llamado **Message** que creó en la sección anterior.
+    * **Clave**: seleccione **/application/config.keyvaultmessage**.
+    * **Etiqueta**: deje este valor en blanco.
+    * **Suscripción**, **Grupo de recursos** y **Key Vault**: escriba los valores correspondientes a los valores del almacén de claves que creó en la sección anterior.
+    * **Secreto**: seleccione el secreto llamado **Message** que creó en la sección anterior.
 
 ## <a name="connect-to-key-vault"></a>Conexión a Key Vault
 
@@ -119,8 +119,15 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
 
 1. Ejecute el siguiente comando para permitir que la entidad de servicio acceda al almacén de claves:
 
+    ```console
+    az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get
     ```
-    az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
+
+1. Ejecute el siguiente comando para obtener el identificador de objeto y, a continuación, agréguelo a App Configuration.
+
+    ```console
+    az ad sp show --id <clientId-of-your-service-principal>
+    az role assignment create --role "App Configuration Data Reader" --assignee-object-id <objectId-of-your-service-principal> --resource-group <your-resource-group>
     ```
 
 1. Cree las siguientes variables de entorno, con los valores de la entidad de servicio mostrados en el paso anterior:
@@ -130,7 +137,7 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
     * **AZURE_TENANT_ID**: *tenantId*
 
 > [!NOTE]
-> Estas credenciales de Key Vault se usan solo dentro de la aplicación. La aplicación se autentica directamente en Key Vault con estas credenciales. Nunca se pasan al servicio App Configuration.
+> Estas credenciales de Key Vault se usan solo dentro de la aplicación.  La aplicación se autentica directamente con Key Vault mediante estas credenciales sin que intervenga el servicio App Configuration.  Key Vault proporciona autenticación para la aplicación y el servicio App Configuration sin compartir ni exponer las claves.
 
 ## <a name="update-your-code-to-use-a-key-vault-reference"></a>Actualización del código para usar una referencia de Key Vault
 
@@ -157,17 +164,73 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
     }
     ```
 
+1. Cree un nuevo archivo llamado *AzureCredentials.java* y agregue el código siguiente.
+
+    ```java
+    package com.example;
+
+    import com.azure.core.credential.TokenCredential;
+    import com.azure.identity.EnvironmentCredentialBuilder;
+    import com.microsoft.azure.spring.cloud.config.AppConfigurationCredentialProvider;
+    import com.microsoft.azure.spring.cloud.config.KeyVaultCredentialProvider;
+
+    public class AzureCredentials implements AppConfigurationCredentialProvider, KeyVaultCredentialProvider{
+
+        @Override
+        public TokenCredential getKeyVaultCredential(String uri) {
+            return getCredential();
+        }
+
+        @Override
+        public TokenCredential getAppConfigCredential(String uri) {
+            return getCredential();
+        }
+
+        private TokenCredential getCredential() {
+            return new EnvironmentCredentialBuilder().build();
+        }
+
+    }
+    ```
+
+1. Cree un nuevo archivo llamado *AppConfiguration.java*. Y agregue el código siguiente.
+
+    ```java
+    package com.example;
+
+    import org.springframework.context.annotation.Bean;
+    import org.springframework.context.annotation.Configuration;
+
+    @Configuration
+    public class AppConfiguration {
+
+        @Bean
+        public AzureCredentials azureCredentials() {
+            return new AzureCredentials();
+        }
+    }
+    ```
+
+1. Cree un nuevo archivo en el directorio META-INF de recursos llamado *spring.factories* y agréguelo.
+
+    ```factories
+    org.springframework.cloud.bootstrap.BootstrapConfiguration=\
+    com.example.AppConfiguration
+    ```
+
 1. Compile la aplicación de Spring Boot con Maven y ejecútela; por ejemplo:
 
     ```shell
     mvn clean package
     mvn spring-boot:run
     ```
+
 1. Una vez que se está ejecutando la aplicación, puede usar *curl* para probarla, por ejemplo:
 
       ```shell
       curl -X GET http://localhost:8080/
       ```
+
     Verá el mensaje que escribió en el almacén de App Configuration. También verá el mensaje que escribió en Key Vault.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

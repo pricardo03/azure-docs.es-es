@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: eab8298362bfb3ad790d13fcbf47e0fe624ed3fd
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 2477d91ac885d4ef39df7b9246f7272d66c3f7ee
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470197"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251874"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Inicio rápido: Creación de una instancia de Load Balancer para equilibrar la carga de máquinas virtuales mediante Azure Portal
 
@@ -110,21 +110,20 @@ Las reglas de Load Balancer se utilizan para definir cómo se distribuye el trá
 
 En esta sección, se crea una red virtual, luego tres máquinas virtuales para el grupo de back-end de la instancia de Load Balancer y, finalmente, se instala IIS en las máquinas virtuales para ayudar a probar el equilibrador de carga.
 
-### <a name="create-a-virtual-network"></a>Creación de una red virtual
-1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Red virtual**.
+## <a name="virtual-network-and-parameters"></a>Red virtual y parámetros
 
-1. En **Creación de una red virtual**, escriba o seleccione esta información:
+En los pasos de esta sección, tendrá que reemplazar los siguientes parámetros por la siguiente información:
 
-    | Configuración | Value |
-    | ------- | ----- |
-    | Nombre | Escriba *myVNet*. |
-    | Espacio de direcciones | Escriba *10.1.0.0/16*. |
-    | Subscription | Seleccione su suscripción.|
-    | Resource group | Seleccione el recurso existente: *myResourceGroupSLB*. |
-    | Location | Seleccione **Oeste de Europa**.|
-    | Subred: nombre | Escriba *myBackendSubnet*. |
-    | Subred: intervalo de direcciones | Escriba *10.1.0.0/24*. |
-1. Deje el resto de valores predeterminados y seleccione **Crear**.
+| Parámetro                   | Value                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupSLB |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | Oeste de Europa      |
+| **\<IPv4-address-space>**   | 10.1.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.1.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-virtual-machines"></a>Creación de máquinas virtuales
 Las SKU de IP públicas y las SKU de Load Balancer deben coincidir. Para la instancia de Standard Load Balancer utilice máquinas virtuales con direcciones IP estándar en el grupo de back-end. En esta sección, creará tres máquinas virtuales (*myVM1*, *myVM2* y *myVM3*) con una dirección IP pública estándar en tres zonas diferentes (*Zona 1*, *Zona 2* y *Zona 3*) que se agregan más adelante al grupo de back-end de la instancia de Load Balancer que se creó anteriormente. Si ha seleccionado Básico, use máquinas virtuales con direcciones IP básicas.

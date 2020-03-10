@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 99ba530d4857520693060d83ad78a7f127003a3d
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: f521cc68476e2f9df1cc8288cf41156da3851cd0
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732336"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251892"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad con Load Balancer Estándar mediante Azure Portal
 
@@ -57,7 +57,7 @@ La versión Estándar de Load Balancer solo admite direcciones IP públicas est�
     | Subscription               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **Crear nuevo** y escriba *MyResourceGroupLBAZ* en el cuadro de texto.|
     | Nombre                   | *myLoadBalancer*                                   |
-    | Region         | Seleccione **Europa Occidental**.                                        |
+    | Region         | Seleccione **Oeste de Europa**.                                        |
     | Tipo          | Seleccione **Público**.                                        |
     | SKU           | Seleccione **Estándar**.                          |
     | Dirección IP pública | Seleccione **Crear nuevo**. |
@@ -69,16 +69,20 @@ La versión Estándar de Load Balancer solo admite direcciones IP públicas est�
 
 En esta sección, creará una red virtual y máquinas virtuales en diferentes zonas de la región. Después, instalará IIS en las máquinas virtuales para que le ayude a probar el equilibrador de carga con redundancia de zona. Por lo tanto, si se produce un error en una zona, se produce un error en el sondeo de estado de la máquina virtual en la misma zona y continúa el tráfico servido por las máquinas virtuales de las demás zonas.
 
-### <a name="create-a-virtual-network"></a>Creación de una red virtual
-Cree una red virtual para implementar los servidores back-end.
+## <a name="virtual-network-and-parameters"></a>Red virtual y parámetros
 
-1. En la parte superior izquierda de la pantalla, haga clic en **Crear un recurso** > **Redes** > **Red virtual** y especifique estos valores para la red virtual:
-    - *myVnet*: como nombre de la red virtual.
-    - *myResourceGroupLBAZ*: como nombre del grupo de recursos existente
-    - *myAGSubnet*: como nombre de la subred.
-2. Haga clic en **Crear** para crear la red virtual.
+En los pasos de esta sección, tendrá que reemplazar los siguientes parámetros por la siguiente información:
 
-    ![Creación de una red virtual](./media/load-balancer-standard-public-availability-zones-portal/2-load-balancer-virtual-network.png)
+| Parámetro                   | Value                |
+|-----------------------------|----------------------|
+| **\<nombre-de-grupo-recursos>**  | myResourceGroupLBAZ (seleccione el grupo de recursos existente) |
+| **\<nombre-de-red-virtual>** | myVNet          |
+| **\<nombre-de-región>**          | Oeste de Europa      |
+| **\<espacio-de-direcciones-IPv4>**   | 10.0.0.0\16          |
+| **\<nombre-de-subred>**          | myBackendSubnet        |
+| **\<intervalo-de-direcciones-de-subred>** | 10.0.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ## <a name="create-a-network-security-group"></a>Crear un grupo de seguridad de red
 

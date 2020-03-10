@@ -3,16 +3,16 @@ title: Administración del portal del Contrato Enterprise de Azure
 description: En este artículo se explican las tareas comunes que un administrador lleva a cabo en el portal del Contrato Enterprise de Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/24/2020
+ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 1da26b3a1c028a49655b9089ac0119e3274e37a4
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 79225d4dfe9e53da6936f8647c9f5a1dff0b4909
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598398"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301479"
 ---
 # <a name="azure-ea-portal-administration"></a>Administración del portal del Contrato Enterprise de Azure
 
@@ -24,7 +24,7 @@ Los administradores de empresa tienen los máximos privilegios al administrar un
 
 ## <a name="update-user-state-from-pending-to-active"></a>Actualización del estado de usuario de pendiente a activo
 
-Cuando se agregan nuevos propietarios de la cuenta a una inscripción del Contrato Enterprise de Azure por primera vez, su estado aparece como _pendiente_. Cuando un nuevo propietario de la cuenta recibe el correo electrónico de bienvenida de activación, puede iniciar sesión para activar su cuenta. Al activar su cuenta, el estado de la cuenta se actualiza de _pendiente_ a _activa_. El propietario de la cuenta debe leer el mensaje de advertencia y hacer clic en **Continue** (Continuar). Es posible que se pida a los nuevos usuarios que escriban su nombre y apellidos para crear una cuenta comercial. Si es así, deben agregar la información necesaria para continuar y, después, la cuenta se activará.
+Cuando se agregan nuevos propietarios de la cuenta a una inscripción del Contrato Enterprise de Azure por primera vez, su estado aparece como _pendiente_. Cuando un nuevo propietario de la cuenta recibe el correo electrónico de bienvenida de activación, puede iniciar sesión para activar su cuenta. Al activar su cuenta, el estado de la cuenta se actualiza de _pendiente_ a _activa_. El propietario de la cuenta tiene que leer el mensaje de advertencia y seleccionar **Continuar**. Es posible que se pida a los nuevos usuarios que escriban su nombre y apellidos para crear una cuenta comercial. En ese caso, deben agregar la información necesaria para continuar y, acto seguido, se activará la cuenta.
 
 ## <a name="add-a-department-admin"></a>Adición de un administrador de departamento
 
@@ -39,38 +39,38 @@ Los administradores de empresa pueden asociar cuentas existentes a los departame
 ### <a name="to-associate-an-account-to-a-department"></a>Para asociar una cuenta a un departamento
 
 1. Inicie sesión en Azure EA Portal como administrador de empresa.
-1. Haga clic en **Manage** (Administrar) en el panel de navegación izquierdo.
-1. Haga clic en **Department** (Departamento):
-1. Mantenga el puntero sobre la fila con la cuenta deseada y haga clic en el icono de lápiz de la derecha.
-1. Seleccione el departamento deseado en el menú desplegable.
-1. Haga clic en **Save**(Guardar).
+1. Seleccione **Administrar** en el panel de navegación izquierdo.
+1. Seleccione **Departamento**.
+1. Mantenga el puntero sobre la fila en que se encuentra la cuenta y seleccione el icono de lápiz de la derecha.
+1. Seleccione el departamento en el menú desplegable.
+1. Seleccione **Guardar**.
 
 ## <a name="department-spending-quotas"></a>Cuota de gasto de departamento
 
-Los clientes de Contrato Enterprise pueden establecer o cambiar las cuotas de gasto de cada departamento en una inscripción. El importe de la cuota de gasto se establece para el período de compromiso actual. Al final del período de compromiso actual, el sistema ampliará la cuota de gasto existente al siguiente período de compromiso a menos que se actualicen los valores.
+Los clientes con Contrato Enterprise pueden establecer o cambiar las cuotas de gasto de cada departamento de una inscripción. El importe de la cuota de gasto se establece para el período de compromiso actual. Al final del período de compromiso actual, el sistema ampliará la cuota de gasto existente al siguiente período de compromiso a menos que se actualicen los valores.
 
 El administrador del departamento puede ver la cuota de gasto, pero solo el administrador de la empresa puede actualizar el importe de la cuota. El administrador de la empresa y el administrador del departamento reciben notificaciones una vez que la cuota ha alcanzado el 50 %, 75 %, 90 % y 100 %.
 
 ### <a name="enterprise-administrator-to-set-the-quota"></a>Para que el administrador de la empresa establezca la cuota:
 
  1. Abra Azure EA Portal.
- 1. Haga clic en **Manage** (Administrar) en el panel de navegación izquierdo.
- 1. Haga clic en la pestaña **Department** (Departamento).
- 1. Haga clic en el departamento deseado.
- 1. Haga clic en el icono de lápiz de la sección Details (Detalles) del departamento o haga clic en el botón **+ Add Department** (+Agregar departamento) para agregar una cuota de gasto junto con un nuevo departamento.
- 1. En los detalles del departamento, escriba un importe de la cuota de gasto en la moneda de la inscripción en el cuadro Spending Quota (Cuota de gasto) (debe ser mayor que 0).
+ 1. Seleccione **Administrar** en el panel de navegación izquierdo.
+ 1. Seleccione la pestaña **Departamento**.
+ 1. Seleccione el departamento.
+ 1. Seleccione el icono del lápiz de la sección Department Details (Detalles del departamento) o seleccione el símbolo **+ Add Department** (Agregar departamento) para agregar una cuota de gasto junto con un nuevo departamento.
+ 1. En Department Details (Detalles del departamento), escriba el importe de la cuota de gasto en la moneda de la inscripción en el cuadro Spending Quota $ (Cuota de gasto) (debe ser mayor que 0).
     - El nombre del departamento y el centro de costos también se pueden editar en este momento.
- 1. Presione **Guardar**.
+ 1. Seleccione **Guardar**.
 
 La cuota de gasto del departamento ahora estará visible en la vista de lista de departamentos en la pestaña Department (Departamento). Al final del compromiso actual, Azure EA Portal mantendrá las cuotas de gasto para el siguiente período de compromiso.
 
-El importe de la cuota de departamento es independiente del compromiso monetario actual y el importe de la cuota y las alertas solo se aplican al uso de la primera parte. La cuota de gasto del departamento solo tiene fines informativos y no aplica límites de gasto.
+El importe de la cuota de departamento es independiente del compromiso monetario actual y el importe de la cuota y las alertas solo se aplican al uso de la primera parte. La cuota de gasto del departamento solo tiene fines informativos, no supone una exigencia de los límites de gasto.
 
 ### <a name="department-administrator-to-view-the-quota"></a>Para que el administrador de departamento pueda ver la cuota:
 
 1. Abra Azure EA Portal.
-1. Haga clic en **Manage** (Administrar) en el panel de navegación izquierdo.
-1. Haga clic en la pestaña **Department** (Departamento) y podrá ver la vista de lista de departamentos con cuotas de gasto.
+1. Seleccione **Administrar** en el panel de navegación izquierdo.
+1. Seleccione la pestaña **Department** (Departamento) y accederá a la vista de lista de departamentos con sus cuotas de gasto.
 
 Si es un cliente indirecto, el partner de canal debe habilitar las características de costos.
 
@@ -88,42 +88,42 @@ Para más información sobre los roles de usuario, consulte [Roles de usuario de
 
 ## <a name="add-an-azure-ea-account"></a>Adición de una cuenta del Contrato Enterprise de Azure
 
-La cuenta del Contrato Enterprise de Azure es una unidad organizativa del portal del Contrato Enterprise de Azure que se usa para administrar las suscripciones y también se usa para la creación de informes. Para acceder a los servicios de Azure y usarlos, debe crear una cuenta o tener una ya creada.
+La cuenta del Contrato Enterprise de Azure es una unidad organizativa del portal del Contrato Enterprise de Azure. Se utiliza para administrar las suscripciones y los informes. Para acceder a los servicios de Azure y usarlos, debe crear una cuenta o tener una ya creada.
 
 Para más información sobre las cuentas de Azure, consulte la sección sobre cómo agregar una cuenta.
 
 ## <a name="enterprise-devtest-offer"></a>Oferta Desarrollo/pruebas - Enterprise
 
-Como administrador de empresa de Azure, ahora puede habilitar a los propietarios de cuentas de su organización para crear suscripciones basadas en la oferta Desarrollo/pruebas - Enterprise. Para ello, active la casilla Dev/Test (Desarrollo/pruebas) del propietario de la cuenta desde Azure EA Portal.
+Como administrador de empresa de Azure, puede permitir a los propietarios de cuentas de su organización crear suscripciones basadas en la oferta Desarrollo/pruebas del Contrato Enterprise. Para ello, seleccione el cuadro Desarrollo/pruebas del propietario de la cuenta en Azure EA Portal.
 
-Una vez que haya activado la casilla Dev/Test (Desarrollo/pruebas), comuníqueselo al propietario de la cuenta para que pueda configurar las suscripciones de Desarrollo/pruebas - Enterprise necesarias para sus equipos de suscriptores de desarrollo y pruebas.
+Una vez que haya activado la casilla Dev/Test (Desarrollo/pruebas), comuníqueselo al propietario de la cuenta para que pueda configurar las suscripciones de Desarrollo/pruebas del Contrato Enterprise necesarias para sus equipos de suscriptores de desarrollo y pruebas.
 
-Esta oferta permite a los suscriptores activos de Visual Studio ejecutar cargas de trabajo de desarrollo y pruebas en Azure con tarifas de desarrollo y pruebas especiales, con acceso a la galería completa de imágenes de Desarrollo/pruebas, como Windows 8.1 y Windows 10.
+La oferta permite a los suscriptores activos de Visual Studio ejecutar cargas de trabajo de desarrollo y pruebas en Azure a las tarifas especiales de desarrollo y pruebas. Proporciona acceso a toda la galería de imágenes de desarrollo y pruebas incluido Windows 8.1 y Windows 10.
 
 ### <a name="to-set-up-the-enterprise-devtest-offer"></a>Para configurar la oferta Desarrollo/pruebas - Enterprise:
 
 1. Inicie sesión como administrador de empresa.
-1. Haga clic en **Manage** (Administrar) en el panel de navegación izquierdo.
-1. Haga clic en la pestaña **Account** (Cuenta).
-1. Haga clic en la fila de la cuenta donde desea habilitar el acceso a Desarrollo/pruebas.
-1. Haga clic en el icono de lápiz situado a la derecha de la fila.
+1. Seleccione **Administrar** en el panel de navegación izquierdo.
+1. Seleccione la pestaña **Cuenta**.
+1. Seleccione la fila de la cuenta en la que desea habilitar el acceso a Desarrollo/pruebas.
+1. Seleccione el símbolo del lápiz situado a la derecha de la fila.
 1. Seleccione la casilla Dev/Test (Desarrollo/pruebas).
-1. Presione **Guardar**.
+1. Seleccione **Guardar**.
 
 Cuando se agrega un usuario como propietario de la cuenta mediante Azure EA Portal, las suscripciones de Azure asociadas con el propietario de la cuenta que se basan en la oferta Desarrollo/pruebas de pago por uso, o en las ofertas de crédito mensuales para suscriptores de Visual Studio, se convertirán en la oferta Desarrollo/pruebas - Enterprise. Las suscripciones basadas en otros tipos de oferta, como Pago por uso, asociados al propietario de la cuenta se convertirán en ofertas de Microsoft Azure Enterprise.
 
-La oferta Desarrollo/pruebas no es aplicable a los clientes de Azure Gov en este momento.
+Los clientes de Azure Gov no pueden disfrutar de la oferta Desarrollo/pruebas en este momento.
 
 ## <a name="transfer-an-enterprise-account-to-a-new-enrollment"></a>Transferencia de una cuenta empresarial a una nueva inscripción
 
-Una transferencia de cuenta mueve un propietario de la cuenta de una inscripción a otra. Todas las suscripciones relacionadas en el propietario de la cuenta se moverán a la inscripción de destino. Esto se realiza cuando tiene varias inscripciones activas y solo desea trasladar a los propietarios de la cuenta seleccionada.
+Una transferencia de cuenta mueve un propietario de la cuenta de una inscripción a otra. Todas las suscripciones relacionadas en el propietario de la cuenta se moverán a la inscripción de destino. Use una transferencia de cuentas cuando tenga varias inscripciones activas y solo desee mover los propietarios de la cuenta seleccionada.
 
 Esta sección tiene solo carácter informativo, ya que el administrador de la empresa no puede realizar la acción. Para transferir una cuenta de empresa a una nueva inscripción, se necesita una solicitud de soporte técnico.
 
 Tenga en cuenta los puntos siguientes cuando transfiera una cuenta de empresa a una nueva inscripción:
 
-- Solo se transfieren las cuentas especificadas en la solicitud. Si se eligen todas las cuentas, se transfieren todas.
-- La inscripción de origen conserva su estado como activo o extendido. Puede seguir usando la inscripción hasta que expire.
+- Solo se transfieren las cuentas especificadas en la solicitud. Si se eligen todas las cuentas, se transferirán todas ellas.
+- La inscripción de origen mantiene su estado como activo o extendido. Puede seguir usando la inscripción hasta que expire.
 
 ### <a name="prerequisites"></a>Prerrequisitos
 
@@ -139,27 +139,27 @@ Otros puntos que hay que tener en cuenta antes de transferir una cuenta:
 - La transferencia de la cuenta transfiere todos los servicios y suscripciones relacionados con las cuentas específicas.
 - Una vez completada la transferencia, la cuenta transferida aparece como inactiva en la inscripción de origen y como activa en la inscripción de destino.
 - La cuenta muestra la fecha de finalización correspondiente a la fecha de transferencia efectiva en la inscripción de origen y la fecha de inicio en la inscripción de destino.
-- Cualquier uso que se produzca en la cuenta antes de la fecha de transferencia efectiva permanece bajo la inscripción de origen.
+- Cualquier uso que se haya realizado de la cuenta antes de la fecha de transferencia efectiva permanecerá bajo la inscripción de origen.
 
 
 ## <a name="transfer-enterprise-enrollment-to-a-new-one"></a>Transferencia de la inscripción empresarial a una nueva
 
 Una transferencia de inscripción se tiene en cuenta cuando:
 
-- El plazo de compromiso de la inscripción actual ha llegado a su fin.
+- Ha finalizado el plazo de compromiso de la inscripción actual.
 - Una inscripción está en estado expirado o extendido y se negocia un nuevo contrato.
-- Si tiene varias inscripciones y desea consolidar todas las cuentas y la facturación en una sola inscripción.
+- Tiene varias inscripciones y desea combinar todas las cuentas y la facturación en una sola inscripción.
 
 Esta sección tiene solo carácter informativo, ya que el administrador de la empresa no puede realizar la acción. Para transferir una inscripción de empresa a una nueva, se necesita una solicitud de soporte técnico.
 
 Cuando se solicita la transferencia de una inscripción empresarial completa a una inscripción, se producen las siguientes acciones:
 
-- Todos los servicios, suscripciones, cuentas, departamentos y toda la estructura de inscripción de Azure, incluidos todos los administradores de departamento del Contrato Enterprise, se transfieren a una nueva inscripción de destino.
+- Todos los servicios, suscripciones, cuentas, departamentos y la estructura de inscripción de Azure completa, incluidos todos los administradores de departamento del Contrato Enterprise, se transfieren a una nueva inscripción de destino.
 - El estado de inscripción se establece en _Transferido_. La inscripción transferida solo está disponible con fines de informe de historial de uso.
 - No se pueden agregar roles o suscripciones a una inscripción transferida. El estado transferido evita el uso adicional en la inscripción.
 - Se pierde cualquier saldo de compromiso monetario restante del contrato, incluidos los términos futuros.
--   Si la inscripción que va a transferir tiene compras de RI, el precio de compra de RI permanecerá en la inscripción de origen; sin embargo, todas las ventajas de RI se transferirán para su uso en la nueva inscripción.
--   La cuota de compra única de Marketplace y las tarifas fijas mensuales que ya se hayan realizado en la inscripción antigua no se transferirán a la nueva inscripción. Se transferirán los cargos de Marketplace basados en el consumo.
+-    Si la inscripción desde la que va a realizar la transferencia tiene compras de instancias reservadas, el precio de compra permanecerá en la inscripción de origen; sin embargo, todas las ventajas de las instancias reservadas se transferirán para su uso en la nueva inscripción.
+-    La cuota de compra única de Marketplace y las tarifas fijas mensuales que ya se hayan realizado en la inscripción antigua no se transferirán a la nueva inscripción. Se transferirán los cargos de Marketplace basados en el consumo.
 
 ### <a name="effective-transfer-date"></a>Fecha de transferencia efectiva
 
@@ -195,7 +195,7 @@ El portal del Contrato Enterprise de Azure puede transferir suscripciones de un 
 
 ## <a name="subscription-transfer-effects"></a>Efectos de la transferencia de la suscripción
 
-Si se transfiere una suscripción de Azure a una cuenta en el mismo inquilino de Azure Active Directory, todos los usuarios, grupos y entidades de servicio que tenían [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md) para administrar recursos conservarán el acceso.
+Si se transfiere una suscripción de Azure a una cuenta en el mismo inquilino de Azure Active Directory, todos los usuarios, grupos y entidades de servicio que tenían [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md) para administrar recursos mantendrán el acceso.
 
 Para ver los usuarios con acceso RBAC a la suscripción:
 
@@ -203,18 +203,18 @@ Para ver los usuarios con acceso RBAC a la suscripción:
 2. Seleccione la suscripción que desee ver y, después, seleccione **Control de acceso (IAM)** .
 3. Seleccione **Asignaciones de roles**. La página de asignación de roles enumera todos los usuarios que tienen acceso RBAC a la suscripción.
 
-Si transfiere la suscripción a una cuenta en otro inquilino de Azure AD, todos los usuarios, grupos y entidades de servicio que tenían [RBAC](../../role-based-access-control/overview.md) para administrar recursos _perderán_ el acceso. Aunque el acceso RBAC no está presente, el acceso a la suscripción puede estar disponible a través de mecanismos de seguridad, entre los que se incluyen:
+Si transfiere la suscripción a una cuenta en otro inquilino de Azure AD, todos los usuarios, grupos y entidades de servicio que tenían [RBAC](../../role-based-access-control/overview.md) para administrar recursos _perderán_ el acceso. Aunque el acceso con RBAC no está presente, el acceso a la suscripción puede estar disponible mediante mecanismos de seguridad, entre los que se incluyen:
 
 - Certificados de administración que conceden al usuario derechos administrativos a los recursos de la suscripción. Para obtener más información, consulte [Crear y cargar un certificado de administración para Azure](../../cloud-services/cloud-services-certs-create.md).
 - Claves de acceso para servicios como Almacenamiento. Para más información, vea [Introducción a las cuentas de Azure Storage](../../storage/common/storage-account-overview.md).
 - Credenciales de acceso remoto para servicios como Azure Virtual Machines.
 
-El destinatario debe restringir el acceso a los recursos de Azure y considerar la actualización de todos los secretos asociados al servicio. La mayoría de los recursos se pueden actualizar mediante el uso de los siguientes pasos:
+Si el destinatario necesita restringir el acceso a sus recursos de Azure, debería plantearse la posibilidad de actualizar todos los secretos asociados al servicio. La mayoría de los recursos se pueden actualizar mediante el uso de los siguientes pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. En el menú Concentrador, seleccione **Todos los recursos**.
 3. Seleccione el recurso.
-4. En la página de recursos, haga clic en **Settings** (Configuración) para ver y actualizar los secretos existentes.
+4. En la página de recursos, seleccione **Settings** (Configuración) para ver y actualizar los secretos existentes.
 
 ## <a name="delete-subscription"></a>Eliminar suscripción
 
@@ -222,20 +222,22 @@ Para eliminar una suscripción en la que es el propietario de la cuenta:
 
 1. Inicie sesión en Azure Portal con las credenciales asociadas a su cuenta.
 1. En el menú de concentrador, seleccione **Suscripción**.
-1. En la pestaña de suscripciones de la esquina superior izquierda de la página, seleccione la suscripción que desea cancelar y haga clic en **Cancelar suscripción** para iniciar la pestaña de cancelación.
-1. Escriba el nombre de la suscripción, elija un motivo de cancelación y haga clic en el botón **Cancelar suscripción**.
+1. En la pestaña de suscripciones de la esquina superior izquierda de la página, seleccione la suscripción que desea cancelar y, después, **Cancel Sub** (Cancelar suscripción) para iniciar la pestaña de cancelación.
+1. Escriba el nombre de la suscripción, elija el motivo de la cancelación y seleccione el botón **Cancel Sub** (Cancelar suscripción).
 
-Tenga en cuenta que solo los administradores de la cuenta pueden cancelar las suscripciones.
+Solo los administradores de la cuenta pueden cancelar las suscripciones.
+
+Para más información, consulte [¿Qué ocurre después de cancelar la suscripción?](cancel-azure-subscription.md#what-happens-after-i-cancel-my-subscription).
 
 ## <a name="delete-an-account"></a>Eliminación de una cuenta
 
 Solo se puede completar la eliminación de cuentas de las cuentas activas sin suscripciones activas.
 
 1. En Enterprise Portal, seleccione **Manage** (Administrar) en el panel de navegación izquierdo.
-1. Haga clic en la pestaña **Account** (Cuenta).
+1. Seleccione la pestaña **Cuenta**.
 1. En la tabla de cuentas, seleccione la cuenta que desea eliminar.
-1. Haga clic en el icono X situado a la derecha de la fila de la cuenta.
-1. Una vez que no haya suscripciones activas en la cuenta, haga clic en el botón **Yes** (Sí) de la fila de la cuenta para confirmar la eliminación de la cuenta.
+1. Seleccione el símbolo X de la derecha de la fila de la cuenta.
+1. Una vez que no haya suscripciones activas en la cuenta, seleccione **Yes** (Sí) en la fila de la cuenta para confirmar la eliminación de la cuenta.
 
 ## <a name="update-notification-settings"></a>Actualización de la configuración de notificación
 
@@ -251,37 +253,37 @@ Para ver la configuración actual de notificaciones:
 
 Para agregar un contacto:
 
-1. Haga clic en **+Add Contact** (+Agregar contacto).
+1. Seleccione **+Add Contact** (Agregar contacto).
 2. Especifique la dirección de correo electrónico y confírmela.
-3. Haga clic en **Save**(Guardar).
+3. Seleccione **Guardar**.
 
-El nuevo contacto de notificación se muestra en la sección **Notification Contact** (Contacto para notificaciones). Para cambiar la frecuencia de notificación, seleccione el contacto de notificación y haga clic en el símbolo de lápiz situado a la derecha de la fila seleccionada. Establezca la frecuencia en **diaria**, **semanal**, **mensual** o **ninguna**.
+El nuevo contacto de notificación se muestra en la sección **Notification Contact** (Contacto para notificaciones). Para cambiar la frecuencia de notificación, seleccione el contacto de la notificación y, después, el símbolo del lápiz situado a la derecha de la fila seleccionada. Establezca la frecuencia en **diaria**, **semanal**, **mensual** o **ninguna**.
 
 Puede suprimir _que se aproxima a la fecha de finalización del período de cobertura_ y _que se aproxima a la fecha de deshabilitación y desaprovisionamiento_ de las notificaciones del ciclo de vida. Al deshabilitar las notificaciones del ciclo de vida, se suprimen las notificaciones sobre el período de cobertura y la fecha de finalización del contrato.
 
 ## <a name="manage-partner-administrators"></a>Administración de administradores de asociados
 
-Cada administrador de asociados de Azure EA Portal tiene la capacidad de agregar o eliminar otros administradores de asociados. Los administradores de asociados están asociados a las organizaciones de asociados de inscripciones indirectas y no se asocian directamente a las inscripciones.
+Cada administrador de asociados de Azure EA Portal tiene la capacidad de agregar o eliminar otros administradores de asociados. Estos administradores se asocian a las organizaciones de asociados de inscripciones indirectas, no directamente a las inscripciones.
 
 ### <a name="add-a-partner-administrator"></a>Adición de un administrador de asociados
 
-Para ver una lista de todas las inscripciones asociadas a la misma organización asociada que el usuario actual, haga clic en la pestaña **Enrollment** (Inscripción) y seleccione el cuadro de la inscripción que desee.
+Para ver una lista de todas las inscripciones asociadas a la misma organización de asociados que el usuario actual, seleccione la pestaña **Enrollment** (Inscripción) y, después, la casilla de la inscripción que desee.
 
 1. Inicie sesión como administrador de asociados.
-1. Haga clic en **Manage** (Administrar) en el panel de navegación izquierdo.
-1. Haga clic en la pestaña **Partner** (Asociado).
-1. Haga clic en **+ Add Administrator** (+ Agregar administrador) y rellene la dirección de correo electrónico, el contacto de notificaciones y los detalles de la notificación.
-1. Presione **Add** (Agregar).
+1. Seleccione **Administrar** en el panel de navegación izquierdo.
+1. Seleccione la pestaña **Partner** (Asociado).
+1. Seleccione **+ Add Administrator** (+ Agregar administrador) y rellene la dirección de correo electrónico, el contacto de notificaciones y los detalles de la notificación.
+1. Seleccione **Agregar**.
 
 ### <a name="remove-a-partner-administrator"></a>Eliminación de un administrador de asociados
 
-Para ver una lista de todas las inscripciones asociadas a la misma organización asociada que el usuario actual, haga clic en la pestaña **Enrollment** (Inscripción) y seleccione el cuadro de la inscripción que desee.
+Para ver una lista de todas las inscripciones asociadas a la misma organización de asociados que el usuario actual, seleccione la pestaña **Enrollment** (Inscripción) y, después, la casilla de la inscripción que desee.
 
 1. Inicie sesión como administrador de asociados.
-1. Haga clic en **Manage** (Administrar) en el panel de navegación izquierdo.
-1. Haga clic en la pestaña **Partner** (Asociado).
+1. Seleccione **Administrar** en el panel de navegación izquierdo.
+1. Seleccione la pestaña **Partner** (Asociado).
 1. En la sección Administrator (Administrador), seleccione la fila correspondiente al administrador que desea eliminar.
-1. Presione el icono X de la derecha.
+1. Seleccione el símbolo X de la derecha.
 1. Confirme que desea eliminar.
 
 ## <a name="manage-partner-notifications"></a>Administración de notificaciones de asociados
@@ -291,12 +293,12 @@ Los administradores de asociados pueden administrar la frecuencia con la que rec
 Si un usuario no recibe una notificación, compruebe que la configuración de notificaciones del usuario es correcta con los pasos siguientes.
 
 1. Inicie sesión en el portal del Contrato Enterprise de Azure como administrador de usuarios.
-2. Haga clic en **Manage** (Administrar) y, a continuación, en la pestaña **Partner** (Asociado).
+2. Seleccione **Manage** (Administrar) y, después, seleccione la pestaña **Partner** (Asociado).
 3. Consulte la lista de administradores en la sección Administrator (Administrador).
-4. Para modificar las preferencias de notificación, mantenga el cursor sobre el administrador adecuado y haga clic en el símbolo de lápiz.
-5. Configure la frecuencia de notificación y las notificaciones del ciclo de vida según sea necesario.
-6. Agregue un contacto, si es necesario, y haga clic en **Add** (Agregar).
-7. Haga clic en **Save**(Guardar).
+4. Para editar las preferencias de notificación, mantenga el cursor sobre el administrador adecuado y seleccione el símbolo del lápiz.
+5. Aumente la frecuencia de notificación y las notificaciones del ciclo de vida tanto como sea necesario.
+6. Agregue un contacto si es necesario y seleccione **Add** (Agregar).
+7. Seleccione **Guardar**.
 
 ![Ejemplo que muestra el cuadro Agregar contacto ](./media/ea-portal-administration/create-ea-manage-partner-notification.png)
 
@@ -307,15 +309,15 @@ Los administradores de asociados pueden ver una lista con todas sus inscripcione
 ### <a name="view-a-list-of-enrollments"></a>Consulta de una lista de inscripciones
 
 1. Inicie sesión como administrador de asociados.
-1. Haga clic en **Manage** (Administrar) en la barra de navegación del lado izquierdo de la página.
-1. Haga clic en la pestaña **Inscripción**.
-1. Seleccione la casilla correspondiente a la inscripción deseada.
+1. Seleccione **Manage** (Administrar) en la barra de navegación del lado izquierdo de la página.
+1. Seleccione la pestaña **Inscripción**.
+1. Seleccione la casilla correspondiente a la inscripción.
 
-En la parte superior de la página permanece una vista de todas las inscripciones con cuadros para cada inscripción. Además, puede cambiar entre inscripciones; para ello, haga clic en el número de inscripción actual en la barra de navegación en el lado izquierdo de la página. Aparecerá un elemento emergente que le permitirá buscar inscripciones o seleccionar otra inscripción haciendo clic en el cuadro correspondiente.
+En la parte superior de la página permanece una vista de todas las inscripciones con cuadros para cada inscripción. Además, puede desplazarse entre inscripciones; para ello, seleccione el número de la inscripción actual en la barra de navegación en el lado izquierdo de la página. Aparecerá un elemento emergente que le permitirá buscar inscripciones o seleccionar otra inscripción, para lo que debe seleccionar el cuadro correspondiente.
 
 ## <a name="azure-sponsorship-offer"></a>Oferta Patrocinio de Azure
 
-La oferta Patrocinio de Azure es una cuenta de Microsoft Azure patrocinada limitada. Está disponible solo mediante invitación por correo electrónico a clientes limitados seleccionados por Microsoft. Si es apto para la oferta Patrocinio de Microsoft Azure, recibirá una invitación por correo electrónico a su identificador de cuenta.
+La oferta Patrocinio de Azure es una cuenta de Microsoft Azure patrocinada limitada. Está disponible mediante invitación por correo electrónico solo para un número limitado de clientes seleccionados por Microsoft. Si es apto para la oferta Patrocinio de Microsoft Azure, recibirá una invitación por correo electrónico a su identificador de cuenta.
 
 Para más información, cree una [solicitud de soporte técnico para la activación del patrocinio](https://aka.ms/azrsponsorship).
 
@@ -346,7 +348,7 @@ Solo se permite un propietario de cuenta por suscripción.  Se pueden agregar ro
 
 ### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>¿Puede un propietario de cuenta de Azure aparecer en más de un departamento?
 
-Un propietario de cuenta solo se puede asociar a un departamento.  Esto es para garantizar una supervisión precisa y un prorrateo de los costos y el gasto asociados al departamento alineados con la inscripción de Contrato Enterprise en Azure EA Portal.
+No, un propietario de una cuenta solo se puede asociar a un único departamento. La directiva ayuda a garantizar una supervisión precisa y un prorrateo de los costos y el gasto asociados al departamento con el que está alineado en la inscripción de Contrato Enterprise en Azure EA Portal.
 
 ### <a name="can-an-azure-account-owner-be-listed-as-a-security-group"></a>¿Puede un propietario de cuenta de Azure aparecer como un grupo de seguridad?
 
@@ -362,7 +364,7 @@ En la actualidad, esto debe realizarse mediante una directiva; es decir, es nece
 
 ### <a name="where-do-i-go-to-create-a-subscription"></a>¿Dónde puedo crear una suscripción?
 
-Antes de poder crear una suscripción de la oferta Enterprise de Azure (EA), el administrador de la inscripción de Contrato Enterprise debe agregar su cuenta al rol del propietario de la cuenta en Azure EA Portal. Tendrá que iniciar sesión en Azure EA Portal para obtener el derecho a crear suscripciones del tipo de oferta Contrato Enterprise. Se recomienda crear la primera suscripción de Contrato Enterprise desde el vínculo "+ Add Subscription" (+ Agregar suscripción) en la pestaña de la suscripción en EA Portal.  Sin embargo, una vez que la cuenta tenga derecho, puede ser más fácil crear suscripciones en portal.azure.com en la pestaña Suscripción en la esquina superior izquierda de la página, donde puede crear y cambiar el nombre de la suscripción en un solo paso.
+Para poder crear una suscripción de la oferta Enterprise de Azure (EA), el administrador de la inscripción de Contrato Enterprise debe agregar su cuenta al rol del propietario de la cuenta en Azure EA Portal. Tendrá que iniciar sesión en Azure EA Portal para obtener el derecho a crear suscripciones del tipo de oferta Contrato Enterprise. Se recomienda crear la primera suscripción de Contrato Enterprise desde el vínculo "+ Add Subscription" (+ Agregar suscripción) de la pestaña de la suscripción de EA Portal.  Sin embargo, una vez que la cuenta tenga derecho, puede ser más fácil crear suscripciones en portal.azure.com en la pestaña Suscripción en la esquina superior izquierda de la página, donde puede crear y cambiar el nombre de la suscripción en un solo paso.
 
 ### <a name="who-can-create-a-subscription"></a>¿Quién puede crear una suscripción?
 

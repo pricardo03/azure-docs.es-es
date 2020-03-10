@@ -3,12 +3,12 @@ title: Creación de un proyecto de Azure Notebooks (versión preliminar) con un 
 description: Cree un proyecto en Azure Notebooks (versión preliminar) que esté configurado con un conjunto específico de scripts de inicio y paquetes instalados.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 999133dd7d9d792956f9a2c93ec218e458c921e8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 6388cb7997cac5bef25975043a13c4e080f288d4
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647074"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196848"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>Inicio rápido: Creación de un proyecto con un entorno personalizado en de Azure Notebooks (versión preliminar)
 
@@ -51,11 +51,14 @@ Un proyecto de Azure Notebooks es una colección de archivos, como cuadernos, ar
 
 1. El comando **+ Agregar** crea un paso definido por una operación y un archivo de destino que se selecciona de los archivos del proyecto. Se admiten las operaciones siguientes:
 
-    | Operación | Descripción |
-    | --- | --- |
-    | Requirements.txt | Los proyectos de Python definen sus dependencias en un archivo llamado requirements.txt. Con esta opción, seleccione el archivo adecuado en la lista de archivos del proyecto y seleccione también la versión de Python en la otra lista desplegable que aparece. Si es necesario, seleccione **Cancelar** para volver al proyecto, cargue o cree el archivo y, luego, vuelva a la pestaña **Configuración del proyecto** > **Entorno** para crear un paso. Una vez que se crea este paso, al ejecutar un cuaderno en el proyecto, automáticamente se ejecuta `pip install -r <file>` |
-    | Script de shell | Úselo para indicar un script de shell de bash (por lo general, un archivo con extensión *.sh*) que contiene cualquier comando que quiere ejecutar para inicializar el entorno. |
-    | Environment.yml | Un proyecto de Python que usa conda para administrar un entorno usa un archivo *environments.yml* para describir las dependencias. Con esta opción, seleccione el archivo correspondiente en la lista de archivos del proyecto. |
+   | Operación | Descripción |
+   | --- | --- |
+   | Requirements.txt | Los proyectos de Python definen sus dependencias en un archivo llamado requirements.txt. Con esta opción, seleccione el archivo adecuado en la lista de archivos del proyecto y seleccione también la versión de Python en la otra lista desplegable que aparece. Si es necesario, seleccione **Cancelar** para volver al proyecto, cargue o cree el archivo y, luego, vuelva a la pestaña **Configuración del proyecto** > **Entorno** para crear un paso. Una vez que se crea este paso, al ejecutar un cuaderno en el proyecto, automáticamente se ejecuta `pip install -r <file>` |
+   | Script de shell | Úselo para indicar un script de shell de bash (por lo general, un archivo con extensión *.sh*) que contiene cualquier comando que quiere ejecutar para inicializar el entorno. |
+   | Environment.yml | Un proyecto de Python que usa conda para administrar un entorno usa un archivo *environments.yml* para describir las dependencias. Con esta opción, seleccione el archivo correspondiente en la lista de archivos del proyecto. |
+
+   > [!WARNING]
+   > Dado que se trata de un servicio en versión preliminar en desarrollo, actualmente hay un problema conocido en el que el valor `Environment.yml` no se aplica al proyecto según lo esperado. En este momento, el proyecto y los cuadernos de Jupyter que contiene no cargan el archivo de entorno especificado.
 
 1. Para quitar cualquier paso de configuración, seleccione la **X** que se encuentra a la derecha del paso.
 

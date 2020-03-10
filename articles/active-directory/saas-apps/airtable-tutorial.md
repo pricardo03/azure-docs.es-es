@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4c8e254b2ceb040b487de1cfaac6e4d8670d8b5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3e0830d470d359b12c23a6cd0430075c94c7a06a
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430960"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205147"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-airtable"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Airtable
 
@@ -31,9 +30,9 @@ En este tutorial, obtendrá información sobre cómo integrar Airtable con Azure
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Airtable con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -46,6 +45,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Airtable admite SSO iniciado por **SP e IDP**.
 * Airtable admite el aprovisionamiento de usuarios **Just-In-Time**.
+* Una vez configurado Airtable, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
@@ -93,6 +93,17 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://airtable.com/sso/login`
 
 1. Haga clic en **Save**(Guardar).
+
+1. La aplicación Airtable espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
+
+    ![imagen](common/default-attributes.png)
+
+1. Además de lo anterior, la aplicación Airtable espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
+
+    | Nombre | Atributo de origen|
+    | ------------ | --------- |
+    | urn:oid:2.5.4.4 | user.surname |
+    | urn:oid:2.5.4.42 | user.givenname |
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
@@ -150,8 +161,8 @@ Al hacer clic en el icono de Airtable en el panel de acceso, debería iniciar se
 
 - [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 - [Prueba de Airtable con Azure AD](https://aad.portal.azure.com/)

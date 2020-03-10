@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: workload-management
-ms.date: 11/21/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 2a6c5ca9f7d2ceaef08b28e78b38b94a459548f5
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.custom: azure-synapse
+ms.openlocfilehash: bd3ad98116b18a77a77e8f6f327689d0ebb7dd21
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304754"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200522"
 ---
 # <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Inicio rápido: configuración del aislamiento de carga de trabajo mediante T-SQL
 
@@ -25,17 +25,17 @@ En esta guía de inicio rápido, creará rápidamente un grupo de cargas de trab
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 > [!NOTE]
-> La creación de una instancia de SQL Data Warehouse puede dar lugar a un nuevo servicio facturable.  Para más información, consulte [Precios de Azure SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> La creación de una instancia de SQL Analytics en Azure Synapse Analytics puede dar lugar a un nuevo servicio facturable.  Para más información, consulte los [precios de Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 >
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
  
-En este inicio rápido se da por supuesto que ya tiene una instancia de SQL Data Warehouse y que tiene permisos CONTROL DATABASE. Si tiene que crear una, consulte [Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella](create-data-warehouse-portal.md) para crear un almacenamiento de datos denominado **mySampleDataWarehouse**.
+En este inicio rápido se da por supuesto que ya tiene una instancia de SQL Analytics en Azure Synapse y que tiene permisos CONTROL DATABASE. Si tiene que crear una, consulte [Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella](create-data-warehouse-portal.md) para crear un almacenamiento de datos denominado **mySampleDataWarehouse**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-login-for-dataloads"></a>Creación del inicio de sesión para cargas de datos
 
@@ -109,7 +109,7 @@ DROP USER [ELTLogin]
 
 Se le está cobrando por unidades de almacenamiento de datos y por los datos almacenados en el almacenamiento de datos. Estos recursos de proceso y de almacenamiento se facturan por separado.
 
-- Si desea conservar los datos de almacenamiento, puede pausar el proceso cuando no está utilizando el almacenamiento de datos. Si se hace una pausa en el proceso, solo se carga el almacenamiento de datos. Cuando esté listo para trabajar con los datos, reanude el proceso.
+- Si quiere conservar los datos en almacenamiento, puede pausar el proceso cuando no use el grupo de SQL. Si se hace una pausa en el proceso, solo se carga el almacenamiento de datos. Cuando esté listo para trabajar con los datos, reanude el proceso.
 - Si desea quitar cobros futuros, puede eliminar el almacenamiento de datos.
 
 Siga estos pasos para limpiar los recursos.
@@ -129,4 +129,4 @@ Siga estos pasos para limpiar los recursos.
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Ahora ha creado un grupo de cargas de trabajo. Ejecute algunas consultas como ELTLogin para ver cómo responden. Consulte [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) para ver las consultas y el grupo de cargas de trabajo asignado.
-- Para más información sobre la administración de cargas de trabajo de Azure SQL Data Warehouse, consulte [Administración de la carga de trabajo](sql-data-warehouse-workload-management.md) y [Clasificación de la carga de trabajo](sql-data-warehouse-workload-isolation.md).
+- Para más información sobre la administración de cargas de trabajo de SQL Analytics, consulte [Administración de la carga de trabajo](sql-data-warehouse-workload-management.md) y [Clasificación de la carga de trabajo](sql-data-warehouse-workload-isolation.md).

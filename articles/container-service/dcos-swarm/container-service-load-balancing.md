@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: d8dff1dc063cc3b940fbdf0698b8b328b90d60b6
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: a8f863f16888e6eca2dbc72c5dd612c38edbe46e
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277827"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273372"
 ---
 # <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(EN DESUSO) Equilibrio de carga de contenedores en un clúster de DC/OS de Azure Container Service
 
@@ -43,9 +43,11 @@ Hay dos capas de equilibrio de carga en un clúster DC/OS de Azure Container Ser
 
 El equilibrador de carga de Marathon se reconfigura dinámicamente basándose en los contenedores que ha implementado. También es resistente a la pérdida de contenedores o agentes; en caso de que ocurra, Apache Mesos reinicia el contenedor en otro lugar y marathon-lb se adapta.
 
+Vaya a [https://shell.azure.com](https://shell.azure.com) para abrir Cloud Shell en el explorador.
+
 Ejecute el siguiente comando para instalar el equilibrador de carga de Marathon en el clúster del agente público.
 
-```azurecli-interactive
+```console
 dcos package install marathon-lb
 ```
 
@@ -97,7 +99,7 @@ A continuación, cree un archivo denominado *hello-web.json* y cópielo en el co
 
 Utilice la CLI de DC/OS para ejecutar la aplicación. De forma predeterminada, Marathon implementa la aplicación en el clúster privado. Esto significa que la implementación anterior solo es accesible a través del equilibrador de carga, lo que suele ser el comportamiento deseado.
 
-```azurecli-interactive
+```console
 dcos marathon app add hello-web.json
 ```
 

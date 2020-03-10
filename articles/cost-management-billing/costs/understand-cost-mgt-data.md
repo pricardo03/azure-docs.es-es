@@ -4,23 +4,25 @@ description: Este artículo le ayudará a comprender mejor qué datos se incluye
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/21/2020
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 44953a3986b5c03afa9cc4668e2563c5c5cd6c46
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: ff3ed7ee65fd34ef9cd3541832f9cffc306e1aa8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560616"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245371"
 ---
 # <a name="understand-cost-management-data"></a>Descripción de los datos de Cost Management
 
 Este artículo lo ayudará a comprender mejor los datos de costo y uso de Azure que se incluyen en Azure Cost Management. En él se explica con qué frecuencia se procesan, se recopilan, se muestran y se cierran los datos. Cada mes, se le factura el uso que haga de Azure. Si bien los ciclos de facturación son períodos mensuales, las fechas de inicio y finalización de los ciclos varían según el tipo de suscripción. La frecuencia con que Cost Management recibe datos de uso varía en función de diferentes factores. Por ejemplo, cuánto tarda el procesamiento de los datos y cada cuánto transmiten los servicios de Azure el uso al sistema de facturación.
 
 Cost Management incluye todo el uso y todas las compras, incluidas reservas y ofertas de terceros para cuentas de Contrato Enterprise (EA). Las cuentas de Contrato de cliente de Microsoft y las suscripciones individuales con tarifas de pago por uso solo incluyen el uso de los servicios de Azure y Marketplace. No se incluyen los costos de soporte técnico ni otros costos. Los costos se calculan hasta que se genera una factura y no tienen en cuenta los créditos.
+
+Si su suscripción es nueva, no podrá usar las características de Cost Management de inmediato. Para poder hacerlo deberán transcurrir un máximo de 48 horas.
 
 ## <a name="supported-microsoft-azure-offers"></a>Ofertas compatibles de Microsoft Azure
 

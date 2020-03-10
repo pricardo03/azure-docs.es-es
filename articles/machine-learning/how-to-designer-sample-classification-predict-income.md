@@ -9,13 +9,13 @@ ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
-ms.date: 12/25/2019
-ms.openlocfilehash: 560339fb04e3bbbe42c4370655e74e8536a7c015
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.date: 02/22/2020
+ms.openlocfilehash: 7fd51f587ff51e09254741615d3059d038e1205a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963381"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915918"
 ---
 # <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>Creación de un clasificador y uso de la selección de características para predecir los ingresos con el diseñador de Azure Machine Learning
 
@@ -25,13 +25,13 @@ ms.locfileid: "76963381"
 
 Obtenga información sobre cómo compilar un clasificador de aprendizaje automático sin tener que escribir una sola línea de código con el diseñador (versión preliminar). Esta ejemplo entrena un **árbol de decisión de dos clases** para predecir los ingresos del censo de adultos (>=50K o <=50K).
 
-Porque la pregunta es responder "¿Cuál?" esto se conoce como un problema de clasificación. Sin embargo, puede aplicar el mismo proceso fundamental para abordar cualquier tipo de problema de aprendizaje automático: una regresión, una clasificación, una agrupación en clústeres, etc.
+Dado que se trata de responder a la pregunta "¿Cuál?", esto se considera un problema de clasificación. Sin embargo, puede aplicar el mismo proceso fundamental para abordar cualquier tipo de problema de aprendizaje automático: una regresión, una clasificación, una agrupación en clústeres, etc.
 
 Este es el gráfico de la canalización final de este ejemplo:
 
 ![Gráfico de la canalización](./media/how-to-designer-sample-classification-predict-income/overall-graph.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [aml-ui-prereq](../../includes/aml-ui-prereq.md)]
 
@@ -51,7 +51,7 @@ Para crear la canalización, siga estos pasos:
 
 1. Arrastre el módulo de conjunto de datos Ingresos binarios del censo de adultos al lienzo de la canalización.
 1. Agregue un módulo **Dividir datos** para crear los conjuntos de entrenamiento y prueba. Establezca la fracción de filas del primer conjunto de datos de salida en 0,7. Esta configuración especifica que un 70 % de los datos saldrán por el puerto de la izquierda del módulo y el resto por el puerto de la derecha. Usaremos el conjunto de datos de la izquierda para el entrenamiento y el de la derecha, para las pruebas.
-1. Agregue el módulo de **Selección de características basada en filtros** para seleccionar 5 características de PearsonCorreclation. 
+1. Agregue el módulo de **Selección de características basada en filtros** para seleccionar cinco características de PearsonCorrelation. 
 1. Agregue un módulo **Árbol de decisión ampliado de dos clases** para inicializar un clasificador de árbol de decisión ampliado.
 1. Agregue un módulo **Entrenar modelo**. Conecte el clasificador del paso anterior con el puerto de entrada de la izquierda de **Entrenar modelo**. Conecte el conjunto de datos filtrado del módulo Selección de características basada en filtros como conjunto de datos de entrenamiento.  El módulo **Entrenar modelo** entrenará el clasificador.
 1. Agregue el módulo Selección de transformación de columnas y Aplicar transformación para aplicar la misma transformación (selección de características basada en filtros) al conjunto de datos de prueba.

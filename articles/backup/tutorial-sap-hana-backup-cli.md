@@ -3,12 +3,12 @@ title: 'Tutorial: copia de seguridad de la base de datos de SAP HANA en Azure me
 description: En este tutorial aprenderá a hacer una copia de seguridad de las bases de datos de SAP HANA que se ejecutan en una máquina virtual de Azure en un almacén de Recovery Services de Azure Backup mediante la CLI de Azure.
 ms.topic: tutorial
 ms.date: 12/4/2019
-ms.openlocfilehash: 6d35b6ebfc6f47f5775c24407b645b97112387c9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cdc8a8fb09a086a2b9212c21d071f267991fa275
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75470810"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206629"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Copia de seguridad de las bases de datos de SAP HANA en una máquina virtual de Azure con la CLI de Azure
 
@@ -68,7 +68,7 @@ westus2    saphanaVault     saphanaResourceGroup
 
 ## <a name="register-and-protect-the-sap-hana-instance"></a>Registro y protección de la instancia de SAP HANA
 
-Para que los servicios de Azure detecten la instancia de SAP HANA (la máquina virtual que tiene SAP HANA instalado), se debe ejecutar un [script antes del registro](https://aka.ms/scriptforpermsonhana) en la máquina de SAP HANA. Asegúrese de que se cumplen todos los [requisitos previos](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#prerequisites) antes de ejecutar el script. Para más información sobre lo que hace el script, consulte la sección [Configuración de permisos](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#setting-up-permissions).
+Para que los servicios de Azure detecten la instancia de SAP HANA (la máquina virtual que tiene SAP HANA instalado), se debe ejecutar un [script antes del registro](https://aka.ms/scriptforpermsonhana) en la máquina de SAP HANA. Asegúrese de que se cumplen todos los [requisitos previos](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#prerequisites) antes de ejecutar el script. Consulte la sección [Qué hace el script de registro previo](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) para más información sobre lo que hace el script.
 
 Una vez ejecutado el script, la instancia de SAP HANA se puede registrar con el almacén de Recovery Services que se creó anteriormente. Para registrar la instancia, use el cmdlet [az backup container register](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-register). *VMResourceId* es el identificador de recurso de la máquina virtual que creó para instalar SAP HANA.
 

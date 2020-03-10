@@ -6,12 +6,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 01/21/2020
 ms.author: lcozzens
-ms.openlocfilehash: 4438851ef7ea015060926075f46822de877b85b3
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 4a8d7f50ecf385388b63b9d83525a39737e0d157
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766436"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655759"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Inicio rápido: Incorporación de marcas de características a una aplicación de Spring Boot
 
@@ -19,11 +19,11 @@ En este inicio rápido, incorporará Azure App Configuration en una aplicación 
 
 Las bibliotecas de administración de características de Spring Boot amplían el marco con una compatibilidad completa con las marcas de características. Estas bibliotecas **no** dependen de ninguna biblioteca de Azure. Se integran sin problemas con App Configuration mediante su proveedor de configuración de Spring Boot.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
-- Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
-- Un [SDK de Java Development Kit](https://docs.microsoft.com/java/azure/jdk)admitido con la versión 8.
-- [Apache Maven](https://maven.apache.org/download.cgi), versión 3.0 o posterior.
+* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
+* Un [SDK de Java Development Kit](https://docs.microsoft.com/java/azure/jdk)admitido con la versión 8.
+* [Apache Maven](https://maven.apache.org/download.cgi), versión 3.0 o posterior.
 
 ## <a name="create-an-app-configuration-instance"></a>Creación de una instancia de App Configuration
 
@@ -42,14 +42,14 @@ Para crear un proyecto de Spring Boot, use [Spring Initializr](https://start.spr
 
 1. Vaya a <https://start.spring.io/>.
 
-2. Especifique las opciones siguientes:
+1. Especifique las opciones siguientes:
 
-   - Genere un proyecto de **Maven** con **Java**.
-   - Especifique una versión de **Spring Boot** igual o superior a la 2.0.
-   - Especifique los nombres de **Group** (Grupo) y **Artifact** (Artefacto) de la aplicación.  En este artículo se usan `com.example` y `demo`.
-   - Adición de la dependencia de **Spring Web**
+   * Genere un proyecto de **Maven** con **Java**.
+   * Especifique una versión de **Spring Boot** igual o superior a la 2.0.
+   * Especifique los nombres de **Group** (Grupo) y **Artifact** (Artefacto) de la aplicación.  En este artículo se usan `com.example` y `demo`.
+   * Adición de la dependencia de **Spring Web**
 
-3. Después de especificar las opciones anteriores, seleccione **Generar proyecto**. Cuando se le solicite, descargue el proyecto en el equipo local.
+1. Después de especificar las opciones anteriores, seleccione **Generar proyecto**. Cuando se le solicite, descargue el proyecto en el equipo local.
 
 ## <a name="add-feature-management"></a>Adición de la administración de características
 
@@ -57,20 +57,41 @@ Para crear un proyecto de Spring Boot, use [Spring Initializr](https://start.spr
 
 1. Abra el archivo *pom.xml* en un editor de texto y agregue lo siguiente a la lista de `<dependencies>`:
 
+### <a name="spring-cloud-11x"></a>Spring Cloud 1.1.x
+
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.2.1</version>
+        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
+        <version>1.1.2</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>1.2.1</version>
+        <version>1.1.2</version>
     </dependency>
     <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+    ```
+
+### <a name="spring-cloud-12x"></a>Spring Cloud 1.2.x
+
+    ```xml
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
+        <version>1.2.2</version>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+        <version>1.2.2</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
     ```
 
@@ -108,6 +129,7 @@ Para crear un proyecto de Spring Boot, use [Spring Initializr](https://start.spr
         }
     }
     ```
+
 1. Cree un archivo Java llamado *MessageProperties.javaº* en el directorio del paquete de la aplicación.
 
     ```java
@@ -131,7 +153,7 @@ Para crear un proyecto de Spring Boot, use [Spring Initializr](https://start.spr
     }
     ```
 
-1. Cree un archivo Java nuevo llamado *HelloController.java* en el directorio del paquete de la aplicación. 
+1. Cree un archivo Java nuevo llamado *HelloController.java* en el directorio del paquete de la aplicación.
 
     ```java
     package com.example.demo;
@@ -220,36 +242,36 @@ Para crear un proyecto de Spring Boot, use [Spring Initializr](https://start.spr
 
     ```
 
-6. Cree una carpeta llamada CSS en `static` y dentro de ella un archivo CSS llamado *main.css*.
+1. Cree una carpeta llamada CSS en `static` y dentro de ella un archivo CSS llamado *main.css*.
 
     ```css
     html {
-    position: relative;
-    min-height: 100%;
+     position: relative;
+     min-height: 100%;
     }
     body {
-    margin-bottom: 60px;
+     margin-bottom: 60px;
     }
     .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 60px;
-    line-height: 60px;
-    background-color: #f5f5f5;
+     position: absolute;
+     bottom: 0;
+     width: 100%;
+     height: 60px;
+     line-height: 60px;
+     background-color: #f5f5f5;
     }
 
     body > .container {
-    padding: 60px 15px 0;
+     padding: 60px 15px 0;
     }
 
     .footer > .container {
-    padding-right: 15px;
-    padding-left: 15px;
+     padding-right: 15px;
+     padding-left: 15px;
     }
 
     code {
-    font-size: 80%;
+     font-size: 80%;
     }
     ```
 
@@ -284,6 +306,6 @@ Para crear un proyecto de Spring Boot, use [Spring Initializr](https://start.spr
 
 En este inicio rápido, ha creado un almacén de App Configuration y lo ha usado para administrar características en una aplicación web de Spring Boot mediante las [bibliotecas de administración de características](https://go.microsoft.com/fwlink/?linkid=2074664).
 
-- Más información sobre la [administración de características](./concept-feature-management.md).
-- [Administración de marcas de características](./manage-feature-flags.md).
-- [Uso de marcas de características en una aplicación central de Spring Boot](./use-feature-flags-spring-boot.md).
+* Más información sobre la [administración de características](./concept-feature-management.md).
+* [Administración de marcas de características](./manage-feature-flags.md).
+* [Uso de marcas de características en una aplicación central de Spring Boot](./use-feature-flags-spring-boot.md).

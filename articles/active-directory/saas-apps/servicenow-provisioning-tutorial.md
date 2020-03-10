@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 5e954de97e6573e330c42915b44bbc0c40abc54d
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 9e93d4b3f1880f2ac56a32a7b85aa6801fb7c14e
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063256"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205148"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutorial: Configuración de ServiceNow para el aprovisionamiento automático de usuarios
 
@@ -106,7 +106,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 7. Seleccione **Guardar**.
 
-8. En la sección Asignaciones, seleccione **Synchronize Azure Active Directory Users to** (Sincronizar usuarios de Azure Active Directory con ServiceNow).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to** (Sincronizar usuarios de Azure Active Directory con ServiceNow).
 
 9. En la sección **Asignaciones de atributos**, revise los atributos de usuario que se sincronizan entre Azure AD y ServiceNow. Los atributos seleccionados como propiedades **Matching** se usan para buscar coincidencias con las cuentas de usuario de ServiceNow con el objetivo de realizar operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), deberá asegurarse de que la API de ServiceNow admite el filtrado de usuarios basado en ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -116,7 +116,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 12. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Para habilitar el aprovisionamiento del servicio de aprovisionamiento de Azure AD para ServiceNow, cambie el **estado de aprovisionamiento** a **Activado** en la sección Configuración.
+13. Para habilitar el aprovisionamiento del servicio de aprovisionamiento de Azure AD para ServiceNow, cambie el **estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
@@ -142,7 +142,7 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
 * **EntryJoiningPropertyValueIsMissing:** Revise las [asignaciones de atributos ](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) para identificar el atributo coincidente. Este valor debe estar presente en el usuario o grupo que está intentando aprovisionar. 
 * Revise la [API de SOAP de ServiceNow](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) para comprender los requisitos o las limitaciones (por ejemplo, el formato para especificar el código de país de un usuario).
 * Algunas implementaciones de ServiceNow requieren que se permitan intervalos IP para el servicio de aprovisionamiento de Azure AD. Los intervalos IP reservados para el servicio de aprovisionamiento de Azure AD se pueden encontrar [aquí](https://www.microsoft.com/download/details.aspx?id=56519) en "AzureActiveDirectoryDomainServices".
-* Actualmente no se admite el aprovisionamiento de usuarios en la nube de administración pública de ServiceNow.
+* Las solicitudes de aprovisionamiento se envían de forma predeterminada a https://{nombre-de-instancia}.service-now.com/{nombre-de-tabla}. Si necesita una dirección URL de inquilino personalizada, puede proporcionar la dirección URL completa en el campo de nombre de instancia.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

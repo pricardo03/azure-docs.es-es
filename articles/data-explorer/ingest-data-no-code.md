@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Ingesta de datos de supervisión sin código: Azure Data Explorer'
+title: 'Tutorial: Ingesta de datos de supervisión en Azure Data Explorer sin código'
 description: En este tutorial, obtendrá información sobre cómo ingerir datos de supervisión en Azure Data Explorer sin una línea de código y cómo consultar datos.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: 24e09f6578431e6b7f2a83be13bae59bf2e707de
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 3a53a660da2257540f23bc6438fc5933e5229c76
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986213"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198055"
 ---
 # <a name="tutorial-ingest-and-query-monitoring-data-in-azure-data-explorer"></a>Tutorial: Ingesta y consulta de datos de supervisión en Azure Data Explorer 
 
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a:
 > [!NOTE]
 > Crear todos los recursos en la misma ubicación o región de Azure 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * [Un clúster y la base de datos de Azure Data Explorer](create-cluster-database-portal.md). En este tutorial, el nombre de la base de datos es *TestDatabase*.
@@ -43,7 +43,7 @@ Vea y comprenda los datos que proporcionan los siguientes registros y métricas 
 
 Los registros y métricas de diagnóstico y los registros de actividad de Azure son emitidos por un servicio de Azure que proporciona datos sobre el funcionamiento de ese servicio. 
 
-# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[Métricas de diagnóstico](#tab/diagnostic-metrics)
+# <a name="diagnostic-metrics"></a>[Métricas de diagnóstico](#tab/diagnostic-metrics)
 #### <a name="example"></a>Ejemplo
 
 Las métricas de diagnóstico se agregan con un intervalo de agregación de 1 minuto. El siguiente es un ejemplo de un esquema de eventos y métricas de Azure Data Explorer sobre la duración de una consulta:
@@ -77,7 +77,7 @@ Las métricas de diagnóstico se agregan con un intervalo de agregación de 1 mi
 }
 ```
 
-# <a name="diagnostic-logstabdiagnostic-logs"></a>[Registros de diagnóstico](#tab/diagnostic-logs)
+# <a name="diagnostic-logs"></a>[Registros de diagnóstico](#tab/diagnostic-logs)
 #### <a name="example"></a>Ejemplo
 
 El siguiente es un ejemplo de un [registro de ingesta de diagnósticos](using-diagnostic-logs.md#diagnostic-logs-schema) de Azure Data Explorer:
@@ -133,7 +133,7 @@ El siguiente es un ejemplo de un [registro de ingesta de diagnósticos](using-di
     }
 }
 ```
-# <a name="activity-logstabactivity-logs"></a>[Registros de actividad](#tab/activity-logs)
+# <a name="activity-logs"></a>[Registros de actividad](#tab/activity-logs)
 #### <a name="example"></a>Ejemplo
 
 Los registros de actividad de Azure son registros de nivel de suscripción que proporcionan información sobre las operaciones realizadas en los recursos de la suscripción. Este es un ejemplo de un evento del registro de actividad para la comprobación de acceso:
@@ -210,7 +210,7 @@ La estructura de los registros de Azure Monitor no es tabular. Podrá manipular 
 
 Use la interfaz de usuario web de Azure Data Explorer para crear las tablas de destino en la base de datos de Azure Data Explorer.
 
-# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[Métricas de diagnóstico](#tab/diagnostic-metrics)
+# <a name="diagnostic-metrics"></a>[Métricas de diagnóstico](#tab/diagnostic-metrics)
 #### <a name="create-tables-for-the-diagnostic-metrics"></a>Creación de tablas para las métricas de diagnóstico
 
 1. En la base de datos *TestDatabase*, cree una tabla llamada *DiagnosticMetrics* para almacenar los registros de métricas de diagnóstico. Use el siguiente comando de control `.create table`:
@@ -235,7 +235,7 @@ Use la interfaz de usuario web de Azure Data Explorer para crear las tablas de d
     .alter-merge table DiagnosticRawRecords policy retention softdelete = 0d
     ```
 
-# <a name="diagnostic-logstabdiagnostic-logs"></a>[Registros de diagnóstico](#tab/diagnostic-logs)
+# <a name="diagnostic-logs"></a>[Registros de diagnóstico](#tab/diagnostic-logs)
 #### <a name="create-tables-for-the-diagnostic-logs"></a>Creación de tablas para los registros de diagnóstico 
 
 1. En la base de datos *TestDatabase*, cree una tabla llamada *DiagnosticLogs* para almacenar los registros de diagnóstico. Use el siguiente comando de control `.create table`:
@@ -258,7 +258,7 @@ Use la interfaz de usuario web de Azure Data Explorer para crear las tablas de d
     .alter-merge table DiagnosticRawRecords policy retention softdelete = 0d
     ```
 
-# <a name="activity-logstabactivity-logs"></a>[Registros de actividad](#tab/activity-logs)
+# <a name="activity-logs"></a>[Registros de actividad](#tab/activity-logs)
 #### <a name="create-tables-for-the-activity-logs"></a>Creación de tablas para los registros de actividad 
 
 1. Cree una tabla llamada *ActivityLogs* en la base de datos *TestDatabase* para recibir registros de actividad. Para crear la tabla, ejecute la siguiente consulta de Azure Data Explorer:
@@ -284,7 +284,7 @@ Use la interfaz de usuario web de Azure Data Explorer para crear las tablas de d
 
  Como el formato de datos es `json`, se requiere la asignación de datos. La asignación `json` asigna cada ruta de acceso JSON a un nombre de columna de tabla.
 
-# <a name="diagnostic-metrics--diagnostic-logstabdiagnostic-metricsdiagnostic-logs"></a>[Métricas de diagnóstico y registros de diagnóstico](#tab/diagnostic-metrics+diagnostic-logs) 
+# <a name="diagnostic-metrics--diagnostic-logs"></a>[Métricas de diagnóstico y registros de diagnóstico](#tab/diagnostic-metrics+diagnostic-logs) 
 #### <a name="map-diagnostic-metrics-and-logs-to-the-table"></a>Asignación de métricas y registros de diagnóstico a la tabla
 
 Para asignar las métricas de diagnóstico y los datos del registro a la tabla, use la siguiente consulta:
@@ -293,7 +293,7 @@ Para asignar las métricas de diagnóstico y los datos del registro a la tabla, 
 .create table DiagnosticRawRecords ingestion json mapping 'DiagnosticRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
-# <a name="activity-logstabactivity-logs"></a>[Registros de actividad](#tab/activity-logs)
+# <a name="activity-logs"></a>[Registros de actividad](#tab/activity-logs)
 #### <a name="map-activity-logs-to-the-table"></a>Asignación de registros de actividad a la tabla
 
 Para asignar los datos de los registros de actividad a la tabla, use la siguiente consulta:
@@ -305,7 +305,7 @@ Para asignar los datos de los registros de actividad a la tabla, use la siguient
 
 ### <a name="create-the-update-policy-for-metric-and-log-data"></a>Creación de la directiva de actualización para los datos de métricas y registros
 
-# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[Métricas de diagnóstico](#tab/diagnostic-metrics)
+# <a name="diagnostic-metrics"></a>[Métricas de diagnóstico](#tab/diagnostic-metrics)
 #### <a name="create-data-update-policy-for-diagnostics-metrics"></a>Creación de una directiva de actualización de datos para métricas de diagnóstico
 
 1. Cree una [función](/azure/kusto/management/functions) que expanda la colección de registros de métricas de diagnóstico para que cada valor de la colección reciba una fila independiente. Use el operador [`mv-expand`](/azure/kusto/query/mvexpandoperator):
@@ -333,7 +333,7 @@ Para asignar los datos de los registros de actividad a la tabla, use la siguient
     .alter table DiagnosticMetrics policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticMetricsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 
-# <a name="diagnostic-logstabdiagnostic-logs"></a>[Registros de diagnóstico](#tab/diagnostic-logs)
+# <a name="diagnostic-logs"></a>[Registros de diagnóstico](#tab/diagnostic-logs)
 #### <a name="create-data-update-policy-for-diagnostics-logs"></a>Creación de una directiva de actualización de datos para registros de diagnóstico
 
 1. Cree una [función](/azure/kusto/management/functions) que expanda la colección de registros de diagnóstico para que cada valor de la colección reciba una fila independiente. Va a habilitar los registros de ingesta en un clúster de Azure Data Explorer y usará un [esquema de registros de ingesta](/azure/data-explorer/using-diagnostic-logs#diagnostic-logs-schema). Creará una tabla para ingestas correctas y erróneas, aunque algunos de los campos estarán vacíos en el caso de las correctas (ErrorCode, por ejemplo). Use el operador [`mv-expand`](/azure/kusto/query/mvexpandoperator):
@@ -366,7 +366,7 @@ Para asignar los datos de los registros de actividad a la tabla, use la siguient
     .alter table DiagnosticLogs policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticLogsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 
-# <a name="activity-logstabactivity-logs"></a>[Registros de actividad](#tab/activity-logs)
+# <a name="activity-logs"></a>[Registros de actividad](#tab/activity-logs)
 #### <a name="create-data-update-policy-for-activity-logs"></a>Creación de una directiva de actualización de datos de los registros de actividad
 
 1. Cree una [función](/azure/kusto/management/functions) que expanda la colección de registros de actividad para que cada valor de la colección reciba una fila independiente. Use el operador [`mv-expand`](/azure/kusto/query/mvexpandoperator):
@@ -425,7 +425,7 @@ La configuración de diagnóstico de Azure permite exportar métricas y registro
 
 Ahora debe conectar los registros y métricas de diagnóstico y los registros de actividad al centro de eventos.
 
-# <a name="diagnostic-metrics--diagnostic-logstabdiagnostic-metricsdiagnostic-logs"></a>[Métricas de diagnóstico y registros de diagnóstico](#tab/diagnostic-metrics+diagnostic-logs) 
+# <a name="diagnostic-metrics--diagnostic-logs"></a>[Métricas de diagnóstico y registros de diagnóstico](#tab/diagnostic-metrics+diagnostic-logs) 
 ### <a name="connect-diagnostic-metrics-and-logs-to-your-event-hub"></a>Conexión de métricas y registros de diagnóstico al centro de eventos
 
 Seleccione un recurso desde el que se va a exportar las métricas. Hay varios tipos de recursos que admiten la exportación de datos de diagnóstico, incluido el espacio de nombres de Event Hubs, Azure Key Vault, Azure IoT Hub y los clústeres de Azure Data Explorer. En este tutorial, se utilizará un clúster de Azure Data Explorer como nuestro recurso, se revisarán las métricas de rendimiento de las consultas y los registros de resultados de la ingesta.
@@ -452,7 +452,7 @@ Seleccione un recurso desde el que se va a exportar las métricas. Hay varios ti
 
 1. Seleccione **Guardar**.
 
-# <a name="activity-logstabactivity-logs"></a>[Registros de actividad](#tab/activity-logs)
+# <a name="activity-logs"></a>[Registros de actividad](#tab/activity-logs)
 ### <a name="connect-activity-logs-to-your-event-hub"></a>Conexión de los registros de actividad al centro de eventos
 
 1. En el menú izquierdo de Azure Portal, seleccione **Registro de actividad**.
@@ -501,7 +501,7 @@ Ahora debe crear las conexiones de datos para sus métricas y registros de diagn
 
     ![Conexión de datos del centro de eventos](media/ingest-data-no-code/event-hub-data-connection.png)
 
-# <a name="diagnostic-metrics--diagnostic-logstabdiagnostic-metricsdiagnostic-logs"></a>[Métricas de diagnóstico y registros de diagnóstico](#tab/diagnostic-metrics+diagnostic-logs) 
+# <a name="diagnostic-metrics--diagnostic-logs"></a>[Métricas de diagnóstico y registros de diagnóstico](#tab/diagnostic-metrics+diagnostic-logs) 
 
 1. Use la configuración siguiente en la ventana **Conexión de datos**:
 
@@ -528,7 +528,7 @@ Ahora debe crear las conexiones de datos para sus métricas y registros de diagn
 
 1. Seleccione **Crear**.  
 
-# <a name="activity-logstabactivity-logs"></a>[Registros de actividad](#tab/activity-logs)
+# <a name="activity-logs"></a>[Registros de actividad](#tab/activity-logs)
 
 1. Use la configuración siguiente en la ventana **Conexión de datos**:
 
@@ -560,7 +560,7 @@ Ahora debe crear las conexiones de datos para sus métricas y registros de diagn
 
 Ahora tiene una canalización con el flujo de datos. La ingesta a través del clúster tarda cinco minutos de forma predeterminada, por lo que los datos fluyen durante unos minutos antes de empezar la consulta.
 
-# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[Métricas de diagnóstico](#tab/diagnostic-metrics)
+# <a name="diagnostic-metrics"></a>[Métricas de diagnóstico](#tab/diagnostic-metrics)
 ### <a name="query-the-diagnostic-metrics-table"></a>Consulta de la tabla de métricas de diagnóstico
 
 La siguiente consulta analiza los datos de duración de las consultas a partir de los registros de métricas de diagnóstico de Azure Data Explorer:
@@ -579,7 +579,7 @@ Resultados de la consulta:
 |   | 00:06.156 |
 | | |
 
-# <a name="diagnostic-logstabdiagnostic-logs"></a>[Registros de diagnóstico](#tab/diagnostic-logs)
+# <a name="diagnostic-logs"></a>[Registros de diagnóstico](#tab/diagnostic-logs)
 ### <a name="query-the-diagnostic-logs-table"></a>Consulta de la tabla de registros de diagnóstico
 
 Esta canalización produce ingestas a través de un centro de eventos. Revisará los resultados de estas ingesta.
@@ -599,7 +599,7 @@ Resultados de la consulta:
 |   | 00:06.156 | TestDatabase | DiagnosticRawRecords | https://rtmkstrldkereneus00.blob.core.windows.net/20190827-readyforaggregation/1133_TestDatabase_DiagnosticRawRecords_6cf02098c0c74410bd8017c2d458b45d.json.zip
 | | |
 
-# <a name="activity-logstabactivity-logs"></a>[Registros de actividad](#tab/activity-logs)
+# <a name="activity-logs"></a>[Registros de actividad](#tab/activity-logs)
 ### <a name="query-the-activity-logs-table"></a>Consulta de la tabla de registros de actividad
 
 La siguiente consulta analiza los datos del registro de actividad de Azure Data Explorer:

@@ -2,14 +2,14 @@
 author: aahill
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/14/2019
+ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: b553cd2bed68bc8df7241f4f843b32ec13b1a08a
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 8e3f08be70a2a6b932b849ff28dd762828abf229
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77371646"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78155458"
 ---
 <a name="HOLTop"></a>
 
@@ -27,8 +27,9 @@ ms.locfileid: "77371646"
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
-
-[!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
+* Una vez que tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="cree un recurso de Text Analytics"  target="_blank">cree un recurso de Text Analytics <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. 
+    * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a API Text Analytics. Lo hará más adelante en el inicio rápido.
+    * Puede usar el plan de tarifa gratuito para probar el servicio y actualizarlo más adelante a un nivel de pago para producción.
 
 ## <a name="setting-up"></a>Instalación
 

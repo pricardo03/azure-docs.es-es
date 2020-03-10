@@ -10,16 +10,16 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 11/07/2019
 ms.author: aahi
-ms.openlocfilehash: 0f16c687f9816e99e05c2495a05596bd988ca9d2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 66bc1e5441210b8d9153812c826643159fe53d50
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827316"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251324"
 ---
 # <a name="what-is-the-text-analytics-api"></a>¿Qué es Text Analytics API?
 
-Text Analytics API es un servicio basado en la nube que proporciona un procesamiento avanzado de idioma natural sobre texto sin formato e incluye cuatro funciones principales: análisis de sentimiento, extracción de frases clave, detección de lenguaje y reconocimiento de entidades.
+API Text Analytics es un servicio basado en la nube que proporciona un procesamiento avanzado de idioma natural sobre texto sin formato e incluye cuatro funciones principales: análisis de sentimiento, extracción de frases clave, detección de lenguaje y reconocimiento de entidades de caracteres.
 
 La API forma parte de [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), una colección de algoritmos de aprendizaje automático y de inteligencia artificial en la nube para los proyectos de desarrollo.
 
@@ -51,7 +51,7 @@ El flujo de trabajo es sencillo: se envían datos para su análisis y se control
 
 2. [Formule una solicitud](how-tos/text-analytics-how-to-call-api.md#json-schema) en JSON que contenga los datos como texto sin estructura.
 
-3. Publique la solicitud en el punto de conexión establecido durante el registro y anexe el recurso deseado: análisis de sentimiento, extracción de frases clave, detección de idioma o identificación de entidad.
+3. Publique la solicitud en el punto de conexión establecido durante el registro y anexe el recurso deseado: análisis de sentimiento, extracción de frases clave, detección de idioma o identificación de entidad de caracteres.
 
 4. Transmita la respuesta en secuencias o almacénela localmente. En función de cuál sea la solicitud, los resultados son una puntuación de opinión, una colección de frases clave extraídas o un código de idioma.
 
@@ -73,7 +73,7 @@ Puede empezar a usar Text Analytics API en sus procesos, aunque no tenga mucha e
 
 <a name="supported-languages"></a>
 
-## <a name="supported-languages"></a>Idiomas admitidos
+## <a name="supported-languages"></a>Idiomas compatibles
 
 Esta sección se ha movido a otro artículo para facilitar su detección. Para ver este contenido, consulte [Compatibilidad de idiomas para Text Analytics API](text-analytics-supported-languages.md).
 
@@ -83,7 +83,7 @@ Esta sección se ha movido a otro artículo para facilitar su detección. Para v
 
 Todos los puntos de conexión de Text Analytics API aceptan datos de texto sin formato. El límite actual es de 5120 caracteres para cada documento; si necesita analizar documentos mayores, puede dividirlos en fragmentos más pequeños.
 
-| Límite | Valor |
+| Límite | Value |
 |------------------------|---------------|
 | Tamaño máximo de un documento individual | 5120 caracteres, medidos por [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Tamaño máximo de la solicitud completa | 1 MB |

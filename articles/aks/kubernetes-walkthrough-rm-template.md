@@ -5,12 +5,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
 ms.custom: mvc
-ms.openlocfilehash: 5fe82dbce2069b0ae1a88599d020f4ba6b116027
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 9c4a79f196cc0737ddc9490f2fedda99961289f4
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595338"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273792"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS) con una plantilla de Azure Resource Manager
 
@@ -34,9 +34,11 @@ Para crear un clúster de AKS con una plantilla de Resource Manager, proporcione
 
 Para acceder a los nodos de AKS, conéctese mediante un par de claves SSH. Use el comando `ssh-keygen` para generar archivos de clave pública y privada SSH. De forma predeterminada, estos archivos se crean en el directorio *~/.ssh*. Si existe un par de claves SSH con el mismo nombre en la ubicación escogida, estos archivos se sobrescriben.
 
+Vaya a [https://shell.azure.com](https://shell.azure.com) para abrir Cloud Shell en el explorador.
+
 El siguiente comando crea un par de claves SSH utilizando el cifrado RSA y una longitud en bits de 2048:
 
-```azurecli-interactive
+```console
 ssh-keygen -t rsa -b 2048
 ```
 
@@ -109,13 +111,13 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 Para comprobar la conexión al clúster, use el comando [kubectl get][kubectl-get] para devolver una lista de los nodos del clúster.
 
-```azurecli-interactive
+```console
 kubectl get nodes
 ```
 
 La salida del siguiente ejemplo muestra los nodos creados en los pasos anteriores. Asegúrese de que el estado de los nodos sea *Listo*:
 
-```
+```output
 NAME                       STATUS   ROLES   AGE     VERSION
 aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.6
 aks-agentpool-41324942-1   Ready    agent   6m46s   v1.12.6
@@ -218,13 +220,13 @@ spec:
 
 Implemente la aplicación mediante el comando [kubectl apply][kubectl-apply] y especifique el nombre del manifiesto de YAML:
 
-```azurecli-interactive
+```console
 kubectl apply -f azure-vote.yaml
 ```
 
 En la salida de ejemplo siguiente se muestran las implementaciones y los servicios creados correctamente:
 
-```
+```output
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created
@@ -237,20 +239,20 @@ Cuando se ejecuta la aplicación, un servicio de Kubernetes expone el front-end 
 
 Para supervisar el progreso, utilice el comando [kubectl get service][kubectl-get] con el argumento `--watch`.
 
-```azurecli-interactive
+```console
 kubectl get service azure-vote-front --watch
 ```
 
 En un primer momento, el parámetro *EXTERNAL-IP* del servicio *azure-vote-front* se muestra como *pendiente*.
 
-```
+```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 Cuando la dirección *EXTERNAL-IP* cambie de *pendiente* a una dirección IP pública real, use `CTRL-C` para detener el proceso de inspección de `kubectl`. En la salida del ejemplo siguiente se muestra una dirección IP pública válida asignada al servicio:
 
-```
+```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 

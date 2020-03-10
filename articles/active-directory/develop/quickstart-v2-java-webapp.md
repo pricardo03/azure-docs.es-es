@@ -11,27 +11,24 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: 59c2b3b910a9585362643bfcf7cdf9fa2df977bc
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 3bfcc1ef8c58f71811af604fbc07736a13102e83
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77611989"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249083"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web de Java
 
 En este inicio rápido, aprenderá a integrar una aplicación web de Java con la Plataforma de identidad de Microsoft. Su aplicación iniciará la sesión de un usuario, obtendrá un token de acceso para llamar a Microsoft Graph API y realizará una solicitud a Microsoft Graph API.
 
-Cuando haya completado esta guía de inicio rápido, la aplicación aceptará inicios de sesión de cuentas personales de Microsoft (como outlook.com, live.com, etc.) y cuentas profesionales o educativas de cualquier empresa u organización que use Azure Active Directory.
-
-![Muestra cómo funciona la aplicación de ejemplo generada por este inicio rápido.](media/quickstart-v2-java-webapp/java-quickstart.svg)
+Cuando haya completado esta guía de inicio rápido, la aplicación aceptará inicios de sesión de cuentas personales de Microsoft (como outlook.com, live.com, etc.) y cuentas profesionales o educativas de cualquier empresa u organización que use Azure Active Directory. (Para ilustrar este tema, consulte el apartado en el que se explica el [funcionamiento del ejemplo](#how-the-sample-works).)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 Para ejecutar este ejemplo, necesitará lo siguiente:
 
 - [Kit de desarrollo de Java (JDK)](https://openjdk.java.net/) 8 o versión posterior y [Maven](https://maven.apache.org/).
-- Un inquilino de Azure Active Directory (Azure AD). Para más información sobre cómo obtener un inquilino de Azure AD, consulte [Cómo obtener un inquilino de Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-howto-tenant/).
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registro y descarga de la aplicación de inicio rápido
@@ -73,7 +70,7 @@ Para ejecutar este ejemplo, necesitará lo siguiente:
 >
 > Para que el código de ejemplo de este inicio rápido funcione, es preciso:
 >
-> 1. Agregue las direcciones URL de respuesta como `https://localhost:8080/msal4jsamples/secure/aad` y `https://localhost:8080/msal4jsamples/graph/me`.
+> 1. Agregue las direcciones URL de respuesta como `https://localhost:8080/msal4jsample/secure/aad` y `https://localhost:8080/msal4jsample/graph/me`.
 > 1. Cree un secreto de cliente.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Realizar estos cambios por mí]()
@@ -82,46 +79,65 @@ Para ejecutar este ejemplo, necesitará lo siguiente:
 > > ![Ya configurada](media/quickstart-v2-aspnet-webapp/green-check.png) La aplicación está configurada con estos atributos.
 
 #### <a name="step-2-download-the-code-sample"></a>Paso 2: Descargar el código de ejemplo
+> [!div renderon="docs"]
+> [Descargar el código de ejemplo](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
 
- [Descargar el código de ejemplo](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
+> [!div class="sxs-lookup" renderon="portal"]
+> Descargue el proyecto y extraiga el archivo ZIP en la carpeta local más próxima a la carpeta raíz (por ejemplo, **C:\Azure-Samples**)
+> 
+> Para usar https con localhost, rellene las propiedades server.ssl.key. Para generar un certificado autofirmado, use la utilidad keytool (que se incluye en JRE).
+>
+>  ```
+>   Example:
+>   keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
+>
+>   server.ssl.key-store-type=PKCS12  
+>   server.ssl.key-store=classpath:keystore.p12  
+>   server.ssl.key-store-password=password  
+>   server.ssl.key-alias=testCert
+>   ```
+>   Coloque el archivo del almacén de claves generado en la carpeta "Resources".
+   
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Descargar el código de ejemplo]()
 
-#### <a name="step-3-configure-the-code-sample"></a>Paso 3: Configurar el ejemplo de código
+> [!div renderon="docs"]
+> #### <a name="step-3-configure-the-code-sample"></a>Paso 3: Configurar el ejemplo de código
+> 1. Extraiga el archivo zip en una carpeta local.
+> 1. Si usa un entorno de desarrollo integrado, abra el ejemplo en su IDE favorito (opcional).
+> 1. Abra el archivo application.properties, que puede encontrarse en la carpeta src/main/resources/ y reemplace el valor de los campos *aad.clientId*, *aad.authority* y *aad.secretKey* con los valores respectivos de **Identificador de la aplicación**, **ID. de inquilino** y **Secreto de cliente** como el siguiente:
+>
+>    ```file
+>    aad.clientId=Enter_the_Application_Id_here
+>    aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/
+>    aad.secretKey=Enter_the_Client_Secret_Here
+>    aad.redirectUriSignin=https://localhost:8080/msal4jsample/secure/aad
+>    aad.redirectUriGraph=https://localhost:8080/msal4jsample/graph/me
+>    aad.msGraphEndpointHost="https://graph.microsoft.com/"
+>    ```
+> Donde:
+>
+> - `Enter_the_Application_Id_here`: es el identificador de aplicación de la aplicación que registró.
+> - `Enter_the_Client_Secret_Here`: es el valor de **Secreto de cliente** que creó en **Certificados y secretos** para la aplicación registrada.
+> - `Enter_the_Tenant_Info_Here`: el valor de **Id. de directorio (inquilino)** de la aplicación que registró.
+> 1. Para usar https con localhost, rellene las propiedades server.ssl.key. Para generar un certificado autofirmado, use la utilidad keytool (que se incluye en JRE).
+>
+>  ```
+>   Example:
+>   keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
+>
+>   server.ssl.key-store-type=PKCS12  
+>   server.ssl.key-store=classpath:keystore.p12  
+>   server.ssl.key-store-password=password  
+>   server.ssl.key-alias=testCert
+>   ```
+>   Coloque el archivo del almacén de claves generado en la carpeta "Resources".
 
- 1. Extraiga el archivo zip en una carpeta local.
- 1. Si usa un entorno de desarrollo integrado, abra el ejemplo en su IDE favorito (opcional).
- 1. Abra el archivo application.properties, que puede encontrarse en la carpeta src/main/resources/ y reemplace el valor de los campos *aad.clientId*, *aad.authority* y *aad.secretKey* con los valores respectivos de **Identificador de la aplicación**, **ID. de inquilino** y **Secreto de cliente** como el siguiente:
 
-    ```file
-    aad.clientId=Enter_the_Application_Id_here
-    aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/
-    aad.secretKey=Enter_the_Client_Secret_Here
-    aad.redirectUriSignin=https://localhost:8080/msal4jsample/secure/aad
-    aad.redirectUriGraph=https://localhost:8080/msal4jsample/graph/me
-    aad.msGraphEndpointHost="https://graph.microsoft.com/"
-    ```
-
-    > [!div renderon="docs"]
-    > Donde:
-    >
-    > - `Enter_the_Application_Id_here`: es el identificador de aplicación de la aplicación que registró.
-    > - `Enter_the_Client_Secret_Here`: es el valor de **Secreto de cliente** que creó en **Certificados y secretos** para la aplicación registrada.
-    > - `Enter_the_Tenant_Info_Here`: el valor de **Id. de directorio (inquilino)** de la aplicación que registró.
-
- 1. Para usar https con localhost, rellene las propiedades server.ssl.key. Para generar un certificado autofirmado, use la utilidad keytool (que se incluye en JRE).
-
-   ```
-   Example:
-   keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
-
-   server.ssl.key-store-type=PKCS12  
-   server.ssl.key-store=classpath:keystore.p12  
-   server.ssl.key-store-password=password  
-   server.ssl.key-alias=testCert
-   ```
-
-   Coloque el archivo del almacén de claves generado en la carpeta "Resources".
-
-#### <a name="step-4-run-the-code-sample"></a>Paso 4: Ejecución del ejemplo de código
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-run-the-code-sample"></a>Paso 3: Ejecución del ejemplo de código
+> [!div renderon="docs"]
+> #### <a name="step-4-run-the-code-sample"></a>Paso 4: Ejecución del ejemplo de código
 
 Para ejecutar el proyecto, puede:
 
@@ -137,10 +153,15 @@ Si está ejecutando la aplicación web desde un IDE, haga clic en ejecutar y, lu
     - *Sign Out* (Cerrar sesión): Cierra la sesión del usuario actual de la aplicación y lo redirige a la página principal.
     - *Mostrar información de usuario*: Adquiere un token para Microsoft Graph y llama a Microsoft Graph con una solicitud que contiene el token, que devuelve información básica sobre el usuario que inició sesión.
 
+
+   
 > [!IMPORTANT]
 > Esta aplicación de inicio rápido usa un secreto de cliente para identificarse como cliente confidencial. Dado que el secreto de cliente se agrega como texto sin formato a los archivos de proyecto, por motivos de seguridad se recomienda que use un certificado en lugar de un secreto de cliente antes de considerar la aplicación como aplicación de producción. Para más información sobre cómo usar un certificado, consulte [Credenciales de certificado para la autenticación de la aplicación](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
 
 ## <a name="more-information"></a>Más información
+
+### <a name="how-the-sample-works"></a>Funcionamiento del ejemplo
+![Muestra cómo funciona la aplicación de ejemplo generada por este inicio rápido.](media/quickstart-v2-java-webapp/java-quickstart.svg)
 
 ### <a name="getting-msal"></a>Obtención de MSAL
 

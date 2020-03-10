@@ -11,20 +11,19 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: 2710263aa099618d57f763edd199673ae04b53ed
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 34f0fb57b4432a8153f2cbaa8cb60edbb9a6f494
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160498"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271080"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Inicio rápido: Adición del inicio de sesión con Microsoft a una aplicación web de Python
 
 En este inicio rápido, aprenderá a integrar una aplicación web de Python con la plataforma de identidad de Microsoft. Su aplicación iniciará la sesión de un usuario, obtendrá un token de acceso para llamar a Microsoft Graph API y realizará una solicitud a Microsoft Graph API.
 
-Cuando haya completado la guía, la aplicación podrá aceptar inicios de sesión de cuentas Microsoft personales (como outlook.com, live.com y otras), y cuentas profesionales y educativas de cualquier empresa u organización que utilice Azure Active Directory.
+Cuando haya completado la guía, la aplicación podrá aceptar inicios de sesión de cuentas Microsoft personales (como outlook.com, live.com y otras), y cuentas profesionales y educativas de cualquier empresa u organización que utilice Azure Active Directory. (Para ilustrar este tema, consulte el apartado en el que se explica el [funcionamiento del ejemplo](#how-the-sample-works).)
 
-![Muestra cómo funciona la aplicación de ejemplo generada por este inicio rápido.](media/quickstart-v2-python-webapp/python-quickstart.svg)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -92,45 +91,56 @@ Para ejecutar este ejemplo, necesitará lo siguiente:
 > > ![Ya configurada](media/quickstart-v2-aspnet-webapp/green-check.png) La aplicación está configurada con este atributo
 
 #### <a name="step-2-download-your-project"></a>Paso 2: Descarga del proyecto
+> [!div renderon="docs"]
+> [Descargar el código de ejemplo](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
 
-[Descargar el código de ejemplo](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
-
-#### <a name="step-3-configure-the-application"></a>Paso 3: Configuración de la aplicación
-
-1. Extraiga el archivo ZIP en la carpeta local más próxima a la carpeta raíz (por ejemplo, **C:\Azure-Samples**).
-1. Si usa un entorno de desarrollo integrado, abra el ejemplo en su IDE favorito (opcional).
-1. Abra el archivo **app_config.py**, que se puede encontrar en la carpeta raíz, y reemplace el siguiente fragmento de código:
-
-```python
-CLIENT_ID = "Enter_the_Application_Id_here"
-CLIENT_SECRET = "Enter_the_Client_Secret_Here"
-AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
-```
+> [!div class="sxs-lookup" renderon="portal"]
+> Descargue el proyecto y extraiga el archivo ZIP en la carpeta local más próxima a la carpeta raíz (por ejemplo, **C:\Azure-Samples**)
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Descargar el código de ejemplo](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
 
 > [!div renderon="docs"]
+> #### <a name="step-3-configure-the-application"></a>Paso 3: Configuración de la aplicación
+> 
+> 1. Extraiga el archivo ZIP en la carpeta local más próxima a la carpeta raíz (por ejemplo, **C:\Azure-Samples**).
+> 1. Si usa un entorno de desarrollo integrado, abra el ejemplo en su IDE favorito (opcional).
+> 1. Abra el archivo **app_config.py**, que se puede encontrar en la carpeta raíz, y reemplace el siguiente fragmento de código:
+> 
+> ```python
+> CLIENT_ID = "Enter_the_Application_Id_here"
+> CLIENT_SECRET = "Enter_the_Client_Secret_Here"
+> AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
+> ```
 > Donde:
 >
 > - `Enter_the_Application_Id_here`: es el identificador de aplicación de la aplicación que registró.
 > - `Enter_the_Client_Secret_Here`: es el valor de **Secreto de cliente** que creó en **Certificates & Secrets** (Certificados y secretos) para la aplicación registrada.
 > - `Enter_the_Tenant_Name_Here`: el valor de **Id. de directorio (inquilino)** de la aplicación que registró.
 
-#### <a name="step-4-run-the-code-sample"></a>Paso 4: Ejecución del ejemplo de código
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-run-the-code-sample"></a>Paso 3: Ejecución del ejemplo de código
+
+> [!div renderon="docs"]
+> #### <a name="step-4-run-the-code-sample"></a>Paso 4: Ejecución del ejemplo de código
 
 1. Deberá instalar la biblioteca Python de MSAL, el marco de Flask, las sesiones de Flask para la administración de sesiones del lado servidor y solicitudes mediante pip de la manera siguiente:
 
-   ```Shell
-   pip install -r requirements.txt
-   ```
+    ```Shell
+    pip install -r requirements.txt
+    ```
 
 2. Ejecute app.py desde el shell o la línea de comandos:
 
-   ```Shell
-   python app.py
-   ```
+    ```Shell
+    python app.py
+    ```
    > [!IMPORTANT]
    > Esta aplicación de inicio rápido usa un secreto de cliente para identificarse como cliente confidencial. Como el secreto de cliente se agrega como texto sin formato a los archivos del proyecto, por motivos de seguridad, se recomienda que use un certificado en lugar de un secreto de cliente antes de considerar el uso de la aplicación en producción. Para más información sobre cómo usar un certificado, consulte [estas instrucciones](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
 
 ## <a name="more-information"></a>Más información
+
+### <a name="how-the-sample-works"></a>Funcionamiento del ejemplo
+![Muestra cómo funciona la aplicación de ejemplo generada por este inicio rápido.](media/quickstart-v2-python-webapp/python-quickstart.svg)
 
 ### <a name="getting-msal"></a>Obtención de MSAL
 MSAL es la biblioteca que se usa para iniciar la sesión de los usuarios y solicitar los tokens que se usan para acceder a una API protegida por la Plataforma de identidad de Microsoft.

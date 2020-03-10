@@ -8,22 +8,22 @@ ms.author: rgarcia
 ms.date: 04/03/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: a1c19523508f434c114df884824d1595376bac21
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c02595ebdb2f011dcc94b517771a79a4b2df754d
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276927"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161727"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>Tutorial: instrucciones detalladas para crear una aplicación Android mediante Azure Spatial Anchors
 
 Este tutorial le mostrará cómo crear una aplicación Android que integra la funcionalidad ARCore con Azure Spatial Anchors.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, asegúrese de disponer de los siguientes elementos:
 
-- Una máquina con Windows o macOS con <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.4 o superior</a>.
+- Una máquina Windows o macOS con <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.4 o superior</a>.
 - Un dispositivo Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">habilitado para el desarrollo</a> y <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">preparado para ARCore</a>.
 
 ## <a name="getting-started"></a>Introducción
@@ -38,7 +38,7 @@ Para probar la nueva aplicación, conecte el dispositivo habilitado para desarro
 
 ## <a name="integrating-_arcore_"></a>Integración de _ARCore_
 
-<a href="https://developers.google.com/ar/discover/" target="_blank">_ARCore_ </a> es la plataforma de Google para la creación de experiencias de realidad aumentada, la habilitación del dispositivo para realizar un seguimiento de su posición a medida que se mueve y la creación de su propio conocimiento del mundo real.
+<a href="https://developers.google.com/ar/discover/" target="_blank">_ARCore_</a> es la plataforma de Google para la creación de experiencias de realidad aumentada, la habilitación del dispositivo para realizar un seguimiento de su posición a medida que se mueve y la creación de su propio conocimiento del mundo real.
 
 Modifique `app\manifests\AndroidManifest.xml` para incluir las siguientes entradas en el nodo `<manifest>` raíz. Este fragmento de código realiza varias labores:
 
@@ -111,7 +111,7 @@ Luego, agregue las siguientes variables de miembro a la clase `MainActivity`:
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=52-57)]
 
-Después, agregue el código siguiente al método `app\java\<PackageName>\MainActivity` `onCreate()`. Este código enlazará un cliente de escucha, llamado `handleTap()`, que se detectará cuando el usuario toque la pantalla del dispositivo. Si da la casualidad de que el toque se produce en una superficie del mundo real que ya se ha reconocido en el seguimiento de ARCore, se ejecutará el cliente de escucha.
+Después, agregue el código siguiente al método `onCreate()` de `app\java\<PackageName>\MainActivity`. Este código enlazará un cliente de escucha, llamado `handleTap()`, que se detectará cuando el usuario toque la pantalla del dispositivo. Si da la casualidad de que el toque se produce en una superficie del mundo real que ya se ha reconocido en el seguimiento de ARCore, se ejecutará el cliente de escucha.
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=68-74,85&highlight=6-7)]
 
@@ -123,13 +123,13 @@ Por último, agregue el siguiente método `handleTap()`, que agrupará todo. Cre
 
 ## <a name="attach-a-local-azure-spatial-anchor"></a>Conexión de un anclaje espacial local de Azure
 
-Modifique `Gradle Scripts\build.gradle (Module: app)` para incluir la siguiente entrada. Este código garantizará que el destino de la aplicación sea la versión 1.3.0 de Azure Spatial Anchors. Dicho eso, debería funcionar la referencia a cualquier versión reciente de Azure Spatial Anchors.
+Modifique `Gradle Scripts\build.gradle (Module: app)` para incluir la siguiente entrada. Este código garantizará que el destino de la aplicación sea la versión 2.2.0 de Azure Spatial Anchors. Dicho eso, debería funcionar la referencia a cualquier versión reciente de Azure Spatial Anchors. Puede encontrar las notas de la versión [aquí](https://github.com/Azure/azure-spatial-anchors-samples/releases).
 
 ```
 dependencies {
     ...
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_jni:[1.3.0]"
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_java:[1.3.0]"
+    implementation "com.microsoft.azure.spatialanchors:spatialanchors_jni:[2.2.0]"
+    implementation "com.microsoft.azure.spatialanchors:spatialanchors_java:[2.2.0]"
     ...
 }
 ```

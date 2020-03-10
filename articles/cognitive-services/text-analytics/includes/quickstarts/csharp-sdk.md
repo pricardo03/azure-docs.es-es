@@ -6,15 +6,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 02/24/2020
+ms.date: 02/26/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 81d69f2274abf075be2f97b0edc67af2eea62327
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: b7c4bac7523cdec36beac64e2cd204588b0935fb
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77614477"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78155477"
 ---
 <a name="HOLTop"></a>
 
@@ -32,8 +32,9 @@ ms.locfileid: "77614477"
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 * [IDE de Visual Studio](https://visualstudio.microsoft.com/vs/)
-
-[!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
+* Una vez que tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="cree un recurso de Text Analytics"  target="_blank">cree un recurso de Text Analytics <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. 
+    * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a API Text Analytics. Lo hará más adelante en el inicio rápido.
+    * Puede usar el plan de tarifa gratuito para probar el servicio y actualizarlo más adelante a un nivel de pago para producción.
 
 ## <a name="setting-up"></a>Instalación
 
@@ -44,6 +45,20 @@ Utilice el IDE de Visual Studio para crear una aplicación de consola de .NET 
 #### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
 
 Instale la biblioteca cliente, para lo que debe hacer clic con el botón derecho en la solución en el **Explorador de soluciones** y seleccionar **Administrar paquetes NuGet**. En el administrador de paquetes que se abre, seleccione **Examinar** **Incluir versión preliminar** y busque `Azure.AI.TextAnalytics`. Seleccione la versión `1.0.0-preview.2` e **Instalar**. También puede usar la [Consola del Administrador de paquetes](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+
+> [!TIP]
+> ¿Desea ver todo el archivo de código de inicio rápido de una vez? Puede encontrarlo [en GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/TextAnalytics/program.cs), que contiene los ejemplos de código de este inicio rápido. 
+
+#### <a name="version-21"></a>[Versión 2.1](#tab/version-2)
+
+Instale la biblioteca cliente, para lo que debe hacer clic con el botón derecho en la solución en el **Explorador de soluciones** y seleccionar **Administrar paquetes NuGet**. En el administrador de paquetes que se abre, seleccione **Examinar** y busque `Microsoft.Azure.CognitiveServices.Language.TextAnalytics`. Haga clic en él y, después, en **Instalar**. También puede usar la [Consola del Administrador de paquetes](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+
+> [!TIP]
+> ¿Desea ver todo el archivo de código de inicio rápido de una vez? Puede encontrarlo [en GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/samples/TextAnalytics/synchronous/Program.cs), que contiene los ejemplos de código de este inicio rápido. 
+
+---
+
+#### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
 
 Abra el archivo *program.cs* y agregue las siguientes `using` directivas:
 
@@ -82,8 +97,6 @@ static void Main(string[] args)
 ```
 
 #### <a name="version-21"></a>[Versión 2.1](#tab/version-2)
-
-Instale la biblioteca cliente, para lo que debe hacer clic con el botón derecho en la solución en el **Explorador de soluciones** y seleccionar **Administrar paquetes NuGet**. En el administrador de paquetes que se abre, seleccione **Examinar** y busque `Microsoft.Azure.CognitiveServices.Language.TextAnalytics`. Haga clic en él y, después, en **Instalar**. También puede usar la [Consola del Administrador de paquetes](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
 Abra el archivo *program.cs* y agregue las siguientes `using` directivas:
 

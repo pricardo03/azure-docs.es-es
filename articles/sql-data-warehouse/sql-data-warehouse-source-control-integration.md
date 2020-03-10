@@ -1,6 +1,6 @@
 ---
 title: Integración del control de código fuente
-description: Experiencia de DevOps de bases de datos de clase empresarial para SQL Data Warehouse con integración de control de código fuente nativa mediante Azure Repos (Git y GitHub).
+description: Experiencia de DevOps de bases de datos de clase empresarial para el grupo de SQL con integración nativa de control de código fuente mediante Azure Repos (Git y GitHub).
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: integration
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fc1fdddc7a157828fcc4770c4e8237af9a45fdc3
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 1a4939e8c349f36fe745becb811717983caa95c0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720034"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198236"
 ---
-# <a name="source-control-integration-for-azure-sql-data-warehouse"></a>Integración del control de código fuente para Azure SQL Data Warehouse
+# <a name="source-control-integration-for-sql-pool"></a>Integración del control de código fuente para el grupo de SQL
 
-En este tutorial se describe cómo integrar el proyecto de base de datos de SQL Server Data Tools (SSDT) con control de código fuente.  La integración del control de código fuente es el primer paso en la creación de la implementación continua y la canalización de implementación con SQL Data Warehouse. 
+En este tutorial se describe cómo integrar el proyecto de base de datos de SQL Server Data Tools (SSDT) con control de código fuente.  La integración del control de código fuente es el primer paso en la creación de una canalización de integración e implementación continuas con el recurso de grupo de SQL en Azure Synapse Analytics. 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -49,7 +49,7 @@ En este tutorial se describe cómo integrar el proyecto de base de datos de SQL�
 
    ![Crear proyecto](media/sql-data-warehouse-source-control-integration/5-create-new-project.png "Creación de un proyecto")  
 
-2. Haga clic con el botón derecho en el sqlproject vacío e importe el almacenamiento de datos en el proyecto de base de datos
+2. Haga clic con el botón derecho en el proyecto de SQL vacío e importe el almacenamiento de datos en el proyecto de base de datos
 
    ![Importar proyecto](media/sql-data-warehouse-source-control-integration/6-import-new-project.png "Importar proyecto")  
 
@@ -81,4 +81,4 @@ En este tutorial se describe cómo integrar el proyecto de base de datos de SQL�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Desarrollo para Azure SQL Data Warehouse](sql-data-warehouse-overview-develop.md)
+- [Desarrollo para el grupo de SQL](sql-data-warehouse-overview-develop.md)

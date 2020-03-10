@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: e0458fd257942a455daef911a303437fea03b11b
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 07e2d6f174e5af4af9bdcac73dc74f5cf061ed41
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122013"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300492"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Inicio rápido: Uso de Azure Redis Cache con Node.js
 
 En este inicio rápido incorporará Azure Redis Cache en una aplicación Node.js para acceder a una caché dedicada y segura, a la que se puede acceder desde cualquier aplicación de Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 - [node_redis](https://github.com/mranney/node_redis), que se puede instalar con el comando `npm install redis`. 
@@ -55,7 +55,7 @@ No cree una conexión nueva para cada operación en el código. En su lugar, reu
 
 ## <a name="create-a-new-nodejs-app"></a>Creación de una nueva aplicación Node.js
 
-Cree un nuevo archivo de script llamado *redistest.js*.
+Cree un nuevo archivo de script llamado *redistest.js*. Use el comando `npm install redis bluebird` para instalar los paquetes necesarios.
 
 Agregue el siguiente ejemplo de JavaScript en el archivo. Este código muestra cómo conectarse a una instancia de Azure Redis Cache usando las variables de entorno de nombre de host de caché y clave. El código también almacena y recupera un valor de cadena en la memoria caché. También se ejecutan los comandos `PING` y `CLIENT LIST`. Para ver otros ejemplos sobre el uso de Redis con el cliente [node_redis](https://github.com/mranney/node_redis), consulte [https://redis.js.org/](https://redis.js.org/).
 
@@ -63,6 +63,7 @@ Agregue el siguiente ejemplo de JavaScript en el archivo. Este código muestra c
 var redis = require("redis");
 var bluebird = require("bluebird");
 
+// Convert Redis client API to use promises, to make it usable with async/await syntax
 bluebird.promisifyAll(redis.RedisClient.prototype);
 bluebird.promisifyAll(redis.Multi.prototype);
 

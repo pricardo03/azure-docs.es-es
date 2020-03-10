@@ -4,16 +4,16 @@ description: En este inicio rápido aprenderá a realizar diversas tareas de Ans
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 ms.topic: quickstart
 ms.date: 04/30/2019
-ms.openlocfilehash: 0eb89bcacae1629bdb1f6dcda8f9a25efdb6eedf
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 2a938179cf2e07a61749042db32ef9e1c9d843ba
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77193657"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247891"
 ---
 # <a name="quickstart-run-ansible-playbooks-via-bash-in-azure-cloud-shell"></a>Inicio rápido: Ejecución de cuadernos de estrategias de Ansible a través de Bash en Azure Cloud Shell
 
-Azure Cloud Shell es un shell interactivo, accesible desde el explorador, para administrar recursos de Azure. Cloud Shell le permite usar la línea de comandos de Bash o Powershell. En este artículo, va a usar Bash en Azure Cloud Shell para ejecutar un cuaderno de estrategias de Ansible.
+Azure Cloud Shell es un shell interactivo, accesible desde el explorador, para administrar recursos de Azure. Cloud Shell le permite usar la línea de comandos de Bash o PowerShell. En este artículo, va a usar Bash en Azure Cloud Shell para ejecutar un cuaderno de estrategias de Ansible.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -35,7 +35,7 @@ az account list
 
 Mediante el identificador de suscripción de Azure, establezca `AZURE_SUBSCRIPTION_ID` como sigue:
 
-```azurecli-interactive
+```console
 export AZURE_SUBSCRIPTION_ID=<your-subscription-id>
 ```
 

@@ -6,22 +6,22 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 12/23/2019
-ms.openlocfilehash: aac5dc300009ec682ef1599ad654415f5c4ad190
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.topic: tutorial
+ms.date: 02/28/2020
+ms.openlocfilehash: 8e75d9de45c64813ac75de635371d2435fb9261f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75495029"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271474"
 ---
-# <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-cognitive-search-index"></a>Tutorial de C#: Combinación de datos de varios orígenes en un índice de Azure Cognitive Search
+# <a name="tutorial-index-data-from-multiple-data-sources-in-c"></a>Tutorial: Indexación de datos de varios orígenes de datos en C#
 
-Azure Cognitive Search puede importar, analizar e indexar datos desde varios orígenes en un único índice combinado de búsqueda. Esto es compatible con situaciones donde se agregan datos estructurados con datos menos estructurados o datos de texto sin formato, o incluso de otros orígenes, como documentos de texto, HTML o JSON.
+Azure Cognitive Search puede importar, analizar e indexar datos desde varios orígenes de datos en un único índice de búsqueda consolidado. Esto es compatible con situaciones donde se agregan datos estructurados con datos menos estructurados o datos de texto sin formato, o incluso de otros orígenes, como documentos de texto, HTML o JSON.
 
 En este tutorial se describe cómo indexar datos de hoteles desde un origen de datos de Azure Cosmos DB y combinarlos con los detalles de las habitaciones de hotel dibujados de los documentos de Azure Blob Storage. El resultado será un índice de búsqueda combinado de hoteles que contiene tipos de datos complejos.
 
-En este tutorial se usa C#, el SDK de .NET para Azure Cognitive Search y Azure Portal para realizar las siguientes tareas:
+En este tutorial se usa C# y el [SDK de .NET](https://aka.ms/search-sdk). En este tutorial, realizará las siguientes tareas:
 
 > [!div class="checklist"]
 > * Cargar datos de ejemplo y crear orígenes de datos
@@ -30,43 +30,31 @@ En este tutorial se usa C#, el SDK de .NET para Azure Cognitive Search y Azure P
 > * Indexar los datos de los hoteles desde Azure Cosmos DB
 > * Combinar los datos de las habitaciones de hotel desde Blob Storage
 
-## <a name="prerequisites"></a>Prerequisites
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-En este inicio rápido se usan los siguientes servicios, herramientas y datos. 
+## <a name="prerequisites"></a>Prerrequisitos
 
-- [Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial.
++ [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal)
++ [Almacenamiento de Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Visual Studio 2019](https://visualstudio.microsoft.com/)
++ [Creación](search-create-service-portal.md) o [búsqueda de un servicio de búsqueda existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
-- [Cree una cuenta de Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal) para almacenar los datos de hoteles de ejemplo.
+> [!Note]
+> Puede usar un servicio gratuito para este tutorial. Un servicio de búsqueda gratuito tiene una limitación de tres índices, tres indexadores y tres orígenes de datos. En este tutorial se crea uno de cada uno. Antes de empezar, asegúrese de que haya espacio en el servicio para aceptar los nuevos recursos.
 
-- [Cree una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para almacenar los datos de habitaciones ejemplo.
+## <a name="download-files"></a>Descarga de archivos
 
-- [Instale Visual Studio 2019](https://visualstudio.microsoft.com/) para usarlo como IDE.
+El código fuente para este tutorial se encuentra en el repositorio de GitHub [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples), en la carpeta [multiple-data-sources](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/multiple-data-sources).
 
-### <a name="install-the-project-from-github"></a>Instalación del proyecto desde GitHub
+## <a name="1---create-services"></a>1: Creación de servicios
 
-1. Busque el repositorio de ejemplo en GitHub: [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples).
-1. Seleccione **Clone or download** (Clonar o descargar) y cree su copia local privada del proyecto.
-1. Abra Visual Studio 2019 e instale el paquete NuGet para Microsoft Azure Cognitive Search, si aún no está instalado. En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet** y **Manage NuGet Packages for Solution...** (Administrar paquetes NuGet para la solución...). En la pestaña **Examinar**, busque e instale **Microsoft.Azure.Search** (versión 9.0.1 o posterior). Tendrá que hacer clic en algunos cuadros de diálogo adicionales para completar la instalación.
+En este tutorial se usa Azure Cognitive Search para la indexación y las consultas, Azure Cosmos DB para un conjunto de datos y Azure Blob Storage para el segundo conjunto de datos. 
 
-    ![Uso de NuGet para agregar bibliotecas de Azure](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
-
-1. Mediante Visual Studio, vaya al repositorio local y abra el archivo de solución **AzureSearchMultipleDataSources.sln**.
-
-## <a name="get-a-key-and-url"></a>Obtención de una clave y una dirección URL
-
-Para interactuar con el servicio Azure Cognitive Search, necesita la dirección URL del servicio y una clave de acceso. Con ambos se crea un servicio de búsqueda, por lo que, si ha agregado Azure Cognitive Search a su suscripción, siga estos pasos para obtener la información necesaria:
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) y en la página **Introducción** del servicio de búsqueda, y obtenga la dirección URL. Un punto de conexión de ejemplo podría ser similar a `https://mydemo.search.windows.net`.
-
-1. En **Configuración** > **Claves**, obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
-
-![Obtención de una clave de acceso y un punto de conexión HTTP](media/search-get-started-postman/get-url-key.png "Obtención de una clave de acceso y un punto de conexión HTTP")
-
-Todas las solicitudes requieren una clave de API en cada solicitud enviada al servicio. Una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que la envía y el servicio que se encarga de ella.
-
-## <a name="prepare-sample-azure-cosmos-db-data"></a>Preparación de datos de ejemplo de Azure Cosmos DB
+Si es posible, cree todos los servicios en la misma región y grupo de recursos por proximidad y capacidad de administración. En la práctica, los servicios pueden estar en cualquier región.
 
 Este ejemplo utiliza dos conjuntos pequeños de datos que describen las siete hoteles ficticios. Uno de ellos describe los hoteles en sí y se cargará en una base de datos de Azure Cosmos DB. El otro contiene los detalles de las habitaciones y se proporciona como siete archivos JSON independientes que se cargarán en Azure Blob Storage.
+
+### <a name="start-with-cosmos-db"></a>Comenzar con Cosmos DB
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a la página Introducción de la cuenta de Azure Cosmos DB.
 
@@ -88,7 +76,7 @@ Este ejemplo utiliza dos conjuntos pequeños de datos que describen las siete ho
 
 1. Utilice el botón Actualizar para actualizar la vista de los elementos de la colección de hoteles. Verá siete nuevos documentos de base de datos enumerados.
 
-## <a name="prepare-sample-blob-data"></a>Preparación de los datos de blob
+### <a name="azure-blob-storage"></a>Azure Blob Storage
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com), vaya a su cuenta de Azure Storage, haga clic en **Blobs** y, después, en **+Contenedor**.
 
@@ -102,47 +90,74 @@ Este ejemplo utiliza dos conjuntos pequeños de datos que describen las siete ho
 
 Una vez finalizada la carga, los archivos deberían aparecer en la lista del contenedor de datos.
 
-## <a name="set-up-connections"></a>Configuración de las conexiones
+### <a name="azure-cognitive-search"></a>Azure Cognitive Search
 
-La información de conexión para los servicios de búsqueda y los orígenes de datos se especifican en el archivo **appsettings.json** de la solución. 
+El tercer componente es Azure Cognitive Search, que se puede [crear en el portal](search-create-service-portal.md). Puede usar el nivel Gratis para completar este tutorial. 
 
-1. En Visual Studio, abra el archivo **AzureSearchMultipleDataSources.sln**.
+### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Obtención de una clave de API de administración y una dirección URL para Azure Cognitive Search
 
-1. En el Explorador de soluciones, edite el archivo **appsettings.json**.  
+Para interactuar con el servicio Azure Cognitive Search, necesitará la dirección URL del servicio y una clave de acceso. Con ambos se crea un servicio de búsqueda, por lo que, si ha agregado Azure Cognitive Search a su suscripción, siga estos pasos para obtener la información necesaria:
 
-```json
-{
-  "SearchServiceName": "Put your search service name here",
-  "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
-  "BlobStorageAccountName": "Put your Azure Storage account name here",
-  "BlobStorageConnectionString": "Put your Azure Blob Storage connection string here",
-  "CosmosDBConnectionString": "Put your Cosmos DB connection string here",
-  "CosmosDBDatabaseName": "hotel-rooms-db"
-}
-```
+1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y en la página **Introducción** del servicio de búsqueda, obtenga la dirección URL. Un punto de conexión de ejemplo podría ser similar a `https://mydemo.search.windows.net`.
+
+1. En **Configuración** > **Claves**, obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
+
+   Obtenga también la clave de consulta. Es una práctica recomendada emitir solicitudes de consulta con acceso de solo lectura.
+
+   ![Obtención del nombre del servicio y las claves de consulta y administrador](media/search-get-started-nodejs/service-name-and-keys.png)
+
+Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
+
+## <a name="2---set-up-your-environment"></a>2: Configuración del entorno
+
+1. Inicie Visual Studio 2019 y, en el menú **Herramientas**, seleccione **Administrador de paquetes NuGet** y luego **Administrar paquetes NuGet para la solución...** 
+
+1. En la pestaña **Examinar**, busque e instale **Microsoft.Azure.Search** (versión 9.0.1 o posterior). Tendrá que hacer clic en algunos cuadros de diálogo adicionales para completar la instalación.
+
+    ![Uso de NuGet para agregar bibliotecas de Azure](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
+
+1. Busque el paquete NuGet **Microsoft.Extensions.Configuration.Json** e instálelo también.
+
+1. Abra el archivo de solución **AzureSearchMultipleDataSources.sln**.
+
+1. En el Explorador de soluciones, edite el archivo **appsettings.json** para agregar información de conexión.  
+
+    ```json
+    {
+      "SearchServiceName": "Put your search service name here",
+      "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
+      "BlobStorageAccountName": "Put your Azure Storage account name here",
+      "BlobStorageConnectionString": "Put your Azure Blob Storage connection string here",
+      "CosmosDBConnectionString": "Put your Cosmos DB connection string here",
+      "CosmosDBDatabaseName": "hotel-rooms-db"
+    }
+    ```
 
 Las dos primeras entradas usan las claves de dirección URL y de administrador del servicio Azure Cognitive Search. Por ejemplo, dado un punto de conexión de `https://mydemo.search.windows.net`, el nombre del servicio que debe proporcionar es `mydemo`.
 
 Las siguientes entradas especifican nombres de cuenta e información de la cadena de conexión de los orígenes de datos de Azure Blob Storage y Azure Cosmos DB.
 
-### <a name="identify-the-document-key"></a>Identificar la clave del documento
+## <a name="3---map-key-fields"></a>3: Asignación de campos de clave
 
-En Azure Cognitive Search, el campo de clave identifica de manera exclusiva cada documento del índice. Cada índice de búsqueda debe tener exactamente un campo clave de tipo `Edm.String`. Ese campo de clave debe estar presente para cada documento de un origen de datos que se agregue al índice. (de hecho, es el único campo obligatorio).
+La combinación de contenido requiere que ambos flujos de datos tengan como destino los mismos documentos en el índice de búsqueda. 
 
-Al indexar datos de varios orígenes de datos, use una clave de documento común para combinar datos de dos documentos de origen físicamente distintos en un nuevo documento de búsqueda en el índice combinado. A menudo requiere planeación inicial para identificar una clave de documentación significativa para el índice; asegúrese de que existe en ambos orígenes de datos. En esta demostración, la clave HotelId de cada hotel de Cosmos DB también está presente en los blobs JSON de Blob Storage.
+En Azure Cognitive Search, el campo de clave identifica de manera exclusiva cada documento. Cada índice de búsqueda debe tener exactamente un campo clave de tipo `Edm.String`. Ese campo de clave debe estar presente para cada documento de un origen de datos que se agregue al índice. (de hecho, es el único campo obligatorio).
 
-Los indexadores de Azure Cognitive Search pueden usar asignaciones de campo para cambiar el nombre e incluso el formato de campos de datos durante la indexación para poder dirigir los datos de origen al campo de índice correcto.
+Al indexar datos de varios orígenes de datos, asegúrese de que cada documento o fila entrante contiene una clave de documento común para combinar datos de dos documentos de origen físicamente distintos en un nuevo documento de búsqueda en el índice combinado. 
 
-Por ejemplo, en nuestros datos de Azure Cosmos DB de ejemplo, el identificador de los hoteles se denomina **`HotelId`** . Pero en los archivos de blob JSON de las habitaciones de los hoteles, se denomina **`Id`** . El programa se encarga de ello mediante la asignación del campo **`Id`** desde los blobs hasta el campo de clave **`HotelId`** del índice.
+A menudo requiere planeación inicial para identificar una clave de documentación significativa para el índice; asegúrese de que existe en ambos orígenes de datos. En esta demostración, la clave `HotelId` de cada hotel de Cosmos DB también está presente en los blobs JSON de Blob Storage.
+
+Los indexadores de Azure Cognitive Search pueden usar asignaciones de campo para cambiar el nombre e incluso el formato de campos de datos durante la indexación para poder dirigir los datos de origen al campo de índice correcto. Por ejemplo, en Cosmos DB, el identificador de los hoteles se denomina **`HotelId`** . Pero en los archivos de blob JSON de las habitaciones de los hoteles, se denomina **`Id`** . El programa se encarga de ello mediante la asignación del campo **`Id`** desde los blobs hasta el campo de clave **`HotelId`** del índice.
 
 > [!NOTE]
 > En la mayoría de los casos, las claves de documento generadas automáticamente, como las que crean algunos indexadores de forma predeterminada, no son buenas claves de documento para los índices combinados. En general, es preferible usar un valor de clave único y significativo que ya exista en los orígenes de datos o que se pueda agregar fácilmente a ellos.
 
-## <a name="understand-the-code"></a>Comprendiendo el código
+## <a name="4---explore-the-code"></a>4: Exploración del código
 
 Una vez que los valores de configuración y los datos estén en su lugar, el ejemplo de programa de **AzureSearchMultipleDataSources.sln** estará listo para la compilación y la ejecución.
 
 Esta sencilla aplicación de consola de C#/.NET realiza las siguientes tareas:
+
 * Crea un nuevo índice basado en la estructura de datos de la clase Hotel de C# (que también hace referencia a las clases Address y Room).
 * Crea un nuevo origen de datos y un indexador que asigna los datos de Azure Cosmos DB a campos de índice. Ambos son objetos de Azure Cognitive Search.
 * Ejecuta el indexador para cargar datos de Hotel desde Cosmos DB.
@@ -154,7 +169,7 @@ Esta sencilla aplicación de consola de C#/.NET realiza las siguientes tareas:
   + **Hotel.cs** contiene el esquema que define el índice.
   + **Program.cs** contiene las funciones que crean el índice de Azure Cognitive Search, los orígenes de datos y los indexadores, y cargan los resultados combinados en el índice.
 
-### <a name="define-the-index"></a>Definición del índice
+### <a name="create-an-index"></a>Creación de un índice
 
 Este programa de ejemplo usa el SDK de .NET para definir y crear un índice de Azure Cognitive Search. Aprovecha la clase [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) para generar una estructura de índice a partir de una clase de modelo de datos de C#.
 
@@ -330,7 +345,7 @@ Dado que el índice ya se ha rellenado con datos de los hoteles desde la base de
 > [!NOTE]
 > Si tiene los mismos campos (distintos del clave) en ambos orígenes de datos y los datos de esos campos no coinciden, el índice contendrá los valores del indexador que se ejecutara más recientemente. En nuestro ejemplo, ambos orígenes de datos contienen un campo **HotelName**. Si, por alguna razón, los datos de este campo difieren para documentos con el mismo valor de calve, los datos de **HotelName** del origen de datos que se indexara más recientemente serán los que se almacenen en el índice como valor.
 
-## <a name="search-your-json-files"></a>Buscar los archivos JSON
+## <a name="5---search"></a>5: Búsqueda
 
 Puede explorar el índice de búsqueda relleno tras la ejecución del programa con el [**Explorador de búsqueda**](search-explorer.md) del portal.
 
@@ -340,13 +355,23 @@ En Azure Portal, abra la página **Introducción** del servicio de búsqueda y b
 
 Haga clic en el índice hotel-rooms-sample en la lista. Verá una interfaz del Explorador de búsqueda para el índice. Escriba una consulta con un término, como "Luxury". Debería ver al menos un documento en los resultados y este documento debería mostrar una lista de objetos de las habitaciones de la matriz.
 
+## <a name="reset-and-rerun"></a>Restablecer y volver a ejecutar
+
+En las primeras etapas experimentales de desarrollo, el enfoque más práctico para las iteraciones del diseño es eliminar los objetos de Azure Cognitive Search y permitir que el código vuelva a generarlos. Los nombres de los recursos son únicos. La eliminación de un objeto permite volver a crearlo con el mismo nombre.
+
+En el código de ejemplo de este tutorial se comprueban los objetos existentes y se eliminan para que pueda volver a ejecutar el código.
+
+También puede usar el portal para eliminar los índices, indexadores y orígenes de datos.
+
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-La manera más rápida de borrar el contenido después de un tutorial es eliminar el grupo de recursos que contenga el servicio Azure Cognitive Search. Para eliminar de forma definitiva todo lo que contenga el grupo de recursos, elimine el grupo. En el portal, el nombre del grupo de recursos está en la página Información general de cada servicio Azure Cognitive Search.
+Cuando trabaje con su propia suscripción, al final de un proyecto, es recomendable eliminar los recursos que ya no necesite. Los recursos que se dejan en ejecución pueden costarle mucho dinero. Puede eliminar los recursos de forma individual o eliminar el grupo de recursos para eliminar todo el conjunto de recursos.
+
+Puede buscar y administrar los recursos en el portal, mediante el vínculo Todos los recursos o Grupos de recursos en el panel de navegación izquierdo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Hay varios enfoques y varias opciones para la indexación de blobs JSON. Si los datos de origen incluyen contenido JSON, puede revisar estas opciones para ver lo que funciona mejor con ese escenario.
+Ahora que está familiarizado con el concepto de ingesta de datos de varios orígenes, echemos un vistazo más de cerca a la configuración del indexador, comenzando por Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Indexación de blobs JSON con el indexador de blobs de Azure Cognitive Search](search-howto-index-json-blobs.md)
+> [Configuración de un indexador de Azure Cosmos DB](search-howto-index-cosmosdb.md)

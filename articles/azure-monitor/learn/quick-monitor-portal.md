@@ -1,19 +1,18 @@
 ---
 title: Supervisión de la aplicación web de ASP.NET con Azure Application Insights | Microsoft Docs
 description: Proporciona instrucciones para configurar rápidamente una aplicación web ASP.NET para la supervisión con Application Insights
-ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: 1aab9009c2c33522abdeae6ca865a35b9fc104e4
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 6ba7bca0756b4e2f6fdcb89208fe15e3517a9513
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900489"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661710"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Inicio de la supervisión de la aplicación web ASP.NET
 
@@ -21,7 +20,7 @@ Con Azure Application Insights puede supervisar fácilmente la disponibilidad, e
 
 En esta guía de inicio rápido se muestra cómo agregar Application Insights a una aplicación web ASP.NET existente y empezar a analizar las estadísticas en vivo, que es solo uno de los distintos métodos que puede usar para analizar la aplicación. Si no tiene una aplicación web ASP.NET, puede seguir el artículo de [Inicio rápido de creación de aplicaciones web ASP.NET](../../app-service/app-service-web-get-started-dotnet-framework.md) para crear una.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Para completar esta guía de inicio rápido:
 
 - Instale [Visual Studio 2019](https://www.visualstudio.com/downloads/) con las cargas de trabajo siguientes:
@@ -69,7 +68,7 @@ Ya puede abrir Application Insights en Azure Portal para ver distintos detalles 
 
     ![Mapa de aplicación](media/quick-monitor-portal/05-appmap.png)
 
-3. Haga clic en el icono **App Analytics** ![Mapa de aplicación](media/quick-monitor-portal/app-viewinlogs-icon.png) **Ver en Registros (Analytics)** , en uno de los componentes de la aplicación. Se abrirá **Registros (Analytics)** , que proporciona un lenguaje de consulta avanzado para analizar todos los datos recopilados por Application Insights. En este caso, se genera una consulta que representa el número de solicitudes en un gráfico. Puede escribir sus propias consultas para analizar otros datos.
+3. Haga clic en el icono **App Analytics**![Mapa de aplicación](media/quick-monitor-portal/app-viewinlogs-icon.png)**Ver en Registros (Analytics)** , en uno de los componentes de la aplicación. Se abrirá **Registros (Analytics)** , que proporciona un lenguaje de consulta avanzado para analizar todos los datos recopilados por Application Insights. En este caso, se genera una consulta que representa el número de solicitudes en un gráfico. Puede escribir sus propias consultas para analizar otros datos.
 
     ![Análisis](media/quick-monitor-portal/6viewanalytics.png)
 

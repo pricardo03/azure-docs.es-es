@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 4d4703ccb4ee96eb69a780f91eae1eb6da9e1578
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5b39186a39fbd2398fb4045ba62797e321fc3284
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225176"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249864"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Tutorial: Equilibrio de carga del tráfico de Internet en máquinas virtuales mediante Azure Portal
 
@@ -47,13 +47,13 @@ En esta sección, se crea una instancia de Standard Load Balancer que ayuda a eq
 1. En la parte superior izquierda de la pantalla, haga clic en **Crear un recurso** > **Redes** > **Azure Load Balancer**.
 2. En la pestaña **Datos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información, acepte los valores predeterminados del resto de la configuración y, luego, seleccione **Revisar y crear**:
 
-    | Configuración                 | Valor                                              |
+    | Configuración                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **Crear nuevo** y escriba *MyResourceGroupSLB* en el cuadro de texto.|
-    | NOMBRE                   | *myLoadBalancer*                                   |
-    | Region         | Seleccione **Europa Occidental**.                                        |
-    | type          | Seleccione **Público**.                                        |
+    | Nombre                   | *myLoadBalancer*                                   |
+    | Region         | Seleccione **Oeste de Europa**.                                        |
+    | Tipo          | Seleccione **Público**.                                        |
     | SKU           | Seleccione **Estándar**.                          |
     | Dirección IP pública | Seleccione **Crear nuevo**. |
     | Nombre de la dirección IP pública              | Escriba *myPublicIP* en el cuadro de texto.   |
@@ -83,9 +83,9 @@ Para permitir que Load Balancer supervise el estado de la aplicación, utilice u
 2. En **Configuración**, haga clic en **Sondeos de estado** y luego en **Agregar**.
 3. Use estos valores para crear el sondeo de estado:
      
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
-    | NOMBRE | Escriba *myHealthProbe*. |
+    | Nombre | Escriba *myHealthProbe*. |
     | Protocolo | Seleccione **HTTP**. |
     | Port | Escriba *80*.|
     | Intervalo | Escriba *15* como número de **Intervalo**, en segundos, entre los intentos de sondeo. |
@@ -101,9 +101,9 @@ Las reglas de Load Balancer se utilizan para definir cómo se distribuye el trá
 2. En **Configuración**, haga clic en **Reglas de equilibrio de carga** y luego en **Agregar**.
 3. Use estos valores para configurar la regla de equilibrio de carga:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
-    | NOMBRE | Escriba *myHTTPRule*. |
+    | Nombre | Escriba *myHTTPRule*. |
     | Protocolo | seleccione **TCP**. |
     | Port | Escriba *80*.|
     | Puerto back-end | Escriba *80*. |
@@ -116,22 +116,20 @@ Las reglas de Load Balancer se utilizan para definir cómo se distribuye el trá
 
 En esta sección, se crea una red virtual, luego tres máquinas virtuales para el grupo de back-end de la instancia de Load Balancer y, finalmente, se instala IIS en las máquinas virtuales para ayudar a probar el equilibrador de carga.
 
-### <a name="create-a-virtual-network"></a>Creación de una red virtual
+## <a name="virtual-network-and-parameters"></a>Red virtual y parámetros
 
-1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Red virtual**.
-2. En **Creación de una red virtual**, escriba o seleccione esta información:
+En los pasos de esta sección, tendrá que reemplazar los siguientes parámetros por la siguiente información:
 
-    | Configuración | Valor |
-    | ------- | ----- |
-    | NOMBRE | Escriba *myVNet*. |
-    | Espacio de direcciones | Escriba *10.1.0.0/16*. |
-    | Subscription | Seleccione su suscripción.|
-    | Resource group | Seleccione el recurso existente: *myResourceGroupSLB*. |
-    | Location | Seleccione **Europa Occidental**.|
-    | Subred: nombre | Escriba *myBackendSubnet*. |
-    | Subred: intervalo de direcciones | Escriba *10.1.0.0/24*. |
-    
-3. Deje el resto de valores predeterminados y seleccione **Crear**.
+| Parámetro                   | Value                |
+|-----------------------------|----------------------|
+| **\<nombre-de-grupo-recursos>**  | myResourceGroupSLB (seleccione el grupo de recursos existente) |
+| **\<nombre-de-red-virtual>** | myVNet          |
+| **\<nombre-de-región>**          | Oeste de Europa      |
+| **\<espacio-de-direcciones-IPv4>**   | 10.1.0.0\16          |
+| **\<nombre-de-subred>**          | mySubnet        |
+| **\<intervalo-de-direcciones-de-subred>** | 10.1.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-virtual-machines"></a>Creación de máquinas virtuales
 

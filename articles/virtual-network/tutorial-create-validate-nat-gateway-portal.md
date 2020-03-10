@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: a314af3d53936a58f9dfb3694ec1114ecdc3d521
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 4baf12533bed523c81ff41a81975f5bf5b918ac2
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587012"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250818"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal-and-test-the-nat-service"></a>Tutorial: Creación de una puerta de enlace de NAT mediante Azure Portal y prueba del servicio NAT
 
@@ -36,27 +36,24 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 Le guiaremos a través de la configuración de un entorno de prueba completo y la ejecución de las pruebas en los siguientes pasos. Comenzaremos con el origen, que usará el recurso de la puerta de enlace de NAT que se creará posteriormente.
 
-### <a name="create-a-virtual-network"></a>Creación de una red virtual
+## <a name="virtual-network-and-parameters"></a>Red virtual y parámetros
 
 Antes de implementar una máquina virtual y usar la puerta de enlace de NAT, es necesario crear el grupo de recursos y la red virtual.
 
-1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Red virtual**, o busque **Red virtual** en el cuadro de búsqueda de Marketplace.
+En los pasos de esta sección, tendrá que reemplazar los siguientes parámetros por la siguiente información:
 
-2. En **Creación de una red virtual**, escriba o seleccione esta información:
+| Parámetro                   | Value                |
+|-----------------------------|----------------------|
+| **\<nombre-de-grupo-recursos>**  | myResourceGroupNAT |
+| **\<nombre-de-red-virtual>** | myVNetsource          |
+| **\<nombre-de-región>**          | Este de EE. UU. 2      |
+| **\<espacio-de-direcciones-IPv4>**   | 192.168.0.0\16          |
+| **\<nombre-de-subred>**          | mySubnetsource        |
+| **\<intervalo-de-direcciones-de-subred>** | 192.168.0.0\24          |
 
-    | Configuración | Value |
-    | ------- | ----- |
-    | Nombre | Escriba **myVNetsource**. |
-    | Espacio de direcciones | escriba **192.168.0.0/16**. |
-    | Subscription | Seleccione su suscripción.|
-    | Resource group | Seleccione Crear nuevo: **myResourceGroupNAT**. |
-    | Location | Seleccione **Este de EE. UU. 2**.|
-    | Subred: nombre | Escriba **mySubnetsource**. |
-    | Subred: intervalo de direcciones | Escriba **192.168.0.0/24**. |
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
-3. Deje el resto de valores predeterminados y seleccione **Crear**.
-
-### <a name="create-source-virtual-machine"></a>Creación de la máquina virtual de origen
+## <a name="create-source-virtual-machine"></a>Creación de la máquina virtual de origen
 
 Ahora se va a crear una máquina virtual para usar el servicio NAT. Esta máquina virtual tiene una dirección IP pública en el nivel de instancia que le permite el acceso a la máquina virtual. El servicio NAT tiene en cuenta la dirección del flujo y reemplazará el destino predeterminado de Internet en la subred. La dirección IP pública de la máquina virtual no se usará para las conexiones salientes.
 
@@ -161,25 +158,25 @@ Todo el tráfico saliente a destinos de Internet usa ahora el servicio NAT.  No 
 
 Ahora se va a crear un destino para el tráfico saliente traducido por el servicio NAT para que pueda probarlo.
 
-### <a name="configure-virtual-network-for-destination"></a>Configuración de una red virtual para el destino
+
+## <a name="virtual-network-and-parameters-for-destination"></a>Red virtual y parámetros para el destino
 
 Antes de implementar una máquina virtual como destino, es necesario crear una red virtual donde pueda residir esta máquina. Los siguientes pasos son los mismos que para la máquina virtual de origen con algunos pequeños cambios para exponer el punto de conexión de destino.
 
-1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Red virtual**.
+En los pasos de esta sección, tendrá que reemplazar los siguientes parámetros por la siguiente información:
 
-2. En **Creación de una red virtual**, escriba o seleccione esta información:
+| Parámetro                   | Value                |
+|-----------------------------|----------------------|
+| **\<nombre-de-grupo-recursos>**  | myResourceGroupNAT |
+| **\<nombre-de-red-virtual>** | myVNetdestination          |
+| **\<nombre-de-región>**          | Este de EE. UU. 2      |
+| **\<espacio-de-direcciones-IPv4>**   | 192.168.0.0\16          |
+| **\<nombre-de-subred>**          | mySubnetdestination        |
+| **\<intervalo-de-direcciones-de-subred>** | 192.168.0.0\24          |
 
-    | Configuración | Value |
-    | ------- | ----- |
-    | Nombre | Escriba **myVNetdestination**. |
-    | Espacio de direcciones | escriba **192.168.0.0/16**. |
-    | Subscription | Seleccione su suscripción.|
-    | Resource group | Seleccione Crear nuevo: **myResourceGroupNAT**. |
-    | Location | Seleccione **Este de EE. UU. 2**.|
-    | Subred: nombre | Escriba **mySubnetdestination**. |
-    | Subred: intervalo de direcciones | Escriba **192.168.0.0/24**. |
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
-### <a name="create-destination-virtual-machine"></a>Creación de la máquina virtual de destino
+## <a name="create-destination-virtual-machine"></a>Creación de la máquina virtual de destino
 
 1. En la parte superior izquierda del portal, seleccione **Crear un recurso** > **Proceso** > **Ubuntu Server 18.04 LTS**, o busque **Ubuntu Server 18.04 LTS** en el cuadro de búsqueda de Marketplace.
 

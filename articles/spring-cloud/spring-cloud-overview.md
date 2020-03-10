@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: overview
 ms.date: 11/4/2019
 ms.author: brendm
-ms.openlocfilehash: 87b7ac1e9de2087de6e0b9d72fb445ca515a2e32
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 4426044b3608be0ded378f4f56cbec6bc1948d75
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277143"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273255"
 ---
 # <a name="what-is-azure-spring-cloud"></a>¿Qué es Azure Spring Cloud?
 
@@ -47,7 +47,7 @@ Azure Spring Cloud permite escalar fácilmente los microservicios en el panel de
 
 ### <a name="monitor-your-application-using-distributed-tracing-and-azure-app-insights"></a>Supervisión de una aplicación mediante el uso del seguimiento distribuido y de Azure App Insights
 
-Las herramientas de seguimiento distribuido de Spring Cloud permiten a los desarrolladores depurar y supervisar las complejas interconexiones entre los microservicios en su aplicación.  Mediante la integración de [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) en [Azure Application Insights](../azure-monitor/insights/insights-overview.md) Azure proporciona una eficaz funcionalidad de seguimiento distribuido directamente desde Azure Portal.  Para más información, complete este [tutorial](spring-cloud-tutorial-distributed-tracing.md).
+Las herramientas de seguimiento distribuido de Spring Cloud permiten a los desarrolladores depurar y supervisar las complejas interconexiones entre los microservicios de una aplicación.  Mediante la integración de [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) en [Azure Application Insights](../azure-monitor/insights/insights-overview.md) Azure proporciona una eficaz funcionalidad de seguimiento distribuido directamente desde Azure Portal.  Para más información, complete este [tutorial](spring-cloud-tutorial-distributed-tracing.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

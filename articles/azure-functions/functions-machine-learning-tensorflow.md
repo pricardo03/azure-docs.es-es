@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: e98655dca7d682e5c42f3b0ae7f26c892bd12377
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: c64d87b2430cc1d733a67bbc1e803590a37b1714
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76710709"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190779"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutorial: Aplicación de modelos de aprendizaje automático en Azure Functions con Python y TensorFlow
 
@@ -23,7 +23,7 @@ En este artículo, aprenderá a usar Python, TensorFlow y Azure Functions con un
 > * Cree una API HTTP sin servidor para clasificar una imagen que contenga un perro o un gato.
 > * Utilice la API desde una aplicación web.
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Prerrequisitos 
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Python 3.7.4](https://www.python.org/downloads/release/python-374/) (Python 3.7.4 y Python 3.6.x se han comprobado con Azure Functions; Python 3.8 y las versiones posteriores aún no son compatibles).
@@ -59,7 +59,7 @@ En este artículo, aprenderá a usar Python, TensorFlow y Azure Functions con un
 Vaya a la carpeta *start* y ejecute los siguientes comandos para crear y activar un entorno virtual llamado `.venv`. Asegúrese de usar Python 3.7, que es compatible con Azure Functions.
 
 
-# <a name="bashtabbash"></a>[bash](#tab/bash)
+# <a name="bash"></a>[bash](#tab/bash)
 
 ```bash
 cd start
@@ -79,7 +79,7 @@ Si Python no instaló el paquete venv en la distribución de Linux, ejecute el s
 sudo apt-get install python3-venv
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 cd start
@@ -93,7 +93,7 @@ py -m venv .venv
 .venv\scripts\activate
 ```
 
-# <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+# <a name="cmd"></a>[Cmd](#tab/cmd)
 
 ```cmd
 cd start
@@ -133,7 +133,7 @@ En Azure Functions, un proyecto de función es un contenedor para una o varias f
     func new --name classify --template "HTTP trigger"
     ```
 
-    Este comando crea una carpeta que coincide con el nombre de la función *classify*. En esa carpeta hay dos archivos: *\_\_init\_\_.py*, que contiene el código de la función, y *function.json*, que describe el desencadenador de la función y sus enlaces de entrada y salida. Para más información sobre el contenido de estos archivos, consulte [Creación de una función de Python desencadenada mediante HTTP en Azure: Examen del contenido del archivo](functions-create-first-function-python.md#optional-examine-the-file-contents).
+    Este comando crea una carpeta que coincide con el nombre de la función *classify*. En esa carpeta hay dos archivos: *\_\_init\_\_.py*, que contiene el código de la función, y *function.json*, que describe el desencadenador de la función y sus enlaces de entrada y salida. Para obtener información detallada sobre el contenido de estos archivos, consulte [Examen del contenido del archivo](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#optional-examine-the-file-contents) en la guía de inicio rápido de Python.
 
 
 ## <a name="run-the-function-locally"></a>Ejecución local de la función
@@ -158,19 +158,19 @@ Para modificar la función `classify` para clasificar una imagen en función de 
 
 1. En la carpeta *start*, ejecute el siguiente comando para copiar los archivos del modelo en la carpeta *classify*. Asegúrese de incluir `\*` en el comando. 
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     cp ../resources/model/* classify
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     copy ..\resources\model\* classify
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```cmd
     copy ..\resources\model\* classify
@@ -182,19 +182,19 @@ Para modificar la función `classify` para clasificar una imagen en función de 
 
 1. En la carpeta *start*, ejecute el siguiente comando para copiar un archivo con el código auxiliar en la carpeta *classify*:
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     cp ../resources/predict.py classify
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     copy ..\resources\predict.py classify
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```cmd
     copy ..\resources\predict.py classify
@@ -266,19 +266,19 @@ Para probar la invocación del punto de conexión de la función desde otra apli
 
 1. Inicie un servidor HTTP con Python:
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
 
     ```bash 
     python -m http.server
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
     ```powershell
     py -m http.server
     ```
 
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
 
     ```cmd
     py -m http.server

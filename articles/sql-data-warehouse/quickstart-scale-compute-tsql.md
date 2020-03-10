@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: escalado de procesos: T-SQL '
-description: Escale procesos en Azure SQL Data Warehouse con T-SQL y SQL Server Management Studio (SSMS). Escale horizontalmente un proceso para aumentar el rendimiento, o bien revierta la escalabilidad del proceso para ahorrar costos.
+title: 'Escalado de proceso en Azure Synapse Analytics: T-SQL'
+description: Escale un proceso en Azure Synapse Analytics con T-SQL y SQL Server Management Studio (SSMS). Escale horizontalmente un proceso para aumentar el rendimiento, o bien revierta la escalabilidad del proceso para ahorrar costos.
 services: sql-data-warehouse
 author: Antvgski
 manager: craigg
@@ -10,17 +10,17 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 6729552262d7bea619948ddba406418b80cf69dc
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: a6d47a41375c00b9bdad5079f8e1f11cf369120a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685947"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200442"
 ---
-# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Inicio rápido: Escalabilidad de un proceso en Azure SQL Data Warehouse mediante T-SQL
+# <a name="quickstart-scale-compute-in-azure-synapse-analytics-using-t-sql"></a>Inicio rápido: Escalado de proceso en Azure Synapse Analytics mediante T-SQL
 
-Escale procesos en Azure SQL Data Warehouse con T-SQL y SQL Server Management Studio (SSMS). [Escale horizontalmente un proceso](sql-data-warehouse-manage-compute-overview.md) para aumentar el rendimiento, o bien revierta la escalabilidad del proceso para ahorrar costos. 
+Escale proceso en Azure Synapse Analytics (anteriormente SQL DW) mediante T-SQL y SQL Server Management Studio (SSMS). [Escale horizontalmente un proceso](sql-data-warehouse-manage-compute-overview.md) para aumentar el rendimiento, o bien revierta la escalabilidad del proceso para ahorrar costos. 
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -30,7 +30,7 @@ Descargue e instale la versión más reciente de [SQL Server Management Studio](
  
 ## <a name="create-a-data-warehouse"></a>Creación del almacenamiento de datos
 
-Use [Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella](create-data-warehouse-portal.md) para crear un almacenamiento de datos denominado **mySampleDataWarehouse**. Complete la guía de inicio rápido para asegurarse de que disponga de una regla de firewall y de que pueda conectarse al almacenamiento de datos desde SQL Server Management Studio.
+Use [Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella](create-data-warehouse-portal.md) para crear un almacenamiento de datos denominado **mySampleDataWarehouse**. Complete el inicio rápido para asegurarse de que dispone de una regla de firewall y puede conectarse al almacenamiento de datos desde SQL Server Management Studio.
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Conexión al servidor como administrador del mismo
 
@@ -40,29 +40,29 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
 
 2. En el cuadro de diálogo **Conectar con el servidor**, especifique la siguiente información:
 
-   | Configuración       | Valor sugerido | DESCRIPCIÓN | 
+   | Configuración       | Valor sugerido | Descripción | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Tipo de servidor | Motor de base de datos | Este valor es obligatorio |
-   | Nombre de servidor | Nombre completo del servidor | Este es un ejemplo: **mynewserver 20171113.database.windows.net**. |
+   | Nombre de servidor | Nombre completo del servidor | Este es un ejemplo: **mySampleDataWarehouseservername.database.windows.net**. |
    | Authentication | Autenticación de SQL Server | Autenticación de SQL es el único tipo de autenticación que se ha configurado en este tutorial. |
    | Inicio de sesión | La cuenta de administrador del servidor | Es la cuenta que especificó cuando creó el servidor. |
    | Contraseña | La contraseña de la cuenta de administrador del servidor | Es la contraseña que especificó cuando creó el servidor. |
 
-    ![conectar con el servidor](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
+    ![Conexión con el servidor](media/quickstart-scale-compute-tsql/connect-to-server.png)
 
-4. Haga clic en **Conectar**. Se abre la ventana del Explorador de objetos en SSMS. 
+3. Haga clic en **Conectar**. La ventana Explorador de objetos se abre en SSMS.
 
-5. En el Explorador de objetos, expanda **Bases de datos**. Después, expanda **mySampleDatabase** para ver los objetos de la base de datos.
+4. En el Explorador de objetos, expanda **Bases de datos**. Después, expanda **mySampleDataWarehouse** para ver los objetos de la nueva base de datos.
 
-    ![Objetos de base de datos](media/create-data-warehouse-portal/connected.png) 
+    ![Objetos de base de datos](media/quickstart-scale-compute-tsql/connected.png)
 
 ## <a name="view-service-objective"></a>Visualización del objetivo del servicio
 La configuración del objetivo del servicio contiene el número de unidades del almacenamiento de datos. 
 
 Para ver las unidades actuales del almacenamiento de datos:
 
-1. En la conexión a **mynewserver-20171113.database.windows.net**, expanda **Bases de datos del sistema**.
-2. Haga clic con el botón derecho en **maestra** y luego seleccione **Nueva consulta**. Se abre una nueva ventana de consulta.
+1. En la conexión a **mySampleDataWarehouseservername.database.windows.net**, expanda **Bases de datos del sistema**.
+2. Haga clic con el botón derecho en **maestra** y luego seleccione **Nueva consulta**. Se abrirá una nueva ventana de consulta.
 3. Ejecute la consulta siguiente para realizar la selección desde la vista de administración dinámica sys.database_service_objectives. 
 
     ```sql
@@ -80,11 +80,10 @@ Para ver las unidades actuales del almacenamiento de datos:
 
 4. Los siguientes resultados muestran que **mySampleDataWarehouse** tiene un objetivo del servicio de DW400. 
 
-    ![Visualización de las DWU actuales](media/quickstart-scale-compute-tsql/view-current-dwu.png)
-
+    ![iew-current-dwu](media/quickstart-scale-compute-tsql/view-current-dwu.png)
 
 ## <a name="scale-compute"></a>Escalado de proceso
-En SQL Data Warehouse, puede aumentar o reducir los recursos de procesos mediante el ajuste de las unidades del almacenamiento de datos. En [Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella](create-data-warehouse-portal.md) creó **mySampleDataWarehouse** y lo inició con 400 DWU. En los siguientes pasos se ajustan las DWU para **mySampleDataWarehouse**.
+En Azure Synapse, puede aumentar o reducir los recursos de proceso mediante el ajuste de las unidades de almacenamiento de datos. En [Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella](create-data-warehouse-portal.md) creó **mySampleDataWarehouse** y lo inició con 400 DWU. En los siguientes pasos se ajustan las DWU para **mySampleDataWarehouse**.
 
 Para cambiar las unidades de almacenamiento de datos:
 
@@ -93,8 +92,7 @@ Para cambiar las unidades de almacenamiento de datos:
 
     ```Sql
     ALTER DATABASE mySampleDataWarehouse
-    MODIFY (SERVICE_OBJECTIVE = 'DW300c')
-    ;
+    MODIFY (SERVICE_OBJECTIVE = 'DW300c');
     ```
 
 ## <a name="monitor-scale-change-request"></a>Supervisión de la solicitud de cambio de escalado
@@ -113,7 +111,7 @@ Para sondear el estado de cambio del objeto de servicio:
         WHERE 
             1=1
             AND resource_type_desc = 'Database'
-            AND major_resource_id = 'MySampleDataWarehouse'
+            AND major_resource_id = 'mySampleDataWarehouse'
             AND operation = 'ALTER DATABASE'
         ORDER BY
             start_time DESC
@@ -134,7 +132,7 @@ Cuando se pausa un almacenamiento de datos, no podrá conectarse a este con T-SQ
 
 ## <a name="check-operation-status"></a>Comprobación del estado de la operación
 
-Para obtener información sobre varias operaciones de administración de SQL Data Warehouse, ejecute la siguiente consulta en la DMV [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). Por ejemplo, devuelve la operación y su estado, que será IN_PROGRESS o COMPLETED.
+Para devolver información sobre diversas operaciones de administración en Azure Synapse, ejecute la siguiente consulta en la DMV [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). Por ejemplo, devuelve la operación y su estado, que será IN_PROGRESS o COMPLETED.
 
 ```sql
 SELECT *
@@ -143,12 +141,12 @@ FROM
 WHERE
     resource_type_desc = 'Database'
 AND 
-    major_resource_id = 'MySampleDataWarehouse'
+    major_resource_id = 'mySampleDataWarehouse'
 ```
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ya ha aprendido a escalar procesos para el almacenamiento de datos. Para más información sobre Azure SQL Data Warehouse, siga el tutorial para cargar los datos.
+Ya ha aprendido a escalar procesos para el almacenamiento de datos. Para más información sobre Azure Synapse, siga el tutorial para la carga de datos.
 
 > [!div class="nextstepaction"]
->[Carga de datos en una instancia de SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+>[Carga de datos en Azure Synapse Analytics](load-data-from-azure-blob-storage-using-polybase.md)

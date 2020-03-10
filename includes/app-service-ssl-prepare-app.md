@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 1c3f2009dc71df1a5496d585bdcba986a79ac0d0
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 4c5c0197ab6cecbba4bac4c0bff5ef76de24b6de
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768473"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301016"
 ---
 ## <a name="prepare-your-web-app"></a>Preparar la aplicación web
 
-Para enlazar un certificado SSL personalizado (un certificado de terceros o un certificado de App Service) a la aplicación web, su [plan de App Service](https://azure.microsoft.com/pricing/details/app-service/) debe estar en el nivel **Básico**, **Estándar**, **Premium** o **Aislado**. En este paso, asegúrese de que la aplicación web se encuentra en el plan de tarifa compatible.
+Para crear enlaces de seguridad personalizados o habilitar certificados de cliente para la aplicación ggApp Service, el [plan de App Service](https://azure.microsoft.com/pricing/details/app-service/) debe ser de nivel **Básico**, **Estándar**, **Premium** o **Aislado**. En este paso, asegúrese de que la aplicación web se encuentra en el plan de tarifa compatible.
 
 ### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 

@@ -1,18 +1,18 @@
 ---
 title: Introducción a la seguridad de la empresa en Azure HDInsight
 description: Conozca los diferentes métodos para garantizar la seguridad de la empresa en Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: overview
-ms.date: 09/23/2019
-ms.openlocfilehash: 0e7b2db188ef6ee7d6b80ba5da4010112008ad70
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.date: 03/03/2020
+ms.openlocfilehash: 95bfe7d7788133d8548598cb30c8084bf64a977f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122114"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267721"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Introducción a la seguridad de la empresa en Azure HDInsight
 
@@ -28,7 +28,7 @@ Una forma de ver la seguridad empresarial divide las soluciones de seguridad en 
 
 ### <a name="perimeter-security"></a>Seguridad del perímetro
 
-La seguridad del perímetro en HDInsight se logra a través de [redes virtuales](../hdinsight-plan-virtual-network-deployment.md). Un administrador de empresa puede crear un clúster dentro de una red virtual y usar los grupos de seguridad de red (NSG) para restringir el acceso a la red virtual. Solo las direcciones IP permitidas en las reglas de NSG de entrada podrán comunicarse con el clúster de HDInsight. Esta configuración proporciona la seguridad del perímetro.
+La seguridad del perímetro en HDInsight se logra a través de [redes virtuales](../hdinsight-plan-virtual-network-deployment.md). Un administrador de empresa puede crear un clúster dentro de una red virtual y usar grupos de seguridad de red (NSG) para restringir el acceso a esta. Solo las direcciones IP permitidas en las reglas de NSG de entrada podrán comunicarse con el clúster de HDInsight. Esta configuración proporciona la seguridad del perímetro.
 
 Todos los clústeres implementados en una red virtual también tendrán un punto de conexión privado que se resuelve a una dirección IP privada dentro de la red virtual para el acceso HTTP privado a las puertas de enlace del clúster.
 
@@ -36,13 +36,13 @@ Todos los clústeres implementados en una red virtual también tendrán un punto
 
 [Enterprise Security Package](apache-domain-joined-architecture.md) de HDInsight proporciona la autenticación basada en Active Directory, la compatibilidad multiusuario y el control de acceso basado en rol. La integración con Active Directory se logra mediante el uso de [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). Con estas funcionalidades, puede crear un clúster de HDInsight que se una a un dominio administrado de Active Directory. Luego puede configurar una lista de empleados de la empresa que pueden autenticarse e iniciar sesión en el clúster.
 
-Con esta configuración, los empleados de la empresa pueden iniciar sesión en los nodos del clúster con sus credenciales de dominio. También pueden usar sus credenciales de dominio para autenticarse con otros puntos de conexión aprobados tales como Apache Ambari Views, ODBC, JDBC, PowerShell y las API REST para interactuar con el clúster. 
+Con esta configuración, los empleados de la empresa pueden iniciar sesión en los nodos del clúster con sus credenciales de dominio. También pueden usar sus credenciales de dominio para autenticarse con otros puntos de conexión aprobados tales como Apache Ambari Views, ODBC, JDBC, PowerShell y las API REST para interactuar con el clúster.
 
 ### <a name="authorization"></a>Authorization
 
 Un procedimiento recomendado que la mayoría de las empresas sigue es que no todos los empleados tengan acceso a todos los recursos de la empresa. Asimismo, el administrador puede definir directivas de control de acceso basado en rol para los recursos del clúster. Esto solo está disponible en los clústeres de ESP.
 
-El administrador de Hadoop puede configurar el control de acceso basado en rol (RBAC) para proteger Apache [Hive](apache-domain-joined-run-hive.md), [HBase](apache-domain-joined-run-hbase.md) y [Kafka](apache-domain-joined-run-kafka.md) mediante los complementos de Apache Ranger. La configuración de las directivas RBAC permite asociar permisos a un rol de la organización. Esta capa de abstracción hace más fácil asegurar que los usuarios solo tengan los permisos necesarios para realizar sus responsabilidades laborales. Ranger también puede auditar el acceso a los datos de los empleados y todos los cambios que se realizan en las directivas de control de acceso.
+El administrador de Hadoop puede configurar el control de acceso basado en rol (RBAC) para proteger Apache [Hive](apache-domain-joined-run-hive.md), [HBase](apache-domain-joined-run-hbase.md) y [Kafka](apache-domain-joined-run-kafka.md) mediante esos complementos de Apache Ranger. La configuración de las directivas RBAC permite asociar permisos a un rol de la organización. Esta capa de abstracción hace más fácil asegurar que los usuarios solo tengan los permisos necesarios para realizar sus responsabilidades laborales. Ranger también puede auditar el acceso a los datos de los empleados y todos los cambios que se realizan en las directivas de control de acceso.
 
 Por ejemplo, puede configurar el administrador [Apache Ranger](https://ranger.apache.org/) para establecer las directivas de control de acceso para Hive. Esta funcionalidad garantiza el filtrado a nivel de fila y de columna (enmascaramiento de datos) y filtra los datos confidenciales de usuarios no autorizados.
 
@@ -50,9 +50,9 @@ Por ejemplo, puede configurar el administrador [Apache Ranger](https://ranger.ap
 
 Auditar todos los acceso a los recursos de clúster, y los datos, es necesario para hacer seguimiento del acceso no autorizado o accidental de los recursos. Es tan importante como proteger los recursos de clúster de HDInsight contra usuarios no autorizados y proteger los datos.
 
-El administrador puede ver y notificar todos los accesos a los recursos y los datos del clúster de HDInsight. El administrador también puede ver y notificar todos los cambios en las directivas de control de acceso creados en los puntos de conexión de Apache Ranger compatibles. 
+El administrador puede ver y notificar todos los accesos a los recursos y los datos del clúster de HDInsight. El administrador también puede ver y notificar todos los cambios en las directivas de control de acceso creados en los puntos de conexión de Apache Ranger compatibles.
 
-Para acceder a los registros de auditoría de Apache Ranger y Ambari, así como a los registros de acceso ssh, [habilite Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing) y consulte las tablas que proporcionan registros de auditoría relacionados.
+Para acceder a los registros de auditoría de Apache Ranger y Ambari, así como a los registros de acceso mediante SSH, [habilite Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing) y consulte las tablas que proporcionan registros de auditoría.
 
 ### <a name="encryption"></a>Cifrado
 

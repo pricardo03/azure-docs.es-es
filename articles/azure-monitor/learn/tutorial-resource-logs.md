@@ -1,18 +1,17 @@
 ---
 title: Recopilación de registros de recurso de un recurso de Azure y análisis con Azure Monitor
 description: Tutorial para configurar los valores de diagnóstico para recopilar registros de recurso de un recurso de Azure en un área de trabajo de Log Analytics donde se puedan analizar con una consulta de registro.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 90b2a9bc9e3e8aa6297f02a46163717a2bf58a22
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: d356042d65c419163de4951e64a635a22ea90e6d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532618"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269187"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Tutorial: Recopilación y análisis de registros de recurso desde un recurso de Azure
 
@@ -26,7 +25,7 @@ En este tutorial, aprenderá a:
 > * Crear una consulta de registro simple para analizar registros
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesitará un recurso de Azure para supervisarlo. Puede usar cualquier recurso de la suscripción de Azure que admita la configuración de diagnóstico. Para determinar si un recurso es compatible con la configuración de diagnóstico, vaya a su menú en Azure Portal y busque la opción **Configuración de diagnóstico** en la sección **Supervisión** del menú.
 
@@ -47,7 +46,7 @@ Un área de trabajo de Log Analytics en Azure Monitor recopila e indexa los dato
    - **Suscripción**: donde almacenar el área de trabajo. No es necesario que sea la misma suscripción que la del recurso bajo supervisión.
    - **Grupo de recursos**: seleccione uno existente o haga clic en **Crear** para crear un grupo de recursos nuevo. No es necesario que sea el mismo grupo de recursos que el del recurso bajo supervisión.
    - **Ubicación**: seleccione una región de Azure o cree una. No es necesario que sea la misma ubicación que la del recurso bajo supervisión.
-   - **Plan de tarifa**: seleccione *Gratis*, que retendrá los datos de 7 días. Puede cambiar el plan de tarifa más adelante. Haga clic en el vínculo **Precios de Log Analytics** para más información sobre los distintos planes de tarifa.
+   - **Plan de tarifa**: Seleccione *Pago por uso* como plan de tarifa. Puede cambiar el plan de tarifa más adelante. Haga clic en el vínculo **Precios de Log Analytics** para más información sobre los distintos planes de tarifa.
 
     ![Nueva área de trabajo](media/tutorial-resource-logs/new-workspace.png)
 

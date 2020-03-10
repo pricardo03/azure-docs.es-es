@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2019
 ms.author: mametcal
 ms.custom: mvc
-ms.openlocfilehash: 8c66e2995462701f7ddaefc3a2623c02fee883ef
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 090ede85301f9e7aff14394c8fb5c7d558d98dd4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687205"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656031"
 ---
 # <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Tutorial: Uso de marcas de características en una aplicación de Spring Boot
 
@@ -51,11 +51,23 @@ Es recomendable que mantenga las marcas de características fuera de la aplicaci
 
 La manera más fácil de conectar la aplicación de Spring Boot con App Configuration es mediante el proveedor de configuración:
 
+### <a name="spring-cloud-11x"></a>Spring Cloud 1.1.x
+
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
-    <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-    <version>1.1.0.M4</version>
+    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+    <version>1.1.1</version>
+</dependency>
+```
+
+### <a name="spring-cloud-12x"></a>Spring Cloud 1.2.x
+
+```xml
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+    <version>1.2.1</version>
 </dependency>
 ```
 
@@ -69,23 +81,22 @@ El administrador de características admite *application.yml* como origen de con
 
 ```yml
 feature-management:
-  featureSet:
-    features:
-      FeatureA: true
-      FeatureB: false
-      FeatureC:
-        EnabledFor:
-          -
-            name: Percentage
-            parameters:
-              value: 50
+  feature-set:
+    feature-a: true
+    feature-b: false
+    feature-c:
+      enabled-for:
+        -
+          name: Percentage
+          parameters:
+            value: 50
 ```
 
 Por convención, la sección `feature-management` de este documento YAML se usa para la configuración de la marca de características. El ejemplo anterior muestra tres marcas de características con los filtros definidos en la propiedad `EnabledFor`:
 
-* `FeatureA` está *activada*.
-* `FeatureB` está *desactivada*.
-* `FeatureC` especifica un filtro denominado `Percentage` con una propiedad `Parameters`. `Percentage` es un filtro configurable. En este ejemplo, `Percentage` especifica una probabilidad del 50 por ciento de que la marca `FeatureC` esté *activada*.
+* `feature-a` está *activada*.
+* `feature-b` está *desactivada*.
+* `feature-c` especifica un filtro denominado `Percentage` con una propiedad `parameters`. `Percentage` es un filtro configurable. En este ejemplo, `Percentage` especifica una probabilidad del 50 por ciento de que la marca `feature-c` esté *activada*.
 
 ## <a name="feature-flag-checks"></a>Comprobaciones de las marcas de características
 
@@ -94,7 +105,7 @@ El patrón básico de administración de características consiste en comprobar 
 ```java
 private FeatureManager featureManager;
 ...
-if (featureManager.isEnabled("FeatureA"))
+if (featureManager.isEnabledAsync("feature-a"))
 {
     // Run the following code
 }
@@ -118,11 +129,11 @@ public class HomeController {
 
 ## <a name="controller-actions"></a>Acciones de controlador
 
-En los controladores MVC, puede usar un atributo `@FeatureGate` para controlar si se habilita una acción específica. La siguiente acción `Index` requiere que `FeatureA` esté *activada* para ejecutarse:
+En los controladores MVC, puede usar un atributo `@FeatureGate` para controlar si se habilita una acción específica. La siguiente acción `Index` requiere que `feature-a` esté *activada* para ejecutarse:
 
 ```java
 @GetMapping("/")
-@FeatureGate(feature = "FeatureA")
+@FeatureGate(feature = "feature-a")
 public String index(Model model) {
     ...
 }
@@ -132,7 +143,7 @@ Cuando una acción o controlador MVC está bloqueado porque la marca de caracter
 
 ## <a name="mvc-filters"></a>Filtros MVC
 
-Los filtros MVC se pueden configurar de manera que se activen en función del estado de una marca de características. El código siguiente agrega un filtro MVC denominado `FeatureFlagFilter`. Este filtro se desencadena en la canalización de MVC solo si está habilitada `FeatureA`.
+Los filtros MVC se pueden configurar de manera que se activen en función del estado de una marca de características. El código siguiente agrega un filtro MVC denominado `FeatureFlagFilter`. Este filtro se desencadena en la canalización de MVC solo si está habilitada `feature-a`.
 
 ```java
 @Component
@@ -144,7 +155,7 @@ public class FeatureFlagFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-        if(!featureManager.isEnabled("FeatureA")) {
+        if(!featureManager.isEnabled("feature-a")) {
             chain.doFilter(request, response);
             return;
         }
@@ -156,11 +167,11 @@ public class FeatureFlagFilter implements Filter {
 
 ## <a name="routes"></a>Rutas
 
-Puede usar marcas de características para redirigir rutas. El siguiente código que redirigirá a un usuario de `FeatureA` está habilitado:
+Puede usar marcas de características para redirigir rutas. El siguiente código que redirigirá a un usuario de `feature-a` está habilitado:
 
 ```java
 @GetMapping("/redirect")
-@FeatureGate(feature = "FeatureA", fallback = "/getOldFeature")
+@FeatureGate(feature = "feature-a", fallback = "/getOldFeature")
 public String getNewFeature() {
     // Some New Code
 }

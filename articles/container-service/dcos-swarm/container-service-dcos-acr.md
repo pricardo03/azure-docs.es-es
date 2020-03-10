@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 8319f2f5405271679d0c11d4ac68492cdec8fc14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1dccc42301cf73fb215d99636dfee9eef9bc59e
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66148932"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274157"
 ---
 # <a name="deprecated-use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>(EN DESUSO) Uso de ACR con un clúster de DC/OS para implementar la aplicación
 
@@ -46,7 +46,7 @@ az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM
 
 Una vez creado el registro, la CLI de Azure da como resultado datos similares a los que aparecen a continuación. Anote `name` y `loginServer`, ya que se usarán en pasos posteriores.
 
-```azurecli
+```output
 {
   "adminUserEnabled": false,
   "creationDate": "2017-06-06T03:40:56.511597+00:00",
@@ -93,7 +93,7 @@ FQDN=$(az acs list --resource-group myResourceGroup --query "[0].masterProfile.f
 
 Cree una conexión SSH con el patrón (o el primer patrón) del clúster basado en DC/OS. Actualice el nombre de usuario si se utilizó un valor no predeterminado al crear el clúster.
 
-```azurecli-interactive
+```console
 ssh azureuser@$FQDN
 ```
 
@@ -107,13 +107,13 @@ docker -H tcp://localhost:2375 login --username=myContainerRegistry23489 --passw
 
 Cree un archivo comprimido que contenga los valores de autenticación del contenedor de registro.
 
-```azurecli-interactive
+```console
 tar czf docker.tar.gz .docker
 ```
 
 Copie este archivo en el almacenamiento compartido del clúster. Este paso hace que el archivo esté disponible en todos los nodos del clúster de DC/OS.
 
-```azurecli-interactive
+```console
 cp docker.tar.gz /mnt/share/dcosshare
 ```
 
@@ -123,25 +123,25 @@ Ahora desde una máquina de desarrollo, o cualquier otro sistema con Docker inst
 
 Cree un contenedor a partir de la imagen de Ubuntu.
 
-```azurecli-interactive
+```console
 docker run ubuntu --name base-image
 ```
 
-Ahora capture el contenedor en una nueva imagen. El nombre de la imagen debe incluir el nombre `loginServer` del registro de contenedor con un formato de `loginServer/imageName`.
+Ahora capture el contenedor en una nueva imagen. El nombre de la imagen debe incluir el nombre `loginServer` del registro de contenedor con el formato `loginServer/imageName`.
 
-```azurecli-interactive
+```console
 docker -H tcp://localhost:2375 commit base-image mycontainerregistry30678.azurecr.io/dcos-demo
 ```
 
 Inicie sesión en Azure Container Registry. Reemplace el nombre con el nombre loginServer, el nombre de usuario con el nombre del registro de contenedor, y la contraseña con una de las contraseñas proporcionadas.
 
-```azurecli-interactive
+```console
 docker login --username=myContainerRegistry23489 --password=//=ls++q/m+w+pQDb/xCi0OhD=2c/hST mycontainerregistry2675.azurecr.io
 ```
 
 Finalmente, cargue la imagen en el registro de ACR. En este ejemplo, se carga una imagen llamada dcos-demo.
 
-```azurecli-interactive
+```console
 docker push mycontainerregistry30678.azurecr.io/dcos-demo
 ```
 
@@ -189,7 +189,7 @@ Para utilizar una imagen del registro ACR, cree un archivo de nombres *acrDemo.j
 
 Implemente la aplicación con la CLI de DC/OC.
 
-```azurecli-interactive
+```console
 dcos marathon app add acrDemo.json
 ```
 

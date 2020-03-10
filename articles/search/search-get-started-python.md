@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 02/10/2020
-ms.openlocfilehash: 15a3801a7ea99d6d799bcd8adf340b03f36bc196
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 93fb9ec735de1abf89eb217d0f4096fcfc0afe94
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121616"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227105"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en Python mediante Jupyter Notebook
 
@@ -126,7 +126,7 @@ Este índice se denomina "hotels-quickstart" y tiene las definiciones de campo q
     }
     ```
 
-2. En otra celda, formule la solicitud. Esta solicitud PUT tiene como destino la colección de índices de su servicio de búsqueda y crea un índice en función del esquema de índice proporcionado en la celda anterior.
+2. En otra celda, formule la solicitud. Esta solicitud POST tiene como destino la colección de índices de su servicio de búsqueda y crea un índice en función del esquema de índice proporcionado en la celda anterior.
 
    ```python
    url = endpoint + "indexes" + api_version

@@ -5,19 +5,19 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 06/26/2019
-ms.openlocfilehash: 156892a4785bf1644d29b82e98c3b2ae202c5a49
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive,mvc
+ms.date: 02/28/2020
+ms.openlocfilehash: aa23b61967b27fefba863255721f4a0709ec02d5
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494707"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78204582"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Tutorial: Creación de una aplicación de Scala Maven para Apache Spark en HDInsight mediante IntelliJ
 
-En este tutorial aprenderá a crear una aplicación de [Apache Spark](https://spark.apache.org/) escrita en [Scala](https://www.scala-lang.org/) mediante [Apache Maven](https://maven.apache.org/) con IntelliJ IDEA. En el artículo se utiliza Apache Maven como el sistema de compilación y comienza con un arquetipo existente de Maven para Scala proporcionado por IntelliJ IDEA.  Crear una aplicación de Scala en IntelliJ IDEA conlleva los pasos siguientes:
+En este tutorial aprenderá a crear una aplicación de [Apache Spark](./apache-spark-overview.md) escrita en [Scala](https://www.scala-lang.org/) mediante [Apache Maven](https://maven.apache.org/) con IntelliJ IDEA. En el artículo se utiliza Apache Maven como el sistema de compilación y comienza con un arquetipo existente de Maven para Scala proporcionado por IntelliJ IDEA.  Crear una aplicación de Scala en IntelliJ IDEA conlleva los pasos siguientes:
 
 * Use Maven como el sistema de compilación.
 * Actualice el archivo del modelo de objetos de proyectos (POM) para resolver las dependencias de módulo de Spark.
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a:
 > * Usar IntelliJ para desarrollar una aplicación de Scala Maven
 > * Creación de un proyecto de Scala independiente
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](apache-spark-jupyter-spark-sql.md).
 
@@ -65,22 +65,22 @@ Para instalar el complemento Scala, siga estos pasos:
 
 3. Seleccione **Spark Project (Scala)** (Proyecto de Spark [Scala]) en la ventana principal.
 
-4. En la lista desplegable **Build tool** (Herramienta de compilación), seleccione una de las siguientes:
+4. En la lista desplegable **Build tool** (Herramienta de compilación), seleccione uno de los valores siguientes:
       * **Maven**: para agregar compatibilidad con el asistente para la creación de proyectos de Scala.
       * **SBT** para administrar las dependencias y compilar el proyecto de Scala.
 
-   ![IntelliJ: cuadro de diálogo New Project (Nuevo proyecto)](./media/apache-spark-create-standalone-application/create-hdi-scala-app.png)
+   ![IntelliJ: cuadro de diálogo New Project (Nuevo proyecto)](./media/apache-spark-create-standalone-application/intellij-project-apache-spark.png)
 
 5. Seleccione **Next** (Siguiente).
 
 6. En la ventana **New Project** (Nuevo proyecto), proporcione la siguiente información:  
 
-  	|  Propiedad   | DESCRIPCIÓN   |  
+  	|  Propiedad   | Descripción   |  
   	| ----- | ----- |  
   	|Nombre de proyecto| Escriba un nombre.|  
   	|Project&nbsp;location (Ubicación del proyecto)| Escriba la ubicación deseada para guardar el proyecto.|
   	|Project SDK (SDK del proyecto)| Se queda en blanco la primera vez que se usa IDEA.  Seleccione **New...** (Nuevo...) y vaya a su JDK.|
-  	|Versión de Spark|El asistente de creación integra la versión adecuada de los SDK de Spark y Scala. Si la versión del clúster de Spark es inferior a la 2.0, seleccione **Spark 1.x**. De lo contrario, seleccione **Spark 2.x**. En este ejemplo se usa **Spark 2.3.0 (Scala 2.11.8)** .|
+  	|Versión de Spark|El asistente de creación integra la versión adecuada de los SDK de Spark y Scala. Si la versión del clúster de Spark es anterior a 2.0, seleccione **Spark 1.x**. De lo contrario, seleccione **Spark2.x**. En este ejemplo se usa **Spark 2.3.0 (Scala 2.11.8)** .|
 
     ![IDEA de IntelliJ: selección del SDK de Spark](./media/apache-spark-create-standalone-application/hdi-scala-new-project.png)
 
@@ -98,14 +98,16 @@ Para instalar el complemento Scala, siga estos pasos:
 
 5. En la lista de arquetipos, seleccione **org.scala-tools.archetypes:scala-archetype-simple**. Este arquetipo crea la estructura de directorios adecuada y descargará las dependencias predeterminadas necesarias para escribir el programa con Scala.
 
-    ![IDEA de IntelliJ: crear proyecto Maven](./media/apache-spark-create-standalone-application/create-maven-project.png)
+    ![IDEA de IntelliJ: crear proyecto Maven](./media/apache-spark-create-standalone-application/intellij-project-create-maven.png)
 
 6. Seleccione **Next** (Siguiente).
 
-7. Proporcione los valores correspondientes para **GroupId**, **ArtifactId** y **Version**. Los siguientes valores se utilizan en este tutorial:
+7. Expanda **Coordenadas de artefacto**. Proporcione los valores correspondientes para **GroupId** (Id. de grupo) y **ArtifactId** (Id. de artefacto). **Name** (Nombre) y **Location** (Ubicación) se rellenarán automáticamente. Los siguientes valores se utilizan en este tutorial:
 
     - **GroupId:** com.microsoft.spark.example
     - **ArtifactId:** SparkSimpleApp
+
+    ![IDEA de IntelliJ: crear proyecto Maven](./media/apache-spark-create-standalone-application/intellij-artifact-coordinates.png)
 
 8. Seleccione **Next** (Siguiente).
 
@@ -188,7 +190,7 @@ Para instalar el complemento Scala, siga estos pasos:
 
         ![Estructura del proyecto IDEA de IntelliJ: jar desde módulo](./media/apache-spark-create-standalone-application/hdinsight-create-jar3.png)
 
-    6. La pestaña **Output Layout** (Diseño de salida) enumera todos los archivos JAR que forman parte del proyecto Maven. Puede seleccionar y eliminar aquellos de los que la aplicación de Scala no tenga ninguna dependencia directa. Para la aplicación que va a crear aquí puede quitar todos, salvo el último (**SparkSimpleApp compile output**). Seleccione los archivos JAR que va a eliminar y, después, seleccione símbolo negativo **-** .
+    6. La pestaña **Output Layout** (Diseño de salida) enumera todos los archivos JAR que forman parte del proyecto Maven. Puede seleccionar y eliminar aquellos de los que la aplicación de Scala no tenga ninguna dependencia directa. Para la aplicación que va a crear aquí, puede quitar todos, salvo el último (**SparkSimpleApp compile output**). Seleccione los archivos JAR que va a eliminar y, después, seleccione símbolo negativo **-** .
 
         ![Estructura del proyecto IDEA de IntelliJ: eliminar salida](./media/apache-spark-create-standalone-application/hdi-delete-output-jars.png)
 
@@ -202,7 +204,7 @@ Para instalar el complemento Scala, siga estos pasos:
 
 Para ejecutar la aplicación en el clúster, puede usar los siguientes enfoques:
 
-* **Copie el archivo jar de la aplicación en el blob de almacenamiento de Azure** asociado con el clúster. Puede usar [**AzCopy**](../../storage/common/storage-use-azcopy.md), una utilidad de línea de comandos, para hacerlo. Hay muchos otros clientes que se pueden utilizar también para cargar datos. Puede encontrar más información al respecto en [Carga de datos para trabajos de Apache Hadoop en HDInsight](../hdinsight-upload-data.md).
+* **Copie el archivo jar de la aplicación en el blob de Azure Storage** asociado con el clúster. Puede usar [**AzCopy**](../../storage/common/storage-use-azcopy.md), una utilidad de línea de comandos, para hacerlo. Hay muchos otros clientes que se pueden utilizar también para cargar datos. Puede encontrar más información al respecto en [Carga de datos para trabajos de Apache Hadoop en HDInsight](../hdinsight-upload-data.md).
 
 * **Use Apache Livy para enviar un trabajo de la aplicación de manera remota** al clúster Spark. Los clústeres Spark en HDInsight incluye Livy, que expone los puntos de conexión REST para enviar trabajos de Spark de forma remota. Para más información, consulte [Envío remoto de trabajos de Apache Spark mediante la utilización de Apache Livy con clústeres Spark en HDInsight](apache-spark-livy-rest-interface.md).
 
@@ -210,7 +212,7 @@ Para ejecutar la aplicación en el clúster, puede usar los siguientes enfoques:
 
 Si no va a seguir usando esta aplicación, elimine el clúster que creó mediante los siguientes pasos:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 1. En el cuadro **Búsqueda** en la parte superior, escriba **HDInsight**.
 

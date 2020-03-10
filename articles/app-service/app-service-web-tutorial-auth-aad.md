@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 41e9ff79ad3f7abeda1b946295e8e0eb519c2554
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 46750383c1436a2d053d6db7fed858c7c0f8a9fe
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561766"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226302"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticación y autorización de usuarios de extremo a extremo en Azure App Service
 
@@ -42,7 +42,7 @@ También puede seguir los pasos de este tutorial en macOS, Linux, Windows.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial:
 
@@ -237,7 +237,7 @@ Usará Azure Active Directory como proveedor de identidades. Para más informaci
 
 ### <a name="enable-authentication-and-authorization-for-front-end-app"></a>Habilitación de la autenticación y autorización en una aplicación de front-end
 
-Siga los mismos pasos para la aplicación de front-end, pero omita el último paso. No es necesario el identificador de cliente para la aplicación de front-end.
+Siga los mismos pasos para la aplicación de back-end, pero omita el último paso. No es necesario el identificador de cliente para la aplicación de front-end.
 
 Si quiere, vaya a `http://<front-end-app-name>.azurewebsites.net`. Debería dirigirle ahora a una página de inicio de sesión segura. Después de iniciar la sesión, seguirá sin poder acceder a los datos desde la aplicación de back-end. El motivo es que aún es necesario hacer tres cosas:
 

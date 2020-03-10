@@ -4,12 +4,12 @@ description: Creación de una función de PowerShell sin servidor desencadenada 
 ms.topic: tutorial
 ms.date: 09/20/2019
 ms.custom: ''
-ms.openlocfilehash: 49eb0721972a92f33bda2532367bc78280b6e655
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 51146886e3f52cb6a60d49da0d57aea1e2c55106
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533370"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196542"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Tutorial: Uso de una función de Azure desencadenada por HTTP para crear un grupo de contenedores
 
@@ -28,9 +28,9 @@ Aprenderá a:
 > [!IMPORTANT]
 > PowerShell para Azure Functions actualmente se encuentra disponible en versión preliminar. Las versiones preliminares están a su disposición con la condición de que acepte los [términos de uso adicionales][terms-of-use]. Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-Para saber cuáles son los requisitos previos para instalar y usar Visual Studio Code con Azure Functions en su sistema operativo, consulte [Creación de la primera función de PowerShell en Azure](../azure-functions/functions-create-first-function-powershell.md#prerequisites).
+Para saber cuáles son los requisitos previos para instalar y usar Visual Studio Code con Azure Functions en su sistema operativo, consulte [Creación de la primera función en Azure](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-powershell#configure-your-environment).
 
 En algunos de los pasos de este artículo se usa la CLI de Azure. Para realizar estos pasos puede usar Azure Cloud Shell o una instalación local de la CLI de Azure. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
 
@@ -177,7 +177,7 @@ Compruebe que el contenedor se ha ejecutado con el comando [az container logs][a
 az container logs --resource-group myfunctionapp --name mycontainergroup
 ```
 
-Salida de ejemplo:
+Salida del ejemplo:
 
 ```console
 Hello from an Azure container instance triggered by an Azure function

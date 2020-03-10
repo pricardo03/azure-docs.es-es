@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 01/29/2020
+ms.date: 02/26/2020
 ms.author: aahi
-ms.openlocfilehash: f34d4e50042f0fd05a224ff096c2b472224248f8
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 0d4d32a413dd22c55f1b2f01dce3a3df81f5f729
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76992302"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919675"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-for-ruby"></a>Inicio rápido: Uso de la biblioteca cliente de Text Analytics para Ruby
 
@@ -35,16 +35,15 @@ La biblioteca cliente de Text Analytics se puede usar para realizar las siguient
 
 <a name="HOLTop"></a>
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/).
 * La versión actual de [Ruby](https://www.ruby-lang.org/)
+* Una vez que tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="cree un recurso de Text Analytics"  target="_blank">cree un recurso de Text Analytics <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. 
+    * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a API Text Analytics. Lo hará más adelante en el inicio rápido.
+    * Puede usar el plan de tarifa gratuito para probar el servicio y actualizarlo más adelante a un nivel de pago para producción.
 
 ## <a name="setting-up"></a>Instalación
-
-### <a name="create-a-text-analytics-azure-resource"></a>Creación de un recurso de Azure para Text Analytics 
-
-[!INCLUDE [text-analytics-resource-creation](../includes/quickstarts/resource-creation.md)]
 
 ### <a name="create-a-new-ruby-application"></a>Creación de una aplicación de Ruby
 

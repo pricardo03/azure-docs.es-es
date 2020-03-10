@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 01/29/2020
+ms.date: 02/26/2020
 ms.author: aahi
-ms.openlocfilehash: 5623be028cfe10c0ea6786b24bf75ae2bf9c5255
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 0b4495616c750b2b3e8431e011d71ae8671af1ef
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560796"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912654"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-for-go"></a>Inicio rápido: Uso de la biblioteca cliente de Text Analytics para Go
 
@@ -28,12 +28,11 @@ ms.locfileid: "77560796"
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/).
 * La versión más reciente de [Go](https://golang.org/dl/).
+* Una vez que tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="cree un recurso de Text Analytics"  target="_blank">cree un recurso de Text Analytics <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. 
+    * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a API Text Analytics. Lo hará más adelante en el inicio rápido.
+    * Puede usar el plan de tarifa gratuito para probar el servicio y actualizarlo más adelante a un nivel de pago para producción.
 
 ## <a name="setting-up"></a>Instalación
-
-### <a name="create-a-text-analytics-azure-resource"></a>Creación de un recurso de Azure para Text Analytics 
-
-[!INCLUDE [text-analytics-resource-creation](../includes/quickstarts/resource-creation.md)]
 
 ### <a name="create-a-new-go-project"></a>Creación de un nuevo proyecto de Go
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b0aa78a519567a8e1ffd76e26f1d9ea3ca701fca
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 2ea8a5428c1fabdfda4f2298c0559792537df481
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274171"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273985"
 ---
 # <a name="deprecated-scale-kubernetes-pods-and-kubernetes-infrastructure"></a>(EN DESUSO) Escalado de pods de Kubernetes e infraestructura de Kubernetes
 
@@ -42,13 +42,15 @@ Si no ha realizado estos pasos y quiere continuar, vuelva al [paso 1 del tutoria
 
 Hasta el momento se han implementado el front-end de Azure Vote y la instancia de Redis, cada uno con una única réplica. Para comprobarlo, ejecute el comando [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get).
 
-```azurecli-interactive
+Vaya a [https://shell.azure.com](https://shell.azure.com) para abrir Cloud Shell en el explorador.
+
+```console
 kubectl get pods
 ```
 
 Salida:
 
-```bash
+```output
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
@@ -56,19 +58,19 @@ azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 
 Cambie manualmente el número de pods en la implementación de `azure-vote-front` mediante el comando [kubectl scale](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale). En este ejemplo el número se aumenta a cinco.
 
-```azurecli-interactive
+```console
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
 Ejecute [kubectl get pods](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) para comprobar que Kubernetes crea los pods. Tras aproximadamente un minuto, se ejecutan los pods adicionales:
 
-```azurecli-interactive
+```console
 kubectl get pods
 ```
 
 Salida:
 
-```bash
+```output
 NAME                                READY     STATUS    RESTARTS   AGE
 azure-vote-back-2606967446-nmpcf    1/1       Running   0          15m
 azure-vote-front-3309479140-2hfh0   1/1       Running   0          3m
@@ -84,7 +86,7 @@ Kubernetes admite el [escalado horizontal automático de pods](https://kubernete
 
 Para usar el escalador automático, los pods deben tener solicitudes de la CPU y límites definidos. En la implementación de `azure-vote-front`, el contenedor del front-end solicita 0,25 CPU, con un límite de 0,5 CPU. La configuración tiene el siguiente aspecto:
 
-```YAML
+```yaml
 resources:
   requests:
      cpu: 250m
@@ -95,19 +97,19 @@ resources:
 En el ejemplo siguiente se usa el comando [kubectl autoscale](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#autoscale) para escalar automáticamente el número de pods en la implementación de `azure-vote-front`. En este contexto, si el uso de la CPU supera el 50 %, el escalador automático aumenta el número de pods a un máximo de 10.
 
 
-```azurecli-interactive
+```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
 ```
 
 Para ver el estado del escalador automático, ejecute el siguiente comando.
 
-```azurecli-interactive
+```console
 kubectl get hpa
 ```
 
 Salida:
 
-```bash
+```output
 NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
 azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        3          2m
 ```
@@ -126,7 +128,7 @@ az acs scale --resource-group=myResourceGroup --name=myK8SCluster --new-agent-co
 
 La salida del comando muestra el número de nodos de agente en el valor de `agentPoolProfiles:count`:
 
-```azurecli
+```output
 {
   "agentPoolProfiles": [
     {

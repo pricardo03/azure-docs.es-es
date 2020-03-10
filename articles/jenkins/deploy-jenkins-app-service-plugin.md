@@ -4,12 +4,12 @@ description: Aprenda a usar el complemento de Jenkins de Azure App Service para 
 keywords: jenkins, azure, devops, app service
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: de1bf0ea06210c86ff1da21dcac667754f11d7f4
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: fcaf45003e865cc5aac3f6bd4580479a27d38b50
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158520"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251458"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementación en Azure App Service mediante el complemento de Jenkins 
 
@@ -67,7 +67,7 @@ Para implementar el proyecto en Web Apps, puede cargar los artefactos de compila
 Antes de configurar el trabajo en Jenkins, necesitará un plan de Azure App Service y una aplicación web para ejecutar la aplicación de Java.
 
 
-1. Cree un plan de Azure App Service con el plan de tarifa **GRATIS** mediante el `az appservice plan create` [comando de la CLI de Azure](/cli/azure/appservice/plan#az-appservice-plan-create). Un plan de App Service define los recursos físicos que se usan para hospedar las aplicaciones. Todas las aplicaciones asignadas a un plan de App Service comparten estos recursos. Los recursos compartidos le ayudan a ahorrar costos al hospedar varias aplicaciones.
+1. Cree un plan de Azure App Service con el plan de tarifa **GRATIS** mediante el [comando de la CLI de Azure](/cli/azure/appservice/plan#az-appservice-plan-create) `az appservice plan create`. Un plan de App Service define los recursos físicos que se usan para hospedar las aplicaciones. Todas las aplicaciones asignadas a un plan de App Service comparten estos recursos. Los recursos compartidos le ayudan a ahorrar costos al hospedar varias aplicaciones.
 2. Cree una aplicación web. Puede usar [Azure Portal](/azure/app-service/configure-common) o el siguiente `az`comando de la CLI de Azure:
     ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
@@ -207,10 +207,13 @@ Para el valor de **Docker registry URL** (Dirección URL de registro del Docker)
 ### <a name="for-azure-app-service-on-linux"></a>Para Azure App Service en Linux
 
 1. Para comprobar la aplicación web, ejecute el siguiente comando en la CLI de Azure:
-    ```CLI
+    
+    ```azurecli
     az acr repository list -n <myRegistry> -o json
     ```
+    
     Se muestra el mensaje siguiente:
+    
     ```CLI
     ["calculator"]
     ```

@@ -1,36 +1,35 @@
 ---
-title: Creación de una canalización de CI/CD para Node.js con Azure DevOps Projects
+title: Creación de una canalización de CI/CD para una PWA con GatsbyJS y Azure DevOps Projects
 description: Con DevOps Projects es fácil empezar a usar Azure. En pocos y rápidos pasos le ayuda a iniciar una aplicación en el servicio de Azure de su elección.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
-author: mlearned
-manager: gwallace
+author: arob98
+manager: angrobe
 editor: ''
 ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 07/09/2018
-ms.author: mlearned
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
+ms.date: 02/24/2020
+ms.author: angrobe
+ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 35eebeaa393ff75ada11752aaf9f195efddfa12b
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 508a61d6bbb00692855e09601aed67ab3be9cc8d
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049798"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78209074"
 ---
 #  <a name="quickstart-create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-projects"></a>Inicio rápido: Creación de una canalización de CI/CD en Azure Pipelines para Node.js con Azure DevOps Projects
-
-En este inicio rápido se usa la experiencia simplificada de Azure DevOps Projects para configurar una canalización de integración continua (CI) y entrega continua (CD) para una aplicación de Node.js en Azure Pipelines. Azure DevOps Projects se puede usar para configurar todo lo necesario para desarrollar, implementar y supervisar una aplicación. 
+En este inicio rápido, va a crear una aplicación web progresiva (PWA) de NodeJS mediante [GatsbyJS](https://www.gatsbyjs.org/) y la experiencia simplificada de creación de proyectos de Azure DevOps. Cuando termine, tendrá una canalización de integración continua (CI) y entrega continua (CD) para la PWA en Azure Pipelines. Azure DevOps Projects configura los componentes necesarios para el desarrollo, la implementación y la supervisión.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
-- Una cuenta de [Azure DevOps](https://azure.microsoft.com/services/devops/) y una organización.
+- Una organización de [Azure DevOps](https://azure.microsoft.com/services/devops/).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -40,42 +39,121 @@ DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear 
 
    ![Creación de un recurso de Azure en Azure Portal](_img/azure-devops-project-nodejs/create-azure-resource.png)
 
-1. Busque **DevOps Project**, selecciónelo y, después, seleccione **Crear**.
+2. Busque **DevOps Project**, selecciónelo y, después, seleccione **Crear**.
+
+ ![Creación de un proyecto de DevOps](_img/azure-devops-project-nodejs/create-devops-project.png) 
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Seleccione una aplicación de ejemplo y el servicio de Azure
 
-1. Seleccione la aplicación de ejemplo de Node.js.  
-    Los ejemplos de Node.js incluyen una opción de varios marcos de trabajo de la aplicación.
+1. Seleccione la aplicación de ejemplo de Node.js.   
 
-1. El marco de trabajo de ejemplo predeterminado es Express.js. Deje la configuración predeterminada y seleccione **Siguiente**.  
-    **Web App on Windows** es el destino de implementación predeterminado.  El marco de trabajo de la aplicación que ha elegido antes determina el tipo de destino de implementación del servicio de Azure disponible aquí.  
+ ![Selección del ejemplo de Node.js](_img/azure-devops-project-nodejs/select-nodejs-devops-project.png) 
 
-2. Deje el servicio predeterminado y seleccione **Siguiente**.
- 
-## <a name="configure-azure-devops-and-an-azure-subscription"></a>Configuración de Azure DevOps y una suscripción de Azure 
+2. El marco de trabajo de ejemplo predeterminado es **Express.js**. Cambie la selección a **Simple Node.js App** (Aplicación de Node.js sencilla) y seleccione **Siguiente**. 
 
-1. Cree una organización de Azure DevOps nueva o elija una existente. 
-   
-   1. Escriba un nombre para el proyecto.
-      
-   1. Seleccione la suscripción de Azure y la ubicación, escriba el nombre de la aplicación y seleccione **Listo**.  
-      En unos minutos, el panel de DevOps Projects se muestra en Azure Portal. Una aplicación de ejemplo se configura en un repositorio en la organización de Azure DevOps, se ejecuta una compilación y la aplicación se implementa en Azure. Este panel proporciona visibilidad sobre el repositorio de código, la canalización de CI/CD y la aplicación de Azure.
-   
-1. Seleccione **Examinar** para ver la aplicación en ejecución.
-   
-   ![Vista de panel de la canalización de CI/CD](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
+ ![Selección de la aplicación de Node.js sencilla](_img/azure-devops-project-nodejs/simple-nodejs-project.png) 
 
-DevOps Projects ha configurado automáticamente una compilación de integración continua y un desencadenador de versión.  Ahora ya puede colaborar con un equipo en una aplicación de Node.js con un proceso de CI/CD que implemente automáticamente el trabajo más reciente en su sitio web.
+3. Los destinos de implementación disponibles en este paso vienen determinados por el marco de trabajo de la aplicación seleccionado en el paso 2.  En este ejemplo, **Windows Web App** (Aplicación web de Windows) es el destino de implementación predeterminado.  Deje establecido **Web App for Containers** y seleccione **Siguiente**.
 
-## <a name="commit-code-changes-and-execute-cicd"></a>Confirmación de los cambios de código y ejecución de CI/CD
+ ![Selección del destino de implementación](_img/azure-devops-project-nodejs/select-web-server.png) 
 
-DevOps Projects crea un repositorio de Git en Azure Repos o GitHub. Para ver el repositorio y realizar cambios en el código de la aplicación, siga los pasos descritos a continuación.
+## <a name="configure-a-project-name-and-an-azure-subscription"></a>Configuración de un nombre de proyecto y una suscripción de Azure
 
-1. En el lado izquierdo del panel de DevOps Projects, seleccione el vínculo de la rama maestra.  
-Este vínculo abre una vista al repositorio de Git recién creado.
+1. En el paso final del flujo de trabajo de creación de proyectos de DevOps, asigne un nombre de proyecto, seleccione una suscripción de Azure y elija **Listo**.  
 
-1. Para ver la dirección URL de clonación del repositorio, seleccione **Clonar** en la parte superior derecha del explorador.   
-    Puede clonar el repositorio de Git en su IDE favorito. En los pasos siguientes, puede usar el explorador web para realizar los cambios en el código y confirmarlos directamente en la rama maestra.
+ ![Asignación de un nombre de proyecto y selección de una suscripción](_img/azure-devops-project-nodejs/assign-project-name.png) 
+
+2. Mientras se compila el proyecto y la aplicación se implementa en Azure, se muestra una página de resumen. Después de un breve período, se crea un proyecto en la [organización de Azure DevOps](https://dev.azure.com/) que incluye un repositorio de Git, un panel Kanban, una canalización de implementación, planes de pruebas y los artefactos que requiere la aplicación.  
+
+## <a name="managing-your-project"></a>Administración del proyecto
+
+1. Vaya a **Todos los recursos** y busque el proyecto de DevOps. Seleccione su **proyecto de DevOps**.
+
+![Panel de Azure DevOps en la lista de recursos](_img/azure-devops-project-nodejs/azure-devops-project-in-resource-list.png)
+
+2. Se le dirige a un panel donde puede ver la página principal del proyecto, el repositorio de código, la canalización de CI/CD y un vínculo a la aplicación en ejecución. Seleccione la **página principal del proyecto** para ver la aplicación en **Azure DevOps** y, en otra pestaña del explorador, seleccione el **punto de conexión de la aplicación** para ver la aplicación de ejemplo en vivo.  Más adelante se cambiará este ejemplo para usar la PWA generada por GatsbyJS.
+
+![Panel de Azure DevOps](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
+
+3. En el proyecto de Azure DevOps, puede invitar a los miembros del equipo a colaborar y establecer un panel Kanban para empezar a realizar el seguimiento del trabajo.  Para más información, consulte [esta página](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops?view=azure-devops).
+
+![Introducción a Azure DevOps](_img/azure-devops-project-nodejs/azure-devops-overview.png)
+
+## <a name="clone-the-repo-and-install-your-gatsby-pwa"></a>Clonación del repositorio e instalación de la PWA de Gatsby
+
+DevOps Projects crea un repositorio de Git en Azure Repos o GitHub. En este ejemplo se ha creado un repositorio de Azure.  El siguiente paso consiste en clonar el repositorio y realizar cambios.
+
+1. Seleccione **Repos** en su **proyecto de DevOps** y, luego, haga clic en **Clonar**.  Hay varios mecanismos para clonar el repositorio de Git en el escritorio.  Elija el que mejor se adapte a su experiencia de desarrollo.  
+
+![Clonación del repositorio](_img/azure-devops-project-nodejs/clone-the-repo.png)
+
+2. Después de clonar el repositorio en el escritorio, realice algunos cambios en la plantilla de inicio. Para empezar, instale la CLI de GatsbyJS desde el terminal.
+```powershell
+npm install -g gatsby
+```
+
+3. En el terminal, vaya a la raíz del repositorio. Debe contener tres carpetas parecidas a estas:
+```powershell
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        2/23/2020  10:42 PM                Application
+d-----        2/23/2020   3:05 PM                ArmTemplates
+d-----        2/23/2020   3:05 PM                Tests
+```
+
+4. No se necesitan todos los archivos de la carpeta Application porque se va a reemplazar por una plantilla de inicio de Gatsby. Ejecute los siguientes comandos, en secuencia, para recortarla.
+```powershell
+cp .\Application\Dockerfile .
+rmdir Application
+```
+
+5. Use la CLI de Gatsby para generar una PWA de ejemplo. Ejecute `gatsby new` desde el terminal para iniciar el asistente para PWA y seleccione `gatsby-starter-blog` como la plantilla de inicio. Debe parecerse a este ejemplo:
+```powershell
+c:\myproject> gatsby new
+√ What is your project called? ... my-gatsby-project
+? What starter would you like to use? » - Use arrow-keys. Return to submit.
+    gatsby-starter-default
+    gatsby-starter-hello-world
+>   gatsby-starter-blog
+    (Use a different starter)
+```
+
+6. Ahora tiene una carpeta denominada `my-gatsby-project`. Cambie su nombre por `Application` y copie en ella `Dockerfile`.
+```powershell
+mv my-gatsby-project Application
+mv Dockerfile Application
+```
+
+7. En el editor que prefiera, abra Dockerfile y cambie la primera línea de `FROM node:8` a `FROM node:12`. Este cambio garantiza que el contenedor usa la versión 12.x de Node.js en lugar de la versión 8.x. GatsbyJS requiere versiones más modernas de Node.js.
+
+8. A continuación, abra el archivo package.json en la carpeta Application y edite el [campo de scripts](https://docs.npmjs.com/files/package.json#scripts) para asegurarse de que los servidores de desarrollo y producción escuchan en todas las interfaces de red disponibles (por ejemplo, 0.0.0.0) y el puerto 80. Sin esta configuración, el servicio de aplicaciones de contenedor no puede enrutar el tráfico a la aplicación de Node.js que se ejecuta dentro del contenedor. El campo `scripts` debe parecerse al que se muestra a continuación. En concreto, quiere cambiar los valores predeterminados de `develop`, `serve` y `start`.
+```json
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop  -H 0.0.0.0 -p 80",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run serve",
+    "serve": "npm run build && gatsby serve -H 0.0.0.0 -p 80",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  }
+```
+
+## <a name="edit-your-cicd-pipelines"></a>Edición de las canalizaciones de CI/CD
+
+1. Antes de confirmar el código de la sección anterior, realice algunos cambios en las canalizaciones de compilación y versión. Edite la canalización de compilación y actualice la tarea de Node para usar la versión 12.x de Node.js. Establezca el campo **Task version** (Versión de tarea) en 1.x y el campo **Version** (Versión) en 12.x.
+![Actualización de Node.js a 12.x](_img/azure-devops-project-nodejs/build-pipeline-update-node.png)
+
+2. En este inicio rápido, no se van a crear pruebas unitarias, así que se van a deshabilitar esos pasos en la canalización de compilación. Cuando escriba las pruebas, puede volver a habilitar estos pasos. Haga clic con el botón derecho para seleccionar las tareas etiquetadas **Install test dependencies** (Instalar dependencias de pruebas) y **Run unit tests** (Ejecutar pruebas unitarias) y deshabilitarlas.
+
+![Deshabilitación de pruebas de compilación](_img/azure-devops-project-nodejs/disable-build-unittests.png)
+
+3. Edite la canalización de versión.
+![Edición de la canalización de versión](_img/azure-devops-project-nodejs/edit-release-pipeline.png)
+
+4. Al igual que con la canalización de compilación, cambie la tarea de Node para usar 12.x y deshabilite las dos tareas de prueba. La versión debería parecerse a esta captura de pantalla.
+
+![Canalización de versión finalizada](_img/azure-devops-project-nodejs/release-pipeline-complete.png)
 
 1. En el lado izquierdo del explorador, vaya al archivo **views/index.pug**.
 
@@ -85,77 +163,36 @@ Este vínculo abre una vista al repositorio de Git recién creado.
 1. Seleccione **Confirmar** y guarde los cambios.
 
 1. En el explorador, vaya al panel de DevOps Projects.   
-Debería ver que hay una compilación en curso. Los cambios que acaba de realizar se compilan e implementan automáticamente a través de una canalización de CI/CD.
+Debería ver que hay una compilación en curso. Los cambios que ha realizado se compilan e implementan automáticamente mediante una canalización de CI/CD.
 
-## <a name="examine-the-azure-cicd-pipeline"></a>Examen de la canalización de CI/CD de Azure
+## <a name="commit-your-changes-and-examine-the-azure-cicd-pipeline"></a>Confirmación de los cambios y examen de la canalización de CI/CD de Azure
 
-En el paso anterior, DevOps Projects configuró automáticamente una canalización de CI/CD completa. Explore y personalice la canalización según sea necesario. Siga estos pasos para familiarizarse con las canalizaciones de compilación y de versión.
+En los dos pasos anteriores, ha agregado una PWA generada por Gatsby al repositorio de Git y ha editado las canalizaciones para compilar e implementar el código. Se puede confirmar el código y ver su progreso mediante la canalización de compilación y versión.
 
-1. En la parte superior del panel de DevOps Projects, seleccione **Compilar canalizaciones**.  
-Este vínculo abre una pestaña del explorador y la canalización de compilación del nuevo proyecto.
+1. Desde la raíz del repositorio de Git del proyecto en un terminal, ejecute los siguientes comandos para insertar el código en el proyecto de Azure DevOps:
+```powershell
+git add .
+git commit -m "My first Gatsby PWA"
+git push
+```
 
-1. Elija el campo **Estado** y seleccione los puntos suspensivos (...).  
-    Esta acción abre un menú en el que se pueden iniciar varias actividades, como poner en cola una nueva compilación, pausar una compilación y editar la canalización de compilación.
+2. Se inicia una compilación en cuanto se completa `git push`. Puede seguir el progreso desde el **panel de Azure DevOps**.
 
-1. Seleccione **Editar**.
+![Panel de Azure DevOps en la lista de recursos](_img/azure-devops-project-nodejs/azure-devops-project-in-resource-list.png)
 
-1. En este panel puede examinar las distintas tareas de la canalización de compilación.  
-La compilación ejecuta varias tareas, como capturar códigos fuente del repositorio Git, restaurar dependencias y publicar salidas que se usan para las implementaciones.
-
-1. En la parte superior de la canalización de compilación, seleccione el nombre de esta.
-
-1. Cambie el nombre de la canalización de compilación por otro más descriptivo, seleccione **Guardar y poner en cola** y, luego, **Guardar**.
-
-1. En el nombre de la canalización de compilación, seleccione **Historial**.   
-En el panel **Historial** verá un registro de auditoría de los cambios recientes en la compilación.  Azure Pipelines realiza un seguimiento de los cambios que se realizan en la canalización de compilación y permite comparar versiones.
-
-1. Seleccione **Desencadenadores**.   
- DevOps Projects creó automáticamente un desencadenador de integración continua y cada confirmación en el repositorio inicia una compilación.  Si lo desea, puede elegir incluir o excluir ramas del proceso de CI.
-
-1. Seleccione **Retención**.   
-En función del escenario, puede especificar directivas para conservar o quitar un determinado número de compilaciones.
-
-1. Seleccione **Compilación y versión** y, después, **Versiones**.  
- DevOps Projects crea una canalización de versión para administrar implementaciones en Azure.
-
-1. En la parte izquierda, seleccione los puntos suspensivos (...) que se encuentran junto a la canalización de versión, y, después, **Editar**.  
-La canalización de versión define el proceso de versión.
-
-12. En **Artefactos**, seleccione **Colocar**.  
-    La canalización de compilación que ha examinado en los pasos anteriores genera la salida usada por el artefacto. 
-
-1. Al lado del icono **Colocar**, seleccione **Desencadenador de implementación continua**.  
-Esta canalización de versión tiene un desencadenador de implementación continua habilitado que ejecuta una implementación cada vez que hay un nuevo artefacto de compilación disponible. Opcionalmente, puede deshabilitar el desencadenador, con lo que las implementaciones van a requerir una ejecución manual. 
+3. Al cabo de unos minutos, las canalizaciones de compilación y versión finalizarán y la PWA se implementará en un contenedor. Haga clic en el vínculo **Application endpoint** (Punto de conexión de la aplicación) en el panel anterior; verá un proyecto de inicio de Gatsby para blogs.
 
 
-1. En el lado izquierdo, seleccione **Tareas**.   
-Las tareas son las actividades que ejecuta el proceso de implementación. En este ejemplo, se ha creado una tarea que se implementa en Azure App Service.
-
-
-1. A la derecha, seleccione **Ver versiones**.  
-Esta vista muestra un historial de versiones.
-
-1. Seleccione los puntos suspensivos (...) junto a una de las versiones y, luego, seleccione **Abrir**.  
-Hay varios menús para explorar, como un resumen de las versiones, elementos de trabajo asociados y las pruebas.
-
-1. Seleccione **Confirmaciones**.   
-Esta vista muestra las confirmaciones de código asociadas a la implementación concreta.
-
-1. Seleccione **Registros**.  
-Los registros contienen información útil sobre el proceso de implementación. Pueden verse durante y después de las implementaciones.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Azure App Service y otros recursos relacionados que haya creado se pueden eliminar cuando no se necesiten. Use la funcionalidad de **eliminación** del panel de DevOps Projects.
+Puede eliminar Azure App Service y otros recursos relacionados que haya creado cuando ya no los necesite. Use la funcionalidad de **eliminación** del panel de DevOps Projects.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Cuando configuró el proceso de CI/CD, se crearon automáticamente canalizaciones de compilación y de versión. Puede modificar estas canalizaciones de compilación y de versión para satisfacer las necesidades de su equipo. Para más información acerca de la canalización de CI/CD, consulte:
+Cuando configura el proceso de CI/CD, se crean automáticamente canalizaciones de compilación y versión. Puede modificar estas canalizaciones para satisfacer las necesidades de su equipo. Para más información acerca de la canalización de CI/CD, consulte:
 
 > [!div class="nextstepaction"]
 > [Personalización del proceso de CD](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
-## <a name="videos"></a>Vídeos
-
-> [!VIDEO https://www.youtube.com/embed/3etwjubReJs]

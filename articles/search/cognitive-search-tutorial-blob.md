@@ -1,34 +1,43 @@
 ---
-title: 'Tutorial: Extracción de texto y estructura de blobs JSON'
+title: 'Tutorial: REST y AI a través de blobs de Azure'
 titleSuffix: Azure Cognitive Search
-description: Recorra un ejemplo de extracción de texto y de procesamiento de lenguaje natural por el contenido de blobs JSON mediante Postman y las API REST de Azure Cognitive Search.
+description: Recorra un ejemplo de extracción de texto y de procesamiento de lenguaje natural por el contenido del almacenamiento de blobs con las API REST de Azure Cognitive Search y Postman.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 5dffafba0f0dc0dc108bf2c82929c157018d8dbb
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/26/2020
+ms.openlocfilehash: 8acafa14afab507b704806056efac0f877a47684
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113662"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190729"
 ---
-# <a name="tutorial-extract-text-and-structure-from-json-blobs-in-azure-using-rest-apis-azure-cognitive-search"></a>Tutorial: Extracción de texto y estructura de blobs JSON en Azure mediante API REST (Azure Cognitive Search)
+# <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Uso de REST y AI para generar contenido en el que se pueden realizar búsquedas desde blobs de Azure
 
-Si tiene contenido de imagen o texto no estructurado en Azure Blob Storage, una [canalización de enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md) puede ayudarle a extraer información y crear contenido útil para escenarios de búsqueda de texto completo o minería de conocimiento. Aunque una canalización puede procesar archivos de imagen (JPG, PNG y TIFF), este tutorial se centra en el contenido basado en palabras y se aplica la detección de idioma y el análisis de texto para crear campos e información que puede aprovechar en consultas, facetas y filtros.
+Si tiene texto no estructurado o imágenes en Azure Blob Storage, una [canalización de enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md) puede extraer la información y crear contenido útil en escenarios de búsqueda de texto completo o minería de conocimiento. Aunque una canalización puede procesar los archivos de imagen, este tutorial de REST se centra en el texto y se aplica la detección de idioma y el procesamiento del lenguaje natural para crear campos que se puedan aprovechar en las consultas, las facetas y los filtros.
+
+En este tutorial se usa Postman y las [API REST de Search](https://docs.microsoft.com/rest/api/searchservice/) para realizar las siguientes tareas:
 
 > [!div class="checklist"]
-> * Comience con documentos completos (texto no estructurado) como PDF, MD, DOCX y PPTX en Azure Blob Storage.
+> * Comience con documentos completos (texto no estructurado) como PDF, HTML, DOCX y PPTX en Azure Blob Storage.
 > * Defina una canalización que extraiga texto, detecte el idioma, reconozca entidades y detecte frases clave.
 > * Defina un índice para almacenar la salida (contenido sin procesar, además de pares nombre-valor generados por canalización).
 > * Ejecute la canalización para iniciar transformaciones y análisis, así como para crear y cargar el índice.
 > * Explore los resultados mediante la búsqueda de texto completo y una sintaxis de consulta enriquecida.
 
-Para completar este tutorial necesitará varios servicios, además de la [aplicación de escritorio Postman](https://www.getpostman.com/) u otra herramienta de pruebas web para realizar llamadas a la API REST. 
-
 Si no tiene una suscripción a Azure, abra una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+
+## <a name="prerequisites"></a>Prerrequisitos
+
++ [Almacenamiento de Azure](https://azure.microsoft.com/services/storage/)
++ [Aplicación de escritorio Postman](https://www.getpostman.com/)
++ [Creación](search-create-service-portal.md) o [búsqueda de un servicio de búsqueda existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
+
+> [!Note]
+> Puede usar un servicio gratuito para este tutorial. Un servicio de búsqueda gratuito tiene una limitación de tres índices, tres indexadores y tres orígenes de datos. En este tutorial se crea uno de cada uno. Antes de empezar, asegúrese de que haya espacio en el servicio para aceptar los nuevos recursos.
 
 ## <a name="download-files"></a>Descarga de archivos
 
@@ -38,7 +47,9 @@ Si no tiene una suscripción a Azure, abra una [cuenta gratuita](https://azure.m
 
 ## <a name="1---create-services"></a>1: Creación de servicios
 
-En este tutorial se usa Azure Cognitive Search en la indexación y las consultas, Cognitive Services en el enriquecimiento de inteligencia artificial y Azure Blob Storage en la provisión de datos. Si es posible, cree los tres servicios en la misma región y grupo de recursos por proximidad y capacidad de administración. En la práctica, la cuenta de Azure Storage puede estar en cualquier región.
+En este tutorial se usa Azure Cognitive Search en la indexación y las consultas, Cognitive Services en el back-end para el enriquecimiento de inteligencia artificial y Azure Blob Storage en la provisión de datos. Este tutorial permanece por debajo de la asignación gratuita de 20 transacciones por indexador al día en Cognitive Services, por lo que los únicos servicios que tiene que crear son la búsqueda y el almacenamiento.
+
+Si es posible, cree los dos en la misma región y grupo de recursos para la proximidad y la capacidad de administración. En la práctica, la cuenta de Azure Storage puede estar en cualquier región.
 
 ### <a name="start-with-azure-storage"></a>Comienzo con Azure Storage
 
@@ -102,9 +113,9 @@ Al igual que con Azure Blob Storage dedique un momento a recopilar la clave de a
 
 2. En **Configuración** > **Claves**, obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
 
-    Obtenga también la clave de consulta. Es una práctica recomendada emitir solicitudes de consulta con acceso de solo lectura.
+   Obtenga también la clave de consulta. Es una práctica recomendada emitir solicitudes de consulta con acceso de solo lectura.
 
-![Obtención del nombre del servicio y las claves de consulta y administrador](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![Obtención del nombre del servicio y las claves de consulta y administrador](media/search-get-started-nodejs/service-name-and-keys.png)
 
 Todas las solicitudes enviadas al servicio necesitan una clave de API en el encabezado. Una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que la envía y el servicio que se encarga de ella.
 
@@ -164,7 +175,7 @@ Un [objeto conjunto de aptitudes](https://docs.microsoft.com/rest/api/searchserv
 
 1. En el **cuerpo**de la solicitud, copie la siguiente definición de JSON. Este conjunto de aptitudes consta de las siguientes aptitudes integradas.
 
-   | Habilidad                 | DESCRIPCIÓN    |
+   | Habilidad                 | Descripción    |
    |-----------------------|----------------|
    | [Reconocimiento de entidades](cognitive-search-skill-entity-recognition.md) | Extrae los nombres de las personas, organizaciones y ubicaciones del contenido del contenedor de blobs. |
    | [Detección de idioma](cognitive-search-skill-language-detection.md) | Detecta el idioma del contenido. |
@@ -230,7 +241,7 @@ Un [objeto conjunto de aptitudes](https://docs.microsoft.com/rest/api/searchserv
     ```
     A continuación se muestra una representación gráfica del conjunto de aptitudes. 
 
-    ![Uso de un conjunto de aptitudes](media/cognitive-search-tutorial-blob/skillset.png "Uso de un conjunto de aptitudes")
+    ![Descripción de un conjunto de aptitudes](media/cognitive-search-tutorial-blob/skillset.png "Descripción de un conjunto de aptitudes")
 
 1. Envíe la solicitud. Postman debe devolver un código de estado 201 que confirme que la operación se ha realizado correctamente. 
 
@@ -475,29 +486,25 @@ Recuerde que comenzamos con el contenido del blob, donde todo el documento se em
    cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2019-05-06
    ```
 
-Estas consultas muestran algunas de las formas en que puede trabajar con la sintaxis de consulta y los filtros en los nuevos campos creados por la búsqueda cognitiva. Para más ejemplos de consultas, vea [Ejemplos de la API REST de búsqueda de documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples), [Ejemplos de consulta de sintaxis simple](search-query-simple-examples.md) y [Ejemplos de consultas que usan la sintaxis de búsqueda de Lucene "completa"](search-query-lucene-examples.md).
+Estas consultas muestran algunas de las formas en que puede trabajar con sintaxis de consulta y filtros en nuevos campos creados por la búsqueda cognitiva. Para más ejemplos de consultas, vea [Ejemplos de la API REST de búsqueda de documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples), [Ejemplos de consulta de sintaxis simple](search-query-simple-examples.md) y [Ejemplos de consultas que usan la sintaxis de búsqueda de Lucene "completa"](search-query-lucene-examples.md).
 
 <a name="reset"></a>
 
 ## <a name="reset-and-rerun"></a>Restablecer y volver a ejecutar
 
-En las primeras etapas experimentales del desarrollo de canalizaciones, el enfoque más práctico para las iteraciones de diseño es eliminar los objetos de Azure Cognitive Search y permitir que el código vuelva a generarlos. Los nombres de los recursos son únicos. La eliminación de un objeto permite volver a crearlo con el mismo nombre.
+En las primeras etapas experimentales de desarrollo, el enfoque más práctico para las iteraciones del diseño es eliminar los objetos de Azure Cognitive Search y permitir que el código vuelva a generarlos. Los nombres de los recursos son únicos. La eliminación de un objeto permite volver a crearlo con el mismo nombre.
 
-Para volver a indexar los documentos con las nuevas definiciones:
+También puede usar el portal para eliminar los índices, los indexadores, los orígenes de datos y los conjuntos de aptitudes. Al eliminar el indexador, puede opcionalmente, de forma selectiva elimina el índice, aptitudes y datos de origen al mismo tiempo.
 
-1. Elimine el indexador, el índice y el conjunto de aptitudes.
-2. Modifique los objetos.
-3. Vuelva a crearlos en el servicio para ejecutar la canalización. 
+![Eliminación de los objetos de búsqueda](./media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png "Eliminación de objetos de búsqueda en el portal")
 
-Puede usar el portal para eliminar índices, indexadores y conjuntos de aptitudes, o bien usar **DELETE** y especificar direcciones URL a cada objeto. El siguiente comando elimina un indexador.
+También puede usar **DELETE** y proporcionar direcciones URL a cada objeto. El siguiente comando elimina un indexador.
 
 ```http
-DELETE https://[YOUR-SERVICE-NAME]].search.windows.net/indexers/cog-search-demo-idxr?api-version=2019-05-06
+DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/cog-search-demo-idxr?api-version=2019-05-06
 ```
 
 Se devuelve el código de estado 204 si la eliminación se realiza correctamente.
-
-A medida que el código evoluciona, puede refinar una estrategia de regeneración. Para más información, consulte [Volver a generar un índice](search-howto-reindex.md).
 
 ## <a name="takeaways"></a>Puntos clave
 
@@ -509,11 +516,13 @@ Por último, ha aprendido cómo probar los resultados y restablecer el sistema p
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-La manera más rápida de borrar el contenido después de un tutorial es eliminar el grupo de recursos que contenga el servicio de Azure Cognitive Search y Azure Blob service. Si decide colocar ambos servicios en el mismo grupo, elimine el grupo de recursos para eliminar de manera permanente todo lo que contiene, incluyendo los servicios y cualquier contenido almacenado que haya creado para este tutorial. En el portal, el nombre del grupo de recursos está en la página Información general de cada servicio.
+Cuando trabaje con su propia suscripción, al final de un proyecto, es recomendable eliminar los recursos que ya no necesite. Los recursos que se dejan en ejecución pueden costarle mucho dinero. Puede eliminar los recursos de forma individual o eliminar el grupo de recursos para eliminar todo el conjunto de recursos.
+
+Puede buscar y administrar los recursos en el portal, mediante el vínculo Todos los recursos o Grupos de recursos en el panel de navegación izquierdo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Personalice o extienda la canalización con aptitudes personalizadas. Al crear una aptitud personalizada y agregarla a un conjunto de aptitudes, puede incorporar texto o análisis de imágenes que escriba usted mismo. 
+Ahora que está familiarizado con todos los objetos de una canalización de enriquecimiento de AI, echemos un vistazo más de cerca a las definiciones de actitudes y a los conocimientos individuales.
 
 > [!div class="nextstepaction"]
-> [Ejemplo: Creación de una aptitud personalizada para el enriquecimiento de inteligencia artificial](cognitive-search-create-custom-skill-example.md)
+> [Creación de un conjunto de aptitudes](cognitive-search-defining-skillset.md)

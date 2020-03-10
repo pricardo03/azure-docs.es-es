@@ -1,25 +1,26 @@
 ---
 title: Integración e implementación continuas
-description: Experiencia de DevOps de bases de datos de clase empresarial para SQL Data Warehouse con compatibilidad integrada para la integración e implementación continuas mediante Azure Pipelines.
+description: Experiencia de DevOps de bases de datos de clase empresarial para el almacenamiento de datos con compatibilidad integrada con integración e implementación continuas mediante Azure Pipelines.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: integration
-ms.date: 08/28/2019
+ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8178e5ff9ff4816ddd422d3c45cfc0e1e0b3d41
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.custom: azure-synapse
+ms.openlocfilehash: cb28afc84c423c5c5321a8f948e82f82031888a0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712990"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195947"
 ---
-# <a name="continuous-integration-and-deployment-for-azure-sql-data-warehouse"></a>Integración e implementación continuas para Azure SQL Data Warehouse
+# <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Integración e implementación continuas para el almacenamiento de datos
 
-En este sencillo tutorial se describe cómo integrar un proyecto de base de datos de SQL Server Data Tools (SSDT) con Azure DevOps y aprovechar Azure Pipelines para configurar la integración e implementación continuas. Este tutorial es el segundo paso en la creación de la canalización de la integración e implementación continuas con SQL Data Warehouse. 
+En este sencillo tutorial se describe cómo integrar un proyecto de base de datos de SQL Server Data Tools (SSDT) con Azure DevOps y aprovechar Azure Pipelines para configurar la integración e implementación continuas. Este tutorial es el segundo paso en la creación de la canalización de integración e implementación continuas para el almacenamiento de datos. 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -61,7 +62,7 @@ En este punto, tiene un entorno simple en el que cualquier inserción en la rama
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Explore [Arquitectura de Azure SQL Data Warehouse](massively-parallel-processing-mpp-architecture.md).
-- [Cree rápidamente una instancia de SQL Data Warehouse](create-data-warehouse-portal.md).
+- Explore la [arquitectura MPP de SQL Analytics](massively-parallel-processing-mpp-architecture.md)
+- [Creación rápida de un grupo de SQL](create-data-warehouse-portal.md)
 - [Carga de datos de ejemplo](sql-data-warehouse-load-sample-databases.md)
 - Explore [vídeos](/azure/sql-data-warehouse/sql-data-warehouse-videos).

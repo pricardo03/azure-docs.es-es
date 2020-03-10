@@ -4,17 +4,17 @@ description: En este artículo se explica cómo los asociados usan las caracter�
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/10/2020
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 9f35f0ae2b310fba462a3f45038496854077da27
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: f81ec71ffe5cdf7f70e309282307a1c4bb293219
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117597"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245475"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introducción a Azure Cost Management para los asociados
 
@@ -140,18 +140,14 @@ Cuando esta directiva está establecida en **Sí**, los usuarios de suscripcione
 
 Cuando la directiva de visibilidad de los costos está habilitada, todos los servicios que tienen la opción de uso de la suscripción muestran los costos según las tarifas de pago por uso. El uso de reservas aparece con cero cargos para los costos reales y amortizados. Las compras y los derechos no están asociados a una suscripción específica. Por lo tanto, las compras no se muestran en el ámbito de la suscripción.
 
-Para ver los costos para el inquilino del cliente, abra **Administración de costos + facturación** y seleccione la cuenta de facturación correspondiente de Microsoft Partner Agreement.
 
-![Selección de una cuenta de facturación](./media/get-started-partners/select-billing-account.png)
+### <a name="view-customer-costs"></a>Visualización de los costos del cliente
 
-En **Facturación**, seleccione **Suscripciones de Azure** y, luego, seleccione un cliente.
-
-![Selección de un cliente de una suscripción de Azure](./media/get-started-partners/subscriptions-select-customer.png)
-
-Haga clic en **Análisis de costos** y comience a revisar los costos.
-Los ámbitos RBAC de grupo de recursos y suscripción tienen a su disposición análisis de costos, presupuestos y alertas según los costos basados en la tarifa de pago por uso.
+Para ver los costos del inquilino del cliente, abra **Cost Management y facturación**. Seleccione **Análisis de costos** y, después, cambie el ámbito a la suscripción del inquilino del cliente para empezar a revisar los costos.
 
 ![Visualización del análisis de costos como cliente ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
+
+Los ámbitos RBAC de grupo de recursos y suscripción tienen a su disposición análisis de costos, presupuestos y alertas según los costos basados en la tarifa de pago por uso.
 
 Las vistas amortizadas y los costos reales de las instancias reservadas de los ámbitos RBAC muestran cero cargos. Los costos de las instancias reservadas solo se muestran en los ámbitos de facturación en los que se realizaron las compras.
 

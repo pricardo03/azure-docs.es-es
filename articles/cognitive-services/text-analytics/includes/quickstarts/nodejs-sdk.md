@@ -6,15 +6,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 01/13/2020
+ms.date: 02/26/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: dd8f8e415f2e83b6f08aa00953e42daecead7652
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 9f4c5e8d491bcff420e354657ff7302a22cd7583
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77372320"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78155452"
 ---
 <a name="HOLTop"></a>
 
@@ -33,8 +33,9 @@ ms.locfileid: "77372320"
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 * La versión actual de [Node.js](https://nodejs.org/).
-
-[!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
+* Una vez que tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="cree un recurso de Text Analytics"  target="_blank">cree un recurso de Text Analytics <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. 
+    * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a API Text Analytics. Lo hará más adelante en el inicio rápido.
+    * Puede usar el plan de tarifa gratuito para probar el servicio y actualizarlo más adelante a un nivel de pago para producción.
 
 ## <a name="setting-up"></a>Instalación
 

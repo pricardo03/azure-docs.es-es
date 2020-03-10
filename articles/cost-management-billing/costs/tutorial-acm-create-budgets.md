@@ -4,17 +4,17 @@ description: Este tutorial le ayuda a planear y tener en cuenta los costos de lo
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/23/2020
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 3b479f85475be6409a6fa6621357400e954d22c8
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: f5943e37267a79ad342fbd9afe0256a4ca7182e6
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77582402"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251186"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Creación y administración de presupuestos de Azure
 
@@ -40,7 +40,9 @@ En este tutorial, aprenderá a:
 
 Los presupuestos se admiten en distintos tipos de cuenta de Azure. Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](understand-cost-mgt-data.md) (Información sobre los datos de Cost Management). Para ver los presupuestos, se necesita al menos acceso de lectura en la cuenta de Azure.
 
- En el caso de las suscripciones con contrato Enterprise de Azure, debe tener acceso de lectura para ver los presupuestos. Para crear y administrar presupuestos, debe tener permiso de colaborador. Puede crear presupuestos individuales para las suscripciones de EA y los grupos de recursos. Sin embargo, no puede crear presupuestos para las cuentas de facturación de EA.
+Si su suscripción es nueva, no podrá crear un presupuesto ni usar las características de Cost Management de inmediato. Para poder hacerlo deberán transcurrir un máximo de 48 horas.
+
+En el caso de las suscripciones con contrato Enterprise de Azure, debe tener acceso de lectura para ver los presupuestos. Para crear y administrar presupuestos, debe tener permiso de colaborador. Puede crear presupuestos individuales para las suscripciones de EA y los grupos de recursos. Sin embargo, no puede crear presupuestos para las cuentas de facturación de EA.
 
 Se admiten los siguientes permisos o ámbitos de Azure por suscripción para los presupuestos por usuario y grupo. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 

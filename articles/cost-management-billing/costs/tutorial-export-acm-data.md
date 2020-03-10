@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 40846de9ee8eec3225a05e3c2c68c3ad5af02042
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 04228a5f3f7e0b10e3cd881043af7861bb9fb347
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201023"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251135"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Creación y administración de datos exportados
 
@@ -39,6 +39,8 @@ La exportación de datos está disponible para varios tipos de cuenta de Azure, 
 Para las cuentas de Azure Storage:
 - Se necesitan permisos de escritura para cambiar la cuenta de Storage configurada, independientemente de los permisos en la exportación.
 - La cuenta de Azure Storage debe configurarse para el almacenamiento de blobs o archivos.
+
+Si su suscripción es nueva, no podrá usar las características de Cost Management de inmediato. Para poder hacerlo deberán transcurrir un máximo de 48 horas.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com/).

@@ -12,18 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/16/2019
+ms.date: 02/27/2020
 ms.author: b-juche
-ms.openlocfilehash: c2984e012ae83a8bc17d72ed4eac0c5c469c2694
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 70d3a2a501952a5e20b1ff8e99f48f4d7aefce8d
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522863"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163971"
 ---
 # <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>¿Qué es la jerarquía de almacenamiento de Azure NetApp Files?
 
 Antes de crear un volumen en Azure NetApp Files, debe adquirir y configurar un grupo para la capacidad aprovisionada.  Para configurar un grupo de capacidad, debe tener una cuenta de NetApp. Conocer la jerarquía de almacenamiento le ayuda a configurar y administrar los recursos de Azure NetApp Files.
+
+> [!IMPORTANT] 
+> Actualmente, Azure NetApp Files no admite la migración de recursos entre suscripciones.
 
 ## <a name="azure_netapp_files_account"></a>Cuentas de NetApp
 

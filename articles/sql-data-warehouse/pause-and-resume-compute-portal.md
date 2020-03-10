@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: pausa y reanudación de procesos: Azure Portal '
-description: Use Azure Portal para pausar un proceso en Azure SQL Data Warehouse con la finalidad de ahorrar costos. Reanude el proceso cuando esté listo para usar el almacenamiento de datos.
+description: Use Azure Portal para pausar el proceso en el grupo de SQL con la finalidad de ahorrar costos. Reanude el proceso cuando esté listo para usar el almacenamiento de datos.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,70 +10,71 @@ ms.subservice: manage
 ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 14f66f71948f75a723c9fdbed7490d54c2c3e2b2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 49684e6844c2d9f58e9b750b12991428218e4426
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693002"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200660"
 ---
-# <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Inicio rápido: Pausar y reanudar un proceso en una instancia de Azure SQL Data Warehouse en Azure Portal
+# <a name="quickstart-pause-and-resume-compute-in-azure-synapse-analytics-sql-pool-in-the-azure-portal"></a>Inicio rápido: Pausa y reanudación del proceso en el grupo de SQL de Azure Synapse Analytics en Azure Portal
 
-Use Azure Portal para pausar un proceso en Azure SQL Data Warehouse con la finalidad de ahorrar costos. [Reanude el proceso](sql-data-warehouse-manage-compute-overview.md) cuando esté listo para usar el almacenamiento de datos.
+Use Azure Portal para pausar el proceso en el grupo de SQL con la finalidad de ahorrar costos. [Reanude el proceso](sql-data-warehouse-manage-compute-overview.md) cuando esté listo para usar el almacenamiento de datos.
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Use [Crear y conectar: Portal](create-data-warehouse-portal.md) para crear un almacenamiento de datos denominado **mySampleDataWarehouse**. 
+Use [Crear y conectar: Portal](create-data-warehouse-portal.md) para crear un grupo de SQL denominado **mySampleDataWarehouse**. 
 
 ## <a name="pause-compute"></a>Pausa del proceso
 
 Para ahorrar costos, puede pausar y reanudar recursos de proceso a petición. Por ejemplo, si no va a usar la base de datos durante la noche y los fines de semana, puede pausarla durante esas horas y reanudarla durante el día. No se le cobrará por recursos de proceso mientras la base de datos se encuentre en pausa. Sin embargo, se le seguirá cobrando por el almacenamiento. 
 
-Para pausar una instancia de SQL Data Warehouse, siga estos pasos.
+Para pausar un grupo de SQL, siga estos pasos.
 
-1. En la página izquierda de Azure Portal, haga clic en **Bases de datos SQL**.
-2. Seleccione **mySampleDataWarehouse** en la página **Bases de datos SQL**. Se abrirá el almacenamiento de datos. 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+2. Haga clic en **Azure Synapse Analytics (formerly SQL DW)** en la página de navegación izquierda de Azure Portal.
+2. Seleccione **mySampleDataWarehouse** en la página de **Azure Synapse Analytics (formerly SQL DW)** para abrir el grupo de SQL. 
 3. En la página **mySampleDataWarehouse**, observe que el **Estado** sea **En línea**.
 
     ![Proceso en línea](media/pause-and-resume-compute-portal/compute-online.png)
 
-4. Para pausar el almacenamiento de datos, haga clic en el botón **Pausar**. 
+4. Para pausar el grupo de SQL, haga clic en el botón **Pausar**. 
 5. Aparece una pregunta de confirmación en la que tiene que indicar si quiera continuar. Haga clic en **Sí**.
 6. Espere un momento y, a continuación, observe que el **Estado** sea **Pausando**.
 
     ![Pausando](media/pause-and-resume-compute-portal/pausing.png)
 
-7. Una vez completada la operación de pausa, el estado es **En pausa** y el botón de opción es **Iniciar**.
-8. Ahora, los recursos de proceso para el almacenamiento de datos no tienen conexión. No se le cobrará el proceso hasta que reanude el servicio.
+7. Una vez completada la operación de pausa, el estado es **En pausa** y el botón de opción es **Reanudar**.
+8. Ahora, los recursos de proceso para el grupo de SQL no tienen conexión. No se le cobrará el proceso hasta que reanude el servicio.
 
     ![Proceso sin conexión](media/pause-and-resume-compute-portal/compute-offline.png)
 
 
 ## <a name="resume-compute"></a>Reanudación del proceso
 
-Para reanudar una instancia de SQL Data Warehouse, siga estos pasos.
+Para reanudar un grupo de SQL, siga estos pasos.
 
-1. En la página izquierda de Azure Portal, haga clic en **Bases de datos SQL**.
-2. Seleccione **mySampleDataWarehouse** en la página **Bases de datos SQL**. Se abrirá el almacenamiento de datos. 
+1. Haga clic en **Azure Synapse Analytics (formerly SQL DW)** en la página izquierda de Azure Portal.
+2. Seleccione **mySampleDataWarehouse** en la página de **Azure Synapse Analytics (formerly SQL DW)** para abrir la página del grupo de SQL. 
 3. En la página **mySampleDataWarehouse**, observe que el **Estado** sea **En pausa**.
 
     ![Proceso sin conexión](media/pause-and-resume-compute-portal/compute-offline.png)
 
-4. Para reanudar el almacenamiento de datos, haga clic en **Iniciar**. 
+4. Para reanudar el grupo de SQL, haga clic en **Reanudar**. 
 5. Aparece una pregunta de confirmación en la que tiene que indicar si lo quiere iniciar. Haga clic en **Sí**.
 6. Observe que el **Estado** sea **Reanudando**.
 
     ![Reanudando](media/pause-and-resume-compute-portal/resuming.png)
 
-7. Cuando el almacenamiento de datos vuelva a estar conectado, el estado será **En línea** y el botón de opción será **Pausar**.
-8. Los recursos de proceso para el almacenamiento de datos ahora están en línea y se puede usar el servicio. Los cargos del proceso se han reanudado.
+7. Cuando el grupo de SQL vuelva a estar en línea, el estado será **En línea** y el botón de opción será **Pausar**.
+8. Los recursos de proceso para el grupo de SQL ahora están en línea y se puede usar el servicio. Los cargos del proceso se han reanudado.
 
     ![Proceso en línea](media/pause-and-resume-compute-portal/compute-online.png)
 
@@ -82,26 +83,26 @@ Para reanudar una instancia de SQL Data Warehouse, siga estos pasos.
 Se le está cobrando por unidades de almacenamiento de datos y por los datos almacenados en el almacenamiento de datos. Estos recursos de proceso y de almacenamiento se facturan por separado. 
 
 - Si quiere conservar los datos de almacenamiento, pause el proceso.
-- Si desea quitar cobros futuros, puede eliminar el almacenamiento de datos. 
+- Si quiere eliminar cobros futuros, puede eliminar el grupo de SQL. 
 
 Siga estos pasos para limpiar los recursos según estime oportuno.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en el almacenamiento de datos.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en el grupo de SQL.
 
-    ![Limpieza de recursos](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Limpieza de recursos](media/pause-and-resume-compute-portal/clean-up-resources.png)
 
-1. Para pausar el proceso, haga clic en el botón **Pausar**. Cuando el almacenamiento de datos se haya puesto en pausa, verá un botón **Iniciar**.  Para reanudar el proceso, haga clic en **Iniciar**.
+1. Para pausar el proceso, haga clic en el botón **Pausar**. 
 
-2. Para quitar el almacenamiento de datos para que no se le cobre por proceso o almacenamiento, haga clic en **Eliminar**.
+2. Para quitar el grupo de SQL para que no le cobren por proceso o almacenamiento, haga clic en **Eliminar**.
 
-3. Para quitar el servidor SQL que creó, haga clic en **mynewserver-20171113.database.windows.net** y, luego, haga clic en **Eliminar**.  Debe tener cuidado con este procedimiento, ya que la eliminación del servidor elimina también todas las bases de datos asignadas al servidor.
+3. Para quitar el servidor SQL que creó, haga clic en **sqlpoolservername.database.windows.net** y, luego, en **Eliminar**.  Debe tener cuidado con este procedimiento, ya que la eliminación del servidor elimina también todas las bases de datos asignadas al servidor.
 
 4. Para quitar el grupo de recursos, haga clic en **myResourceGroup** y luego haga clic en **Eliminar grupo de recursos**.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ya ha pausado y reanudado el proceso para el almacenamiento de datos. Para más información sobre Azure SQL Data Warehouse, siga el tutorial para cargar los datos.
+Ya ha pausado y reanudado el proceso para el grupo de SQL. Para conocer los pasos siguientes, diríjase al tutorial para cargar datos.
 
 > [!div class="nextstepaction"]
-> [Carga de datos en una instancia de SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+> [Carga de datos en un grupo de SQL](load-data-from-azure-blob-storage-using-polybase.md)

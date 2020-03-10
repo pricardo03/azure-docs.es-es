@@ -2,18 +2,18 @@
 title: ¿Qué es Apache HBase in Azure HDInsight?
 description: Una introducción a Apache HBase en HDInsight, una base de datos NoSQL basada en Hadoop. Obtenga información acerca de los casos de uso y compare HBase con otros clústeres de Hadoop.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
-ms.date: 06/12/2019
-ms.author: hrasheed
-ms.openlocfilehash: e48a0c69dc04325c3f3c2ff7b73a26c6366816c9
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 03/03/2020
+ms.openlocfilehash: 97814f4d22629fd74f395887a7361a3aabe55012
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137458"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271849"
 ---
 # <a name="what-is-apache-hbase-in-azure-hdinsight"></a>¿Qué es Apache HBase in Azure HDInsight?
 
@@ -28,26 +28,22 @@ HBase de HDInsight se ofrece como un clúster administrado que se integra en el 
 La implementación de HDInsight aprovecha la arquitectura de escala de HBase para proporcionar particionamiento automático de tablas, una coherencia fuerte para lecturas y escrituras, y una conmutación automática por error. Se mejora el rendimiento mediante el almacenamiento en caché de memoria para lecturas y streaming de alto rendimiento para escrituras. Se puede crear un clúster de HBase dentro de la red virtual. Para obtener detalles, consulte [Creación de clústeres de HDInsight en Azure Virtual Network](./apache-hbase-provision-vnet.md).
 
 ## <a name="how-is-data-managed-in-hdinsight-hbase"></a>¿Cómo se administran los datos en HBase de HDInsight?
+
 En HBase, los datos pueden administrarse mediante los comandos `create`, `get`, `put` y `scan` del shell de HBase. Los datos se escriben en la base de datos mediante `put` y se leen con `get`. El comando de `scan` se usa para obtener datos de varias filas de una tabla. Los datos también se pueden administrar usando la API de C# de HBase, que proporciona una biblioteca de cliente en la parte superior de la API de REST de HBase. Asimismo, una base de datos de HBase se puede consultar usando [Apache Hive](https://hive.apache.org/). Para obtener una introducción a estos modelos de programación, consulte [Introducción a un ejemplo de Apache HBase con Apache Hadoop en HDInsight](./apache-hbase-tutorial-get-started-linux.md). También existen coprocesadores, que permiten el procesamiento de datos en los nodos que hospedan la base de datos.
 
 > [!NOTE]  
 > Thrift no es compatible con HBase en HDInsight.
 
-## <a name="scenarios-use-cases-for-apache-hbase"></a>Escenarios: casos de uso de Apache HBase
+## <a name="use-cases-for-apache-hbase"></a>casos de uso de Apache HBase
+
 El caso de uso canónico para el que se creó BigTable y, por extensión, HBase, fue la búsqueda web. Los motores de búsqueda crean índices que asignan términos a las páginas web que los contienen. Sin embargo, hay muchos otros casos de uso a los que se adapta HBase, varios de los cuales se muestran en esta sección.
 
-* almacén de pares clave-valor
-  
-    HBase se puede usar como almacén de pares clave-valor y es adecuado para la administración de sistemas de mensajes. Facebook usa HBase para su sistema de mensajería y es ideal para almacenar y administrar comunicaciones de Internet. WebTable usa HBase para buscar y administrar tablas extraídas de páginas web.
-* datos del sensor
-  
-    HBase es útil para capturar datos que se recopilan cada vez más a partir de diversas fuentes. Entre estos se incluyen análisis sociales, serie temporal, actualización de paneles interactivos con tendencias y contadores y administración de sistemas de registro de auditoría. Entre los ejemplos se incluyen un terminal comercial de Bloombergy y la base de datos de series temporales abierta (OpenTSDB), que almacena y proporciona acceso a las métricas recopiladas en beneficio de los sistemas de servidor.
-* consulta en tiempo real
-  
-    [Apache Phoenix](https://phoenix.apache.org/) es un motor de consultas SQL para HBase Apache. Se obtiene acceso a él como controlador de JDBC y permite consultar y administrar tablas de HBase usando SQL.
-* HBase como plataforma
-  
-    Las aplicaciones pueden ejecutarse en de HBase usándolo como almacén de datos. Entre los ejemplos se incluyen Phoenix, [OpenTSDB](http://opentsdb.net/), Kiji y Titan. Las aplicaciones también pueden integrarse con HBase. Algunos ejemplos son [Apache Hive](https://hive.apache.org/), [Apache Pig](https://pig.apache.org/), [Solr](https://lucene.apache.org/solr/), [Apache Storm](https://storm.apache.org/), [Apache Flume](https://flume.apache.org/), [Apache Impala](https://impala.apache.org/), [Apache Spark](https://spark.apache.org/), [Ganglia](http://ganglia.info/) y [Apache Drill](https://drill.apache.org/).
+|Escenario |Descripción |
+|---|---|
+|almacén de pares clave-valor|HBase se puede usar como almacén de pares clave-valor y es adecuado para la administración de sistemas de mensajes. Facebook usa HBase para su sistema de mensajería y es ideal para almacenar y administrar comunicaciones de Internet. WebTable usa HBase para buscar y administrar tablas extraídas de páginas web.|
+|datos del sensor|HBase es útil para capturar datos que se recopilan cada vez más a partir de diversas fuentes. Entre estos se incluyen análisis sociales, serie temporal, actualización de paneles interactivos con tendencias y contadores y administración de sistemas de registro de auditoría. Entre los ejemplos se incluyen un terminal comercial de Bloombergy y la base de datos de series temporales abierta (OpenTSDB), que almacena y proporciona acceso a las métricas recopiladas en beneficio de los sistemas de servidor.|
+|consulta en tiempo real|[Apache Phoenix](https://phoenix.apache.org/) es un motor de consultas SQL para HBase Apache. Se obtiene acceso a él como controlador de JDBC y permite consultar y administrar tablas de HBase usando SQL.|
+|HBase como plataforma|Las aplicaciones pueden ejecutarse en de HBase usándolo como almacén de datos. Entre los ejemplos se incluyen Phoenix, [OpenTSDB](http://opentsdb.net/), Kiji y Titan. Las aplicaciones también pueden integrarse con HBase. Algunos ejemplos son [Apache Hive](https://hive.apache.org/), [Apache Pig](https://pig.apache.org/), [Solr](https://lucene.apache.org/solr/), [Apache Storm](https://storm.apache.org/), [Apache Flume](https://flume.apache.org/), [Apache Impala](https://impala.apache.org/), [Apache Spark](https://spark.apache.org/), [Ganglia](http://ganglia.info/) y [Apache Drill](https://drill.apache.org/).|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

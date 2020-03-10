@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 06/27/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: f808158c959894e757adaa73a81e3bf57f475da0
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 4d77cb8128105a40143a40e48ebe450115f7cf1e
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76021129"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164174"
 ---
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="azure-subscription"></a>Suscripción de Azure
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ### <a name="azure-roles"></a>Roles de Azure
-Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe ser un miembro de los roles *colaborador* o *propietario*, o de *administrador* de la suscripción de Azure. Para ver los permisos que tiene en la suscripción, vaya a [Azure Portal](https://portal.azure.com), seleccione su nombre de usuario en la esquina superior derecha, **Más opciones** (...) y, después, seleccione **Mis permisos**. Si tiene acceso a varias suscripciones, elija la correspondiente.
+Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe ser un miembro de los roles *colaborador* o *propietario*, o de *administrador* de la suscripción de Azure. Para ver los permisos que tiene en la suscripción, vaya a [Azure Portal](https://portal.azure.com), seleccione su nombre de usuario en la esquina superior derecha, seleccione el icono " **...** " para ver más opciones y, después, seleccione **Mis permisos**. Si tiene acceso a varias suscripciones, elija la correspondiente.
 
 Para crear y administrar recursos secundarios para Data Factory incluidos los conjuntos de datos, servicios vinculados, canalizaciones, desencadenadores y entornos de ejecución de integración, se aplican los siguientes requisitos:
 
@@ -35,8 +35,8 @@ Para más información, consulte los siguientes artículos:
 - [Rol de Colaborador de Data Factory](../articles/role-based-access-control/built-in-roles.md#data-factory-contributor)
 - [Roles y permisos para Azure Data Factory](../articles/data-factory/concepts-roles-permissions.md)
 
-### <a name="azure-storage-account"></a>Cuenta de almacenamiento de Azure
-En esta guía de inicio rápido, use una cuenta de almacenamiento de Azure (en concreto Blob Storage) de uso general como almacén de datos de *origen* y *destino*. Si no dispone de una cuenta de almacenamiento de Azure de uso general, consulte el artículo [Creación de una cuenta de almacenamiento](../articles/storage/common/storage-account-create.md), donde se indica cómo crearla. 
+### <a name="azure-storage-account"></a>Cuenta de Azure Storage
+En esta guía de inicio rápido, use una cuenta de Azure Storage (en concreto Blob Storage) de uso general como almacén de datos de *origen* y *destino*. Si no dispone de una cuenta de Azure Storage de uso general, consulte el artículo [Creación de una cuenta de almacenamiento](../articles/storage/common/storage-account-create.md), donde se indica cómo crearla. 
 
 #### <a name="get-the-storage-account-name"></a>Obtención del nombre de la cuenta de almacenamiento
 En este inicio rápido necesitará el nombre de su cuenta de Azure Storage. El siguiente procedimiento especifica los pasos necesarios para obtener el nombre de una cuenta de almacenamiento: 
@@ -50,9 +50,9 @@ También puede buscar y seleccionar *cuentas de almacenamiento* desde cualquier 
 #### <a name="create-a-blob-container"></a>Creación de un contenedor de blobs
 En esta sección se crea un contenedor de blobs denominado **adftutorial** en la instancia de Azure Blob Storage.
 
-1. En la página de la cuenta de almacenamiento, seleccione **Introducción** > **Blobs**.
-2. En la barra de herramientas de la página *\<Nombre de cuenta>*  - **Blobs**, seleccione **Contenedor**.
-3. En el cuadro de diálogo **Nuevo contenedor**, escriba **adftutorial** para el nombre y seleccione **Aceptar**. La página *\<Nombre de cuenta>*  - **Blobs** está actualizada para incluir **adftutorial** en la lista de contenedores.
+1. En la página de la cuenta de almacenamiento, seleccione **Información general** > **Contenedores**.
+2. En la barra de herramientas de la página *\<Nombre de cuenta>*  - **Contenedores**, seleccione **Contenedor**.
+3. En el cuadro de diálogo **Nuevo contenedor**, escriba **adftutorial** para el nombre y seleccione **Aceptar**. La página *\<Nombre de cuenta>*  - **Contenedores** está actualizada para incluir **adftutorial** en la lista de contenedores.
 
    ![Lista de contenedores](media/data-factory-quickstart-prerequisites/list-of-containers.png)
 
@@ -66,11 +66,11 @@ Jane, Doe
 
 Guarde el archivo en la carpeta **C:\ADFv2QuickStartPSH**. (Si la carpeta no existe, créela). A continuación, vuelva a Azure Portal y siga estos pasos:
 
-1. En la página *\<Nombre de cuenta>*  - **Blobs** donde lo dejó, seleccione **adftutorial** en la lista actualizada de contenedores.
+1. En la página *\<Nombre de cuenta>*  - **Contenedores** donde lo dejó, seleccione **adftutorial** en la lista actualizada de contenedores.
 
    1. Si ha cerrado la ventana o ha pasado a otra página; inicie sesión de nuevo en [Azure Portal](https://portal.azure.com).
    1. En el menú de Azure Portal, seleccione **Todos los servicios** y, a continuación, seleccione **Almacenamiento** > **Cuentas de almacenamiento**. También puede buscar y seleccionar *cuentas de almacenamiento* desde cualquier página.
-   1. Seleccione la cuenta de almacenamiento y, después, seleccione **Blobs** > **adftutorial**.
+   1. Seleccione la cuenta de almacenamiento y, después, seleccione **Contenedores** > **adftutorial**.
 
 2. En la barra de herramientas de la página del contenedor **adftutorial**, seleccione **Cargar**.
 3. En la página **Cargar blob**, seleccione **Archivos** y, a continuación, busque y seleccione el archivo **emp.txt**.

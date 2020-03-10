@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 812680e587ac5c5c8b3d949199a615fcd85fa610
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 301b68d0dfaeef6d5cfdd4d7a5a504794ac877f4
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485359"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205836"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la herramienta de etiquetado de ejemplo
 
@@ -35,12 +35,19 @@ Para completar este inicio rápido, debe cumplir los siguientes requisitos:
 ## <a name="set-up-the-sample-labeling-tool"></a>Configuración de la herramienta de etiquetado de ejemplo
 
 Usará el motor de Docker para ejecutar la herramienta de etiquetado de ejemplo. Siga estos pasos para configurar el contenedor de Docker. Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).
-1. En primer lugar, instale Docker en un equipo host. El equipo host puede ser el equipo local ([Windows](https://docs.docker.com/docker-for-windows/), [macOS](https://docs.docker.com/docker-for-mac/) o [Linux](https://docs.docker.com/install/)). O bien, puede usar un servicio de hospedaje de Docker en Azure, como [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/index), [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/index) o un clúster de Kubernetes [implementado en Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910). El equipo host debe cumplir los siguientes requisitos de hardware:
+1. En primer lugar, instale Docker en un equipo host. En esta guía se muestra cómo usar el equipo local como un host. Si desea usar un servicio de hospedaje de Docker en Azure, consulte la guía paso a paso [Implementación de la herramienta de etiquetado de ejemplo](../deploy-label-tool.md). 
+
+   El equipo host debe cumplir los siguientes requisitos de hardware:
 
     | Contenedor | Mínima | Recomendado|
     |:--|:--|:--|
     |Herramienta de etiquetado de ejemplo|2 núcleos, 4 GB de memoria|4 núcleos, 8 GB de memoria|
-    
+
+   Instale Docker en la máquina siguiendo las instrucciones adecuadas para su sistema operativo: 
+   * [Windows](https://docs.docker.com/docker-for-windows/)
+   * [macOS](https://docs.docker.com/docker-for-mac/)
+   * [Linux](https://docs.docker.com/install/).
+
 1. Obtenga el contenedor de la herramienta de etiquetado de ejemplo con el comando `docker pull`.
     ```
     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
@@ -118,15 +125,21 @@ Haga clic en **Run OCR on all files** (Ejecutar OCR en todos los archivos) en el
 
 A continuación, creará etiquetas y las aplicará a los elementos de texto que desea que reconozca el modelo.
 
-1. Primero, use el panel del editor de etiquetas para crear las etiquetas (etiquetas) que le gustaría identificar.
+1. Primero, use el panel del editor de etiquetas para crear las etiquetas que le gustaría identificar.
+  1. Haga clic en **+** para crear una nueva etiqueta.
+  1. Escriba el nombre de la etiqueta.
+  1. Presione Entrar para guardar la etiqueta.
 1. En el editor principal, haga clic y arrastre para seleccionar una o varias palabras de los elementos de texto resaltados.
+1. Haga clic en la etiqueta que desea aplicar o presione la tecla correspondiente del teclado. Las teclas numéricas se asignan como teclas de acceso rápido para las diez primeras etiquetas. Puede volver a ordenar las etiquetas con los iconos de flecha arriba y abajo del panel del editor de etiquetas.
+    > [!Tip]
+    > Tenga en cuenta las siguientes sugerencias cuando vaya a etiquetar los formularios.
+    > * Solo se puede aplicar una etiqueta a cada elemento de texto seleccionado.
+    > * Cada etiqueta solo se puede aplicar una vez por página. Si un valor aparece varias veces en el mismo formulario, cree etiquetas diferentes para cada instancia. Por ejemplo, "factura n.º 1", "factura n.º 2", etc.
+    > * Las etiquetas no pueden abarcar varias páginas.
+    > * Etiquete los valores tal como aparecen en el formulario; no intente dividir un valor en dos partes con dos etiquetas diferentes. Por ejemplo, un campo de dirección debe etiquetarse con una sola etiqueta incluso si abarca varias líneas.
+    > * No incluya claves en los campos etiquetados, solo los valores.
+    > * Los datos de la tabla se deben detectar automáticamente y estarán disponibles en el archivo JSON de salida final. Sin embargo, si el modelo no detecta todos los datos de la tabla, también puede etiquetar manualmente estos campos. Etiquete cada celda de la tabla con una etiqueta diferente. Si los formularios tienen tablas con un número variable de filas, asegúrese de etiquetar al menos un formulario con la tabla más grande posible.
 
-    > [!NOTE]
-    > Actualmente, no se puede seleccionar texto que abarque varias páginas.
-1. Haga clic en la etiqueta que desea aplicar o presione la tecla correspondiente del teclado. Solo se puede aplicar una etiqueta a cada elemento de texto seleccionado y cada etiqueta solo se puede aplicar una vez por página.
-
-    > [!TIP]
-    > Las teclas numéricas se asignan como teclas de acceso rápido para las diez primeras etiquetas. Puede volver a ordenar las etiquetas con los iconos de flecha arriba y abajo del panel del editor de etiquetas.
 
 Siga los pasos anteriores para etiquetar cinco de los formularios y, después, continúe con el paso siguiente.
 

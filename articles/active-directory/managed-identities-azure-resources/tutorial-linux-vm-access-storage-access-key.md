@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial`:` Uso de identidades administradas para acceder a Azure Storage (Linux): Azure AD'
+title: 'Tutorial`:` Uso de identidades administradas para acceder a Azure Storage mediante una clave de acceso (Linux): Azure AD'
 description: Este tutorial contiene directrices acerca de cómo utilizar una identidad administrada asignada por el sistema de una máquina virtual Linux para acceder a Azure Storage.
 services: active-directory
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 03/04/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35c31fbf8c7c1aa37134a1808cd3f54a559833c1
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 86f875fa80f8bb8dd33a369a23f49833162cd417
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74183430"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273814"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Tutorial: Uso de identidades administradas asignadas por el sistema de una máquina virtual Linux para acceder a Azure Storage mediante una clave de acceso
 
@@ -32,7 +32,7 @@ En este tutorial, se muestra cómo usar una identidad administrada asignada por 
 > * Conceder acceso a la máquina virtual a las claves de acceso a la cuenta de almacenamiento en Resource Manager 
 > * Obtener un token de acceso mediante la identidad de la máquina virtual y utilizarlo para recuperar las claves de acceso a la cuenta de almacenamiento desde Resource Manager  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -45,7 +45,7 @@ Si aún no tiene una, creará ahora una cuenta de almacenamiento.  También pued
 3. Escriba un **Nombre** para la cuenta de almacenamiento, que utilizará más adelante.  
 4. **Modelo de implementación** y **Clase de cuenta** debe establecerse en "Resource Manager" y "Uso General", respectivamente. 
 5. Asegúrese de que **Suscripción** y **Grupo de recursos** coinciden con los que especificó cuando creó la máquina virtual en el paso anterior.
-6. Haga clic en **Create**(Crear).
+6. Haga clic en **Crear**.
 
     ![Creación de una nueva cuenta de almacenamiento](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 

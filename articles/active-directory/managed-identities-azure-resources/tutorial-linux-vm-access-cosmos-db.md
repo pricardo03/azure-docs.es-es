@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/09/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8eb77802a4d6c29bb16912f1d74d950b6461b598
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: f15a269656f205b0acb6a49740dd4c625c0bdd41
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74183337"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248276"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutorial: Uso de identidades administradas asignadas por el sistema de una máquina virtual Linux para acceder a Azure Cosmos DB 
 
@@ -37,7 +37,7 @@ En este tutorial se muestra cómo usar una identidad administrada asignada por e
 > * Obtener un token de acceso y su uso para llamar a Azure Resource Manager
 > * Obtención de las claves de acceso desde Azure Resource Manager para realizar llamadas a Cosmos DB
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -55,7 +55,7 @@ Si aún no tiene una, cree una cuenta de Cosmos DB. También puede omitir este p
 3. Escriba un **identificador** para la cuenta de Cosmos DB, el cual se utilizará más adelante.  
 4. **API** se debe establecer en "SQL". El enfoque descrito en este tutorial se puede utilizar con los otros tipos de API disponibles, pero los pasos de este tutorial son para la API de SQL.
 5. Asegúrese de que **Suscripción** y **Grupo de recursos** coinciden con los que especificó cuando creó la máquina virtual en el paso anterior.  Seleccione una **Ubicación** en la que Cosmos DB esté disponible.
-6. Haga clic en **Create**(Crear).
+6. Haga clic en **Crear**.
 
 ## <a name="create-a-collection-in-the-cosmos-db-account"></a>Creación de una colección en la cuenta de Cosmos DB
 
@@ -74,7 +74,7 @@ az resource show --id /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE 
 ```
 La respuesta incluye los detalles de la identidad administrada asignada por el sistema (observe cómo se usa principalID en la sección siguiente):
 
-```bash  
+```output  
 {
     "id": "/subscriptions/<SUBSCRIPTION ID>/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAMe>",
   "identity": {
@@ -96,7 +96,7 @@ az role assignment create --assignee <MI PRINCIPALID> --role '<ROLE NAME>' --sco
 
 La respuesta incluye los detalles de la asignación de roles que se ha creado:
 
-```
+```output
 {
   "id": "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.DocumentDB/databaseAccounts/<COSMOS DB ACCOUNT>/providers/Microsoft.Authorization/roleAssignments/5b44e628-394e-4e7b-bbc3-d6cd4f28f15b",
   "name": "5b44e628-394e-4e7b-bbc3-d6cd4f28f15b",
@@ -159,13 +159,13 @@ La respuesta de CURL proporciona la lista de claves.  Por ejemplo, si obtiene la
 
 Ahora que tiene la clave de acceso de la cuenta de Cosmos DB, puede pasársela al SDK de Cosmos DB y realizar llamadas para acceder a la cuenta.  Como ejemplo rápido, puede pasar la clave de acceso a la CLI de Azure.  Puede obtener el valor de `<COSMOS DB CONNECTION URL>` en la pestaña **Información general** de la hoja de la cuenta de Cosmos DB en Azure Portal.  Reemplace `<ACCESS KEY>` por el valor obtenido anteriormente:
 
-```bash
+```azurecli
 az cosmosdb collection show -c <COLLECTION ID> -d <DATABASE ID> --url-connection "<COSMOS DB CONNECTION URL>" --key <ACCESS KEY>
 ```
 
 Este comando de la CLI devuelve detalles acerca de la colección:
 
-```bash
+```output
 {
   "collection": {
     "_conflicts": "conflicts/",

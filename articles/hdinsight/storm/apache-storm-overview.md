@@ -2,19 +2,18 @@
 title: ¿Qué es Apache Storm en Azure HDInsight?
 description: Apache Storm permite procesar los flujos de datos en tiempo real. Azure HDInsight le permite crear fácilmente clústeres de Storm en la nube de Azure. Con Visual Studio, puede crear soluciones de Storm con C# y, después, implementar en los clústeres de Storm de HDInsight.
 author: hrasheed-msft
-ms.reviewer: jasonh
-keywords: apache storm casos de uso, el clúster de storm, qué es apache storm
-ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: overview
-ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: b291d5babb0680f5f1a742efcf624a82c804de68
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: overview
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 03/02/2020
+ms.openlocfilehash: 24981c10985cd353fcd476f416e89c94ad6b6cc6
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77460014"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271896"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>¿Qué es Apache Storm en Azure HDInsight?
 
@@ -34,13 +33,9 @@ Storm en HDInsight proporciona las siguientes características:
 
     * Admite la interfaz Java de Trident. Puede crear topologías de Storm que admitan el procesamiento de mensajes "exactamente una vez", la persistencia del almacén de datos transaccional y un conjunto de operaciones comunes de Stream Analytics.
 
-* **Escalado dinámico**: Puede agregar o quitar nodos de trabajo sin afectar a las topologías de Storm en ejecución.
+* **Escalado dinámico**: Puede agregar o quitar nodos de trabajo sin afectar a las topologías de Storm en ejecución. Debe desactivar y reactivar las topologías en ejecución para aprovechar las ventajas de los nuevos nodos agregados a través de operaciones de escala.
 
-    * Debe desactivar y reactivar las topologías en ejecución para aprovechar las ventajas de los nuevos nodos agregados a través de operaciones de escala.
-
-* **Creación de canalizaciones de streaming con varios servicios de Azure**: Storm en HDInsight se integra con otros servicios de Azure como Event Hubs, SQL Database, Azure Storage y Azure Data Lake Storage.
-
-    Para obtener un ejemplo de solución que se integra con los servicios de Azure, consulte [Process events from Event Hubs with Apache Storm on Apache HDInsight](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) (Procesamiento de eventos desde Event Hubs con Apache Storm en Apache HDInsight).
+* **Creación de canalizaciones de streaming con varios servicios de Azure**: Storm en HDInsight se integra con otros servicios de Azure como Event Hubs, SQL Database, Azure Storage y Azure Data Lake Storage. Para obtener un ejemplo de solución que se integra con los servicios de Azure, consulte [Process events from Event Hubs with Apache Storm on Apache HDInsight](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) (Procesamiento de eventos desde Event Hubs con Apache Storm en Apache HDInsight).
 
 Para obtener una lista de empresas que usan Apache Storm con sus soluciones de análisis en tiempo real, consulte las [compañías que usan Apache Storm](https://storm.apache.org/Powered-By.html).
 
@@ -72,19 +67,12 @@ Puede crear un nuevo clúster de Storm en HDInsight en minutos. Para más inform
 
 ## <a name="ease-of-use"></a>Facilidad de uso
 
-* __Conectividad de Secure Shell (SSH)__ : puede acceder a los nodos principales de un clúster de Storm a través de Internet mediante SSH. Puede ejecutar comandos directamente en el clúster mediante SSH.
-
-  Para más información, consulte [Uso SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
-
-* __Conectividad web__: todos los clústeres de HDInsight proporcionan la interfaz de usuario web de Ambari. Puede supervisar, configurar y administrar servicios fácilmente en el clúster mediante la interfaz de usuario web de Ambari. Clústeres de Storm también proporcionan la interfaz de usuario de Storm. Puede supervisar y administrar topologías de Storm en ejecución desde el explorador mediante la interfaz de usuario de Storm.
-
-  Para más información, consulte el artículo [Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari](../hdinsight-hadoop-manage-ambari.md) y la sección [Supervisión y administración: IU de Apache Storm](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-a-topology-using-the-storm-ui).
-
-* __Azure PowerShell y la CLI de Azure clásica__: tanto PowerShell como la CLI de Azure clásica proporcionan utilidades de línea de comandos que puede utilizar desde su sistema cliente para trabajar con HDInsight y otros servicios de Azure.
-
-* __Integración de Visual Studio__: las Herramientas de Azure Data Lake para Visual Studio incluyen plantillas de proyecto para la creación de topologías de Storm en C# mediante la plataforma SCP.Net. Las herramientas de Data Lake también ofrecen herramientas para implementar, supervisar y administrar soluciones con Storm en HDInsight.
-
-  Para más información, consulte [Desarrollo de topologías de C# para Apache Storm en HDInsight con herramientas de Hadoop para Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
+|Uso |Descripción |
+|---|---|
+|Conectividad de Secure Shell (SSH)|puede acceder a los nodos principales de un clúster de Storm a través de Internet mediante SSH. Puede ejecutar comandos directamente en el clúster mediante SSH. Para más información, consulte [Uso SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).|
+|Conectividad web|todos los clústeres de HDInsight proporcionan la interfaz de usuario web de Ambari. Puede supervisar, configurar y administrar servicios fácilmente en el clúster mediante la interfaz de usuario web de Ambari. Clústeres de Storm también proporcionan la interfaz de usuario de Storm. Puede supervisar y administrar topologías de Storm en ejecución desde el explorador mediante la interfaz de usuario de Storm. Para más información, consulte el artículo [Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari](../hdinsight-hadoop-manage-ambari.md) y la sección [Supervisión y administración: IU de Apache Storm](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-a-topology-using-the-storm-ui).|
+|Azure PowerShell y la CLI de Azure|Tanto PowerShell como la CLI de Azure proporcionan utilidades de línea de comandos que se pueden usar desde el sistema cliente para trabajar con HDInsight y otros servicios de Azure.|
+|Integración de Visual Studio|las Herramientas de Azure Data Lake para Visual Studio incluyen plantillas de proyecto para la creación de topologías de Storm en C# mediante la plataforma SCP.Net. Las herramientas de Data Lake también ofrecen herramientas para implementar, supervisar y administrar soluciones con Storm en HDInsight. Para más información, consulte [Desarrollo de topologías de C# para Apache Storm en HDInsight con herramientas de Hadoop para Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).|
 
 ## <a name="integration-with-other-azure-services"></a>Integración con otros servicios de Azure
 
@@ -100,9 +88,7 @@ Puede crear un nuevo clúster de Storm en HDInsight en minutos. Para más inform
 
 ## <a name="support"></a>Soporte técnico
 
-Storm en HDInsight incluye soporte técnico completo y continuo de nivel de empresa. Storm en HDInsight también tiene un Acuerdo de Nivel de Servicio del 99,9 %. Eso significa que Microsoft garantiza que un clúster de Storm dispondrá de conectividad externa como mínimo el 99,9 % del tiempo.
-
-Para más información, consulte [Soporte técnico de Azure](https://azure.microsoft.com/support/options/).
+Storm en HDInsight incluye soporte técnico completo y continuo de nivel de empresa. Storm en HDInsight también tiene un Acuerdo de Nivel de Servicio del 99,9 %. Eso significa que Microsoft garantiza que un clúster de Storm dispondrá de conectividad externa como mínimo el 99,9 % del tiempo. Para más información, consulte [Soporte técnico de Azure](https://azure.microsoft.com/support/options/).
 
 ## <a name="apache-storm-use-cases"></a>Casos de uso de Apache Storm
 
@@ -120,9 +106,7 @@ Para más información sobre escenarios del mundo real, consulte el documento so
 
 ## <a name="development"></a>Desarrollo
 
-Los desarrolladores de .NET pueden diseñar e implementar topologías en C# mediante las Herramientas de Data Lake para Visual Studio. También puede crear topologías híbridas que usen los componentes de Java y C#.
-
-Para obtener más información, consulte [Desarrollo de topologías de C# para Apache Storm en HDInsight con Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)
+Los desarrolladores de .NET pueden diseñar e implementar topologías en C# mediante las Herramientas de Data Lake para Visual Studio. También puede crear topologías híbridas que usen los componentes de Java y C#. Para obtener más información, consulte [Desarrollo de topologías de C# para Apache Storm en HDInsight con Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)
 
 También puede desarrollar soluciones de Java mediante el IDE de su elección. Para más información, consulte [Desarrollo de topologías de Java para Apache Storm en HDInsight](apache-storm-develop-java-topology.md).
 
@@ -132,9 +116,7 @@ Python también puede usarse para desarrollar componentes de Storm. Para más in
 
 ### <a name="guaranteed-message-processing"></a>Procesamiento de mensajes garantizado
 
-Apache Storm puede proporcionar diferentes niveles de procesamiento de mensajes garantizado. Por ejemplo, una aplicación básica de Storm puede garantizar un procesamiento una vez al menos y [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) puede garantizar exactamente el procesamiento exactamente una vez.
-
-Para obtener más información, consulte las [Garantías en el procesamiento de los datos](https://storm.apache.org/about/guarantees-data-processing.html) en apache.org.
+Apache Storm puede proporcionar diferentes niveles de procesamiento de mensajes garantizado. Por ejemplo, una aplicación básica de Storm puede garantizar un procesamiento una vez al menos y [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) puede garantizar exactamente el procesamiento exactamente una vez. Para obtener más información, consulte las [Garantías en el procesamiento de los datos](https://storm.apache.org/about/guarantees-data-processing.html) en apache.org.
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 

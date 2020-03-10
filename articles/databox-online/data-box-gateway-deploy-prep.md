@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: fdb4b7c370d5edadf3e0e5bc0d1ae548da6bcaa9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0446ee4fb238d2fa8447f998536c3c14d968f630
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438656"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303212"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Tutorial: Preparación de la implementación de Azure Data Box Gateway
 
@@ -42,7 +42,7 @@ Para implementar Data Box Gateway, consulte los siguientes tutoriales en el orde
 
 Ya puede empezar a configurar Azure Portal.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Aquí encontrará los requisitos previos para configurar su recurso de Data Box Gateway, el dispositivo Data Box Gateway y la red de centros de datos.
 
@@ -94,7 +94,7 @@ Siga estos pasos en Azure Portal para crear un recurso de Data Box Gateway.
     - O bien, el portal de Azure Government en esta dirección URL: [https://portal.azure.us](https://portal.azure.us). Para más información, vaya a [Connect to Azure Government using the portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal) (Conexión a Azure Government mediante el portal).
 
 2. En el menú izquierdo, seleccione **+ Crear un recurso**. Busque **Data Box Edge/Data Box Gateway**. Seleccione Data Box Edge/Data Box Gateway. Seleccione **Crear**.
-3. Seleccione la suscripción que desea usar para el dispositivo Data Box Gateway. Seleccione la región donde quiere implementar el recurso Data Box Gateway. En esta versión, están disponibles las regiones de Este de EE. UU., Sudeste Asiático y Europa Occidental. Elija la ubicación más cercana a la región geográfica donde quiera implementar el dispositivo. En la opción **Data Box Gateway**, seleccione **Crear**.
+3. Seleccione la suscripción que desea usar para el dispositivo Data Box Gateway. Seleccione la región donde quiere implementar el recurso Data Box Gateway. Para una lista de todas las regiones en las que está disponible el recurso de Azure Stack Edge, consulte [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Elija la ubicación más cercana a la región geográfica donde quiera implementar el dispositivo. En la opción **Data Box Gateway**, seleccione **Crear**.
 
     ![Busque el servicio Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-edge-sku.png)
 
@@ -110,7 +110,7 @@ Siga estos pasos en Azure Portal para crear un recurso de Data Box Gateway.
     |Configuración  |Value  |
     |---------|---------|
     |Nombre   | Nombre descriptivo que identifique el recurso.<br>El nombre tiene entre 2 y 50 caracteres que contiene letras, números y guiones.<br> El nombre comienza y termina con una letra o un número.        |   
-    |Region     |En esta versión, están disponibles las regiones de Este de EE. UU., Sudeste Asiático y Europa Occidental para implementar el recurso. En cuanto a Azure Government, todas las regiones que aparecen en la lista de [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/) están disponibles. <br> Elija la ubicación más cercana a la región geográfica donde quiera implementar el dispositivo.|
+    |Region     |Para una lista de todas las regiones en las que está disponible el recurso de Azure Stack Edge, consulte [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). En cuanto a Azure Government, todas las regiones que aparecen en la lista de [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/) están disponibles. <br> Elija la ubicación más cercana a la región geográfica donde quiera implementar el dispositivo.|
     
     ![Creación de un recurso de Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
     

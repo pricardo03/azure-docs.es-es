@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d250377e15b957c10322dbba9ca587dd58944ad
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 51c14fd7f427c29c47521a7355309e62ab2254ca
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794981"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298622"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escritura de expresiones para la asignación de atributos en Azure Active Directory
 Al configurar el aprovisionamiento en la nube, uno de los tipos de asignaciones de atributos que se pueden especificar es una asignación de expresiones. 
@@ -34,12 +34,12 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 * Puede transformar tres tipos diferentes de argumentos en funciones:
   
   1. Atributos, que deben ir entre corchetes. Por ejemplo: [NombreAtributo]
-  2. Constantes de cadena, que deben ir entre comillas. Por ejemplo:  "Estados Unidos"
-  3. Otras funciones. Por ejemplo:  FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
-* Para las constantes de cadena, si necesita una barra diagonal inversa (\) o comillas dobles (") en la cadena, se deben convertirse con el símbolo de barra diagonal inversa (\). Por ejemplo:  "Nombre de la empresa: \\"Contoso\\""
+  2. Constantes de cadena, que deben ir entre comillas. Por ejemplo: "Estados Unidos"
+  3. Otras funciones. Por ejemplo: FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
+* Para las constantes de cadena, si necesita una barra diagonal inversa (\) o comillas dobles (") en la cadena, se deben convertirse con el símbolo de barra diagonal inversa (\). Por ejemplo: "Nombre de la empresa: \\"Contoso\\""
 
 ## <a name="list-of-functions"></a>Lista de funciones
-| Lista de funciones | DESCRIPCIÓN |
+| Lista de funciones | Descripción |
 |-----|----|
 |[Append](#append)|adopta un valor de la cadena de origen y anexa el sufijo al final de la misma.|
 |[BitAnd](#bitand)|: la función BitAnd establece los bits especificados en un valor.|
@@ -87,10 +87,10 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 **Parámetros:**<br> 
 
-   | NOMBRE | Obligatorio/Repetición | type | Notas |
+   | Nombre | Obligatorio/Repetición | Tipo | Notas |
    | --- | --- | --- | --- |
-   | **de origen** |Obligatorio |Cadena |Normalmente el nombre del atributo del objeto de origen. |
-   | **suffix** |Obligatorio |Cadena |La cadena que se va a anexar al final del valor de origen. |
+   | **de origen** |Obligatorio |String |Normalmente el nombre del atributo del objeto de origen. |
+   | **suffix** |Obligatorio |String |La cadena que se va a anexar al final del valor de origen. |
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -102,7 +102,7 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 * value1, value2: valores numéricos que deberían estar unidos por el operador AND
 
-**Comentarios:**  
+**Observaciones**:  
 : esta función convierte ambos parámetros en la representación binaria y establece un bit en los siguientes valores:
 
 * 0: si uno o ambos de los bits correspondientes en *value1* y *value2* son 0.
@@ -110,7 +110,7 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 En otras palabras, devuelve 0 en todos los casos excepto cuando los bits correspondientes de los dos parámetros son 1.
 
-**Ejemplo:**  
+**Ejemplo**:  
  
  `BitAnd(&HF, &HF7)`</br>
  devuelve 7 porque los valores hexadecimales "F" y "F7" se evalúan en este valor.
@@ -124,10 +124,10 @@ En otras palabras, devuelve 0 en todos los casos excepto cuando los bits corresp
 **Sintaxis:**  
 `bool CBool(exp Expression)`
 
-**Comentarios:**  
+**Observaciones**:  
 Si la expresión se evalúa en un valor distinto de cero, CBool devuelve True. En caso contrario, devuelve False.
 
-**Ejemplo:**  
+**Ejemplo**:  
 `CBool([attrib1] = [attrib2])`  
 
 Devuelve True si ambos atributos tienen el mismo valor.
@@ -159,7 +159,7 @@ Convierte el valor de una matriz de enteros en su representación de cadena equi
 **Sintaxis:**  
 `str ConvertToBase64(str source)`
 
-**Ejemplo:**  
+**Ejemplo**:  
 `ConvertToBase64("Hello world!")`  
 devuelve "SABlAGwAbABvACAAdwBvAHIAbABkACEA".
 
@@ -171,10 +171,10 @@ devuelve "SABlAGwAbABvACAAdwBvAHIAbABkACEA".
 **Sintaxis:**  
 `str ConvertToUTF8Hex(str source)`
 
-**Comentarios:**  
+**Observaciones**:  
 : Azure Active Directory usa el formato de salida de esta función como formato de atributo DN.
 
-**Ejemplo:**  
+**Ejemplo**:  
 `ConvertToUTF8Hex("Hello world!")`  
 devuelve 48656C6C6F20776F726C6421.
 
@@ -198,7 +198,7 @@ devuelve 48656C6C6F20776F726C6421.
 
 * value: puede ser un valor numérico, un atributo de referencia o un valor booleano.
 
-**Ejemplo:**  
+**Ejemplo**:  
 `CStr([dn])`  
 podría devolver "cn=Joe,dc=contoso,dc=com"
 
@@ -210,7 +210,7 @@ podría devolver "cn=Joe,dc=contoso,dc=com"
 **Sintaxis:**  
 `dt DateFromNum(num value)`
 
-**Ejemplo:**  
+**Ejemplo**:  
 `DateFromNum([lastLogonTimestamp])`  
 `DateFromNum(129699324000000000)`  
 devuelve un valor DateTime que representa 2012-01-01 23:00:00.
@@ -226,7 +226,7 @@ devuelve un valor DateTime que representa 2012-01-01 23:00:00.
 * dn: el atributo de referencia que interpretar
 * ComponentNumber: el componente en DN para devolver
 
-**Ejemplo:**  
+**Ejemplo**:  
 `DNComponent(CRef([dn]),1)`  
 si dn es "cn=Joe,ou=…", devuelve Joe.
 
@@ -238,7 +238,7 @@ si dn es "cn=Joe,ou=…", devuelve Joe.
 **Sintaxis:**  
 `void Error(str ErrorMessage)`
 
-**Ejemplo:**  
+**Ejemplo**:  
 `IIF(IsPresent([accountName]),[accountName],Error("AccountName is required"))`  
 si el atributo accountName no está presente, se produce un error en el objeto.
 
@@ -250,11 +250,11 @@ si el atributo accountName no está presente, se produce un error en el objeto.
 
 **Parámetros:**<br> 
 
-   | NOMBRE | Obligatorio/Repetición | type | Notas |
+   | Nombre | Obligatorio/Repetición | Tipo | Notas |
    | --- | --- | --- | --- |
-   | **de origen** |Obligatorio |Cadena |Normalmente el nombre del atributo del objeto de origen. |
-   | **inputFormat** |Obligatorio |Cadena |Formato esperado del valor de origen. Para conocer los formatos admitidos, consulte [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
-   | **outputFormat** |Obligatorio |Cadena |Formato de la fecha de salida. |
+   | **de origen** |Obligatorio |String |Normalmente el nombre del atributo del objeto de origen. |
+   | **inputFormat** |Obligatorio |String |Formato esperado del valor de origen. Para conocer los formatos admitidos, consulte [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+   | **outputFormat** |Obligatorio |String |Formato de la fecha de salida. |
 
 ---
 ### <a name="guid"></a>Guid
@@ -276,7 +276,7 @@ La función GUID genera un nuevo GUID aleatorio.
 * valueIfTrue: si la condición se evalúa como true, el valor devuelto.
 * valueIfFalse: si la condición se evalúa como false, el valor devuelto.
 
-**Ejemplo:**  
+**Ejemplo**:  
 `IIF([employeeType]="Intern","t-" & [alias],[alias])`  
  Si el usuario está en prácticas, devuelve el alias de un usuario al que agrega "t-" al principio. De lo contrario, el alias del usuario se queda como está.
 
@@ -296,10 +296,10 @@ La función GUID genera un nuevo GUID aleatorio.
 * start: posición de inicio para encontrar la subcadena
 * compare: vbTextCompare o vbBinaryCompare
 
-**Comentarios:**  
+**Observaciones**:  
 : devuelve la posición en la que se encontró la subcadena o 0 si no se encuentra.
 
-**Ejemplo:**  
+**Ejemplo**:  
 `InStr("The quick brown fox","quick")`  
 se evalúa en 5.
 
@@ -308,16 +308,16 @@ Se evalúa en 7.
 
 ---
 ### <a name="isnull"></a>IsNull
-**Descripción**  
+**Descripción:**  
 si la expresión se evalúa como Null, la función IsNull devuelve True.
 
 **Sintaxis:**  
 `bool IsNull(var Expression)`
 
-**Comentarios:**  
+**Observaciones**:  
 para un atributo, un valor Null se expresa mediante la ausencia del atributo.
 
-**Ejemplo:**  
+**Ejemplo**:  
 `IsNull([displayName])`  
 devuelve True si el atributo no está presente en CS o MV.
 
@@ -329,11 +329,11 @@ si la expresión es Null o una cadena vacía, la función IsNullOrEmpty devuelve
 **Sintaxis:**  
 `bool IsNullOrEmpty(var Expression)`
 
-**Comentarios:**  
+**Observaciones**:  
 para un atributo, esto se evaluaría como True si el atributo no está presente o está presente, pero es una cadena vacía.  
 La función contraria a esta es IsPresent.
 
-**Ejemplo:**  
+**Ejemplo**:  
 `IsNullOrEmpty([displayName])`  
 devuelve True si el atributo no está presente o si es una cadena vacía en CS o MV.
 
@@ -345,14 +345,14 @@ si la expresión se evalúa como una cadena que no es Null y no está vacía, la
 **Sintaxis:**  
 `bool IsPresent(var expression)`
 
-**Comentarios:**  
+**Observaciones**:  
 la función contraria a esta es IsNullOrEmpty.
 
-**Ejemplo:**  
+**Ejemplo**:  
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
 
 ---
-### <a name="item"></a>item
+### <a name="item"></a>Elemento
 **Descripción:**  
 la función Item devuelve un elemento de un atributo o una cadena de varios valores.
 
@@ -362,12 +362,12 @@ la función Item devuelve un elemento de un atributo o una cadena de varios valo
 * attribute: atributo de varios valores
 * index: índice para un elemento en la cadena de varios valores.
 
-**Comentarios:**  
+**Observaciones**:  
 la función Item es útil con la función Contains puesto que esta última función devuelve el índice a un elemento en el atributo de varios valores.
 
 Se produce un error si el índice está fuera de los límites.
 
-**Ejemplo:**  
+**Ejemplo**:  
 `Mid(Item([proxyAddresses],Contains([proxyAddresses], "SMTP:")),6)`  
 devuelve la dirección de correo electrónico principal.
 
@@ -379,11 +379,11 @@ si la expresión se puede evaluar en un tipo de cadena, la función IsString se 
 **Sintaxis:**  
 `bool IsString(var expression)`
 
-**Comentarios:**  
+**Observaciones**:  
 se usa para determinar si CStr() puede analizar correctamente la expresión.
 
 ---
-### <a name="join"></a>Unión
+### <a name="join"></a>Join
 **Función:**<br> Join(separator, source1, source2, …)
 
 **Descripción:**<br> Join() es similar a Append(), excepto en que puede combinar varios valores de cadena de **source** en una sola cadena, y cada valor estará separado por una cadena de **separator**.
@@ -392,10 +392,10 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 **Parámetros:**<br> 
 
-   | NOMBRE | Obligatorio/Repetición | type | Notas |
+   | Nombre | Obligatorio/Repetición | Tipo | Notas |
    | --- | --- | --- | --- |
-   | **separator** |Obligatorio |Cadena |Cadena utilizada para separar los valores de origen cuando se concatenan en una sola cadena. Puede ser "" si no es necesario ningún separador. |
-   | **source1  … sourceN** |Obligatorio, número variable de veces |Cadena |Valores de cadena que se van a agrupar. |
+   | **separator** |Obligatorio |String |Cadena utilizada para separar los valores de origen cuando se concatenan en una sola cadena. Puede ser "" si no es necesario ningún separador. |
+   | **source1  … sourceN** |Obligatorio, número variable de veces |String |Valores de cadena que se van a agrupar. |
 
 ---
 ### <a name="left"></a>Left
@@ -408,7 +408,7 @@ la función Left devuelve un número especificado de caracteres desde la izquier
 * string: la cadena desde la que devolver los caracteres
 * NumChars: un número que identifica el número de caracteres que devolver desde el principio (izquierdo) de la cadena
 
-**Comentarios:**  
+**Observaciones**:  
 una cadena que contiene los primeros caracteres numChars de la cadena:
 
 * Con numChars = 0, se devuelve una cadena vacía.
@@ -417,7 +417,7 @@ una cadena que contiene los primeros caracteres numChars de la cadena:
 
 Si la cadena contiene menos caracteres que el número especificado en numChars, se devuelve una cadena idéntica a la cadena (es decir, que contiene todos los caracteres en el parámetro 1).
 
-**Ejemplo:**  
+**Ejemplo**:  
 `Left("John Doe", 3)`  
 Devuelve `Joh`.
 
@@ -429,9 +429,9 @@ Devuelve `Joh`.
 
 **Parámetros:**<br> 
 
-   | NOMBRE | Obligatorio/Repetición | type | Notas |
+   | Nombre | Obligatorio/Repetición | Tipo | Notas |
    | --- | --- | --- | --- |
-   | **de origen** |Obligatorio |Cadena |Normalmente el nombre del atributo. |
+   | **de origen** |Obligatorio |String |Normalmente el nombre del atributo. |
    | **start** |Obligatorio |integer |Índice de la cadena de **source** donde debe empezar la subcadena. El primer carácter de la cadena tendrá el índice de 1, el segundo carácter tendrá el índice de 2, y así sucesivamente. |
    | **length** |Obligatorio |integer |Longitud de la subcadena. Si length acaba fuera de la cadena de **source**, la función devolverá una subcadena desde el índice de **start** hasta el final de la cadena de **source**. |
 
@@ -443,9 +443,9 @@ Devuelve `Joh`.
 
 **Parámetros:**<br> 
 
-   | NOMBRE | Obligatorio/Repetición | type | Notas |
+   | Nombre | Obligatorio/Repetición | Tipo | Notas |
    | --- | --- | --- | --- |
-   | **de origen** |Obligatorio |Cadena | Normalmente un atributo de nombre o de apellido. |
+   | **de origen** |Obligatorio |String | Normalmente un atributo de nombre o de apellido. |
 
 ---
 ### <a name="not"></a>Not
@@ -455,7 +455,7 @@ Devuelve `Joh`.
 
 **Parámetros:**<br> 
 
-   | NOMBRE | Obligatorio/Repetición | type | Notas |
+   | Nombre | Obligatorio/Repetición | Tipo | Notas |
    | --- | --- | --- | --- |
    | **de origen** |Obligatorio |Cadena booleana |Los valores de **source** esperados son "True" o "False". |
 
@@ -467,7 +467,7 @@ la función RemoveDuplicates toma una cadena multivalor y garantiza que cada val
 **Sintaxis:**  
 `mvstr RemoveDuplicates(mvstr attribute)`
 
-**Ejemplo:**  
+**Ejemplo**:  
 `RemoveDuplicates([proxyAddresses])`  
 devuelve un atributo proxyAddress saneado donde se han quitado todos los valores duplicados.
 
@@ -497,15 +497,15 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-   | NOMBRE | Obligatorio/Repetición | type | Notas |
+   | Nombre | Obligatorio/Repetición | Tipo | Notas |
    | --- | --- | --- | --- |
-   | **de origen** |Obligatorio |Cadena |Normalmente el nombre del atributo del objeto **source**. |
-   | **oldValue** |Opcional |Cadena |Valor que se va a reemplazar en **source** o **template**. |
-   | **regexPattern** |Opcional |Cadena |Patrón Regex del valor que se va a reemplazar en **source**. O bien, cuando se usa **replacementPropertyName**, patrón para extraer el valor de la propiedad **replacementPropertyName**. |
-   | **regexGroupName** |Opcional |Cadena |Nombre del grupo dentro de **regexPattern**. Solo cuando se usa **replacementPropertyName**, extraeremos el valor de este grupo como **replacementValue** de **replacementPropertyName**. |
-   | **replacementValue** |Opcional |Cadena |Nuevo valor para  reemplazar uno anterior. |
-   | **replacementAttributeName** |Opcional |Cadena |Nombre del atributo que se usará para el valor de reemplazo |
-   | **template** |Opcional |Cadena |Cuando se proporcione el valor de **template**, buscaremos **oldValue** dentro de la plantilla y lo reemplazaremos por el valor de **source**. |
+   | **de origen** |Obligatorio |String |Normalmente el nombre del atributo del objeto **source**. |
+   | **oldValue** |Opcional |String |Valor que se va a reemplazar en **source** o **template**. |
+   | **regexPattern** |Opcional |String |Patrón Regex del valor que se va a reemplazar en **source**. O bien, cuando se usa **replacementPropertyName**, patrón para extraer el valor de la propiedad **replacementPropertyName**. |
+   | **regexGroupName** |Opcional |String |Nombre del grupo dentro de **regexPattern**. Solo cuando se usa **replacementPropertyName**, extraeremos el valor de este grupo como **replacementValue** de **replacementPropertyName**. |
+   | **replacementValue** |Opcional |String |Nuevo valor para  reemplazar uno anterior. |
+   | **replacementAttributeName** |Opcional |String |Nombre del atributo que se usará para el valor de reemplazo |
+   | **template** |Opcional |String |Cuando se proporcione el valor de **template**, buscaremos **oldValue** dentro de la plantilla y lo reemplazaremos por el valor de **source**. |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -522,9 +522,9 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-   | NOMBRE | Obligatorio/Repetición | type | Notas |
+   | Nombre | Obligatorio/Repetición | Tipo | Notas |
    | --- | --- | --- | --- |
-   | **uniqueValueRule1  … uniqueValueRuleN** |Al menos se requieren dos, sin límite superior |Cadena | Lista de reglas de generación de valor único para realizar la evaluación. |
+   | **uniqueValueRule1  … uniqueValueRuleN** |Al menos se requieren dos, sin límite superior |String | Lista de reglas de generación de valor único para realizar la evaluación. |
 
 
 ---
@@ -535,9 +535,9 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-  | NOMBRE | Obligatorio/Repetición | type | Notas |
+  | Nombre | Obligatorio/Repetición | Tipo | Notas |
   |--- | --- | --- | --- |
-  | **[appRoleAssignments]** |Obligatorio |Cadena |Objeto **[appRoleAssignments]** . |
+  | **[appRoleAssignments]** |Obligatorio |String |Objeto **[appRoleAssignments]** . |
 
 ---
 ### <a name="split"></a>Dividir
@@ -547,10 +547,10 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-   | NOMBRE | Obligatorio/Repetición | type | Notas |
+   | Nombre | Obligatorio/Repetición | Tipo | Notas |
    | --- | --- | --- | --- |
-   | **de origen** |Obligatorio |Cadena |**de origen** que se actualiza. |
-   | **delimitador** |Obligatorio |Cadena |Especifica el carácter que se usará para dividir la cadena (ejemplo: ","). |
+   | **de origen** |Obligatorio |String |**de origen** que se actualiza. |
+   | **delimitador** |Obligatorio |String |Especifica el carácter que se usará para dividir la cadena (ejemplo: ","). |
 
 ---
 ### <a name="stringfromsid"></a>StringFromSid
@@ -568,9 +568,9 @@ la función StringFromSid convierte una matriz de bytes o una matriz de bytes mu
 
 **Parámetros:**<br> 
 
-   | NOMBRE | Obligatorio/Repetición | type | Notas |
+   | Nombre | Obligatorio/Repetición | Tipo | Notas |
    | --- | --- | --- | --- |
-   | **de origen** |Obligatorio |Cadena |**de origen** que se actualiza. |
+   | **de origen** |Obligatorio |String |**de origen** que se actualiza. |
 
 ---
 ### <a name="switch"></a>Switch
@@ -580,12 +580,12 @@ la función StringFromSid convierte una matriz de bytes o una matriz de bytes mu
 
 **Parámetros:**<br> 
 
-   | NOMBRE | Obligatorio/Repetición | type | Notas |
+   | Nombre | Obligatorio/Repetición | Tipo | Notas |
    | --- | --- | --- | --- |
-   | **de origen** |Obligatorio |Cadena |**Source** que se actualiza. |
-   | **defaultValue** |Opcional |Cadena |Valor predeterminado que se usará si el origen no coincide con ninguna clave. Puede tratarse de una cadena vacía (""). |
-   | **key** |Obligatorio |Cadena |**Key** con que se compara el valor de **source**. |
-   | **value** |Obligatorio |Cadena |Valor de reemplazo para el **source** que coincide con la clave. |
+   | **de origen** |Obligatorio |String |Valor de **origen** que se va a comprobar. |
+   | **defaultValue** |Opcional |String |Valor predeterminado que se usará si el origen no coincide con ninguna clave. Puede tratarse de una cadena vacía (""). |
+   | **key** |Obligatorio |String |**Key** con que se compara el valor de **source**. |
+   | **value** |Obligatorio |String |Valor de reemplazo para el **source** que coincide con la clave. |
 
 ---
 ### <a name="tolower"></a>ToLower
@@ -595,10 +595,10 @@ la función StringFromSid convierte una matriz de bytes o una matriz de bytes mu
 
 **Parámetros:**<br> 
 
-   | NOMBRE | Obligatorio/Repetición | type | Notas |
+   | Nombre | Obligatorio/Repetición | Tipo | Notas |
    | --- | --- | --- | --- |
-   | **de origen** |Obligatorio |Cadena |Normalmente el nombre del atributo del objeto de origen |
-   | **referencia cultural** |Opcional |Cadena |El formato para el nombre de la referencia cultural según RFC 4646 es *languagecode2-country/regioncode2*, donde *languagecode2* es el código de idioma de dos letras y *country/regioncode2* es el código de referencia de subcultura de dos letras. Algunos ejemplos son a ja-JP para japonés (Japón) y en-US para inglés (Estados Unidos). En casos donde un código de idioma de dos letras no está disponible, se usa un código de tres letras derivado de ISO 639-2.|
+   | **de origen** |Obligatorio |String |Normalmente el nombre del atributo del objeto de origen |
+   | **referencia cultural** |Opcional |String |El formato para el nombre de la referencia cultural según RFC 4646 es *languagecode2-country/regioncode2*, donde *languagecode2* es el código de idioma de dos letras y *country/regioncode2* es el código de referencia de subcultura de dos letras. Algunos ejemplos son a ja-JP para japonés (Japón) y en-US para inglés (Estados Unidos). En casos donde un código de idioma de dos letras no está disponible, se usa un código de tres letras derivado de ISO 639-2.|
 
 ---
 
@@ -609,10 +609,10 @@ la función StringFromSid convierte una matriz de bytes o una matriz de bytes mu
 
 **Parámetros:**<br> 
 
-  | NOMBRE | Obligatorio/Repetición | type | Notas |
+  | Nombre | Obligatorio/Repetición | Tipo | Notas |
   | --- | --- | --- | --- |
-  | **de origen** |Obligatorio |Cadena |Normalmente el nombre del atributo del objeto de origen. |
-  | **referencia cultural** |Opcional |Cadena |El formato para el nombre de la referencia cultural según RFC 4646 es *languagecode2-country/regioncode2*, donde *languagecode2* es el código de idioma de dos letras y *country/regioncode2* es el código de referencia de subcultura de dos letras. Algunos ejemplos son a ja-JP para japonés (Japón) y en-US para inglés (Estados Unidos). En casos donde un código de idioma de dos letras no está disponible, se usa un código de tres letras derivado de ISO 639-2.|
+  | **de origen** |Obligatorio |String |Normalmente el nombre del atributo del objeto de origen. |
+  | **referencia cultural** |Opcional |String |El formato para el nombre de la referencia cultural según RFC 4646 es *languagecode2-country/regioncode2*, donde *languagecode2* es el código de idioma de dos letras y *country/regioncode2* es el código de referencia de subcultura de dos letras. Algunos ejemplos son a ja-JP para japonés (Japón) y en-US para inglés (Estados Unidos). En casos donde un código de idioma de dos letras no está disponible, se usa un código de tres letras derivado de ISO 639-2.|
 
 ---
 
@@ -623,7 +623,7 @@ la función Trim quita los espacios en blanco del principio y del final de una c
 **Sintaxis:**  
 `str Trim(str value)`  
 
-**Ejemplo:**  
+**Ejemplo**:  
 `Trim(" Test ")`  
 devuelve "test".
 
@@ -642,7 +642,7 @@ Quita los espacios del principio y del final de cada valor en el atributo proxyA
 * WordNumber: un número que identifica qué número de palabras debe devolver.
 * delimiters: una cadena que representa los delimitadores que deben usarse para identificar palabras
 
-**Comentarios:**  
+**Observaciones**:  
 : cada cadena de caracteres en la cadena separada por uno de los caracteres en los delimitadores se identifica como palabras:
 
 * Si el número es < 1, se devuelve una cadena vacía.
@@ -650,7 +650,7 @@ Quita los espacios del principio y del final de cada valor en el atributo proxyA
 
 Si la cadena contiene menos palabras o si la cadena no contiene palabras identificadas por los delimitadores, se devuelve una cadena vacía.
 
-**Ejemplo:**  
+**Ejemplo**:  
 `Word("The quick brown fox",3," ")`  
 devuelve "brown".
 

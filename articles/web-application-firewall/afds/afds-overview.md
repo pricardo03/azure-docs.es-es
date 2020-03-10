@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: overview
 ms.date: 02/01/2020
 ms.author: victorh
-ms.openlocfilehash: 925b859de28b8878412ee99402ffd727edcc4e7c
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: c8ff1849668d5effe15b6c25d00f3965a17b8e3e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934716"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915646"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Firewall de aplicaciones web en Azure en Azure Front Door
 
@@ -77,7 +77,7 @@ Puede configurar reglas personalizadas de WAF de la siguiente forma:
 
 ### <a name="azure-managed-rule-sets"></a>Conjuntos de reglas administrados por Azure
 
-Los conjuntos de reglas administrados por Azure proporcionan una forma fácil de implementar la protección frente a un conjunto común de amenazas de seguridad. Dado que Azure administra estos conjuntos de reglas, las reglas se actualizan según sea necesario para protegerse frente a nuevas firmas de ataque. En la versión preliminar pública, el conjunto de reglas predeterminado administrado por Azure incluye reglas frente a las siguientes categorías de amenaza:
+Los conjuntos de reglas administrados por Azure proporcionan una forma fácil de implementar la protección frente a un conjunto común de amenazas de seguridad. Dado que Azure administra estos conjuntos de reglas, las reglas se actualizan según sea necesario para protegerse frente a nuevas firmas de ataque. El conjunto de reglas predeterminado administrado por Azure incluye reglas frente a las siguientes categorías de amenaza:
 
 - Scripting entre sitios
 - Ataques de Java
@@ -91,6 +91,8 @@ Los conjuntos de reglas administrados por Azure proporcionan una forma fácil de
 
 El número de versión del conjunto de reglas predeterminado se incrementa cuando se agreguen nuevas firmas de ataque al conjunto de reglas.
 El conjunto de reglas predeterminado está habilitado de forma predeterminada en el modo de detección de las directivas de WAF. Puede deshabilitar o habilitar reglas individuales en el conjunto de reglas predeterminado para satisfacer los requisitos de su aplicación. También puede establecer acciones específicas (ALLOW/BLOCK/REDIRECT/LOG) por regla.
+
+A veces, es posible que tenga que omitir determinados atributos de una solicitud de una evaluación del WAF. Un ejemplo común son los tokens insertados de Active Directory que se usan para la autenticación. Puede configurar una lista de exclusión para una regla administrada, un grupo de reglas o para todo el conjunto de reglas.  
 
 La acción predeterminada es bloquear (BLOCK). Además, las reglas personalizadas pueden configurarse en la misma directiva de WAF si quiere omitir cualquiera de las reglas previamente configuradas en el conjunto de reglas predeterminado.
 

@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2067bea25dae05c496c81929ae65d00565bf4f1
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: fbc1baa86bb81c8975587e84427a72ccc044805e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020767"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916581"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Preguntas más frecuentes sobre Azure Active Directory Connect
 
@@ -71,6 +71,14 @@ No, el aprovisionamiento en la nube no admite la escritura diferida de ms-ds-con
 **P: Estoy aprovisionando usuarios que utilizan el aprovisionamiento en la nube. He eliminado la configuración. ¿Por qué sigo viendo los objetos sincronizados antiguos en Azure AD?** 
 
 Al eliminar la configuración, el aprovisionamiento en la nube no limpia los objetos sincronizados en Azure AD. Para asegurarse de que no tiene los objetos antiguos, cambie el ámbito de la configuración a un grupo o a unidades organizativas vacíos. Una vez que el aprovisionamiento se ejecuta y limpia los objetos, deshabilite la configuración y elimínela. 
+
+**P:  ¿Qué significa que no se admite Exchange híbrido?**
+
+La característica de implementación híbrida de Exchange permite la coexistencia de buzones de Exchange en un entorno local y en Office 365. Azure AD Connect sincroniza un conjunto específico de atributos de Azure AD en su directorio local.  Actualmente, el agente de aprovisionamiento en la nube no vuelve a sincronizar estos atributos en el directorio local y, por tanto, no se admite como reemplazo de Azure AD Connect.
+
+**P:  ¿Puedo instalar el agente de aprovisionamiento en la nube en Windows Server Core?**
+
+No, no se admite la instalación del agente en Server Core.
 
 ## <a name="next-steps"></a>Pasos siguientes 
 

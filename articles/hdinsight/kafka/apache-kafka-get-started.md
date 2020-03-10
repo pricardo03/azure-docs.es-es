@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/24/2020
-ms.openlocfilehash: 286b16d850b1c1c26069c50cd4045bf7f3dd3c14
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 9e220c7a7813f89eacab5137362e39153d2b334a
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623500"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78207190"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Inicio rápido: Creación de un clúster de Apache Kafka en Azure HDInsight mediante Azure Portal
 
@@ -78,7 +78,7 @@ Para crear un clúster de Apache Kafka en HDInsight, siga estos pasos:
 
     Seleccione la pestaña **Seguridad y redes**.
 
-1. En esta guía de inicio rápido, deje la configuración predeterminada de seguridad. Para más información acerca de Enterprise Security Package, visite [Configurar un clúster de HDInsight con Enterprise Security Package mediante Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md). Para obtener información acerca de cómo usar su propia clave de cifrado de disco de Apache Kafka, visite [Aporte su propia clave para Apache Kafka en Azure HDInsight (versión preliminar)](apache-kafka-byok.md)
+1. En esta guía de inicio rápido, deje la configuración predeterminada de seguridad. Para más información acerca de Enterprise Security Package, visite [Configurar un clúster de HDInsight con Enterprise Security Package mediante Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md). Para aprender a usar su propia clave para el Cifrado de disco de Apache Kafka, visite [Cifrado de disco mediante claves administradas por el cliente](../disk-encryption.md).
 
    Si desea conectar su clúster a una red virtual, seleccione una red virtual desde la lista desplegable **Red virtual**.
 

@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a configurar la integración continua 
 keywords: jenkins, azure, devops, virtual machine, cicd
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 380d547aaee68ad40ae12a4836826d2addae3a18
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: cae28b293a6217996b44c839dc8836ec940c3155
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77606382"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192615"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutorial: Implementación de la aplicación en máquinas virtuales Linux de Azure con Jenkins y Azure DevOps Services
 
@@ -96,9 +96,9 @@ En primer lugar, debe configurar dos complementos de Jenkins: **Implementación 
 5. Seleccione **Trigger release in TFS/Team Services** (Desencadenar la versión en TFS y Team Services). Escriba el identificador URI de la organización de Azure DevOps Services, como **https://{nombre-de-la-organización}.visualstudio.com**.
 6. Escriba el nombre del **proyecto**.
 7. Elija un nombre para la canalización de versión. (Creará esta canalización de versión más adelante en Azure DevOps Services).
-8. Elija las credenciales para conectarse a su entorno de Azure DevOps Services o Team Foundation Server:
+8. Elija las credenciales para conectarse a su entorno de Azure DevOps Services o Azure DevOps Server:
    - Si usa Azure DevOps Services, deje el campo **Username** (Nombre de usuario) en blanco. 
-   - Escriba un valor para el nombre de usuario y la contraseña si usa una versión local de Team Foundation Server.    
+   - Escriba un valor para el nombre de usuario y la contraseña si usa una versión local de Azure DevOps Server.    
    ![Configuración de acciones posteriores a la compilación de Jenkins](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
 5. Guarde el proyecto de Jenkins.
 

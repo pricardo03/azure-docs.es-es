@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: creación de un clasificador de carga de trabajo: T-SQL '
+title: 'Inicio rápido: creación de un clasificador de carga de trabajo: T-SQL'
 description: Uso de T-SQL para crear un clasificador de cargas de trabajo con importancia alta.
 services: sql-data-warehouse
 author: ronortloff
@@ -7,15 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: workload-management
-ms.date: 05/01/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1375605b6dab385b53af9212023767003e686e60
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.custom: azure-synapse
+ms.openlocfilehash: 9f15317141e56614cf6fe04f46ff478a73266775
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646287"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200505"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Inicio rápido: Creación un clasificador de carga de trabajo mediante T-SQL
 
@@ -24,17 +25,17 @@ En este inicio rápido creará un clasificador de carga de trabajo rápidamente 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 > [!NOTE]
-> La creación de una instancia de SQL Data Warehouse puede dar lugar a un nuevo servicio facturable.  Para más información, consulte [Precios de Azure SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> La creación de una instancia de SQL Analytics en Azure Synapse Analytics puede dar lugar a un nuevo servicio facturable.  Para más información, consulte los [precios de Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 >
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este inicio rápido se da por supuesto que ya tiene una instancia de SQL Data Warehouse y que tiene permisos CONTROL DATABASE. Si tiene que crear una, consulte [Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella](create-data-warehouse-portal.md) para crear un almacenamiento de datos denominado **mySampleDataWarehouse**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-login-for-theceo"></a>Creación del inicio de sesión para TheCEO
 
@@ -108,5 +109,5 @@ Siga estos pasos para limpiar los recursos.
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Ahora ha creado un clasificador de carga de trabajo. Ejecute algunas consultas como TheCEO para ver cómo responden. Consulte [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) para ver las consultas y la importancia asignada.
-- Para más información sobre la administración de cargas de trabajo de Azure SQL Data Warehouse, consulte [Importancia de la carga de trabajo](sql-data-warehouse-workload-importance.md) y [Clasificación de la carga de trabajo](sql-data-warehouse-workload-classification.md).
+- Para más información sobre la administración de cargas de trabajo de SQL Analytics, consulte [Importancia de la carga de trabajo](sql-data-warehouse-workload-importance.md) y [Clasificación de la carga de trabajo](sql-data-warehouse-workload-classification.md).
 - Consulte los artículos de procedimientos para [configurar la importancia de la carga de trabajo](sql-data-warehouse-how-to-configure-workload-importance.md) y sobre cómo [administrar y supervisar la administración de la carga de trabajo](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
