@@ -3,12 +3,12 @@ title: Ejecución de la instancia de Azure Functions desde un paquete
 description: Para que el sistema en tiempo de ejecución de Azure Functions ejecute sus funciones, monte un archivo del paquete de implementación que contenga los archivos de proyecto de la aplicación de función.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: f5d3465e0899f7e5eab213bdb6234313128b7ec8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a3e11a7c4f3fd91df2fd9dd7a44f3922c4922585
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230353"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921120"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Ejecución de la instancia de Azure Functions desde un archivo de paquete
 
@@ -35,7 +35,7 @@ Para más información, consulte [este anuncio](https://github.com/Azure/app-ser
 
 Para permitir la ejecución de la aplicación de función desde un paquete, solo tiene que agregar un valor `WEBSITE_RUN_FROM_PACKAGE` a la configuración de la aplicación de función. El valor `WEBSITE_RUN_FROM_PACKAGE` puede tener uno de los siguientes valores:
 
-| Valor  | DESCRIPCIÓN  |
+| Value  | Descripción  |
 |---------|---------|
 | **`1`**  | Se recomienda para las aplicaciones de función que se ejecutan en Windows. Ejecución desde un archivo de paquete en la carpeta `d:\home\data\SitePackages` de la aplicación de función. Si no se va a [implementar con un archivo zip](#integration-with-zip-deployment), esta opción requiere que la carpeta tenga también un archivo denominado `packagename.txt`. Este archivo contiene solo el nombre del archivo de paquete en la carpeta, sin ningún espacio en blanco. |
 |**`<URL>`**  | Ubicación del archivo de paquete específico que desea ejecutar. Cuando se usa Blob Storage, debe usar un contenedor privado con una [firma de acceso compartido (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) para permitir que sistema en tiempo de ejecución de Functions acceda al paquete. Puede usar el [Explorador de Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) para cargar archivos de paquete en la cuenta de Blob Storage. Al especificar una dirección URL, también debe [sincronizar desencadenadores](functions-deployment-technologies.md#trigger-syncing) tras publicar un paquete actualizado. |
@@ -58,7 +58,34 @@ La [implementación de archivos ZIP][Zip deployment for Azure Functions] es una 
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-## <a name="troubleshooting"></a>solución de problemas
+### <a name="use-key-vault-references"></a>Uso de referencias de Key Vault
+
+Para mayor seguridad, puede usar referencias de Key Vault junto con la dirección URL externa. De esta manera, se mantiene la dirección URL cifrada en reposo y es posible aprovechar Key Vault para la administración y la rotación de los secretos. Se recomienda usar Azure Blob Storage para rotar fácilmente la clave SAS asociada. Azure Blob Storage está cifrado en reposo, lo que permite proteger los datos de la aplicación cuando no están implementados en App Service.
+
+1. Cree un almacén de Azure Key Vault.
+
+    ```azurecli
+    az keyvault create --name "Contoso-Vault" --resource-group <group-name> --location eastus
+    ```
+
+1. Agregue la dirección URL externa como secreto en Key Vault.
+
+    ```azurecli
+    az keyvault secret set --vault-name "Contoso-Vault" --name "external-url" --value "<insert-your-URL>"
+    ```
+
+1. Cree la configuración de aplicación `WEBSITE_RUN_FROM_PACKAGE` y establezca el valor como referencia de Key Vault a la dirección URL externa.
+
+    ```azurecli
+    az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"
+    ```
+
+Vea los siguientes artículos para obtener más información.
+
+- [Referencias de Key Vault para App Service](../app-service/app-service-key-vault-references.md)
+- [Cifrado de Azure Storage para datos en reposo](../storage/common/storage-service-encryption.md)
+
+## <a name="troubleshooting"></a>Solución de problemas
 
 - La ejecución desde el paquete hace que `wwwroot` sea de solo lectura, por lo que recibirá un error al escribir archivos en este directorio.
 - No se admiten los formatos de archivo tar y gzip.

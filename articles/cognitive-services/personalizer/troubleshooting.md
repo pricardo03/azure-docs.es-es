@@ -59,7 +59,7 @@ Si no está seguro de cómo se está comportando el bucle de aprendizaje actualm
 <details>
 <summary><b>Sigo obteniendo resultados de clasificación con las mismas probabilidades para todos los elementos. ¿Cómo puedo saber si Personalizer está aprendiendo?</b></summary>
 
-**Respuesta**: Personalizer devuelve las mismas probabilidades en un resultado de la Rank API cuando acaba de iniciar y tiene un modelo vacío, o cuando se restablece el bucle de Personalizer y el modelo todavía está dentro del período establecido en **Frecuencia de actualización del modelo**.
+**Respuesta**: Personalizer devuelve las mismas probabilidades en un resultado de la Rank API cuando acaba de iniciar y tiene un modelo _vacío_, o cuando se restablece el bucle de Personalizer y el modelo todavía está dentro del período establecido en **Frecuencia de actualización del modelo**.
 
 Cuando comience el nuevo período de actualización, se usará el modelo actualizado y verá el cambio de probabilidades.
 
@@ -104,7 +104,7 @@ Cuando comience el nuevo período de actualización, se usará el modelo actuali
 <details>
 <summary><b>¿Cómo puedo importar una directiva de aprendizaje?</b></summary>
 
-**Respuesta**: Obtenga más información sobre los conceptos de la directiva de aprendizaje y [cómo aplicar](how-to-manage-model.md) una nueva directiva de aprendizaje. Si no quiere seleccionar una directiva de aprendizaje, puede usar [la evaluación sin conexión](how-to-offline-evaluation.md) para sugerir una directiva de aprendizaje en función de los eventos actuales.
+**Respuesta**: Obtenga más información sobre los [conceptos de la directiva de aprendizaje](concept-active-learning.md#understand-learning-policy-settings) y [cómo aplicar](how-to-manage-model.md) una nueva directiva de aprendizaje. Si no quiere seleccionar una directiva de aprendizaje, puede usar [la evaluación sin conexión](how-to-offline-evaluation.md) para sugerir una directiva de aprendizaje en función de los eventos actuales.
 
 </details>
 

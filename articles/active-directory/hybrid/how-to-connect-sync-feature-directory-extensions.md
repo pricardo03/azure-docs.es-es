@@ -16,15 +16,16 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 138ca9bf3352c46b8ac495b58a2fd6d7bafeb658
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 80438319a6337dd6f28f9bdca8a428829b6cb0b9
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74889909"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917920"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronización de Azure AD Connect: Sincronización de Azure AD Connect: Extensiones de directorio
-Puede usar extensiones de directorio para ampliar el esquema de Azure Active Directory (Azure AD) con sus propios atributos desde Active Directory local. Esta característica le permite compilar aplicaciones de LOB mediante el consumo de atributos que sigue administrando de forma local. Estos atributos se pueden consumir mediante [extensiones de directorio de API de Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) o [Microsoft Graph](https://developer.microsoft.com/graph/). Puede ver los atributos disponibles mediante el [Explorador de Azure AD Graph](https://graphexplorer.azurewebsites.net/) y el [Probador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer), respectivamente. También puede usar esta característica para crear grupos dinámicos en Azure AD.
+Puede usar extensiones de directorio para ampliar el esquema de Azure Active Directory (Azure AD) con sus propios atributos desde Active Directory local. Esta característica le permite compilar aplicaciones de LOB mediante el consumo de atributos que sigue administrando de forma local. Estos atributos se pueden consumir mediante [extensiones](https://docs.microsoft.com/graph/extensibility-overview
+). Puede ver los atributos disponibles mediante el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer). También puede usar esta característica para crear grupos dinámicos en Azure AD.
 
 En la actualidad, ninguna carga de trabajo de Office 365 consume estos atributos.
 
@@ -61,16 +62,12 @@ Asegúrese de seleccionar **Todas las aplicaciones** para ver esta aplicación.
 
 Los atributos tienen el prefijo **extensión \_{IdDeAplicación}\_** . IdDeAplicación tiene el mismo valor en todos los atributos del inquilino de Azure AD. Necesitará este valor para los demás escenarios de este tema.
 
-## <a name="viewing-attributes-using-graph"></a>Consulta de atributos mediante Graph
+## <a name="viewing-attributes-using-the-microsoft-graph-api"></a>Visualización de atributos mediante Microsoft Graph API
 
-Estos atributos ahora están disponibles en Azure AD Graph API. Puede consultarlos mediante el [Explorador de Azure AD Graph](https://graphexplorer.azurewebsites.net/).
-
-![Explorador de Azure AD Graph](./media/how-to-connect-sync-feature-directory-extensions/extension4.png)
-
-O bien puede consultar los atributos a través de Microsoft Graph API, mediante el uso del [Probador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer#).
+Estos atributos ya están disponibles a través de Microsoft Graph API, mediante el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer#).
 
 >[!NOTE]
-> En Microsoft Graph, debe pedir que se devuelvan los atributos. Seleccione los atributos de forma explícita del modo siguiente: https\://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division.
+> En Microsoft Graph API, debe pedir que se devuelvan los atributos. Seleccione los atributos de forma explícita así: `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division`.
 >
 > Para más información, consulte [Microsoft Graph: Usar parámetros de consulta](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
 

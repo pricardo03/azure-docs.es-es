@@ -4,16 +4,16 @@ description: Obtenga información acerca de la solución de problemas con la sol
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/31/2019
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 5ee1a20d4a3c46cab484b03b5fcc212a79d19047
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 1b0047cda3664759f4f1b6499c8a54ee22f98ab3
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513276"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227456"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Solución de problemas relacionados con Update Management
 
@@ -24,6 +24,36 @@ Existe un agente solucionador de problemas para que el agente de Hybrid Worker d
 Si se producen problemas al intentar incorporar la solución a una máquina virtual (VM), compruebe el registro de **Operations Manager** en **Registros de aplicaciones y servicios** en la máquina local en busca de eventos con el id. de evento 4502 y los detalles de evento que contengan **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
 
 En la sección siguiente se destacan los mensajes de error específicos y posibles soluciones para cada uno. Para otros problemas sobre la incorporación, consulte [Solución de problemas de errores al incorporar soluciones](onboarding.md).
+
+## <a name="scenario-superseded-update-indicated-as-missing-in-update-management"></a>Escenario: En Update Management se indica que falta una actualización reemplazada
+
+### <a name="issue"></a>Problema
+
+Se indica que faltan actualizaciones antiguas en Update Management, en la cuenta de Azure, aunque se han reemplazado. Una actualización reemplazada es aquella que no es necesario instalar, puesto que hay una disponible posterior que corrige la misma vulnerabilidad. Update Management omite la actualización reemplazada y no la convierte en aplicable en favor de la actualización que la reemplaza. Para obtener información sobre un problema relacionado, vea [Actualización reemplazada](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer).
+
+### <a name="cause"></a>Causa
+
+Las actualizaciones reemplazadas no se están indicando correctamente como rechazadas de modo que se puedan considerar no aplicables.
+
+### <a name="resolution"></a>Solución
+
+Cuando una actualización reemplazada sea no aplicable al cien por cien, debe cambiar su estado de aprobación a **Rechazada**. Para hacer esto con todas las actualizaciones:
+
+1. En la cuenta de Automation, seleccione **Update Management** para ver el estado de las máquinas. Vea [Visualización de la evaluación de la actualización](../manage-update-multi.md#view-an-update-assessment).
+
+2. Compruebe la actualización reemplazada para asegurarse de que no es aplicable al cien por cien. 
+
+3. Marque la actualización como rechazada a menos que tenga una pregunta sobre ella. 
+
+4. Seleccione Equipos y, en la columna Cumplimiento, fuerce un nuevo examen de cumplimiento. Vea [Administración de actualizaciones para varias máquinas](../manage-update-multi.md).
+
+5. Repita los pasos anteriores para otras actualizaciones reemplazadas.
+
+6. Ejecute el asistente para la limpieza para eliminar archivos de las actualizaciones rechazadas. 
+
+7. En WSUS, limpie manualmente todas las actualizaciones reemplazadas a fin de actualizar la infraestructura.
+
+8. Repita este procedimiento con regularidad para corregir el problema de visualización y minimizar la cantidad de espacio en disco que se usa para la administración de actualizaciones.
 
 ## <a name="nologs"></a>Escenario: Las máquinas no se muestran en el portal en Update Management
 

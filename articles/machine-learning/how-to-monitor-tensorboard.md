@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
-ms.date: 11/08/2019
-ms.openlocfilehash: 9b6c21c31f3f4ec45307c245c373b9e1c1480cda
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 02/27/2020
+ms.openlocfilehash: b6b7e47acdbc5bd059e17e512731bd09c8580798
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75534276"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195386"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualización de las ejecuciones y las métricas de los experimentos con TensorBoard y Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ La forma de iniciar TensorBoard con experimentos de Azure Machine Learning depen
 > [!TIP]
 > La información de este documento va destinada principalmente a aquellos científicos de datos y desarrolladores que deseen supervisar el proceso de entrenamiento del modelo. Si es administrador y está interesado en la supervisión del uso de recursos y eventos desde Azure Machine Learning, como cuotas, ejecuciones de entrenamiento completadas o implementaciones de modelos completadas, consulte [Supervisión de Azure Machine Learning](monitor-azure-machine-learning.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Para iniciar TensorBoard y ver los historiales de ejecución de sus experimentos, sus experimentos deben haber habilitado previamente el registro para realizar un seguimiento de sus métricas y rendimiento.  
 
@@ -181,6 +181,10 @@ tb.start()
 # After your job completes, be sure to stop() the streaming otherwise it will continue to run. 
 tb.stop()
 ```
+
+>[!Note]
+ Aunque en este ejemplo se ha usado TensorFlow, se puede usar TensorBoard con la misma facilidad con los modelos de PyTorch o Chainer. TensorFlow debe estar disponible en el equipo que ejecuta TensorBoard, pero no es necesario en el que realiza cálculos de PyTorch o Chainer. 
+
 
 <a name="export"></a>
 

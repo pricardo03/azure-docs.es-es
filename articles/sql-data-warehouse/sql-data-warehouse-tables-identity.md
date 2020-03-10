@@ -1,6 +1,6 @@
 ---
 title: Uso de IDENTITY para crear claves suplentes
-description: Recomendaciones y ejemplos de uso de la propiedad IDENTITY para crear claves suplentes en tablas de Azure SQL Data Warehouse.
+description: Recomendaciones y ejemplos de uso de la propiedad IDENTITY para crear claves suplentes en tablas de SQL Analytics.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,25 +10,25 @@ ms.subservice: development
 ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 0ee15b975b5513077b26cceeb80ea3fb8c02456b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: c29b83b3473b8a4224587195587feacf834f2d72
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692474"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199434"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Uso de IDENTITY para crear claves suplentes en Azure SQL Data Warehous
+# <a name="using-identity-to-create-surrogate-keys-in-sql-analytics"></a>Uso de IDENTITY para crear claves suplentes en SQL Analytics
 
-Recomendaciones y ejemplos de uso de la propiedad IDENTITY para crear claves suplentes en tablas de Azure SQL Data Warehouse.
+Recomendaciones y ejemplos de uso de la propiedad IDENTITY para crear claves suplentes en tablas de SQL Analytics.
 
 ## <a name="what-is-a-surrogate-key"></a>¿Qué es una clave suplente?
 
-Una clave suplente en una tabla es una columna con un identificador único para cada fila. La clave no se genera desde los datos de la tabla. A los modeladores de datos les gusta crear claves suplentes en las tablas cuando diseñan modelos de almacenamiento de datos. Puede usar la propiedad IDENTITY para lograr este objetivo de manera sencilla y eficaz sin afectar al rendimiento de carga.  
+Una clave suplente en una tabla es una columna con un identificador único para cada fila. La clave no se genera desde los datos de la tabla. A los modeladores de datos les gusta crear claves suplentes en las tablas al diseñar modelos de SQL Analytics. Puede usar la propiedad IDENTITY para lograr este objetivo de manera sencilla y eficaz sin afectar al rendimiento de carga.  
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Creación de una tabla con una columna IDENTITY
 
-La propiedad IDENTITY está diseñada para escalar horizontalmente en todas las distribuciones de almacenamiento de datos sin afectar al rendimiento de carga. Por consiguiente, la implementación de IDENTITY está orientada a la consecución de estos objetivos.
+La propiedad IDENTITY está diseñada para escalar horizontalmente en todas las distribuciones de la base de datos de SQL Analytics sin afectar al rendimiento de carga. Por consiguiente, la implementación de IDENTITY está orientada a la consecución de estos objetivos.
 
 Puede definir una tabla que tenga la propiedad IDENTITY al crear la tabla mediante una sintaxis similar a la de la siguiente instrucción:
 
@@ -50,7 +50,7 @@ En el resto de esta sección se resaltan los matices de la implementación para 
 
 ### <a name="allocation-of-values"></a>Asignación de valores
 
-La propiedad IDENTITY no garantiza el orden en que se asignan las claves suplentes, lo que refleja el comportamiento de SQL Server y Azure SQL Database. Pero, en Azure SQL Data Warehouse, la ausencia de garantías es más marcada.
+La propiedad IDENTITY no garantiza el orden en que se asignan las claves suplentes, lo que refleja el comportamiento de SQL Server y Azure SQL Database. Pero, en SQL Analytics, la ausencia de garantías es más marcada.
 
 El ejemplo siguiente sirve de muestra:
 
@@ -88,11 +88,11 @@ El intervalo de valores del tipo de datos se reparte uniformemente entre las dis
 Cuando se selecciona una columna IDENTITY existente en una nueva tabla, la nueva columna hereda la propiedad IDENTITY, a no ser que se cumpla alguna de las siguientes condiciones:
 
 - La instrucción SELECT contiene una combinación.
-- Varias instrucciones SELECT se combinan mediante UNION.
+- Se han combinado varias instrucciones SELECT con UNION.
 - La columna IDENTITY aparece más de una vez en la lista de SELECT.
 - La columna IDENTITY forma parte de una expresión.
 
-Si ninguna de estas condiciones se cumple, la columna se crea como NOT NULL en lugar de heredar la propiedad IDENTITY.
+Si se cumple alguna de estas condiciones, la columna se crea como NOT NULL en lugar de heredar la propiedad IDENTITY.
 
 ### <a name="create-table-as-select"></a>CREATE TABLE AS SELECT
 
@@ -100,7 +100,7 @@ CREATE TABLE AS SELECT (CTAS) sigue el mismo comportamiento de SQL Server que se
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>Inserción explícita de valores en una columna IDENTITY
 
-SQL Data Warehouse admite la sintaxis `SET IDENTITY_INSERT <your table> ON|OFF`. Puede usarse esta sintaxis para insertar valores explícitamente en la columna IDENTITY.
+SQL Analytics admite la sintaxis `SET IDENTITY_INSERT <your table> ON|OFF`. Puede usarse esta sintaxis para insertar valores explícitamente en la columna IDENTITY.
 
 A muchos modeladores de datos les gusta usar valores negativos predefinidos para determinadas filas en las dimensiones. Un ejemplo es el valor -1 de la fila de "miembro desconocido".
 
@@ -161,9 +161,9 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > Actualmente no se puede usar `CREATE TABLE AS SELECT` al cargar datos en una tabla con una columna IDENTITY.
 >
 
-Para obtener más información sobre cómo cargar datos, vea [Diseñar un proceso de extracción, carga y transformación (ELT) para Azure SQL Data Warehouse](design-elt-data-loading.md) y [Procedimientos recomendados para la carga de datos](guidance-for-loading-data.md).
+Para obtener más información sobre la carga de datos, vea [Diseño de un proceso de extracción, carga y transformación (ELT) para SQL Analytics](design-elt-data-loading.md) y [Procedimientos recomendados para la carga de datos](guidance-for-loading-data.md).
 
-## <a name="system-views"></a>Vistas de sistema
+## <a name="system-views"></a>Vistas del sistema
 
 Puede usar la vista del catálogo [sys.identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql) para identificar una columna que tiene la propiedad IDENTITY.
 
@@ -195,7 +195,7 @@ No se puede usar la propiedad IDENTITY:
 - Cuando la columna es también la clave de distribución
 - Cuando la tabla es una tabla externa
 
-No se admiten las siguientes funciones relacionadas en SQL Data Warehouse:
+No se admiten las siguientes funciones relacionadas en SQL Analytics:
 
 - [IDENTITY()](/sql/t-sql/functions/identity-function-transact-sql)
 - [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql)

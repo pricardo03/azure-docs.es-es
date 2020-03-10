@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
-ms.openlocfilehash: 5951c6ec63478b4b266f22eaf8bf3162e0a45df0
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.date: 02/24/2020
+ms.openlocfilehash: a665ee97f923620bb484243d5cd4904a647969e4
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137544"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917446"
 ---
 # <a name="evaluate-model-module"></a>Módulo Evaluate Model
 
@@ -25,7 +25,8 @@ Use este módulo para medir la precisión de un modelo entrenado. Hay que propor
  Las métricas devueltas por **Evaluate Model** dependen del tipo de modelo que va a evaluar:  
   
 -   **Modelos de clasificación**    
--   **Modelos de regresión**    
+-   **Modelos de regresión**  
+-   **Modelos de agrupación en clústeres**  
 
 
 > [!TIP]
@@ -72,7 +73,7 @@ El modelo o los datos conectados al puerto izquierdo aparecen en primer lugar en
 
 Por ejemplo, la imagen siguiente representa una comparación de los resultados de dos modelos de agrupación en clústeres que se crearon con los mismos datos, pero con distintos parámetros.  
 
-![AML&#95;Comparación de dos modelos](media/module/aml-comparing2models.png "AML_Comparing2Models")  
+![Comparing2Models](media/module/evaluate-2-models.png)  
 
 Debido a que se trata de un modelo de agrupación en clústeres, los resultados de evaluación son diferentes de si compara las puntuaciones de dos modelos de regresión o si compara dos modelos de clasificación. Pero la presentación general es la misma. 
 
@@ -82,10 +83,11 @@ Esta sección describe las métricas devueltas para los tipos específicos de lo
 
 + [Modelos de clasificación](#metrics-for-classification-models)
 + [Modelos de regresión](#metrics-for-regression-models)
++ [Modelos de agrupación en clústeres](#metrics-for-clustering-models)
 
 ### <a name="metrics-for-classification-models"></a>Métricas para modelos de clasificación
 
-Las siguientes métricas se notifican al evaluar los modelos de clasificación. Si compara los modelos, se clasifican según la métrica que seleccionó para la evaluación.  
+Las siguientes métricas se notifican al evaluar los modelos de clasificación.
   
 -   **Precisión** (Accuracy) mide la calidad de un modelo de clasificación como la proporción de resultados verdaderos en el total de casos.  
   
@@ -105,7 +107,7 @@ Las siguientes métricas se notifican al evaluar los modelos de clasificación. 
  
 Las métricas devueltas para los modelos de regresión están diseñadas para estimar la cantidad de errores.  Se considera que un modelo se ajusta a los datos correctamente si la diferencia entre los valores observados y los previstos es pequeña. Pero el patrón de los valores residuales (la diferencia entre un punto previsto y su valor real correspondiente) puede indicarle mucho sobre el sesgo potencial en el modelo.  
   
- Las siguientes métricas se notifican para evaluar los modelos de regresión. Al comparar los modelos, estos se clasifican según la métrica que seleccionó para la evaluación.  
+ Las siguientes métricas se notifican para evaluar los modelos de regresión.
   
 - **Error medio absoluto (MAE)** : mide la proximidad de las predicciones con respecto a los resultados reales; por lo tanto, cuanto menor es la puntuación, mejor.  
   
@@ -118,6 +120,30 @@ Las métricas devueltas para los modelos de regresión están diseñadas para es
 
   
 - **Coeficiente de determinación**: a menudo conocido como R<sup>2</sup>, representa la eficacia predictiva del modelo como un valor entre 0 y 1. Cero significa que el modelo es aleatorio (no explica nada); 1 significa que hay un ajuste perfecto. Pero hay que tener precaución al interpretar los valores de R<sup>2</sup>, ya que los valores bajos pueden ser completamente normales y los valores altos pueden ser sospechosos.
+
+###  <a name="metrics-for-clustering-models"></a>Métricas para modelos de agrupación en clústeres
+
+Dado que los modelos de agrupación en clústeres se diferencian considerablemente de los modelos de clasificación y regresión en muchos aspectos, [Evaluar modelo](evaluate-model.md) también devuelve un conjunto distinto de estadísticas para los modelos de agrupación en clústeres.  
+  
+ Las estadísticas devueltas para un modelo de agrupación en clústeres describen el número de puntos de datos que se han asignado a cada clúster, la cantidad de separación entre clústeres y cómo de estrechamente están agrupados los puntos de datos dentro de cada clúster.  
+  
+ El promedio de las estadísticas del modelo de agrupación en clústeres se realiza en todo el conjunto de datos, con filas adicionales que contienen las estadísticas por clúster.  
+  
+Se notifican las siguientes métricas para evaluar los modelos de agrupación en clústeres.
+    
+-   Las puntuaciones de la columna **Average Distance to Other Center** (Distancia media a otro centro) representan la cercanía, como media, de cada punto del clúster a los centroides de todos los demás clústeres.   
+
+-   Las puntuaciones de la columna **Average Distance to Cluster Center** (Distancia media al centro del clúster) representan la cercanía de todos los puntos del clúster al centroide de ese clúster.  
+  
+-   La columna **Number of Points** (Número de puntos) muestra cuántos puntos de datos se han asignado a cada clúster, junto con el número total de puntos de datos en cualquier clúster.  
+  
+     Si el número de puntos de datos asignado a los clústeres es menor que el número total de puntos de datos disponibles, significa que no se han podido asignar los puntos de datos a un clúster.  
+  
+-   Las puntuaciones de la columna **Maximal Distance to Cluster Center** (Distancia máxima al centro del clúster) representan la suma de las distancias entre cada punto y el centroide del clúster de ese punto.  
+  
+     Si este número es alto, puede significar que el clúster está muy disperso. Debe revisar esta estadística junto con **Average Distance to Cluster Center** (Distancia media al centro del clúster) para determinar la dispersión del clúster.   
+
+-   La puntuación de **Combined Evaluation** (Evaluación combinada) en la parte inferior de cada sección de resultados indica las puntuaciones medias de los clústeres creados en ese modelo determinado.  
   
 
 ## <a name="next-steps"></a>Pasos siguientes

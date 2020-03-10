@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e195a93209875b9eabfaa2ad00772281922443c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 7b9240b863eef4d460cd8d3a47304fb96ffb4bc8
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476107"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917788"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>¿Qué es un token de actualización principal?
 
@@ -117,6 +117,7 @@ Un PRT puede recibir una notificación de autenticación multifactor (MFA) en es
    * Como Windows Hello para empresas se considera autenticación multifactor, la notificación de MFA se actualiza cuando se actualiza el propio PRT, por lo que la duración de MFA se extenderá continuamente cuando los usuarios inicien sesión con WIndows Hello para empresas
 * **MFA durante el inicio de sesión interactivo de WAM**: durante una solicitud de token a través de WAM, si a un usuario se le exige MFA para acceder a la aplicación, el PRT que se renueva durante esta interacción se graba con una notificación de MFA.
    * En este caso, la notificación de MFA no se actualiza continuamente, por lo que la duración de MFA se basa en la duración establecida en el directorio.
+   * Cuando se usan un PRT y un RT anteriores existentes para acceder a una aplicación, estos se consideran como la primera prueba de autenticación. Se requiere un nuevo AT con una segunda prueba y una notificación de MFA impresa. Este además emite un nuevo PRT y RT.
 * **MFA durante el registro del dispositivo**: si un administrador ha configurado su dispositivo en Azure AD para [exigir MFA para registrar los dispositivos](device-management-azure-portal.md#configure-device-settings), el usuario necesita realizar MFA para completar el registro. Durante este proceso, el PRT emitido para el usuario tiene la notificación de MFA obtenida durante el registro. Esta funcionalidad solo se aplica al usuario que realizó la operación de unión, no a otros usuarios que inicien sesión en ese dispositivo.
    * Al igual que el inicio de sesión interactivo de WAM, la notificación de MFA no se actualiza continuamente, por lo que la duración de MFA se basa en la duración establecida en el directorio.
 
@@ -144,10 +145,10 @@ Los siguientes diagramas ilustran los detalles subyacentes en la emisión, la re
 > [!NOTE]
 > En los dispositivos unidos a Azure AD, este intercambio se produce sincrónicamente para emitir un PRT y que el usuario pueda iniciar sesión en Windows. En dispositivos unidos a Azure AD híbrido, el directorio local de Active Directory es la autoridad principal. Por lo tanto, el usuario solo espera a obtener un TGT para iniciar la sesión, mientras que la emisión del PRT tiene lugar de manera asincrónica. Este escenario no se aplica a los dispositivos registrados en Azure AD dado que el inicio de sesión no usa credenciales de Azure AD.
 
-| Paso | DESCRIPCIÓN |
+| Paso | Descripción |
 | :---: | --- |
-| Una | El usuario escribe su contraseña en la interfaz de usuario de inicio de sesión. LogonUI pasa las credenciales contenidas en un búfer de autenticación a LSA que, a su vez, las pasa internamente a CloudAP. CloudAP reenvía esta solicitud al complemento CloudAP. |
-| b | El complemento CloudAP inicia una solicitud de detección del dominio para identificar el proveedor de identidades del usuario. Si el inquilino del usuario tiene un programa de instalación del proveedor de federación, Azure AD devuelve el punto de conexión de intercambio de metadatos (MEX) del proveedor de federación. Si no, Azure AD devuelve que el usuario está administrado, lo que indica que el usuario puede autenticarse con Azure AD. |
+| Un | El usuario escribe su contraseña en la interfaz de usuario de inicio de sesión. LogonUI pasa las credenciales contenidas en un búfer de autenticación a LSA que, a su vez, las pasa internamente a CloudAP. CloudAP reenvía esta solicitud al complemento CloudAP. |
+| B | El complemento CloudAP inicia una solicitud de detección del dominio para identificar el proveedor de identidades del usuario. Si el inquilino del usuario tiene un programa de instalación del proveedor de federación, Azure AD devuelve el punto de conexión de intercambio de metadatos (MEX) del proveedor de federación. Si no, Azure AD devuelve que el usuario está administrado, lo que indica que el usuario puede autenticarse con Azure AD. |
 | C | Si el usuario está administrado, CloudAP obtendrá el nonce de Azure AD. Si el usuario está federado, el complemento CloudAP solicita un token SAML al proveedor de federación con las credenciales del usuario. Una vez recibido el token SAML, solicita un nonce a Azure AD. |
 | D | El complemento CloudAP construye la solicitud de autenticación con las credenciales del usuario, el nonce o un ámbito de agente, firma la solicitud con la clave del dispositivo (dkpriv) y la envía a Azure AD. En un entorno federado, el complemento CloudAP usa el token SAML devuelto por el proveedor de federación en lugar de las credenciales del usuario. |
 | E | Azure AD valida las credenciales del usuario, el nonce y la firma del dispositivo, comprueba que el dispositivo es válido en el inquilino y emite el PRT cifrado. Junto con el PRT, Azure AD también emite una clave simétrica llamada clave de sesión cifrada por Azure AD mediante la clave de transporte (tkpub). Además, la clave de sesión también se inserta en el PRT. Esta clave de sesión actúa como la clave de prueba de posesión (PoP) para las solicitudes posteriores con el PRT. |
@@ -157,10 +158,10 @@ Los siguientes diagramas ilustran los detalles subyacentes en la emisión, la re
 
 ![Renovación del PRT en los sucesivos inicios de sesión](./media/concept-primary-refresh-token/prt-renewal-subsequent-logons.png)
 
-| Paso | DESCRIPCIÓN |
+| Paso | Descripción |
 | :---: | --- |
-| Una | El usuario escribe su contraseña en la interfaz de usuario de inicio de sesión. LogonUI pasa las credenciales contenidas en un búfer de autenticación a LSA que, a su vez, las pasa internamente a CloudAP. CloudAP reenvía esta solicitud al complemento CloudAP. |
-| b | Si anteriormente el usuario ha iniciado sesión, Windows realiza el inicio de sesión almacenado en caché y valida las credenciales de inicio de sesión del usuario. Cada cuatro horas, el complemento CloudAP inicia la renovación del PRT de manera asincrónica. |
+| Un | El usuario escribe su contraseña en la interfaz de usuario de inicio de sesión. LogonUI pasa las credenciales contenidas en un búfer de autenticación a LSA que, a su vez, las pasa internamente a CloudAP. CloudAP reenvía esta solicitud al complemento CloudAP. |
+| B | Si anteriormente el usuario ha iniciado sesión, Windows realiza el inicio de sesión almacenado en caché y valida las credenciales de inicio de sesión del usuario. Cada cuatro horas, el complemento CloudAP inicia la renovación del PRT de manera asincrónica. |
 | C | El complemento CloudAP inicia una solicitud de detección del dominio para identificar el proveedor de identidades del usuario. Si el inquilino del usuario tiene un programa de instalación del proveedor de federación, Azure AD devuelve el punto de conexión de intercambio de metadatos (MEX) del proveedor de federación. Si no, Azure AD devuelve que el usuario está administrado, lo que indica que el usuario puede autenticarse con Azure AD. |
 | D | Si el usuario está federado, el complemento CloudAP solicita un token SAML al proveedor de federación con las credenciales del usuario. Una vez recibido el token SAML, solicita un nonce a Azure AD. Si el usuario está administrado, CloudAP obtendrá directamente el nonce de Azure AD. |
 | E | El complemento CloudAP construye la solicitud de autenticación con las credenciales del usuario, el nonce y el PRT existente, firma la solicitud con la clave de sesión y la envía a Azure AD. En un entorno federado, el complemento CloudAP usa el token SAML devuelto por el proveedor de federación en lugar de las credenciales del usuario. |
@@ -171,10 +172,10 @@ Los siguientes diagramas ilustran los detalles subyacentes en la emisión, la re
 
 ![Uso del PRT durante las solicitudes de tokens de aplicación](./media/concept-primary-refresh-token/prt-usage-app-token-requests.png)
 
-| Paso | DESCRIPCIÓN |
+| Paso | Descripción |
 | :---: | --- |
-| Una | Una aplicación (por ejemplo, Outlook, OneNote, etc.) inicia una solicitud de token a WAM. WAM, a su vez, pide al complemento WAM de Azure AD que atienda la solicitud de token. |
-| b | Si un token de actualización de la aplicación ya está disponible, el complemento WAM de Azure AD lo usa para solicitar un token de acceso. Para proporcionar una prueba de enlace de dispositivo, el complemento WAM firma la solicitud con la clave de sesión. Azure AD valida la clave de sesión y emite un token de acceso y un nuevo token de actualización para la aplicación, cifrados con la clave de sesión. El complemento WAM solicita al complemento CloudAP que descifre los tokens, el cual, a su vez, solicita al TPM que los descifre con la clave de sesión, lo que da lugar a que el complemento WAM obtenga ambos tokens. A continuación, el complemento WAM proporciona solo el token de acceso a la aplicación, mientras vuelve a cifrar el token de actualización con DPAPI y lo almacena en su propia caché  |
+| Un | Una aplicación (por ejemplo, Outlook, OneNote, etc.) inicia una solicitud de token a WAM. WAM, a su vez, pide al complemento WAM de Azure AD que atienda la solicitud de token. |
+| B | Si un token de actualización de la aplicación ya está disponible, el complemento WAM de Azure AD lo usa para solicitar un token de acceso. Para proporcionar una prueba de enlace de dispositivo, el complemento WAM firma la solicitud con la clave de sesión. Azure AD valida la clave de sesión y emite un token de acceso y un nuevo token de actualización para la aplicación, cifrados con la clave de sesión. El complemento WAM solicita al complemento CloudAP que descifre los tokens, el cual, a su vez, solicita al TPM que los descifre con la clave de sesión, lo que da lugar a que el complemento WAM obtenga ambos tokens. A continuación, el complemento WAM proporciona solo el token de acceso a la aplicación, mientras vuelve a cifrar el token de actualización con DPAPI y lo almacena en su propia caché  |
 | C |  Si un token de actualización de la aplicación no está disponible, el complemento WAM de Azure AD usa el PRT para solicitar un token de acceso. Para proporcionar la prueba de posesión, el complemento WAM firma la solicitud que contiene el PRT con la clave de sesión. Azure AD valida la firma de la clave de sesión, para lo cual la compara con la clave de sesión insertada en el PRT, comprueba que el dispositivo sea válido y emite un token de acceso y un token de actualización para la aplicación. Además, Azure AD puede emitir un nuevo PRT (según el ciclo de actualización), todos ellos cifrados con la clave de sesión. |
 | D | El complemento WAM solicita al complemento CloudAP que descifre los tokens, el cual, a su vez, solicita al TPM que los descifre con la clave de sesión, lo que da lugar a que el complemento WAM obtenga ambos tokens. A continuación, el complemento WAM proporciona solo el token de acceso a la aplicación, mientras vuelve a cifrar el token de actualización con DPAPI y lo almacena en su propia caché. El complemento WAM usará el token de actualización de aquí en adelante para esta aplicación. El complemento WAM también devuelve el nuevo PRT al complemento CloudAP, que lo valida con Azure AD antes de actualizarlo en su propia caché. El complemento CloudAP usará el nuevo PRT de aquí en adelante. |
 | E | WAM proporciona el token de acceso recién emitido a WAM, que, a su vez, lo proporciona a la aplicación que realiza la llamada.|
@@ -183,10 +184,10 @@ Los siguientes diagramas ilustran los detalles subyacentes en la emisión, la re
 
 ![Inicio de sesión único del explorador mediante PRT](./media/concept-primary-refresh-token/browser-sso-using-prt.png)
 
-| Paso | DESCRIPCIÓN |
+| Paso | Descripción |
 | :---: | --- |
-| Una | El usuario inicia sesión en Windows con sus credenciales para obtener un PRT. Una vez que el usuario abre el explorador, el explorador (o la extensión) carga las direcciones URL del Registro. |
-| b | Cuando un usuario abre una dirección URL de inicio de sesión de Azure AD, el explorador o la extensión validan la dirección URL con las obtenidas del Registro. Si coinciden, el explorador invoca el host de cliente nativo para obtener un token. |
+| Un | El usuario inicia sesión en Windows con sus credenciales para obtener un PRT. Una vez que el usuario abre el explorador, el explorador (o la extensión) carga las direcciones URL del Registro. |
+| B | Cuando un usuario abre una dirección URL de inicio de sesión de Azure AD, el explorador o la extensión validan la dirección URL con las obtenidas del Registro. Si coinciden, el explorador invoca el host de cliente nativo para obtener un token. |
 | C | El host de cliente nativo valida que las direcciones URL pertenezcan a los proveedores de identidades de Microsoft (cuenta Microsoft o Azure AD), extrae un nonce enviado desde la dirección URL y realiza una llamada al complemento CloudAP para obtener una cookie con PRT. |
 | D | El complemento CloudAP crea la cookie con PRT, inicia la sesión con la clave de sesión enlazada al TPM y la devuelve al host de cliente nativo. Como la cookie está firmada con la clave de sesión, no se pueda alterar. |
 | E | El host de cliente nativo devolverá esta cookie con PRT al explorador, que la incluirá como parte del encabezado de solicitud llamado x-ms-RefreshTokenCredential y solicitará tokens a Azure AD. |

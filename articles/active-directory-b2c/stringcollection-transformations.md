@@ -3,20 +3,20 @@ title: Ejemplos de transformación de notificaciones StringCollection para direc
 titleSuffix: Azure AD B2C
 description: Ejemplos de transformación de notificaciones StringCollection para el esquema de Identity Experience Framework (IEF) de Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
-ms.author: marsma
+ms.date: 02/27/2020
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8f91db91eff3320691a5979d9453bf515ccd59a2
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 6aea537ebff4ae61e00861e6cafe742a7feb165e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982303"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186784"
 ---
 # <a name="stringcollection-claims-transformations"></a>Transformaciones de notificaciones StringCollection
 
@@ -26,13 +26,13 @@ En este artículo se proporcionan ejemplos para usar las transformaciones de not
 
 ## <a name="additemtostringcollection"></a>AddItemToStringCollection
 
-Agrega una notificación de cadena a una nueva notificación stringCollection.
+Agrega una notificación de cadena a una nueva notificación stringCollection de valores únicos.
 
 | Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | item | string | Elemento ClaimType que se agregará a la notificación de salida. |
 | InputClaim | collection | stringCollection | [Opcional] Si se especifica, la transformación de notificaciones copia los elementos de esta colección y agrega el elemento al final de la notificación de la colección de salida. |
-| OutputClaim | collection | stringCollection | Elementos ClaimTypes que se producen después de que se invoque este elemento ClaimsTransformation. |
+| OutputClaim | collection | stringCollection | Valor ClaimType que se genera después de que se haya invocado a esta transformación de notificaciones, con el valor especificado en la notificación de entrada. |
 
 Use esta transformación de notificaciones para agregar una cadena a una clase stringCollection nueva o existente. Se usa normalmente en un perfil técnico **AAD-UserWriteUsingAlternativeSecurityId**. Antes de crear una nueva cuenta de redes sociales, la transformación de notificaciones **CreateOtherMailsFromEmail** lee el ClaimType y agrega el valor al ClaimType **otherMails**.
 
@@ -60,13 +60,13 @@ La siguiente transformación de notificaciones agrega el ClaimType **email** al 
 
 ## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
 
-Agrega un parámetro de cadena a una nueva notificación stringCollection.
+Agrega un parámetro de cadena a una nueva notificación stringCollection de valores únicos.
 
 | Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | [Opcional] Si se especifica, la transformación de notificaciones copia los elementos de esta colección y agrega el elemento al final de la notificación de la colección de salida. |
 | InputParameter | item | string | El valor que se agregará a la notificación de salida. |
-| OutputClaim | collection | stringCollection | El valor ClaimType que se genera después de que se haya invocado esta ClaimsTransformation. |
+| OutputClaim | collection | stringCollection | El valor ClaimType que se genera después de que se haya invocado esta transformación de notificaciones, con el valor especificado en el parámetro de entrada. |
 
 Use esta transformación de notificaciones para agregar un valor de cadena a una clase stringCollection nueva o existente. En el ejemplo siguiente se agrega una dirección de correo electrónico constante (admin@contoso.com) a la notificación **otherMails**.
 
@@ -147,7 +147,7 @@ En el siguiente ejemplo se comprueba si el tipo de notificación stringCollectio
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="isAdmin" TransformationClaimType="outputClaim"/>
-  </OutputClaims>         
+  </OutputClaims>
 </ClaimsTransformation>
 ```
 

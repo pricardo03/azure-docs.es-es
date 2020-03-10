@@ -10,28 +10,36 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 924705b7ce1d324583077797714491bdf3fc5cc9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.custom: azure-synapse
+ms.openlocfilehash: 257b33802ea95138ef8149ef9302b14ca379e7ac
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721224"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195584"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Cómo supervisar la caché de Gen2
-La arquitectura de almacenamiento Gen2 organiza de forma automática por niveles los segmentos de almacén de columnas consultados con más frecuencia en una memoria caché que reside en discos SSD basados en NVMe diseñados para almacenes de datos de Gen2. El aumento de rendimiento se consigue cuando las consultas recuperan segmentos que se encuentran en la caché. En este artículo se describe cómo supervisar y solucionar problemas de rendimiento lento de las consultas determinando si la carga de trabajo aprovecha de forma óptima la caché de Gen2.  
+
+En este artículo se describe cómo supervisar y solucionar problemas de rendimiento lento de las consultas determinando si la carga de trabajo aprovecha de forma óptima la caché de Gen2.
+
+La arquitectura de almacenamiento Gen2 organiza de forma automática por niveles los segmentos de almacén de columnas consultados con más frecuencia en una memoria caché que reside en discos SSD basados en NVMe diseñados para almacenes de datos de Gen2. El aumento de rendimiento se consigue cuando las consultas recuperan segmentos que se encuentran en la caché.
+ 
 ## <a name="troubleshoot-using-the-azure-portal"></a>Solución de problemas mediante Azure Portal
-Puede usar a Azure Monitor para ver las métricas de caché de Gen2 para solucionar los problemas de rendimiento de las consultas. En primera lugar, vaya a Azure Portal y haga clic en Monitor:
 
-![Azure Monitor](./media/sql-data-warehouse-cache-portal/cache_0.png)
+Puede usar a Azure Monitor para ver las métricas de caché de Gen2 para solucionar los problemas de rendimiento de las consultas. En primera lugar, vaya a Azure Portal y haga clic en **Supervisar**, **Métricas** y **+ Seleccionar un ámbito**:
 
-Haga clic en el botón Métricas y rellene la información de **Suscripción**, **Grupo** **de recursos**, **Tipo de recurso** y **Recursos** del almacenamiento de datos.
+![Azure Monitor](./media/sql-data-warehouse-cache-portal/cache-0.png)
 
-Las métricas clave para solucionar problemas de la caché de Gen2 son **Porcentaje de aciertos de caché** y **Porcentaje de caché usada**. Configure el gráfico de métricas de Azure para mostrar estas dos métricas.
+Use las barras desplegable y de búsqueda para buscar el almacenamiento de datos. Luego seleccione Aplicar.
 
-![Métricas de caché](./media/sql-data-warehouse-cache-portal/cache_1.png)
+![Azure Monitor](./media/sql-data-warehouse-cache-portal/cache-1.png)
 
+Las métricas clave para solucionar problemas de la caché de Gen2 son **Porcentaje de aciertos de caché** y **Porcentaje de caché usada**. Seleccione **Porcentaje de aciertos de caché** y luego use el botón **Agregar métrica** para agregar **Porcentaje de caché usada**. 
+
+![Métricas de caché](./media/sql-data-warehouse-cache-portal/cache-2.png)
 
 ## <a name="cache-hit-and-used-percentage"></a>Aciertos de caché y Porcentaje de caché usada
+
 En la tabla siguiente se describen escenarios en función de los valores de las métricas de caché:
 
 |                                | **Porcentaje de aciertos de caché alto** | **Porcentaje de aciertos de caché bajo** |

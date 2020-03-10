@@ -1,6 +1,6 @@
 ---
 title: Cifrado de datos transparente (Portal)
-description: Cifrado de datos transparente (TDE) en SQL Data Warehouse
+description: Cifrado de datos transparente (TDE) en Azure Synapse Analytics
 services: sql-data-warehouse
 author: julieMSFT
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 04/30/2019
 ms.author: jrasnick
 ms.reviewer: rortloff
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4435c5f246d6dd20fd0b2c560634f6980d6aa2ff
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c121f9c16895a749922525d1ba85ee2c2e60cfb0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685768"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195863"
 ---
-# <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>Introducción al cifrado de datos transparente (TDE) en SQL Data Warehouse
+# <a name="get-started-with-transparent-data-encryption-tde"></a>Introducción al cifrado de datos transparente (TDE)
 > [!div class="op_single_selector"]
 > * [Información general sobre seguridad](sql-data-warehouse-overview-manage-security.md)
 > * [Autenticación](sql-data-warehouse-authentication.md)
@@ -31,7 +31,7 @@ ms.locfileid: "73685768"
 Para habilitar el Cifrado de datos transparente (TDE), debe ser un administrador o un miembro del rol dbmanager.
 
 ## <a name="enabling-encryption"></a>Habilitar el cifrado
-Para habilitar TDE para un SQL Data Warehouse, siga estos pasos:
+Para habilitar TDE, siga los pasos que aparecen a continuación:
 
 1. Abra la base de datos en el [Portal de Azure](https://portal.azure.com)
 2. En la hoja de la base de datos, haga clic en el botón **Configuración**
@@ -41,7 +41,7 @@ Para habilitar TDE para un SQL Data Warehouse, siga estos pasos:
    ![][3]  
 
 ## <a name="disabling-encryption"></a>Deshabilitar el cifrado
-Para deshabilitar TDE para un SQL Data Warehouse, siga estos pasos:
+Para deshabilitar TDE, siga los pasos que aparecen a continuación:
 
 1. Abra la base de datos en el [Portal de Azure](https://portal.azure.com)
 2. En la hoja de la base de datos, haga clic en el botón **Configuración**
