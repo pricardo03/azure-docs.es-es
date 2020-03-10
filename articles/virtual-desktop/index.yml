@@ -1,41 +1,52 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentación sobre Windows Virtual Desktop
+summary: Proporcione una experiencia de escritorio virtual y aplicaciones remotas en cualquier dispositivo. Combine Microsoft 365 y Azure para ofrecer a los usuarios la única experiencia con Windows 10 multisesión, con una escalabilidad excepcional y costos de TI más bajos.
 metadata:
-  title: Documentación sobre Windows Virtual Desktop | Microsoft Docs
+  title: Documentación sobre Windows Virtual Desktop
   description: Windows Virtual Desktop para Azure es una experiencia multiusuario de Windows 10 Enterprise virtualizada en la nube.
-  author: Heidilohr
-  manager: lizross
   ms.service: virtual-desktop
   services: virtual-desktop
   ms.topic: landing-page
-  ms.date: 02/20/2019
+  manager: lizross
+  author: Heidilohr
   ms.author: helohr
-abstract:
-  description: 'Proporcione una experiencia de escritorio virtual y aplicaciones remotas en cualquier dispositivo. Combine Microsoft 365 y Azure para ofrecer a los usuarios la única experiencia con Windows 10 multisesión, con una escalabilidad excepcional y costos de TI más bajos.'
-sections:
-  - title: Información general
-    items:
-      - type: paragraph
-        text: 'Más información acerca de Windows Virtual Desktop y cómo usarlo. Tutoriales, procedimientos, contenido de referencia, etc, que le muestran cómo configurar los inquilinos y los grupos host y cómo asignar roles a los usuarios para el entorno de Windows Virtual Desktop.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/virtual-desktop/overview">¿Qué es Windows Virtual Desktop?</a>
-  - title: Tutoriales paso a paso
-    items:
-      - type: paragraph
-        text: Aprenda a instalar y configurar Windows Virtual Desktop y a cómo conectarse al cliente cuando esté listo.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/virtual-desktop/tenant-setup-azure-active-directory">Creación de un inquilino en Windows Virtual Desktop</a>
-          - html: <a href="/azure/virtual-desktop/create-host-pools-azure-marketplace">Creación de un grupo host con Azure Marketplace</a>
-          - html: <a href="/azure/virtual-desktop/manage-app-groups">Administración de grupos de aplicaciones de Windows Virtual Desktop</a>
-          - html: <a href="/azure/virtual-desktop/create-service-principal-role-powershell">Creación de entidades de servicio y asignaciones de roles con PowerShell</a>
-  - title: Referencia
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell</a>
+  ms.date: 03/06/2020
+  ms.openlocfilehash: f37b0cd68c62813dd4c642d9e45a20a91d08c31c
+  ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 03/07/2020
+  ms.locfileid: "78898668"
+landingContent:
+- title: Acerca de Windows Virtual Desktop
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Windows Virtual Desktop?
+      url: overview.md
+- title: Introducción
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Creación de un inquilino en Windows Virtual Desktop
+      url: tenant-setup-azure-active-directory.md
+    - text: Creación de un grupo host con Azure Marketplace
+      url: create-host-pools-azure-marketplace.md
+    - text: Administración de grupos de aplicaciones de Windows Virtual Desktop
+      url: manage-app-groups.md
+    - text: Creación de entidades de servicio y asignaciones de roles con PowerShell
+      url: create-service-principal-role-powershell.md
+- title: Conexión con Windows Virtual Desktop
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Cliente de escritorio de Windows
+      url: connect-windows-7-and-10.md
+    - text: Cliente web
+      url: connect-web.md
+    - text: Cliente de Android
+      url: connect-android.md
+    - text: Cliente de macOS
+      url: connect-macos.md
+    - text: Cliente de iOS
+      url: connect-ios.md
