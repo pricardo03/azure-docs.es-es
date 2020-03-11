@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jonbeck
-ms.openlocfilehash: dc2086223dea9bff311aac9e7d4771b5273f0e91
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: b900a95df00ccdd0ad9b5bee3887364195c7d1c2
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492553"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226733"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Tamaños de máquina virtual de informática de alto rendimiento
 
@@ -46,6 +46,10 @@ Las máquinas virtuales de la [serie H](h-series.md) están optimizadas para apl
   
 - **Red virtual** : no se necesita una [red virtual](https://azure.microsoft.com/documentation/services/virtual-network/) de Azure para usar instancias de proceso intensivo. Sin embargo, para muchas implementaciones necesita al menos una red virtual de Azure basada en la nube o una conexión de sitio a sitio si necesita acceder a recursos locales. Si es necesario, cree una red virtual para implementar las instancias. No se admite la adición de máquinas virtuales de proceso intensivo a las redes virtuales de grupos de afinidad.
 - **Cambio de tamaño**: debido a su hardware especializado, solo se puede cambiar el tamaño de las instancias de proceso intensivo dentro de la misma familia de tamaño (serie H o serie A de proceso intensivo). Por ejemplo, una máquina virtual de la serie H solo se puede cambiar de un tamaño de serie H a otro. Además, no se admite el cambio de tamaño de un tamaño que no sea de proceso intensivo a un tamaño que sí lo sea.  
+
+> [!NOTE]
+> Está previsto que las VM A8-A11 se retiren en 3/2021. Para obtener más información, consulte la [guía de migración de HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
+
 ## <a name="rdma-capable-instances"></a>Instancias compatibles con RDMA
 
 Un subconjunto de las instancias de proceso intensivo (A8, A9, H16r, H16mr, HB y HC) incluye una interfaz de red para la conectividad de acceso directo a memoria remota (RDMA). Tamaños seleccionados de la serie N designados con la letra "r", como las configuraciones de NC24rs (NC24rs_v2 y NC24rs_v3) también son compatibles con RDMA. Esta interfaz se añade a la interfaz de red estándar de Azure disponible para otros tamaños de máquina virtual.
@@ -78,7 +82,7 @@ En algunas implementaciones de las instancias A8 y A9, la extensión HpcVmDriver
   } 
   ```
 
-  El comando siguiente instala la versión más reciente de la extensión InfiniBandDriverWindows, la versión 1.0, en todas las máquinas virtuales compatibles con RDMA en un conjunto de escalado de máquina virtual denominado *myVMSS* implementado en el grupo de recursos denominado *myResourceGroup*:
+  El comando siguiente instala la versión más reciente de la extensión InfiniBandDriverWindows, la versión 1.0, en todas las VM compatibles con RDMA en un conjunto de escalado de máquinas virtuales denominado *myVMSS* implementado en el grupo de recursos denominado *myResourceGroup*:
 
   ```powershell
   $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
@@ -87,7 +91,7 @@ En algunas implementaciones de las instancias A8 y A9, la extensión HpcVmDriver
   Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
   ```
 
-  Para obtener más información, consulte el artículo de [características y extensiones de las máquinas virtuales](/extensions/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). También puede trabajar con las extensiones para las máquinas virtuales implementadas en el [modelo de implementación clásica](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
+  Para obtener más información, consulte el artículo de [características y extensiones de las máquinas virtuales](./extensions/overview.md). También puede trabajar con las extensiones para las máquinas virtuales implementadas en el [modelo de implementación clásica](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
 
 - **Espacio de direcciones de red RDMA** : la red RDMA en Azure reserva el espacio de direcciones 172.16.0.0/16. Para ejecutar aplicaciones MPI en instancias implementadas en una red virtual Azure, asegúrese de que el espacio de direcciones de la red virtual no se superpone a la red RDMA.
 
@@ -99,7 +103,7 @@ Azure ofrece varias opciones para crear clústeres de máquinas virtuales de HPC
 
 - **Conjuntos de escalado de máquinas virtuales**: en un conjunto de escalado de máquinas virtuales, asegúrese de limitar la implementación a un único grupo de selección de ubicación. Por ejemplo, en una plantilla de Resource Manager, establezca la propiedad `singlePlacementGroup` en `true`. 
 
-- **MPI entre las máquinas virtuales**: si es necesaria la comunicación de MPI entre las máquinas virtuales, asegúrese de que las máquinas virtuales estén en el mismo conjunto de disponibilidad o en el mismo conjunto de escalado de la máquina virtual.
+- **MPI entre las máquinas virtuales**: Si es necesaria la comunicación de MPI entre las máquinas virtuales (VM), asegúrese de que las VM estén en el mismo conjunto de disponibilidad o en el mismo conjunto de escalado de máquinas virtuales.
 
 - **Azure CycleCloud**: cree un clúster de HPC en [Azure CycleCloud](/azure/cyclecloud/) para ejecutar trabajos MPI en nodos de Windows.
 
