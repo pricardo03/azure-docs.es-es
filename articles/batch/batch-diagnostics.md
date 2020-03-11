@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 70c53ea9a8fc64615a9a493efc42405631a3f06d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 68d5976a5a79dbde88b7f80b02b39793ffc86de9
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025170"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254857"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas y registros de Batch para evaluación de diagnóstico y supervisión
 
@@ -49,7 +49,12 @@ Para ver todas las métricas de la cuenta de Batch, siga estos pasos:
 3. Seleccione una o varias de las métricas. Si lo desea, seleccione métricas de recursos adicionales mediante las listas desplegables **Suscripciones**, **Grupo de recursos**, **Tipo de recurso** y **Recurso**.
     * En el caso de métricas basadas en recuentos (como "Recuento de núcleos dedicados" o "Recuento de nodos de baja prioridad"), use la agregación "promedio". En el caso de métricas basadas en eventos (como "Eventos de finalización de cambio de tamaño de grupo"), use la agregación "recuento".
 
-    ![Métricas de Batch](media/batch-diagnostics/metrics-portal.png)
+> [!WARNING]
+> No use la agregación "Sum", que suma los valores de todos los puntos de datos recibidos durante el período del gráfico.
+> 
+> 
+
+    ![Batch metrics](media/batch-diagnostics/metrics-portal.png)
 
 Para recuperar las métricas mediante programación, use las API de Azure Monitor. Para ver ejemplos, consulte [Retrieve Azure Monitor metrics with .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) (Recuperación de métricas de Azure Monitor con .NET).
 
@@ -71,7 +76,7 @@ Para configurar una alerta de métrica en el portal:
 2. En **Supervisión**, haga clic en **Reglas de alerta** > **Agregar alerta de métrica**.
 3. Seleccione una métrica, una condición de alerta (por ejemplo, cuando una métrica supere un valor determinado durante un período) y una o más notificaciones.
 
-También puede configurar una alerta casi en tiempo real mediante la [API REST](https://docs.microsoft.com/rest/api/monitor/). Para más información, consulte [Introducción a las alertas](../azure-monitor/platform/alerts-overview.md)
+También puede configurar una alerta casi en tiempo real mediante la [API REST](https://docs.microsoft.com/rest/api/monitor/). Para más información, consulte [Introducción a las alertas](../azure-monitor/platform/alerts-overview.md). Para incluir información específica del trabajo, la tarea o el grupo en las alertas, consulte la información sobre las consultas de búsqueda en [Respuesta a eventos con las alertas de Azure Monitor](../azure-monitor/learn/tutorial-response.md).
 
 ## <a name="batch-diagnostics"></a>Diagnóstico de Batch
 

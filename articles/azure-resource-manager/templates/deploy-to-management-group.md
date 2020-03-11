@@ -2,19 +2,17 @@
 title: Implementación de recursos en el grupo de administración
 description: Se describe cómo implementar recursos en el ámbito de un grupo de administración en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: 0419f3daca6845c6809c9f66e870fdf884a7193f
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.date: 03/02/2020
+ms.openlocfilehash: 3b2eeaf2c63a50cda1a32fee94c1e5b99822075d
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117044"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228107"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Creación de recursos a nivel de grupo de administración
 
 Normalmente, implementa los recursos de Azure en un grupo de recursos en su suscripción de Azure. Sin embargo, también puede crear recursos a nivel de grupo de administración. Las implementaciones de nivel de grupo de administración se usan para realizar acciones que tienen sentido en ese nivel, como la asignación del [control de acceso basado en rol](../../role-based-access-control/overview.md) o la aplicación de [directivas](../../governance/policy/overview.md).
-
-Actualmente, para implementar plantillas en el nivel de grupo de administración, debe usar la API REST.
 
 ## <a name="supported-resources"></a>Recursos compatibles
 
@@ -45,7 +43,16 @@ https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeployment
 
 ## <a name="deployment-commands"></a>Comandos de implementación
 
-El comando para las implementaciones de nivel de grupo de administración es diferente del comando de las implementaciones de grupo de recursos.
+Los comandos para las implementaciones de grupos de administración son diferentes de los comandos para las implementaciones de grupos de recursos.
+
+En el caso de Azure PowerShell, use [New-AzManagementGroupDeployment](/powershell/module/az.resources/new-azmanagementgroupdeployment). 
+
+```azurepowershell-interactive
+New-AzManagementGroupDeployment `
+  -ManagementGroupId "myMG" `
+  -Location "West US" `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json
+```
 
 Para la API REST, use [Deployments: Create At Management Group Scope](/rest/api/resources/deployments/createorupdateatmanagementgroupscope).
 
@@ -150,7 +157,7 @@ En el ejemplo siguiente se asigna una definición de directiva existente al grup
 
 ## <a name="template-sample"></a>Ejemplo de plantilla
 
-* Cree un grupo de recursos, una directiva y una asignación de directiva.  Consulte [aquí](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
+* [Cree un grupo de recursos, una directiva y una asignación de directiva](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

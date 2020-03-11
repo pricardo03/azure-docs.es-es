@@ -1,6 +1,6 @@
 ---
 title: Restauración de un almacenamiento de datos desde una copia de seguridad geográfica
-description: Guía para la restauración geográfica de una instancia de Azure SQL Data Warehouse.
+description: Guía de procedimientos para la restauración geográfica de un grupo de SQL.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -11,22 +11,22 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 69ba3ed981a27dfff41ea9ea52e1da769a9366c4
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 624c6665e70802907be8a41015b78d36cca7df1c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759642"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198403"
 ---
-# <a name="geo-restore-azure-sql-data-warehouse"></a>Restauración geográfica de Azure SQL Data Warehouse
+# <a name="geo-restore-for-sql-pool"></a>Restauración geográfica del grupo de SQL
 
-En este artículo, aprenderá a restaurar el almacenamiento de datos desde una copia de seguridad geográfica a través de Azure Portal y PowerShell.
+En este artículo, aprenderá a restaurar el grupo de SQL desde una copia de seguridad geográfica mediante Azure Portal y PowerShell.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-**Compruebe la capacidad DTU**. Cada instancia de SQL Data Warehouse está hospedada en un servidor SQL Server (por ejemplo, myserver.database.windows.net) que tiene una cuota de DTU predeterminada. Compruebe que el servidor SQL Server tiene suficiente cuota de DTU restante para la base de datos en proceso de restauración. Para más información sobre cómo calcular la unidad DTU necesaria o solicitar más DTU, consulte cómo [solicitar un cambio en la cuota de DTU](sql-data-warehouse-get-started-create-support-ticket.md).
+**Compruebe la capacidad DTU**. Cada grupo de SQL está hospedado en un servidor SQL Server (por ejemplo, myserver.database.windows.net) que tiene una cuota de DTU predeterminada. Compruebe que el servidor SQL Server tiene suficiente cuota de DTU restante para la base de datos en proceso de restauración. Para más información sobre cómo calcular la unidad DTU necesaria o solicitar más DTU, consulte cómo [solicitar un cambio en la cuota de DTU](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>Uso de PowerShell para restaurar desde una región geográfica de Azure
 
@@ -74,20 +74,27 @@ La base de datos recuperada estará habilitada para TDE si la base de datos de o
 
 ## <a name="restore-from-an-azure-geographical-region-through-azure-portal"></a>Uso de Azure Portal para restaurar desde una región geográfica de Azure
 
-Siga los pasos que se describen a continuación para restaurar una instancia de Azure SQL Data Warehouse desde una copia de seguridad geográfica:
+Siga los pasos que se describen a continuación para restaurar un grupo de SQL desde una copia de seguridad geográfica:
 
 1. Inicie sesión en su cuenta de [Azure Portal](https://portal.azure.com/).
-1. Haga clic en **+ Crear un recurso**, busque SQL Data Warehouse y haga clic en **Crear**.
+1. Haga clic en **+ Crear un recurso**. 
 
-    ![Nuevo DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
-1. Rellene la información solicitada en la pestaña **Aspectos básicos** y haga clic en **Siguiente: Configuración adicional**.
+![Nuevo DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
-    ![Aspectos básicos](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
-1. En el parámetro **Usar datos existentes**, haga clic en **Copia de seguridad** y luego seleccione la copia de seguridad adecuada en las opciones de desplazamiento. Haga clic en **Revisar y crear**.
+3. Haga clic en **Bases de datos** y, después, **Azure Synapse Analytics (anteriormente SQL DW)**.
+
+![Nuevo DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
+
+4. Rellene la información solicitada en la pestaña **Aspectos básicos** y haga clic en **Siguiente: Configuración adicional**.
+
+![Aspectos básicos](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
+
+5. En el parámetro **Usar datos existentes**, haga clic en **Copia de seguridad** y luego seleccione la copia de seguridad adecuada en las opciones de desplazamiento. Haga clic en **Revisar y crear**.
  
-   ![copia de seguridad](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
-2. Una vez que se haya restaurado el almacenamiento de datos, compruebe que el estado es **En línea**.
+![copia de seguridad](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
+
+6. Una vez que se haya restaurado el almacenamiento de datos, compruebe que el estado es **En línea**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Restauración de un almacenamiento de datos existente](sql-data-warehouse-restore-active-paused-dw.md)
-- [Restauración de un almacén de datos eliminado](sql-data-warehouse-restore-deleted-dw.md)
+- [Restauración de un grupo de SQL existente](sql-data-warehouse-restore-active-paused-dw.md)
+- [Restauración de un grupo de SQL eliminado](sql-data-warehouse-restore-deleted-dw.md)

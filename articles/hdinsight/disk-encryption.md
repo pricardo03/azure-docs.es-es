@@ -6,90 +6,97 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/06/2019
-ms.openlocfilehash: b452cb986e6f662aeb33c2a475f18695ebc75745
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/20/2020
+ms.openlocfilehash: c22ee0ef0393c0dae64674d18bae5a2e92969b4c
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846078"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206079"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>Cifrado de disco mediante claves administradas por el cliente
 
-Azure HDInsight admite claves administradas por el cliente, lo que también se conoce como cifrado de Bring Your Own Key (BYOK) para los datos de los discos administrados y los discos de recursos conectados a las máquinas virtuales del clúster de HDInsight. Esta característica permite usar Azure Key Vault para administrar las claves de cifrado que protegen los datos en reposo en los clústeres de HDInsight. Los clústeres pueden tener una o varias cuentas de Azure Storage asociadas, en las que el cliente o Microsoft también puede administrar las claves de cifrado, sin embargo, el servicio de cifrado es diferente.
-
-En este documento no se tratan los datos almacenados en la cuenta de Azure Storage. Para obtener más información sobre ASE, consulte [Cifrado de Azure Storage para datos en reposo](../storage/common/storage-service-encryption.md).
+Azure HDInsight admite el cifrado de claves administradas por el cliente para los datos de los discos administrados y los discos de recursos asociados a las máquinas virtuales del clúster de HDInsight. Esta característica permite usar Azure Key Vault para administrar las claves de cifrado que protegen los datos en reposo en los clústeres de HDInsight. 
 
 Todos los discos administrados en HDInsight están protegidos con Azure Storage Service Encryption (SSE). De forma predeterminada, los datos en esos discos se cifran mediante claves administradas por Microsoft. Si habilita las claves administradas por el cliente para HDInsight, debe proporcionar las claves de cifrado para que HDInsight las use y administre mediante Azure Key Vault.
+
+En este documento no se tratan los datos almacenados en la cuenta de Azure Storage. Para más información sobre el cifrado de almacenamiento, consulte [Cifrado de Azure Storage para datos en reposo](../storage/common/storage-service-encryption.md). Los clústeres pueden tener una o varias cuentas de Azure Storage asociadas, en las que el cliente o Microsoft también puede administrar las claves de cifrado, sin embargo, el servicio de cifrado es diferente.
+
+## <a name="introduction"></a>Introducción
 
 El cifrado de claves administradas por el cliente consiste en un proceso de un paso controlado durante la creación del clúster sin ningún costo adicional. Solo necesita registrar HDInsight como una identidad administrada con Azure Key Vault y agregar la clave de cifrado al crear el clúster.
 
 Tanto el disco de recursos como los discos administrados de cada nodo del clúster están cifrados con una clave de cifrado de datos (DEK) simétrica. La DEK está protegida mediante la clave de cifrado de claves (KEK) del almacén de claves. Azure HDInsight controla completamente los procesos de cifrado y descifrado.
 
-Puede usar Azure Portal o la CLI de Azure para rotar las claves en el almacén de claves de forma segura. Cuando se gira una clave, el clúster de HDInsight comienza a usar la clave nueva en cuestión de minutos. Habilite la característica de protección de claves "Eliminación temporal" para protegerse frente a los escenarios de ransomware y la eliminación accidental. No se admiten almacenes de claves sin esta característica de protección.
+Si el firewall del almacén de claves está habilitado en el almacén de claves donde está almacenada la clave de cifrado del disco, las direcciones IP del proveedor de recursos regional de HDInsight de la región donde se va a implementar el clúster se deben agregar a la configuración del firewall del almacén de claves. Esto es necesario porque HDInsight no es un servicio de almacén de claves de Azure de confianza.
+
+Puede usar Azure Portal o la CLI de Azure para rotar las claves en el almacén de claves de forma segura. Cuando se gira una clave, el clúster de HDInsight comienza a usar la clave nueva en cuestión de minutos. Habilite las características de protección de claves [Eliminación temporal](../key-vault/key-vault-ovw-soft-delete.md) para protegerse frente a los escenarios de ransomware y la eliminación accidental. No se admiten almacenes de claves sin esta característica de protección.
+
+|Tipo de clúster |Disco del sistema operativo (disco administrado) |Disco de datos (disco administrado) |Disco de datos temporales (SSD local) |
+|---|---|---|---|
+|Kafka, HBase con escrituras aceleradas|Cifrado SSE|Cifrado SSE + cifrado opcional de CMK|Cifrado opcional de CMK|
+|Todos los demás clústeres (Spark, Interactive, Hadoop, HBase sin escrituras aceleradas)|Cifrado SSE|N/D|Cifrado opcional de CMK|
 
 ## <a name="get-started-with-customer-managed-keys"></a>Introducción a las claves administradas por el cliente
 
 Para crear un clúster de HDInsight habilitado para claves administradas por el cliente, repasaremos los pasos siguientes:
 
 1. Creación de identidades administradas para los recursos de Azure
-2. Configuración de Azure Key Vault y las claves
-3. Creación de un clúster de HDInsight con la clave administrada por el cliente habilitada
-4. Rotación de la clave de cifrado
+1. Crear una instancia de Azure Key Vault
+1. Crear clave
+1. Creación de directivas de acceso
+1. Creación de un clúster de HDInsight con la clave administrada por el cliente habilitada
+1. Rotación de la clave de cifrado
 
 ## <a name="create-managed-identities-for-azure-resources"></a>Creación de identidades administradas para los recursos de Azure
 
-Para autenticarse en Key Vault, cree una identidad administrada asignada por el usuario mediante [Azure Portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md) o la [CLI de Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md). Para obtener más información sobre cómo funcionan las identidades administradas en Azure HDInsight, vea [Identidades administradas en Azure HDInsight](hdinsight-managed-identities.md). Asegúrese de guardar el identificador de recurso de identidad administrada para cuando lo agregue a la directiva de acceso de Key Vault.
+Cree una identidad administrada asignada por el usuario para autenticarse en Key Vault.
 
-## <a name="set-up-the-key-vault-and-keys"></a>Configuración de Key Vault y claves
+Consulte [Creación de una identidad administrada asignada por el usuario](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) para conocer los pasos específicos. Para obtener más información sobre cómo funcionan las identidades administradas en Azure HDInsight, vea [Identidades administradas en Azure HDInsight](hdinsight-managed-identities.md). Asegúrese de guardar el identificador de recurso de identidad administrada para cuando lo agregue a la directiva de acceso de Key Vault.
 
-HDInsight solo es compatible con Azure Key Vault. Si tiene su propio almacén de claves, puede importar las claves a Azure Key Vault. Recuerde que las claves deben tener habilitada la característica "Eliminación temporal". Dicha característica está disponible a través de las interfaces de REST, .NET/C#, PowerShell y la CLI de Azure.
+## <a name="create-azure-key-vault"></a>Crear una instancia de Azure Key Vault
 
-1. Para crear un nuevo almacén de claves, siga la guía de inicio rápido de [Azure Key Vault](../key-vault/key-vault-overview.md). Para obtener más información sobre cómo importar claves existentes, visite [Información acerca de claves, secretos y certificados](../key-vault/about-keys-secrets-and-certificates.md).
+Cree un almacén de claves. Consulte [Creación de una instancia de Azure Key Vault](../key-vault/quick-create-portal.md) para conocer los pasos específicos.
 
-1. Habilite la característica "Eliminación temporal" en el almacén de claves mediante el comando [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) de la CLI.
+HDInsight solo es compatible con Azure Key Vault. Si tiene su propio almacén de claves, puede importar las claves a Azure Key Vault. Recuerde que el almacén de claves debe tener habilitada la **eliminación temporal**. Para obtener más información sobre cómo importar claves existentes, visite [Información acerca de claves, secretos y certificados](../key-vault/about-keys-secrets-and-certificates.md).
 
-    ```azurecli
-    az keyvault update --name <Key Vault Name> --enable-soft-delete
-    ```
+## <a name="create-key"></a>Crear clave
 
-1. Crear claves.
-
-    a. Para crear una nueva clave, seleccione **Generar/Importar** en el menú **Claves** en **Configuración**.
+1. En el nuevo almacén de claves, vaya a **Configuración** > **Claves** >  **+ Generate/Import** (+ Generar/Importar).
 
     ![Generación de una clave nueva en Azure Key Vault](./media/disk-encryption/create-new-key.png "Generar una clave nueva en Azure Key Vault")
 
-    b. Establezca **Opciones** en **Generar** y asigne un nombre a la clave.
+1. Proporcione un nombre y, luego, seleccione **Crear**. Mantenga el valor de **Tipo de clave** en **RSA**.
 
     ![generación de un nombre de clave](./media/disk-encryption/create-key.png "Generación de un nombre de clave")
 
-    c. Seleccione la clave que creó en la lista de claves.
+1. Cuando vuelva a la página **Claves**, seleccione la clave que ha creado.
 
     ![lista de claves de Key Vault](./media/disk-encryption/key-vault-key-list.png)
 
-    d. Cuando usa su propia clave para el cifrado del clúster de HDInsight, tiene que proporcionar el URI de la clave. Copie el **identificador de clave** y guárdelo en algún lugar hasta que vaya a crear el clúster.
+1. Seleccione la versión para abrir la página **Versión de la clave**. Cuando usa su propia clave para el cifrado del clúster de HDInsight, tiene que proporcionar el URI de la clave. Copie el **identificador de clave** y guárdelo en algún lugar hasta que vaya a crear el clúster.
 
     ![obtención del identificador de clave](./media/disk-encryption/get-key-identifier.png)
 
-1. Agregue identidades administradas a la directiva de acceso del almacén de claves.
+## <a name="create-access-policy"></a>Creación de directivas de acceso
 
-    a. Cree una directiva de acceso de Azure Key Vault.
+1. En el nuevo almacén de claves, vaya a **Configuración** > **Directivas de acceso** >  **+ Agregar directiva de acceso**.
 
-    ![Creación de una directiva de acceso de Azure Key Vault](./media/disk-encryption/add-key-vault-access-policy.png)
+    ![Creación de una directiva de acceso de Azure Key Vault](./media/disk-encryption/key-vault-access-policy.png)
 
-    b. En **Seleccionar entidad de seguridad**, elija la identidad administrada asignada por el usuario que creó.
+1. En la página **Agregar directiva de acceso**, proporcione la siguiente información:
+
+    |Propiedad |Descripción|
+    |---|---|
+    |Permisos de claves|Seleccione **Obtener**, **Desencapsular clave** y **Encapsular clave**.|
+    |Permisos de secretos|Seleccione **Obtener**, **Establecer** y **Eliminar**.|
+    |Selección de la entidad de seguridad|Seleccione la identidad administrada asignada por el usuario que creó anteriormente.|
 
     ![Establecimiento de la entidad de seguridad para la directiva de acceso de Azure Key Vault](./media/disk-encryption/azure-portal-add-access-policy.png)
 
-    c. Establezca los **Permisos de clave** en **Obtener**, **Desencapsular clave** y **Encapsular clave**.
+1. Seleccione **Agregar**.
 
-    ![Establecimiento de los permisos de clave para la directiva de acceso 1 de Azure Key Vault](./media/disk-encryption/add-key-vault-access-policy-keys.png "Establecimiento de los permisos de clave para la directiva de acceso 1 de Azure Key Vault")
-
-    d. Establezca los **Permisos de secretos** en **Obtener**, **Establecer** y **Eliminar**.
-
-    ![Establecimiento de los permisos de clave para la directiva de acceso 2 de Azure Key Vault](./media/disk-encryption/add-key-vault-access-policy-secrets.png "Establecimiento de los permisos de clave para la directiva de acceso 2 de Azure Key Vault")
-
-    e. Seleccione **Guardar**.
+1. Seleccione **Guardar**.
 
     ![Guardar la directiva de acceso de Azure Key Vault](./media/disk-encryption/add-key-vault-access-policy-save.png)
 
@@ -99,13 +106,13 @@ Ya está listo para crear un clúster de HDInsight. La clave administrada por el
 
 ### <a name="using-the-azure-portal"></a>Uso de Azure Portal
 
-Durante la creación del clúster, proporcione la dirección URL completa de la clave, de forma que incluya también la versión de la clave. Por ejemplo, `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. También deberá asignar la identidad administrada al clúster y proporcionar el URI de la clave.
+Durante la creación del clúster, proporcione el **identificador de clave** completo, incluida la versión de la clave. Por ejemplo, `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. También deberá asignar la identidad administrada al clúster y proporcionar el URI de la clave.
 
 ![Creación de un clúster](./media/disk-encryption/create-cluster-portal.png)
 
 ### <a name="using-azure-cli"></a>Uso de la CLI de Azure
 
-En el ejemplo siguiente se muestra cómo usar la CLI de Azure para crear un nuevo clúster de Apache Spark con el cifrado de disco habilitado. Consulte la documentación de [az hdinsight create de la CLI de Azure](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) para obtener más información.
+En el ejemplo siguiente se muestra cómo usar la CLI de Azure para crear un nuevo clúster de Apache Spark con el cifrado de disco habilitado. Para más información, consulte el comando [az hdinsight create de la CLI de Azure](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create).
 
 ```azurecli
 az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
@@ -123,13 +130,13 @@ Puede haber escenarios en los que quiera cambiar las claves de cifrado que se us
 
 ### <a name="using-the-azure-portal"></a>Uso de Azure Portal
 
-Para rotar la clave, debe tener la dirección URL completa de la nueva clave (vea el paso 3 de [Configuración de Key Vault y las claves](#set-up-the-key-vault-and-keys)). Una vez lo haya hecho, vaya a la sección de propiedades del clúster de HDInsight en el portal y haga clic en **Cambiar clave** en **URL de clave de cifrado de disco**. Escriba la dirección URL de la nueva clave y envíela para rotar la clave.
+Para rotar la clave, necesita el URI del almacén de claves base. Una vez lo haya hecho, vaya a la sección de propiedades del clúster de HDInsight en el portal y haga clic en **Cambiar clave** en **URL de clave de cifrado de disco**. Escriba la dirección URL de la nueva clave y envíela para rotar la clave.
 
 ![rotación de la clave de cifrado de disco](./media/disk-encryption/change-key.png)
 
 ### <a name="using-azure-cli"></a>Uso de la CLI de Azure
 
-En el ejemplo siguiente se muestra cómo girar la clave de cifrado de disco de un clúster de HDInsight existente. Consulte [az hdinsight rotate-disk-encryption-key de la CLI de Azure](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-rotate-disk-encryption-key) para obtener más detalles.
+En el ejemplo siguiente se muestra cómo girar la clave de cifrado de disco de un clúster de HDInsight existente. Para más información, consulte el comando [az hdinsight rotate-disk-encryption-key de la CLI de Azure](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-rotate-disk-encryption-key).
 
 ```azurecli
 az hdinsight rotate-disk-encryption-key \
@@ -162,11 +169,11 @@ Si el clúster pierde acceso a la clave, se mostrarán advertencias en el portal
 
 **¿Cómo puedo recuperar el clúster si se eliminan las claves?**
 
-Dado que solo se admiten claves habilitadas para eliminación temporal, si las claves se recuperan en el almacén de claves, el clúster debe volver a acceder a las claves. Para recuperar una clave de Azure Key Vault, consulte [Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) o [az-keyvault-key-recover](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-recover).
+Dado que solo se admiten claves habilitadas para eliminación temporal, si las claves se recuperan en el almacén de claves, el clúster debe volver a acceder a ellas. Para recuperar una clave de Azure Key Vault, consulte [Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) o [az-keyvault-key-recover](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-recover).
 
 **¿Qué tipos de disco están cifrados? ¿Los discos de sistema operativo o de recursos también se cifran?**
 
-Los discos de recursos, los datos y los discos administrados están cifrados. Los discos de sistema operativo no se cifran.
+Los discos de recursos, los datos y los discos administrados están cifrados. Los discos del sistema operativo no están cifrados.
 
 **Si un clúster se escala verticalmente, ¿los nuevos nodos admitirán las claves administradas por el cliente sin problemas?**
 
@@ -174,8 +181,9 @@ Sí. El clúster necesita tener acceso a la clave del almacén de claves durante
 
 **Las claves administradas por el cliente están disponibles en mi ubicación?**
 
-Las claves administradas por el cliente de HDInsight están disponibles en todas las nubes públicas y en las nubes nacionales.
+Las claves administradas por el cliente de HDInsight están disponibles en todas las nubes públicas y nubes nacionales.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Introducción a la seguridad de la empresa en Azure HDInsight](./domain-joined/hdinsight-security-overview.md)
+* Para más información sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](../key-vault/key-vault-overview.md).
+* [Introducción a la seguridad de la empresa en Azure HDInsight](./domain-joined/hdinsight-security-overview.md).

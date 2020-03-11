@@ -2,17 +2,17 @@
 title: 'Serie Lsv2: Azure Virtual Machines'
 description: Especificaciones de las máquinas virtuales de la serie Lsv2.
 services: virtual-machines
-author: jonbeck7
+author: sasha-melamed
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: b10433190ccc7703938bed2a75a5d816f073295e
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 103e19d6e299956b5ee1ad45b577e25f9f2de1c4
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587267"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164039"
 ---
 # <a name="lsv2-series"></a>Serie Lsv2
 
@@ -30,6 +30,10 @@ ACU: 150-175
 Premium Storage: Compatible
 
 Almacenamiento en caché de Premium Storage: No compatible
+
+Migración en vivo: No compatible
+
+Actualizaciones con conservación de memoria: No compatible
 
 | Size | vCPU | Memoria (GiB) | Disco temporal <sup>1</sup> (GiB) | Discos NVMe<sup>2</sup> | Rendimiento de disco NVMe<sup>3</sup> (IOPS de lectura/Mbps) | Rendimiento máx. de disco de datos no en caché (E/S por segundo/MBps)<sup>4</sup> | Nº máx. de discos de datos | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|---|---|

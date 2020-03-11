@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2019
+ms.date: 02/27/2020
 ms.author: juliako
-ms.openlocfilehash: cfc9d944f7851f9b802e18c861fd16438171b8e7
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.openlocfilehash: 94a70a1234d902787f248890f0cb538a4ba9c2f9
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77069591"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921086"
 ---
 # <a name="azure-media-services-legacy-components"></a>Componentes heredados de Azure Media Services
 
@@ -36,7 +36,12 @@ También anunciamos la retirada de los siguientes procesadores de multimedia de 
 |Nombre de procesador de multimedia|Fecha de retirada|Notas adicionales|
 |---|---|
 |[Azure Media Indexer 2](media-services-process-content-with-indexer2.md)|1 de enero de 2020|Este procesador de multimedia se reemplazará por [Video Indexer de Azure Media Services](https://docs.microsoft.com/azure/media-services/video-indexer/). Para más información, consulte [Migración de Azure Media Indexer 2 a Video Indexer de Azure Media Services](migrate-indexer-v1-v2.md).|
-|[Azure Media Indexer](media-services-index-content.md)|1 de marzo de 2023|Este procesador de multimedia se reemplazará por [Video Indexer de Azure Media Services](https://docs.microsoft.com/azure/media-services/video-indexer/). Para más información, consulte [Migración de Azure Media Indexer a Video Indexer de Azure Media Services](migrate-indexer-v1-v2.md)
+|[Azure Media Indexer](media-services-index-content.md)|1 de marzo de 2023|Este procesador de multimedia se reemplazará por [Video Indexer de Azure Media Services](https://docs.microsoft.com/azure/media-services/video-indexer/). Para más información, consulte [Migración de Azure Media Indexer a Video Indexer de Azure Media Services](migrate-indexer-v1-v2.md)|
+|[Detección de movimiento](media-services-motion-detection.md)|1 de junio de 2020|No hay planes de sustitución en este momento.|
+|[Resumen de vídeo](media-services-video-summarization.md)|1 de junio de 2020|No hay planes de sustitución en este momento.|
+|[Reconocimiento óptico de caracteres de vídeo](media-services-video-optical-character-recognition.md)|1 de junio de 2020|Este procesador de multimedia se reemplazará por [Video Indexer de Azure Media Services](https://docs.microsoft.com/azure/media-services/video-indexer/). Además, considere la posibilidad de usar la [API de Azure Media Services v3](https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept). <br/>Consulte [Comparación de los valores predeterminados de Video Indexer y Azure Media Services v3](https://docs.microsoft.com/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets).|
+|[Detector de caras](media-services-face-and-emotion-detection.md)|1 de junio de 2020|Este procesador de multimedia se reemplazará por [Video Indexer de Azure Media Services](https://docs.microsoft.com/azure/media-services/video-indexer/). Además, considere la posibilidad de usar la [API de Azure Media Services v3](https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept). <br/>Consulte [Comparación de los valores predeterminados de Video Indexer y Azure Media Services v3](https://docs.microsoft.com/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets).|
+|[Content Moderator](media-services-content-moderation.md)|1 de junio de 2020|Este procesador de multimedia se reemplazará por [Video Indexer de Azure Media Services](https://docs.microsoft.com/azure/media-services/video-indexer/). Además, considere la posibilidad de usar la [API de Azure Media Services v3](https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept). <br/>Consulte [Comparación de los valores predeterminados de Video Indexer y Azure Media Services v3](https://docs.microsoft.com/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets).|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

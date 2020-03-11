@@ -8,12 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 2ae84b59cd70a5b27ad3e501db6cfae110d90fbd
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: b0d9437b10bc54aac481eb630f12a2b99d2360a1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209790"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672470"
 ---
 # <a name="building-an-accessible-application"></a>Creación de una aplicación accesible
 
@@ -32,9 +32,11 @@ El SDK web de Azure Maps viene precompilado con muchas características de acce
 [Aquí](https://cloudblogs.microsoft.com/industry-blog/government/2018/09/11/accessibility-conformance-reports/) se pueden encontrar detalles de cumplimiento de accesibilidad completos para todos los productos de Microsoft. Busque "web de Azure Maps" para buscar el documento específicamente para el SDK web de Azure Maps. 
 
 ## <a name="navigating-the-map"></a>Navegación por el mapa
+
 Hay varias maneras de ampliar, desplazar lateralmente, girar e inclinar el mapa. A continuación se detallan todas las formas de navegar por el mapa.
 
 **Acercamiento/alejamiento del mapa**
+
 - Con un mouse, haga doble clic en el mapa para acercarse un nivel.
 - Con un mouse, desplácese por la rueda para acercar el mapa.
 - Con una pantalla táctil, toque el mapa con dos dedos y acérquelos para alejarse o aléjelos para acercarse.
@@ -45,23 +47,46 @@ Hay varias maneras de ampliar, desplazar lateralmente, girar e inclinar el mapa.
 - Mantenga presionado el botón `Shift` y presione el botón izquierdo del mouse sobre el mapa y arrastre para dibujar un área para aplicar zoom al mapa.
 
 **Desplazamiento lateral del mapa**
+
 - Con el mouse: presione con el botón izquierdo del mouse sobre el mapa y arrastre en cualquier dirección.
 - Con una pantalla táctil: toque el mapa y arrastre en cualquier dirección.
 - Con el mapa centrado: utilice las teclas de dirección para desplazar el mapa.
 
 **Giro del mapa**
+
 - Con el mouse: presione con el botón derecho del mouse sobre el mapa y arrastre a la izquierda o la derecha. 
 - Con una pantalla táctil: toque el mapa con dos dedos y gira.
 - Con el mapa centrado: use la tecla Mayús y las teclas de dirección izquierda o derecha.
 - Use el control de rotación con el mouse, la entrada táctil o las teclas de tabulación/ingreso del teclado.
 
 **Inclinación del mapa**
+
 - Con el mouse: presione con el botón derecho del mouse sobre el mapa y arrastre hacia arriba o hacia abajo. 
 - Con una pantalla táctil: toque el mapa con dos dedos y arrastre hacia arriba o hacia abajo.
 - Con el mapa centrado, use la tecla Mayús y las teclas de dirección arriba o abajo. 
 - Use el control de inclinación con el mouse, la entrada táctil o las teclas de tabulación/ingreso del teclado.
 
-**Cambio del estilo de mapa** No todos los desarrolladores quieren que todos los estilos de mapa posibles estén disponibles en su aplicación. El desarrollador puede establecer y cambiar el estilo de mapa mediante programación. Si el desarrollador muestra el control selector de estilo del mapa, el usuario podrá cambiar el estilo del mapa mediante el mouse, la entrada táctil o el teclado mediante las teclas TAB/ENTRAR. El desarrollador puede especificar los estilos de mapa que quiere que estén disponibles en el control selector de estilo de mapa. 
+## <a name="change-the-map-style"></a>Cambio del estilo del mapa
+
+No todos los desarrolladores quieren que todos los estilos de mapa posibles estén disponibles en su aplicación. Si el desarrollador muestra el control selector de estilo del mapa, el usuario podrá cambiar el estilo del mapa mediante el mouse, la entrada táctil o el teclado mediante las teclas TAB/ENTRAR. El desarrollador puede especificar los estilos de mapa que quiere que estén disponibles en el control selector de estilo de mapa. Además, el desarrollador puede establecer y cambiar el estilo de mapa mediante programación.
+
+**Uso de contraste alto**
+
+- Cuando se carga el control de mapa, se comprueba que este habilitado el contraste alto y que el explorador lo admita.
+- El control de mapa no supervisa el modo de contraste alto del dispositivo. Si el modo del dispositivo cambia, el mapa no lo hace. Por lo tanto, el usuario deberá actualizar la página para volver a cargar el mapa.
+- Cuando se detecta contraste alto, el estilo del mapa cambia automáticamente a contraste alto y todos los controles integrados usarán un estilo de contraste alto. Por ejemplo, ZoomControl, PitchControl, CompassControl, StyleControl y otros controles integrados, usarán un estilo de contraste alto.
+- Hay dos tipos de contraste alto: claro y oscuro. Si los controles de mapa pueden detectar el tipo de contraste alto, el comportamiento del mapa se ajustará en consecuencia. Si es claro, se cargará el estilo de mapa grayscale_light. Si el tipo no se puede detectar o es oscuro, se cargará el estilo high_contrast_dark.
+- Si va a crear controles personalizados, resulta útil saber si estos van a usar un estilo de contraste alto. Los desarrolladores pueden agregar una clase css en la etiqueta div del contenedor de mapas para comprobarlo. Las clases css que se agregarían son `high-contrast-dark` y `high-contrast-light`. Para comprobar el uso de JavaScript, utilice:
+
+```javascript
+map.getMapContainer().classList.contains("high-contrast-dark")
+```
+
+o bien, use:
+
+```javascript
+map.getMapContainer().classList.contains("high-contrast-light")
+```
 
 ## <a name="keyboard-shortcuts"></a>Accesos directos del teclado
 

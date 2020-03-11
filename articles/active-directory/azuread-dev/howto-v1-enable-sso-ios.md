@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 7ea65b64e5a812b717f065c1d8cc6208e0c0ba69
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 00ec2d328265e8d301b9f54b9a6a2013072f1ed4
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163529"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190286"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Procedimientos: Habilitación del inicio de sesión único entre aplicaciones en iOS mediante ADAL
 
@@ -109,7 +109,7 @@ Si se instala un agente compatible en el dispositivo, como la aplicación Micros
 
 #### <a name="how-we-ensure-the-application-is-valid"></a>Cómo se garantiza que la aplicación es válida
 
-La necesidad de asegurar la identidad de una llamada de la aplicación al agente es fundamental para la seguridad que proporcionamos en los inicios de sesión asistidos por agente. Ni IOS ni Android exigen identificadores únicos que solo son válidos para una aplicación determinada, por lo que aplicaciones malintencionadas pueden "suplantar" un identificador de la aplicación legítima y recibir los tokens destinados a la aplicación legítima. Para asegurarse de que siempre se comunica con la aplicación correcta en tiempo de ejecución, le pedimos al desarrollador que proporcione un redirectURI personalizado al registrar su aplicación con Microsoft. A continuación se describe cómo los desarrolladores deben diseñar este URI de redireccionamiento. Este redirectURI personalizado contiene el identificador de paquete de la aplicación y la App Store de Apple garantiza que es único para la aplicación. Cuando una aplicación llama al agente, este solicita al sistema operativo iOS que le proporcione el identificador de paquete que llamó al agente. El agente proporciona este identificador a Microsoft en la llamada a nuestro sistema de identidad. Si el identificador de paquete de la aplicación no coincide con el identificador de paquete que el desarrollador nos ha proporcionado durante el registro, denegaremos el acceso a los tokens del recurso que está solicitando la aplicación. Esta comprobación asegura que solo la aplicación registrada por el desarrollador recibe los tokens.
+La necesidad de garantizar la identidad de una aplicación que llama al agente es fundamental para la seguridad que se proporciona en los inicios de sesión asistidos por agente. Ni IOS ni Android exigen identificadores únicos que solo son válidos para una aplicación determinada, por lo que aplicaciones malintencionadas pueden "suplantar" un identificador de la aplicación legítima y recibir los tokens destinados a la aplicación legítima. Para asegurarse de que siempre se comunica con la aplicación correcta en tiempo de ejecución, le pedimos al desarrollador que proporcione un redirectURI personalizado al registrar su aplicación con Microsoft. A continuación se describe cómo los desarrolladores deben diseñar este URI de redireccionamiento. Este redirectURI personalizado contiene el identificador de paquete de la aplicación y la App Store de Apple garantiza que es único para la aplicación. Cuando una aplicación llama al agente, este solicita al sistema operativo iOS que le proporcione el identificador de paquete que llamó al agente. El agente proporciona este identificador a Microsoft en la llamada a nuestro sistema de identidad. Si el identificador de paquete de la aplicación no coincide con el identificador de paquete que el desarrollador nos ha proporcionado durante el registro, denegaremos el acceso a los tokens del recurso que está solicitando la aplicación. Esta comprobación asegura que solo la aplicación registrada por el desarrollador recibe los tokens.
 
 **El desarrollador tiene la opción de elegir si el SDK llama al agente o usa el flujo sin asistencia del agente.** Sin embargo, si el desarrollador decide no usar el flujo asistido por agente, no podrá beneficiarse del uso de las credenciales de SSO que el usuario pueda ya haber agregado en el dispositivo; además, impide que la aplicación se use con las características empresariales que Microsoft proporciona a sus clientes, como el acceso condicional, las funcionalidades de administración de Intune y la autenticación basada en certificados.
 

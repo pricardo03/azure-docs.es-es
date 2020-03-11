@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 77b092920bff75c806ec78a933d23df546bf636a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 45febcffed747f75b6c8b78c2e4b93a047f81b0a
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036360"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205881"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Preguntas más frecuentes de Azure Disk Encryption para máquinas virtuales IaaS
 
@@ -42,7 +42,7 @@ En el artículo [Introducción a Azure Disk Encryption](disk-encryption-overview
 
 Sí, puede cifrar los volúmenes de datos y arranque, o bien puede cifrar el volumen de datos sin tener que cifrar primero el volumen del sistema operativo. 
 
-Después de que haya cifrado el volumen del sistema operativo no se puede deshabilitar el cifrado en el volumen del sistema operativo. Para máquinas virtuales Linux en un conjunto de escalado, solo se puede cifrar el volumen de datos.
+Una vez que se haya cifrado el volumen del sistema operativo no se admite la deshabilitación del cifrado en dicho volumen. Para máquinas virtuales Linux en un conjunto de escalado, solo se puede cifrar el volumen de datos.
 
 ## <a name="can-i-encrypt-an-unmounted-volume-with-azure-disk-encryption"></a>¿Puedo cifrar un volumen desmontado con Azure Disk Encryption?
 
@@ -100,7 +100,7 @@ No puede aplicar Azure Disk Encryption a una imagen personalizada de Linux. Solo
 
 ## <a name="can-i-apply-updates-to-a-linux-red-hat-vm-that-uses-the-yum-update"></a>¿Puedo aplicar actualizaciones a una máquina virtual Red Hat de Linux utilizando la actualización de Yum?
 
-Sí. Puede realizar una actualización de yum en una VM de Red Hat Linux.  Para más información, consulte [Administración de paquetes de Linux detrás de un firewall](disk-encryption-troubleshooting.md#linux-package-management-behind-a-firewall).
+Sí. Puede realizar una actualización de yum en una VM de Red Hat Linux.  Para más información, consulte [Azure Disk Encryption en una red aislada](disk-encryption-isolated-network.md).
 
 ## <a name="what-is-the-recommended-azure-disk-encryption-workflow-for-linux"></a>¿Cuál es el flujo de trabajo de Azure Disk Encryption recomendado para Linux?
 

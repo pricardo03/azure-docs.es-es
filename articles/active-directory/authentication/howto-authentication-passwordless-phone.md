@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60a7bf9690b4f50c771afc4745bbc2e5377adbba
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 736a543a6f28697dd4f1ddf85317e97a87b86e78
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848483"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227070"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Habilitar el inicio de sesión sin contraseña en Azure AD con la aplicación Microsoft Authenticator (versión preliminar)
 
@@ -29,7 +29,7 @@ En lugar de ver la petición de una contraseña después de escribir un nombre d
 > [!NOTE]
 > Esta funcionalidad se incluye en la aplicación Microsoft Authenticator desde marzo de 2017, por lo que existe la posibilidad de que, cuando la directiva esté habilitada para un directorio, los usuarios puedan encontrar este flujo inmediatamente y vean un mensaje de error si no se han habilitado mediante la directiva. Tenga esto en cuenta y prepare a los usuarios para este cambio.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Azure Multi-Factor Authentication, con notificaciones de inserción permitidas como método de comprobación 
 - Versión más reciente de Microsoft Authenticator instalada en dispositivos que ejecutan iOS 8.0 o superior o Android 6.0 o superior.
@@ -93,6 +93,10 @@ Los usuarios finales que están habilitados para MFA a través de un servidor de
 ### <a name="device-registration"></a>Registro de dispositivos
 
 Uno de los requisitos previos para crear esta nueva credencial segura es que el dispositivo, donde está instalada la aplicación Microsoft Authenticator, también debe estar registrado en el inquilino de Azure AD para un usuario individual. Debido a las actuales restricciones del registro de dispositivos, solo se puede registrar un dispositivo en un inquilino. Este límite significa que solo se puede habilitar una cuenta profesional o educativa en la aplicación Microsoft Authenticator para el inicio de sesión telefónico.
+
+### <a name="intune-mobile-application-management"></a>Administración de aplicaciones móviles de Intune 
+
+Los usuarios finales que estén sujetos a una directiva que requiera la administración de aplicaciones móviles (MAM) no pueden registrar la credencial sin contraseña en la aplicación Microsoft Authenticator. 
 
 > [!NOTE]
 > El registro de dispositivos no es lo mismo que la administración de dispositivos o "MDM". Solo asocia un identificador de dispositivo y un identificador de usuario en el directorio de Azure AD.  
