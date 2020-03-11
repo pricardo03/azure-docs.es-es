@@ -1,26 +1,26 @@
 ---
 title: Administración y supervisión de la importancia de la carga de trabajo
-description: Aprenda a administrar y supervisar la importancia del nivel de solicitud en Azure SQL Data Warehouse.
+description: Aprenda a administrar y supervisar la importancia del nivel de solicitud en Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.subservice: workload-management
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 02/04/2020
 ms.author: rortloff
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: ee9acb873c5118733de142045457028c3f4d5f61
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.reviewer: jrasnick
+ms.custom: azure-synapse
+ms.openlocfilehash: 6274bff9f9c57bfb06e58e1c4bfce6b6e265ac62
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692711"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195624"
 ---
-# <a name="manage-and-monitor-workload-importance-in-azure-sql-data-warehouse"></a>Administración y supervisión de la importancia de la carga de trabajo en Azure SQL Data Warehouse
+# <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Administración y supervisión de la importancia de la carga de trabajo en Azure Synapse Analytics
 
-Administre y supervise la importancia del nivel de solicitud en Azure SQL Data Warehouse mediante vistas de catálogo y DMV.
+Administre y supervise la importancia del nivel de solicitud de SQL Analytics en Azure Synapse mediante vistas de catálogo y DMV.
 
 ## <a name="monitor-importance"></a>Supervisión de la importancia
 
@@ -39,7 +39,7 @@ Para examinar más a fondo cómo se programan las consultas, use las vistas de c
 
 ## <a name="manage-importance-with-catalog-views"></a>Administración de la importancia con vistas de catálogo
 
-La vista de catálogo sys.workload_management_workload_classifiers contiene información sobre los clasificadores de la instancia de Azure SQL Data Warehouse. Para excluir los clasificadores definidos por el sistema que se asignan a las clases de recursos ejecute el código siguiente:
+La vista de catálogo sys.workload_management_workload_classifiers contiene información sobre los clasificadores. Para excluir los clasificadores definidos por el sistema que se asignan a las clases de recursos ejecute el código siguiente:
 
 ```sql
 SELECT *
@@ -70,7 +70,7 @@ GO
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Para más información sobre la clasificación, vea [Clasificación de la carga de trabajo](sql-data-warehouse-workload-classification.md).
-- Para más información sobre la importancia, vea [Importancia de la carga de trabajo](sql-data-warehouse-workload-importance.md)
+- Para más información sobre la importancia, vea [Importancia de la carga de trabajo](sql-data-warehouse-workload-importance.md).
 
 > [!div class="nextstepaction"]
 > [Ir a Configuración de la importancia de la carga de trabajo](sql-data-warehouse-how-to-configure-workload-importance.md)

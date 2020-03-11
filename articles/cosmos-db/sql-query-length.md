@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: aa430152415b1662a73a388a03ba6d4721c730f0
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: e020555b0c706b5577bd20ac9bd537604d43ba3f
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349759"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303722"
 ---
 # <a name="length-azure-cosmos-db"></a>LENGTH (Azure Cosmos DB)
  Devuelve el número de caracteres de la expresión de cadena especificada.  
@@ -28,7 +28,7 @@ LENGTH(<str_expr>)
 *str_expr*  
    La expresión de cadena que se va a evaluar.  
   
-## <a name="return-types"></a>Tipos de valor devuelto
+## <a name="return-types"></a>Tipos de valores devueltos
   
   Devuelve una expresión numérica.  
   
@@ -45,6 +45,10 @@ SELECT LENGTH("abc") AS len
 ```json
 [{"len": 3}]  
 ```  
+
+## <a name="remarks"></a>Observaciones
+
+Esta función del sistema no usará el índice.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

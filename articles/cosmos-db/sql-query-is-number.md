@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 624f5c91a9d2a0eb4744d310120050d0d5ccef4e
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: c019424241bc07d5a5d2cc19a64685c476f94548
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349848"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303824"
 ---
 # <a name="is_number-azure-cosmos-db"></a>IS_NUMBER (Azure Cosmos DB)
  Devuelve un valor booleano que indica si el tipo de la expresión especificada es un número.  
@@ -28,7 +28,7 @@ IS_NUMBER(<expr>)
 *expr*  
    Es cualquier expresión.  
   
-## <a name="return-types"></a>Tipos de valor devuelto
+## <a name="return-types"></a>Tipos de valores devueltos
   
   Devuelve una expresión condicional.  
   
@@ -52,6 +52,10 @@ SELECT
 ```json
 [{"isNum1":false,"isNum2":true,"isNum3":false,"isNum4":false,"isNum5":false,"isNum6":false,"isNum7":false}]  
 ```  
+
+## <a name="remarks"></a>Observaciones
+
+Esta función del sistema se beneficiará de un [índice de intervalo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

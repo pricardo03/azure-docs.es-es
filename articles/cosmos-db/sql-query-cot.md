@@ -4,15 +4,15 @@ description: Obtenga información sobre cómo la función del sistema SQL Cotang
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: f049d1295eef3e6a45abeaafe8c22d376f90abe1
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 25c907644f58ee40ea08e5636d68dc0e84564a28
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871506"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299494"
 ---
 # <a name="cot-azure-cosmos-db"></a>COT (Azure Cosmos DB)
  Devuelve la cotangente trigonométrica del ángulo especificado, en radianes, en la expresión numérica especificada.  
@@ -28,7 +28,7 @@ COT(<numeric_expr>)
 *numeric_expr*  
    Es una expresión numérica.  
   
-## <a name="return-types"></a>Tipos de valor devuelto
+## <a name="return-types"></a>Tipos de valores devueltos
   
   Devuelve una expresión numérica.  
   
@@ -45,7 +45,10 @@ SELECT COT(124.1332) AS cot
 ```json
 [{"cot": -0.040311998371148884}]  
 ```  
-  
+
+## <a name="remarks"></a>Observaciones
+
+Esta función del sistema no usará el índice.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

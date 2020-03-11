@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: cef572eaf879110fd52657ac358f1261f594692d
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 7831ef4bbd65bce7329b1ecf0f602b110a16834b
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349612"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302243"
 ---
 # <a name="radians-azure-cosmos-db"></a>RADIANS (Azure Cosmos DB)
- Devuelve radianes cuando se especifica una expresión numérica en grados.  
+ Devuelve los radianes de una expresión numérica en grados.  
   
 ## <a name="syntax"></a>Sintaxis
   
@@ -28,7 +28,7 @@ RADIANS (<numeric_expr>)
 *numeric_expr*  
    Es una expresión numérica.  
   
-## <a name="return-types"></a>Tipos de valor devuelto
+## <a name="return-types"></a>Tipos de valores devueltos
   
   Devuelve una expresión numérica.  
   
@@ -51,6 +51,10 @@ SELECT RADIANS(-45.01) AS r1, RADIANS(-181.01) AS r2, RADIANS(0) AS r3, RADIANS(
        "r5": 3.4402174274458375  
    }]  
 ```  
+
+## <a name="remarks"></a>Observaciones
+
+Esta función del sistema no usará el índice.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

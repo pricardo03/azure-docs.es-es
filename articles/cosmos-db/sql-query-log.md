@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: ae7812670da836efa326b9224547e4d1b64374c2
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 9213ef03f383dec7109652246411fac154b4a7f9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873291"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302515"
 ---
 # <a name="log-azure-cosmos-db"></a>LOG (Azure Cosmos DB)
  Devuelve el algoritmo natural de la expresión numérica especificada.  
@@ -31,17 +31,17 @@ LOG (<numeric_expr> [, <base>])
 *base*  
    Argumento numérico opcional que establece la base del logaritmo.  
   
-## <a name="return-types"></a>Tipos de valor devuelto
+## <a name="return-types"></a>Tipos de valores devueltos
   
   Devuelve una expresión numérica.  
   
-## <a name="remarks"></a>Comentarios
+## <a name="remarks"></a>Observaciones
   
   De forma predeterminada, LOG() devuelve el logaritmo natural. Puede cambiar la base del logaritmo a otro valor mediante el parámetro base opcional.  
   
-  El logaritmo natural es el logaritmo en base **e**, donde **e** es una constante irracional aproximadamente igual a 2,718 281 828.  
+  El logaritmo natural es el logaritmo en base **e**, donde **e** es una constante irracional aproximadamente igual a 2,718281828.  
   
-  El logaritmo natural del valor exponencial de un número es el mismo número: LOG( EXP( n ) ) = n. Y el valor exponencial del logaritmo natural de un número es el mismo número: EXP( LOG( n ) ) = n.  
+  El logaritmo natural del valor exponencial de un número es el propio número: LOG( EXP( n ) ) = n. Y el valor exponencial del logaritmo natural de un número es el propio número: EXP( LOG( n ) ) = n.  
   
 ## <a name="examples"></a>Ejemplos
   
@@ -68,6 +68,10 @@ SELECT EXP(LOG(10)) AS expLog
 ```json
 [{expLog: 10.000000000000002}]  
 ```  
+
+## <a name="remarks"></a>Observaciones
+
+Esta función del sistema no usará el índice.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

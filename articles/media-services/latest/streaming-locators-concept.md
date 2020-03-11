@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/26/2019
+ms.date: 03/04/2020
 ms.author: juliako
-ms.openlocfilehash: 1cc0132cc17217c858060e107dfcfc090a3ef8a7
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 3a9568e1a0307cd1713c511ef42c065424306548
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75611005"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302889"
 ---
 # <a name="streaming-locators"></a>Localizadores de streaming
 
@@ -98,12 +98,13 @@ Para obtener los localizadores de streaming según el nombre de recurso asociado
 |Java|[AssetStreamingLocator](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
 |Node.js|[listStreamingLocators](https://docs.microsoft.com/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
-## <a name="also-see"></a>Consulte también:
+## <a name="see-also"></a>Consulte también
 
 * [Recursos](assets-concept.md)
 * [Directivas de streaming](streaming-policy-concept.md)
 * [Directivas de claves de contenido](content-key-policy-concept.md)
+* [Tutorial: Carga, codificación y transmisión en secuencias de videos mediante .NET](stream-files-tutorial-with-api.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Tutorial: Carga, codificación y transmisión en secuencias de videos mediante .NET](stream-files-tutorial-with-api.md)
+[Cómo crear un localizador de streaming y crear direcciones URL](create-streaming-locator-build-url.md)

@@ -1,6 +1,6 @@
 ---
-title: Instrucciones de T-SQL
-description: Vínculo a la documentación de las instrucciones de T-SQL admitidas en Azure SQL Data Warehouse.
+title: Instrucciones T-SQL
+description: Vínculo a la documentación de las instrucciones T-SQL admitidas en SQL Analytics.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: query
 ms.date: 05/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 861675941693697a20da189edebe33d91918782c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: d37e1b727829505940b77c7a82293f90050a87c0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685525"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198361"
 ---
-# <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>Instrucciones de T-SQL compatibles con Azure SQL Data Warehouse
-Vínculo a la documentación de las instrucciones de T-SQL admitidas en Azure SQL Data Warehouse.
+# <a name="t-sql-statements-supported-in-sql-analytics"></a>Instrucciones T-SQL admitidas en SQL Analytics
+Vínculo a la documentación de las instrucciones T-SQL admitidas en SQL Analytics.
 
 ## <a name="data-definition-language-ddl-statements"></a>Instrucciones del Lenguaje de definición de datos (DDL)
 * [ALTER DATABASE](https://msdn.microsoft.com/library/mt204042.aspx)
@@ -120,4 +120,4 @@ Vínculo a la documentación de las instrucciones de T-SQL admitidas en Azure SQ
 * [OPEN MASTER KEY](https://msdn.microsoft.com/library/ms174433.aspx)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información de referencia, consulte [T-SQL language elements in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-language-elements.md) (Elementos de lenguaje de T-SQL en Azure SQL Data Warehouse) y [System views in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-system-views.md) (Vistas de sistema en Azure SQL Data Warehouse).
+Para obtener más información de referencia, vea [elementos del lenguaje T-SQL en SQL Analytics](sql-data-warehouse-reference-tsql-language-elements.md) y [vistas del sistema en SQL Analytics](sql-data-warehouse-reference-tsql-system-views.md).

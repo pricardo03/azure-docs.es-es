@@ -4,15 +4,15 @@ description: Obtenga información sobre cómo la función del sistema SQL Array 
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 3c65886eabfa87f729e18fb854aca6662d1d6fac
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: a98cb17d22f41776ff788d12ced6aa988ad0b10e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871795"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303331"
 ---
 # <a name="array_slice-azure-cosmos-db"></a>ARRAY_SLICE (Azure Cosmos DB)
  Devuelve parte de una expresión de matriz.
@@ -33,7 +33,7 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
 
 *num_expr* Expresión numérica opcional que establece el número máximo de elementos en la matriz resultante.    
 
-## <a name="return-types"></a>Tipos de valor devuelto
+## <a name="return-types"></a>Tipos de valores devueltos
   
   Devuelve una expresión de matriz.  
   
@@ -67,8 +67,12 @@ SELECT
 }]  
 ```  
 
+## <a name="remarks"></a>Observaciones
+
+Esta función del sistema no usará el índice.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Funciones de matriz (Azure Cosmos DB)](sql-query-array-functions.md)
-- [Funciones del sistema (Azure Cosmos DB)](sql-query-system-functions.md)
+- [Funciones del sistema (Azure Cosmos DB)](sql-query-system-functions.md)
 - [Introducción a Azure Cosmos DB](introduction.md)

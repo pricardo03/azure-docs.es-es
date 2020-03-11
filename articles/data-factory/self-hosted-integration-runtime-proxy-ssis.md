@@ -11,13 +11,13 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 02/06/2020
-ms.openlocfilehash: 5f9e15b83c36c6c19fbe93c5f1df365f6f763c81
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.date: 02/28/2020
+ms.openlocfilehash: e2d1a1c6e924e879e05af80e2e36a38e8a5cde66
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187682"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273956"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configuración de IR autohospedado como proxy para Azure-SSIS IR en Azure Data Factory
 
@@ -165,8 +165,9 @@ Las segundas tareas de almacenamiento provisional que se ejecutan en la instanci
 
 ## <a name="current-limitations"></a>Limitaciones actuales
 
-- Actualmente solo se admiten tareas Flujo de datos con administradores de conexiones de conectividad abierta de bases de datos (ODBC), OLEDB o archivos planos y orígenes de ODBC, OLEDB y archivos planos o destino de OLEDB. 
+- Actualmente solo se admiten tareas Flujo de datos con administradores de conexiones de conectividad abierta de bases de datos (ODBC), OLEDB o archivos planos y orígenes de ODBC, OLEDB o archivos planos. 
 - Solo se admiten actualmente los servicios vinculados de Azure Blob Storage configurados con la autenticación de *clave de cuenta*, *URI de firma de acceso compartido (SAS)* o *entidad de servicio*.
+- Todavía no se admite *ParameterMapping* en el origen de OLEDB. Como solución alternativa, use *Comando SQL de variable* como *AccessMode* y *Expresión* para insertar las variables o los parámetros en un comando SQL. Para ilustrar esto, puede encontrar un paquete de ejemplo *(ParameterMappingSample.dtsx)* en la carpeta *SelfhostedIrProxy/Limitations* del contenedor de versión preliminar pública si escribe el siguiente URI de SAS en el [Explorador de Azure Storage](https://storageexplorer.com/): *https://ssisazurefileshare.blob.core.windows.net/publicpreview?sp=rl&st=2018-04-08T14%3A10%3A00Z&se=2020-04-10T14%3A10%3A00Z&sv=2017-04-17&sig=mFxBSnaYoIlMmWfxu9iMlgKIvydn85moOnOch6%2F%2BheE%3D&sr=c* .
 
 ## <a name="next-steps"></a>Pasos siguientes
 

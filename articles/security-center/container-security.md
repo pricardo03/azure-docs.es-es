@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: 62728f5b66825eb6698e37bb7ad3adbad831b465
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: fac9cba28f90f3642de660ed7d070b165c06bb2e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615345"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303263"
 ---
 # <a name="container-security-in-security-center"></a>Seguridad de los contenedores en Security Center
 
@@ -33,10 +33,12 @@ En este artículo se describe la forma en que Security Center ayuda a mejorar, s
 
 Para obtener instrucciones sobre cómo usar estas características, consulte [Supervisión de la seguridad de los contenedores](monitor-container-security.md).
 
-## <a name="vulnerability-management---scanning-container-images-preview"></a>Administración de vulnerabilidades: análisis de imágenes de contenedor (versión preliminar)
+## <a name="vulnerability-management---scanning-container-images"></a>Administración de vulnerabilidades: análisis de imágenes de contenedor
 Para supervisar la instancia de Azure Container Registry basada en Azure Resource Manager, asegúrese de que está en el nivel estándar de Security Center (consulte [precios](/azure/security-center/security-center-pricing)). Luego, habilite el conjunto opcional de registros de contenedor. Cuando se inserta una nueva imagen, Security Center examina la imagen con un escáner del proveedor de detección de vulnerabilidades líder del sector, Qualys.
 
-Si Qualys o Security Center encuentran problemas, recibirá una notificación en el panel de Security Center. Por cada vulnerabilidad, Security Center proporciona recomendaciones útiles, junto con una clasificación de gravedad e información sobre cómo corregir el problema. Para más información sobre las recomendaciones de Security Center para los contenedores, consulte la [lista de recomendaciones de referencia](recommendations-reference.md#recs-containers).
+Si Qualys o Security Center encuentran incidencias, recibirá una notificación en el panel de Security Center. Por cada vulnerabilidad, Security Center proporciona recomendaciones útiles, junto con una clasificación de gravedad e información sobre cómo corregir el problema. Para más información sobre las recomendaciones de Security Center para los contenedores, consulte la [lista de recomendaciones de referencia](recommendations-reference.md#recs-containers).
+
+Security Center filtra y clasifica los resultados del análisis. Cuando una imagen es correcta, Security Center la marca como tal. Security Center solo genera recomendaciones de seguridad para las imágenes que tienen incidencias sin resolver. Al enviar notificaciones solo cuando hay problemas, Security Center reduce las alertas informativas no deseadas.
 
 ## <a name="environment-hardening"></a>Protección del entorno
 
@@ -53,7 +55,7 @@ Cuando explora los problemas de seguridad de una máquina virtual, Security Cent
 > Estas comprobaciones del banco de prueba de CIS no se ejecutarán en instancias que administre AKS o en VM que administre Databricks.
 
 ### <a name="continuous-monitoring-of-your-kubernetes-clusters-preview"></a>Supervisión continua de los clústeres de Kubernetes (versión preliminar)
-Junto con Security Center, Azure Kubernetes Service (AKS) es un servicio de orquestación de contenedores administrado de Microsoft y que le permite desarrollar, implementar y administrar las aplicaciones en contenedores.
+Security Center funciona junto con Azure Kubernetes Service (AKS), el servicio de orquestación de contenedores administrados de Microsoft que le permite desarrollar, implementar y administrar las aplicaciones en contenedores.
 
 AKS proporciona controles de seguridad y visibilidad sobre la postura de seguridad de los clústeres. Security Center utiliza estas características para:
 * Supervisar constantemente la configuración de los clústeres de AKS
@@ -65,24 +67,26 @@ Para obtener información sobre las recomendaciones pertinentes de Security Cent
 
 Security Center proporciona detección de amenazas en tiempo real para los entornos en contenedores y genera alertas de actividades sospechosas. Puede usar esta información para corregir problemas de seguridad y mejorar la seguridad de los contenedores rápidamente.
 
-Detectamos amenazas en el nivel de clúster del host y AKS. Para obtener una información completa, consulte [Protección contra amenazas para contenedores de Azure](threat-protection.md#azure-containers).
+Detectamos amenazas en el nivel de clúster del host y AKS. Para obtener una información completa, consulte [Detección de amenazas para contenedores de Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-).
 
 
 ## <a name="container-security-faq"></a>Preguntas frecuentes sobre la seguridad de los contenedores
 
 ### <a name="what-types-of-images-can-azure-security-center-scan"></a>¿Qué tipos de imágenes puede examinar Azure Security Center?
-Security Center explora imágenes basadas en el sistema operativo Linux que proporcionan acceso a la shell. 
+Security Center analiza imágenes basadas en el sistema operativo Linux que proporcionan acceso a shell. 
 
-El detector Qualys no admite imágenes excesivamente minimalistas, como las imágenes [base de Docker](https://hub.docker.com/_/scratch/) o imágenes "sin distribución" que solo contienen su aplicación y sus dependencias del runtime (sin un administrador de paquetes, shell o sistema operativo).
+El escáner de Qualys no admite imágenes excesivamente minimalistas, como las imágenes [base de Docker](https://hub.docker.com/_/scratch/) o imágenes "sin distribución" que solo contienen su aplicación y sus dependencias del runtime sin un administrador de paquetes, shell o sistema operativo.
 
-### <a name="how-does-we-scan-azure-security-center-scan-an-image"></a>¿De qué forma examina Azure Security Center las imágenes?
-La imagen se extrae del registro. Luego, se ejecuta en un espacio aislado con el detector Qualys, que extrae una lista de puntos vulnerables conocidos.
+### <a name="how-does-azure-security-center-scan-an-image"></a>¿De qué forma analiza Azure Security Center las imágenes?
+La imagen se extrae del registro. Luego, se ejecuta en un espacio aislado con el escáner de Qualys, que extrae una lista de puntos vulnerables conocidos.
+
+Security Center filtra y clasifica los resultados del análisis. Cuando una imagen es correcta, Security Center la marca como tal. Security Center solo genera recomendaciones de seguridad para las imágenes que tienen incidencias sin resolver. Al enviar notificaciones solo cuando hay problemas, Security Center reduce las alertas informativas no deseadas.
 
 ### <a name="how-often-does-azure-security-center-scan-my-images"></a>¿Con qué frecuencia examina Azure Security Center mis imágenes?
 Los exámenes de imágenes se desencadenan en todas las inserciones.
 
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>¿Se pueden obtener los resultados del examen mediante la API REST?
-Sí. Los resultados se encuentran en [API REST de valoración secundaria](/rest/api/securitycenter/subassessments/list/). Además, puede usar Azure Resource Graph (ARG), la API similar a Kusto para todos los recursos: una consulta puede recuperar un examen específico.
+Sí. Los resultados se encuentran en [API REST de valoración secundaria](/rest/api/securitycenter/subassessments/list/). Asimismo, puede usar Azure Resource Graph (ARG), la API similar a Kusto para todos los recursos: una consulta puede recuperar un análisis específico.
  
 
 ## <a name="next-steps"></a>Pasos siguientes

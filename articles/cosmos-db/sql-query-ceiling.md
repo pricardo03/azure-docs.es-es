@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2da7820a6c9f1f90585b4deb605bb99c7580b0e5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 81f113aa51a7f739b506ec7e3eb5bf2cb9f49a03
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444803"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302651"
 ---
 # <a name="ceiling-azure-cosmos-db"></a>CEILING (Azure Cosmos DB)
  Devuelve el valor entero más pequeño mayor o igual que la expresión numérica especificada.  
@@ -45,6 +45,10 @@ SELECT CEILING(123.45) AS c1, CEILING(-123.45) AS c2, CEILING(0.0) AS c3
 ```json
 [{c1: 124, c2: -123, c3: 0}]  
 ```  
+
+## <a name="remarks"></a>Observaciones
+
+Esta función del sistema se beneficiará de un [índice de intervalo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

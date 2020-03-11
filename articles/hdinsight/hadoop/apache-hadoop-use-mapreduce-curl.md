@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
-ms.openlocfilehash: 607020f1d540e83a4d049b96b9ab9a4ebcd385f0
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: abc3cc8c526e37e18f1e67b109a9a8e15ff8c989
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76157260"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302719"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Ejecución de trabajos de MapReduce con Apache Hadoop en HDInsight con REST
 
@@ -22,7 +22,7 @@ Aprenda a usar la API REST de Apache Hive WebHCat para ejecutar trabajos de MapR
 > [!NOTE]  
 > Si ya está familiarizado con el uso de servidores de Hadoop basado en Linux, pero no conoce HDInsight, consulte el documento [Lo que necesita saber acerca de Apache Hadoop en HDInsight basado en Linux](../hdinsight-hadoop-linux-information.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un clúster de Apache Hadoop en HDInsight. Consulte [Creación de clústeres de Apache Hadoop mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -171,7 +171,7 @@ Opciones:
 
 1. Cuando el estado del trabajo haya cambiado a `SUCCEEDED`, puede recuperar los resultados del trabajo desde Azure Blob Storage. El parámetro `statusdir` transmitido con la consulta contiene la ubicación del archivo de salida. En este ejemplo, la ubicación es `/example/curl`. Esta dirección almacena el resultado del trabajo en los clústeres del almacenamiento predeterminado en `/example/curl`.
 
-Puede enumerar y descargar estos archivos mediante la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Para obtener más información sobre cómo trabajar con blobs de la CLI de Azure, consulte el documento [Uso de la CLI de Azure con Azure Storage](../../storage/common/storage-azure-cli.md#create-and-manage-blobs).
+Puede enumerar y descargar estos archivos mediante la [CLI de Azure](/cli/azure/install-azure-cli). Para obtener más información sobre el uso de la CLI de Azure para trabajar con Azure Blob Storage, consulte [Inicio rápido: Creación, descarga y enumeración de blobs mediante la CLI de Azure](../../storage/blobs/storage-quickstart-blobs-cli.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 4991fe9fb06d0a49da3e0404f0362c85f15571af
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: d39ac40e8e29c7ff90e2accc3a519449571c1d58
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152302"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917414"
 ---
 # <a name="execute-r-script"></a>Ejecución script de R
 
@@ -130,6 +130,8 @@ azureml_main <- function(dataframe1, dataframe2){
 Los módulos **Ejecutar script R** pueden devolver varias salidas, pero se deben proporcionar como tramas de datos de R. Las tramas de datos se convierten automáticamente en conjuntos de datos en el diseñador para su compatibilidad con otros módulos.
 
 Los mensajes estándar y los errores de R se devuelven al registro del módulo.
+
+Si necesita imprimir los resultados del script de R, puede buscar los resultados impresos en **70_driver_log**, en la pestaña **Outputs+logs** (Salidas y registros) del panel derecho del módulo.
 
 ## <a name="sample-scripts"></a>Muestras de scripts
 

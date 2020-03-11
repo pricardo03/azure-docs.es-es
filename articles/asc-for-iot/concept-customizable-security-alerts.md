@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/27/2020
+ms.date: 03/04/2020
 ms.author: mlottner
-ms.openlocfilehash: f10604d23901c2d7ed23f8b4f32a296f063d8620
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 32d79267559480de8ec91e5e66196bfd57e01cf1
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776065"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299580"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Alertas de seguridad de Azure Security Center para IoT
 
@@ -29,7 +29,7 @@ Se recomienda crear alertas personalizadas en función de su conocimiento sobre 
 
 La siguiente lista de alertas de Azure Security Center para IoT se puede definir en función del comportamiento esperado de su instancia de IoT Hub o dispositivos. Para obtener más información acerca de cómo personalizar cada alerta, consulte [cómo crear alertas personalizadas](quickstart-create-custom-alerts.md).
 
-## <a name="azure-security-center-for-iot-alerts-available-for-customization"></a>Alertas de Azure Security Center para IoT disponibles para personalizarse 
+## <a name="iot-hub-alerts-available-for-customization"></a>Alertas de IoT Hub disponibles para la personalización 
 
 
 
@@ -49,13 +49,18 @@ La siguiente lista de alertas de Azure Security Center para IoT se puede definir
 | Bajo      | Alerta personalizada: el número de purgas de la cola de comandos está fuera del intervalo permitido.                               | IoT Hub     | La cantidad de purgas de la cola de comandos dentro de un período de tiempo específico está fuera del intervalo configurado y permitido actualmente.||
 | Bajo      | Alerta personalizada: el número de actualizaciones de módulos gemelos está fuera del intervalo permitido.                                       | IoT Hub     | La cantidad de actualizaciones de módulos gemelos dentro de un período de tiempo específico está fuera del intervalo configurado y permitido actualmente.|
 | Bajo      | Alerta personalizada: el número de operaciones sin autorizar está fuera del intervalo permitido.  | IoT Hub     | La cantidad de operaciones sin autorizar dentro de un período de tiempo específico está fuera del intervalo configurado y permitido actualmente.|
+|
+
+## <a name="agent-alerts-available-for-customization"></a>Alertas de agente disponibles para la personalización 
+
+| severity | Nombre de la alerta | Origen de datos | Descripción | Corrección sugerida|
+|---|---|---|---|---|
 | Bajo      | Alerta personalizada: el número de conexiones activas está fuera del intervalo permitido.  | Agente       | El número de conexiones activas dentro de un período de tiempo específico está fuera del intervalo configurado y permitido actualmente.|  Investigue los registros del dispositivo. Averigüe dónde se originó la conexión y determine si es inofensiva o malintencionada. Si es malintencionada, quite el posible malware y reconozca el origen. Si es inofensiva, agregue el origen a la lista de conexiones permitidas.  |
 | Bajo      | Alerta personalizada: se ha creado una conexión saliente a una dirección IP que no está permitida.                             | Agente       | Se ha creado una conexión saliente a una dirección IP que está fuera de la lista de direcciones IP permitidas. |Investigue los registros del dispositivo. Averigüe dónde se originó la conexión y determine si es inofensiva o malintencionada. Si es malintencionada, quite el posible malware y reconozca el origen. Si es inofensiva, agregue el origen a la lista de direcciones IP permitidas.                        |
 | Bajo      | Alerta personalizada: el número de inicios de sesión locales con errores está fuera del intervalo permitido.                               | Agente       | La cantidad de inicios de sesión locales con errores dentro de un período de tiempo específico está fuera del intervalo configurado y permitido actualmente. |   |
 | Bajo      | Alerta personalizada: inicio de sesión de un usuario que no está en la lista de usuarios permitidos. | Agente       | Un usuario local no incluido en la lista de usuarios permitidos ha iniciado sesión en el dispositivo.|  Si va a guardar datos sin procesar, vaya a la cuenta de Log Analytics y use los datos para investigar el dispositivo, identifique el origen y, a continuación, corrija la lista de permitidos o bloqueados para esos valores. Si no va a guardar datos sin procesar, vaya al dispositivo y corrija la lista de permitidos o bloqueados para esos valores.|
 | Bajo      | Alerta personalizada: se ha ejecutado un proceso no permitido. | Agente       | Se ha ejecutado en el dispositivo un proceso que no se permite. |Si va a guardar datos sin procesar, vaya a la cuenta de Log Analytics y use los datos para investigar el dispositivo, identifique el origen y, a continuación, corrija la lista de permitidos o bloqueados para esos valores. Si no va a guardar datos sin procesar, vaya al dispositivo y corrija la lista de permitidos o bloqueados para esos valores.  |
 |
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

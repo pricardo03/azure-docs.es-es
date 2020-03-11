@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: aacba12b32e9da75c2a4b9a20c0faa235cf6836a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e1249913300be532cc6514f1478bbc6f4183c001
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459306"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300560"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Soluciones de aplicaciones de Oracle que integran Microsoft Azure y Oracle Cloud Infrastructure (versión preliminar)
 
@@ -28,7 +28,7 @@ Microsoft y Oracle se han asociado para proporcionar baja latencia y conectivida
 Mediante esta conectividad entre nubes, puede particionar una aplicación de niveles múltiples para que ejecute su nivel de base de datos en Oracle Cloud Infrastructure (OCI) y la aplicación y los restantes niveles en Microsoft Azure. La experiencia es similar a ejecutar la pila de toda la solución en una nube individual. 
 
 > [!IMPORTANT]
-> Esta funcionalidad está actualmente en versión preliminar y se [aplican limitaciones](#preview-limitations). Para establecer la conectividad de baja latencia entre Azure y OCI, primero se debe habilitar su suscripción de Azure para esta funcionalidad. Debe inscribirse en la vista previa completando este breve [formulario de encuesta](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). Recibirá un correo electrónico una vez inscrita la suscripción. No puede usar la funcionalidad hasta que reciba un correo electrónico de confirmación. También puede contactar con su representante de ventas de Microsoft para que le tengan en cuenta para esta versión preliminar. El acceso a la capacidad de vista previa está sujeto a disponibilidad y está restringido por Microsoft según su exclusivo criterio. La finalización de la encuesta no garantiza el acceso. Esta versión preliminar se proporciona sin un contrato de nivel de servicio y no debe usarse para cargas de trabajo de producción. Puede que algunas características no se admitan, que tengan funcionalidades limitadas o que no estén disponibles en todas las ubicaciones de Azure. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
+> Esta funcionalidad está actualmente en versión preliminar y se [aplican limitaciones](#region-availability). Para establecer la conectividad de baja latencia entre Azure y OCI, primero se debe habilitar su suscripción de Azure para esta funcionalidad. Debe inscribirse en la vista previa completando este breve [formulario de encuesta](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). Recibirá un correo electrónico una vez inscrita la suscripción. No puede usar la funcionalidad hasta que reciba un correo electrónico de confirmación. También puede contactar con su representante de ventas de Microsoft para que le tengan en cuenta para esta versión preliminar. El acceso a la capacidad de vista previa está sujeto a disponibilidad y está restringido por Microsoft según su exclusivo criterio. La finalización de la encuesta no garantiza el acceso. Esta versión preliminar se proporciona sin un contrato de nivel de servicio y no debe usarse para cargas de trabajo de producción. Puede que algunas características no se admitan, que tengan funcionalidades limitadas o que no estén disponibles en todas las ubicaciones de Azure. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
 
 Si está interesado en implementar soluciones de Oracle por completo en la infraestructura de Azure, consulte [Imágenes de máquina virtual de Oracle y su implementación en Microsoft Azure](oracle-vm-solutions.md).
 
@@ -48,9 +48,13 @@ El siguiente diagrama es una introducción de alto nivel de la solución conecta
 
 ![Introducción a la solución OCI de Azure](media/oracle-oci-overview/crosscloud.png)
 
-## <a name="preview-limitations"></a>Limitaciones de vista previa
+## <a name="region-availability"></a>Disponibilidad regional 
 
-* La conectividad entre nubes en la versión preliminar se limita a las regiones Este de EE. UU. de Azure (eastus), Sur de Reino Unido (uksouth) y Centro de Canadá (canadacentral) y las regiones OCI de Ashburn (Este de EE. UU.), Londres (Sur de Reino Unido) y Toronto (Sudeste de Canadá). Para el Sur de Reino Unido, use el dominio de disponibilidad 1 (AD 1) en OCI al implementar las conexiones para las latencias más bajas.
+La conectividad entre nubes está limitada a las siguientes regiones:
+* Este de EE. UU. de Azure (eastus) y OCI Ashburn (Este de EE. UU.)
+* Sur de Reino Unido de Azure (uksouth) y OCI London (Sur de Reino Unido)
+* Centro de Canadá de Azure (canadacentral) y OCI Toronto (Sudeste de Canadá)
+* Oeste de Europa de Azure (westeurope) y OCI Amsterdam (Noroeste de Países Bajos)
 
 ## <a name="networking"></a>Redes
 

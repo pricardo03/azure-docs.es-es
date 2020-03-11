@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 838d65da90ec0daef69375e5a75bcb497a0c3512
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: ada96d0d4b167e30cb6e271aa02d0d399a9ae7d3
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900405"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303093"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Elección de la solución de Azure para la transferencia de datos
 
@@ -63,7 +63,6 @@ Responda a las siguientes preguntas, que le ayudarán a seleccionar una solució
 - ¿Desea una transferencia de datos continua y a intervalos regulares?
 
     En caso afirmativo, utilice las opciones del [Escenario 4: Transferencias de datos periódicas](storage-solution-periodic-data-transfer.md).
- 
 
 ## <a name="data-transfer-feature-in-azure-portal"></a>Característica Transferencia de datos en Azure Portal
 
@@ -74,7 +73,7 @@ También puede ir a su cuenta de Azure Storage en Azure Portal y seleccionar la 
 - [Introducción al Explorador de Azure Storage](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/)
 - [Introducción a AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
 - [Usar Azure PowerShell con Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-powershell-guide-full)
-- [Uso de la CLI de Azure con Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-azure-cli)
+- [Inicio rápido: Creación, descarga y enumeración de blobs mediante la CLI de Azure](../blobs/storage-quickstart-blobs-cli.md)
 - Más información sobre lo siguiente:
 
     - [Azure Data Box, Azure Data Box Disk y Azure Data Box Heavy para las transferencias sin conexión](https://docs.microsoft.com/azure/databox/).

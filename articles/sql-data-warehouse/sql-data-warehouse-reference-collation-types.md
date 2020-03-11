@@ -1,6 +1,6 @@
 ---
-title: Collation
-description: Tipos de intercalación admitidos en Azure SQL Data Warehouse.
+title: Tipos de intercalación de almacenamiento de datos
+description: Tipos de intercalación compatibles en el grupo de SQL de Azure Synapse Analytics.
 services: sql-data-warehouse
 author: antvgski
 manager: igorstan
@@ -9,21 +9,22 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 49a250a43c7b2654e1317981c853b0117fa0cf28
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 67627e4157c85853cf05dd6b24ced968a9654e62
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851798"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198446"
 ---
-# <a name="database-collation-support-for-azure-sql-data-warehouse"></a>Compatibilidad de la intercalación de base de datos con Azure SQL Data Warehouse
+# <a name="database-collation-support-for-azure-synapse-analytics-sql-pool"></a>Compatibilidad de la intercalación de bases de datos con el grupo de SQL de Azure Synapse Analytics
 
-Puede cambiar la intercalación de base de datos predeterminada desde Azure Portal al crear una base de datos de Azure SQL Data Warehouse. Esta funcionalidad facilita aún más la creación de una base de datos mediante una de las 3800 intercalaciones de base de datos compatibles con SQL Data Warehouse.
+Puede cambiar la intercalación de bases de datos predeterminada desde Azure Portal al crear una base de datos del grupo de SQL de Azure Synapse. Esta capacidad facilita aún más la creación de una base de datos mediante una de las 3800 intercalaciones de bases de datos compatibles. 
+
 Las intercalaciones proporcionan la configuración regional, la página de códigos, el criterio de ordenación y las reglas de distinción de caracteres para los tipos de datos basados en caracteres. Una vez que se han elegido estas opciones, todas las columnas y expresiones que requieren información de intercalación heredan la intercalación elegida de la configuración de base de datos. La herencia predeterminada se puede reemplazar si se indica explícitamente una intercalación diferente para un tipo de datos basado en caracteres.
 
 ## <a name="changing-collation"></a>Cambio de la intercalación
-Para cambiar la intercalación predeterminada, simplemente debe actualizar el campo Intercalación en la experiencia de aprovisionamiento.
+Para cambiar la intercalación predeterminada, actualice el campo Intercalación en la experiencia de aprovisionamiento.
 
 Por ejemplo, si quiere cambiar la intercalación predeterminada para que distinga mayúsculas de minúsculas, basta con que cambie el nombre de la intercalación de SQL_Latin1_General_CP1_CI_AS a SQL_Latin1_General_CP1_CS_AS. 
 
@@ -100,9 +101,12 @@ Por ejemplo, si quiere cambiar la intercalación predeterminada para que disting
 *   SQL_EBCDIC277_2_CP1_CS_AS
 
 ## <a name="checking-the-current-collation"></a>Comprobación de la intercalación actual
+
 Para comprobar la intercalación actual de la base de datos, puede ejecutar el siguiente fragmento de código de T-SQL:
+
 ```sql
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;
 ```
-Cuando se pasa "Collation" como parámetro de propiedad, la función DatabasePropertyEx devuelve la intercalación actual de la base de datos especificada. Puede obtener más información sobre la función DatabasePropertyEx en MSDN.
+
+Cuando se pasa "Collation" como parámetro de propiedad, la función DatabasePropertyEx devuelve la intercalación actual de la base de datos especificada. Para obtener más información, vea [DatabasePropertyEx](/sql/t-sql/functions/databasepropertyex-transact-sql).
 

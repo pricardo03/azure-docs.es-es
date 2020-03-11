@@ -1,6 +1,6 @@
 ---
 title: Guía de diseño de tablas distribuidas
-description: Recomendaciones para diseñar tablas distribuidas por hash y tablas distribuidas por round robin en Azure SQL Data Warehouse.
+description: Recomendaciones para diseñar tablas distribuidas por hash y tablas distribuidas por round robin en SQL Analytics.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,18 +10,18 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 025c60485625a4ab4d2e29b1e81d8574f6187b93
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.custom: azure-synapse
+ms.openlocfilehash: 3a07dd6ccd5d0bf3440df21b2af4e67cbcf663c9
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74049129"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199451"
 ---
-# <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Instrucciones para diseñar tablas distribuidas en Azure SQL Data Warehouse
-Recomendaciones para diseñar tablas distribuidas por hash y tablas distribuidas por round robin en Azure SQL Data Warehouse.
+# <a name="guidance-for-designing-distributed-tables-in-sql-analytics"></a>Instrucciones para diseñar tablas distribuidas en SQL Analytics
+Recomendaciones para diseñar tablas distribuidas por hash y tablas distribuidas por round robin en SQL Analytics.
 
-En este artículo se da por supuesto que está familiarizado con los conceptos de distribución y movimiento de datos en SQL Data Warehouse.  Para obtener más información, consulte [Azure SQL Data Warehouse: arquitectura de procesamiento paralelo masivo (MPP)](massively-parallel-processing-mpp-architecture.md). 
+En este artículo se da por supuesto que está familiarizado con los conceptos de distribución y movimiento de datos en SQL Analytics.  Para obtener más información, consulte [Arquitectura de procesamiento paralelo masivo (MPP) de SQL Analytics](massively-parallel-processing-mpp-architecture.md). 
 
 ## <a name="what-is-a-distributed-table"></a>¿Qué es una tabla distribuida?
 Una tabla distribuida aparece como una sola tabla pero las filas se almacenan realmente en 60 distribuciones. Las filas se distribuyen con un algoritmo hash o round robin.  
@@ -34,7 +34,7 @@ Como parte del diseño de tablas, comprenda tanto como sea posible sobre los dat
 
 - ¿Qué tamaño tiene la tabla?   
 - ¿Con qué frecuencia se actualiza la tabla?   
-- ¿Tiene tablas de hechos y dimensiones en un almacenamiento de datos?   
+- ¿Tiene tablas de hechos y dimensiones en una base de datos de SQL Analytics?   
 
 
 ### <a name="hash-distributed"></a>Distribución por hash
@@ -42,7 +42,7 @@ Una tabla distribuida por hash distribuye filas de tabla entre todos los nodos d
 
 ![Tabla distribuida](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Tabla distribuida")  
 
-Como los valores idénticos siempre se distribuyen por hash a la misma distribución, el almacenamiento de datos tiene conocimiento integrado de las ubicaciones de las filas. SQL Data Warehouse utiliza este conocimiento para minimizar el movimiento de datos durante las consultas, lo que mejora el rendimiento de estas. 
+Como los valores idénticos siempre se distribuyen por hash a la misma distribución, SQL Analytics tiene conocimiento integrado de las ubicaciones de las filas. SQL Analytics utiliza este conocimiento para minimizar el movimiento de datos durante las consultas, lo que mejora el rendimiento de estas. 
 
 Las tablas distribuidas por hash funcionan bien para las tablas de hechos de gran tamaño en un esquema de estrella. Pueden tener un gran número de filas y lograr aún así un alto rendimiento. Por supuesto, hay algunas consideraciones de diseño que le ayudarán a obtener el rendimiento que el sistema distribuido está diseñado para proporcionar. La elección de una columna de distribución óptima es una consideración de este tipo que se describe en este artículo. 
 
@@ -65,7 +65,7 @@ Considere la opción de usar la distribución round robin para la tabla en los s
 - Si la combinación es menos importante que otras combinaciones de la consulta.
 - Cuando la tabla es una tabla de almacenamiento provisional
 
-El tutorial [Load New York taxicab data to Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) (Carga de datos de taxis de Nueva York en Azure SQL Data Warehouse) proporciona un ejemplo de carga de datos en una tabla de almacenamiento provisional round robin.
+El tutorial [Load New York taxicab data](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) (Carga de datos de taxis de Nueva York) proporciona un ejemplo de carga de datos en una tabla de almacenamiento provisional round robin en SQL Analytics.
 
 
 ## <a name="choosing-a-distribution-column"></a>Elección de una columna de distribución
@@ -109,7 +109,7 @@ Para equilibrar el procesamiento en paralelo, seleccione una columna de distribu
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Elección de una columna de distribución que minimiza el movimiento de datos
 
-Para obtener el resultado de la consulta correcto, las consultas pueden mover datos de un nodo de proceso a otro. El movimiento de datos suele ocurrir cuando las consultas tienen combinaciones y agregaciones en tablas distribuidas. La elección de una columna de distribución que ayuda a minimizar el movimientos de datos es una de las estrategias más importantes para optimizar el rendimiento de SQL Data Warehouse.
+Para obtener el resultado de la consulta correcto, las consultas pueden mover datos de un nodo de proceso a otro. El movimiento de datos suele ocurrir cuando las consultas tienen combinaciones y agregaciones en tablas distribuidas. La elección de una columna de distribución que ayuda a minimizar el movimientos de datos es una de las estrategias más importantes para optimizar el rendimiento de la base de datos de SQL Analytics.
 
 Para minimizar el movimiento de datos, seleccione una columna de distribución que:
 
@@ -217,7 +217,7 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 Para crear una tabla distribuida, use una de estas instrucciones:
 
-- [CREATE TABLE (Azure SQL Data Warehouse)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CREATE TABLE AS SELECT (Azure SQL Data Warehouse](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [CREATE TABLE (SQL Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [CREATE TABLE AS SELECT (SQL Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 

@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8faf223a4871f6f109f9d133716989b1bcfdee08
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 04dfa6a028cf7c44bf99c665b396d51d8a0f3cef
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871183"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303195"
 ---
 # <a name="floor-azure-cosmos-db"></a>FLOOR (Azure Cosmos DB)
- Devuelve el valor entero más grande menor o igual que la expresión numérica especificada.  
+ Devuelve el entero más grande que sea menor o igual que la expresión numérica especificada.  
   
 ## <a name="syntax"></a>Sintaxis
   
@@ -28,7 +28,7 @@ FLOOR (<numeric_expr>)
 *numeric_expr*  
    Es una expresión numérica.  
   
-## <a name="return-types"></a>Tipos de valor devuelto
+## <a name="return-types"></a>Tipos de valores devueltos
   
   Devuelve una expresión numérica.  
   
@@ -44,7 +44,11 @@ SELECT FLOOR(123.45) AS fl1, FLOOR(-123.45) AS fl2, FLOOR(0.0) AS fl3
   
 ```json
 [{fl1: 123, fl2: -124, fl3: 0}]  
-```  
+```
+
+## <a name="remarks"></a>Observaciones
+
+Esta función del sistema se beneficiará de un [índice de intervalo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

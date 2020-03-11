@@ -5,14 +5,14 @@ author: chrissie926
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 02/01/2020
 ms.author: menchi
-ms.openlocfilehash: 064bfd7a51f3ccb0252f37fbaa11ebc122a4b97f
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 5ef6c4de288a764abbe434c5d84fc99e154f7492
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807432"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303603"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Uso de módulos gemelos en IoT Hub
 
@@ -174,9 +174,9 @@ Para trabajar en el back-end de la solución, el módulo gemelo usa las siguient
 
 * **Recibir notificaciones gemelas**. Esta operación permite que el back-end de la solución reciba una notificación cuando se modifique la gemela. Para ello, la solución de IoT debe crear una ruta y establecer el origen de datos igual a *twinChangeEvents*. De forma predeterminada, no se envían notificaciones gemelas, es decir, no existen previamente tales rutas. Si la tasa de cambio es demasiado alta, o por otras razones, como errores internos, IoT Hub podría enviar una sola notificación que contiene todos los cambios. Por lo tanto, si la aplicación necesita registro y auditoría confiables de todos los estados intermedios, debe usar mensajes del dispositivo a la nube. El mensaje de notificaciones gemelas incluye propiedades y el cuerpo.
 
-  - properties (Propiedades)
+  - Propiedades
 
-    | NOMBRE | Valor |
+    | Nombre | Value |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  Hora de envío de la notificación |
@@ -236,11 +236,15 @@ Los [SDK de dispositivos IoT de Azure](iot-hub-devguide-sdks.md) permiten usar f
 
 Las etiquetas y las propiedades deseadas y notificadas son objetos JSON con las siguientes restricciones:
 
-* Todas las claves en objetos JSON son cadenas UNICODE UTF-8 de 64 caracteres que distinguen entre mayúsculas y minúsculas. Entre los caracteres permitidos no se incluyen los caracteres de control UNICODE (segmentos C0 y C1), ni `.`, SP y `$`.
+* **Claves**: Todas las claves en objetos JSON son cadenas UNICODE UTF-8 de 64 caracteres que distinguen entre mayúsculas y minúsculas. Entre los caracteres permitidos no se incluyen los caracteres de control UNICODE (segmentos C0 y C1), ni `.`, SP y `$`.
 
-* Todos los valores en un objeto JSON pueden ser de los siguientes tipos JSON: booleano, número, cadena, objeto. No se permiten matrices. El valor máximo de enteros es 4503599627370495 y el valor mínimo de enteros es-4503599627370496.
+* **Valores**: Todos los valores en un objeto JSON pueden ser de los siguientes tipos JSON: booleano, número, cadena, objeto. No se permiten matrices.
 
-* Todos los objetos JSON en etiquetas y propiedades deseadas y notificadas pueden tener una profundidad máxima de 5. Por ejemplo, el objeto siguiente es válido:
+    * Los enteros pueden tener un valor mínimo de -4503599627370496 y un máximo de 4503599627370495.
+
+    * Los valores de la cadena son codificados UTF-8 y pueden tener una longitud máxima de 512 bytes.
+
+* **Profundidad**: Todos los objetos JSON en etiquetas y propiedades deseadas y notificadas pueden tener una profundidad máxima de 5. Por ejemplo, el objeto siguiente es válido:
 
     ```json
     {
@@ -262,13 +266,21 @@ Las etiquetas y las propiedades deseadas y notificadas son objetos JSON con las 
     }
     ```
 
-* Todos los valores de cadena pueden tener como máximo una longitud de 512 bytes.
-
 ## <a name="module-twin-size"></a>Tamaño del módulo gemelo
 
-IoT Hub aplica un límite de tamaño de 8 KB en el valor de `tags` y un límite de tamaño de 32 KB cada uno en el valor de `properties/desired` y `properties/reported`. Estos totales son exclusivos de los elementos de solo lectura.
+IoT Hub aplica un límite de tamaño de 8 KB en el valor de `tags` y un límite de tamaño de 32 KB cada uno en el valor de `properties/desired` y `properties/reported`. Estos totales son exclusivos de los elementos de solo lectura, como `$etag`, `$version` y `$metadata/$lastUpdated`.
 
-El tamaño se calcula contando todos los caracteres, excepto los caracteres de control UNICODE (segmentos C0 y C1) y los espacios que se encuentran fuera de las constantes de cadena.
+El tamaño gemelo se calcula como sigue:
+
+* Para cada propiedad del documento JSON, IoT Hub calcula y agrega de forma acumulativa la longitud del valor y la clave de la propiedad.
+
+* Las claves de la propiedad se consideran cadenas codificadas UTF-8.
+
+* Los valores de propiedad simples se consideran cadenas codificadas UTF-8, valores numéricos (8 bytes) o valores booleanos (4 bytes).
+
+* El tamaño de las cadenas codificadas UTF-8 se calcula contando todos los caracteres, excepto los caracteres de control UNICODE (segmentos C0 y C1).
+
+* Los valores de propiedad complejos (objetos anidados) se calculan en función del tamaño agregado de las claves de la propiedad y los valores de propiedad que contienen.
 
 IoT Hub rechaza con un error todas las operaciones que podrían aumentar el tamaño de los documentos por encima del límite.
 

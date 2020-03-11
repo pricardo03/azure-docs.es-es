@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 075216cf7d67aa4d5a04f34a7ae3444a078b4c62
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.date: 02/22/2020
+ms.openlocfilehash: 1778ba543e070bbffbbc8579b280373d834492fd
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76313916"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920811"
 ---
 # <a name="train-svd-recommender"></a>Entrenamiento del recomendador SVD
 
-En este artículo se describe cómo usar el módulo Entrenar recomendador de SVD del diseñador de Azure Machine Learning. Use este módulo para entrenar un modelo de recomendación basado en el algoritmo de descomposición en valores singulares (SVD).  
+En este artículo se describe cómo usar el módulo Entrenar recomendador de SVD del diseñador de Azure Machine Learning (versión preliminar). Use este módulo para entrenar un modelo de recomendación basado en el algoritmo de descomposición en valores singulares (SVD).  
 
 El módulo Entrenar recomendador de SVD lee un conjunto de datos de tripletas usuario-elemento-clasificación. Devuelve un recomendador SVD entrenado. Después, puede usar el modelo entrenado para predecir las clasificaciones o generar recomendaciones con el uso del módulo [ de puntuación del recomendador SVD](score-svd-recommender.md).  
 
@@ -48,14 +48,11 @@ Antes de usar el módulo, los datos de entrada deben estar en el formato que el 
 + La segunda columna contiene los identificadores de elemento.
 + La tercera columna contiene la clasificación del par usuario-elemento. Los valores de clasificación deben ser numéricos.  
 
-El conjunto de datos **Calificaciones de restaurantes** del diseñador de Azure Machine Learning (seleccione **Saved Datasets** [Conjuntos de datos guardados] y, después, **Samples** [Ejemplos]) muestra el formato esperado:
+El conjunto de datos **Clasificaciones de películas** del diseñador de Azure Machine Learning (seleccione **Conjuntos de datos** y luego **Ejemplos**) muestra el formato esperado:
 
-|Identificador de usuario|Identificador de lugar|rating|
-|------------|-------------|------------|
-|U1077|135085|2|
-|U1077|135038|2|
+![Clasificaciones de películas](media/module/movie-ratings-dataset.png)
 
-En este ejemplo, se puede ver que solo un usuario ha clasificado dos restaurantes distintos. 
+En este ejemplo, se puede ver que un único usuario ha clasificado varias películas. 
 
 ### <a name="train-the-model"></a>Entrenamiento del modelo
 

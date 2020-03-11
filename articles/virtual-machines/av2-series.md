@@ -2,17 +2,17 @@
 title: 'Serie Av2: Azure Virtual Machines'
 description: Especificaciones de las máquinas virtuales de la serie Av2.
 services: virtual-machines
-author: jonbeck7
+author: migerdes
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 1e14c633ed11bb628a68756e72e78073603643a1
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: fe27a1cc78d1f37d535f364c03803a5196090a3a
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492645"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163954"
 ---
 # <a name="av2-series"></a>Serie Av2
 
@@ -23,6 +23,10 @@ ACU: 100
 Premium Storage:  No compatible
 
 Almacenamiento en caché de Premium Storage:  No compatible
+
+Migración en vivo: Compatible
+
+Actualizaciones con conservación de memoria: Compatible
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo de almacenamiento temporal: IOPS/Mbps de lectura/Mbps de escritura | Discos de datos máx./rendimiento: E/S | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|

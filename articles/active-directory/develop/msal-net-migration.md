@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 4ffcd82931b4df92aa2885eb043deae90a70526f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 737b25fd4c83c459f033bd7b07f6362909e38056
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695354"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299890"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migración de aplicaciones a MSAL.NET
 
@@ -165,7 +165,7 @@ Los permisos de OAuth2 son ámbitos de permiso que una aplicación de API web (r
 
 ### <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Ámbitos para solicitar acceso a permisos específicos de OAuth2 de una aplicación de la versión 1.0
 
-Si desea adquirir tokens para ámbitos específicos de una aplicación de la versión 1.0 (por ejemplo el gráfico de AAD, que es https://graph.windows.net) , necesitaría crear `scopes` mediante la concatenación de un identificador de recurso deseado con un permiso de OAuth2 deseado para dicho recurso.
+Si quiere adquirir tokens para una aplicación que acepte token s de la versión 1.0 (por ejemplo la Microsoft Graph API, que es https://graph.microsoft.com) , necesitaría crear `scopes` mediante la concatenación de un identificador de recurso deseado con un permiso de OAuth2 deseado para dicho recurso.
 
 Por ejemplo, para acceder en nombre del usuario a una API Web v1.0 que tiene un URI de identificador de aplicación `ResourceId`, es probable que desee usar:
 
@@ -173,10 +173,10 @@ Por ejemplo, para acceder en nombre del usuario a una API Web v1.0 que tiene un 
 var scopes = new [] {  ResourceId+"/user_impersonation"};
 ```
 
-Si desea leer y escribir con MSAL.NET Azure Active Directory mediante la API Graph de AAD (https://graph.windows.net/) , debe crear una lista de ámbitos, como en el siguiente fragmento de código:
+Si quiere leer y escribir con MSAL.NET Azure Active Directory mediante la Microsoft Graph API (https://graph.microsoft.com/) , debe crear una lista de ámbitos, como en el siguiente fragmento de código:
 
 ```csharp
-ResourceId = "https://graph.windows.net/";
+ResourceId = "https://graph.microsoft.com/";
 var scopes = new [] { ResourceId + "Directory.Read", ResourceID + "Directory.Write"}
 ```
 

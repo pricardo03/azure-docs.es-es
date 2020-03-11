@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 115667c93bbb832926a7939cf250a02b6fef8baa
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 47fe20888aa546e414b268b30c2e03580750a040
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873495"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303484"
 ---
 # <a name="array_contains-azure-cosmos-db"></a>ARRAY_CONTAINS (Azure Cosmos DB)
 Devuelve un valor booleano que indica si la matriz contiene el valor especificado. Puede buscar una coincidencia parcial o total de un objeto mediante el uso de una expresión booleana dentro del comando. 
@@ -34,7 +34,7 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
 *bool_expr*  
    Es una expresión booleana. Si se evalúa en ' true' y el valor de búsqueda especificado es un objeto, el comando busca una coincidencia parcial (el objeto de búsqueda es un subconjunto de uno de los objetos). Si se evalúa en 'false', el comando busca una coincidencia total de todos los objetos dentro de la matriz. Si no se especifica, el valor predeterminado es 'false'. 
   
-## <a name="return-types"></a>Tipos de valor devuelto
+## <a name="return-types"></a>Tipos de valores devueltos
   
   Devuelve un valor booleano.  
   
@@ -70,12 +70,15 @@ SELECT
   "b1": true,
   "b2": false,
   "b3": false
-}] 
-```  
-  
+}]
+```
+
+## <a name="remarks"></a>Observaciones
+
+Esta función del sistema se beneficiará de un [índice de intervalo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Funciones de matriz (Azure Cosmos DB)](sql-query-array-functions.md)
-- [Funciones del sistema (Azure Cosmos DB)](sql-query-system-functions.md)
+- [Funciones del sistema (Azure Cosmos DB)](sql-query-system-functions.md)
 - [Introducción a Azure Cosmos DB](introduction.md)

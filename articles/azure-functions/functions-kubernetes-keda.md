@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: 83c57b27c1cd1d524805a92381a1ba9eb2e1fbd6
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 2c06fdba8f60243acf4e0fabd23df8b832c210db
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549043"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301682"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Azure Functions en Kubernetes con KEDA
 
@@ -20,7 +20,7 @@ El tiempo de ejecución de Azure Functions proporciona flexibilidad de hospedaje
 
 El servicio de Azure Functions está formado por dos componentes clave: un tiempo de ejecución y un controlador de escala.  El tiempo de ejecución de Functions se ejecuta y ejecuta el código.  El tiempo de ejecución incluye lógica sobre cómo desencadenar, registrar y administrar las ejecuciones de funciones.  Azure Functions Runtime puede ejecutarse *en cualquier parte*.  El otro componente es un controlador de escala.  El controlador de escala supervisa la tasa de eventos que se dirigen a la función y escala de forma proactiva el número de instancias que ejecutan la aplicación.  Para más información, consulte [Escalado y hospedaje de Azure Functions](functions-scale.md).
 
-Las funciones basadas en Kubernetes proporcionan el tiempo de ejecución de Functions en un [Contenedor de Docker](functions-create-function-linux-custom-image.md) con escalado controlado por eventos a través de KEDA.  KEDA puede reducir a 0 instancias (cuando no se produce ningún evento) y ampliar hasta *n* instancias. Lo hace mediante la exposición de las métricas personalizadas de Kubernetes Autoscaler (Horizontal Pod Autoscaler).  El uso de contenedores de Functions con KEDA hace posible replicar las capacidades de la función sin servidor en cualquier clúster de Kubernetes.  Estas funciones también se pueden implementar mediante la característica de [nodos virtuales de Azure Kubernetes Service (AKS)](../aks/virtual-nodes-cli.md) para la infraestructura sin servidor.
+Las funciones basadas en Kubernetes proporcionan el tiempo de ejecución de Functions en un [Contenedor de Docker](functions-create-function-linux-custom-image.md) con escalado controlado por eventos a través de KEDA.  KEDA puede reducir horizontalmente a 0 instancias (cuando no se produce ningún evento) y escalar horizontalmente hasta *n* instancias. Lo hace mediante la exposición de las métricas personalizadas de Kubernetes Autoscaler (Horizontal Pod Autoscaler).  El uso de contenedores de Functions con KEDA hace posible replicar las capacidades de la función sin servidor en cualquier clúster de Kubernetes.  Estas funciones también se pueden implementar mediante la característica de [nodos virtuales de Azure Kubernetes Service (AKS)](../aks/virtual-nodes-cli.md) para la infraestructura sin servidor.
 
 ## <a name="managing-keda-and-functions-in-kubernetes"></a>Administración de KEDA y Functions en Kubernetes
 

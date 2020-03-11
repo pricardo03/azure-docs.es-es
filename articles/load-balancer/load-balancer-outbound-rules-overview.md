@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
-ms.openlocfilehash: 316b28faa458b03431cb48f02a8087116415b061
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: d419c213b3bcfef3631d68eb9d4cb485291bed31
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075898"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304198"
 ---
 # <a name="load-balancer-outbound-rules"></a>Reglas de salida de Load Balancer
 
@@ -34,7 +34,7 @@ Las reglas de salida permiten controlar:
 - cómo se deben asignar los [puertos de SNAT de salida](load-balancer-outbound-connections.md#snat).
 - para qué protocolos se proporciona traducción de salida.
 - qué duración se debe usar para el tiempo de espera de inactividad de conexión (de 4 a 120 minutos).
-- si quiere enviar un restablecimiento de TCP en caso de tiempo de espera de inactividad (en versión preliminar pública). 
+- si quiere enviar un restablecimiento de TCP en caso de tiempo de espera de inactividad.
 
 Las reglas de salida expanden el [escenario 2](load-balancer-outbound-connections.md#lb) que se describe en el artículo [Conexiones salientes en Azure](load-balancer-outbound-connections.md) y la precedencia del escenario permanece igual.
 
@@ -95,7 +95,7 @@ Use el parámetro siguiente para establecer el tiempo de espera de inactividad d
 
           "idleTimeoutInMinutes": 60
 
-### <a name="tcprst"></a> <a name="tcpreset"></a> Habilitar el restablecimiento de TCP al agotarse el tiempo de espera de inactividad (versión preliminar)
+### <a name="tcprst"></a> <a name="tcpreset"></a> Habilitar el restablecimiento de TCP al agotarse el tiempo de espera de inactividad
 
 De forma predeterminada, Load Balancer anula el flujo en silencio cuando se alcanza el tiempo de espera de inactividad de salida.  Con el parámetro enableTCPReset, puede habilitar un comportamiento de la aplicación más predecible y controlar si se debe enviar un restablecimiento de TCP bidireccional (TCP RST) al agotarse del tiempo de espera de inactividad de salida. 
 
@@ -103,7 +103,7 @@ Para habilitar el restablecimiento de TCP en una regla de salida, use el siguien
 
            "enableTcpReset": true
 
-Revise [Restablecimiento de TCP al agotarse el tiempo de espera de inactividad (versión preliminar)](https://aka.ms/lbtcpreset) para obtener detalles como la disponibilidad por regiones.
+Revise [Restablecimiento de TCP al agotarse el tiempo de espera de inactividad](https://aka.ms/lbtcpreset) para obtener detalles como la disponibilidad por regiones.
 
 ### <a name="proto"></a> Compatibilidad con los protocolos de transporte TCP y UDP con una sola regla
 
@@ -206,7 +206,6 @@ Cuando se usa una instancia de Standard Load Balancer, la NAT de salida no está
 - El número máximo de puertos efímeros posibles por dirección IP de front-end es 64 000.
 - El intervalo de tiempo de espera de inactividad de salida que puede configurar oscila entre 4 y 120 minutos (de 240 a 7200 segundos).
 - Load Balancer no es compatible con ICMP para NAT de salida.
-- El portal no se puede usar para configurar ni para ver reglas de salida.  Use plantillas, API REST, Az CLI 2.0 o PowerShell en su lugar.
 - Las reglas de salida solo se pueden aplicar a la configuración de IP principal de una NIC.  Se admiten varias NIC.
 
 ## <a name="next-steps"></a>Pasos siguientes

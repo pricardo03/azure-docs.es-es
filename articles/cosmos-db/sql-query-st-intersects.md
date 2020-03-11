@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 549c6b69e9112a491060478e859338c14e977612
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: f3c3878956b90ffb45556ed819046af9eb7618f1
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349389"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303144"
 ---
 # <a name="st_intersects-azure-cosmos-db"></a>ST_INTERSECTS (Azure Cosmos DB)
  Devuelve una expresión condicional que indica si el objeto de GeoJSON (Point, Polygon o LineString) especificado en el primer argumento forma intersección con el objeto de GeoJSON (Point, Polygon o LineString) del segundo.  
@@ -28,7 +28,7 @@ ST_INTERSECTS (<spatial_expr>, <spatial_expr>)
 *spatial_expr*  
    Es cualquier expresión de objeto de tipo Point, Polygon o LineString de GeoJSON.  
   
-## <a name="return-types"></a>Tipos de valor devuelto
+## <a name="return-types"></a>Tipos de valores devueltos
   
   Devuelve un valor booleano.  
   
@@ -50,6 +50,10 @@ WHERE ST_INTERSECTS(a.location, {
 ```json
 [{ "id": "IntersectingPolygon" }]  
 ```  
+
+## <a name="remarks"></a>Observaciones
+
+Esta función del sistema se beneficiará de un [índice geoespacial](index-policy.md#spatial-indexes).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

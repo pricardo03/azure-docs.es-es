@@ -12,12 +12,12 @@ ms.date: 12/08/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 23433c816fc7b002c3426a0aac7c0aade8cdb338
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 9ea3388cb65b18c093ffff3ec8b8c9f2764ef189
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585856"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300075"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedimientos: Proporcionar notificaciones opcionales a la aplicación de Azure AD
 
@@ -122,7 +122,7 @@ Este objeto OptionalClaims hace que el token de identificador devuelto al client
 ## <a name="configuring-optional-claims"></a>Configuración de notificaciones opcionales
 
 > [!IMPORTANT]
-> Los tokens de acceso **siempre** se generan mediante el manifiesto del recurso, no del cliente,  con lo cual en la solicitud `...scope=https://graph.microsoft.com/user.read...`, el recurso es Graph.  Por lo tanto, el token de acceso se crea usando el manifiesto de Graph, no el manifiesto del cliente.  Cambiar el manifiesto de la aplicación nunca hará que los tokens de Graph tengan un aspecto diferente.  Para confirmar que los cambios realizados en `accessToken` han surtido efecto, solicite un token para la aplicación, no otra aplicación.  
+> Los tokens de acceso **siempre** se generan mediante el manifiesto del recurso, no del cliente,  con lo cual en la solicitud `...scope=https://graph.microsoft.com/user.read...`, el recurso es Microsoft Graph API.  Por lo tanto, el token de acceso se crea usando el manifiesto de Microsoft Graph API, no el manifiesto del cliente.  Cambiar el manifiesto de la aplicación nunca hará que los tokens de Microsoft Graph API tengan un aspecto diferente.  Para confirmar que los cambios realizados en `accessToken` han surtido efecto, solicite un token para la aplicación, no otra aplicación.  
 
 Puede configurar notificaciones opcionales para la aplicación mediante la interfaz de usuario o el manifiesto.
 
@@ -349,7 +349,7 @@ En esta sección, conocerá un escenario para ver cómo puede usar la caracterí
 Hay varias opciones disponibles para actualizar las propiedades de configuración de identidad de la aplicación y así habilitar y configurar las notificaciones opcionales:
 -    Puede usar la interfaz de usuario de **Configuración del token (versión preliminar)** (consulte el ejemplo a continuación).
 -    Puede usar el **Manifiesto** (consulte el ejemplo a continuación). Lea primero el documento [Manifiesto de aplicación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) para una introducción al manifiesto.
--   También es posible escribir una aplicación que use [Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) para actualizarla. El tipo [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) de la guía de referencia de Graph API puede ayudarle con la configuración de las notificaciones opcionales.
+-   También es posible escribir una aplicación que use [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) para actualizarla. El tipo [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) de la guía de referencia de Microsoft Graph API puede ayudarle con la configuración de las notificaciones opcionales.
 
 **Ejemplo**: en el siguiente ejemplo usará la interfaz de usuario de **Configuración del token (versión preliminar)** y el **Manifiesto** para agregar notificaciones opcionales a los tokens de acceso, identificador y SAML previstos para la aplicación. Se agregarán distintas notificaciones opcionales para cada tipo de token que la aplicación puede recibir:
 -    Los tokens de identificación contendrán el nombre principal de usuario de los usuarios federados en la forma completa (`<upn>_<homedomain>#EXT#@<resourcedomain>`).

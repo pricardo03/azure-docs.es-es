@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.openlocfilehash: 3370fc72b45720e2aae5731623843a1bc498911c
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 71a02e47db288890d1392f5423da0ef817ecd690
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651954"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303127"
 ---
 # <a name="data-ingestion-in-azure-machine-learning"></a>Ingesta de datos en Azure Machine Learning
 
@@ -55,7 +55,7 @@ Estos pasos y el siguiente diagrama sirven para ilustrar el flujo de trabajo de 
 
 ## <a name="use-the-python-sdk"></a>Uso del SDK de Python 
 
-Con el [SDK de Python](https://docs.microsoft.com/python/api/overview/azureml-sdk/?view=azure-ml-py), puede incorporar las tareas de ingesta de datos en un paso de [canalización de Azure Machine Learning](how-to-create-your-first-pipeline.md).
+Con el [SDK de Python](https://docs.microsoft.com/python/api/overview/azure/ml), puede incorporar las tareas de ingesta de datos en un paso de [canalización de Azure Machine Learning](how-to-create-your-first-pipeline.md).
 
 En la siguiente tabla se resumen las ventajas y desventajas del uso del SDK y un paso de canalizaciones de ML para las tareas de ingesta de datos.
 
@@ -71,4 +71,5 @@ En el siguiente diagrama, la canalización de Azure Machine Learning consta de d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* Obtenga información sobre cómo crear una canalización de ingesta de datos para Machine Learning con [Azure Data Factory](how-to-data-ingest-adf.md)
 * Aprenda a automatizar y administrar los ciclos de vida de desarrollo de las canalizaciones de ingesta de datos con [Azure Pipelines](how-to-cicd-data-ingestion.md).

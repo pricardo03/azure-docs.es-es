@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 9ef859cce68e13f5207d77d8396bc69ddbbce339
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.date: 02/24/2020
+ms.openlocfilehash: 8611abd4e504e0378b744b12d0adb5fa22f5476b
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314953"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920372"
 ---
 # <a name="permutation-feature-importance"></a>Importancia de la característica de permutación
 
-En este artículo se describe cómo usar el módulo Permutation Feature Importance (Importancia de la característica de permutación) en el diseñador de Azure Machine Learning para calcular un conjunto de puntuaciones de importancia de las características del conjunto de datos. Estas puntuaciones se usan para ayudarle a determinar las mejores características que se deben usar en un modelo.
+En este artículo se describe cómo usar el módulo Permutation Feature Importance (Importancia de la característica de permutación) en el diseñador de Azure Machine Learning (versión preliminar) para calcular un conjunto de puntuaciones de importancia de las características del conjunto de datos. Estas puntuaciones se usan para ayudarle a determinar las mejores características que se deben usar en un modelo.
 
 En este módulo, los valores de las características se ordenan aleatoriamente, una columna cada vez. El rendimiento del modelo se mide antes y después. Puede elegir una de las métricas estándar para medir el rendimiento.
 
@@ -46,7 +46,7 @@ Para generar un conjunto de puntuaciones de características, es necesario tener
 
     -   **Clasificación**
 
-        Exactitud, precisión, recuperación, pérdida de registro promedio  
+        Exactitud, precisión, recuperación  
 
     -   **Regresión**
 

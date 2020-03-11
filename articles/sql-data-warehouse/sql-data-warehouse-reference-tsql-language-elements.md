@@ -1,6 +1,6 @@
 ---
-title: Elementos del lenguaje T-SQL
-description: Vínculo a la documentación de las instrucciones de T-SQL admitidas en Azure SQL Data Warehouse.
+title: Elementos de lenguaje T-SQL
+description: Vínculos a la documentación de las instrucciones T-SQL admitidas en SQL Analytics.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: query
 ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 02f463e12547ba64a05e04988d9c192bba4f6a27
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: edd77d711654a7f2793eb3c08b93e85fc0a89e8f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692529"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198429"
 ---
-# <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Elementos del lenguaje T-SQL admitidos en Azure SQL Data Warehouse
-Vínculos a la documentación de los elementos del lenguaje T-SQL admitidos en Azure SQL Data Warehouse.
+# <a name="t-sql-language-elements-supported-in-sql-analytics"></a>Elementos de lenguaje T-SQL admitidos en SQL Analytics
+Vínculos a la documentación de los elementos de lenguaje T-SQL admitidos en SQL Analytics.
 
 ## <a name="core-elements"></a>Elementos principales
 * [convenciones de sintaxis](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
@@ -57,7 +57,7 @@ Vínculos a la documentación de los elementos del lenguaje T-SQL admitidos en A
 * [Módulo](https://msdn.microsoft.com/library/ms190279.aspx)
 
 ## <a name="wildcard-characters-to-match"></a>Caracteres comodín que deben coincidir
-* [= (Igual a)](https://msdn.microsoft.com/library/ms175118.aspx)
+* [= (Es igual a)](https://msdn.microsoft.com/library/ms175118.aspx)
 * [&gt; (Mayor que)](https://msdn.microsoft.com/library/ms178590.aspx)
 * [&lt; (Menor que)](https://msdn.microsoft.com/library/ms179873.aspx)
 * [&gt;= (Mayor o igual que)](https://msdn.microsoft.com/library/ms181567.aspx)
@@ -71,7 +71,7 @@ Vínculos a la documentación de los elementos del lenguaje T-SQL admitidos en A
 * [IS [NOT] NULL](https://msdn.microsoft.com/library/ms188795.aspx)
 * [LIKE](https://msdn.microsoft.com/library/ms179859.aspx)
 * [NOT](https://msdn.microsoft.com/library/ms189455.aspx)
-* [O bien](https://msdn.microsoft.com/library/ms188361.aspx)
+* [OR](https://msdn.microsoft.com/library/ms188361.aspx)
 
 ### <a name="bitwise-operators"></a>Operadores bit a bit
 * [&amp; (AND bit a bit)](https://msdn.microsoft.com/library/ms174965.aspx)
@@ -255,7 +255,7 @@ Vínculos a la documentación de los elementos del lenguaje T-SQL admitidos en A
 * [sp_tables](https://msdn.microsoft.com/library/ms186250.aspx)
 * [sp_unprepare](https://msdn.microsoft.com/library/ff848735.aspx)
 
-## <a name="set-statements"></a>SET (instrucciones)
+## <a name="set-statements"></a>SET, instrucciones
 * [SET ANSI_DEFAULTS](https://msdn.microsoft.com/library/ms188340.aspx)
 * [SET ANSI_NULL_DFLT_OFF](https://msdn.microsoft.com/library/ms187356.aspx)
 * [SET ANSI_NULL_DFLT_ON](https://msdn.microsoft.com/library/ms187375.aspx)
@@ -278,5 +278,5 @@ Vínculos a la documentación de los elementos del lenguaje T-SQL admitidos en A
 * [SET XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información de referencia, consulte [Instrucciones T-SQL en Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md) y [Vistas del sistema en Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-system-views.md).
+Para obtener más información de referencia, vea [Instrucciones T-SQL en SQL Analytics](sql-data-warehouse-reference-tsql-statements.md) y [Vistas del sistema en SQL Analytics](sql-data-warehouse-reference-tsql-system-views.md).
 

@@ -5,15 +5,15 @@ author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/22/2020
+ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e1323467db875968f45557c6a7c0afdfee5e4221
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: ca8d0daf5b6d9bbad0d8fa24b4b150c5e6cd6b73
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589671"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300917"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database"></a>Línea de base de seguridad de Azure para Azure SQL Database
 
@@ -21,11 +21,11 @@ La línea de base de seguridad de Azure para Azure SQL Database contiene recomen
 
 La línea de base de estos servicios se extrae de la [Prueba comparativa de seguridad de Azure versión 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), que proporciona recomendaciones sobre cómo puede proteger las soluciones en la nube en Azure con nuestra guía de procedimientos recomendados.
 
-Para más información, consulte [Introducción a las líneas de base de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Para obtener más información, consulte [Introducción a las líneas de base de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
 
 ## <a name="network-security"></a>Seguridad de redes
 
-*Para más información, consulte [Control de seguridad: seguridad de red](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Para obtener más información, consulte [Control de seguridad: seguridad de red](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: Proteja los recursos mediante grupos de seguridad de red o Azure Firewall en su red virtual
 
@@ -116,18 +116,15 @@ Cómo habilitar Network Watcher:
 
 https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6: Implemente sistemas de prevención de intrusiones y detección de intrusiones (IDS/IPS) basados en la red
 
-**Instrucciones**: Advanced Threat Protection (ATP) habilitado para Azure SQL Database.  Los usuarios reciben una alerta sobre actividades sospechosas en las bases de datos, posibles vulnerabilidades y ataques por inyección de código SQL, así como sobre los patrones de acceso y consultas a las bases de datos anómalos. Advanced Threat Protection integra también alertas con Azure Security Center.
+**Guía**: habilite Advanced Threat Protection (ATP) para Azure SQL Database.  Los usuarios reciben una alerta sobre actividades sospechosas en las bases de datos, posibles vulnerabilidades y ataques por inyección de código SQL, así como sobre los patrones de acceso y consultas a las bases de datos anómalos. Advanced Threat Protection integra también alertas con Azure Security Center.
 
-
-Descripción y uso de Advanced Threat Protection para Azure SQL Database:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
+Descripción y uso de Advanced Threat Protection para Azure SQL Database: https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -158,17 +155,20 @@ Descripción y uso de etiquetas de servicio:
 
 https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: Mantenga las configuraciones de seguridad estándar para dispositivos de red
 
-**Instrucciones**: defina e implemente configuraciones de seguridad de red para las instancias del servidor de Azure SQL Database con Azure Policy. Puede usar el espacio de nombres "Microsoft.Sql" para detallar definiciones de directiva personalizadas o usar cualquiera de las definiciones de directiva integradas diseñadas para la protección de red del servidor de Azure SQL Database. Un ejemplo de una directiva de seguridad de red integrada aplicable para Azure SQL Database Server sería: "SQL Server debe usar un punto de conexión de servicio de red virtual"
+**Instrucciones**: defina e implemente configuraciones de seguridad de red para las instancias del servidor de Azure SQL Database con Azure Policy. Puede usar el espacio de nombres "Microsoft.Sql" para detallar definiciones de directiva personalizadas o usar cualquiera de las definiciones de directiva integradas diseñadas para la protección de red del servidor de Azure SQL Database. Un ejemplo de una directiva de seguridad de red integrada aplicable para Azure SQL Database Server sería: "SQL Server debe usar un punto de conexión de servicio de red virtual".
+ 
 
 Use Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como plantillas de Administración de recursos de Azure, control de acceso basado en rol (RBAC) y directivas, en una única definición de plano técnico. Aplique fácilmente el plano técnico a nuevas suscripciones y entornos, y ajuste el control y la administración mediante el control de versiones.
 
+
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 Creación de un plano técnico de Azure: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
@@ -215,7 +215,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 ## <a name="logging-and-monitoring"></a>Registro y supervisión
 
-*Para más información, consulte [Control de seguridad: registro y supervisión](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Para obtener más información, consulte [Control de seguridad: registro y supervisión](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: Uso de orígenes de sincronización de hora aprobados
 
@@ -251,7 +251,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging
 
 Transmisión de diagnósticos a Azure SQL Analytics:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging#stream-into-azure-sql-analytics
+https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging#stream-diagnostic-telemetry-into-sql-analytics
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -272,7 +272,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-auditing
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4: Recopilación de registros de seguridad de sistemas operativos
 
-**Instrucciones**: no aplicable; esta prueba comparativa está pensada para recursos de proceso.
+**Instrucciones**: No aplicable; esta prueba comparativa está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -362,7 +362,7 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 ## <a name="identity-and-access-control"></a>Identidad y Access Control
 
-*Para más información, consulte [Control de seguridad: identidad y control de acceso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Para obtener más información, consulte [Control de seguridad: identidad y control de acceso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Mantenga un inventario de cuentas administrativas
 
@@ -457,13 +457,27 @@ https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getst
 
 **Instrucciones**: Use los informes de seguridad de Azure Active Directory para la generación de registros y alertas cuando se producen actividades sospechosas o no seguras en el entorno.
 
+
+
 Use Advanced Threat Protection para Azure SQL Database con el fin de detectar actividades anómalas que indican intentos inusuales y potencialmente dañinos de acceso o ataque a las bases de datos.
 
-Identificación de usuarios de Azure AD marcados por una actividad de riesgo: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
 
-Supervisión de la actividad de identidad y acceso de los usuarios en Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-Revisión de Advanced Threat Protection y posibles alertas: https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview#advanced-threat-protection-alerts
+Cómo identificar usuarios de Azure AD marcados por una actividad de riesgo:
+
+https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
+
+
+
+Supervisión de la actividad de identidad y acceso de los usuarios en Azure Security Center:
+
+https://docs.microsoft.com/azure/security-center/security-center-identity-access
+
+
+
+Revisión de Advanced Threat Protection y posibles alertas:
+
+https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview#advanced-threat-protection-alerts
 
 
 **Supervisión de Azure Security Center**: Sí
@@ -474,9 +488,10 @@ Revisión de Advanced Threat Protection y posibles alertas: https://docs.microso
 
 **Instrucciones**: use ubicaciones con nombre de acceso condicional para permitir al portal y a la Administración de recursos de Azure el acceso solo desde agrupaciones lógicas de intervalos de direcciones IP o países o regiones específicos.
 
+
 Configuración de ubicaciones con nombre en Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -525,7 +540,7 @@ Cómo integrar los registros de actividad de Azure en Azure Monitor:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -543,7 +558,7 @@ Cómo configurar y habilitar las directivas de riesgo de protección de la ident
 
 https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -562,7 +577,7 @@ https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview
 
 ## <a name="data-protection"></a>Protección de datos
 
-*Para más información, consulte [Control de seguridad: protección de datos](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).* .
+*Para obtener más información, consulte [Control de seguridad: protección de datos](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Mantenimiento de un inventario de información confidencial
 
@@ -573,7 +588,7 @@ Creación y uso de etiquetas:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -605,7 +620,7 @@ Configuración de Private Link para Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -629,7 +644,7 @@ Descripción de la protección de datos de los clientes en Azure:
 
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -714,13 +729,13 @@ Cómo crear alertas para eventos de registro de actividad de Azure:
 https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: Sí
 
 **Responsabilidad**: Customer
 
 ## <a name="vulnerability-management"></a>Administración de vulnerabilidades
 
-*Para más información, consulte [Control de seguridad: administración de vulnerabilidades](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Para obtener más información, consulte [Control de seguridad: administración de vulnerabilidades](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: Ejecute herramientas de análisis de vulnerabilidades automatizado
 
@@ -750,7 +765,7 @@ https://docs.microsoft.com/azure/security-center/security-center-vulnerability-a
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: Implemente una solución de administración de revisiones de sistema operativo automatizada
 
-**Instrucciones**: no aplicable; esta recomendación está pensada para los recursos de proceso.
+**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -758,7 +773,7 @@ https://docs.microsoft.com/azure/security-center/security-center-vulnerability-a
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3: Implemente una solución automatizada de administración de revisiones de software de terceros
 
-**Instrucciones**: no aplicable; esta prueba comparativa está pensada para recursos de proceso.
+**Instrucciones**: No aplicable; esta prueba comparativa está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -774,7 +789,7 @@ Exportación de un informe de evaluación de vulnerabilidades en Azure Security 
 
 https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment#implementing-vulnerability-assessment
 
-**Supervisión de Azure Security Center**: Sí
+**Supervisión de Azure Security Center**: No aplicable
 
 **Responsabilidad**: Customer
 
@@ -790,17 +805,21 @@ Descripción de la puntuación segura de Azure Security Center: https://docs.mic
 
 ## <a name="inventory-and-asset-management"></a>Administración de recursos y del inventario
 
-*Para más información, consulte [Control de seguridad: inventario y administración de recursos](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Para obtener más información, consulte [Control de seguridad: inventario y administración de recursos](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1: Uso de la detección de recursos de Azure
 
 **Instrucciones**: use Azure Resource Graph para consultar y detectar todos los recursos (incluidas las instancias de Azure SQL Server) dentro de las suscripciones.  Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y de que puede enumerar todas las suscripciones de Azure, así como los recursos de las suscripciones.
 
+
 Aunque los recursos clásicos de Azure se pueden detectar a través de Resource Graph, se recomienda encarecidamente crear y usar los recursos de Azure Resource Manager que figuran a continuación.
+
 
 Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
+
 Visualización de las suscripciones de Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+
 
 Descripción de Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -812,9 +831,13 @@ Descripción de Azure RBAC: https://docs.microsoft.com/azure/role-based-access-c
 
 **Instrucciones**: Aplique etiquetas a los recursos de Azure que proporcionan metadatos para organizarlos de forma lógica en una taxonomía.
 
-Creación y uso de etiquetas: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+
+Cómo crear y usar etiquetas:
+
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -822,19 +845,31 @@ Creación y uso de etiquetas: https://docs.microsoft.com/azure/azure-resource-ma
 
 **Instrucciones**: Use el etiquetado, los grupos de administración y las suscripciones independientes, si procede, para organizar y realizar un seguimiento de los recursos. Concilie el inventario periódicamente y asegúrese de que los recursos no autorizados se eliminan de la suscripción de manera oportuna.
 
-Creación de suscripciones adicionales de Azure: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-Creación de grupos de administración: https://docs.microsoft.com/azure/governance/management-groups/create
 
-Creación y uso de etiquetas: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Creación de suscripciones de Azure adicionales:
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+https://docs.microsoft.com/azure/billing/billing-create-subscription
+
+
+
+Cómo crear grupos de administración:
+
+https://docs.microsoft.com/azure/governance/management-groups/create
+
+
+
+Cómo crear y usar etiquetas:
+
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
 ### <a name="64-maintain-an-inventory-of-approved-azure-resources-and-software-titles"></a>6.4: Mantenimiento de un inventario de los recursos de Azure aprobados y títulos de software
 
-**Instrucciones**: defina una lista de recursos de Azure aprobados y software aprobado para los recursos de proceso.
+**Instrucciones**: Defina una lista de recursos de Azure aprobados y software aprobado para los recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -859,7 +894,7 @@ Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governa
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6: Supervisión de aplicaciones de software no aprobadas en recursos de proceso
 
-**Instrucciones**: no aplicable; esta recomendación está pensada para los recursos de proceso.
+**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -867,7 +902,7 @@ Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governa
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: Eliminación de aplicaciones de software y recursos de Azure no aprobadas
 
-**Instrucciones**: no aplicable; esta recomendación está pensada para los recursos de proceso.
+**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -875,7 +910,7 @@ Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governa
 
 ### <a name="68-use-only-approved-applications"></a>6.8: Uso exclusivo de aplicaciones aprobadas
 
-**Instrucciones**: no aplicable; esta recomendación está pensada para los recursos de proceso.
+**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -894,6 +929,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 Denegación de un tipo de recurso específico con Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
+
 **Supervisión de Azure Security Center**: No aplicable
 
 **Responsabilidad**: Customer
@@ -911,17 +947,15 @@ Denegación de un tipo de recurso específico con Azure Policy: https://docs.mi
 **Instrucciones**: use el acceso condicional de Azure para limitar la capacidad de los usuarios de interactuar con Azure Resource Manager mediante la configuración de la opción "Bloquear acceso" en la aplicación "Administración de Microsoft Azure".
 
 
-Configuración del acceso condicional para bloquear el acceso a Azure Resource Manager:
+Configuración del acceso condicional para bloquear el acceso a Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
-https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
-
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12: Limitación de capacidad de los usuarios para ejecutar scripts en recursos de proceso
 
-**Instrucciones**: no aplicable; esta recomendación está pensada para los recursos de proceso.
+**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -937,7 +971,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 ## <a name="secure-configuration"></a>Configuración segura
 
-*Para más información, consulte [Control de seguridad: configuración segura](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Para obtener más información, consulte [Control de seguridad: configuración segura](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Establezca configuraciones seguras para todos los recursos de Azure
 
@@ -982,7 +1016,7 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4: Mantenga configuraciones del sistema operativo seguras
 
-**Instrucciones**: no aplicable; esta recomendación está pensada para los recursos de proceso.
+**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -1010,7 +1044,7 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Almacene imágenes de sistema operativo personalizadas de forma segura
 
-**Instrucciones**: no aplicable; esta recomendación está pensada para los recursos de proceso.
+**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -1032,7 +1066,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ### <a name="78-deploy-system-configuration-management-tools-for-operating-systems"></a>7.8: Implemente herramientas de administración de configuración del sistema para sistemas operativos
 
-**Instrucciones**: no aplicable; esta recomendación está pensada para los recursos de proceso.
+**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -1054,7 +1088,7 @@ https://docs.microsoft.com/azure/security-center/security-center-sql-service-rec
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: Implemente la supervisión de configuración automatizada para sistemas operativos
 
-**Instrucciones**: no aplicable; esta recomendación está pensada para los recursos de proceso.
+**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -1070,7 +1104,7 @@ Protección de los datos confidenciales que se almacenan en Azure SQL Server y 
 
 https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -1104,11 +1138,11 @@ Cómo configurar el escáner de credenciales: https://secdevtools.azurewebsites.
 
 ## <a name="malware-defense"></a>Defensa contra malware
 
-*Para más información, consulte [Control de seguridad: defensa contra malware](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Para obtener más información, consulte [Control de seguridad: defensa contra malware](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Use software antimalware administrado centralmente
 
-**Instrucciones**: no aplicable; esta recomendación está pensada para los recursos de proceso. Microsoft controla el antimalware de la plataforma subyacente.
+**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso. Microsoft controla el antimalware de la plataforma subyacente.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -1130,7 +1164,7 @@ Descripción de Microsoft Antimalware para Azure Cloud Services y Virtual Machin
 
 ### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8.3: Asegúrese de que se han actualizado el software y las firmas antimalware
 
-**Instrucciones**: no aplicable; esta recomendación está pensada para los recursos de proceso. Microsoft controla el antimalware de la plataforma subyacente.
+**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso. Microsoft controla el antimalware de la plataforma subyacente.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -1138,7 +1172,7 @@ Descripción de Microsoft Antimalware para Azure Cloud Services y Virtual Machin
 
 ## <a name="data-recovery"></a>Recuperación de datos
 
-*Para más información, consulte [Control de seguridad: recuperación de datos](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Para obtener más información, consulte [Control de seguridad: recuperación de datos](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Garantía de copias de seguridad automáticas periódicas
 
@@ -1152,7 +1186,7 @@ Descripción de las copias de seguridad y la continuidad empresarial con Azure S
 
 https://docs.microsoft.com/azure/sql-database/sql-database-business-continuity
 
-**Supervisión de Azure Security Center**: No aplicable
+**Supervisión de Azure Security Center**: Sí
 
 **Responsabilidad**: Compartido
 
@@ -1204,13 +1238,13 @@ Habilitación de la eliminación temporal en Key Vault:
 
 https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: Sí
 
 **Responsabilidad**: Customer
 
 ## <a name="incident-response"></a>Respuesta a los incidentes
 
-*Para más información, consulte [Control de seguridad: respuesta a los incidentes](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Para obtener más información, consulte [Control de seguridad: respuesta ante incidentes](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Creación de una guía de respuesta ante incidentes
 
@@ -1278,7 +1312,7 @@ Transmisión de alertas a Azure Sentinel:
 
 https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -1292,13 +1326,13 @@ Configuración de la automatización de flujo de trabajo y Logic Apps:
 
 https://docs.microsoft.com/azure/security-center/workflow-automation
 
-**Supervisión de Azure Security Center**: Sí
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Pruebas de penetración y ejercicios del equipo rojo
 
-*Para más información, consulte [Control de seguridad: pruebas de penetración y ejercicios del equipo rojo](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Para obtener más información, consulte [Control de seguridad: Pruebas de penetración y ejercicios del equipo rojo](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: Realice pruebas de penetración periódicas de los recursos de Azure y asegúrese de corregir todos los resultados de seguridad críticos en un plazo de 60 días
 
@@ -1314,3 +1348,7 @@ Puede encontrar más información sobre la estrategia de Microsoft y la ejecuci�
 
 **Responsabilidad**: Compartido
 
+## <a name="next-steps"></a>Pasos siguientes
+
+- Consulte la [prueba comparativa de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
+- Más información sobre las [líneas de base de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

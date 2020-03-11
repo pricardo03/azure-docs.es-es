@@ -4,15 +4,15 @@ description: Obtenga información acerca de las funciones del sistema de SQL SQU
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 683db82f2574da9150fb64767047d6ada6d667da
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: a22c4daaf9df889f2256bc78f2175c966d4841f7
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349420"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303450"
 ---
 # <a name="square-azure-cosmos-db"></a>SQUARE (Azure Cosmos DB)
  Devuelve el cuadrado del valor numérico especificado.  
@@ -28,7 +28,7 @@ SQUARE(<numeric_expr>)
 *numeric_expr*  
    Es una expresión numérica.  
   
-## <a name="return-types"></a>Tipos de valor devuelto
+## <a name="return-types"></a>Tipos de valores devueltos
   
   Devuelve una expresión numérica.  
   
@@ -45,6 +45,10 @@ SELECT SQUARE(1) AS s1, SQUARE(2.0) AS s2, SQUARE(3) AS s3
 ```json
 [{s1: 1, s2: 4, s3: 9}]  
 ```  
+
+## <a name="remarks"></a>Observaciones
+
+Esta función del sistema no usará el índice.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

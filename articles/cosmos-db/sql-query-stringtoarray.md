@@ -4,15 +4,15 @@ description: Obtenga información sobre la función del sistema SQL StringToArra
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2d1f90da50950ac6ff4f87ffe96ebad9f3d811cc
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 18acbd94fa3d717fc20b9e1020b9bf7c6db7744d
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349284"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302923"
 ---
 # <a name="stringtoarray-azure-cosmos-db"></a>StringToArray (Azure Cosmos DB)
  Devuelve la expresión traducida a una matriz. Si no se puede traducir la expresión, devuelve undefined.  
@@ -28,11 +28,11 @@ StringToArray(<str_expr>)
 *str_expr*  
    Es una expresión de cadena que se va a analizar como una expresión de matriz JSON. 
   
-## <a name="return-types"></a>Tipos de valor devuelto
+## <a name="return-types"></a>Tipos de valores devueltos
   
   Devuelve una expresión de matriz o undefined. 
   
-## <a name="remarks"></a>Comentarios
+## <a name="remarks"></a>Observaciones
   Los valores de cadena anidados deben escribirse entre comillas dobles para ser un JSON válido. Para más información sobre el formato JSON, consulte [json.org](https://json.org/)
   
 ## <a name="examples"></a>Ejemplos
@@ -90,6 +90,10 @@ El conjunto de resultados es el siguiente:
 ```json
 [{}]
 ```
+
+## <a name="remarks"></a>Observaciones
+
+Esta función del sistema no usará el índice.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

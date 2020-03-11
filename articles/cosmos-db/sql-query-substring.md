@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: bf14bda9bd1acc62820bf07f83ac074a8d1b691c
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: d4462fc407093b23510bddfae4d9f55d68f8c0fa
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349190"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303705"
 ---
 # <a name="substring-azure-cosmos-db"></a>SUBSTRING (Azure Cosmos DB)
  Devuelve parte de una expresión de cadena a partir de la posición de base cero del carácter especificado y continúa hasta la longitud especificada, o hasta el final de la cadena.  
@@ -34,7 +34,7 @@ SUBSTRING(<str_expr>, <num_expr1>, <num_expr2>)
 *num_expr2*  
    Expresión numérica que indica el número máximo de caracteres de *str_expr* que se va a devolver. Un valor de 0 o menos da como resultado una cadena vacía.
 
-## <a name="return-types"></a>Tipos de valor devuelto
+## <a name="return-types"></a>Tipos de valores devueltos
   
   Devuelve una expresión de cadena.  
   
@@ -50,7 +50,11 @@ SELECT SUBSTRING("abc", 1, 1) AS substring
   
 ```json
 [{"substring": "b"}]  
-```  
+```
+
+## <a name="remarks"></a>Observaciones
+
+Esta función del sistema se beneficiará de un [índice de intervalo](index-policy.md#includeexclude-strategy) si la posición inicial es `0`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

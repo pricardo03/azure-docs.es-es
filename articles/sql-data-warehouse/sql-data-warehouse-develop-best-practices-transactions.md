@@ -1,6 +1,6 @@
 ---
 title: Optimización de transacciones
-description: Aprenda a optimizar el rendimiento del código transaccional en Azure SQL Data Warehouse al tiempo que minimiza el riesgo de que se produzcan reversiones extensas.
+description: Aprenda a optimizar el rendimiento del código transaccional en SQL Analytics al mismo tiempo que se minimiza el riesgo de que se produzcan reversiones extensas.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,21 +10,21 @@ ms.subservice: development
 ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: b8b8be9467ade870e57355be91b0de329b0f6217
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 6f7005f1706e72ea1794f99c030a25fa533327b8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692863"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195845"
 ---
-# <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Optimización de transacciones en Azure SQL Data Warehouse
-Aprenda a optimizar el rendimiento del código transaccional en Azure SQL Data Warehouse al tiempo que minimiza el riesgo de que se produzcan reversiones extensas.
+# <a name="optimizing-transactions-in-sql-analytics"></a>Optimización de transacciones en SQL Analytics
+Aprenda a optimizar el rendimiento del código transaccional en SQL Analytics al mismo tiempo que se minimiza el riesgo de que se produzcan reversiones extensas.
 
 ## <a name="transactions-and-logging"></a>Transacciones y registro
-Las transacciones son un componente importante de un motor de base de datos relacional. SQL Data Warehouse usa transacciones durante la modificación de los datos. Estas transacciones pueden ser explícitas o implícitas. Las instrucciones INSERT, UPDATE y DELETE son ejemplos de transacciones implícitas. Las transacciones explícitas usan BEGIN TRAN, COMMIT TRAN y ROLLBACK TRAN. Las transacciones explícitas se usan normalmente cuando es necesario vincular varias instrucciones de modificación entre sí en una unidad atómica única. 
+Las transacciones son un componente importante de un motor de base de datos relacional. SQL Analytics usa transacciones durante la modificación de los datos. Estas transacciones pueden ser explícitas o implícitas. Las instrucciones INSERT, UPDATE y DELETE son ejemplos de transacciones implícitas. Las transacciones explícitas usan BEGIN TRAN, COMMIT TRAN y ROLLBACK TRAN. Las transacciones explícitas se usan normalmente cuando es necesario vincular varias instrucciones de modificación entre sí en una unidad atómica única. 
 
-Azure SQL Data Warehouse confirma los cambios en la base de datos con registros de transacciones. Cada distribución tiene su propio registro de transacciones. Las escrituras en el registro de transacciones son automáticas. No es necesario realizar ninguna configuración. Sin embargo, si bien este proceso garantiza la escritura, introduce una sobrecarga en el sistema. Para minimizar este impacto, puede escribir código transaccionalmente eficiente. De forma amplia, un código transaccionalmente eficiente pertenece en dos categorías.
+SQL Analytics confirma los cambios en la base de datos con registros de transacciones. Cada distribución tiene su propio registro de transacciones. Las escrituras en el registro de transacciones son automáticas. No es necesario realizar ninguna configuración. Sin embargo, si bien este proceso garantiza la escritura, introduce una sobrecarga en el sistema. Para minimizar este impacto, puede escribir código transaccionalmente eficiente. De forma amplia, un código transaccionalmente eficiente pertenece en dos categorías.
 
 * Use construcciones de registro mínimas siempre que sea posible.
 * Procese datos con lotes con ámbito para evitar transacciones singulares de larga ejecución.
@@ -78,7 +78,7 @@ CTAS e INSERT...SELECT son dos operaciones de carga masiva. Sin embargo, ambas s
 Conviene tener en cuenta que cualquier escritura para actualizar índices secundarios o no agrupados será siempre una operación con registro completo.
 
 > [!IMPORTANT]
-> SQL Data Warehouse tiene 60 distribuciones. Por lo tanto, suponiendo que todas las filas tengan una distribución uniforme y una sola partición como destino, el lote deberá contener 6.144.000 filas o más para un registro mínimo cuando se escribe en un índice de almacén de columnas agrupado. Si la tabla tiene particiones y las filas que se insertan traspasan los límites de las particiones, serán necesarias 6 144 000 filas por límite de partición, lo que supone una distribución de datos uniforme. Cada partición de cada distribución debe superar de forma independiente el umbral de 102.400 filas para que la inserción se registre mínimamente en la distribución.
+> Una base de datos de SQL Analytics tiene 60 distribuciones. Por lo tanto, suponiendo que todas las filas tengan una distribución uniforme y una sola partición como destino, el lote deberá contener 6.144.000 filas o más para un registro mínimo cuando se escribe en un índice de almacén de columnas agrupado. Si la tabla tiene particiones y las filas que se insertan traspasan los límites de las particiones, serán necesarias 6 144 000 filas por límite de partición, lo que supone una distribución de datos uniforme. Cada partición de cada distribución debe superar de forma independiente el umbral de 102.400 filas para que la inserción se registre mínimamente en la distribución.
 > 
 > 
 
@@ -177,7 +177,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Volver a crear tablas de gran tamaño puede beneficiarse del uso de las características de administración de cargas de trabajo de SQL Data Warehouse. Para más información, consulte [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md).
+> Volver a crear tablas de gran tamaño puede beneficiarse del uso de las características de administración de cargas de trabajo de SQL Analytics. Para más información, consulte [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md).
 > 
 > 
 
@@ -405,18 +405,18 @@ END
 ```
 
 ## <a name="pause-and-scaling-guidance"></a>Instrucciones de operaciones de pausa y escalado
-Azure SQL Data Warehouse permite [pausar, reanudar y escalar](sql-data-warehouse-manage-compute-overview.md) su almacenamiento de datos a petición. Al pausar o escalar SQL Data Warehouse, es importante entender que las transacciones en curso se terminan inmediatamente, lo que hace que las transacciones abiertas se reviertan. Si la carga de trabajo había emitido una modificación de datos incompleta y de larga ejecución antes de la operación de pausa o escalado, será necesario deshacer este trabajo. Esto puede afectar al tiempo que se tarda en pausar o escalar la base de datos de Azure SQL Data Warehouse. 
+SQL Analytics le permite [pausar, reanudar y escalar](sql-data-warehouse-manage-compute-overview.md) el grupo de SQL a petición. Al pausar o escalar el grupo de SQL, es importante entender que las transacciones en curso se terminan inmediatamente, lo que hace que las transacciones abiertas se reviertan. Si la carga de trabajo había emitido una modificación de datos incompleta y de larga ejecución antes de la operación de pausa o escalado, será necesario deshacer este trabajo. Esto puede afectar al tiempo que se tarda en pausar o escalar el grupo de SQL. 
 
 > [!IMPORTANT]
 > `UPDATE` y `DELETE` son operaciones con registro completo y, por tanto, estas operaciones de deshacer y rehacer pueden tardar bastante más que las operaciones con registro mínimo equivalentes. 
 > 
 > 
 
-Lo mejor es dejar que las transacciones de modificación de datos en curso se completen antes de pausar o escalar SQL Data Warehouse. Sin embargo, puede que este escenario no sea siempre práctico. Para mitigar el riesgo de que se produzca una reversión extensa, considere una de las siguientes opciones:
+Lo mejor es dejar que las transacciones de modificación de datos en curso se completen antes de pausar o escalar el grupo de SQL. Sin embargo, puede que este escenario no sea siempre práctico. Para mitigar el riesgo de que se produzca una reversión extensa, considere una de las siguientes opciones:
 
 * Vuelva a escribir las operaciones de ejecución prolongada con [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse).
 * Divida la operación en fragmentos para operar sobre un subconjunto de las filas
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte [Transacciones en SQL Data Warehouse](sql-data-warehouse-develop-transactions.md) para obtener más información sobre los niveles de aislamiento y los límites transaccionales.  Para información general de otros procedimientos recomendados, consulte [Procedimientos recomendados para Azure SQL Data Warehouse](sql-data-warehouse-best-practices.md).
+Consulte [Transacciones en SQL Analytics](sql-data-warehouse-develop-transactions.md) para obtener más información sobre los niveles de aislamiento y los límites transaccionales.  Para información general de otros procedimientos recomendados, consulte [Procedimientos recomendados para Azure SQL Data Warehouse](sql-data-warehouse-best-practices.md).
 

@@ -4,15 +4,15 @@ description: Obtenga información sobre la función del sistema de SQL SQRT en A
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 79dd520dde004e97f6ffca8dba000e96ccc61aaf
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 3d5452e5ba650b487acff03f622cdbb170275dce
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349426"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303467"
 ---
 # <a name="sqrt-azure-cosmos-db"></a>SQRT (Azure Cosmos DB)
  Devuelve la raíz cuadrada del valor numérico especificado.  
@@ -28,7 +28,7 @@ SQRT(<numeric_expr>)
 *numeric_expr*  
    Es una expresión numérica.  
   
-## <a name="return-types"></a>Tipos de valor devuelto
+## <a name="return-types"></a>Tipos de valores devueltos
   
   Devuelve una expresión numérica.  
   
@@ -45,6 +45,10 @@ SELECT SQRT(1) AS s1, SQRT(2.0) AS s2, SQRT(3) AS s3
 ```json
 [{s1: 1, s2: 1.4142135623730952, s3: 1.7320508075688772}]  
 ```  
+
+## <a name="remarks"></a>Observaciones
+
+Esta función del sistema no usará el índice.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 316ed596cfa49987e229004c388267286ff50927
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 889897cfd4dc8714ae3aea556f0924c9dbcd7825
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000968"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299421"
 ---
 # <a name="design-secure-applications-on-azure"></a>Diseño de aplicaciones seguras en Azure
 En esta serie de artículos se presentan las actividades y controles de seguridad que hay que tener en cuenta al diseñar aplicaciones para la nube. Se abarcan los recursos de entrenamiento junto con los conceptos y preguntas de seguridad que se han de tener en cuenta durante las fases de diseño y requisitos del [ciclo de vida de desarrollo de seguridad (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) de Microsoft. El objetivo es ayudarle a definir actividades y servicios de Azure que pueden usarse para diseñar una aplicación más segura.
@@ -38,7 +38,7 @@ Utilice los recursos siguientes durante la fase de entrenamiento para familiariz
 
   - [Guía de introducción para desarrolladores de Azure](../../guides/developer/azure-developer-guide.md) ofrece información esencial para los desarrolladores que quieran comenzar a usar la plataforma Microsoft Azure para sus necesidades de desarrollo.
 
-  - [SDK y herramientas](https://docs.microsoft.com/azure/index#pivot=sdkstools) describe las herramientas que están disponibles en Azure.
+  - [SDK y herramientas](https://docs.microsoft.com/azure/index?pivot=sdkstools) describe las herramientas que están disponibles en Azure.
 
   - [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) proporciona herramientas de colaboración de desarrollo. Las herramientas incluyen canalizaciones de alto rendimiento, repositorios GIT gratuitos, paneles Kanban configurables y amplias pruebas de carga automatizadas y basadas en la nube.
     El [centro de recursos de DevOps](https://docs.microsoft.com/azure/devops/learn/) combina nuestros recursos para el aprendizaje de prácticas de DevOps, control de versiones de GIT, métodos ágiles, cómo se trabaja con DevOps en Microsoft y cómo puede evaluar su progresión de DevOps.
@@ -126,7 +126,7 @@ Durante el desarrollo, utilice una biblioteca de codificación segura y un marco
 Asegúrese de que utiliza la versión más reciente del marco y todas las características de seguridad disponibles en él. Azure ofrece un completo [conjunto de herramientas de desarrollo](https://azure.microsoft.com/product-categories/developer-tools/) (que funcionan en cualquier plataforma o lenguaje) para que todos los desarrolladores entreguen aplicaciones en la nube. Puede programar con el lenguaje que prefiera mediante la elección de diversos [SDK](https://azure.microsoft.com/downloads/).
 Puede aprovechar entornos de desarrollo integrados (IDE) completos y editores con funcionalidades de depuración avanzadas y Soporte técnico de Azure integrado.
 
-Microsoft ofrece diversos [lenguajes, marcos y herramientas](https://docs.microsoft.com/azure/index#pivot=sdkstools&panel=sdkstools-all) que puede usar para desarrollar aplicaciones en Azure. Un ejemplo de ello es [Azure para desarrolladores de .NET y .NET Core](https://docs.microsoft.com/dotnet/azure/). Para cada idioma y marco que ofrecemos, encontrará inicios rápidos, tutoriales y referencias de API que le ayudarán a empezar a trabajar rápidamente.
+Microsoft ofrece diversos [lenguajes, marcos y herramientas](https://docs.microsoft.com/azure/index?pivot=sdkstools&panel=sdkstools-all) que puede usar para desarrollar aplicaciones en Azure. Un ejemplo de ello es [Azure para desarrolladores de .NET y .NET Core](https://docs.microsoft.com/dotnet/azure/). Para cada idioma y marco que ofrecemos, encontrará inicios rápidos, tutoriales y referencias de API que le ayudarán a empezar a trabajar rápidamente.
 
 Azure ofrece diversos servicios que puede usar para hospedar aplicaciones web y sitios web. Estos servicios le permiten desarrollar en su lenguaje preferido, ya sea .NET, .NET Core, Java, Ruby, Node.js, PHP o Python.
 [Azure App Service Web Apps](../../app-service/overview.md) (Web Apps) es uno de estos servicios.
@@ -158,7 +158,7 @@ El modelado del diseño de aplicaciones y la enumeración de amenazas [STRIDE](h
 | Rechazo            | No rechazo       | Habilita opciones de [supervisión y diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) de Azure.|
 | Divulgación de información | Confidencialidad       | Cifra datos confidenciales [en reposo](../fundamentals/encryption-atrest.md) y [en tránsito](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
 | Denegación de servicio      | Disponibilidad          | Supervisa las métricas de rendimiento de las posibles condiciones de denegación de servicio. Implementa filtros de conexión. [Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md#next-steps), junto con los procedimientos recomendados de diseño de aplicaciones, constituyen una defensa frente a los ataques DDoS.|
-| Elevación de privilegios | Authorization         | Usa Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
+| Elevación de privilegios | Authorization         | Use <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) de Azure Active Directory.|
 
 ### <a name="reduce-your-attack-surface"></a>Reducción de la superficie expuesta a ataques
 

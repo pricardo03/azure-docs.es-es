@@ -2,17 +2,17 @@
 title: 'Serie NCv3: Azure Virtual Machines'
 description: Especificaciones de las máquinas virtuales de la serie NCv3.
 services: virtual-machines
-author: jonbeck7
+author: vikancha
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 18a2198063c1dfc5149c5ca017da3807da821dd1
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 9ae3604a9ea82e6e50ba4d639d36572f7b052e4c
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492389"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302804"
 ---
 # <a name="ncv3-series"></a>Serie NCv3
 
@@ -21,6 +21,10 @@ Las VM de la serie NCv3 disponen de tecnología de GPU [NVIDIA Tesla V100](https
 Premium Storage:  Compatible
 
 Almacenamiento en caché de Premium Storage:  Compatible
+
+Migración en vivo: No compatible
+
+Actualizaciones con conservación de memoria: No compatible
 
 > [!IMPORTANT]
 > Para esta serie de máquinas virtuales, la cuota de vCPU (núcleo) en su suscripción está establecida inicialmente en 0 en cada región. [Solicite un aumento de cuota de vCPU](../azure-supportability/resource-manager-core-quotas-request.md) para esta serie en una [región donde esté disponible](https://azure.microsoft.com/regions/services/).
@@ -34,15 +38,17 @@ Almacenamiento en caché de Premium Storage:  Compatible
 
 1 GPU = una tarjeta V100
 
-*Compatible con RDMA [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+*Compatible con RDMA
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operativos y controladores compatibles
 
 Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure, deben instalarse controladores de GPU de NVIDIA.
 
-La [extensión de controlador de GPU de NVIDIA](/extensions/hpccompute-gpu-windows.md) instala los controladores CUDA de NVIDIA o GRID adecuados en una máquina virtual de la serie N. Instale o administre la extensión mediante Azure Portal o con herramientas como las plantillas de Azure PowerShell o Azure Resource Manager. Consulte la [documentación de la extensión de controlador de GPU de NVIDIA](/extensions/hpccompute-gpu-windows.md) para los sistemas operativos compatibles y los pasos de implementación. Para una información general sobre las extensiones de máquina virtual, consulte [Características y extensiones de las máquinas virtuales de Azure](/extensions/overview.md).
+La [extensión de controlador de GPU de NVIDIA](./extensions/hpccompute-gpu-windows.md) instala los controladores CUDA de NVIDIA o GRID adecuados en una máquina virtual de la serie N. Instale o administre la extensión mediante Azure Portal o con herramientas como las plantillas de Azure PowerShell o Azure Resource Manager. Consulte la [documentación de la extensión de controlador de GPU de NVIDIA](./extensions/hpccompute-gpu-windows.md) para los sistemas operativos compatibles y los pasos de implementación. Para una información general sobre las extensiones de máquina virtual, consulte [Características y extensiones de las máquinas virtuales de Azure](./extensions/overview.md).
 
-Si decide instalar manualmente los controladores de GPU de NVIDIA, consulte el artículo sobre la [instalación de controladores GPU de la serie N para Windows](/windows/n-series-driver-setup.md) o el artículo sobre la [instalación de controladores GPU de la serie N para Linux](/linux/n-series-driver-setup) para obtener información sobre los sistemas operativos compatibles, los controladores, la instalación y los pasos de verificación.
+Si decide instalar manualmente los controladores de GPU de NVIDIA, consulte el artículo sobre la [instalación de controladores GPU de la serie N para Windows](./windows/n-series-driver-setup.md) o el artículo sobre la [instalación de controladores GPU de la serie N para Linux](./linux/n-series-driver-setup.md) para obtener información sobre los sistemas operativos compatibles, los controladores, la instalación y los pasos de verificación.
 
 ## <a name="other-sizes"></a>Otros tamaños
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8a2c3dcd3c8ca6dc9d751e50a7862fe98e6de510
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: d50b08ab85c7e299c465c3eb6f34e867d6634006
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351029"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303909"
 ---
 # <a name="getcurrentdatetime-azure-cosmos-db"></a>GetCurrentDateTime (Azure Cosmos DB)
  Devuelve la fecha y hora actual de la hora UTC (hora universal coordinada) como una cadena ISO 8601.
@@ -23,9 +23,9 @@ ms.locfileid: "71351029"
 GetCurrentDateTime ()
 ```
   
-## <a name="return-types"></a>Tipos de valor devuelto
+## <a name="return-types"></a>Tipos de valores devueltos
   
-  Devuelve el valor de la cadena de fecha y hora UTC actuales ISO 8601 con el formato `YYYY-MM-DDThh:mm:ss.sssZ`, donde:
+  Devuelve el valor de la cadena de fecha y hora UTC actuales ISO 8601 con el formato `YYYY-MM-DDThh:mm:ss.fffffffZ`, donde:
   
   |||
   |-|-|
@@ -36,16 +36,18 @@ GetCurrentDateTime ()
   |hh|hora con dos dígitos (de 00 a 23)|
   |MM|minutos con dos dígitos (de 00 a 59)|
   |ss|segundos con dos dígitos (de 00 a 59)|
-  |.sss|tres dígitos de fracciones decimales de segundo|
+  |.fffffff|fracciones de segundos de siete dígitos|
   |Z|Indicador de UTC (hora universal coordinada)||
   
   Para más información sobre el formato ISO 8601, consulte [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 
-## <a name="remarks"></a>Comentarios
+## <a name="remarks"></a>Observaciones
 
   GetCurrentDateTime() es una función no determinista. 
   
   El resultado devuelto es UTC.
+
+  La precisión es de siete dígitos, con una precisión de 100 nanosegundos.
 
 ## <a name="examples"></a>Ejemplos
   
@@ -59,7 +61,7 @@ SELECT GetCurrentDateTime() AS currentUtcDateTime
   
 ```json
 [{
-  "currentUtcDateTime": "2019-05-03T20:36:17.784Z"
+  "currentUtcDateTime": "2019-05-03T20:36:17.1234567Z"
 }]  
 ```  
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 652204416c201ccca024aff0239fc10dcc3eb105
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 08c069de70684a8562e86963ddb2e84ee889e7cc
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74870996"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302260"
 ---
 # <a name="ltrim-azure-cosmos-db"></a>LTRIM (Azure Cosmos DB)
  Devuelve una expresión de cadena después de quitar los espacios en blanco iniciales.  
@@ -28,7 +28,7 @@ LTRIM(<str_expr>)
 *str_expr*  
    Es una expresión de cadena.  
   
-## <a name="return-types"></a>Tipos de valor devuelto
+## <a name="return-types"></a>Tipos de valores devueltos
   
   Devuelve una expresión de cadena.  
   
@@ -45,6 +45,10 @@ SELECT LTRIM("  abc") AS l1, LTRIM("abc") AS l2, LTRIM("abc   ") AS l3
 ```json
 [{"l1": "abc", "l2": "abc", "l3": "abc   "}]  
 ```  
+
+## <a name="remarks"></a>Observaciones
+
+Esta función del sistema no usará el índice.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2019
 ms.author: rogirdh
-ms.openlocfilehash: 63543c0ac34536b736bd4b8cdbd47fdd98e9f9be
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 0e2e16ccc04ff6df80597d646a00c40551e4cfd0
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802211"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302056"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Configurar una interconexión directa entre Azure y Oracle Cloud Infrastructure  
 
@@ -31,11 +31,11 @@ En la siguiente imagen se muestra una descripción general de alto nivel de la i
 
 ![Conexión de red entre nubes](media/configure-azure-oci-networking/azure-oci-connect.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Para establecer la conectividad entre Azure y OCI, debe tener una suscripción activa de Azure y una tenencia activa de OCI.
 
-* Esta conectividad solo es posible cuando una ubicación de emparejamiento de Azure ExpressRoute está cerca o en la misma ubicación de emparejamiento que FastConnect de OCI. Consulte las [limitaciones de vista previa](oracle-oci-overview.md#preview-limitations).
+* Esta conectividad solo es posible cuando una ubicación de emparejamiento de Azure ExpressRoute está cerca o en la misma ubicación de emparejamiento que FastConnect de OCI. Consulte la [Disponibilidad regional](oracle-oci-overview.md#region-availability).
 
 * Para disfrutar de esta funcionalidad de la versión preliminar, su suscripción de Azure debe estar habilitada.
 
@@ -63,7 +63,7 @@ En la siguiente imagen se muestra una descripción general de alto nivel de la i
     * En **Clave de servicio del proveedor**, pegue la clave de servicio de ExpressRoute.
     * Utilice el primer espacio privado de direcciones IP /30 que se detalló en un paso anterior para la **dirección IP del BGP principal** y el segundo espacio de direcciones IP /30 privadas para la **dirección del BGP secundario**.
         * Asigne la primera dirección que se pueda usar de los dos rangos para la dirección IP de Oracle BGP (principal y secundaria) y la segunda dirección a la dirección IP de BGP del cliente (desde una perspectiva de FastConnect). La primera dirección IP que se puede usar es la segunda dirección IP en el espacio de direcciones /30 (la primera dirección IP está reservada para Microsoft).
-    * Haga clic en **Create**(Crear).
+    * Haga clic en **Crear**.
 1. Complete la vinculación de FastConnect a la red de la nube virtual en su inquilino de Oracle a través de la puerta de enlace de enrutamiento dinámico mediante la tabla de rutas.
 1. Vaya a Azure y asegúrese de que el **estado del proveedor** del circuito de ExpressRoute haya cambiado a **Aprovisionado** y que se haya aprovisionado un emparejamiento **privado de Azure**. Este es un requisito previo para los siguientes pasos.
 

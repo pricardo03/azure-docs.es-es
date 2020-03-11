@@ -5,15 +5,15 @@ author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/22/2020
+ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7d6b4f8a7965a7cbcab2616650b40ed93087072b
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: a0e6d96f2e3d2686bdf96e5d7e25bf801f0fa9e5
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589683"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303280"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Línea de base de seguridad de Azure para HDInsight
 
@@ -21,11 +21,11 @@ La línea de base de seguridad de Azure para HDInsight contiene recomendaciones 
 
 La línea de base para estos servicios se extrae de la [Prueba comparativa de seguridad de Azure versión 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), que proporciona recomendaciones sobre cómo puede proteger las soluciones en la nube en Azure con nuestra guía de procedimientos recomendados.
 
-Para más información, consulte [Introducción a las líneas de base de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Para obtener más información, consulte [Introducción a las líneas de base de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
 
 ## <a name="network-security"></a>Seguridad de redes
 
-*Para más información, consulte [Control de seguridad: seguridad de red](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Para obtener más información, consulte [Control de seguridad: seguridad de red](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: Proteja los recursos mediante grupos de seguridad de red o Azure Firewall en su red virtual
 
@@ -65,7 +65,7 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 
 ### <a name="13-protect-critical-web-applications"></a>1.3: Proteja las aplicaciones web críticas
 
-**Guía**: no disponible; la prueba comparativa está pensada para Azure App Service o recursos de proceso que hospedan aplicaciones web.
+**Guía**: no aplicable; la prueba comparativa está pensada para Azure App Service o recursos de proceso que hospedan aplicaciones web.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -125,7 +125,7 @@ Direcciones IP de administración de HDInsight: https://docs.microsoft.com/azure
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1.7: Administre el tráfico a las aplicaciones web
 
-**Guía**: no disponible; la prueba comparativa está pensada para Azure App Service o recursos de proceso que hospedan aplicaciones web.
+**Guía**: no aplicable; la prueba comparativa está pensada para Azure App Service o recursos de proceso que hospedan aplicaciones web.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -217,7 +217,7 @@ Creación de alertas en Azure Monitor: https://docs.microsoft.com/azure/azure-mo
 
 ## <a name="logging-and-monitoring"></a>Registro y supervisión
 
-*Para más información, consulte [Control de seguridad: registro y supervisión](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Para obtener más información, consulte [Control de seguridad: registro y supervisión](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: Uso de orígenes de sincronización de hora aprobados
 
@@ -331,7 +331,7 @@ Alertas sobre datos de registro de Log Analytics:
 
 https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
-**Supervisión de Azure Security Center**: no disponible actualmente
+**Supervisión de Azure Security Center**: Sí
 
 **Responsabilidad**: Customer
 
@@ -352,7 +352,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificat
 
 **Guía**: implemente una solución de terceros para el registro de DNS.
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -360,13 +360,13 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificat
 
 **Instrucciones**: configure manualmente el registro de la consola por nodo.
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
 ## <a name="identity-and-access-control"></a>Identidad y Access Control
 
-*Para más información, consulte [Control de seguridad: identidad y control de acceso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Para obtener más información, consulte [Control de seguridad: identidad y control de acceso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Mantenga un inventario de cuentas administrativas
 
@@ -403,7 +403,7 @@ Establecimiento de contraseñas al aprovisionar un clúster de Azure HDInsight:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -437,7 +437,7 @@ Habilitación del agente de identificación de Azure HDInsight:
 
 https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker#enable-hdinsight-id-broker
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -491,7 +491,7 @@ Supervisión de la actividad de identidad y acceso de los usuarios en Azure Secu
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: Sí
 
 **Responsabilidad**: Customer
 
@@ -504,7 +504,7 @@ Cómo configurar ubicaciones con nombre en Azure:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -524,7 +524,7 @@ Configuración de Enterprise Security Package con Azure Active Directory Domai
 
 https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -537,7 +537,7 @@ Cómo usar las revisiones de acceso de identidad de Azure:
 
 https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -553,7 +553,7 @@ Cómo integrar los registros de actividad de Azure en Azure Monitor:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -562,7 +562,7 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integ
 **Instrucciones**: los clústeres de Azure HDInsight con Enterprise Security Package (ESP) configurado pueden conectarse a un dominio para que los usuarios de este puedan usar sus credenciales de dominio para autenticarse con los clústeres.  Use las características de protección de identidad y detección de riesgo de Azure Active Directory (AAD) para configurar respuestas automatizadas a las acciones sospechosas detectadas relacionadas con las identidades de los usuarios. Además, puede ingerir datos en Azure Sentinel para investigarlos más a fondo.
 
 
-Cómo ver los inicios de sesión de riesgo de AAD:
+Visualización de inicios de sesión de riesgo de AAD:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
 
@@ -571,7 +571,7 @@ Cómo configurar y habilitar las directivas de riesgo de protección de la ident
 
 https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -582,13 +582,13 @@ https://docs.microsoft.com/azure/active-directory/identity-protection/howto-iden
 Lista de servicios admitidos por la Caja de seguridad del cliente: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
 ## <a name="data-protection"></a>Protección de datos
 
-*Para más información, consulte [Control de seguridad: protección de datos](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).* .
+*Para obtener más información, consulte [Control de seguridad: protección de datos](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Mantenimiento de un inventario de información confidencial
 
@@ -599,7 +599,7 @@ Creación y uso de etiquetas:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -643,7 +643,7 @@ Descripción de la protección de datos de los clientes en Azure:
 
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Compartido
 
@@ -659,7 +659,7 @@ https://docs.microsoft.com/azure/data-lake-store/data-lake-store-security-overvi
 
 Descripción del cifrado en tránsito de la cuenta de Azure Storage:
 
-https://docs.microsoft.com/azure/storage/common/storage-security-guide#encryption-in-transit
+https://docs.microsoft.com/azure/storage/blobs/security-recommendations
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -679,7 +679,7 @@ Descripción de la protección de datos de los clientes en Azure:
 
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Compartido
 
@@ -695,7 +695,7 @@ Introducción a la seguridad de la empresa en Azure HDInsight: https://docs.micr
 
 
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -711,9 +711,9 @@ Descripción de la protección de datos de los clientes en Azure:
 
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
-**Responsabilidad**: Customer
+**Responsabilidad**: Compartido
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: Cifrado de información confidencial en reposo
 
@@ -767,7 +767,7 @@ https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnos
 
 ## <a name="vulnerability-management"></a>Administración de vulnerabilidades
 
-*Para más información, consulte [Control de seguridad: administración de vulnerabilidades](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Para obtener más información, consulte [Control de seguridad: administración de vulnerabilidades](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: Ejecute herramientas de análisis de vulnerabilidades automatizado
 
@@ -779,7 +779,7 @@ Opcionalmente, si dispone de Rapid7, Qualys o cualquier otra suscripción a una 
 
 Instalación del agente de Rapid7 manualmente:
 
-https://insightvm.help.rapid7.com/v1.0/docs/agent-installation-on-linux
+https://insightvm.help.rapid7.com/docs/azure-security-center
 
 
 Instalación del agente de Qualys manualmente:
@@ -791,7 +791,7 @@ Uso de acciones de script:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -807,7 +807,7 @@ Configuración de la programación de la aplicación de revisiones del sistema o
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-os-patching
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Compartido
 
@@ -825,7 +825,7 @@ Uso de acciones de script:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -833,7 +833,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-li
 
 **Instrucciones**: implemente una solución de administración de vulnerabilidades de terceros que tenga la capacidad de comparar exámenes de vulnerabilidades a lo largo del tiempo. Si tiene una suscripción a Rapid7 o Qualys, puede usar el portal de ese proveedor para ver y comparar exámenes de vulnerabilidades opuestos.
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -841,13 +841,13 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-li
 
 **Instrucciones**: use un programa de puntuación de riesgos común (por ejemplo, Common Vulnerability Scoring System) o la clasificación de riesgos predeterminada proporcionada por su herramienta de examen de terceros.
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
 ## <a name="inventory-and-asset-management"></a>Administración de recursos y del inventario
 
-*Para más información, consulte [Control de seguridad: inventario y administración de recursos](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Para obtener más información, consulte [Control de seguridad: inventario y administración de recursos](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1: Uso de la detección de recursos de Azure
 
@@ -871,7 +871,7 @@ Descripción de Azure RBAC:
 
 https://docs.microsoft.com/azure/role-based-access-control/overview
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -884,7 +884,7 @@ Creación y uso de etiquetas:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -907,15 +907,15 @@ Creación y uso de etiquetas:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
 ### <a name="64-maintain-an-inventory-of-approved-azure-resources-and-software-titles"></a>6.4: Mantenimiento de un inventario de los recursos de Azure aprobados y títulos de software
 
-**Instrucciones**: defina una lista de recursos de Azure aprobados y software aprobado para los recursos de proceso.
+**Instrucciones**: Defina una lista de recursos de Azure aprobados y software aprobado para los recursos de proceso.
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -926,13 +926,14 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 - Tipos de recursos no permitidos
 - Tipos de recursos permitidos
 
-Use Azure Resource Graph para consultar o detectar recursos dentro de las suscripciones.  Asegúrese de que todos los recursos de Azure presentes en el entorno estén aprobados.
+Use Azure Resource Graph para consultar o detectar recursos dentro de las suscripciones. Asegúrese de que todos los recursos de Azure presentes en el entorno estén aprobados.
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -940,7 +941,7 @@ Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governa
 
 **Instrucciones**: implemente una solución de terceros para supervisar los nodos del clúster en busca de aplicaciones de software no aprobadas.
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -953,7 +954,7 @@ Creación de consultas con Azure Graph:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -961,7 +962,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Instrucciones**: en el caso de los nodos del clúster de Azure HDInsight, implemente una solución de terceros para impedir que se ejecute software no autorizado.
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -972,11 +973,13 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 - Tipos de recursos no permitidos
 - Tipos de recursos permitidos
 
+
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 Denegación de un tipo de recurso específico con Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -984,42 +987,40 @@ Denegación de un tipo de recurso específico con Azure Policy: https://docs.mi
 
 **Instrucciones**: en el caso de los nodos del clúster de Azure HDInsight, implemente una solución de terceros para impedir que se ejecuten tipos de archivos no autorizados.
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resources-manager-via-scripts"></a>6.11: Limitación de la capacidad de los usuarios para interactuar con Azure Resource Manager mediante scripts
 
-**Instrucciones**: use el acceso condicional de Azure para limitar la capacidad de los usuarios de interactuar con Azure Resource Manager mediante la configuración de la opción "Bloquear acceso" en la aplicación "Microsoft Azure Management".
+**Instrucciones**: use el acceso condicional de Azure para limitar la capacidad de los usuarios de interactuar con Azure Resource Manager mediante la configuración de la opción "Bloquear acceso" en la aplicación "Administración de Microsoft Azure".
 
 
-Configuración del acceso condicional para bloquear el acceso a Azure Resource Manager:
+Configuración del acceso condicional para bloquear el acceso a Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
-https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
-
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12: Limitación de capacidad de los usuarios para ejecutar scripts en recursos de proceso
 
-**Instrucciones**: no aplicable; no se aplica a Azure HDInsight, ya que los usuarios (no administradores) del clúster no necesitan acceso a los nodos individuales para ejecutar trabajos. El administrador del clúster tiene acceso raíz a todos los nodos del clúster.
+**Guía**: no aplicable; no se aplica a Azure HDInsight, ya que los usuarios (que no son administradores) del clúster no necesitan acceso a los nodos individuales para ejecutar trabajos. El administrador del clúster tiene acceso raíz a todos los nodos del clúster.
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: No aplicable
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13: Segregación física o lógica de aplicaciones de alto riesgo
 
-**Instrucciones**: no disponible; la prueba comparativa está pensada para Azure App Service o recursos de proceso que hospedan aplicaciones web.
+**Guía**: no aplicable; la prueba comparativa está pensada para Azure App Service o recursos de proceso que hospedan aplicaciones web.
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: No aplicable
 
 ## <a name="secure-configuration"></a>Configuración segura
 
-*Para más información, consulte [Control de seguridad: configuración segura](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Para obtener más información, consulte [Control de seguridad: configuración segura](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Establezca configuraciones seguras para todos los recursos de Azure
 
@@ -1035,7 +1036,7 @@ Configuración y administración de Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -1043,7 +1044,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Instrucciones**: Microsoft administra y mantiene las imágenes del sistema operativo de Azure HDInsight. El cliente es responsable de implementar configuraciones seguras para el sistema operativo de los nodos del clúster. 
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -1061,7 +1062,7 @@ Descripción de los efectos de Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -1069,7 +1070,7 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Instrucciones**: Microsoft administra y mantiene las imágenes del sistema operativo de Azure HDInsight. El cliente es responsable de implementar la configuración de estado en el nivel de sistema operativo.
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Compartido
 
@@ -1089,15 +1090,15 @@ Documentación de Azure Repos:
 
 https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Almacene imágenes de sistema operativo personalizadas de forma segura
 
-**Instrucciones**: no disponible; imágenes personalizadas no aplicables a Azure HDInsight.
+**Guía**: no aplicable; las imágenes personalizadas no se aplican a Azure HDInsight.
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: No aplicable
 
@@ -1111,7 +1112,7 @@ Configuración y administración de Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -1119,7 +1120,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Instrucciones**: implemente una solución de terceros para mantener el estado deseado de los sistemas operativos del nodo de clúster.
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -1137,7 +1138,7 @@ Configuración y administración de Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -1145,7 +1146,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Instrucciones**: implemente una solución de terceros para supervisar el estado de los sistemas operativos del nodo de clúster.
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -1169,7 +1170,7 @@ Administración de las claves de cifrado para cuentas de Azure Storage:
 
 https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -1182,7 +1183,7 @@ Descripción de las identidades administradas con Azure HDInsight:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-managed-identities
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -1201,7 +1202,7 @@ https://secdevtools.azurewebsites.net/helpcredscan.html
 
 ## <a name="malware-defense"></a>Defensa contra malware
 
-*Para más información, consulte [Control de seguridad: defensa contra malware](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Para obtener más información, consulte [Control de seguridad: defensa contra malware](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Use software antimalware administrado centralmente
 
@@ -1212,7 +1213,7 @@ Descripción de Clamscan para Azure HDInsight:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificates
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -1228,7 +1229,7 @@ Descripción de Microsoft Antimalware para Azure Cloud Services y Virtual Machin
 
  https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Compartido
 
@@ -1241,13 +1242,13 @@ Descripción de Clamscan para Azure HDInsight:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificates
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
 ## <a name="data-recovery"></a>Recuperación de datos
 
-*Para más información, consulte [Control de seguridad: recuperación de datos](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Para obtener más información, consulte [Control de seguridad: recuperación de datos](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Garantía de copias de seguridad automáticas periódicas
 
@@ -1263,7 +1264,7 @@ Configuración de la redundancia para las instancias de Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -1286,7 +1287,7 @@ Copia de seguridad de las claves de Key Vault en Azure:
 
 https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -1304,7 +1305,7 @@ Restauración de las claves del almacén de claves en Azure:
 
 https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -1317,13 +1318,13 @@ Habilitación de la eliminación temporal en Azure Key Vault:
 
 https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
 ## <a name="incident-response"></a>Respuesta a los incidentes
 
-*Para más información, consulte [Control de seguridad: respuesta a los incidentes](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Para obtener más información, consulte [Control de seguridad: respuesta ante incidentes](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Creación de una guía de respuesta ante incidentes
 
@@ -1343,7 +1344,7 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 **Instrucciones**: Security Center asigna una gravedad a las alertas, que le ayudan a priorizar el orden en el que asiste a cada alerta, de modo que cuando un recurso está en peligro, puede obtenerlo inmediatamente. La gravedad se basa en la confianza que tiene Security Center en la búsqueda o en el análisis utilizados para emitir la alerta, así como en el nivel de confianza de que ha habido un intento malintencionado detrás de la actividad que ha provocado la alerta.
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: Sí
 
 **Responsabilidad**: Customer
 
@@ -1385,7 +1386,7 @@ Transmisión de alertas a Azure Sentinel:
 
 https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
@@ -1399,13 +1400,13 @@ Configuración de la automatización de flujo de trabajo y Logic Apps:
 
 https://docs.microsoft.com/azure/security-center/workflow-automation
 
-**Supervisión de Azure Security Center**: no disponible actualmente.
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Customer
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Pruebas de penetración y ejercicios del equipo rojo
 
-*Para más información, consulte [Control de seguridad: pruebas de penetración y ejercicios del equipo rojo](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Para obtener más información, consulte [Control de seguridad: Pruebas de penetración y ejercicios del equipo rojo](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: Realice pruebas de penetración periódicas de los recursos de Azure y asegúrese de corregir todos los resultados de seguridad críticos en un plazo de 60 días
 
@@ -1421,3 +1422,7 @@ Puede encontrar más información sobre la estrategia de Microsoft y la ejecuci�
 
 **Responsabilidad**: Compartido
 
+## <a name="next-steps"></a>Pasos siguientes
+
+- Consulte la [prueba comparativa de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
+- Más información sobre las [líneas de base de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

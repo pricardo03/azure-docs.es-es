@@ -1,6 +1,6 @@
 ---
 title: Puntos de restauración definidos por el usuario
-description: Creación de un punto de restauración para Azure SQL Data Warehouse.
+description: Cómo crear un punto de restauración para el grupo de SQL.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: bf092b5b6c6eb88b565a940de56d614426e34d8e
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 72e2535730dc6c814708ef3ff563136235930475
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759608"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198289"
 ---
 # <a name="user-defined-restore-points"></a>Puntos de restauración definidos por el usuario
 
-En este artículo, aprenderá a crear un punto de restauración definido por el usuario para Azure SQL Data Warehouse mediante PowerShell y Azure Portal.
+En este artículo, aprenderá a crear un punto de restauración definido por el usuario para un grupo de SQL en Azure Synapse Analytics mediante PowerShell y Azure Portal.
 
 ## <a name="create-user-defined-restore-points-through-powershell"></a>Creación de puntos de restauración definidos por el usuario mediante PowerShell
 
@@ -62,9 +62,9 @@ Los puntos de restauración definidos por el usuario también se pueden crear me
 
 1. Inicie sesión en su cuenta de [Azure Portal](https://portal.azure.com/).
 
-2. Vaya a la instancia de SQL Data Warehouse para la que desea crear un punto de restauración.
+2. Vaya al grupo de SQL para el que desea crear un punto de restauración.
 
-3. Seleccione **Información general** en el panel izquierdo y seleccione **Nuevo punto de restauración**. Si el botón Nuevo punto de restauración no está habilitado, asegúrese de que la base de datos de almacenamiento de datos no está en pausa.
+3. Seleccione **Información general** en el panel izquierdo y seleccione **Nuevo punto de restauración**. Si el botón Nuevo punto de restauración no está habilitado, asegúrese de que el grupo de SQL no está en pausa.
 
     ![Nuevo punto de restauración](./media/sql-data-warehouse-restore-points/creating-restore-point-01.png)
 
@@ -74,7 +74,7 @@ Los puntos de restauración definidos por el usuario también se pueden crear me
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Restauración de un almacenamiento de datos existente](sql-data-warehouse-restore-active-paused-dw.md)
-- [Restauración de un almacén de datos eliminado](sql-data-warehouse-restore-deleted-dw.md)
-- [Restauración desde un almacenamiento de datos de copia de seguridad geográfica](sql-data-warehouse-restore-from-geo-backup.md)
+- [Restauración de un grupo de SQL existente](sql-data-warehouse-restore-active-paused-dw.md)
+- [Restauración de un grupo de SQL eliminado](sql-data-warehouse-restore-deleted-dw.md)
+- [Restauración de un grupo de SQL a partir de una copia de seguridad de replicación geográfica](sql-data-warehouse-restore-from-geo-backup.md)
 
