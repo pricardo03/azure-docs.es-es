@@ -10,18 +10,56 @@ ms.author: jmartens
 author: j-martens
 ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 11b8ade765a2b1c1ee25421073983b96c34e5d15
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 6f244fc057638bc94a94c150d9333435c0197a74
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462180"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249742"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
 En este artículo conocerá las versiones de Azure Machine Learning.  Para obtener el contenido completo de referencia del SDK, visite la página de referencia del [**SDK principal para Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) de Azure Machine Learning.
 
 Para obtener información acerca de errores conocidos y soluciones alternativas, consulte [la lista de problemas conocidos](resource-known-issues.md).
+
+## <a name="2020-03-02"></a>2020-03-02
+
+### <a name="azure-machine-learning-sdk-for-python-v112rc0"></a>SDK de Azure Machine Learning para Python v1.1.2rc0
+
++ **Mejoras y correcciones de errores**
+  + **azureml-automl-core**
+    + Se ha habilitado la inferencia del modo de lotes (tomando varias filas una vez) para los modelos automl de ONNX.
+    + Se ha mejorado la detección de frecuencia en los conjuntos de datos, de la falta de datos o que contienen puntos de datos irregulares.
+    + Se ha agregado la capacidad de quitar los puntos de datos que no cumplen con la frecuencia dominante.
+  + **azureml-automl-runtime**
+    + Se ha corregido el problema con el error que se producía si el grano que no estaba presente en el conjunto de entrenamiento aparecía en el conjunto de pruebas.
+    + Se ha quitado el requisito y_query durante la puntuación en el servicio de previsión.
+  + **azureml-contrib-mir**
+    + Agrega funcionalidad en la clase MirWebservice para recuperar el token de acceso.
+  + **azureml-core**
+    + Los servicios web implementados de AzureML ahora tendrán como valor predeterminado el registro `INFO`. Esto se puede controlar estableciendo la variable de entorno `AZUREML_LOG_LEVEL` en el servicio implementado.
+    + Se ha corregido la iteración en `Dataset.get_all` para devolver todos los conjuntos de datos registrados en el área de trabajo.
+    + Se ha mejorado el mensaje de error cuando se pasa un tipo no válido al argumento `path` de las API de creación del conjunto de datos.
+    + El SDK de Python usa el servicio de detección para usar el punto de conexión "API" en lugar de "canalizaciones".
+    + Intercambio a las nuevas rutas en todas las llamadas del SDK.
+    + Cambios en el enrutamiento de llamadas a ModelManagementService a una nueva estructura unificada.
+      + El método de actualización de áreas de trabajo se ha puesto a disposición del público.
+      + Se agregó el parámetro image_build_compute al método de actualización de áreas de trabajo para permitir que el usuario actualice el proceso para la compilación de imágenes.
+    +  Se han agregado mensajes de desuso al flujo de trabajo de generación de perfiles antiguos. Se han corregido los límites de CPU y memoria de generación de perfiles.
+  + **azureml-interpret**
+    + Se ha actualizado azureml-interpret a interpret-community 0.6*.
+  + **azureml-mlflow**
+    + Se ha agregado compatibilidad para nubes soberanas a azureml.mlflow.
+  + **azureml-pipeline-steps**
+    + `AutoMLStep` se ha movido a `azureml-pipeline-steps package`. Se ha puesto en desuso `AutoMLStep` en `azureml-train-automl-runtime`.
+  + **azureml-train-automl-client**
+    + Se ha corregido un problema por el que algunos paquetes se instalaban en versiones incorrectas en ejecuciones remotas.
+  + **azureml-train-automl-runtime**
+    + Se ha corregido el problema con la detección de frecuencia en las ejecuciones remotas.
+    + `AutoMLStep` se ha movido a `azureml-pipeline-steps package`. Se ha puesto en desuso `AutoMLStep` en `azureml-train-automl-runtime`.
+  + **azureml-train-core**
+    + `AutoMLStep` se ha movido a `azureml-pipeline-steps package`. Se ha puesto en desuso `AutoMLStep` en `azureml-train-automl-runtime`.
 
 ## <a name="2020-02-18"></a>18-02-2020
 

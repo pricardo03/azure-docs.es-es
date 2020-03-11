@@ -1,6 +1,6 @@
 ---
 title: Ajuste del rendimiento con la copia en caché del conjunto de resultados
-description: Introducción a las características de almacenamiento en caché de conjuntos de resultados para Azure SQL Data Warehouse
+description: Información general sobre la característica de almacenamiento en caché de conjuntos de resultados para SQL Analytics en Azure Synapse Analytics
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: development
 ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 461320b9c3ed48176fb60fe695704c582edcd552
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 3d204605e68cf8cf33f69d73fb20f3cc08674e44
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692941"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200539"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Ajuste del rendimiento con la copia en caché del conjunto de resultados  
-Cuando se habilita la copia en caché del conjunto de resultados, Azure SQL Data Warehouse copia automáticamente en caché los resultados de la consulta realizada en la base de datos de usuario para un uso repetido.  Esto permite que las ejecuciones posteriores de la consulta obtengan los resultados directamente de la memoria caché persistente, por lo que no es necesario volver a realizar el proceso.   La copia en caché del conjunto de resultados mejora el rendimiento de las consultas y reduce la utilización de recursos de proceso.  Además, las consultas que usan conjuntos de resultados en la memoria caché no usan ningún espacio de simultaneidad y, por lo tanto, no cuentan para los límites de simultaneidad existentes. Por seguridad, los usuarios solo pueden acceder a los resultados en la memoria caché si tienen los mismos permisos de acceso a los datos que los usuarios que crearon estos resultados.  
+Cuando se habilita el almacenamiento en caché del conjunto de resultados, SQL Analytics almacena automáticamente en caché los resultados de la consulta realizada en la base de datos de usuario para un uso repetido.  Esto permite que las ejecuciones posteriores de la consulta obtengan los resultados directamente de la memoria caché persistente, por lo que no es necesario volver a realizar el proceso.   La copia en caché del conjunto de resultados mejora el rendimiento de las consultas y reduce la utilización de recursos de proceso.  Además, las consultas que usan conjuntos de resultados en la memoria caché no usan ningún espacio de simultaneidad y, por lo tanto, no cuentan para los límites de simultaneidad existentes. Por seguridad, los usuarios solo pueden acceder a los resultados en la memoria caché si tienen los mismos permisos de acceso a los datos que los usuarios que crearon estos resultados.  
 
 ## <a name="key-commands"></a>Comandos clave
 [Activación o desactivación (ON/OFF) de la copia en caché del conjunto de resultados de una base de datos de usuario](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)
@@ -39,7 +39,8 @@ Una vez activada la copia en caché del conjunto de resultados de una base de da
 - Consultas que devuelven datos con un tamaño de fila superior a 64 kB
 
 > [!IMPORTANT]
-> Las operaciones para almacenar en caché el conjunto de resultados y recuperar datos de la memoria caché se producen en el nodo de control de una instancia de almacenamiento de datos. Cuando se activa el almacenamiento en caché de conjuntos de resultados, la ejecución de consultas que devuelven un conjunto de resultados grande (por ejemplo, > 1 millón de filas) puede provocar un uso intensivo de la CPU en el nodo de control y ralentizar la respuesta de consulta general en la instancia.  Estas consultas se suelen usar durante la exploración de datos o las operaciones ETL. Para evitar el esfuerzo del nodo de control y causar problemas de rendimiento, los usuarios deben desactivar el almacenamiento en caché de los conjuntos de resultados en la base de datos antes de ejecutar esos tipos de consultas.  
+> Las operaciones para crear la caché del conjunto de resultados y recuperar los datos de la caché se producen en el nodo de control de una instancia de SQL Analytics.
+> Cuando se activa el almacenamiento en caché de conjuntos de resultados, la ejecución de consultas que devuelven un conjunto de resultados grande (por ejemplo, > 1 millón de filas) puede provocar un uso intensivo de la CPU en el nodo de control y ralentizar la respuesta de consulta general en la instancia.  Estas consultas se suelen usar durante la exploración de datos o las operaciones ETL. Para evitar el esfuerzo del nodo de control y los problemas de rendimiento, los usuarios deben desactivar el almacenamiento en caché de los conjuntos de resultados en la base de datos antes de ejecutar esos tipos de consultas.  
 
 Ejecute esta consulta por el tiempo que tardan las operaciones de almacenamiento en caché del conjunto de resultados para una consulta:
 
@@ -75,7 +76,7 @@ WHERE request_id = <'Your_Query_Request_ID'>
 
 El tamaño máximo de la memoria caché del conjunto de resultados es de 1 TB por base de datos.  Los resultados en caché se invalidan automáticamente cuando cambian los datos de la consulta subyacente.  
 
-La expulsión de la caché se administra automáticamente mediante Azure SQL Data Warehouse según la siguiente programación: 
+SQL Analytics administra automáticamente la expulsión de la caché según la siguiente programación: 
 - Cada 48 horas si el conjunto de resultados no se ha usado o se ha invalidado. 
 - Cuando la memoria caché del conjunto de resultados se aproxima al tamaño máximo.
 
@@ -86,4 +87,4 @@ Los usuarios pueden vaciar manualmente toda la memoria caché del conjunto de re
 Al pausar una base de datos, no se vaciará el conjunto de resultados en caché.  
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de SQL Data Warehouse](sql-data-warehouse-overview-develop.md). 
+Para obtener más sugerencias sobre desarrollo, vea la [información general sobre desarrollo](sql-data-warehouse-overview-develop.md). 

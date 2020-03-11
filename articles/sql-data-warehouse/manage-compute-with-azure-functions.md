@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Administración de procesos con Azure Functions'
-description: Cómo usar las funciones de Azure para administrar el proceso del almacenamiento de datos.
+description: Cómo usar Azure Functions para administrar el proceso del grupo de SQL en Azure Synapse Analytics.
 services: sql-data-warehouse
 author: julieMSFT
 manager: craigg
@@ -10,27 +10,27 @@ ms.subservice: consume
 ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: bc350ed092c063dcc7eca479f064114be9eb28f5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: a08c2c3c0167f0d82fe901e19b02db22b0ad56c5
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693024"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193243"
 ---
-# <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Uso de Azure Functions para administrar recursos de proceso en Azure SQL Data Warehouse
+# <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Uso de Azure Functions para administrar recursos de proceso en el grupo de SQL de Azure Synapse Analytics
 
-Este tutorial usa Azure Functions para administrar recursos de proceso de un almacenamiento de datos en Azure SQL Data Warehouse.
+Cómo usar Azure Functions para administrar los recursos de proceso para un grupo de SQL en Azure Synapse Analytics.
 
-Para poder usar Azure Function App con SQL Data Warehouse, debe crear un [cuenta de la entidad de servicio](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) con acceso de colaborador en la misma suscripción que la instancia de almacenamiento de datos. 
+Para poder usar la aplicación Azure Function con el grupo de SQL, debe crear una [cuenta de la entidad de servicio](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) con acceso de colaborador en la misma suscripción que la instancia del grupo de SQL. 
 
 ## <a name="deploy-timer-based-scaling-with-an-azure-resource-manager-template"></a>Implementación de la escala basada en el temporizador con una plantilla de Azure Resource Manager
 
 Para implementar la plantilla, necesitará la siguiente información:
 
-- Nombre del grupo de recursos en el que se encuentra su instancia de SQL DW
-- Nombre del servidor lógico en el que se encuentra su instancia de SQL DW
-- Nombre de la instancia de su SQL DW
+- Nombre del grupo de recursos donde se encuentra el grupo de SQL
+- Nombre del servidor lógico donde se encuentra la instancia del grupo de SQL
+- Nombre de la instancia del grupo de SQL
 - Id. del inquilino (identificación de directorio) de Azure Active Directory
 - Id. de suscripción 
 - Id. de aplicación de la entidad de servicio
@@ -46,7 +46,7 @@ Una vez implementada la plantilla, encontrará tres nuevos recursos: un plan gra
 
 ## <a name="change-the-compute-level"></a>Cambio del nivel de proceso
 
-1. Vaya a Function App Service. Si ha implementado la plantilla con los valores predeterminados, este servicio debe denominarse *DWOperations*. Una vez se abre Function App, observará cinco funciones implementadas para el servicio de Function App. 
+1. Vaya a Function App Service. Si ha implementado la plantilla con los valores predeterminados, este servicio debe denominarse *DWOperations*. Una vez se abre Function App, observará cinco funciones implementadas para Function App Service. 
 
    ![Funciones que se implementan con la plantilla](media/manage-compute-with-azure-functions/five-functions.png)
 
@@ -119,17 +119,17 @@ En este momento, hay solo dos funciones de escalado incluidas en la plantilla. C
 5. Establecer la variable de operación para el comportamiento deseado como se indica a continuación:
 
    ```javascript
-   // Resume the data warehouse instance
+   // Resume the SQL pool instance
    var operation = {
        "operationType": "ResumeDw"
    }
 
-   // Pause the data warehouse instance
+   // Pause the SQL pool instance
    var operation = {
        "operationType": "PauseDw"
    }
 
-   // Scale the data warehouse instance to DW600
+   // Scale the SQL pool instance to DW600
    var operation = {
        "operationType": "ScaleDw",
        "ServiceLevelObjective": "DW600"
@@ -145,7 +145,7 @@ En esta sección se muestra brevemente qué es necesario para obtener una progra
 
 Escalar horizontalmente todos los días a las 8 a.m. a DW600 y reducir verticalmente a las 8 p.m. a DW200.
 
-| Función  | Schedule     | Operación                                |
+| Función  | Programación     | Operación                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",  "ServiceLevelObjective": "DW600"}` |
 | Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
@@ -154,7 +154,7 @@ Escalar horizontalmente todos los días a las 8 a.m. a DW600 y reducir vertical
 
 Escalar horizontalmente todos los días a las 8 a. m. a DW1000, reducir verticalmente una vez a DW600 a las 4 p.m. y reducir verticalmente a las 10 p. m. a DW200.
 
-| Función  | Schedule     | Operación                                |
+| Función  | Programación     | Operación                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",  "ServiceLevelObjective": "DW1000"}` |
 | Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
@@ -164,7 +164,7 @@ Escalar horizontalmente todos los días a las 8 a. m. a DW1000, reducir vertical
 
 Escalar horizontalmente a las 8 a.m. a DW1000 y reducir verticalmente una vez a DW600 a las 4 p.m. los días laborables. Se pausa el viernes a las 11 p.m., se reanuda a las 7 a.m. del lunes.
 
-| Función  | Schedule       | Operación                                |
+| Función  | Programación       | Operación                                |
 | :-------- | :------------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
 | Function2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
@@ -177,7 +177,7 @@ Escalar horizontalmente a las 8 a.m. a DW1000 y reducir verticalmente una vez a 
 
 Más información sobre funciones de Azure [desencadenadas mediante temporizador](../azure-functions/functions-create-scheduled-function.md).
 
-Restauración del [repositorio de ejemplos](https://github.com/Microsoft/sql-data-warehouse-samples) de SQL Data Warehouse.
+Consulte el [repositorio de ejemplos](https://github.com/Microsoft/sql-data-warehouse-samples) del grupo de SQL.
 
 
 

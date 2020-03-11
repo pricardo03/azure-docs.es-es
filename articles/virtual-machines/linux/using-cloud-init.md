@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: danis
-ms.openlocfilehash: e3a09a0d8412af711bfb6c539dc9d2829b1f0898
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 0309d9a794a978c736ffc4689c46565ee8fb5b00
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964590"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226698"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Compatibilidad con cloud-init para máquinas virtuales en Azure
 En este artículo se explica la compatibilidad que existe para [cloud-init](https://cloudinit.readthedocs.io) para configurar una máquina virtual (VM) o conjuntos de escalado de máquinas virtuales en el momento del aprovisionamiento en Azure. Estas configuraciones de cloud-init se ejecutan durante el primer arranque una vez que Azure ha aprovisionado los recursos.  
@@ -34,7 +34,7 @@ Azure admite dos agentes de aprovisionamiento [cloud-init](https://cloudinit.rea
 
 cloud-init también funciona entre distribuciones. Por ejemplo, no use **apt-get install** o **yum install** para instalar un paquete. En su lugar, puede definir una lista de paquetes que se van a instalar. cloud-init usará automáticamente la herramienta de administración de paquetes nativos para la distribución de Linux (distro) que seleccione.
 
-Estamos trabajando activamente con nuestros asociados de distribuciones de Linux certificadas para disponer de imágenes con cloud-init habilitado en Azure Marketplace. Estas imágenes harán que las implementaciones y configuraciones de cloud-init funcionen perfectamente con las máquinas virtuales y los conjuntos de escalado de máquinas virtuales. Inicialmente colaboran con los asociados de distribución de Linux aprobados y el nivel superior para garantizar las funciones de cloud-init con el sistema operativo en Azure, los paquetes se actualizan y están disponibles públicamente en los repositorios de paquetes de distribución. 
+Estamos trabajando activamente con nuestros asociados de distribuciones de Linux certificadas para disponer de imágenes con cloud-init habilitado en Azure Marketplace. Estas imágenes harán que las implementaciones y configuraciones de cloud-init funcionen perfectamente con las máquinas virtuales y los conjuntos de escalado de máquinas virtuales. Inicialmente colaboramos con los partners de distribución de Linux aprobados y el nivel superior para garantizar las funciones de cloud-init con el sistema operativo en Azure; posteriormente, los paquetes se actualizan y están disponibles públicamente en los repositorios de paquetes de distribución. 
 
 Hay dos fases para que cloud-init esté disponible para el sistema operativo de distribución de Linux aprobado en Azure, la compatibilidad con paquetes y, después, la compatibilidad con imágenes:
 * La "compatibilidad con paquetes de cloud-init en Azure" documenta que paquetes de cloud-init se admiten o están en versión preliminar, por lo que puede usar estos paquetes con el sistema operativo en una imagen personalizada.

@@ -5,21 +5,21 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/14/2019
+ms.date: 02/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a355307eef9f5ce1f833cfd7924f5efa234a0cd7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e145cf481dd165144b188e6205e4b78cc61359fd
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73523796"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78202455"
 ---
 ## <a name="premium-ssd"></a>SSD Premium
 
 Los discos SSD Premium de Azure ofrecen soporte de disco de alto rendimiento y latencia baja para máquinas virtuales (VM) con cargas de trabajo con uso intensivo de entrada/salida (E/S). Para aprovechar la ventaja de la velocidad y el rendimiento de discos de Premium Storage, puede migrar los discos de VM existentes a SSD Premium. Los discos SSD Premium son adecuados para aplicaciones de producción críticas. Los discos SSD Premium solo se pueden usar con series de máquinas virtuales que sean compatibles con el almacenamiento premium.
 
-Para más información sobre los tipos individuales de máquinas virtuales y los tamaños de Azure para Windows, incluidos los tamaños que son compatibles con el almacenamiento premium, consulte [Tamaños de máquina virtual Windows](../articles/virtual-machines/windows/sizes.md). Para más información sobre los tipos individuales de máquinas virtuales y los tamaños de Azure para Linux, incluidos los tamaños que son compatibles con el almacenamiento premium, consulte [Tamaños de máquina virtual Linux](../articles/virtual-machines/linux/sizes.md).
+Para más información sobre los tipos individuales de máquinas virtuales y los tamaños de Azure para Windows, incluidos los tamaños que son compatibles con el almacenamiento premium, consulte [Tamaños de máquina virtual Windows](../articles/virtual-machines/windows/sizes.md). Para más información sobre los tipos individuales de máquinas virtuales y los tamaños de Azure para Linux, incluidos los tamaños que son compatibles con el almacenamiento premium, consulte [Tamaños de máquina virtual Linux](../articles/virtual-machines/linux/sizes.md). En cualquiera de estos artículos, debe comprobar cada artículo de tamaño de VM individual para determinar si es compatible con almacenamiento Premium.
 
 ### <a name="disk-size"></a>Tamaño del disco
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
@@ -34,7 +34,7 @@ La compatibilidad con ráfagas de discos se habilitará en las nuevas implementa
 
 ### <a name="transactions"></a>Transacciones
 
-Para los discos SSD Premium, cada operación de E/S menor o igual a 256 KiB de rendimiento se considera una sola operación de E/S. Las operaciones de E/S mayores de 256 KiB de rendimiento se consideran múltiplos de operaciones de E/S con un tamaño de 256 KiB.
+Para los discos SSD Premium, cada operación de E/S menor o igual a 256 KiB de rendimiento se considera una sola operación de E/S. Las operaciones de E/S mayores de 256 KiB de rendimiento se consideran varias operaciones de E/S con un tamaño de 256 KiB.
 
 ## <a name="standard-ssd"></a>SSD estándar
 
@@ -47,7 +47,7 @@ Los discos SSD estándar están diseñados para proporcionar latencias de menos 
 
 ### <a name="transactions"></a>Transacciones
 
-Para los discos SSD estándar, cada operación de E/S menor o igual a 256 KiB de rendimiento se considera una sola operación de E/S. Las operaciones de E/S mayores de 256 KiB de rendimiento se consideran múltiplos de operaciones de E/S con un tamaño de 256 KiB. Estas transacciones tienen un impacto en la facturación.
+Para los discos SSD estándar, cada operación de E/S menor o igual a 256 KiB de rendimiento se considera una sola operación de E/S. Las operaciones de E/S mayores de 256 KiB de rendimiento se consideran varias operaciones de E/S con un tamaño de 256 KiB. Estas transacciones tienen un impacto en la facturación.
 
 ## <a name="standard-hdd"></a>HDD estándar
 

@@ -10,22 +10,22 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 3cc2f140eeed0a4667a01aa8c5ccbad7e4411521
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: abeb5c125a746842f522030878f93941450df974
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685991"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200556"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Optimización del rendimiento con el índice de almacén de columnas agrupado ordenado  
 
-Cuando los usuarios consultan una tabla del almacén de columnas de Azure SQL Data Warehouse, el optimizador comprueba los valores mínimo y máximo almacenados en cada segmento.  Los segmentos que están fuera de los límites del predicado de la consulta no se leen del disco a la memoria.  Una consulta puede tener un rendimiento más rápido si el número de segmentos que se van a leer y su tamaño total son pequeños.   
+Cuando los usuarios consultan una tabla del almacén de columnas en SQL Analytics, el optimizador comprueba los valores mínimo y máximo almacenados en cada segmento.  Los segmentos que están fuera de los límites del predicado de la consulta no se leen del disco a la memoria.  Una consulta puede tener un rendimiento más rápido si el número de segmentos que se van a leer y su tamaño total son pequeños.   
 
 ## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>Índice de almacén de columnas agrupado ordenado frente al no ordenado 
-De forma predeterminada, para cada tabla de Azure Data Warehouse que se crea sin una opción de índice, un componente interno (generador de índices) crea un índice de almacén de columnas agrupado (CCI) no ordenado.  Los datos de cada columna se comprimen en un segmento de grupo de filas de CCI independiente.  Hay metadatos en el intervalo de valores de cada segmento, por lo que los segmentos que están fuera de los límites del predicado de la consulta no se leen desde el disco durante la ejecución de la consulta.  CCI ofrece el máximo nivel de compresión de datos y reduce el tamaño de los segmentos que se van a leer para que las consultas se ejecuten más rápido. Sin embargo, dado que el generador de índices no ordena los datos antes de comprimirlos en segmentos, pueden darse segmentos con intervalos de valores superpuestos, lo que hace que las consultas lean más segmentos del disco y tarden más en finalizar.  
+De forma predeterminada, para cada tabla de SQL Analytics que se crea sin una opción de índice, un componente interno (generador de índices) crea un índice de almacén de columnas agrupado (CCI) no ordenado.  Los datos de cada columna se comprimen en un segmento de grupo de filas de CCI independiente.  Hay metadatos en el intervalo de valores de cada segmento, por lo que los segmentos que están fuera de los límites del predicado de la consulta no se leen desde el disco durante la ejecución de la consulta.  CCI ofrece el máximo nivel de compresión de datos y reduce el tamaño de los segmentos que se van a leer para que las consultas se ejecuten más rápido. Sin embargo, dado que el generador de índices no ordena los datos antes de comprimirlos en segmentos, pueden darse segmentos con intervalos de valores superpuestos, lo que hace que las consultas lean más segmentos del disco y tarden más en finalizar.  
 
-Al crear un CCI ordenado, el motor de Azure SQL Data Warehouse ordena los datos existentes en memoria por las claves de orden antes de que el generador de índices los comprima en segmentos de índice.  Con los datos ordenados, se reduce la superposición de segmentos, lo que permite que las consultas tengan una eliminación de segmentos más eficaz y, por tanto, un rendimiento más rápido, ya que el número de segmentos que se leerán desde el disco es menor.  Si todos los datos se pueden ordenar en memoria de una vez, se puede evitar la superposición de segmentos.  Dado el gran tamaño de los datos de las tablas del almacenamiento de datos, este escenario no se produce con frecuencia.  
+Al crear un CCI ordenado, el motor de SQL Analytics ordena los datos existentes en memoria por las claves de orden antes de que el generador de índices los comprima en segmentos de índice.  Con los datos ordenados, se reduce la superposición de segmentos, lo que permite que las consultas tengan una eliminación de segmentos más eficaz y, por tanto, un rendimiento más rápido, ya que el número de segmentos que se leerán desde el disco es menor.  Si todos los datos se pueden ordenar en memoria de una vez, se puede evitar la superposición de segmentos.  Dado el gran tamaño de los datos de las tablas de SQL Analytics, este escenario no se produce con frecuencia.  
 
 Para comprobar los intervalos de segmentos de una columna, ejecute este comando con el nombre de la tabla y el nombre de la columna:
 
@@ -44,9 +44,9 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> En una tabla de CCI ordenada, los nuevos datos resultantes del mismo lote de DML o de operaciones de carga de datos se organizan dentro de ese lote, no hay ninguna organización global de todos los datos de la tabla.  Los usuarios pueden RECOMPILAR el CCI ordenado para ordenar todos los datos de la tabla.  En Azure SQL Data Warehouse, la RECOMPILACIÓN del índice de almacén de columnas es una operación sin conexión.  En el caso de una tabla con particiones, la RECOMPILACIÓN se realiza en una partición cada vez.  Los datos de la partición que se está recompilando estarán "sin conexión" y no estarán disponibles hasta que la RECOMPILACIÓN se complete para esa partición. 
+> En una tabla de CCI ordenada, los nuevos datos resultantes del mismo lote de DML o de operaciones de carga de datos se organizan dentro de ese lote, no hay ninguna organización global de todos los datos de la tabla.  Los usuarios pueden RECOMPILAR el CCI ordenado para ordenar todos los datos de la tabla.  En SQL Analytics, la RECOMPILACIÓN del índice de almacén de columnas es una operación sin conexión.  En el caso de una tabla con particiones, la RECOMPILACIÓN se realiza en una partición cada vez.  Los datos de la partición que se está recompilando estarán "sin conexión" y no estarán disponibles hasta que la RECOMPILACIÓN se complete para esa partición. 
 
-## <a name="query-performance"></a>Rendimiento de consultas
+## <a name="query-performance"></a>Rendimiento de las consultas
 
 La mejora del rendimiento de una consulta desde un CCI ordenado depende de los patrones de consulta, el tamaño de los datos, el grado de orden de los datos, la estructura física de los segmentos y la unidad de almacenamiento de datos y la clase de recurso elegidos para la ejecución de la consulta.  Los usuarios deben revisar todos estos factores antes de elegir las columnas de ordenación al diseñar una tabla de CCI ordenado.
 
@@ -110,10 +110,10 @@ CREATE TABLE Table1 WITH (DISTRIBUTION = HASH(c1), CLUSTERED COLUMNSTORE INDEX O
 AS SELECT * FROM ExampleTable
 OPTION (MAXDOP 1);
 ```
-- Ordene previamente los datos por las claves de ordenación antes de cargarlos en tablas de Azure SQL Data Warehouse.
+- Ordene previamente los datos por las claves de ordenación antes de cargarlos en tablas de SQL Analytics.
 
 
-El siguiente es un ejemplo de una distribución de tabla de CCI ordenado que no tiene ningún segmento superpuesto tras aplicar las recomendaciones anteriores. La tabla de CCI ordenada se crea en una base de datos DWU1000c mediante la instrucción CTAS a partir de una tabla de montón de 20 GB mediante MAXDOP 1 y xlargerc.  El CCI se ordena en una columna BIGINT sin duplicados.  
+El siguiente es un ejemplo de una distribución de tabla de CCI ordenado que no tiene ningún segmento superpuesto tras aplicar las recomendaciones anteriores. La tabla de CCI ordenada se crea en una base de datos de DWU1000c a través de la instrucción CTAS a partir de una tabla de montón de 20 GB mediante MAXDOP 1 y xlargerc.  El CCI se ordena en una columna BIGINT sin duplicados.  
 
 ![Segment_No_Overlapping](media/performance-tuning-ordered-cci/perfect-sorting-example.png)
 
@@ -145,4 +145,4 @@ WITH (DROP_EXISTING = ON)
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de SQL Data Warehouse](sql-data-warehouse-overview-develop.md).
+Para obtener más sugerencias sobre desarrollo, vea la [información general sobre desarrollo](sql-data-warehouse-overview-develop.md).

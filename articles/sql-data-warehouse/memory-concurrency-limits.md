@@ -1,25 +1,25 @@
 ---
 title: Límites de memoria y simultaneidad
-description: Vea los límites de simultaneidad y memoria asignados a los distintos niveles de rendimiento y las clases de recursos en Azure SQL Data Warehouse.
+description: Vea los límites de simultaneidad y memoria asignados a los distintos niveles de rendimiento y las clases de recursos en Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 12/04/2019
+ms.date: 02/04/2020
 ms.author: rortloff
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: dfdaef0002f068dc4c9044e979b169de779cf6d5
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.reviewer: jrasnick
+ms.custom: azure-synapse
+ms.openlocfilehash: 73c7b756009035c8592c85bec3a6b7d85d93666c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851288"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200692"
 ---
-# <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Límites de memoria y simultaneidad para Azure SQL Data Warehouse
-Vea los límites de simultaneidad y memoria asignados a los distintos niveles de rendimiento y las clases de recursos en Azure SQL Data Warehouse.  
+# <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Límites de memoria y simultaneidad de Azure Synapse Analytics
+Vea los límites de simultaneidad y memoria asignados a los distintos niveles de rendimiento y las clases de recursos en Azure Synapse Analytics.  
 
 ## <a name="data-warehouse-capacity-settings"></a>Configuración de la capacidad del almacenamiento de datos
 Las siguientes tablas muestran la capacidad máxima para el almacenamiento de datos en diferentes niveles de rendimiento. Para cambiar el nivel de rendimiento, consulte [Escalabilidad horizontal de un proceso en Azure SQL Data Warehouse en Azure Portal](quickstart-scale-compute-portal.md).
@@ -39,7 +39,7 @@ Los niveles de servicio van de DW100c a DW30000c.
 | DW1500c           | 3             | 20                             |   900                          |
 | DW2000c           | 4             | 15                             |  1200                          |
 | DW2500c           | 5             | 12                             |  1\.500                          |
-| DW3000c           | 6             | 10                             |  1\.800                          |
+| DW3000c           | 6             | 10                             |  1800                          |
 | DW5000c           | 10            | 6                              |  3000                          |
 | DW6000c           | 12            | 5                              |  3600                          |
 | DW7500c           | 15            | 4                              |  4500                          |
@@ -52,17 +52,17 @@ El nivel de servicio máximo es DW30000c, que tiene 60 nodos de proceso y una d
 ## <a name="concurrency-maximums-for-workload-groups"></a>Valores máximos de simultaneidad para grupos de cargas de trabajo
 Con la introducción de los [grupos de cargas de trabajo](sql-data-warehouse-workload-isolation.md), ya no se aplica el concepto de espacios de simultaneidad.  Los recursos por solicitud se asignan de forma porcentual y se especifican en la definición del grupo de cargas de trabajo.  Sin embargo, incluso con la eliminación de los espacios de simultaneidad, se necesita una cantidad mínima de recursos por consultas basada en el nivel de servicio.  En la tabla siguiente se han definido la cantidad mínima de recursos necesarios por consulta en los niveles de servicio y la simultaneidad asociada que se puede lograr. 
 
-|Nivel de servicios|N.º máximo de consultas simultáneas|% mínimo admitido para REQUEST_MIN_RESOURCE_GRANT_PERCENT|
+|Nivel de servicio|Número máximo de consultas concurrentes|% mínimo admitido para REQUEST_MIN_RESOURCE_GRANT_PERCENT|
 |---|---|---|
 |DW100c|4|25 %|
 |DW200c|8|12,5 %|
 |DW300c|12|8 %|
 |DW400c|16|6,25 %|
 |DW500c|20|5 %|
-|DW1000c|32|3 %|
-|DW1500c|32|3 %|
-|DW2000c|48|2 %|
-|DW2500c|48|2 %|
+|DW1000c|32|3 %|
+|DW1500c|32|3 %|
+|DW2000c|48|2 %|
+|DW2500c|48|2 %|
 |DW3000c|64|1,5 %|
 |DW5000c|64|1,5 %|
 |DW6000c|128|0,75 %|
@@ -73,13 +73,13 @@ Con la introducción de los [grupos de cargas de trabajo](sql-data-warehouse-wor
 ||||
 
 ## <a name="concurrency-maximums-for-resource-classes"></a>Valores máximos de simultaneidad para clases de recursos
-Para asegurarse de que cada consulta tenga recursos suficientes para ejecutarse de forma eficaz, SQL Data Warehouse realiza un seguimiento del uso de los recursos. Para ello, asigna espacios de simultaneidad a cada consulta. El sistema coloca las consultas en una cola en función de la importancia y las ranuras de simultaneidad. Las consultas esperan en la cola hasta que haya suficientes ranuras de simultaneidad disponibles. La [importancia](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) y las ranuras de simultaneidad determinan la asignación de prioridades de CPU. Para obtener más información, consulte [Analyze your workload](analyze-your-workload.md) (Análisis de la carga de trabajo).
+Para asegurarse de que cada consulta tenga recursos suficientes para ejecutarse de forma eficaz, SQL Analytics en Azure Synapse realiza un seguimiento del uso de los recursos. Para ello, asigna espacios de simultaneidad a cada consulta. El sistema coloca las consultas en una cola en función de la importancia y las ranuras de simultaneidad. Las consultas esperan en la cola hasta que haya suficientes ranuras de simultaneidad disponibles. La [importancia](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) y las ranuras de simultaneidad determinan la asignación de prioridades de CPU. Para obtener más información, consulte [Analyze your workload](analyze-your-workload.md) (Análisis de la carga de trabajo).
 
 **Clases de recursos estáticos**
 
 En la tabla siguiente se muestra el número máximo de consultas simultáneas y espacios de simultaneidad para cada [clase de recurso estático](resource-classes-for-workload-management.md).  
 
-| Nivel de servicios | N.º máximo de consultas simultáneas | Espacios de simultaneidad disponibles | Ranuras utilizadas por staticrc10 | Ranuras utilizadas por staticrc20 | Ranuras utilizadas por staticrc30 | Ranuras utilizadas por staticrc40 | Ranuras utilizadas por staticrc50 | Ranuras utilizadas por staticrc60 | Ranuras utilizadas por staticrc70 | Ranuras utilizadas por staticrc80 |
+| Nivel de servicio | Número máximo de consultas concurrentes | Espacios de simultaneidad disponibles | Ranuras utilizadas por staticrc10 | Ranuras utilizadas por staticrc20 | Ranuras utilizadas por staticrc30 | Ranuras utilizadas por staticrc40 | Ranuras utilizadas por staticrc50 | Ranuras utilizadas por staticrc60 | Ranuras utilizadas por staticrc70 | Ranuras utilizadas por staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
 | DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
@@ -102,7 +102,7 @@ En la tabla siguiente se muestra el número máximo de consultas simultáneas y 
 
 En la tabla siguiente se muestra el número máximo de consultas simultáneas y espacios de simultaneidad para cada [clase de recurso dinámico](resource-classes-for-workload-management.md). Las clases de recurso dinámico usan una asignación de porcentaje de memoria de 3-10-22-70 para las clases de recursos small-medium-large-xlarge en todos los niveles de servicio.
 
-| Nivel de servicios | N.º máximo de consultas simultáneas | Espacios de simultaneidad disponibles | Ranuras utilizadas por smallrc | Ranuras utilizadas por mediumrc | Ranuras utilizadas por largerc | Ranuras utilizadas por xlargerc |
+| Nivel de servicio | Número máximo de consultas concurrentes | Espacios de simultaneidad disponibles | Ranuras utilizadas por smallrc | Ranuras utilizadas por mediumrc | Ranuras utilizadas por largerc | Ranuras utilizadas por xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
 | DW100c        |  4                         |    4                        | 1                     |  1                     |  1                    |   2                    |
 | DW200c        |  8                         |    8                        | 1                     |  1                     |  1                    |   5                    |

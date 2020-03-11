@@ -1,21 +1,22 @@
 ---
-title: 'Introducción a las directivas personalizadas: Azure Active Directory B2C'
+title: Introducción a las directivas personalizadas
+titleSuffix: Azure AD B2C
 description: Obtenga información sobre cómo empezar a usar directivas personalizadas en Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/18/2019
-ms.author: marsma
+ms.date: 02/28/2020
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5a0e5846dd541e4997c271aee180b3790efa16e9
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: dc87628d8b47435012c3d20ec2e72ac186983555
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114044"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189334"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introducción a las directivas personalizadas en Azure Active Directory B2C
 
@@ -27,7 +28,7 @@ Las [directivas personalizadas](custom-policy-overview.md) son archivos de confi
 
 - Si todavía no tiene uno, [cree un inquilino de Azure AD B2C](tutorial-create-tenant.md) vinculado a la suscripción de Azure.
 - [Registre la aplicación](tutorial-register-applications.md) en el inquilino que ha creado para que pueda comunicarse con Azure AD B2C.
-- Complete los pasos descritos en [Configuración de la suscripción y del inicio de sesión con una cuenta de Facebook](identity-provider-facebook.md) para configurar una aplicación de Facebook.
+- Complete los pasos descritos en [Configuración de la suscripción y del inicio de sesión con una cuenta de Facebook](identity-provider-facebook.md) para configurar una aplicación de Facebook. Aunque no se requiere una aplicación de Facebook para el uso de directivas personalizadas, se usa en este tutorial para demostrar la habilitación del inicio de sesión social en una directiva personalizada.
 
 ## <a name="add-signing-and-encryption-keys"></a>Agregar claves de firma y cifrado
 
@@ -221,6 +222,8 @@ A medida que cargue los archivos, Azure agregará el prefijo `B2C_1A_` a cada un
 1. Inicie sesión con la misma cuenta para confirmar que tiene una configuración correcta.
 
 ## <a name="add-facebook-as-an-identity-provider"></a>Incorporación de Facebook como proveedor de identidades
+
+Como se mencionó en [Requisitos previos](#prerequisites), *no* se requiere Facebook para el uso de directivas personalizadas, pero aquí se usa para mostrar cómo se puede habilitar el inicio de sesión social federado en una directiva personalizada.
 
 1. En el archivo `SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** , sustituya el valor de `client_id` por el identificador de aplicación de Facebook:
 
