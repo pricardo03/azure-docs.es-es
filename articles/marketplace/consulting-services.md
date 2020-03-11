@@ -2,18 +2,19 @@
 title: Servicios de consultoría de Azure Marketplace y AppSource
 description: En este artículo se describen los criterios de idoneidad y los requisitos de publicación para nuevas ofertas de servicios de consultoría en Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: yijenj
+author: qianw211
+manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 10/29/2018
-ms.author: pabutler
-ms.openlocfilehash: cd90ae2b751a97c18dc8b6be4b8eb565a17df7a2
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.date: 02/27/2020
+ms.author: evansma
+ms.openlocfilehash: 1506a4180a5991e6f6e8ed946192bcbf10bbeac0
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191128"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296158"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Servicios de consultoría de Azure Marketplace y AppSource
 Los servicios de consultoría de Azure Marketplace y AppSource brindan a los asociados de Microsoft el objetivo de conectar a los clientes con servicios que les permitan mejorar y extender el uso que hacen de Azure y de sus objetivos empresariales. 
@@ -33,12 +34,12 @@ Los escaparates de Marketplace se organizan de acuerdo con las audiencias y los 
 |Experiencia de producto      |Portal de administración de Azure|Aplicaciones cliente de Office, Dynamics 365, Office 365| 
 |Otros      |Publicación local a través de Azure Stack, servicios de consultoría para Azure, servicios administrados para Azure|Servicios de consultoría de Dynamics y Power BI|
 
-Las ofertas de servicios de consultoría basadas en Microsoft Dynamics 365 y Power BI son aptas para anunciarse en Microsoft AppSource. Para obtener más información, consulte las [instrucciones sobre listas de consultoría de Microsoft AppSource](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
+Las ofertas de servicios de consultoría basadas en Microsoft Dynamics 365, Power Apps y Power BI son aptas para anunciarse en Microsoft AppSource. Para obtener más información, consulte las [instrucciones sobre listas de consultoría de Microsoft AppSource](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409).
 
 Las ofertas de servicios de consultoría y servicios administrados que se basan en Microsoft Azure son aptas para anunciarse en Azure Marketplace. Para más información, consulte los artículos sobre [la publicación de un servicio de consultoría](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) y [la publicación de servicios administrados en Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
 
 > [!Note]
-> Los servicios de consultoría de Azure Marketplace deben aprovechar las ofertas orientadas a una **audiencia técnica centrada en *soluciones y servicios técnicos de Azure*. ** Los servicios de consultoría en AppSource deben aprovechar las ofertas orientadas a su experiencia en entregar soluciones de calidad para Dynamics 365, Power BI o PowerApps para enumerar sus ofertas de servicios de consultoría en AppSource
+> Los servicios de consultoría de Azure Marketplace deben aprovechar las ofertas orientadas a una **audiencia técnica centrada en *soluciones y servicios técnicos de Azure*. ** Los servicios de consultoría en AppSource deben aprovechar las ofertas orientadas a su experiencia en entregar soluciones de calidad para Dynamics 365, Power BI o Power Apps para enumerar sus ofertas de servicios de consultoría en AppSource.
 > 
 > 
 > [!TIP]
@@ -61,24 +62,30 @@ Los asociados deben tener una **competencia Silver o Gold** en el área pertinen
 
 |Producto principal |Requisito de idoneidad |
 |---------|---------|
-| Dynamics 365 for Customer Engagement    |   Competencia Silver o Gold de [administración de las relaciones con el cliente en la nube](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency).    | 
-|Dynamics 365 for Finance and Operations, Enterprise Edition  |  Competencia Silver o Gold de [planificación de recursos Enterprise](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) e ingresos mínimos de 25 000 USD en operaciones en la nube en los 12 últimos meses.       |
-|Dynamics 365 for Finance and Operations, Business Edition  |  Actuar como [proveedor de servicios en la nube (CSP)](https://partner.microsoft.com/cloud-solution-provider) o [asociado de registro digital (DPOR)](https://partner.microsoft.com/membership/digital-partner-of-record) para al menos un cliente.      |
-|Power BI, objetos visuales personalizados de Power BI | Cumplir los criterios de los [asociados de soluciones](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf).|
-|PowerApps | Tener publicada una solución [Presentación de asociado](https://appsource.microsoft.com/partners).
+| Dynamics 365 Sales <br> Dynamics 365 Marketing <br> Dynamics 365 Customer Service <br> Dynamics 365 Field Service <br> Dynamics 365 Human Resources |   Debe tener la certificación Gold o Silver en la [competencia Aplicaciones empresariales en la nube](https://partner.microsoft.com/membership/cloud-business-applications-competency) para la opción Customer Engagement.    | 
+| Dynamics 365 Finance <br> Dynamics 365 Supply Chain Management <br> Dynamics 365 Commerce <br> Dynamics 365 Human Resources <br> Dynamics 365 Project Service Automation |  Debe tener la certificación Gold o Silver en la [competencia Aplicaciones empresariales en la nube](https://partner.microsoft.com/membership/cloud-business-applications-competency) para la opción Unified Operations.       |
+| Dynamics 365 Customer Insights | Debe tener al menos una implementación en producción correcta de [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) con un mínimo de cinco medidas y cinco segmentos. |
+| Dynamics 365 Business Central | Debe tener una certificación Gold o Silver en la [competencia Planificación de recursos empresariales](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) y debe ser el proveedor de soluciones en la nube de tres clientes de Business Central como mínimo. <br> <br> O BIEN <br> <br> Debe haber publicado una [aplicación de Business Central en AppSource](https://appsource.microsoft.com/). |
+| Power BI | Debe haberse apuntado a la [presentación para asociados de Power BI](https://powerbi.microsoft.com/partner-showcase/?term=&country=&industry=&department=).|
+|PowerApps | Debe ser apto para obtener las ventajas avanzadas del [programa de asociación de Power Apps](https://aka.ms/PowerAppsPartner). |
+
+Soporte técnico y recursos adicionales:
+
+1. [Microsoft Cloud Enablement Desk](https://aka.ms/CEDnominate) <br> El objetivo del formulario de nominación de asociado para una experiencia guiada de Cloud Enablement Desk es proveer un especialista del programa de la nube para articular las ventajas de MPN y servir de guía para la obtención de competencias.  
+2. Procedimiento para aparecer en la presentación de Power BI <br> Comience por enviar una solicitud para su inclusión en la lista. Para ello, consulte [Convertirse en partner](https://powerbi.microsoft.com/become-a-partner/).
 
 <b> Para más información, consulte las [competencias a través de Microsoft Partner Network](https://partner.microsoft.com/membership/competencies).</b>
- 
 
-**Los asociados de SI pueden enviar ofertas de servicios de consultoría para los siguientes 18 países o regiones**
+**Los asociados de SI pueden enviar ofertas de servicios de consultoría para los siguientes 21 países o regiones**
 
-|Países y regiones aptos |   |   |   |
+|   |   |   |   |
 |---------|----------|----------|----------|
-|Australia |Francia  |     México          |España       |
-|Bélgica   |Alemania |     Países Bajos     |Suecia       |
-|Canadá    |India   |     Nueva Zelanda     |Reino Unido  |
-|Dinamarca   |Italia   |     Noruega          |Estados Unidos |
-|Finlandia   |Japón   |     Polonia          
+| Australia | Bélgica | Canadá | Dinamarca |
+| Finlandia  | Francia | Alemania  | India   |
+| Italia    | Japón  |  México  |  Países Bajos  |
+|  Nueva Zelanda  |  Noruega  |  Polonia  | Sudáfrica |
+|  España  | Suecia  | Suiza  |  Estados Unidos  |
+| Reino Unido  |
 
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Procedimientos para registrar los servicios de consultoría en Azure Marketplace y AppSource

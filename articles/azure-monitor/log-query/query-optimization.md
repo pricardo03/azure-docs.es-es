@@ -1,18 +1,17 @@
 ---
 title: Optimización de las consultas de registro en Azure Monitor
 description: Procedimientos recomendados para optimizar las consultas de registros en Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/25/2019
-ms.openlocfilehash: 521fd84e79196439ea220bd7ffa7cc6d0750f045
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.date: 02/28/2019
+ms.openlocfilehash: e5c3da94cf2440b30dc59fe20bc51a34095f7d5f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77648842"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269059"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimización de las consultas de registro en Azure Monitor
 Los registros de Azure Monitor usan [Azure Data Explorer (ADX)](/azure/data-explorer/) para almacenar los datos de registro y ejecutar consultas para analizar los datos. Crea, administra y mantiene los clústeres de ADX automáticamente y los optimiza para la carga de trabajo de análisis de registros. Al ejecutar una consulta, se optimiza y se redirige al clúster de ADX adecuado que almacena los datos del área de trabajo. Tanto los registros de Azure Monitor como Azure Data Explorer usan muchos mecanismos de optimización de consultas automática. Aunque las optimizaciones automáticas proporcionan un aumento significativo, en algunos casos se puede mejorar drásticamente el rendimiento de las consultas. En este artículo se explican las consideraciones de rendimiento y varias técnicas para corregirlas.
@@ -64,7 +63,7 @@ Algunos de los comandos de consulta y las funciones realizan un gran consumo de 
 
 Estas funciones consumen CPU en proporción al número de filas que están procesando. La optimización más eficaz consiste en agregar inmediatamente condiciones where en la consulta que pueden filtrar tantos registros como sea posible antes de que se ejecute la función de uso intensivo de la CPU.
 
-Por ejemplo, las siguientes consultas producen exactamente el mismo resultado, pero la segunda es mucho más eficaz, ya que la condición [where]() antes del análisis excluye muchos registros:
+Por ejemplo, las siguientes consultas producen exactamente el mismo resultado, pero la segunda es mucho más eficaz, ya que la condición [where](/azure/kusto/query/whereoperator) antes del análisis excluye muchos registros:
 
 ```Kusto
 //less efficient
@@ -259,8 +258,41 @@ by Computer
 ) on Computer
 ```
 
+Otro ejemplo de este error es cuando se realiza el filtrado del ámbito de tiempo justo después de una [unión](/azure/kusto/query/unionoperator?pivots=azuremonitor) en varias tablas. Al realizar la unión, se debe definir el ámbito de cada subconsulta. Puede usar la instrucción [let](/azure/kusto/query/letstatement) para garantizar la coherencia del ámbito.
+
+Por ejemplo, la siguiente consulta examinará todos los datos de las tablas *Heartbeat* y *Perf*, no solo del último día:
+
+```Kusto
+Heartbeat 
+| summarize arg_min(TimeGenerated,*) by Computer
+| union (
+    Perf 
+    | summarize arg_min(TimeGenerated,*) by Computer) 
+| where TimeGenerated > ago(1d)
+| summarize min(TimeGenerated) by Computer
+```
+
+Esta consulta debe corregirse de la siguiente manera:
+
+```Kusto
+let MinTime = ago(1d);
+Heartbeat 
+| where TimeGenerated > MinTime
+| summarize arg_min(TimeGenerated,*) by Computer
+| union (
+    Perf 
+    | where TimeGenerated > MinTime
+    | summarize arg_min(TimeGenerated,*) by Computer) 
+| summarize min(TimeGenerated) by Computer
+```
+
+La medida siempre es mayor que el tiempo real especificado. Por ejemplo, si el filtro de la consulta es 7 días, el sistema podría examinar 7,5 o 8,1 días. Esto se debe a que el sistema realiza la partición de los datos en fragmentos de tamaño variable. Para garantizar que se analizan todos los registros pertinentes, examina toda la partición que puede abarcar varias horas e incluso más de un día.
+
+Hay varios casos en los que el sistema no puede proporcionar una medida precisa del intervalo de tiempo. Esto sucede en la mayoría de los casos en los que el intervalo de la consulta es inferior a un día o en consultas de varias áreas de trabajo.
+
+
 > [!IMPORTANT]
-> Este indicador no está disponible para las consultas de varias regiones.
+> Este indicador solo presenta los datos procesados del clúster inmediato. En una consulta de varias regiones, solo representaría una de las regiones. En una consulta de varias áreas de trabajo, es posible que no incluya todas las áreas de trabajo.
 
 ## <a name="age-of-processed-data"></a>Antigüedad de los datos procesados
 Azure Data Explorer usa varias capas de almacenamiento: en memoria, discos SSD locales y blobs de Azure mucho más lentos. Cuanto más recientes sean los datos, más alta será la posibilidad de que se almacenen en una capa más eficiente y con menos latencia, lo que reduce el uso de la CPU y la duración de la consulta. Al margen de los propios datos, el sistema también tiene una memoria caché para los metadatos. Cuanto más antiguos sean los datos, menor será la probabilidad de que sus metadatos estén en la caché.
@@ -285,7 +317,7 @@ La ejecución de consultas en varias regiones requiere que el sistema efectúe l
 Si no hay motivo alguno para digitalizar todas estas regiones, debe ajustar el ámbito para que cubra menos regiones. Si el ámbito del recurso se minimiza, pero aún se usan varias regiones, puede producirse debido a un error de configuración. Por ejemplo, la configuración de diagnóstico y los registros de auditoría se envía a diferentes áreas de trabajo en distintas regiones o hay varias configuraciones de diagnóstico. 
 
 > [!IMPORTANT]
-> Este indicador no está disponible para las consultas de varias regiones.
+> Cuando una consulta se ejecuta en varias regiones, las medidas de los datos y la CPU no serán precisas y solo representarán la medida en una de las regiones.
 
 ## <a name="number-of-workspaces"></a>Número de áreas de trabajo
 Las áreas de trabajo son contenedores lógicos que se usan para separar y administrar los datos de registros. El back-end optimiza las selecciones de ubicación de las áreas de trabajo en clústeres físicos dentro de la región seleccionada.
@@ -301,7 +333,7 @@ La ejecución de consultas en varios clústeres y varias regiones requiere que e
 > En algunos escenarios de varias áreas de trabajo, las medidas de los datos y la CPU no serán precisas y solo representarán la medida de algunas de las áreas de trabajo.
 
 ## <a name="parallelism"></a>Paralelismo
-Los registros de Azure Monitor usan clústeres grandes de Azure Data Explorer para ejecutar consultas y dichos clústeres pueden variar según la escala. El sistema escala automáticamente los clústeres en función de la capacidad y la lógica de selección de ubicación del área de trabajo.
+Los registros de Azure Monitor usan clústeres grandes de Azure Data Explorer para ejecutar consultas y dichos clústeres varían según la escala, lo que puede llevar a obtener decenas de nodos de ejecución. El sistema escala automáticamente los clústeres en función de la capacidad y la lógica de selección de ubicación del área de trabajo.
 
 Para ejecutar una consulta de forma eficaz, se divide en particiones y se distribuye en nodos de ejecución según los datos necesarios para su procesamiento. Hay algunas situaciones en las que el sistema no puede hacer esto de manera eficiente. Esto puede dar lugar a una larga duración de la consulta. 
 

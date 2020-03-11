@@ -3,20 +3,20 @@ title: Ejemplos de transformación de notificaciones booleanas para directivas p
 titleSuffix: Azure AD B2C
 description: Ejemplos de transformación de notificaciones booleanas para el esquema de Identity Experience Framework (IEF) de Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
-ms.author: marsma
+ms.date: 03/03/2020
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 130fca4d5894316e7684270ff9d6361e9d9f9dd3
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: e470ea65085bf71f0052567d5bf367661852d1cb
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620833"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268016"
 ---
 # <a name="boolean-claims-transformations"></a>Transformaciones de notificaciones booleanas
 
@@ -116,7 +116,7 @@ El perfil técnico autoafirmado llama al perfil técnico **login-NonInteractive*
 
 ## <a name="comparebooleanclaimtovalue"></a>CompareBooleanClaimToValue
 
-Comprueba que el valor booleano de una notificación es igual a `true` o `false` y que devuelve el resultado de la compresión. 
+Comprueba que el valor booleano de una notificación es igual a `true` o `false` y que devuelve el resultado de la compresión.
 
 | Elemento | TransformationClaimType  | Tipo de datos  | Notas |
 | ---- | ------------------------ | ---------- | ----- |
@@ -148,7 +148,7 @@ La siguiente transformación de notificaciones explica cómo comprobar el valor 
 - Parámetros de entrada:
     - **valueToCompareTo**: true
 - Notificaciones de salida:
-    - **compareResult**: false 
+    - **compareResult**: false
 
 
 

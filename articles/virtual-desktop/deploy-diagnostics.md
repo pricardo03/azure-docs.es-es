@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 03/03/2020
 ms.author: helohr
-ms.openlocfilehash: 5eff53119362cd03c9a6497e3133984627e513c1
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 9e42ff0ec5b44dca743d2ec1470c2eef655b9436
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368854"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273104"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Implementación de la herramienta de diagnósticos
 
@@ -128,10 +128,9 @@ Antes de continuar con la implementación de la herramienta de diagnóstico, se 
 Para asegurarse de que el registro de la aplicación tiene permisos de API:
 
 1. Abra un explorador y conéctese a [Azure Portal](https://portal.azure.com/) con su cuenta de administrador.
-2. Vaya a **Registros de aplicaciones** y busque el registro de la aplicación de Azure AD.
-
-      ![Página Permisos de API.](media/api-permissions-page.png)
-
+2. Vaya a **Azure Active Directory**.
+3. Vaya a **Registros de aplicaciones** y seleccione **Todas las aplicaciones**.
+4. Busque el registro de la aplicación Azure AD con el mismo nombre de aplicación que especificó en el paso 5 de [Creación de un registro de aplicaciones de Azure Active Directory](deploy-diagnostics.md#create-an-azure-active-directory-app-registration).
 
 ### <a name="review-your-log-analytics-workspace"></a>Revisión del área de trabajo de Log Analytics
 

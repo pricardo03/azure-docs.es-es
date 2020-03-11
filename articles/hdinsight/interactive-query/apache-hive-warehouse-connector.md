@@ -1,18 +1,18 @@
 ---
 title: 'Apache Spark y Apache Hive, conector de Hive Warehouse : Azure HDInsight'
 description: Aprenda a integrar Apache Spark y Apache Hive con el conector de Hive Warehouse en Azure HDInsight.
-author: nakhanha
-ms.author: nakhanha
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/08/2019
-ms.openlocfilehash: 765bbc352c493124c1adec68eff456f4d0de3d49
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 03/02/2020
+ms.openlocfilehash: f386530ffb3a074a5c1db1d9f28535d28c8b1284
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75744880"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252418"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integración de Apache Spark y Apache Hive con el conector de Hive Warehouse
 
@@ -54,17 +54,17 @@ Copie la información del nodo del archivo `/etc/hosts` en headnode0 de su clús
 
 #### <a name="from-your-interactive-query-cluster"></a>Desde el clúster de Interactive Query
 
-1. Vaya a la Página principal de Apache Ambari del clúster con `https://LLAPCLUSTERNAME.azurehdinsight.net` donde `LLAPCLUSTERNAME` es el nombre del clúster de Interactive Query.
+1. Vaya a la página de Apache Ambari Hive del clúster con `https://LLAPCLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/configs`, donde `LLAPCLUSTERNAME` es el nombre del clúster de Interactive Query.
 
-1. Vaya a **Hive** > **CONFIGS** > **Advanced** > **Advanced Hive-site** > **hive.zookeeper.quorum** y anote el valor. El valor puede ser similar a `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`.
+1. Vaya a **Advanced** > **General** > **hive.metastore.uris** y anote el valor. El valor puede ser similar a `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
 
-1. Vaya a **Hive** > **CONFIGS** > **Advanced** > **General** > **hive.metastore.uris** y anote el valor. El valor puede ser similar a `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
+1. Vaya a **Advanced** > **Advanced Hive-site** > **hive.zookeeper.quorum** y anote el valor. El valor puede ser similar a `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`.
 
 #### <a name="from-your-apache-spark-cluster"></a>Desde el clúster de Apache Spark
 
-1. Vaya a la Página principal de Apache Ambari del clúster con `https://SPARKCLUSTERNAME.azurehdinsight.net` donde `SPARKCLUSTERNAME` es el nombre del clúster de Apache Spark.
+1. Vaya a la página de Apache Ambari Hive del clúster con `https://SPARKCLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/configs`, donde `SPARKCLUSTERNAME` es el nombre del clúster de Apache Spark.
 
-1. Vaya a **Hive** > **CONFIGS** > **Advanced** > **Advanced hive-interactive-site** > **hive.llap.daemon.service.hosts** y anote el valor. El valor puede ser similar a `@llap0`.
+1. Vaya a **Advanced** > **Advanced hive-interactive-site** > **hive.llap.daemon.service.hosts** y anote el valor. El valor puede ser similar a `@llap0`.
 
 ### <a name="configure-spark-cluster-settings"></a>Configuración de un clúster de Spark
 
@@ -174,7 +174,7 @@ Spark no admite la escritura en tablas ACID administradas de Hive de forma nativ
     ```scala
     hive.table("sampletable_colorado").show()
     ```
-    
+
     ![visualización de la tabla de Hive del conector de Hive Warehouse](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
 
 ### <a name="structured-streaming-writes"></a>Escrituras de flujos estructurados
@@ -261,5 +261,5 @@ Use **Ctrl + C** para detener netcat en la segunda sesión de SSH. Use `:q` para
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Uso de Interactive Query con HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
+* [Uso de Interactive Query con HDInsight](./apache-interactive-query-get-started.md)
 * [Ejemplos de la interacción con el conector de Hive Warehouse mediante Zeppelin, Livy, spark-submit y pyspark](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)

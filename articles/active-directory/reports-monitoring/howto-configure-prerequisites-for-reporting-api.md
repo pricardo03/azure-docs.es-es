@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/30/2019
+ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a9559f85e31a38c50034d6aacc8f65e4d68aec2
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f25f13c60a60e1a397e4c63443ee786a9acdf6d1
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014435"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273799"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Requisitos previos para acceder a la API de generación de informes de Azure Active Directory
 
@@ -106,7 +106,7 @@ En la siguiente sección se enumeran los pasos para ambas API. Si no desea acced
 
     ![Registre la aplicación](./media/howto-configure-prerequisites-for-reporting-api/05.png)
 
-2. En la **página Solicitud de permisos de API**, busque **Compatibilidad de API heredadas** **Azure Active Directory Graph**. 
+2. En la **página Solicitud de permisos de API**, busque **APIs heredadas admitidas** **Azure Active Directory Graph**. 
 
     ![Registre la aplicación](./media/howto-configure-prerequisites-for-reporting-api/06.png)
 
@@ -127,7 +127,7 @@ En la siguiente sección se enumeran los pasos para ambas API. Si no desea acced
 En esta sección se muestra cómo obtener la siguiente configuración del directorio:
 
 - Nombre de dominio
-- id. de cliente
+- Id. de cliente
 - Secreto del cliente
 
 Necesitará estos valores al configurar llamadas a la API de generación de informes. 
@@ -189,19 +189,16 @@ Necesitará estos valores al configurar llamadas a la API de generación de info
 
 ## <a name="troubleshoot-errors-in-the-reporting-api"></a>Solución de errores de la API de generación de informes
 
-En esta sección se enumeran los mensajes de error más comunes con los que puede encontrarse al acceder a los informes de actividad mediante la MS Graph API y los pasos para su resolución.
+En esta sección se enumeran los mensajes de error más comunes con los que puede encontrarse al acceder a los informes de actividad mediante Microsoft Graph API y los pasos para su resolución.
 
-### <a name="500-http-internal-server-error-while-accessing-microsoft-graph-v2-endpoint"></a>Error de servidor interno HTTP 500 al obtener acceso al punto de conexión de Microsoft Graph V2
 
-Actualmente no se admite el punto de conexión Microsoft Graph v2; asegúrese de acceder a los registros de actividad mediante el punto de conexión Microsoft Graph v1.
-
-### <a name="error-failed-to-get-user-roles-from-ad-graph"></a>Error: No se pudieron obtener los roles de usuario de Graph AD
+### <a name="error-failed-to-get-user-roles-from-microsoft-graph"></a>Error: No se pudieron obtener los roles de usuario de Microsoft Graph
 
  Inicie sesión en su cuenta con los dos botones de inicio de sesión de la interfaz de usuario del Probador de Graph para no recibir un error al intentar iniciar sesión con el Probador de Graph. 
 
 ![Explorador de Graph](./media/troubleshoot-graph-api/graph-explorer.png)
 
-### <a name="error-failed-to-do-premium-license-check-from-ad-graph"></a>Error: No se pudo realizar la comprobación de licencia Premium de AD Graph 
+### <a name="error-failed-to-do-premium-license-check-from-microsoft-graph"></a>Error: No se pudo realizar la comprobación de licencia Premium de Microsoft Graph 
 
 Si se encuentra con este mensaje de error al intentar acceder a los inicios de sesión mediante el Probador de Graph, seleccione **Modificar permisos** debajo de su cuenta en la barra de navegación de la izquierda y seleccione **Tasks.ReadWrite** y **Directory.Read.All**. 
 
@@ -218,7 +215,7 @@ El acceso a los informes de inicio de sesión requiere una licencia Premium 1 (P
 
 ### <a name="error-application-missing-aad-read-directory-data-permission"></a>Error: Falta el permiso de AAD de la aplicación "Leer datos de directorio" 
 
-### <a name="error-application-missing-msgraph-api-read-all-audit-log-data-permission"></a>Error: Falta el permiso de MSGraph API "Leer todos los datos de registro de auditoría"
+### <a name="error-application-missing-microsoft-api-read-all-audit-log-data-permission"></a>Error: Falta el permiso de Microsoft API "Leer todos los datos de registro de auditoría"
 
 Siga los pasos del artículo [Requisitos previos para acceder a la API de generación de informes de Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md) para asegurarse de que la aplicación se ejecuta con el conjunto correcto de permisos. 
 

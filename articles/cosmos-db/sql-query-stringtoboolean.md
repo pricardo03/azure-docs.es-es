@@ -4,15 +4,15 @@ description: Obtenga información sobre la función del sistema SQL StringToBool
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8719857dca16585a045f8174dbac8df455f38f38
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: ce11db91eff51e669f0917fbf34b1d560d0e9f07
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349255"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296548"
 ---
 # <a name="stringtoboolean-azure-cosmos-db"></a>StringToBoolean (Azure Cosmos DB)
  Devuelve la expresión traducida a un valor booleano. Si no se puede traducir la expresión, devuelve undefined.  
@@ -28,7 +28,7 @@ StringToBoolean(<str_expr>)
 *str_expr*  
    Es una expresión de cadena que se va a analizar como una expresión booleana.  
   
-## <a name="return-types"></a>Tipos de valor devuelto
+## <a name="return-types"></a>Tipos de valores devueltos
   
   Devuelve una expresión booleana o undefined.  
   
@@ -85,6 +85,10 @@ El conjunto de resultados es el siguiente:
 ```json
 [{}]
 ```  
+
+## <a name="remarks"></a>Observaciones
+
+Esta función del sistema no usará el índice.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

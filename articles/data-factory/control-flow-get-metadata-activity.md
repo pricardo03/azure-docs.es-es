@@ -10,14 +10,14 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 03/02/2020
 ms.author: jingwang
-ms.openlocfilehash: 9985997ff4bef727676232705297379ccfc179c5
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a0c07aaf27825254f776a03b9b9ca2cbeddca02d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928564"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250275"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Actividad de obtención de metadatos en Azure Data Factory
 
@@ -33,7 +33,7 @@ La siguiente funcionalidad está disponible en el flujo de control:
 
 ## <a name="capabilities"></a>Capacidades
 
-La actividad de obtención de metadatos toma un conjunto de datos como entrada y genera información de metadatos como salida. Actualmente, se admiten los siguientes conectores y los metadatos recuperables correspondientes. El tamaño máximo de los metadatos devueltos es 1 MB.
+La actividad de obtención de metadatos toma un conjunto de datos como entrada y genera información de metadatos como salida. Actualmente, se admiten los siguientes conectores y los metadatos recuperables correspondientes. El tamaño máximo de los metadatos devueltos es 2 MB.
 
 >[!NOTE]
 >Si ejecuta la actividad de obtención de metadatos en un entorno de ejecución de integración autohospedado, se admite la funcionalidad más reciente en la versión 3.6 o posterior.
@@ -42,13 +42,13 @@ La actividad de obtención de metadatos toma un conjunto de datos como entrada y
 
 **Almacenamiento de archivos**
 
-| Conector/Metadatos | itemName<br>(archivo/carpeta) | itemType<br>(archivo/carpeta) | size<br>(archivo) | created<br>(archivo/carpeta) | lastModified<br>(archivo/carpeta) |childItems<br>(carpeta) |contentMD5<br>(archivo) | structure<br/>(archivo) | columnCount<br>(archivo) | exists<br>(archivo/carpeta) |
+| Conector/Metadatos | itemName<br>(archivo/carpeta) | itemType<br>(archivo/carpeta) | tamaño<br>(archivo) | created<br>(archivo/carpeta) | lastModified<br>(archivo/carpeta) |childItems<br>(carpeta) |contentMD5<br>(archivo) | structure<br/>(archivo) | columnCount<br>(archivo) | exists<br>(archivo/carpeta) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | [Almacenamiento de blobs de Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Archivos de Azure](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [Sistema de archivos](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
@@ -72,11 +72,11 @@ La actividad de obtención de metadatos toma un conjunto de datos como entrada y
 
 Puede especificar los siguientes tipos de metadatos en la lista de campos de la actividad de obtención de metadatos para recuperar la información correspondiente:
 
-| Tipo de metadatos | DESCRIPCIÓN |
+| Tipo de metadatos | Descripción |
 |:--- |:--- |
 | itemName | Nombre del archivo o la carpeta. |
 | itemType | Tipo del archivo o la carpeta. El valor devuelto es `File` o `Folder`. |
-| size | Tamaño del archivo, en bytes. Se aplica solo a los archivos. |
+| tamaño | Tamaño del archivo, en bytes. Se aplica solo a los archivos. |
 | created | Fecha y hora de creación del archivo o la carpeta. |
 | lastModified | Fecha y hora de la última modificación del archivo o la carpeta. |
 | childItems | Lista de subcarpetas y archivos dentro de la carpeta determinada. Se aplica solo a las carpetas. El valor devuelto es una lista del nombre y el tipo de cada elemento secundario. |
@@ -135,7 +135,7 @@ Puede especificar los siguientes tipos de metadatos en la lista de campos de la 
 
 Actualmente, la actividad de obtención de metadatos puede capturar los siguientes tipos de información de metadatos:
 
-Propiedad | DESCRIPCIÓN | Obligatorio
+Propiedad | Descripción | Obligatorio
 -------- | ----------- | --------
 fieldList | Los tipos de información de metadatos necesarios. Para más información sobre los metadatos admitidos, consulte la sección [Opciones de metadatos](#metadata-options) de este artículo. | Sí 
 dataset | Conjunto de datos de referencia cuyos metadatos debe recuperar la actividad de obtención de metadatos. Consulte la sección[Capacidades](#capabilities) para obtener información sobre los conectores admitidos. Consulte los temas específicos del conector para obtener información detallada sobre la sintaxis del conjunto de datos. | Sí

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 772c16dc292d8bce4b927c9c2ce3ff6ee0ed399d
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 827c76610162d74c5283177fef4989204321f44b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152132"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268702"
 ---
 # <a name="partition-and-sample-module"></a>Módulo Partición y muestra
 
@@ -154,9 +154,9 @@ Esta opción se usa cuando ha dividido un conjunto de datos en varias particione
 
 5. Si trabaja con varias particiones, debe agregar instancias adicionales del módulo **Partición y muestra** para controlar cada partición.
 
-    Por ejemplo, supongamos que ha particionado los pacientes previamente en cuatro plegamientos usando la edad. Para trabajar con cada plegamiento individual, necesita cuatro copias del módulo **Partición y muestra** y, en cada uno, seleccione un plegamiento diferente, como se muestra a continuación. No es correcto usar la salida de **Assign to Folds** (Asignar a plegamientos) directamente.  
+    Por ejemplo, el módulo **Partition and Sample** (Partición y muestra) de la segunda fila está establecido en **Assign to Folds** (Asignar a plegamientos) y los módulos de la tercera fila, en **Pick Fold** (Seleccionar plegamiento).   
 
-    [![Partición y muestra](./media/partition-and-sample/partition-and-sample.png)](./media/partition-and-sample/partition-and-sample-lg.png#lightbox)
+    ![Partición y ejemplo](./media/module/partition-and-sample.png)
 
 5. Ejecución de la canalización
 

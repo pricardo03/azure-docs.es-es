@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: a35239354d23f75361d5577d6b7efc8254943147
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e9e2fe92939088420f973c5ca112b5f59d07f212
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906598"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252681"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedaje de sitios web estáticos en Azure Storage
 
@@ -91,6 +91,12 @@ Si la cuenta de almacenamiento está configurada para [requerir la transferencia
 
 > [!TIP]
 > Consider la posibilidad de hospedar el dominio en Azure. Para más información, consulte [Hospedaje de un dominio en Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
+
+## <a name="adding-http-headers"></a>Adición de encabezados HTTP
+
+No hay forma de configurar encabezados como parte de la característica de sitio web estático. Sin embargo, puede usar Azure CDN para agregar encabezados y anexar (o sobrescribir) sus valores. Consulte [Referencia del motor de reglas estándar de Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-standard-rules-engine-reference).
+
+Si quiere usar encabezados para controlar el almacenamiento en caché, consulte [Control del comportamiento del almacenamiento en caché de Azure CDN con reglas de almacenamiento en caché](https://docs.microsoft.com/azure/cdn/cdn-caching-rules).
 
 ## <a name="pricing"></a>Precios
 

@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: 529e188d1a4ee00cee7f3d023ab45a48dd0d3c5f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9883256fc801d37acd4ea10226bd9e541f9135f7
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428388"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268650"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Ciencia de datos con una instancia de Data Science Virtual Machine de Linux en Azure
 
@@ -24,7 +24,7 @@ En las tareas de ciencias de datos que se demuestran en este tutorial se siguen 
 
 En este tutorial analizamos el conjunto de datos [spambase](https://archive.ics.uci.edu/ml/datasets/spambase). Spambase es un conjunto de correos electrónicos que se marcan como correo no deseado o ham (no es correo no deseado). Spambase también contiene algunas estadísticas sobre el contenido de los correos electrónicos. Hablaremos sobre las estadísticas más adelante en el tutorial.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de usar una instancia de DSVM de Linux, debe cumplir los siguientes requisitos previos:
 
@@ -187,6 +187,8 @@ Para implementar el código del árbol de decisiones de la sección anterior, in
    ![Token de autorización principal de Azure Machine Learning Studio (clásico)](./media/linux-dsvm-walkthrough/workspace-token.png)
 1. Cargue el paquete de **AzureML** y luego establezca los valores de las variables con su token y su id. de área de trabajo en la sesión de R de DSVM:
 
+        if(!require("devtools")) install.packages("devtools")
+        devtools::install_github("RevolutionAnalytics/AzureML")
         if(!require("AzureML")) install.packages("AzureML")
         require(AzureML)
         wsAuth = "<authorization-token>"
@@ -206,9 +208,23 @@ Para implementar el código del árbol de decisiones de la sección anterior, in
         return(colnames(predictDF)[apply(predictDF, 1, which.max)])
         }
 
+1. Cree un archivo settings.json para esta área de trabajo:
+
+        vim ~/.azureml/settings.json
+
+1. Asegúrese de que el contenido siguiente se incluya en el archivo settings.json:
+
+         {"workspace":{
+           "id": "<workspace-id>",
+           "authorization_token": "<authorization-token>",
+           "api_endpoint": "https://studioapi.azureml.net",
+           "management_endpoint": "https://management.azureml.net"
+         }
+
 
 1. Publique la función **predictSpam** en AzureML mediante la función **publishWebService**:
 
+        ws <- workspace()
         spamWebService <- publishWebService(ws, fun = predictSpam, name="spamWebService", inputSchema = smallTrainSet, data.frame=TRUE)
 
 1. Esta función toma la función **predictSpam**, crea un servicio web llamado **spamWebService** con entradas y salidas definidas y devuelve información sobre el nuevo punto de conexión.

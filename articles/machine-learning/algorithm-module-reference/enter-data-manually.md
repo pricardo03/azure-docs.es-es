@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 61c3dde49d4cd298fb3a0f19dc1d8c00e54977af
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 949cdb4c53531a548380a6f0116fb45f91d7ba66
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152353"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268777"
 ---
 # <a name="enter-data-manually-module"></a>Módulo Introducción manual de datos
 
@@ -36,13 +36,13 @@ Este módulo puede ser útil en escenarios como los siguientes:
   
 2.  Para **DataFormat**, seleccione una de las siguientes opciones. Estas opciones determinan cómo se deben analizar los datos proporcionados. Los requisitos para cada formato varían en gran medida, por lo que debe asegurarse de leer los temas relacionados.  
   
-    -   **ARFF**. El formato de archivo de relación de atributos, usado por Weka.   
+    -   **ARFF**: El formato de archivo de relación de atributos, usado por Weka.   
   
-    -   **CSV**. Formato de valores separados por comas. Para obtener más información, consulte [Convert to CSV](./convert-to-csv.md) (Convertir a CSV).  
+    -   **CSV**: Formato de valores separados por comas. Para obtener más información, consulte [Convert to CSV](./convert-to-csv.md) (Convertir a CSV).  
   
-    -   **SVMLight**. Formato usado por Vowpal Wabbit y otros marcos de aprendizaje automático.  
+    -   **SVMLight**: Formato usado por Vowpal Wabbit y otros marcos de aprendizaje automático.  
   
-    -   **TSV**. Formato de valores separados por tabulaciones.
+    -   **TSV**: Formato de valores separados por tabulaciones.
 
      Si elige un formato y no proporciona datos que cumplan las especificaciones de formato, se produce un error en tiempo de ejecución.
   
@@ -89,11 +89,9 @@ Este módulo puede ser útil en escenarios como los siguientes:
         |0.00016|0.004|0.999961|0.00784|1|  
         |0|0.004|0.999955|0.008615|1|  
   
-4.  Presione ENTRAR después de cada fila, para iniciar una nueva línea.  
-  
-     **Asegúrese de presionar ENTRAR después de la fila final.** 
+4.  Presione ENTRAR después de cada fila, para iniciar una nueva línea.      
      
-     Si presiona ENTRAR varias veces para agregar varias filas finales vacías, la fila final vacía se quita, pero las demás filas vacías se tratan como valores que faltan.  
+     Si presiona ENTRAR varias veces para agregar varias filas finales vacías, se quitarán las filas vacías.  
   
      Si crea filas con valores que faltan, siempre puede filtrarlas más adelante.  
   

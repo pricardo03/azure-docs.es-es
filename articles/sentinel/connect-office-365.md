@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/12/2020
 ms.author: yelevin
-ms.openlocfilehash: b00f9c9e7de9568a29d2b7a7f4ef84c022ef5679
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 43eba727b1dc724aae6eea3ec77de1363c5db73f
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588168"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252516"
 ---
 # <a name="connect-data-from-office-365-logs"></a>Conectar datos de registros de Office 365
 
@@ -33,9 +33,9 @@ Se pueden transmitir registros de auditoría desde [Office 365](https://docs.mic
 ## <a name="prerequisites"></a>Prerrequisitos
 
 - Debe ser administrador global o administrador de seguridad en el inquilino.
-- Si el inquilino no tiene una licencia de Office 365 E3 u Office 365 E5, debe habilitar la auditoría unificada en el inquilino mediante uno de estos procesos:
+- El inquilino debe tener habilitada la auditoría unificada. Los inquilinos con licencias de Office 365 E3 o E5 tienen habilitada la auditoría unificada de forma predeterminada. <br>Si el inquilino no tiene ninguna de estas licencias, debe habilitar la auditoría unificada en el inquilino mediante uno de estos métodos:
     - [Usar el cmdlet Set-AdminAuditLogConfig](https://docs.microsoft.com/powershell/module/exchange/policy-and-compliance-audit/set-adminauditlogconfig?view=exchange-ps) y habilitar el parámetro “UnifiedAuditLogIngestionEnabled”.
-    - [O usar la interfaz de usuario del Centro de seguridad y cumplimiento](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#before-you-begin).
+    - [Usar la interfaz de usuario del Centro de seguridad y cumplimiento](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#before-you-begin).
 
 ## <a name="connect-to-office-365"></a>Conectarse a Office 365
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: iainfou
-ms.openlocfilehash: 0f0cf1f066257413f23dd83ffc5ecad0169f7e77
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: c634b1288727ae045d1fb8b6f6cdff4a80e757ce
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613826"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298912"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Unión de una máquina virtual CentOS Linux a un dominio administrado de Azure AD Domain Services
 
@@ -34,7 +34,7 @@ Para completar este tutorial, necesitará los siguientes recursos y privilegios:
     * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
 * Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
     * Si es necesario, el primer tutorial [crea y configura una instancia de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-* Una cuenta de usuario que sea miembro del grupo de *administradores de Azure AD DC* en el inquilino de Azure AD.
+* Una cuenta de usuario que forma parte del dominio administrado de Azure AD DS.
 
 ## <a name="create-and-connect-to-a-centos-linux-vm"></a>Creación y conexión a una máquina virtual CentOS Linux
 
@@ -86,7 +86,7 @@ sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir 
 
 Ahora que los paquetes necesarios están instalados en la máquina virtual, una la máquina virtual al dominio administrado de Azure AD DS.
 
-1. Use el comando `realm discover` para detectar el dominio administrado de Azure AD DS. En el ejemplo siguiente se detecta el dominio kerberos *AADDSCONTOSO.COM*. Especifique su propio nombre de dominio administrado de Azure AD DS CON TODAS LAS LETRAS EN MAYÚSCULAS:
+1. Use el comando `realm discover` para detectar el dominio administrado de Azure AD DS. En el ejemplo siguiente, se detecta el dominio kerberos *AADDSCONTOSO.COM*. Especifique su propio nombre de dominio administrado de Azure AD DS CON TODAS LAS LETRAS EN MAYÚSCULAS:
 
     ```console
     sudo realm discover AADDSCONTOSO.COM
@@ -98,15 +98,15 @@ Ahora que los paquetes necesarios están instalados en la máquina virtual, una 
     * Compruebe que la máquina virtual se ha implementado en la misma red virtual (o en otra emparejada) en la que el dominio administrado de Azure AD DS está disponible.
     * Confirme que se ha actualizado la configuración del servidor DNS de la red virtual para que apunte a los controladores de dominio del dominio administrado de Azure AD DS.
 
-1. Ahora, inicialice Kerberos mediante el comando `kinit`. Especifique un usuario que pertenezca al grupo *Administradores del controlador de dominio de AAD*. Si es necesario, [agregue una cuenta de usuario a un grupo en Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
+1. Ahora, inicialice Kerberos mediante el comando `kinit`. Especifique un usuario que forme parte del dominio administrado de Azure AD DS. Si es necesario, [agregue una cuenta de usuario a un grupo en Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
-    Una vez más, el nombre del dominio administrado de Azure AD DS se debe escribir CON TODAS LAS LETRAS EN MAYÚSCULAS. En el ejemplo siguiente, la cuenta denominada `contosoadmin@aaddscontoso.com` se usa para inicializar Kerberos. Escriba su propia cuenta de usuario que sea miembro del grupo *Administradores del controlador de dominio de AAD*:
+    Una vez más, el nombre del dominio administrado de Azure AD DS se debe escribir CON TODAS LAS LETRAS EN MAYÚSCULAS. En el ejemplo siguiente, la cuenta denominada `contosoadmin@aaddscontoso.com` se usa para inicializar Kerberos. Introduzca su cuenta de usuario que forma parte del dominio administrado de Azure AD DS:
 
     ```console
     kinit contosoadmin@AADDSCONTOSO.COM
     ```
 
-1. Por último, una la máquina al dominio administrado de Azure AD DS con el comando `realm join`. Use la misma cuenta de usuario que sea miembro del grupo *Administradores del controlador de dominio de AAD* que especificó en el comando `kinit` anterior, como `contosoadmin@AADDSCONTOSO.COM`:
+1. Por último, una la máquina al dominio administrado de Azure AD DS con el comando `realm join`. Use la misma cuenta de usuario que forma parte del dominio administrado de Azure AD DS que especificó en el comando `kinit` anterior, como `contosoadmin@AADDSCONTOSO.COM`:
 
     ```console
     sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM'

@@ -8,19 +8,16 @@ ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b75740e9bff714ad68c93bea7e387e60da2f1c59
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 1370f65405963ebf825e986e6801607a0d96156e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212494"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298095"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Incorporación de una entidad de servicio al rol de administrador del servidor 
 
  Para automatizar las tareas de PowerShell desatendidas, una entidad de servicio debe tener privilegios de **administrador del servidor** en el servidor de Analysis Services que se está administrando. En este artículo se describe cómo agregar una entidad de servicio al rol de administrador de servidor en un servidor de Azure AS. Puede hacerlo mediante SQL Server Management Studio o una plantilla de Resource Manager.
- 
-> [!NOTE]
-> En las operaciones de servidor que usan cmdlets de Azure PowerShell, la entidad de servicio también debe pertenecer al rol **Propietario** del recurso en el [control de acceso basado en rol (RBAC) de Azure](../role-based-access-control/overview.md). 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 Antes de completar esta tarea, debe tener registrada una entidad de servicio en Azure Active Directory.
@@ -96,6 +93,24 @@ La siguiente plantilla de Resource Manager implementa un servidor de Analysis Se
     ]
 }
 ```
+
+## <a name="using-managed-identities"></a>Uso de identidades administradas
+
+También se puede agregar una identidad administrada a la lista de administradores de Analysis Services. Por ejemplo, puede tener una [aplicación lógica con una identidad administrada asignada por el sistema](../logic-apps/create-managed-service-identity.md) y querer concederle la capacidad de administrar su servidor de Analysis Services.
+
+En la mayoría de las partes de Azure Portal y las API, las identidades administradas se identifican mediante el identificador de objeto de la entidad de servicio. Sin embargo, Analysis Services requiere que se identifiquen mediante su identificador de cliente. Para obtener el identificador de cliente de una entidad de servicio, puede usar la CLI de Azure:
+
+```bash
+az ad sp show --id <ManagedIdentityServicePrincipalObjectId> --query appId -o tsv
+```
+
+También puede usar la PowerShell:
+
+```powershell
+(Get-AzureADServicePrincipal -ObjectId <ManagedIdentityServicePrincipalObjectId>).AppId
+```
+
+A continuación, puede usar este identificador de cliente junto con el identificador de inquilino para agregar la identidad administrada a la lista de administradores de Analysis Services, como se describe más arriba.
 
 ## <a name="related-information"></a>Información relacionada
 

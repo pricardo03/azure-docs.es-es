@@ -4,18 +4,18 @@ description: Le proporciona una guía para solucionar problemas que le ayudará 
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: f8988d3df7f61d2fce4c8fa5b49e42e872c185b8
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: ed91a1cd8600f4e1ac208b0036c3d4ba74c0e6bb
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603144"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78295970"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Solución de problemas de lentitud en la copia de seguridad de archivos y carpetas en Azure Backup
 
 Este artículo proporciona una guía para la solución de problemas que le ayudará a diagnosticar la causa de un rendimiento lento en la copia de seguridad de archivos y carpetas cuando se usa Azure Backup. Si se utiliza el agente de Azure Backup para hacer copia de seguridad de los archivos, el proceso puede tardar más de lo esperado. Este problema puede deberse a uno o a varios de los siguientes motivos:
 
-* [Hay cuellos de botella que afectan al rendimiento del equipo en el que se realiza la copia de seguridad](#cause1)
+* [Hay cuellos de botella que afectan al rendimiento del equipo en el que se realiza la copia de seguridad.](#cause1)
 * [Otro proceso o software antivirus que interfiere en el proceso de Azure Backup](#cause2)
 * [El agente de Copia de seguridad se ejecuta en una máquina virtual (VM) de Azure.](#cause3)  
 * [Se realiza una copia de seguridad de un número elevado (varios millones) de archivos.](#cause4)
@@ -44,19 +44,19 @@ También recomendamos encarecidamente que revise el artículo [P+F de servicio d
 
 Los cuellos de botella del equipo en el que se realiza la copia de seguridad pueden provocar retrasos. Por ejemplo, la capacidad del equipo para leer o escribir en el disco, o el ancho de banda disponible para enviar datos a través de la red pueden provocar cuellos de botella.
 
-Windows proporciona una herramienta integrada llamada [Monitor de rendimiento](h https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481) (Perfmon) para detectar estos cuellos de botella.
+Windows proporciona una herramienta integrada llamada [Monitor de rendimiento](https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481) (Perfmon) para detectar estos cuellos de botella.
 
 Estos son algunos contadores de rendimiento e intervalos que pueden resultar útiles para diagnosticar cuellos de botella, con el fin de que las copias de seguridad sean óptimas.
 
 | Contador | Status |
 | --- | --- |
-| Logical Disk(Physical Disk) [Disco lógico (disco físico)]--% de inactividad |• Entre 100 % y 50 % de inactividad = Correcto</br>• Entre 49 % y 20 % de inactividad = Advertencia o supervisión</br>• Del 19 % al 0 % de inactividad = Situación crítica o fuera de la especificación |
-| Logical Disk(Physical Disk) [Disco lógico (disco físico)]--% promedio Disk Sec Read or Write (Segundos de disco de lectura o escritura) |• De 0,001 ms a 0,015 ms = Correcto</br>• De 0,015 ms a 0,025 ms = Advertencia o supervisión</br>• 0.026 o más = Situación crítica o fuera de la especificación |
+| Logical Disk(Physical Disk) [Disco lógico (disco físico)]--% de inactividad |* Entre 100 % y 50 % de inactividad = Correcto</br>* Entre 49 % y 20 % de inactividad = Advertencia o supervisión</br>* Del 19 % al 0 % de inactividad = Situación crítica o fuera de la especificación |
+| Logical Disk(Physical Disk) [Disco lógico (disco físico)]--% promedio Disk Sec Read or Write (Segundos de disco de lectura o escritura) |* De 0,001 ms a 0,015 ms  = Correcto</br>* De 0,015 ms a 0,025 ms = Advertencia o supervisión</br>* 0,026 o más = Situación crítica o fuera de la especificación |
 | Logical Disk(Physical Disk) [Disco lógico (disco físico)] -- Longitud actual de la cola de disco (para todas las instancias) |80 solicitudes durante más de 6 minutos |
-| Memoria: Pool Non Paged Bytes (Bytes de bloque no paginado) |• Menos del 60 % del grupo consumido = Correcto<br>• Del 61 % al 80 % del grupo consumido = Advertencia o supervisión</br>• Más del 80 % del grupo consumido = Situación crítica o fuera de la especificación |
-| Memoria: Bytes de bloque paginado |• Menos del 60 % del grupo consumido = Correcto</br>• Del 61 % al 80 % del grupo consumido = Advertencia o supervisión</br>• Más del 80 % del grupo consumido = Situación crítica o fuera de la especificación |
-| Memoria: Megabytes disponibles |• El 50 % de la memoria libre, o más, está disponible = Correcto</br>• El 25 % de la memoria libre está disponible = Supervisión</br>• El 10 % de la memoria libre está disponible = Advertencia</br>• Menos de 100 MB o del 5 % de memoria libre está disponible = Situación crítica o fuera de la especificación. |
-| Procesador: \%Tiempo de procesador (todas las instancias) |• Menos del 60 % consumido = Correcto</br>• Del 61 % al 90 % consumido = Supervisión o precaución</br>• Del 91 % al 100 % consumido = Situación crítica |
+| Memoria: Pool Non Paged Bytes (Bytes de bloque no paginado) |* Menos del 60 % del grupo consumido = Correcto<br>* Del 61 % al 80 % del grupo consumido = Advertencia o supervisión</br>* Más del 80 % del grupo consumido = Situación crítica o fuera de la especificación |
+| Memoria: Bytes de bloque paginado |* Menos del 60 % del grupo consumido = Correcto</br>* Del 61 % al 80 % del grupo consumido = Advertencia o supervisión</br>* Más del 80 % del grupo consumido = Situación crítica o fuera de la especificación |
+| Memoria: Megabytes disponibles |* 50 % de memoria libre o más disponible = Correcto</br>* 25 % de memoria libre disponible = Supervisión</br>* 10 % de memoria libre disponible = Advertencia</br>* Menos de 100 MB o del 5 % de memoria libre disponible = Situación crítica o fuera de la especificación. |
+| Procesador: \%Tiempo de procesador (todas las instancias) |* Menos del 60 % consumido = Correcto</br>* Del 61 % al 90 % consumido = Supervisión o precaución</br>* Del 91 % al 100 % consumido = Situación crítica |
 
 > [!NOTE]
 > Si determina que la causa es la infraestructura, se recomienda desfragmentar los discos periódicamente para mejorar su rendimiento.

@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 85b59c6549a62f7d9945f5739d1d0fde8c0fa3b8
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 44d8a9e71b0415dc5dc7f5d31441bdc1e2aeb372
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77158917"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252645"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>Uso de puntos de conexión privados para Azure Storage (versión preliminar)
 
@@ -136,4 +136,4 @@ Esta restricción es el resultado de los cambios de DNS realizados cuando la cue
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Reglas de grupo de seguridad de red para subredes con puntos de conexión privados
 
-Actualmente, no se pueden configurar reglas de [grupo de seguridad de red](../../virtual-network/security-overview.md) para subredes con puntos de conexión privados. Una solución alternativa limitada para este problema es implementar las reglas de acceso para los puntos de conexión privados en las subredes de origen, aunque este enfoque puede requerir mayor sobrecarga de administración.
+Actualmente, no se pueden configurar reglas de [grupo de seguridad de red](../../virtual-network/security-overview.md) (NSG) ni rutas definidas por el usuario para puntos de conexión privados. Las reglas de NSG que se aplican a la subred que hospeda el punto de conexión privado se aplican al punto de conexión privado. Una solución alternativa limitada para este problema es implementar las reglas de acceso para los puntos de conexión privados en las subredes de origen, aunque este enfoque puede requerir mayor sobrecarga de administración.

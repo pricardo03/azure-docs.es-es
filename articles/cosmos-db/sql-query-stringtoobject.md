@@ -4,15 +4,15 @@ description: Obtenga información sobre la función del sistema SQL StringToObje
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: f09c27458a630386664f3f6579cfeee0721d8be9
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: c3e61d1efe20910d84ef4ff583d74982b3ea9f3d
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349216"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296388"
 ---
 # <a name="stringtoobject-azure-cosmos-db"></a>StringToObject (Azure Cosmos DB)
  Devuelve la expresión traducida a un objeto. Si no se puede traducir la expresión, devuelve undefined.  
@@ -28,7 +28,7 @@ StringToObject(<str_expr>)
 *str_expr*  
    Es una expresión de cadena que se va a analizar como una expresión de objeto JSON. Tenga en cuenta que los valores de cadena anidados deben escribirse entre comillas dobles para ser válidos. Para más información sobre el formato JSON, consulte [json.org](https://json.org/)  
   
-## <a name="return-types"></a>Tipos de valor devuelto
+## <a name="return-types"></a>Tipos de valores devueltos
   
   Devuelve una expresión de objeto o undefined.  
   
@@ -103,6 +103,10 @@ SELECT
 ```json
 [{}]
 ```
+
+## <a name="remarks"></a>Observaciones
+
+Esta función del sistema no usará el índice.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

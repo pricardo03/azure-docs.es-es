@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51e5c58d29f01cadcc3ea2e8ec48ae67e58c4180
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 382c588ca005f95f4ae38e7506c0e3e8d842bd2c
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76909047"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298656"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Requisitos previos del aprovisionamiento en la nube de Azure AD Connect
 En este artículo se proporcionan instrucciones sobre cómo elegir y usar el aprovisionamiento en la nube de Azure Active Directory (Azure AD) Connect como solución de identidad.
@@ -26,7 +26,7 @@ En este artículo se proporcionan instrucciones sobre cómo elegir y usar el apr
 ## <a name="cloud-provisioning-agent-requirements"></a>Requisitos del agente de aprovisionamiento en la nube
 Se necesita lo siguiente para usar el aprovisionamiento en la nube de Azure AD Connect:
     
-- Una cuenta de administrador global para el inquilino de Azure AD.
+- Una cuenta de administrador global para el inquilino de Azure AD que no sea un usuario invitado.
 - Un servidor local para el agente de aprovisionamiento con Windows 2012 R2 o posterior.
 - Configuraciones de firewall locales.
 
@@ -39,6 +39,10 @@ En el resto del documento se proporcionan instrucciones paso a paso para estos r
 
 1. Cree una cuenta de administrador global solo en la nube en el inquilino de Azure AD. De esta manera, puede administrar la configuración del inquilino en caso de que los servicios locales fallen o no estén disponibles. Información acerca de cómo [agregar una cuenta de administrador global que está solo en la nube](../active-directory-users-create-azure-portal.md). La finalización de este paso es esencial para garantizar que no queda bloqueado fuera de su inquilino.
 1. Agregue uno o varios [nombres de dominio personalizados](../active-directory-domains-add-azure-portal.md) al inquilino de Azure AD. Los usuarios pueden iniciar sesión con uno de estos nombres de dominio.
+
+### <a name="in-your-directory-in-active-directory"></a>En su directorio de Azure Active Directory
+
+Ejecute la [herramienta IdFix](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) para preparar los atributos del directorio para la sincronización.
 
 ### <a name="in-your-on-premises-environment"></a>En el entorno local
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: 23e04bf651c199364f23bf36f327de94c709d643
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: b7a50a2dabc9503ca5dbdd3388e29cfc69963885
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028575"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252598"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Conexión privada a una cuenta de Azure Cosmos con Azure Private Link
 
@@ -25,26 +25,22 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-vm"></a>Crear una VM
 
-### <a name="create-the-virtual-network"></a>Crear la red virtual
+## <a name="virtual-network-and-parameters"></a>Red virtual y parámetros
 
 En esta sección, creará una red virtual y la subred para hospedar la máquina virtual que se usa para acceder al recurso de Private Link (una cuenta de Azure Cosmos en este ejemplo).
 
-1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Red virtual**.
+En esta sección, tendrá que reemplazar los siguientes parámetros de los pasos por la información siguiente:
 
-1. En **Creación de una red virtual**, escriba o seleccione esta información:
+| Parámetro                   | Value                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroup|
+| **\<virtual-network-name>** | myVirtualNetwork         |
+| **\<region-name>**          | Centro-Oeste de EE. UU.     |
+| **\<IPv4-address-space>**   | 10.1.0.0\16          |
+| **\<subnet-name>**          | mySubnet        |
+| **\<subnet-address-range>** | 10.1.0.0\24          |
 
-    | Configuración | Value |
-    | ------- | ----- |
-    | Nombre | Escriba *MyVirtualNetwork*. |
-    | Espacio de direcciones | Escriba *10.1.0.0/16*. |
-    | Subscription | Seleccione su suscripción.|
-    | Resource group | Seleccione **Crear nuevo**, escriba *myResourceGroup* y, después, seleccione **Aceptar**. |
-    | Location | Seleccione **WestCentralUS**.|
-    | Subred: nombre | Escriba *mySubnet*. |
-    | Subred: intervalo de direcciones | Escriba *10.1.0.0/24*. |
-    |||
-
-1. Deje el resto tal como está y seleccione **Crear**.
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-the-virtual-machine"></a>Creación de la máquina virtual
 

@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/20/2019
-ms.openlocfilehash: a0874826529b5c9ca5d6d4107fe820cd522d81d0
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 4e46efaf17ae9bad5df6f1f61f401d3e6de58a85
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894045"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250235"
 ---
 # <a name="apache-zookeeper-server-fails-to-form-a-quorum-in-azure-hdinsight"></a>El servidor Apache ZooKeeper no puede formar un cuórum en Azure HDInsight
 
@@ -20,11 +20,18 @@ En este artículo se describen los pasos de solución de problemas y las posible
 
 ## <a name="issue"></a>Problema
 
-El estado del servidor Apache ZooKeeper no es correcto. Los causas podrían ser las siguientes: los nodos de nombre o los administradores de recursos se encuentran en modo de espera; las operaciones de HDFS simples no funcionan; `zkFailoverController` está detenido y no se puede iniciar; o bien los trabajos de Yarn, Spark o Livy generan errores debido a los errores de ZooKeeper. Es posible que vea un mensaje de error similar al siguiente:
+El estado del servidor Apache ZooKeeper no es correcto. Los causas podrían ser las siguientes: los nodos de nombre o los administradores de recursos se encuentran en modo de espera; las operaciones de HDFS simples no funcionan; `zkFailoverController` está detenido y no se puede iniciar; o bien los trabajos de Yarn, Spark o Livy generan errores debido a los errores de ZooKeeper. Es posible que los demonios de LLAP tampoco se puedan iniciar en los clústeres de Interactive Hive o Spark seguros. Es posible que vea un mensaje de error similar al siguiente:
 
 ```
 19/06/19 08:27:08 ERROR ZooKeeperStateStore: Fatal Zookeeper error. Shutting down Livy server.
 19/06/19 08:27:08 INFO LivyServer: Shutting down Livy server.
+```
+
+En los registros del servidor de Zookeeper en cualquier host de Zookeeper en /var/log/zookeeper/zookeeper-zookeeper-server-\*.out, es posible que también se muestre el siguiente error:
+
+```
+2020-02-12 00:31:52,513 - ERROR [CommitProcessor:1:NIOServerCnxn@178] - Unexpected Exception:
+java.nio.channels.CancelledKeyException
 ```
 
 ## <a name="cause"></a>Causa
@@ -33,11 +40,11 @@ Cuando el volumen de archivos de instantáneas es grande o los archivos de insta
 
 ## <a name="resolution"></a>Solución
 
-Compruebe los directorios de datos de ZooKeeper `/hadoop/zookeeper/version-2` y `/hadoop/hdinsight-zookeepe/version-2` para averiguar si el tamaño del archivo de instantáneas es grande. Siga los pasos siguientes si existen instantáneas de gran tamaño:
+Compruebe los directorios de datos de ZooKeeper `/hadoop/zookeeper/version-2` y `/hadoop/hdinsight-zookeeper/version-2` para averiguar si el tamaño del archivo de instantáneas es grande. Siga los pasos siguientes si existen instantáneas de gran tamaño:
 
-1. Realice copias de seguridad de las instantáneas en `/hadoop/zookeeper/version-2` y `/hadoop/hdinsight-zookeepe/version-2`.
+1. Realice copias de seguridad de las instantáneas en `/hadoop/zookeeper/version-2` y `/hadoop/hdinsight-zookeeper/version-2`.
 
-1. Limpie las instantáneas en `/hadoop/zookeeper/version-2` y `/hadoop/hdinsight-zookeepe/version-2`.
+1. Limpie las instantáneas en `/hadoop/zookeeper/version-2` y `/hadoop/hdinsight-zookeeper/version-2`.
 
 1. Reinicie todos los servidores de ZooKeeper desde la interfaz de usuario de Apache Ambari.
 

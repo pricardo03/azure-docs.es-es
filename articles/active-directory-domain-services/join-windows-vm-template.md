@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: iainfou
-ms.openlocfilehash: e3dffca1d5e98de60941aab4400469810c9cfc30
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: c9b25fe7bc47e05972aebb194e9d94c1ea6dd247
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613762"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298741"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Una una máquina virtual con Windows Server a un dominio administrado de Azure Active Directory Domain Services mediante una plantilla de Resource Manager
 
@@ -34,7 +34,7 @@ Para completar este tutorial, necesitará los siguientes recursos y privilegios:
     * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
 * Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
     * Si es necesario, el primer tutorial [crea y configura una instancia de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-* Una cuenta de usuario que sea miembro del grupo de *administradores de Azure AD DC* en el inquilino de Azure AD.
+* Una cuenta de usuario que forma parte del dominio administrado de Azure AD DS.
 
 ## <a name="azure-resource-manager-template-overview"></a>Información general de plantillas de Azure Resource Manager
 
@@ -94,7 +94,7 @@ Para crear una máquina virtual con Windows Server y, a continuación, unirla a
     | Prefijo de etiqueta DNS          | Escriba un nombre DNS para usarlo para la máquina virtual, por ejemplo, *myvm*. |
     | Tamaño de VM                   | Especifique un tamaño de VM, como *Standard_DS2_v2*. |
     | Dominio al que unirse            | El nombre DNS de dominio administrado de Azure AD DS como, por ejemplo, *aaddscontoso.com*. |
-    | Nombre de usuario de dominio           | La cuenta de usuario del dominio administrado de Azure AD DS que debe usarse para unir la máquina virtual al dominio administrado, como `contosoadmin@aaddscontoso.com`. Esta cuenta debe ser miembro del grupo de *administradores de Azure AD DC*. |
+    | Nombre de usuario de dominio           | La cuenta de usuario del dominio administrado de Azure AD DS que debe usarse para unir la máquina virtual al dominio administrado, como `contosoadmin@aaddscontoso.com`. Esta cuenta debe formar parte del dominio administrado de Azure AD DS. |
     | Contraseña de dominio           | La contraseña de la cuenta de usuario especificada en la configuración anterior. |
     | Ruta de acceso de unidad organizativa opcional          | La unidad organizativa personalizada en la que agregar la máquina virtual. Si no especifica un valor para este parámetro, la máquina virtual se agrega a la unidad organizativa *Equipos de DC de AAD* predeterminada. |
     | Nombre de usuario administrador de máquina virtual         | Especifique una cuenta de administrador local para su creación en la máquina virtual. |
@@ -104,7 +104,7 @@ Para crear una máquina virtual con Windows Server y, a continuación, unirla a
 
 > [!WARNING]
 > **Controle las contraseñas con precaución.**
-> El archivo de parámetros de plantilla solicita la contraseña de una cuenta de usuario que es miembro del grupo de *administradores de Azure AD DC*. No especifique valores manualmente en este archivo y déjelo accesible en recursos compartidos de archivos u otras ubicaciones compartidas.
+> El archivo de parámetros de plantilla solicita la contraseña de una cuenta de usuario que forme parte del dominio administrado de Azure AD DS. No especifique valores manualmente en este archivo y déjelo accesible en recursos compartidos de archivos u otras ubicaciones compartidas.
 
 La implementación tarda unos minutos en finalizar correctamente. Una vez finalizada, la máquina virtual Windows se crea y une al dominio administrado de Azure AD DS. La máquina virtual se puede administrar o se puede iniciar sesión en ella mediante cuentas de dominio.
 
@@ -123,7 +123,7 @@ Para unir una máquina virtual con Windows Server existente a un dominio admini
     | Resource group            | Elija el grupo de recursos con su máquina virtual existente. |
     | Location                  | Seleccione la ubicación de su máquina virtual existente. |
     | Lista de máquinas virtuales                   | Escriba la lista separada por comas de las máquinas virtuales existentes que unir al dominio administrado de Azure AD DS, como *myVM1,myVM2*. |
-    | Nombre de usuario de unión a un dominio     | La cuenta de usuario del dominio administrado de Azure AD DS que debe usarse para unir la máquina virtual al dominio administrado, como `contosoadmin@aaddscontoso.com`. Esta cuenta debe ser miembro del grupo de *administradores de Azure AD DC*. |
+    | Nombre de usuario de unión a un dominio     | La cuenta de usuario del dominio administrado de Azure AD DS que debe usarse para unir la máquina virtual al dominio administrado, como `contosoadmin@aaddscontoso.com`. Esta cuenta debe formar parte del dominio administrado de Azure AD DS. |
     | Contraseña de usuario de unión a un dominio | La contraseña de la cuenta de usuario especificada en la configuración anterior. |
     | Ruta de acceso de unidad organizativa opcional          | La unidad organizativa personalizada en la que agregar la máquina virtual. Si no especifica un valor para este parámetro, la máquina virtual se agrega a la unidad organizativa *Equipos de DC de AAD* predeterminada. |
 
@@ -131,7 +131,7 @@ Para unir una máquina virtual con Windows Server existente a un dominio admini
 
 > [!WARNING]
 > **Controle las contraseñas con precaución.**
-> El archivo de parámetros de plantilla solicita la contraseña de una cuenta de usuario que es miembro del grupo de *administradores de Azure AD DC*. No especifique valores manualmente en este archivo y déjelo accesible en recursos compartidos de archivos u otras ubicaciones compartidas.
+> El archivo de parámetros de plantilla solicita la contraseña de una cuenta de usuario que forme parte del dominio administrado de Azure AD DS. No especifique valores manualmente en este archivo y déjelo accesible en recursos compartidos de archivos u otras ubicaciones compartidas.
 
 La implementación tarda unos minutos en finalizar correctamente. Una vez finalizada, las máquinas virtuales Windows especificadas se unen al dominio administrado de Azure AD DS y se pueden administrar o se puede iniciar sesión en ellas mediante cuentas de dominio.
 

@@ -3,8 +3,8 @@ title: 'Tutorial: Migración de MySQL en línea a Azure Database for MySQL'
 titleSuffix: Azure Database Migration Service
 description: Aprenda a realizar una migración en línea de una instancia local de MySQL a Azure Database for MySQL mediante Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 77887f440da73436a995e0916c529f9df76e7d6f
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 50787a5bbfdc9baddfa4307247e8b505be6e3003
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746970"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273241"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migración de MySQL a Azure Database for MySQL en línea mediante DMS
 
@@ -38,7 +38,7 @@ En este tutorial, aprenderá a:
 > [!IMPORTANT]
 > Para disfrutar de una experiencia de migración óptima, Microsoft recomienda crear una instancia de Azure Database Migration Service en la misma región de Azure que la base de datos de destino. Si los datos se transfieren entre diferentes regiones o ubicaciones geográficas, el proceso de migración puede verse afectado y pueden producirse errores.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesita:
 
@@ -224,6 +224,8 @@ Después de crear el servicio, búsquelo en Azure Portal, ábralo y cree un proy
     Si la base de datos de destino contiene el mismo nombre de base de datos que la de origen, Azure Database Migration Service selecciona la base de datos de destino de forma predeterminada.
 
     ![Asignación a bases de datos de destino](media/tutorial-mysql-to-azure-mysql-online/dms-map-target-details.png)
+   > [!NOTE] 
+   > Aunque puede seleccionar varias bases de datos en este paso, cada instancia de Azure Database Migration Service admite hasta cuatro bases de datos para la migración simultánea. Además, hay un límite de dos instancias de Azure Database Migration Service por región en una suscripción. Por ejemplo, si tiene 40 bases de datos para migrar, solo puede migrar ocho simultáneamente y solo si ha creado dos instancias de Azure Database Migration Service.
 
 3. Seleccione **Guardar**, en la pantalla **Resumen de migración**, en el cuadro de texto **Nombre de la actividad**, especifique un nombre para la actividad de migración y, a continuación, revise el resumen para asegurarse de que los detalles de origen y destino coinciden con lo que especificó anteriormente.
 

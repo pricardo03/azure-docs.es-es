@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 3f18537b4b038844c9aa824593e354c23c792370
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 6af6f01449f2f43e6799ef6d7821b9d71b24e603
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026420"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252347"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Supervisión de la conectividad de dispositivos mediante la CLI de Azure
 
@@ -23,7 +23,7 @@ Use la extensión de IoT de la CLI de Azure para ver los mensajes que sus dispos
 
 [Consulte la referencia de extensiones de la CLI de Azure para obtener más detalles](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/central)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 + CLI de Azure instalada, versión 2.0.7 o posterior. Compruebe la versión de la CLI de Azure al ejecutar `az --version`. Obtenga información sobre la instalación y actualización en los [docs de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 + Una cuenta profesional o educativa de Azure, agregada como usuario en una aplicación de IoT Central.
@@ -33,16 +33,19 @@ Use la extensión de IoT de la CLI de Azure para ver los mensajes que sus dispos
 Ejecute el siguiente comando desde su línea de comando paras instalarlo:
 
 ```cmd/sh
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
 
-Compruebe la versión de la extensión al ejecutar 
+Compruebe la versión de la extensión. Para ello, ejecute el siguiente comando:
+
 ```cmd/sh
 az --version
 ```
-Debe ver que la extensión azure-cli-iot-ext es 0.8.1 o posterior. Si no es así, ejecute
+
+Debe ver que la extensión azure-iot es 0.8.1 o posterior. Si no es así, ejecute:
+
 ```cmd/sh
-az extension update --name azure-cli-iot-ext
+az extension update --name azure-iot
 ```
 
 ## <a name="using-the-extension"></a>Uso de la extensión

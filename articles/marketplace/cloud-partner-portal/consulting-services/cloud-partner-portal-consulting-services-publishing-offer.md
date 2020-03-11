@@ -6,18 +6,18 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pabutler
-ms.openlocfilehash: 506b34281ba8ab5b669c87b4699fb8b138c8734a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 02/27/2020
+ms.author: evansma
+ms.openlocfilehash: d744c0bdcae177ca5cee5617622f04da7312e15f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819183"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268310"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>Oferta de servicios de consultoría de Azure y Dynamics 365
 
-En este artículo se explica cómo publicar una oferta de servicios de consultoría en Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> o en <a href="https://appsource.microsoft.com">AppSource</a>. Las soluciones basadas en Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a> y <a href="https://powerapps.microsoft.com">PowerApps</a> pueden anunciarse en AppSource. Otras ofertas basadas en otros <a href="https://azure.microsoft.com/services">servicios de Microsoft Azure</a> pueden anunciarse en Azure Marketplace.
+En este artículo se explica cómo publicar una oferta de servicios de consultoría en Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> o en <a href="https://appsource.microsoft.com">AppSource</a>. Las soluciones basadas en Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a> y <a href="https://powerapps.microsoft.com">Power Apps</a> pueden anunciarse en AppSource. Otras ofertas basadas en otros <a href="https://azure.microsoft.com/services">servicios de Microsoft Azure</a> pueden anunciarse en Azure Marketplace.
 
 ## <a name="publishing-benefits"></a>Ventajas de publicación
 
@@ -35,11 +35,13 @@ En esta sección se describen los elementos de la publicación de una oferta de 
 - En [Requisitos previos de los servicios de consultoría](./cpp-consulting-service-prerequisites.md) se enumeran los requisitos para publicar una oferta de servicio de consultoría para:
  
     - Microsoft Azure
-    - Dynamics 365 for Customer Engagement 
-    - Dynamics 365 for Finance & Operations 
+    - Dynamics 365 Customer Engagement 
+    - Dynamics 365 Finance and Operations 
+    - Dynamics 365 Customer Insights
     - Dynamics 365 Business Central 
     - Power BI 
     - PowerApps
+    - Power Automate
 - [Creación de la oferta](./cpp-consulting-service-create-offer.md): se enumeran los pasos necesarios para crear una entrada de oferta de servicios de consultoría mediante Cloud Partner Portal:
     - [Definición de la configuración de la oferta](./cpp-consulting-service-define-offer-settings.md).
     - [Especificación de los detalles del escaparate electrónico y si se publica en Azure Marketplace o en AppSource.](./cpp-consulting-service-storefront-details.md)

@@ -4,12 +4,12 @@ description: Obtenga información sobre las limitaciones conocidas al ejecutar c
 services: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.openlocfilehash: 157f890c65efd0de9fa7d8d7aa5cb43b4a902dfa
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 65c62324a27e8377a1cc9833595b15cf08c6c820
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615639"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298179"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitaciones actuales para las cargas de trabajo de aplicaciones y los grupos de nodos de Windows Server en Azure Kubernetes Service (AKS)
 
@@ -69,7 +69,7 @@ Durante la versión preliminar, los grupos de nodos de Windows no admiten la rot
 
 ## <a name="how-many-node-pools-can-i-create"></a>¿Cuántos grupos de nodos puedo crear?
 
-El clúster de AKS puede tener un máximo de ocho (8) grupos de nodos. Puede tener un máximo de 400 nodos distribuidos entre esos grupos de nodos. [Limitaciones del grupo de nodos][nodepool-limitations].
+El clúster de AKS puede tener un máximo de 10 grupos de nodos. Puede tener un máximo de 1000 nodos distribuidos entre esos grupos de nodos. [Limitaciones del grupo de nodos][nodepool-limitations].
 
 ## <a name="what-can-i-name-my-windows-node-pools"></a>¿Qué nombre puedo usar para mis grupos de nodos de Windows?
 

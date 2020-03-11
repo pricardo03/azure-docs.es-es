@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 03/03/2020
 ms.author: b-juche
-ms.openlocfilehash: 01387d0c219c86f33762b9c3fbf9f81cf04b4455
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48055a774808aea86452e8410b7e717f5019d172
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61086891"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267900"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Administración de instantáneas mediante Azure NetApp Files
 
-Puede usar Azure NetApp Files para crear una instantánea a petición para un volumen o restaurar desde una instantánea a un nuevo volumen.
+Puede usar Azure NetApp Files para crear manualmente una instantánea a petición para un volumen o realizar una restauración de una instantánea a un nuevo volumen. El servicio Azure NetApp Files no crea automáticamente instantáneas de volumen.  
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Creación de una instantánea a petición para un volumen
 

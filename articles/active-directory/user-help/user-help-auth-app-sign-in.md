@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 02/25/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: b5f2b42728fd6f3d61695b4f88cc416015dd97cb
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: ac61c01c5e45b6e8e001a68781f93c3962cb581f
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108263"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78297855"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Inicio de sesión en sus cuentas mediante la aplicación Microsoft Authenticator
 
-La aplicación Microsoft Authenticator le ayuda a iniciar sesión en sus cuentas si usa la comprobación en dos pasos. La comprobación en dos pasos le ayuda a acceder a sus cuentas de manera más segura, en especial cuando se examina información confidencial. Como las contraseñas se pueden olvidar, poner en peligro o robar, la comprobación en dos pasos es un paso de seguridad adicional que ayuda a proteger su cuenta ya que es más difícil que otras personas accedan a ella.
+La aplicación Microsoft Authenticator le ayuda a iniciar sesión en sus cuentas si usa la comprobación en dos fases. La comprobación en dos pasos le ayuda a acceder a sus cuentas de manera más segura, en especial cuando se examina información confidencial. Como las contraseñas se pueden olvidar, poner en peligro o robar, la comprobación en dos pasos es un paso de seguridad adicional que ayuda a proteger su cuenta ya que es más difícil que otras personas accedan a ella.
 
 Puede usar la aplicación Microsoft Authenticator de varias formas, por ejemplo:
 
@@ -49,13 +49,19 @@ El inicio de sesión en el teléfono solo está disponible en dispositivos iOS y
 
 ### <a name="turn-on-phone-sign-in"></a>Activación del inicio de sesión en el teléfono
 
-- Abra la aplicación Microsoft Authenticator, vaya a la cuenta profesional o educativa y active el inicio de sesión en el teléfono:
+Abra la aplicación Microsoft Authenticator, vaya a la cuenta profesional o educativa y active el inicio de sesión en el teléfono.
 
-    - **Si ve este icono ![icono que muestra que se ha configurado](media/user-help-auth-app-sign-in/icon.png).** Si este icono aparece junto al nombre de su cuenta profesional o educativa, significa que ya ha configurado el inicio de sesión en el teléfono en la cuenta. Puede que se le pida que agregue notificaciones push a la cuenta, con el fin de que pueda recibir notificaciones de las solicitudes de autenticación fuera de la aplicación.
+En un dispositivo Android:
 
-    - **Si ya ha utilizado la aplicación para la comprobación en dos fases.** Si ya ha utilizado la aplicación y la comprobación en dos fases, puede elegir la flecha desplegable que hay junto al nombre de cuenta y, después, seleccionar **Habilitar inicio de sesión en el teléfono**.
+- **Si ve este icono ![icono que muestra que se ha configurado](media/user-help-auth-app-sign-in/icon.png).** Si este icono aparece junto al nombre de su cuenta profesional o educativa, significa que ya ha configurado el inicio de sesión en el teléfono en la cuenta. Puede que se le pida que agregue notificaciones push a la cuenta, con el fin de que pueda recibir notificaciones de las solicitudes de autenticación fuera de la aplicación.
+- **Si ya utiliza la aplicación para la comprobación en dos fases.** Si ya ha utilizado la aplicación y la comprobación en dos fases, puede seleccionar la flecha que hay junto al nombre de cuenta y, después, seleccionar **Habilitar inicio de sesión en el teléfono**.
+- **Si no encuentra su cuenta profesional o educativa.** Si no encuentra su cuenta profesional o educativa en la pantalla **Cuentas** de la aplicación, significa que aún no la ha agregado a la aplicación. Agregue su cuenta profesional o educativa siguiendo los pasos descritos en el artículo [Adición de una cuenta profesional o educativa](user-help-auth-app-add-work-school-account.md).
 
-    - **Si no encuentra su cuenta profesional o educativa.** Si no encuentra su cuenta profesional o educativa en la pantalla **Cuentas** de la aplicación, significa que aún no la ha agregado a la aplicación. Agregue su cuenta profesional o educativa siguiendo los pasos descritos en el artículo [Adición de una cuenta profesional o educativa](user-help-auth-app-add-work-school-account.md).
+En un dispositivo iOS:
+
+- **Al pulsar el icono de la cuenta**, la cuenta se abre con una vista de pantalla completa. Si ve **Inicio de sesión en el teléfono habilitado**, significa que se ha configurado para iniciar sesión sin contraseña. Si ve la opción **Habilitar inicio de sesión en el teléfono**, púlsela para activar el inicio de sesión en el teléfono.
+- **Si ya ha usado la aplicación para la comprobación de dos fases**, puede pulsar el icono de la cuenta, que se expandirá a una vista de pantalla completa de la cuenta. A continuación, pulse **Habilitar inicio de sesión en el teléfono**, para activar el inicio de sesión en el teléfono.
+- **Si no encuentra su cuenta profesional o educativa** en la pantalla **Cuentas** de la aplicación, significa que aún no la ha agregado a la aplicación. Agregue su cuenta profesional o educativa siguiendo los pasos descritos en el artículo Adición de una cuenta profesional o educativa.
 
 Después de activar el inicio de sesión en el teléfono, puede iniciar sesión solo con la aplicación Microsoft Authenticator.
 
@@ -82,13 +88,19 @@ Puede activar el inicio de sesión con teléfono para su cuenta Microsoft person
 
 ### <a name="turn-on-phone-sign-in"></a>Activación del inicio de sesión en el teléfono 
 
-- Abra la aplicación Microsoft Authenticator, vaya a la cuenta personal de Microsoft y active el inicio de sesión en el teléfono:
+Abra la aplicación Microsoft Authenticator, vaya a la cuenta profesional o educativa y active el inicio de sesión en el teléfono.
 
-    - **Si ve este icono ![icono que muestra que se ha configurado](media/user-help-auth-app-sign-in/icon.png).** Si este icono aparece junto al nombre de su cuenta, significa que ya ha configurado el inicio de sesión en el teléfono en la cuenta. Puede que se le pida que agregue notificaciones push a la cuenta, con el fin de que pueda recibir notificaciones de las solicitudes de autenticación fuera de la aplicación.
+En un dispositivo Android:
 
-    - **Si ya ha utilizado la aplicación para la comprobación en dos fases.** Si ya ha utilizado la aplicación y la comprobación en dos fases, puede elegir la flecha desplegable que hay junto al nombre de cuenta y, después, seleccionar **Habilitar inicio de sesión en el teléfono**.
+- **Si ve este icono ![icono que muestra que se ha configurado](media/user-help-auth-app-sign-in/icon.png).** Si este icono aparece junto al nombre de su cuenta personal de Microsoft, significa que ya ha configurado el inicio de sesión en el teléfono para la cuenta. Puede que se le pida que agregue notificaciones push a la cuenta, con el fin de que pueda recibir notificaciones de las solicitudes de autenticación fuera de la aplicación.
+- **Si ya ha utilizado la aplicación para la comprobación en dos fases.** Si ya ha utilizado la aplicación y la comprobación en dos fases, puede seleccionar la flecha que hay junto al nombre de cuenta y, después, seleccionar **Habilitar inicio de sesión en el teléfono**.
+- **Si no encuentra su cuenta profesional o educativa.** Si no encuentra su cuenta en la pantalla **Cuentas** de la aplicación, significa que aún no la ha agregado a la aplicación. Agregue su cuenta personal de Microsoft, para lo que debe seguir los pasos que se describen en el artículo [Incorporación de cuentas personales Microsoft](user-help-auth-app-add-personal-ms-account.md).
 
-    - **Si no encuentra su cuenta.** Si no encuentra su cuenta en la pantalla **Cuentas** de la aplicación, significa que aún no la ha agregado a la aplicación. Agregue su cuenta personal de Microsoft, para lo que debe seguir los pasos que se describen en el artículo [Add your personal Microsoft account](user-help-auth-app-add-personal-ms-account.md#add-your-personal-microsoft-account) (Adición de una cuenta personal de Microsoft).///
+En un dispositivo iOS:
+
+- **Al pulsar el icono de la cuenta**, la cuenta se abre con una vista de pantalla completa. Si ve **Inicio de sesión en el teléfono habilitado**, significa que se ha configurado para iniciar sesión sin contraseña. Si ve la opción **Habilitar inicio de sesión en el teléfono**, púlsela para activar el inicio de sesión en el teléfono.
+- **Si ya ha usado la aplicación para la comprobación de dos fases**, puede pulsar el icono de la cuenta, que se expandirá a una vista de pantalla completa de la cuenta. A continuación, pulse **Habilitar inicio de sesión en el teléfono**, para activar el inicio de sesión en el teléfono.
+- **Si no encuentra su cuenta** en la pantalla **Cuentas** de la aplicación, significa que aún no la ha agregado a la aplicación. Agregue su cuenta personal de Microsoft, para lo que debe seguir los pasos que se describen en el artículo [Incorporación de cuentas personales Microsoft](user-help-auth-app-add-personal-ms-account.md).
 
 ### <a name="sign-in-to-your-account-using-phone-sign-in"></a>Inicio de sesión en su cuenta con ayuda del teléfono
 
@@ -100,7 +112,7 @@ Puede activar el inicio de sesión con teléfono para su cuenta Microsoft person
 
 ## <a name="sign-in-using-two-factor-verification-for-your-account"></a>Inicie sesión con la comprobación en dos fases en la cuenta
 
-El método de comprobación en dos fases requiere que escriba su nombre de usuario y contraseña en el dispositivo en el que va a iniciar sesión y luego elija si la aplicación Microsoft Authenticator envía una notificación, o si prefiere copiar el código de verificación asociado de la pantalla **Cuentas** de la aplicación Microsoft Authenticator. Active la comprobación en dos fases en la cuenta como parte del proceso para agregar la cuenta a la aplicación Microsoft Authenticator.
+El método de comprobación en dos fases estándar requiere que escriba su nombre de usuario y contraseña en el dispositivo en el que va a iniciar sesión y luego elija si la aplicación Microsoft Authenticator debe recibir la aplicación Microsoft Authenticator. En un dispositivo Android, estos códigos de verificación se pueden encontrar en la pantalla Cuentas. En un dispositivo iOS, estos códigos de verificación se pueden encontrar en la pantalla **cuentas** o en la vista de pantalla completa de una cuenta, en función del tipo de cuenta. Active la comprobación en dos fases en la cuenta como parte del proceso para agregar la cuenta a la aplicación Microsoft Authenticator.
 
 >[!Note]
 >Si no ve su cuenta profesional o educativa, o su cuenta personal en la pantalla **Cuentas** de la aplicación Microsoft Authenticator, significa que no ha agregado la cuenta a la aplicación Microsoft Authenticator. Para agregar su cuenta, consulte [Adición de una cuenta profesional o educativa](user-help-auth-app-add-work-school-account.md) y [Adición de una cuenta Microsoft personal](user-help-auth-app-add-personal-ms-account.md).

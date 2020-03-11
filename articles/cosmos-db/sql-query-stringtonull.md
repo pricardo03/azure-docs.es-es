@@ -4,15 +4,15 @@ description: Obtenga información acerca de la función del sistema de SQL Strin
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: c7ea3ca82cadb1351d8581f3d652ce060d67969b
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 7e17547f88465103b61eabec04978ea806ffa2c9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349246"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296446"
 ---
 # <a name="stringtonull-azure-cosmos-db"></a>StringToNull (Azure Cosmos DB)
  Devuelve la expresión traducida a null. Si no se puede traducir la expresión, devuelve undefined.  
@@ -28,7 +28,7 @@ StringToNull(<str_expr>)
 *str_expr*  
    Expresión de cadena que se va a analizar como expresión null.
   
-## <a name="return-types"></a>Tipos de valor devuelto
+## <a name="return-types"></a>Tipos de valores devueltos
   
   Devuelve una expresión null o undefined.  
   
@@ -84,6 +84,10 @@ SELECT
 ```json
 [{}]
 ```  
+
+## <a name="remarks"></a>Observaciones
+
+Esta función del sistema no usará el índice.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

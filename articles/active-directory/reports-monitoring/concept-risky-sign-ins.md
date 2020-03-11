@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/28/2019
+ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f19744e6c860ae315b681f5eb090cba23b153af
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: b77486064139895799ac5a48327377154f75da6d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008351"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273838"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Informe de inicios de sesión poco seguros del portal de Azure Active Directory
 
@@ -52,15 +52,15 @@ Para obtener información sobre cómo asignar roles administrativos a un usuario
 
 Todas las ediciones de Azure AD le proporcionan informes sobre inicios de sesión de riesgo. Sin embargo, el nivel de granularidad del informe varía según la edición: 
 
-- En las **ediciones Azure Active Directory Free y Basic**, puede obtener una lista de inicios de sesión de riesgo. 
+- En la **edición Azure Active Directory Free**, puede obtener una lista de inicios de sesión de riesgo. 
 
 - Además, la edición **Azure Active Directory Premium 1** le permite examinar algunas de las detecciones de riesgos subyacentes que se han detectado en cada informe. 
 
 - La edición **Azure Active Directory Premium 2** le proporciona la información más detallada acerca de todas las detecciones de riesgos subyacentes y también le permite configurar directivas de seguridad que responden automáticamente a los niveles de riesgos configurados.
 
-## <a name="risky-sign-ins-report-for-azure-ad-free-and-basic-edition"></a>Informe de inicios de sesión de riesgo de las ediciones Free y Basic de Azure AD
+## <a name="risky-sign-ins-report-for-azure-ad-free-edition"></a>Informe de inicios de sesión de riesgo de la edición Azure AD Free
 
-Las ediciones Free y Basic de Azure AD proporcionan una lista de inicios de sesión de riesgo que se han detectado para los usuarios. Cada registro contiene los siguientes atributos:
+La edición Azure AD Free proporciona una lista de inicios de sesión de riesgo que se han detectado para los usuarios. Cada registro contiene los siguientes atributos:
 
 - **Usuario**: el nombre del usuario que se usó durante la operación de inicio de sesión.
 - **IP**: la dirección IP del dispositivo que se usó para conectarse a Azure Active Directory.
@@ -74,7 +74,7 @@ Con los datos derivados de la investigación del inicio de sesión de riesgo, pu
 
 - Resolver
 - Marcar como falso positivo
-- Ignorar
+- Ignore
 - Reactivar
 
 ![Inicios de sesión no seguros](./media/concept-risky-sign-ins/21.png)

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 3cb53656adb1dbeb5e5597d02edfe5be4dbec6a8
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 78b36e1f5ababf2551bd69682807a8ed308ae24d
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170488"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298452"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Configurar notificaciones de grupo para aplicaciones con Azure Active Directory (versión preliminar pública)
 
@@ -30,14 +30,14 @@ Azure Active Directory puede proporcionar información de suscripción a un grup
 > Hay una serie de advertencias a tener en cuenta para esta funcionalidad de la versión preliminar:
 >
 >- La compatibilidad con el uso de los atributos del identificador de seguridad (SID) y de sAMAccountName sincronizados de forma local, está diseñada para permitir el traslado de aplicaciones existentes desde AD FS y otros proveedores de identidad. Los grupos administrados en Azure AD no contienen los atributos necesarios para emitir estas notificaciones.
->- En organizaciones más grandes, la cantidad de grupos de los que un usuario es miembro puede exceder el límite que Azure Active Directory agregará a un token. 150 grupos para un token de SAML y 200 para uno de JWT. Esto puede llevar a resultados impredecibles. Si este es un problema potencial, recomendamos realizar pruebas y, si es necesario, esperar hasta que agreguemos mejoras que le permitan restringir las notificacionesa los grupos relevantes para la aplicación.  
->- En cuanto al desarrollo de nuevas aplicaciones, o en los casos en que la aplicación se puede configurar y donde no se requiere una compatibilidad de grupo anidada, le recomendamos que la autorización desde la aplicación se base en roles de aplicación en vez de en grupos.  Gracias a ello, limitará la cantidad de información que se necesita para acceder al token; además, es más seguro y podrá separar la asignación de usuarios de la configuración de la aplicación.
+>- En organizaciones más grandes, la cantidad de grupos de los que un usuario es miembro puede exceder el límite que Azure Active Directory agregará a un token. 150 grupos para un token de SAML y 200 para uno de JWT. Esto puede llevar a resultados impredecibles. Si los usuarios tienen un gran número de pertenencias a grupos, se recomienda usar la opción para restringir los grupos emitidos en las notificaciones a los grupos pertinentes de la aplicación.  
+>- En cuanto al desarrollo de nuevas aplicaciones, o en los casos en que la aplicación se puede configurar y donde no se requiere una compatibilidad de grupo anidada, le recomendamos que la autorización desde la aplicación se base en roles de aplicación en vez de en grupos.  De este modo, limitará la cantidad de información que se necesita para acceder al token; además, es más seguro y podrá separar la asignación de usuarios de la configuración de la aplicación.
 
 ## <a name="group-claims-for-applications-migrating-from-ad-fs-and-other-identity-providers"></a>Notificaciones de grupo para aplicaciones que migran de AD FS y otros proveedores de identidad
 
-Muchas aplicaciones que están configuradas para autenticarse con AD FS dependen de la información de la suscripción del grupo en forma de atributos de grupo de Windows AD.   Estos atributos son el grupo sAMAccountName, que puede ser calificado en función del nombre de dominio, o el identificador de seguridad de grupo de Windows (GroupSID).  Cuando la aplicación está federada con AD FS, AD FS usa la función TokenGroups para recuperar las suscripciones del grupo para el usuario.
+Muchas aplicaciones que están configuradas para autenticarse con AD FS dependen de la información de la suscripción del grupo en forma de atributos de grupo de Windows AD.   Estos atributos son el grupo sAMAccountName, que puede ser calificado en función del nombre de dominio, o el identificador de seguridad de grupo de Windows (GroupSID).  Cuando la aplicación está federada con AD FS, AD FS usa la función TokenGroups para recuperar las suscripciones del grupo para el usuario.
 
-Para que coincida con el token que recibiría una aplicación de AD FS, se pueden emitir notificaciones de grupo y rol que contengan el dominio calificado sAMAccountName en lugar del valor de objectID de Azure Active Directory del grupo.
+Una aplicación que se ha pasado de AD FS necesita que las notificaciones tengan el mismo formato. Se pueden emitir notificaciones de grupo y rol desde Azure Active Directory que contengan el dominio calificado sAMAccountName o GroupSID sincronizado desde Active Directory en lugar del valor de objectID de Azure Active Directory del grupo.
 
 Los formatos que se admiten en las notificaciones de grupo son:
 
@@ -52,29 +52,31 @@ Los formatos que se admiten en las notificaciones de grupo son:
 
 ## <a name="options-for-applications-to-consume-group-information"></a>Opciones para que las aplicaciones consuman información de grupo
 
-Una forma en que las aplicaciones pueden obtener información de grupo es llamar al punto de conexión de los grupos de Graph para recuperar la suscripción de grupo para el usuario autenticado. Esta llamada garantiza que todos los grupos de los que un usuario es miembro estén disponibles, incluso cuando hay una gran cantidad de grupos involucrados y la aplicación necesita enumerar todos los grupos de los que el usuario es miembro.  La enumeración de grupos es entonces independiente de las limitaciones de tamaño del token.
+Las aplicaciones pueden llamar al punto de conexión de los grupos de Microsoft Graph para obtener la información del grupo para el usuario autenticado. Esta llamada garantiza que todos los grupos de los que un usuario es miembro estén disponibles, incluso cuando haya una gran cantidad de grupos involucrados.  La enumeración de grupos es entonces independiente de las limitaciones de tamaño del token.
 
-Sin embargo, si una aplicación existente espera consumir información de grupo a través de las notificaciones que el token que recibe, Azure Active Directory se puede configurar con una serie de opciones de notificaciones diferentes para satisfacer las necesidades de la aplicación.  Considere las opciones siguientes:
+Sin embargo, si una aplicación existente espera consumir información de grupo a través de las notificaciones, Azure Active Directory se puede configurar con varios formatos de notificaciones diferentes.  Considere las opciones siguientes:
 
-- Cuando se usa la suscripción de grupo para propósitos de autorización desde la aplicación, es preferible usar el valor de ObjectID del grupo, que es fijo y único en Azure Active Directory y está disponible para todos los grupos.
-- Si usa el grupo local sAMAccountName para la autorización, use nombres calificados de dominio, ya que hay menos posibilidades de que surjan problemas si los nombres entran en algún conflicto. sAMAccountName por sí solo puede ser único dentro de un dominio de Active Directory, pero si más de un dominio de Active Directory está sincronizado con un inquilino de Azure Active Directory, existe la posibilidad de que más de un grupo tenga el mismo nombre.
+- Al usar la pertenencia a grupos para fines de autorización en la aplicación, es preferible usar el valor de ObjectID del grupo. El valor de ObjectID del grupo es inmutable y único en Azure Active Directory y está disponible para todos los grupos.
+- Si usa el grupo local sAMAccountName para la autorización, use nombres calificados de dominio, ya que hay menos posibilidades de que los nombres entren en conflicto. sAMAccountName puede ser único dentro de un dominio de Active Directory, pero si más de un dominio de Active Directory está sincronizado con un inquilino de Azure Active Directory, existe la posibilidad de que más de un grupo tenga el mismo nombre.
 - Puede usar los [Roles de aplicación](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) para proporcionar una capa de direccionamiento indirecto entre la suscripción del grupo y la aplicación.   A continuación, la aplicación toma decisiones de autorización internas basadas en las notificaciones de roles del token.
 - Si la aplicación está configurada para obtener atributos de grupo que se sincronizan desde Active Directory y un grupo no contiene esos atributos, no se incluirá en las notificaciones.
-- Las notificaciones de grupo de los token incluyen grupos anidados.   Si un usuario es miembro de GroupB, y GroupB es a su vez miembro de GroupA, las notificaciones de grupo del usuario contendrán GroupA y GroupB. En cuanto a las organizaciones que cuentan con un uso intensivo de grupos anidados y tienen usuarios con un gran número de suscripciones a grupos, la cantidad de grupos enumerados en el token puede aumentar el tamaño de ese token.   Azure Active Directory limita la cantidad de grupos que se emitirá en un token a 150 para las aserciones de SAML y a 200 para JWT, para evitar que los token se vuelvan demasiado grandes.  Si un usuario es miembro de un número mayor de grupos que el límite establecido, los grupos se emiten junto con un vínculo al punto de conexión de Graph para obtener información del grupo.
+- Las notificaciones de grupo en tokens incluyen grupos anidados, excepto cuando se usa la opción para restringir las notificaciones de grupo a los grupos asignados a la aplicación.  Si un usuario es miembro de GroupB, y GroupB es a su vez miembro de GroupA, las notificaciones de grupo del usuario contendrán GroupA y GroupB. Si los usuarios de una organización tienen un gran número de suscripciones a grupos, la cantidad de grupos enumerados en el token puede aumentar el tamaño de ese token.  Azure Active Directory limita la cantidad de grupos que se emitirá en un token a 150 para las aserciones de SAML y a 200 para JWT.  Si un usuario es miembro de un número mayor de grupos, los grupos se omiten y se incluye un vínculo al punto de conexión de Graph para obtener información del grupo en su lugar.
 
-> Requisitos previos para usar atributos de grupo sincronizados desde Active Directory:   Los grupos se deben sincronizar desde Active Directory mediante Azure AD Connect.
+## <a name="prerequisites-for-using-group-attributes-synchronized-from-active-directory"></a>Requisitos previos para usar atributos de grupo sincronizados desde Active Directory
+
+Las notificaciones de pertenencia a grupos se pueden emitir en tokens para cualquier grupo si usa el formato ObjectId. Para usar notificaciones de grupo en formatos distintos de ObjectId del grupo, los grupos se deben sincronizar desde Active Directory mediante Azure AD Connect.
 
 Hay dos pasos para configurar Azure Active Directory y así poder emitir nombres de grupo para los grupos de Active Directory.
 
-1. **Sincronice los nombres de los grupos desde Active Directory** Antes de que Azure Active Directory pueda emitir los nombres de los grupos o el SID del grupo local en las notificaciones de grupo o rol, los atributos necesarios deben sincronizarse desde Active Directory.  Debe ejecutar la versión 1.2.70 de Azure AD Connect, o cualquier versión posterior.   Antes de la versión 1.2.70, Azure AD Connect sincronizará los objetos del grupo desde Active Directory, pero no incluirá los atributos de nombre de grupo requeridos de forma predeterminada.  Debe actualizar a la versión actual.
+1. **Sincronice los nombres de los grupos desde Active Directory** Antes de que Azure Active Directory pueda emitir los nombres de los grupos o el SID del grupo local en las notificaciones de grupo o rol, los atributos necesarios deben sincronizarse desde Active Directory.  Debe ejecutar la versión 1.2.70 de Azure AD Connect, o cualquier versión posterior.   Las versiones anteriores a 1.2.70 de Azure AD Connect sincronizarán los objetos del grupo desde Active Directory, pero no incluirán los atributos de nombre de grupo requeridos.  Actualice a la versión actual.
 
-2. **Configure el registro de la aplicación en Azure Active Directory para incluir notificaciones de grupo en los token** Las notificaciones de grupo pueden configurarse en la sección Aplicaciones de empresa del portal de una aplicación de Galería o de SSO de SAML que no sea de la galería, o mediante el Manifiesto de la aplicación que se encuentra en la sección de registros de la aplicación.  Para configurar las notificaciones de grupo en el manifiesto de la aplicación, consulte "Configuración del registro de la aplicación de Azure Active Directory para los atributos de grupo" a continuación.
+2. **Configure el registro de la aplicación en Azure Active Directory para incluir notificaciones de grupo en los token**. Las notificaciones de grupo pueden configurarse en la sección Aplicaciones de empresa del portal o mediante el Manifiesto de la aplicación que se encuentra en la sección de registros de la aplicación.  Para configurar las notificaciones de grupo en el manifiesto de la aplicación, consulte "Configuración del registro de la aplicación de Azure Active Directory para los atributos de grupo" a continuación.
 
-## <a name="configure-group-claims-for-saml-applications-using-sso-configuration"></a>Configuración de las notificaciones de grupo para aplicaciones SAML mediante la configuración de SSO
+## <a name="add-group-claims-to-tokens-for-saml-applications-using-sso-configuration"></a>Adición de notificaciones de grupo para aplicaciones SAML mediante la configuración de SSO
 
-Para configurar las notificaciones de grupo de una aplicación SAML de la galería o que no pertenezca a ella, abra Aplicaciones de empresa, haga clic en la aplicación de la lista y seleccione Configuración de inicio de sesión único.
+Para configurar las notificaciones de grupo de una aplicación SAML de la galería o que no pertenezca a ella, abra **Aplicaciones de empresa**, haga clic en la aplicación de la lista, seleccione **Configuración de inicio de sesión único** y, a continuación, seleccione **Atributos y notificaciones de usuario**.
 
-Seleccione el icono de edición junto a "Grupos devueltos en el token".
+Haga clic en **Agregar una notificación de grupo**.  
 
 ![Interfaz de usuario de notificaciones](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
 
@@ -82,20 +84,30 @@ Use los botones de radio para seleccionar qué grupos deben incluirse en el toke
 
 ![Interfaz de usuario de notificaciones](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
 
-| Número de selección | DESCRIPCIÓN |
+| Número de selección | Descripción |
 |----------|-------------|
-| **Todos los grupos** | Emite grupos de seguridad y listas de distribución.   También hace que los roles de directorio que el usuario tenga asignados se emitan en una notificación “wids”, y cualquier rol de aplicación que el usuario tenga asignado se emita en la notificación de roles. |
+| **Todos los grupos** | Emite grupos de seguridad, listas de distribución y roles.  |
 | **Grupos de seguridad** | Emite grupos de seguridad de los que el usuario es miembro en la notificación de grupos. |
-| **Listas de distribución** | Emite listas de distribución de las que el usuario es miembro. |
 | **Roles de directorio** | Si al usuario se le asignan roles de directorio, se emiten como una notificación “wids” (no se emitirá la notificación de grupos). |
+| **Grupos asignados a la aplicación** | Emite solo los grupos asignados explícitamente a la aplicación y de los que el usuario es miembro. |
 
 Por ejemplo, para emitir todos los grupos de seguridad a los que pertenece el usuario, seleccione Grupos de seguridad.
 
 ![Interfaz de usuario de notificaciones](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
 
-Para emitir grupos mediante los atributos de Active Directory sincronizados desde Active Directory en lugar de los valores de objectID de Azure AD, seleccione el formato requerido en el menú desplegable.  Esto reemplazará el id. de objeto en las notificaciones con valores de cadena que contengan nombres de grupo.   Solo los grupos sincronizados desde Active Directory se incluirán en las notificaciones.
+Para emitir grupos mediante los atributos de Active Directory sincronizados desde Active Directory en lugar de los valores de objectID de Azure AD, seleccione el formato requerido en el menú desplegable. Solo los grupos sincronizados desde Active Directory se incluirán en las notificaciones.
 
 ![Interfaz de usuario de notificaciones](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
+
+Para emitir solo grupos asignados a la aplicación, seleccione **Grupos asignados a la aplicación**.
+
+![Interfaz de usuario de notificaciones](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
+
+Los grupos asignados a la aplicación se incluirán en el token.  Otros grupos de los que el usuario sea miembro se omitirán.  Con esta opción, no se incluyen los grupos anidados y el usuario debe ser miembro directo del grupo asignado a la aplicación.
+
+Para cambiar los grupos asignados a la aplicación, seleccione la aplicación en la lista **Aplicaciones de empresa** y, a continuación, haga clic en **Usuarios y grupos** en el menú de navegación izquierdo de la aplicación.
+
+Consulte el documento [Métodos para asignar usuarios y grupos a una aplicación](../../active-directory/manage-apps/methods-for-assigning-users-and-groups.md#assign-groups) para más información sobre la administración de la asignación de grupos a aplicaciones.
 
 ### <a name="advanced-options"></a>Opciones avanzadas
 
@@ -112,6 +124,12 @@ Algunas aplicaciones requieren que la información de suscripción del grupo apa
 > [!NOTE]
 > Si se usa la opción de emitir datos de grupo como roles, solo los grupos aparecerán en la notificación de rol.  Cualquier rol de aplicación que el usuario haya asignado no aparecerá en la notificación de rol.
 
+### <a name="edit-the-group-claims-configuration"></a>Edición de la configuración de notificaciones de grupos
+
+Una vez que agregada una configuración de notificación de grupo a la configuración de Atributos y notificaciones de usuario, la opción para agregar una notificación de grupo aparecerá atenuada.  Para cambiar la configuración de notificación de grupo, haga clic en la notificación de grupo en la lista **Notificaciones adicionales**.
+
+![Interfaz de usuario de notificaciones](media/how-to-connect-fed-group-claims/group-claims-ui-7.png)
+
 ## <a name="configure-the-azure-ad-application-registration-for-group-attributes"></a>Configurar el registro de aplicación de Azure AD para atributos de grupo
 
 Las notificaciones de grupo también se pueden configurar en la sección [Notificaciones opcionales](../../active-directory/develop/active-directory-optional-claims.md) del [Manifiesto de la aplicación](../../active-directory/develop/reference-app-manifest.md).
@@ -120,12 +138,14 @@ Las notificaciones de grupo también se pueden configurar en la sección [Notifi
 
 2. Habilite las notificaciones de suscripción a grupos cambiando el valor de grupoMembershipClaim.
 
-   Los valores válidos son:
+Los valores válidos son:
 
-   - "All"
-   - "SecurityGroup"
-   - "DistributionList"
-   - "DirectoryRole"
+| Número de selección | Descripción |
+|----------|-------------|
+| **"Todos"** | Emite grupos de seguridad, listas de distribución y roles. |
+| **"SecurityGroup"** | Emite grupos de seguridad de los que el usuario es miembro en la notificación de grupos. |
+| **"DirectoryRole"** | Si al usuario se le asignan roles de directorio, se emiten como una notificación “wids” (no se emitirá la notificación de grupos). |
+| **"ApplicationGroup"** | Emite solo los grupos asignados explícitamente a la aplicación y de los que el usuario es miembro. |
 
    Por ejemplo:
 
@@ -137,7 +157,7 @@ Las notificaciones de grupo también se pueden configurar en la sección [Notifi
 
 3. Establezca las notificaciones opcionales para la configuración de nombre de grupo.
 
-   Si quiere que los grupos del token contengan los atributos de grupo locales de AD en la sección de notificaciones opcionales, especifique a qué tipo de token se debe aplicar la notificación, el nombre de la notificación opcional solicitada y las propiedades adicionales que quiera usar.  Pueden aparecer varios tipos de token:
+   Si quiere que los grupos del token contengan los atributos de grupo locales de AD, especifique a qué tipo de token se debe aplicar la notificación opcional en la sección de notificaciones opcionales.  Pueden aparecer varios tipos de token:
 
    - idToken para el token de OIDC ID
    - accessToken para el token de acceso OAuth/OIDC
@@ -157,7 +177,7 @@ Las notificaciones de grupo también se pueden configurar en la sección [Notifi
    }
    ```
 
-   | Esquema de notificaciones opcional | Valor |
+   | Esquema de notificaciones opcional | Value |
    |----------|-------------|
    | **name:** | Debe ser "grupos" |
    | **source:** | No se usa. Omitir o especificar null |
@@ -202,4 +222,6 @@ Para emitir los nombres de grupo que se devolverán en el formato netbiosDomain\
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[¿Qué es la identidad híbrida?](whatis-hybrid-identity.md)
+[Métodos para asignar usuarios y grupos a una aplicación](../../active-directory/manage-apps/methods-for-assigning-users-and-groups.md#assign-groups)
+
+[Configuración de notificaciones de rol](../../active-directory/develop/active-directory-enterprise-app-role-management.md)
