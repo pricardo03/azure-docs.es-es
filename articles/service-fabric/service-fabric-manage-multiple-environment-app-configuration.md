@@ -5,12 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 33dfc91381b23bf1ac33bef5274e1098df411f4a
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 0bca690fd585b288f15cbab21c1c951474390318
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75609849"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196986"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Administración de aplicaciones en varios entornos
 
@@ -42,7 +42,7 @@ Al crear instancias de aplicación con nombre en Service Fabric, tiene la opció
 
   - En PowerShell, el cmdlet [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) toma los parámetros de la aplicación como una tabla hash.
   - Mediante sfctl, el comando [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) acepta parámetros como una cadena JSON. El script install.sh script usa sfctl.
-  - Visual Studio proporciona un conjunto de archivos de parámetros en la carpeta de parámetros del proyecto de aplicación. Estos archivos de parámetros se usan al publicar desde Visual Studio, mediante Azure DevOps Services o Team Foundation Server. En Visual Studio, los archivos de parámetros se van a pasar al script Deploy-FabricApplication.ps1.
+  - Visual Studio proporciona un conjunto de archivos de parámetros en la carpeta de parámetros del proyecto de aplicación. Estos archivos de parámetros se usan al realizar la publicación desde Visual Studio, mediante Azure DevOps Services o Azure DevOps Server. En Visual Studio, los archivos de parámetros se van a pasar al script Deploy-FabricApplication.ps1.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En los artículos siguientes se muestra cómo usar algunos de los conceptos aquí descritos:

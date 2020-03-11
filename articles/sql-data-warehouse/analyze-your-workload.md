@@ -1,30 +1,30 @@
 ---
 title: Análisis de la carga de trabajo
-description: Técnicas para analizar la priorización de consultas para la carga de trabajo en Azure SQL Data Warehouse.
+description: Técnicas para analizar la priorización de consultas para la carga de trabajo en Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 03/13/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 14e53c1ebe63fac0f7c8e29f66ee5aa0cb3b9526
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 9b1432c41e56c6e0bc3fd80f9c2dbb36374d9e2a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693120"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200002"
 ---
-# <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Análisis de la carga de trabajo en Azure SQL Data Warehouse
+# <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Análisis de la carga de trabajo en Azure Synapse Analytics
 
-Técnicas para analizar la carga de trabajo en Azure SQL Data Warehouse.
+Técnicas para analizar la carga de trabajo de SQL Analytics en Azure Synapse Analytics.
 
 ## <a name="resource-classes"></a>Clases de recursos
 
-SQL Data Warehouse proporciona las clases de recursos para asignar los recursos del sistema a las consultas.  Para más información acerca de las clases de recursos, consulte [Clases de recursos y administración de cargas de trabajo](resource-classes-for-workload-management.md).  Las consultas esperarán si la clase de recursos asignada a una consulta necesita más recursos de los que están disponibles actualmente.
+SQL Analytics proporciona las clases de recursos para asignar los recursos del sistema a las consultas.  Para más información acerca de las clases de recursos, consulte [Clases de recursos y administración de cargas de trabajo](resource-classes-for-workload-management.md).  Las consultas esperarán si la clase de recursos asignada a una consulta necesita más recursos de los que están disponibles actualmente.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Detección de consulta en cola y otras DMV
 
@@ -63,7 +63,7 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-SQL Data Warehouse tiene los siguientes tipos de espera:
+SQL Analytics ofrece los siguientes tipos de espera:
 
 * **LocalQueriesConcurrencyResourceType**: se refiere a las consultas que residen fuera del marco del espacio de simultaneidad. Las funciones del sistema y las consultas DMV como `SELECT @@VERSION` son ejemplos de consultas locales.
 * **UserConcurrencyResourceType**: se refiere a las consultas que residen dentro del marco del espacio de simultaneidad. Las consultas en tablas de usuario final representan ejemplos que usarían este tipo de recurso.
@@ -153,4 +153,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre cómo administrar los usuarios y la seguridad de la base de datos, consulte [Proteger una base de datos en SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md). Para más información sobre cómo las clases de recursos mayores pueden mejorar la calidad de los índices de almacén de columnas agrupado, consulte [Regeneración de índices para mejorar la calidad de los segmentos](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Para obtener más información sobre cómo administrar los usuarios y la seguridad de la base de datos, consulte [Proteger una base de datos en SQL Analytics](sql-data-warehouse-overview-manage-security.md). Para más información sobre cómo las clases de recursos mayores pueden mejorar la calidad de los índices de almacén de columnas agrupado, consulte [Regeneración de índices para mejorar la calidad de los segmentos](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).

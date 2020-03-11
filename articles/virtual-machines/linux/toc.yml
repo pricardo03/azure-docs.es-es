@@ -251,8 +251,8 @@
       items:
         - name: Uso de la CLI
           href: create-cli-complete.md
-        - name: Uso de una plantilla
-          displayName: 'Azure Resource Manager, ARM'
+        - name: Uso de una plantilla de Resource Manager
+          displayName: Azure Resource Manager
           href: create-ssh-secured-vm-from-template.md
         - name: Use la API de REST
           href: create-vm-rest-api.md
@@ -270,8 +270,9 @@
               href: spot-cli.md
             - name: Portal
               href: ../windows/spot-portal.md?toc=/azure/virtual-machines/linux/toc.json
-            - name: Plantilla
+            - name: Plantilla ARM
               href: spot-template.md
+              displayName: Azure Resource Manager
             - name: Códigos de error
               href: ../error-codes-spot.md?toc=/azure/virtual-machines/linux/toc.json
     - name: Migración del modelo clásico a Azure Resource Manager
@@ -462,8 +463,9 @@
               href: image-builder-overview.md
             - name: Uso de CLI de Azure
               href: image-builder.md
-            - name: Referencia de plantilla
+            - name: Referencia de plantilla de Resource Manager
               href: image-builder-json.md
+              displayName: 'ARM,Resource Manager'
             - name: Compilación para galerías de imágenes
               href: image-builder-gallery.md
             - name: Actualización de una imagen existente
@@ -631,7 +633,7 @@
               href: attach-disk-portal.md
         - name: Desconexión de un disco
           href: detach-disk.md
-        - name: Implementación de discos con plantilla
+        - name: Implementación de discos con plantilla de Resource Manager
           displayName: 'Azure Resource Manager, ARM'
           href: using-managed-disks-template-deployments.md
         - name: Habilitación de discos compartidos
@@ -757,9 +759,10 @@
       href: /rest/api/compute
     - name: Plantilla de Resource Manager
       href: /azure/templates/microsoft.compute/allversions
+      displayName: ARM
 - name: Recursos
   items:
-    - name: Creación de plantillas
+    - name: Creación de plantillas de Resource Manager
       displayName: 'Azure Resource Manager, ARM'
       href: /azure/azure-resource-manager/
     - name: Desarrollo de aptitudes con Microsoft Learn

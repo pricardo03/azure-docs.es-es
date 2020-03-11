@@ -9,31 +9,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 02/24/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07859299805c5f7be869350adbdbfa675775888c
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 51b242a76e1daec7d401d797e8c9887821117246
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404802"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656949"
 ---
 # <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory-preview"></a>Asignación de etiquetas de confidencialidad a grupos de Office 365 en Azure Active Directory (versión preliminar)
 
-Azure Active Directory (Azure AD) permite aplicar etiquetas de confidencialidad publicadas por el [Centro de cumplimiento de Microsoft 365](https://sip.protection.office.com/homepage) a los grupos de Office 365. Las etiquetas de confidencialidad se aplican a grupos de servicios como Outlook, Microsoft Teams y SharePoint. Esta característica actualmente está en su versión preliminar pública.
+Azure Active Directory (Azure AD) permite aplicar etiquetas de confidencialidad publicadas por el [Centro de cumplimiento de Microsoft 365](https://sip.protection.office.com/homepage) a los grupos de Office 365. Las etiquetas de confidencialidad se aplican a grupos de servicios como Outlook, Microsoft Teams y SharePoint. Esta característica actualmente está en su versión preliminar pública. Para más información sobre el soporte técnico de aplicaciones de Office 365, consulte [Compatibilidad de Office 365 con las etiquetas de confidencialidad](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-new-sensitivity-labels).
 
 > [!IMPORTANT]
-> El uso de etiquetas de confidencialidad de Azure AD para los grupos de Office 365 requiere una licencia de Azure Active Directory Premium P1.
-
-## <a name="group-settings-controlled-by-labels"></a>Configuración de grupo controlada por etiquetas
-
-Hay dos opciones de configuración que se pueden asociar a una etiqueta:
-
-- **Privacidad**: los administradores pueden asociar un valor de privacidad a la etiqueta para controlar si un grupo es público o privado.
-- **Acceso de invitado**: los administradores pueden aplicar la directiva de invitado a todos los grupos que tengan la etiqueta asignada. Esta directiva especifica si los invitados se pueden agregar como miembros o no. Si la directiva de invitado está configurada para una etiqueta, los grupos a los que asigne esta no permitirán cambiar el valor de AllowToAddGuests.
+> Para configurar esta característica, debe haber al menos una licencia activa de Azure Active Directory Premium P1 en la organización de Azure AD.
 
 ## <a name="enable-sensitivity-label-support-in-powershell"></a>Habilitación de la compatibilidad con la etiqueta de confidencialidad en PowerShell
 
@@ -87,11 +80,11 @@ Eso es todo. Ha habilitado la característica y puede aplicar las etiquetas publ
 
 1. Guarde los cambios y seleccione **Crear**.
 
-Se creará el grupo y se aplicarán automáticamente las directivas asociadas a la etiqueta seleccionada.
+Se creará el grupo, y se aplicará automáticamente la configuración del sitio web y del grupo asociada a la etiqueta seleccionada.
 
 ## <a name="assign-a-label-to-an-existing-group-in-azure-portal"></a>Asignación de una etiqueta a un grupo actual en Azure Portal
 
-1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta de administrador global o de administradores de grupos, o como propietario del grupo.
+1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta de administradores de grupos o como propietario del grupo.
 1. Seleccione **Grupos**.
 1. En la página **Todos los grupos**, seleccione el grupo que desea etiquetar.
 1. En la página del grupo seleccionado, seleccione **Propiedades** y una etiqueta de confidencialidad en la lista.
@@ -109,22 +102,9 @@ Se creará el grupo y se aplicarán automáticamente las directivas asociadas a 
 1. Seleccione **Quitar**.
 1. Seleccione **Guardar** para aplicar los cambios.
 
-## <a name="office-365-app-support-for-sensitivity-labels"></a>Compatibilidad con aplicaciones de Office 365 para etiquetas de confidencialidad
-
-Las siguientes aplicaciones y servicios de Office 365 admiten las etiquetas de confidencialidad de esta versión preliminar:
-
-- Centro de administración de Azure AD
-- Centro de cumplimiento de Microsoft 365
-- SharePoint
-- Outlook en la web
-- Teams
-- Centro de administración de SharePoint
-
-Para más información sobre el soporte técnico de aplicaciones de Office 365, consulte [Compatibilidad de Office 365 con las etiquetas de confidencialidad](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-new-sensitivity-labels).
-
 ## <a name="using-classic-azure-ad-classifications"></a>Uso de las clasificaciones de Azure AD clásicas
 
-Después de habilitar esta característica, Office 365 ya no admite las clasificaciones "clásicas" para los grupos nuevos. Las clasificaciones clásicas son las antiguas que se configuran definiendo los valores de la configuración `ClassificationList` en Azure AD PowerShell. Si esta característica está habilitada, las clasificaciones no se aplicarán a los grupos.
+Después de habilitar esta característica, las clasificaciones "clásicas" para los grupos solo aparecerán en los grupos y sitios web existentes, y solo se deben usar para los nuevos grupos si se crean grupos en aplicaciones que no admiten etiquetas de confidencialidad. El administrador puede convertirlas en etiquetas de confidencialidad posteriormente si es necesario. Las clasificaciones clásicas son las antiguas que se configuran definiendo los valores de la configuración `ClassificationList` en Azure AD PowerShell. Si esta característica está habilitada, las clasificaciones no se aplicarán a los grupos.
 
 ## <a name="troubleshooting-issues"></a>Solución de problemas
 
@@ -136,9 +116,7 @@ La opción de etiqueta de confidencialidad solo se muestra para los grupos cuand
 1. La característica está habilitada, EnableMIPLabels está establecido en True en PowerShell.
 1. El grupo es un grupo de Office 365.
 1. El inquilino tiene una licencia de Azure Active Directory Premium P1.
-1. El usuario que inició la sesión actual tiene acceso a las etiquetas publicadas.
 1. El usuario que inició la sesión actual tiene privilegios suficientes para asignar etiquetas. El usuario debe ser un administrador global, un administrador de grupo o el propietario del grupo.
-1. El usuario que inició la sesión actual tiene asignada una licencia de Office 365. Para más información sobre los requisitos de licencia, consulte [Etiquetas de confidencialidad en las aplicaciones de Office](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-office-apps).
 
 Asegúrese de que se cumplen todas las condiciones para asignar etiquetas a un grupo.
 
@@ -149,7 +127,7 @@ Si la etiqueta que está buscando no está en la lista, podría deberse a uno de
 - La etiqueta podría no estar publicada en el Centro de cumplimiento de Microsoft 365. Esto también se puede aplicar a las etiquetas que ya no se publican. Para más información, póngase en contacto con el administrador.
 - No obstante, es posible que la etiqueta publicada no esté disponible para el usuario que haya iniciado la sesión. Para más información sobre cómo acceder a la etiqueta, consulte al administrador.
 
-### <a name="how-can-i-change-the-label-on-a-group"></a>¿Cómo puedo cambiar la etiqueta en un grupo?
+### <a name="how-to-change-the-label-on-a-group"></a>Cómo se puede cambiar la etiqueta en un grupo
 
 Las etiquetas se pueden intercambiar en cualquier momento siguiendo los mismos pasos que para asignar una etiqueta a un grupo existente, como se indica a continuación:
 

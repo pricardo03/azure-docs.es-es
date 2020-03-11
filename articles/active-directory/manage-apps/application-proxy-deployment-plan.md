@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 959d959cd269884b3b75c4c23bfd0054ae64ced7
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: b3278615b90fe2ef539456c3f00eb877918aa9c2
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033643"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248373"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planear una implementación de Azure AD Application Proxy
 
@@ -34,7 +34,7 @@ En este artículo se incluyen los recursos que necesita para planificar, operar 
 
 En la siguiente sección se proporciona una amplia visión de los elementos de planeamiento que le prepararán para una experiencia de implementación eficaz. 
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 Debe cumplir los siguientes requisitos previos antes de iniciar la implementación. Puede ver más información sobre cómo configurar su entorno, incluidos estos requisitos previos, en este [tutorial](application-proxy-add-on-premises-application.md).
 
@@ -68,7 +68,7 @@ Deben cumplirse los siguientes requisitos principales para configurar e implemen
 
 * **Límites de servicio**: Para protegerse frente al consumo excesivo de recursos por parte de inquilinos individuales, existen límites definidos por aplicación e inquilino. Para ver estos límites, consulte [Restricciones y límites del servicio Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). Estos límites se basan en un banco de pruebas muy superior al volumen de uso típico y proporcionan un búfer suficiente para la mayoría de las implementaciones.
 
-* **Certificado público**: Si usa nombres de dominio personalizados, debe obtener un certificado público emitido por una entidad de certificación de confianza que no sea de Microsoft. Según los requisitos de la organización, obtener un certificado puede llevar algún tiempo y se recomienda comenzar el proceso lo antes posible. Azure Application Proxy admite certificados estándar, [comodín](application-proxy-wildcard.md) o basados en SAN.
+* **Certificado público**: Si usa nombres de dominio personalizados, debe adquirir un certificado SSL. Según los requisitos de la organización, obtener un certificado puede llevar algún tiempo y se recomienda comenzar el proceso lo antes posible. Azure Application Proxy admite certificados estándar, [comodín](application-proxy-wildcard.md) o basados en SAN. Para más información, consulte [Configuración de dominios personalizados con Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
 
 * **Requisitos de dominio**: El inicio de sesión único en las aplicaciones publicadas con la delegación restringida de Kerberos (KCD) requiere que el servidor que ejecuta el conector y el servidor que ejecuta la aplicación estén unidos a un dominio y formen parte del mismo dominio o los mismos dominios de confianza.
 Para obtener más información sobre el tema, consulte [KCD para el inicio de sesión único](application-proxy-configure-single-sign-on-with-kcd.md) con Application Proxy. El servicio de conectores se ejecuta en el contexto del sistema local y no debe configurarse para usar una identidad personalizada.
@@ -93,8 +93,8 @@ Para compilar un inventario de todas las aplicaciones del ámbito que se están 
 
 | Tipo de información| Información que se recopilará |
 |---|---|
-| Tipo de servicio| Por ejemplo:  SharePoint, SAP, CRM, aplicación web personalizada, API |
-| Plataforma de aplicaciones | Por ejemplo:  Windows IIS, Apache en Linux, Tomcat, NGINX |
+| Tipo de servicio| Por ejemplo: SharePoint, SAP, CRM, aplicación web personalizada, API |
+| Plataforma de aplicaciones | Por ejemplo: Windows IIS, Apache en Linux, Tomcat, NGINX |
 | Pertenencia a dominio| Nombre de dominio completo (FQDN) del servidor web |
 | Ubicación de la aplicación | Dónde se encuentra el servidor web o la granja en su infraestructura |
 | Acceso interno | Dirección URL exacta usada al acceder a la aplicación internamente. <br> En una granja, ¿qué tipo de equilibrio de carga se usa? <br> Si la aplicación dibuja el contenido de orígenes distintos al propio.<br> Determina si la aplicación funciona a través de WebSockets. |
@@ -227,7 +227,7 @@ Para las aplicaciones locales a las que normalmente se puede acceder de forma an
 
 Dejar esta opción definida como No permite a los usuarios acceder a la aplicación local a través de Azure AD App Proxy sin permisos, así que debe usarla con precaución.
 
-Una vez publicada la aplicación, se debe poder acceder a ella escribiendo su URL externa en un explorador o por su icono en [ https://myapps.microsoft.com](https://myapps.microsoft.com/).
+Una vez publicada la aplicación, se debe poder acceder a ella escribiendo su URL externa en un explorador o por su icono en [https://myapps.microsoft.com](https://myapps.microsoft.com/).
 
 ### <a name="enable-pre-authentication"></a>Habilitar la autenticación previa
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 03/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 9e1a7f7cd2643aae61e60d77ad74f4a08266a977
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: b646ee9b727d5adf4ec1c8b5c769b3d8f5c0fc1c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863604"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252041"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Especificaciones técnicas de Azure Data Box Edge
 
@@ -52,6 +52,14 @@ El dispositivo Data Box Edge tiene dos fuentes de alimentación de 100-240 V 
 <!--## Power consumption statistics
 
 The following table lists the typical power consumption data (actual values may vary from the published) for the Data Box Edge device.-->
+
+## <a name="network-interface-specifications"></a>Especificaciones de la interfaz de red
+
+El dispositivo Data Box Edge tiene seis interfaces de red, PORT1-PORT6.
+
+| Especificación           | Descripción                 |
+|-------------------------|----------------------------|
+|  Interfaces de red    | 2 interfaces de 1 GbE: 1 administración, no es configurable por el usuario y se usa para la configuración inicial. La otra interfaz la puede configurar el usuario, se puede usar para la transferencia de datos y es DHCP de forma predeterminada. <br>2 interfaces de 25 GbE: estas pueden funcionar como interfaces de 10 GbE. El usuario puede configurar estas interfaces como DHCP (predeterminado) o estáticas. <br> 2 interfaces de 25 GbE: el usuario puede configurar estas interfaces como DHCP (predeterminado) o estáticas.                  |
 
 ## <a name="storage-specifications"></a>Especificaciones de almacenamiento
 

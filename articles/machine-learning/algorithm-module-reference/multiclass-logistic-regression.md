@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: a697c1e43ccd486f8c98399ea9065902bd247f7d
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 40193a2547959b44c5753cfcc6ccad9344ab9486
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152149"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920440"
 ---
 # <a name="multiclass-logistic-regression-module"></a>Módulo Multiclass Logistic Regression
 
@@ -40,7 +40,7 @@ En la regresión logística multiclase, el clasificador puede usarse para predec
 
     + **Single Parameter** (Parámetro único): Use esta opción si sabe cómo quiere configurar el modelo y proporcione un conjunto específico de valores como argumentos.
 
-    + **Parameter Range** (Intervalo de parámetros): Use esta opción si no está seguro de los mejores parámetros y quiere usar un barrido de parámetros.
+    + **Parameter Range** (Intervalo de parámetros): seleccione esta opción si no está seguro de los mejores parámetros y quiere ejecutar un barrido de parámetros. Seleccione un rango de valores que iterar y el módulo [Optimización de hiperparámetros de un modelo](tune-model-hyperparameters.md) itera en todas las combinaciones posibles de los valores proporcionados para determinar los hiperparámetros que generan los resultados óptimos.  
 
 3. **Optimization tolerance** (Tolerancia de optimización), especifique el valor de umbral de convergencia del optimizador. Si la mejora entre las iteraciones es menor que el umbral, el algoritmo se detiene y devuelve el modelo actual.
 

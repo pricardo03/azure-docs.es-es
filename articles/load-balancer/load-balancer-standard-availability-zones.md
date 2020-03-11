@@ -13,82 +13,31 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 0d61ad33b97b97c3a45334704544d72809e56848
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 5a65982c5c13eb4e4273efcfd8d14910b0f35572
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715261"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197154"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Estándar y zonas de disponibilidad
 
 Azure Standard Load Balancer admite escenarios de [zonas de disponibilidad](../availability-zones/az-overview.md). Puede usar Standard Load Balancer para optimizar la disponibilidad en un escenario de un extremo a otro mediante la alineación de recursos con zonas y su distribución entre ellas.  Revise el documento sobre [zonas de disponibilidad](../availability-zones/az-overview.md) para ver qué son las zonas de disponibilidad, qué regiones las admiten actualmente y otros productos y conceptos relacionados. Las zonas de disponibilidad, combinadas con Standard Load Balancer, son un conjunto de características ampliable y flexible que posibilita la creación de diferentes escenarios.  Revise este documento para conocer estos [conceptos](#concepts) y la [guía de diseño](#design) de un escenario básico.
 
->[!IMPORTANT]
->Revise el artículo sobre [zonas de disponibilidad](../availability-zones/az-overview.md) para ver otros temas relacionados, incluida cualquier información específica de la región.
-
 ## <a name="concepts"></a> Conceptos de las zonas de disponibilidad aplicados a Load Balancer
 
-No hay ninguna relación directa entre los recursos de Load Balancer y la infraestructura real; la creación de un equilibrador de carga no crea una instancia. Los recursos de Load Balancer son objetos mediante los cuales se puede expresar cómo debe Azure programar su infraestructura de varios inquilinos creada previamente para lograr el escenario que se desea crear.  Esto es importante en el contexto de las zonas de disponibilidad porque un único recurso de Load Balancer puede controlar la programación de la infraestructura en varias zonas de disponibilidad, mientras que un servicio con redundancia de zona aparece como un recurso desde el punto de vista del cliente.  
-
-Un recurso de Load Balancer en sí mismo es regional y nunca zonal.  Y una red virtual y una subred siempre son regionales y nunca zonales. La granularidad de lo que se puede configurar está restringida por cada configuración de front-end, regla y definición del grupo de back-end.
-
+Un recurso de Load Balancer en sí mismo es regional y nunca zonal. La granularidad de lo que se puede configurar está restringida por cada configuración de front-end, regla y definición del grupo de back-end.
 En el contexto de las zonas de disponibilidad, el comportamiento y las propiedades de una regla de Load Balancer se describen como con redundancia de zona o zonales.  Con redundancia de zona y zonal describen la zonalidad de una propiedad.  En el contexto de Load Balancer, con redundancia de zona siempre significa *varias zonas* y zonal significa aislamiento del servicio para una *sola zona*.
-
 El uso de Load Balancer, tanto público como interno, admite escenarios con redundancia de zona y escenarios zonales, y ambos pueden dirigir el tráfico entre las zonas según sea necesario (*equilibrio de carga entre zonas*). 
 
 ### <a name="frontend"></a>Front-end
 
 Un front-end de Load Balancer es una configuración de IP de front-end que hace referencia a un recurso de dirección IP pública o a una dirección IP privada dentro de la subred de un recurso de red virtual.  Conforma el punto de conexión con equilibrio de carga en el que se expone su servicio.
+Un recurso de Load Balancer puede contener reglas con front-end zonales y con redundancia de zona al mismo tiempo. Cuando se garantiza un recurso de dirección IP pública o una dirección IP privada a una zona, la zonalidad (o la falta de ella) no es mutable.  Si desea cambiar u omitir la zonalidad de un front-end con dirección IP pública o privada, debe volver a crear la dirección IP pública en la zona que corresponda.  Las zonas de disponibilidad no cambian las restricciones para varios front-end, revise [varios front-ends para Load Balancer](load-balancer-multivip-overview.md) para más información sobre esta capacidad.
 
-Un recurso de Load Balancer puede contener reglas con front-end zonales y con redundancia de zona al mismo tiempo. 
+#### <a name="zone-redundant"></a>Redundancia de zona 
 
-Cuando se garantiza un recurso de dirección IP pública o una dirección IP privada a una zona, la zonalidad (o la falta de ella) no es mutable.  Si desea cambiar u omitir la zonalidad de un front-end con dirección IP pública o privada, debe volver a crear la dirección IP pública en la zona que corresponda.  Las zonas de disponibilidad no cambian las restricciones para varios front-end, revise [varios front-ends para Load Balancer](load-balancer-multivip-overview.md) para más información sobre esta capacidad.
-
-#### <a name="zone-redundant-by-default"></a>Redundancia de zona de forma predeterminada
-
-En una región con zonas de disponibilidad, un front-end de Standard Load Balancer tiene redundancia de zona de forma predeterminada.  La redundancia de zona significa que todos los flujos de entrada o de salida son atendidos por todas las zonas de disponibilidad de una región de forma simultánea con una única dirección IP. No son necesarios esquemas de redundancia de DNS. Una dirección IP de front-end única puede sobrevivir a un error en la zona y se puede utilizar para llegar a todos los miembros del grupo de back-end (no afectados) con independencia de la zona. Se puede producir un error en una o más zonas de disponibilidad y la ruta de acceso de datos sobrevive siempre que una zona de la región permanezca correcta. La dirección IP única del front-end se suministra a la vez en varias implementaciones de infraestructura independientes de varias zonas de disponibilidad.  Esto no significa que sea una ruta de acceso de datos sin incidencias, sino que los reintentos o el restablecimiento se realizarán correctamente en otras zonas no afectadas por el error zonal.   
-
-El siguiente fragmento es una ilustración de cómo definir una dirección IP pública con redundancia de zona para usarla con el Standard Load Balancer público. Si está usando las plantillas de Resource Manager existentes en la configuración, agregue la sección **sku** a estas plantillas.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-El siguiente fragmento es una ilustración de cómo definir una dirección IP de front-end con redundancia de zona para el Standard Load Balancer interno. Si está usando las plantillas de Resource Manager existentes en la configuración, agregue la sección **sku** a estas plantillas.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "zone_redundant_frontend",
-                        "properties": {
-                            "subnet": {
-                                "Id": "[variables('subnetRef')]"
-                            },
-                            "privateIPAddress": "10.0.0.6",
-                            "privateIPAllocationMethod": "Static"
-                        }
-                    },
-                ],
-```
-
-Los extractos anteriores no son plantillas completas pero pretenden mostrar cómo se expresan las propiedades de las zonas de disponibilidad.  Debe incorporar estas instrucciones en las plantillas.
+En una región con zonas de disponibilidad, un front-end de Standard Load Balancer tiene redundancia de zona.  La redundancia de zona significa que todos los flujos de entrada o de salida son atendidos por todas las zonas de disponibilidad de una región de forma simultánea con una única dirección IP. No son necesarios esquemas de redundancia de DNS. Una dirección IP de front-end única puede sobrevivir a un error en la zona y se puede utilizar para llegar a todos los miembros del grupo de back-end (no afectados) con independencia de la zona. Se puede producir un error en una o más zonas de disponibilidad y la ruta de acceso de datos sobrevive siempre que una zona de la región permanezca correcta. La dirección IP única del front-end se suministra a la vez en varias implementaciones de infraestructura independientes de varias zonas de disponibilidad.  Esto no significa que sea una ruta de acceso de datos sin incidencias, sino que los reintentos o el restablecimiento se realizarán correctamente en otras zonas no afectadas por el error zonal.   
 
 #### <a name="optional-zone-isolation"></a>Aislamiento de zona opcional
 
@@ -101,49 +50,6 @@ Si desea combinar estos conceptos (con redundancia de zona y zonal para el mismo
 Para un front-end de Load Balancer público, se agrega un parámetro *zones* al recurso de dirección IP pública al que hace referencia la configuración de IP del front-end que usa cada regla correspondiente.
 
 Para un front-end de Load Balancer interno, se agrega un parámetro de *zonas* a la configuración IP del front-end del recurso de Load Balancer interno. El front-end zonal hace que Load Balancer garantice una dirección IP en una subred para una zona específica.
-
-El siguiente fragmento es una ilustración de cómo definir una dirección IP pública estándar zonal en la Zona 1 de disponibilidad. Si está usando las plantillas de Resource Manager existentes en la configuración, agregue la sección **sku** a estas plantillas.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "zones": [ "1" ],
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-El siguiente fragmento es una ilustración de cómo definir un front-end del Standard Load Balancer interno en la Zona 1 de disponibilidad. Si está usando las plantillas de Resource Manager existentes en la configuración, agregue la sección **sku** a estas plantillas. Asimismo, defina la propiedad **zonas** en la configuración de IP del front-end para el recurso secundario.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "zonal_frontend_in_az1",
-                        "zones": [ "1" ],
-                        "properties": {
-                            "subnet": {
-                                "Id": "[variables('subnetRef')]"
-                            },
-                            "privateIPAddress": "10.0.0.6",
-                            "privateIPAllocationMethod": "Static"
-                        }
-                    },
-                ],
-```
-
-Los extractos anteriores no son plantillas completas pero pretenden mostrar cómo se expresan las propiedades de las zonas de disponibilidad.  Debe incorporar estas instrucciones en las plantillas.
 
 ### <a name="cross-zone-load-balancing"></a>Equilibrio de carga entre zonas
 
@@ -201,14 +107,6 @@ Cuando use zonas de disponibilidad, evite la introducción de dependencias entre
   - Cuando vuelve la disponibilidad de una zona, ¿la aplicación sabe cómo realizar una recuperación de forma segura?
 
 Revise [los patrones de diseño en la nube de Azure](https://docs.microsoft.com/azure/architecture/patterns/) para mejorar la resistencia de la aplicación a los escenarios de error.
-
-### <a name="zonalityguidance"></a> Con redundancia de zona frente a zonal
-
-La redundancia de zona puede simplificar las cosas con una opción independiente de la zona y al mismo tiempo resistente con una única dirección IP para el servicio.  A su vez, puede reducir la complejidad.  Con redundancia de zona también tiene movilidad entre zonas y se puede usar de forma segura en los recursos de cualquier zona.  Además, es una opción de futuro en regiones sin zonas de disponibilidad, que puede reducir los cambios necesarios una vez que una región tenga zonas de disponibilidad.  La sintaxis de configuración para una dirección IP o un front-end con redundancia de zona se ejecuta correctamente en cualquier región, incluidas aquellas sin zonas de disponibilidad, cuya propiedad zones: no especifica ninguna zona (propiedad del recurso).
-
-La opción zonal puede proporcionar una garantía explícita para una zona y comparte destino explícitamente con el estado de la zona. Puede ser recomendable crear una regla de Load Balancer con un front-end con dirección IP zonal o un front-end de Load Balancer interno zonal, particularmente si el recurso adjunto es una máquina virtual zonal en la misma zona.  O quizás la aplicación requiera un conocimiento explícito sobre la zona en la que se encuentra un recurso con antelación y desea analizar la disponibilidad en zonas independientes explícitamente.  Puede elegir exponer varios front-end zonales para un servicio de un extremo a otro distribuido en distintas zonas (es decir, varios front-end zonales por zona para varios conjuntos de escalado de máquinas virtuales zonales).  Y si los front-end zonales son direcciones IP públicas, puede utilizar estos front-end zonales para exponer el servicio con [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  O bien, puede utilizar varios front-end zonales para tener detalles de mantenimiento y rendimiento por zona mediante soluciones de supervisión de terceros y exponer el servicio global con un front-end con redundancia de zona. Debe servir únicamente recursos zonales con front-end zonales alineados con la misma zona y evitar escenarios entre zonas con riesgos potenciales para los recursos zonales.  Los recursos zonales existen en las regiones donde hay zonas de disponibilidad.
-
-No hay una guía general para saber cuál es la mejor elección sin conocer la arquitectura del servicio.  Revise [los patrones de diseño en la nube de Azure](https://docs.microsoft.com/azure/architecture/patterns/) para mejorar la resistencia de la aplicación a los escenarios de error.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Aprenda más sobre [zonas de disponibilidad](../availability-zones/az-overview.md).

@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-ms.openlocfilehash: fc1f81c616dc6ee664bb5be924f2a1586646d16d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 544de1b4ac46a58d533f71a46266807a3b93820a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76279154"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920049"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Análisis de registros y métricas con la configuración de diagnóstico
 
@@ -32,7 +32,7 @@ Elija la categoría de registro y la categoría de métrica que desea supervisar
 
 ## <a name="metrics"></a>Métricas
 
-Para obtener una lista completa de las métricas, consulte la sección [Métricas de Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options).
+Para obtener una lista completa de las métricas, consulte la sección [Métricas de Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-metrics-options).
 
 Para empezar, habilite uno de estos servicios para recibir los datos. Para más información sobre la configuración de Log Analytics, consulte [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/log-query/get-started-portal.md). 
 
@@ -114,7 +114,7 @@ Para más información sobre el lenguaje de consulta que se utiliza en Log Analy
 1. Para revisar los registros de aplicaciones, busque un contenedor llamado **insights-logs-applicationconsole**.
 1. Para revisar las métricas de aplicaciones, busque un contenedor llamado **insights-metrics-pt1m**.
 
-Para más información sobre cómo enviar información de diagnóstico a una cuenta de almacenamiento, consulte [Almacenamiento y visualización de los datos de diagnóstico en Azure Storage](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-to-storage).
+Para más información sobre cómo enviar información de diagnóstico a una cuenta de almacenamiento, consulte [Almacenamiento y visualización de los datos de diagnóstico en Azure Storage](../storage/common/storage-introduction.md).
 
 ### <a name="use-your-event-hub"></a>Uso del centro de eventos
 

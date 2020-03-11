@@ -2,17 +2,17 @@
 title: 'Series Eav4 y Easv4: Azure Virtual Machines'
 description: Especificaciones de las máquinas virtuales de las series Eav4 y Easv4.
 services: virtual-machines
-author: jonbeck7
+author: migerdes
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 96cd7b4f4627e7c0335df9c745d8193a3dac7044
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: e05a2b97a25ce4cab7d619f4b62d405765cb08db
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492621"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164396"
 ---
 # <a name="eav4-and-easv4-series"></a>Series Eav4 y Easv4
 
@@ -25,6 +25,10 @@ ACU: 230 - 260
 Premium Storage: No compatible
 
 Almacenamiento en caché de Premium Storage: No compatible
+
+Migración en vivo: Compatible
+
+Actualizaciones con conservación de memoria: Compatible
 
 Los tamaños de la serie Eav4 se basan en el procesador EPYC<sup>TM</sup> 7452 de AMD de 2,35 Ghz que pueden alcanzar una frecuencia máxima incrementada de 3,35 Ghz y usar SSD Premium. Los tamaños de la serie Eav4 son ideales para aplicaciones empresariales de uso intensivo de memoria. El almacenamiento en disco de datos se factura de forma independiente a las máquinas virtuales. Para usar SSD Premium, use los tamaños de la serie Easv4. El precio y los medidores de facturación para los tamaños Easv4 son los mismos que para la serie Eav3.
 
@@ -49,6 +53,10 @@ ACU: 230 - 260
 Premium Storage: Compatible
 
 Almacenamiento en caché de Premium Storage: Compatible
+
+Migración en vivo: Compatible
+
+Actualizaciones con conservación de memoria: Compatible
 
 Los tamaños de la serie Easv4 se basan en el procesador EPYC<sup>TM</sup> 7452 de AMD de 2,35 Ghz que pueden alcanzar una frecuencia máxima incrementada de 3,35 Ghz y usar SSD Premium. Los tamaños de la serie Easv4 son ideales para aplicaciones empresariales de uso intensivo de memoria.
 

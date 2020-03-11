@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 02/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 11a6a668b1028ba1640ef076606d4aeb4c3aae6e
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 82866d452289a29dcdcacc12db8048acb7a351ba
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589375"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250856"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Administración, implementación y supervisión de modelos con Azure Machine Learning
 
@@ -71,6 +71,11 @@ Los modelos registrados se identifican por el nombre y la versión. Cada vez que
 No se puede eliminar un modelo registrado que se esté usando en una implementación activa.
 Para más información, consulte la sección de registro de modelos de [Implementación de modelos](how-to-deploy-and-where.md#registermodel).
 
+### <a name="profile-models"></a>Modelos de perfil
+
+Azure Machine Learning puede ayudarle a comprender los requisitos de CPU y memoria del servicio que se creará al implementar el modelo. La generación de perfiles prueba el servicio que ejecuta el modelo y devuelve información como el uso de la CPU, el uso de memoria y la latencia de respuesta. También proporciona una recomendación de CPU y memoria basada en el uso de recursos.
+Para más información, consulte la sección de generación de perfiles de [Implementación de modelos](how-to-deploy-and-where.md#profilemodel).
+
 ### <a name="package-and-debug-models"></a>Empaquetado y depuración de modelos
 
 Antes de implementar un modelo en producción, se empaqueta en una imagen de Docker. En la mayoría de los casos, la creación de imágenes se produce automáticamente en segundo plano durante la implementación. Se puede especificar la imagen manualmente.
@@ -78,10 +83,6 @@ Antes de implementar un modelo en producción, se empaqueta en una imagen de Doc
 Si experimenta problemas con la implementación, puede implementarla en su entorno de desarrollo local para solucionar problemas y depurarla.
 
 Para obtener más información, consulte [implementación de modelos](how-to-deploy-and-where.md#registermodel) y [solución problemas en implementaciones](how-to-troubleshoot-deployment.md).
-
-### <a name="validate-and-profile-models"></a>Validación y generación de perfiles de modelos
-
-Azure Machine Learning puede utilizar la generación de perfiles para determinar la configuración de CPU y memoria ideal que se usará al implementar el modelo. La validación del modelo se produce como parte de este proceso con ayuda de los datos que proporcione para el proceso de generación de perfiles.
 
 ### <a name="convert-and-optimize-models"></a>Conversión y optimización de modelos
 

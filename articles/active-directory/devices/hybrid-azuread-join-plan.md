@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7c4a0e64e1f08bb3e80eaf67937da10906bfce0
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: bae957eba627be7fa3b968585a03d28aa5b0af56
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591615"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255017"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido
 
@@ -79,6 +79,8 @@ Como primer paso del planeamiento, debe revisar el entorno y determinar si neces
 - No se admite la unión a Azure AD híbrido para Windows Server que ejecuta el rol de controlador de dominio (DC).
 
 - No se admite la unión a Azure AD híbrido en dispositivos Windows de nivel inferior al usar la movilidad de credenciales o de perfiles de usuario, o el perfil obligatorio.
+
+- El sistema operativo de Server Core no admite ningún tipo de registro de dispositivos.
 
 ### <a name="os-imaging-considerations"></a>Consideraciones sobre la creación de imágenes del SO
 - Si se basa en la herramienta de preparación del sistema (Sysprep) y utiliza para la instalación una imagen **anterior a Windows 10 1809**, asegúrese de que esa imagen no corresponde a un dispositivo que ya está registrado en Azure AD como unión a Azure AD híbrido.

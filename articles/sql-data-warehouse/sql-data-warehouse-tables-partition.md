@@ -1,6 +1,6 @@
 ---
 title: Creación de particiones de tablas
-description: Recomendaciones y ejemplos para usar las particiones de tabla en Azure SQL Data Warehouse.
+description: Recomendaciones y ejemplos para usar particiones de tablas en SQL Analytics
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,24 +10,24 @@ ms.subservice: development
 ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 7ec313094a9ebc05f966e0c49f44284909ca778f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 25485502ff1ae6858ee7d0f840c22940dc3ab9b5
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685427"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192156"
 ---
-# <a name="partitioning-tables-in-sql-data-warehouse"></a>Creación de particiones de tablas en SQL Data Warehouse
-Recomendaciones y ejemplos para usar las particiones de tabla en Azure SQL Data Warehouse.
+# <a name="partitioning-tables-in-sql-analytics"></a>Creación de particiones de tablas en SQL Analytics
+Recomendaciones y ejemplos para usar particiones de tablas en SQL Analytics.
 
 ## <a name="what-are-table-partitions"></a>¿Qué son las particiones de tablas?
-Las particiones de tablas permiten dividir los datos en grupos más pequeños de datos. En la mayoría de los casos, se crean particiones de tablas en una columna de fecha. La creación de particiones es compatible con todos los tipos de tabla de SQL Data Warehouse, entre los que se incluyen almacén de columnas en clúster, índice agrupado y montón. La creación de particiones también es compatible con todos los tipos de distribución, incluidos la distribución por hash o la distribución Round Robin.  
+Las particiones de tablas permiten dividir los datos en grupos más pequeños de datos. En la mayoría de los casos, se crean particiones de tablas en una columna de fecha. La creación de particiones es compatible con todos los tipos de tabla de SQL Analytics, entre los que se incluyen el almacén de columnas en clúster, el índice agrupado y el montón. La creación de particiones también es compatible con todos los tipos de distribución, incluidos la distribución por hash o la distribución Round Robin.  
 
 La creación de particiones puede beneficiar el mantenimiento de datos y el rendimiento de las consultas. El hecho de que beneficie a ambos aspectos, o solo a uno de ellos, dependerá de la forma en que se carguen los datos y de la misma columna se puede usar para ambos propósitos, ya que la creación de particiones solo se puede hacer en una columna.
 
 ### <a name="benefits-to-loads"></a>Ventajas para las cargas
-La principal ventaja de la creación de particiones en SQL Data Warehouse es que se mejora la eficiencia y el rendimiento de la carga de datos mediante el uso de la eliminación, conmutación y combinación de particiones. En la mayoría de los casos, la creación de particiones de los datos se realiza en una columna de fecha que está estrechamente relacionada con el orden con el que se cargan los datos en la base de datos. Una de las mayores ventajas de utilizar particiones para mantener los datos es que se evita el registro de transacciones. Aunque la mera inserción, actualización o eliminación de datos puede ser el enfoque más sencillo, con un poco de esfuerzo, el uso de la creación de particiones durante el proceso de carga puede mejorar considerablemente el rendimiento.
+La principal ventaja de la creación de particiones en SQL Analytics es que se mejora la eficiencia y el rendimiento de la carga de datos mediante el uso de la eliminación, la conmutación y la combinación de particiones. En la mayoría de los casos, la creación de particiones de los datos se realiza en una columna de fecha que está estrechamente relacionada con el orden con el que se cargan los datos en la base de datos. Una de las mayores ventajas de utilizar particiones para mantener los datos es que se evita el registro de transacciones. Aunque la mera inserción, actualización o eliminación de datos puede ser el enfoque más sencillo, con un poco de esfuerzo, el uso de la creación de particiones durante el proceso de carga puede mejorar considerablemente el rendimiento.
 
 La conmutación de particiones se puede utilizar para quitar o reemplazar rápidamente cualquier sección de una tabla.  Por ejemplo, una tabla de datos de ventas podría contener datos solo de los últimos 36 meses. Al final de cada mes, el mes más antiguo de datos de ventas se elimina de la tabla.  Estos datos pueden eliminarse mediante el uso de una instrucción delete para eliminar los datos del mes más antiguo. Sin embargo, la eliminación una gran cantidad de datos fila a fila con una instrucción delete puede tardar mucho tiempo, así como crear el riesgo de transacciones grandes que podría tardar mucho tiempo en revertirse si algo va mal. Un enfoque mejor es colocar la partición de datos más antigua. Aunque la eliminación de las filas individuales podría tardar horas, la de toda una partición puede tardar segundos.
 
@@ -37,10 +37,10 @@ La creación de particiones también puede utilizarse para mejorar el rendimient
 ## <a name="sizing-partitions"></a>Ajustar el tamaño de las particiones
 Aunque la creación de particiones se puede usar para mejorar el rendimiento en algunos escenarios, la creación de una tabla con **demasiadas** particiones pueden afectar negativamente al rendimiento en algunas circunstancias.  Estas cuestiones se dan especialmente en las tablas de almacén de columnas en clúster. Para que la creación de particiones sea útil, es importante saber cuándo usarla y el número de particiones que se deben crear. No hay ninguna regla inamovible con respecto a cuántas particiones son demasiadas, depende de los datos y del número de particiones que se cargan de manera simultánea. Normalmente, un esquema de partición correcta tiene decenas o centenas de particiones, no miles.
 
-Al crear particiones en tablas de **almacén de columnas en clúster**, es importante considerar el número de filas que pertenece a cada partición. Para que tanto la compresión como el rendimiento de las tablas de almacén de columnas en clúster sean óptimos, se necesita un mínimo de un millón de filas por partición y distribución. Antes de que se creen particiones, SQL Data Warehouse ya divide cada tabla en 60 bases de datos distribuidas. Todas las particiones que se agreguen a una tabla se sumarán a las distribuciones creadas en segundo plano. Usando este ejemplo, si la tabla de datos de ventas contenía 36 particiones mensuales, y dado que SQL Data Warehouse tiene 60 distribuciones, la tabla de datos de ventas debería contener 60 millones de filas por mes, o 2 100 millones de filas cuando se rellenen todos los meses. Si una tabla contiene menos filas que el número mínimo recomendado de filas por partición, considere utilizar menos particiones para hacer que aumente el número de filas por partición. Para obtener más información, consulte el artículo [Indexación](sql-data-warehouse-tables-index.md), que incluye las consultas que pueden evaluar la calidad de los índices de almacén de columnas en clúster.
+Al crear particiones en tablas de **almacén de columnas en clúster**, es importante considerar el número de filas que pertenece a cada partición. Para que tanto la compresión como el rendimiento de las tablas de almacén de columnas en clúster sean óptimos, se necesita un mínimo de un millón de filas por partición y distribución. Antes de que se creen particiones, SQL Analytics ya divide cada tabla en 60 bases de datos distribuidas. Todas las particiones que se agreguen a una tabla se sumarán a las distribuciones creadas en segundo plano. Usando este ejemplo, si la tabla de hechos de ventas contenía 36 particiones mensuales, y dado que SQL Analytics tiene 60 distribuciones, dicha tabla debería contener 60 millones de filas por mes, o 2 100 millones de filas cuando se rellenen todos los meses. Si una tabla contiene menos filas que el número mínimo recomendado de filas por partición, considere utilizar menos particiones para hacer que aumente el número de filas por partición. Para obtener más información, consulte el artículo [Indexación](sql-data-warehouse-tables-index.md), que incluye las consultas que pueden evaluar la calidad de los índices de almacén de columnas en clúster.
 
 ## <a name="syntax-differences-from-sql-server"></a>Diferencias de sintaxis con respecto a SQL Server
-SQL Data Warehouse introduce una manera más sencilla de definir particiones que SQL Server. Las funciones y los esquemas de la creación de particiones no se usan en SQL Data Warehouse como en SQL Server. En su lugar, lo único que se debe hacer es identificar la columna con particiones y los puntos limítrofes. Aunque la sintaxis de la creación de particiones puede variar ligeramente con respecto a la de SQL Server, los conceptos básicos son los mismos. SQL Server y SQL Data Warehouse admiten una columna de partición por tabla, que puede ser una partición con intervalos. Para obtener más información sobre las particiones, consulte [Tablas e índices con particiones](/sql/relational-databases/partitions/partitioned-tables-and-indexes).
+SQL Analytics introduce una manera más sencilla de definir particiones que SQL Server. Las funciones y los esquemas de la creación de particiones no se usan igual en SQL Analytics que en SQL Server. En su lugar, lo único que se debe hacer es identificar la columna con particiones y los puntos limítrofes. Aunque la sintaxis de la creación de particiones puede variar ligeramente con respecto a la de SQL Server, los conceptos básicos son los mismos. SQL Server y SQL Analytics admiten una columna de partición por tabla, que puede ser una partición por rangos. Para obtener más información sobre las particiones, consulte [Tablas e índices con particiones](/sql/relational-databases/partitions/partitioned-tables-and-indexes).
 
 En el siguiente ejemplo se usa una instrucción [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) para crear particiones en la tabla FactInternetSales en la columna OrderDateKey:
 
@@ -69,12 +69,12 @@ WITH
 ```
 
 ## <a name="migrating-partitioning-from-sql-server"></a>Migración de particiones de SQL Server
-Para migrar las definiciones de particiones de SQL Server a SQL Data Warehouse:
+Para migrar las definiciones de particiones de SQL Server a SQL Analytics, basta con que haga lo siguiente:
 
-- Elimine el [esquema de particiones](/sql/t-sql/statements/create-partition-scheme-transact-sql)de SQL Server.
+- Elimine el [esquema de particiones](/sql/t-sql/statements/create-partition-scheme-transact-sql) de SQL Server.
 - Agregue la definición de [función de partición](/sql/t-sql/statements/create-partition-function-transact-sql) a CREATE TABLE.
 
-Si va a migrar una tabla con particiones de una instancia de SQL Server, la instrucción SQL siguiente puede ayudarle a consultar el número de filas que se encuentran en cada partición. Tenga en cuenta que si se utiliza la misma granularidad de particiones en SQL Data Warehouse, el número de filas por partición se reduce en un factor de 60.  
+Si va a migrar una tabla con particiones de una instancia de SQL Server, la instrucción SQL siguiente puede ayudarle a consultar el número de filas que se encuentran en cada partición. Tenga en cuenta que si se usa la misma granularidad de particiones en SQL Analytics, el número de filas por partición se reduce en un factor de 60.  
 
 ```sql
 -- Partition information for a SQL Server Database
@@ -111,7 +111,7 @@ GROUP BY    s.[name]
 ```
 
 ## <a name="partition-switching"></a>Modificación de particiones
-SQL Data Warehouse admite la separación, combinación y modificación de particiones. Cada una de estas funciones se ejecuta mediante la instrucción [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql).
+SQL Analytics admite la separación, la combinación y la modificación de particiones. Cada una de estas funciones se ejecuta mediante la instrucción [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql).
 
 Para cambiar particiones entre dos tablas, debe asegurarse de que las particiones se alinean en sus límites correspondientes y que las definiciones de tablas coinciden. Como las restricciones CHECK no están disponibles para aplicar el intervalo de valores en una tabla, la tabla de origen debe contener los mismos límites de partición que la tabla de destino. Si los límites de partición no son iguales, el cambio de partición genera un error dado que los metadatos de la partición no se sincronizan.
 
@@ -171,7 +171,7 @@ El siguiente comando split recibe un mensaje de error:
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
-La cláusula Msg 35346, Level 15, State 1, Line 44 SPLIT de la instrucción ALTER PARTITION ha generado un error porque la partición no está vacía. Solo las particiones vacías se pueden dividir cuando existe un índice de almacén de columnas en la tabla. Considere la posibilidad de deshabilitar el índice de almacén de columnas antes de emitir la instrucción ALTER PARTITION y, a continuación, vuelva a generar el índice de almacén de columnas una vez completada la instrucción ALTER PARTITION.
+La cláusula Msg 35346, Level 15, State 1, Line 44 SPLIT de la instrucción ALTER PARTITION ha generado un error porque la partición no está vacía. solo las particiones vacías se pueden dividir cuando existe un índice de almacén de columnas en la tabla. Considere la posibilidad de deshabilitar el índice de almacén de columnas antes de emitir la instrucción ALTER PARTITION y, a continuación, vuelva a generar el índice de almacén de columnas una vez completada la instrucción ALTER PARTITION.
 
 Sin embargo, puede usar `CTAS` para crear una nueva tabla que contenga los datos.
 
@@ -227,7 +227,7 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
 ### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>Cargar en un solo paso datos nuevos en particiones que ya contienen datos
-La carga de datos en particiones mediante el cambio de partición es una forma muy útil de organizar nuevos datos en una tabla que no es visible para los usuarios al cambiar los nuevos datos.  Puede un desafío para los sistemas ocupados tratar con la contención de bloqueo asociada con el cambio de partición.  Para borrar los datos existentes en una partición, solía requerirse un `ALTER TABLE` para cambiar los datos.  Luego se requería otro `ALTER TABLE` para cambiar a los nuevos datos.  En SQL Data Warehouse, la opción `TRUNCATE_TARGET` es compatible con el comando `ALTER TABLE`.  Con `TRUNCATE_TARGET` el comando `ALTER TABLE` sobrescribe los datos existentes en la partición con datos nuevos.  A continuación se muestra un ejemplo que usa `CTAS` para crear una nueva tabla con los datos existentes, inserta datos nuevos y luego cambia todos los datos de nuevo a la tabla de destino, sobrescribiendo los datos existentes.
+La carga de datos en particiones mediante el cambio de partición es una forma muy útil de organizar nuevos datos en una tabla que no es visible para los usuarios al cambiar los nuevos datos.  Puede un desafío para los sistemas ocupados tratar con la contención de bloqueo asociada con el cambio de partición.  Para borrar los datos existentes en una partición, solía requerirse un `ALTER TABLE` para cambiar los datos.  Luego se requería otro `ALTER TABLE` para cambiar a los nuevos datos.  En SQL Analytics, la opción `TRUNCATE_TARGET` se admite en el comando `ALTER TABLE`.  Con `TRUNCATE_TARGET` el comando `ALTER TABLE` sobrescribe los datos existentes en la partición con datos nuevos.  A continuación se muestra un ejemplo que usa `CTAS` para crear una nueva tabla con los datos existentes, inserta datos nuevos y luego cambia todos los datos de nuevo a la tabla de destino, sobrescribiendo los datos existentes.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]
@@ -328,7 +328,7 @@ Para evitar que la definición de tabla se **oxide** en el sistema de control de
     DROP TABLE #partitions;
     ```
 
-Con este enfoque, el código de control de código fuente permanece estático y se permite que los valores de límite de partición sean dinámicos, de tal forma que evoluciona con el almacenamiento de datos con el tiempo.
+con este enfoque, el código de control de código fuente permanece estático y se permite que los valores del límite de creación de particiones sean dinámicos, de tal forma que evolucionan con la base de datos con el tiempo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre el desarrollo de tablas, vea los artículos de [Información general sobre tablas](sql-data-warehouse-tables-overview.md).

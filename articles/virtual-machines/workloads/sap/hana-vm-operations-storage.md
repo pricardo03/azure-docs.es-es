@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/13/2020
+ms.date: 02/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4cc4db9ffcb700d4b65a7f5c21d258e9af52d164
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 155498aeaea30bf2da1d5aa0dbcb322aeb43bbdd
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598534"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661301"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA
 
@@ -35,6 +35,10 @@ Para información acerca de estos tipos de disco, consulte el artículo de [Sele
 Azure ofrece dos métodos de implementación de discos duros virtuales en Azure Standard Storage y Azure Premium Storage. Si el escenario global lo permite, aproveche las implementaciones de [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). 
 
 Para obtener una lista de tipos de almacenamiento y sus Acuerdos de Nivel de Servicio sobre IOPS y rendimiento del almacenamiento, revise la [documentación de Azure para Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+
+> [!IMPORTANT]
+> Independientemente del tipo de almacenamiento de Azure elegido, el sistema de archivos que se usa en ese almacenamiento debe ser compatible con SAP para el sistema operativo y el DBMS específicos. La [nota de compatibilidad 405827 de SAP](https://launchpad.support.sap.com/#/notes/405827) enumera los sistemas de archivos admitidos para los diferentes sistemas operativos y bases de datos, incluido SAP HANA. Esto se aplica a todos los volúmenes SAP HANA con acceso de lectura y escritura para cualquier tarea. Especialmente si usa NFS en Azure para SAP HANA, se aplican restricciones adicionales de versiones de NFS como se indica más adelante en este artículo. 
+
 
 Las condiciones de certificación mínimas de SAP HANA para los diferentes tipos de almacenamiento son: 
 

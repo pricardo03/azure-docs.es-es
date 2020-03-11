@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: memildin
-ms.openlocfilehash: b8b8b05f703a3eb05936ca95e2047a13650914cf
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: b1e1402f58b103570d6a98a5f9a01c8168abf749
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604264"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912369"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Descripción de las recomendaciones sobre contenedores de Azure Security Center
 
@@ -35,7 +35,7 @@ Azure Security Center proporciona las siguientes funcionalidades para ayudarle a
 
     ![pestaña contenedor](./media/security-center-container-recommendations/container-cis-benchmark.png)
 
-- **Detección de amenazas de contenedor en tiempo real**<br> Security Center ofrece detección de amenazas en tiempo real para los contenedores en máquinas Linux con el componente AuditD. Las alertas identifican varias actividades sospechosas de Docker, como la creación de un contenedor con privilegios en el host, una indicación de que un servidor Secure Shell (SSH) se ejecuta dentro de un contenedor de Docker o el uso de mineros de criptografía. Puede usar esta información para corregir problemas de seguridad y mejorar la seguridad de los contenedores rápidamente.
+- **Protección contra amenazas de contenedor en tiempo real**<br> Security Center ofrece protección contra amenazas en tiempo real para los contenedores en máquinas Linux con el componente AuditD. Las alertas identifican varias actividades sospechosas de Docker, como la creación de un contenedor con privilegios en el host, una indicación de que un servidor Secure Shell (SSH) se ejecuta dentro de un contenedor de Docker o el uso de mineros de criptografía. Puede usar esta información para corregir problemas de seguridad y mejorar la seguridad de los contenedores rápidamente.
 
     ![pestaña contenedor](./media/security-center-container-recommendations/docker-threat-detection.png)
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 97095e4802373a1dd3f7b795c2fe567b778d2d5e
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: d1e93c18b13e7171274eda2a7e8d07eefbefb592
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153832"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920389"
 ---
 # <a name="neural-network-regression-module"></a>Módulo Regresión de red neuronal
 
@@ -56,7 +56,9 @@ Las redes neuronales se pueden personalizar ampliamente. En esta sección se des
   
 2. Para indicar cómo quiere que se entrene el modelo, establezca la opción **Create trainer mode** (Crear modo entrenador).  
   
-    -   **Single Parameter** (Parámetro único): Elija esta opción si ya sabe cómo desea configurar el modelo.  
+    -   **Single Parameter** (Parámetro único): Elija esta opción si ya sabe cómo desea configurar el modelo.
+
+    -   **Parameter Range** (Intervalo de parámetros): seleccione esta opción si no está seguro de los mejores parámetros y quiere ejecutar un barrido de parámetros. Seleccione un rango de valores que iterar y el módulo [Optimización de hiperparámetros de un modelo](tune-model-hyperparameters.md) itera en todas las combinaciones posibles de los valores proporcionados para determinar los hiperparámetros que generan los resultados óptimos.   
 
 3.  En **Hidden layer specification** (Especificación de capa oculta), seleccione **Fully connected case** (Caso completamente conectado). Esta opción crea un modelo mediante la arquitectura predeterminada de red neuronal, lo que, para un modelo de regresión de red neuronal, tiene estos atributos:  
   
@@ -72,7 +74,6 @@ Las redes neuronales se pueden personalizar ampliamente. En esta sección se des
 
 6.  Para **Number of learning iterations** (Número de iteraciones de aprendizaje), especifique el número máximo de veces que el algoritmo procesa los casos de entrenamiento.
 
-7.  Para **El diámetro de pesos de aprendizaje inicial, escriba un valor que determine los pesos de nodo en el inicio del proceso de aprendizaje.
 
 8.  Para **The momentum** (El momentum), escriba el valor que se debe aplicar durante el aprendizaje como peso en los nodos de iteraciones anteriores.
 

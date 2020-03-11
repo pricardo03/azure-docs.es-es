@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 006e1fb3fcef1ebcd0e09dffb79149e75eec622a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: f099546ced64bd911916164879cd533329761c66
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76713178"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914677"
 ---
-# <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliotecas de cliente para la conexión a Azure Analysis Services
+# <a name="client-libraries-for-connecting-to-analysis-services"></a>Bibliotecas de cliente para la conexión con Analysis Services
 
 Se requieren bibliotecas de cliente para que las aplicaciones cliente y las herramientas de cliente se puedan conectar a servidores de Analysis Services. Las aplicaciones cliente de Microsoft como Power BI Desktop, Excel, SQL Server Management Studio (SSMS) y extensión de proyectos de Analysis Services para Visual Studio instalan las tres bibliotecas de cliente y las actualizan junto con las actualizaciones de aplicaciones normales. En algunos casos, es posible que deba instalar las versiones más recientes de las bibliotecas de cliente. Las aplicaciones de cliente personalizadas también requieren la instalación de las bibliotecas de cliente.
 

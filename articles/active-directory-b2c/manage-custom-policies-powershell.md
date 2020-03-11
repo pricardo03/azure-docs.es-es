@@ -2,20 +2,20 @@
 title: Administración de directivas personalizadas con PowerShell
 titleSuffix: Azure AD B2C
 description: Use el cmdlet de PowerShell de Azure Active Directory (Azure AD) para la administración mediante programación de las directivas personalizadas de Azure AD B2C. Cree, lea, actualice y elimine directivas personalizadas con PowerShell.
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e29bb245ed0fc79a6f72688dc6e4d044f2828c45
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: ebf0cfffa410d8dfe2f0e0b42a0fee0c16106fde
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465641"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187413"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Administración de las directivas personalizadas de Azure AD B2C con Azure PowerShell
 
@@ -29,7 +29,7 @@ Azure PowerShell proporciona varios cmdlets para la administración de directiva
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* [Inquilino de Azure AD B2C](tutorial-create-tenant.md) y las credenciales de un usuario en el directorio con el rol de [Administrador de directivas IEF de B2C](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
+* [Inquilino de Azure AD B2C](tutorial-create-tenant.md) y credenciales para un usuario en el directorio con el rol [Administrador de directivas IEF de B2C](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
 * [Directivas personalizadas](custom-policy-get-started.md) cargadas en el inquilino
 * [**Módulo de versión preliminar** de Azure AD PowerShell for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
 
@@ -142,7 +142,7 @@ Para ver más ejemplos, consulte la referencia del comando [Set-AzureADMSTrustFr
 
 ## <a name="upload-a-new-policy"></a>Carga de una nueva directiva
 
-Al realizar un cambio en una directiva personalizada que se está ejecutando en producción, puede que quiera publicar varias versiones de la directiva para escenarios de prueba A/B o reserva. Puede que también quiera una copia de una directiva existente, modificarla con un ligero cambio y, a continuación, cargarla como una nueva directiva para usarla con otra aplicación.
+Al realizar un cambio en una directiva personalizada que se ejecuta en producción, puede que quiera publicar varias versiones de esta para escenarios de prueba A/B o reserva. Puede que también quiera realizar una copia de una directiva existente, modificarla con un ligero cambio y, luego, cargarla como una nueva directiva para usarla en otra aplicación.
 
 Use el comando [New-AzureADMSTrustFrameworkPolicy][New-AzureADMSTrustFrameworkPolicy] para cargar una nueva directiva:
 
@@ -174,9 +174,9 @@ Comando de ejemplo:
 Remove-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin
 ```
 
-## <a name="troubleshoot-policy-upload"></a>Solucionar problemas de carga de directivas
+## <a name="troubleshoot-policy-upload"></a>Solución de problemas de carga de las directivas
 
-Al intentar publicar una nueva directiva personalizada o publicar una directiva existente, errores y formatos XML inadecuados en la cadena de herencia del archivo de la directiva pueden provocar errores de validación.
+Al intentar publicar una nueva directiva personalizada o actualizar una directiva existente, errores y formatos XML inadecuados en la cadena de herencia de los archivos de directiva pueden provocar errores de validación.
 
 Por ejemplo, a continuación se indica un intento de actualizar una directiva con contenido que incluye XML con estructura incorrecta (la salida está truncada para que sea breve):
 
@@ -191,11 +191,11 @@ Message: Validation failed: 1 validation error(s) found in policy "B2C_1A_SIGNUP
 ...
 ```
 
-Para obtener información sobre la solución de problemas de directivas personalizadas, consulte [Solución de problemas de directivas personalizadas de Azure AD B2C y Identity Experience Framework](active-directory-b2c-guide-troubleshooting-custom.md).
+Para información sobre la solución de problemas de directivas personalizadas, consulte [Solución de problemas de directivas personalizadas de Azure AD B2C e Identity Experience Framework](active-directory-b2c-guide-troubleshooting-custom.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información sobre el uso de PowerShell para implementar directivas personalizadas como parte de una canalización (CI/CD) de integración o entrega continuas, consulte [Implementación de directivas personalizadas desde una canalización de Azure DevOps](deploy-custom-policies-devops.md).
+Para información sobre el uso de PowerShell para implementar directivas personalizadas como parte de una canalización de integración o entrega continuas (CI/CD), consulte [Implementación de directivas personalizadas desde una canalización de Azure DevOps](deploy-custom-policies-devops.md).
 
 <!-- LINKS - External -->
 [Connect-AzureAD]: https://docs.microsoft.com/powershell/module/azuread/get-azureadmstrustframeworkpolicy

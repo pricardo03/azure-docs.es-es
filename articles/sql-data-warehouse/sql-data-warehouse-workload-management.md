@@ -1,22 +1,22 @@
 ---
 title: Administración de cargas de trabajo
-description: Guía para la implementación de la administración de cargas de trabajo en Azure SQL Data Warehouse.
+description: Guía para la implementación de la administración de cargas de trabajo en Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/13/2020
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 287ad5467f9f3aac7eb8c9d7c19ea15c380c6879
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.custom: azure-synapse
+ms.openlocfilehash: 14ea742a40afff8105560f1003655004687c7c9e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935407"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197664"
 ---
 # <a name="what-is-workload-management"></a>¿Qué es la administración de cargas de trabajo?
 
@@ -36,11 +36,11 @@ La capacidad de rendimiento de un almacén de datos viene determinada por las [u
 
 
 ## <a name="workload-management-concepts"></a>Conceptos sobre la administración de cargas de trabajo
-En el pasado, el rendimiento de las consultas se administrada en SQL Data Warehouse a través de [clases de recursos](resource-classes-for-workload-management.md).  Clases de recursos permitidas para asignar memoria a una consulta basada en la pertenencia a roles.  El desafío principal con las clases de recursos es que, una vez que se configura, no hay ninguna gobernanza ni capacidad para controlar la carga de trabajo.  
+En el pasado, con SQL Analytics en Azure Synapse, el rendimiento de las consultas se administrada mediante [clases de recursos](resource-classes-for-workload-management.md).  Clases de recursos permitidas para asignar memoria a una consulta basada en la pertenencia a roles.  El desafío principal con las clases de recursos es que, una vez que se configura, no hay ninguna gobernanza ni capacidad para controlar la carga de trabajo.  
 
 Por ejemplo, conceder una pertenencia a roles de usuario ad hoc a smallrc permitía que el usuario consumiera el 100 % de la memoria del sistema.  Con las clases de recursos, no hay ninguna manera de reservar y garantizar que los recursos estén disponibles para las cargas de trabajo críticas.
 
-La administración de cargas de trabajo en SQL Data Warehouse consta de tres conceptos de alto nivel: [Clasificación de la carga de trabajo](sql-data-warehouse-workload-classification.md), [Importancia de la carga de trabajo](sql-data-warehouse-workload-importance.md) y [Aislamiento de la carga de trabajo](sql-data-warehouse-workload-isolation.md).  Estas funcionalidades proporcionan más control sobre cómo la carga de trabajo usa los recursos del sistema.
+La administración de cargas de trabajo de SQL Analytics en Azure Synapse consta de tres conceptos de alto nivel: [Clasificación de la carga de trabajo](sql-data-warehouse-workload-classification.md), [Importancia de la carga de trabajo](sql-data-warehouse-workload-importance.md) y [Aislamiento de la carga de trabajo](sql-data-warehouse-workload-isolation.md).  Estas funcionalidades proporcionan más control sobre cómo la carga de trabajo usa los recursos del sistema.
 
 La clasificación de la carga de trabajo es el concepto de asignar una solicitud a un grupo de cargas de trabajo y establecer los niveles de importancia.  Históricamente, esta asignación se realizaba a través de la pertenencia a roles mediante [sp_addrolemember](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management#change-a-users-resource-class).  Esto se puede hacer ahora a través de [CREATE WORKLOAD CLASSIFER](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  La capacidad de clasificación proporciona un conjunto más completo de opciones, como la etiqueta, la sesión y el tiempo para clasificar las solicitudes.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 089fcc89f330e47a09187b5338176bf23fd801bb
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: e13149ba802f0f8b9a565e0aabd86ae05167f18b
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603755"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208830"
 ---
 # <a name="supported-platforms"></a>Plataformas compatibles 
 
@@ -35,7 +35,6 @@ En el caso de un entorno de Azure activado en una suscripción de Azure, Azure S
 
 > [!NOTE]
 > Para recibir el conjunto completo de características de seguridad, debe tener el [agente de log Analytics](../azure-monitor/platform/agents-overview.md#log-analytics-agent), que se usa en Azure Security Center, instalado y [configurado correctamente para enviar datos a Azure Security Center](security-center-enable-data-collection.md#manual-agent).
-
 
 En las secciones siguientes se enumeran los sistemas operativos de servidor admitidos en los que se puede ejecutar el [agente de log Analytics](../azure-monitor/platform/agents-overview.md#log-analytics-agent), utilizado por Azure Security Center.
 
@@ -86,38 +85,6 @@ También se crean máquinas virtuales en una suscripción de cliente como parte 
 
 También se admiten máquinas virtuales que se ejecuten en un servicio en la nube. Se supervisan los roles de trabajo y web de servicios en la nube que se ejecutan en espacios de producción. Para más información sobre Cloud Services, consulte la [información general sobre Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
 
-## Servicios de PaaS <a name="paas-services"></a>
-
-Los siguientes recursos de PaaS de Azure son compatibles con Azure Security Center:
-
-* SQL
-* PostGreSQL
-* MySQL
-* CosmosDB
-* Cuenta de almacenamiento
-* App Service
-* Función
-* Servicio en la nube
-* VNet
-* Subnet
-* NIC
-* Grupo de seguridad de red
-* Cuenta de Batch
-* Cuenta de Service Fabric
-* Cuenta de Automation
-* Equilibrador de carga
-* Search
-* Espacio de nombres de Service bus
-* Stream Analytics
-* Espacio de nombres del centro de eventos
-* Aplicaciones lógicas
-* Redis
-* Data Lake Analytics
-* Data Lake Store
-* Almacén de claves
-
-Para obtener más información sobre las características admitidas para la lista anterior de recursos de PaaS, vea [Características compatibles con los servicios de PaaS](security-center-services.md#paas-services).
-
 También se admite la protección para las máquinas virtuales que residan en Azure Stack. Para obtener más información acerca de la integración de Security Center con Azure Stack, consulte [Incorporación de máquinas virtuales de Azure Stack a Security Center](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack).
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -126,4 +93,4 @@ También se admite la protección para las máquinas virtuales que residan en Az
 - Obtenga información sobre cómo [Security Center administra y protege los datos](security-center-data-security.md).
 - Aprenda a [planear y entender las consideraciones de diseño para adoptar Azure Security Center](security-center-planning-and-operations-guide.md).
 - Obtenga información [sobre las características disponibles para los diferentes entornos de nube](security-center-services.md).
-- Obtenga más información sobre la [detección de amenazas en VM y servidores en Azure Security Center](security-center-alerts-iaas.md).
+- Más información sobre la [protección frente a amenazas en máquinas Windows y Linux en Azure Security Center](threat-protection.md#windows-machines).

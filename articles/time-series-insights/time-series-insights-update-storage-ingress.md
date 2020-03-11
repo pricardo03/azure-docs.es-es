@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 44c942e43cd4be1d04f56e828e3e17c58713a706
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 2f12cf303c58f0fa614c59ffe643c6c2ee5d2415
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77559851"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246181"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Almacenamiento y entrada de datos en la versión preliminar de Azure Time Series Insights
 
@@ -159,10 +159,10 @@ Consulte los siguientes recursos para obtener más información sobre cómo opti
 
 Al crear un entorno de SKU de *pago por uso* de la versión preliminar de Time Series Insights, se crean dos recursos de Azure:
 
-* Un entorno de versión preliminar de Azure Time Series Insights que se puede configurar para el almacenamiento intermedio.
+* Un entorno de versión preliminar de Azure Time Series Insights que se puede configurar para el almacenamiento de datos intermedio.
 * Una cuenta de blob de uso general v1 de Azure Storage para el almacenamiento de datos en frío.
 
-Los datos del almacenamiento intermedio solo están disponibles a través de [Consulta de Serie temporal](./time-series-insights-update-tsq.md) y el [explorador de la versión preliminar de Azure Time Series Insights](./time-series-insights-update-explorer.md). 
+Los datos del almacenamiento intermedio solo están disponibles a través de [Consulta de Serie temporal](./time-series-insights-update-tsq.md) y el [explorador de la versión preliminar de Azure Time Series Insights](./time-series-insights-update-explorer.md). El almacén intermedio contendrá datos recientes dentro del [período de retención](./time-series-insights-update-plan.md#the-preview-environment) seleccionado al crear el entorno de Time Series Insights.
 
 La versión preliminar de Time Series Insights guarda los datos del almacenamiento intermedio en Azure Blob Storage, en [formato de archivo de Parquet](#parquet-file-format-and-folder-structure). La versión preliminar de Time Series Insights administra estos datos del almacenamiento intermedio de forma exclusiva, aunque están disponibles para leerse directamente como archivos estándar de Parquet.
 
@@ -186,12 +186,7 @@ Para obtener una descripción detallada de Azure Blob Storage, lea [Introducció
 
 Cuando se crea un entorno de pago por uso de la versión preliminar de Azure Time Series Insights, se crea una cuenta de blob de uso general v1 de Azure Storage como almacenamiento en frío a largo plazo.  
 
-La versión preliminar de Azure Time Series Insights publica un máximo de dos copias de cada evento en su cuenta de Azure Storage. La copia inicial tiene los eventos ordenados por hora de ingesta. Ese orden de eventos se **mantiene siempre** para que otros servicios puedan acceder a sus eventos sin problemas de secuenciación. 
-
-> [!NOTE]
-> También puede usar Spark, Hadoop y otras herramientas conocidas para procesar los archivos de Parquet sin formato. 
-
-La versión preliminar de Time Series Insights vuelve a crear particiones de los archivos de Parquet a fin de optimizarlos para la consulta de Time Series Insights. Esta copia reparticionada de los datos también se guarda. 
+La versión preliminar de Azure Time Series Insights conserva un máximo de dos copias de cada evento en su cuenta de Azure Storage. Una copia almacena los eventos ordenados por hora de ingesta, permitiendo siempre el acceso a los eventos en una secuencia ordenada por tiempo. Con el tiempo, Time Series Insights vista previa también crea una copia con particiones de los datos que se van a optimizar para una consulta de Time Series Insights eficaz. 
 
 Durante la versión preliminar pública, los datos se almacenan de forma indefinida en su cuenta de Azure Storage.
 
@@ -199,15 +194,11 @@ Durante la versión preliminar pública, los datos se almacenan de forma indefin
 
 Para garantizar el rendimiento de las consultas y la disponibilidad de los datos, no edite ni elimine los blobs que crea la versión preliminar de Time Series Insights.
 
-#### <a name="accessing-and-exporting-data-from-time-series-insights-preview"></a>Acceso a los datos de la versión preliminar de Time Series Insights y exportación
+#### <a name="accessing-time-series-insights-preview-cold-store-data"></a>Acceso a los datos de almacenamiento en frío de Time Series Insights Preview 
 
-Puede que quiera acceder a los datos vistos en el explorador de la versión preliminar de Time Series Insights para usarlos con otros servicios. Por ejemplo, puede usar los datos para crear un informe en Power BI o para entrenar un modelo de aprendizaje automático mediante Azure Machine Learning Studio. También puede usar los datos para transformar, visualizar y modelar en los cuadernos de Jupyter Notebook.
+Además de tener acceso a los datos desde el [explorador de la versión preliminar de Time Series Insights ](./time-series-insights-update-explorer.md) y la [consulta de Time Series](./time-series-insights-update-tsq.md), puede que también desee tener acceso a los datos directamente desde los archivos de Parquet almacenados en el almacén frío. Por ejemplo, puede leer, transformar y limpiar los datos en un cuaderno de Jupyter y luego usarlo para entrenar el modelo de Azure Machine Learning en el mismo flujo de trabajo de Spark.
 
-En general, se puede acceder a los datos de tres maneras:
-
-* Desde el explorador de la versión preliminar de Time Series Insights. Puede exportar datos como archivo CSV desde el explorador. Para más información, lea [Explorador de la versión preliminar de Time Series Insights](./time-series-insights-update-explorer.md).
-* Desde las API de la versión preliminar de Time Series Insights con la consulta de obtención de eventos. Para más información sobre esta API, lea [Consultas en Time Series](./time-series-insights-update-tsq.md).
-* Directamente desde una cuenta de Azure Storage. Necesita acceso de lectura a la cuenta que usa para acceder a los datos de la versión preliminar de Time Series Insights. Para más información, lea [Administración del acceso a los recursos de la cuenta de almacenamiento](../storage/blobs/storage-manage-access-to-resources.md).
+Para acceder a los datos directamente desde su cuenta de Azure Storage, necesita acceso de lectura a la cuenta usada para almacenar los datos de la versión preliminar de Time Series Insights. A continuación, puede leer los datos seleccionados en función de la hora de creación del archivo de Parquet que se encuentra en la carpeta `PT=Time` que se describe a continuación en la sección [Formato de archivo de Parquet](#parquet-file-format-and-folder-structure).  Para más información sobre cómo habilitar el acceso de lectura a su cuenta de almacenamiento, consulte [Administración del acceso a los recursos de la cuenta de almacenamiento](../storage/blobs/storage-manage-access-to-resources.md).
 
 #### <a name="data-deletion"></a>Eliminación de datos
 
@@ -215,7 +206,7 @@ No elimine los archivos de la versión preliminar de Time Series Insights. Los d
 
 ### <a name="parquet-file-format-and-folder-structure"></a>Formato de archivo de Parquet y estructura de carpetas
 
-Parquet es un formato de archivo en columnas de código abierto diseñado para lograr un almacenamiento y un rendimiento eficaces. La versión preliminar de Time Series Insights usa Parquet por estos motivos. Crea particiones de los datos por identificador de serie temporal para el rendimiento de las consultas a escala.  
+Parquet es un formato de archivo en columnas de código abierto diseñado para lograr un almacenamiento y un rendimiento eficaces. La versión preliminar de Time Series Insights usa Parquet para habilitar el rendimiento de las consultas basadas en el identificador de Time Series a escala.  
 
 Para más información sobre el tipo de archivo de Parquet, lea la [documentación de Parquet](https://parquet.apache.org/documentation/latest/).
 
@@ -225,11 +216,11 @@ La versión preliminar de Time Series Insights almacena copias de los datos de l
 
   `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
 
-* La segunda copia reparticionada se particiona por una agrupación de identificadores de serie temporal y reside en la carpeta `PT=TsId`:
+* La segunda copia con particiones se agrupa por los identificadores de Time Series y reside en la carpeta `PT=TsId`:
 
   `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
 
-En ambos casos, los valores de hora corresponden a la hora de creación del blob. Los datos de la carpeta `PT=Time` se conservan. Los datos de la carpeta `PT=TsId` se optimizan para la consulta a lo largo del tiempo y no permanecen estáticos.
+En ambos casos, la propiedad de tiempo del archivo de Parquet se corresponde con la hora de creación del blob. Los datos de la carpeta `PT=Time` se conservan sin cambios una vez que se escriben en el archivo. Los datos de la carpeta `PT=TsId` se optimizan para la consulta a lo largo del tiempo y no están estáticos.
 
 > [!NOTE]
 > * `<YYYY>` se asigna a una representación de año de cuatro dígitos.
@@ -239,10 +230,10 @@ En ambos casos, los valores de hora corresponden a la hora de creación del blob
 Los eventos de la versión preliminar de Time Series Insights se asignan al contenido de los archivos de Parquet de esta manera:
 
 * Cada evento se asigna a una sola fila.
-* Cada fila incluye la columna **timestamp** con una marca de tiempo del evento. La propiedad time-stamp nunca es null. Su valor predeterminado es **event enqueued time** si no se especifica en el origen del evento. La marca de tiempo siempre está en UTC.
-* Cada fila incluye la columna de identificador de serie temporal como se define durante la creación del entorno de Time Series Insights. El nombre de la propiedad incluye el sufijo `_string`.
+* Cada fila incluye la columna **timestamp** con una marca de tiempo del evento. La propiedad time-stamp nunca es null. Su valor predeterminado es **event enqueued time** si no se especifica en el origen del evento. La marca de tiempo almacenada siempre está en UTC.
+* Cada fila incluye las columnas de identificadores de Time Series como se define durante la creación del entorno de Time Series Insights. El nombre de la propiedad del identificador de Time Series incluye el sufijo `_string`.
 * Las demás propiedades enviadas como datos de telemetría se asignan a nombres de columna que terminan en `_string` (cadena), `_bool` (booleano), `_datetime` (fecha y hora) o `_double` (doble), en función del tipo de propiedad.
-* Este esquema de asignación se aplica a la primera versión del formato de archivo, a la que se hace referencia como **V=1**. A medida que esta característica evoluciona, el nombre puede incrementarse.
+* Este esquema de asignación se aplica a la primera versión del formato de archivo, a la que se hace referencia como **V=1** y se almacena en la carpeta base del mismo nombre. A medida que esta característica evolucione, este esquema de asignación podría cambiar y se incrementaría el nombre de referencia.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

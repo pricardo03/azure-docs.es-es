@@ -1,5 +1,5 @@
 ---
-title: 'Previsión y detección de anomalías de serie temporal: Azure Data Explorer'
+title: Previsión y detección de anomalías de serie temporal en Azure Data Explorer
 description: Obtenga información sobre cómo analizar datos de series temporales para la previsión y detección de anomalías mediante Azure Data Explorer.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: 4a7463d6149a921a4a29b43eaebb78a01543323a
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: a482fef93d43f92257608b65c9c0e2ade535bcca
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985832"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194164"
 ---
 # <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>Previsión y detección de anomalías en Azure Data Explorer
 
@@ -20,7 +20,7 @@ Azure Data Explorer realiza la recopilación continua de datos de telemetría de
 
 En este artículo se detallan las capacidades de Azure Data Explorer de previsión y detección de anomalías de series temporales. Las funciones de serie temporal aplicables se basan en un modelo de descomposición conocido sólido, en el que cada serie temporal original se descompone en los componentes estacional, residual y de tendencia. Las anomalías se detectan mediante los valores atípicos en el componente residual, mientras que la previsión se realiza mediante la extrapolación de los componentes estacional y de tendencia. La implementación de Azure Data Explorer mejora significativamente el modelo de descomposición básico por detección de estacionalidad automática, análisis de valores atípicos sólido e implementación vectorizada para procesar miles de series temporales en cuestión de segundos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Lea [Análisis de series temporales en Azure Data Explorer](/azure/data-explorer/time-series-analysis) para obtener una introducción a las capacidades de serie temporal.
 

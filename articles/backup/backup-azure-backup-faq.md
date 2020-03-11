@@ -3,12 +3,12 @@ title: Respuestas a preguntas comunes
 description: 'Respuestas a preguntas comunes sobre las características de Azure Backup, incluidos los almacenes de Recovery Services, las copias de seguridad que puede realizar, cómo funciona, el cifrado y los límites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: c8449ef27ca73cd6e0c2908ce4cbebea2c513dbc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: db09a31154b680097b6b46e8f9e2cce2ad09d108
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450093"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255023"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Preguntas más frecuentes de Azure Backup
 
@@ -123,7 +123,7 @@ Estado del sistema y BMR |Cada copia individual del estado del sistema o BMR del
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>¿Hay un límite en la cantidad de datos de los que se realiza una copia de seguridad con el uso de un almacén de Recovery Services?
 
-No hay ningún límite en la cantidad de datos de los que se puede hacer una copia de seguridad con el uso de un almacén de Recovery Services.
+No hay ningún límite en la cantidad de datos de los que se puede hacer una copia de seguridad con el uso de un almacén de Recovery Services. Los orígenes de datos individuales (distintos de las máquinas virtuales de Azure) pueden tener un tamaño máximo de 54.400 GB. Para más información sobre los límites, consulte la sección sobre los [límites del almacén en la matriz de compatibilidad](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support).
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>¿Por qué el tamaño de los datos transferidos al almacén de Recovery Services es más pequeño que los datos seleccionados para la copia de seguridad?
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: fdc6834f3fb5ee97f27a6397645b965863e90a6b
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 164f07f6545c1c225814958bba5722536b11a9b4
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190539"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269432"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Instalación de controladores de GPU de AMD en máquinas virtuales de la serie N con Windows
 
@@ -31,13 +31,20 @@ Para conocer las especificaciones básicas, las capacidades de almacenamiento y 
 
 | SO | Controlador |
 | -------- |------------- |
-| Windows 10 EVD: compilación 1903 <br/><br/>Windows 10: compilación 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [19.Q4.1](https://download.microsoft.com/download/7/e/5/7e558ac0-3fff-413d-af62-800285a2fc53/Radeon-Pro-Software-for-Enterprise-19.Q4.1-Technical-Preview.exe) (.exe) |
+| Windows 10 EVD: compilación 1903 <br/><br/>Windows 10: compilación 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20.Q1.1](https://download.microsoft.com/download/3/8/9/3893407b-e8aa-4079-8592-735d7dd1c19a/Radeon-Pro-Software-for-Enterprise-GA.exe) (.exe) |
+
 
 ## <a name="driver-installation"></a>Instalación del controlador
 
 1. Conéctese mediante Escritorio remoto a cada máquina virtual de la serie NVv4.
 
-1. Descargue y extraiga los archivos de instalación del controlador. Vaya a la carpeta y ejecute "setup. exe" para instalar el controlador compatible con el sistema operativo Windows.
+2. Si es un cliente de la versión preliminar de NVv4, detenga la máquina virtual y espere a que cambie al estado Detenido (desasignado).
+
+3. Inicie la máquina virtual y, a continuación, desinstale el controlador de la versión preliminar mediante la ejecución de "amdcleanuputility-x64.exe" que se encuentra en la carpeta "...\AMDCleanUninstallUtility". La ruta de acceso exacta variará en función de dónde se encuentren los archivos de instalación del controlador anterior.  
+
+4. Descargue e instale el controlador más reciente.
+
+5. Reinicie la máquina virtual.
 
 ## <a name="verify-driver-installation"></a>Comprobación de la instalación del controlador
 

@@ -3,21 +3,21 @@ title: Configuración de Azure AD B2C como IdP de SAML para las aplicaciones
 title-suffix: Azure AD B2C
 description: Procedimiento para configurar Azure AD B2C para proporcionar aserciones de protocolo SAML a las aplicaciones (proveedores de servicios). Azure AD B2C actuará como proveedor de identidades (IdP) único en la aplicación SAML.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
-ms.author: marsma
+ms.date: 02/27/2020
+ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5ec83857ebabc92bf86f9f84a43746a0e561218a
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 1c362cd2924de73b2e40e634fe554ff1526e09d8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77647593"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189657"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrar una aplicación SAML en Azure AD B2C
 
@@ -63,7 +63,7 @@ Si aún no tiene un proveedor de servicios SAML y un punto de conexión de metad
 
 ## <a name="1-set-up-certificates"></a>1. Configurar certificados
 
-Para crear una relación de confianza entre el proveedor de servicios y Azure AD B2C, debe proporcionar los certificados X509 y sus claves privadas.
+Para crear una relación de confianza entre el proveedor de servicios y Azure AD B2C, debe proporcionar los certificados X509 de la aplicación web.
 
 * **Certificados del proveedor de servicios**
   * Certificado con una clave privada almacenada en la aplicación web. El proveedor de servicios usa este certificado para firmar la solicitud de SAML enviada a Azure AD B2C. Azure AD B2C lee la clave pública de los metadatos del proveedor de servicios para validar la firma.
@@ -142,11 +142,11 @@ Puede cambiar el valor de los metadatos de `IssuerUri`. Este es el URI del emiso
       </CryptographicKeys>
       <InputClaims/>
       <OutputClaims/>
-      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml"/>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml-sp"/>
     </TechnicalProfile>
 
     <!-- Session management technical profile for SAML based tokens -->
-    <TechnicalProfile Id="SM-Saml">
+    <TechnicalProfile Id="SM-Saml-sp">
       <DisplayName>Session Management Provider</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
     </TechnicalProfile>

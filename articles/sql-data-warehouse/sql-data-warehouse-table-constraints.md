@@ -1,6 +1,6 @@
 ---
 title: Claves principales, externas y únicas
-description: Compatibilidad con las restricciones de tabla en Azure SQL Data Warehouse
+description: Compatibilidad con las restricciones de tabla de SQL Analytics en Azure Synapse Analytics
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,29 +10,29 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 8f3102425c6f984df0f50bc05eeb6f9a5e66d3dd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 0379bed08c3ee6931e931a78a2d2c91664535250
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685481"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198140"
 ---
-# <a name="primary-key-foreign-key-and-unique-key-in-azure-sql-data-warehouse"></a>Clave principal, clave externa y clave única en Azure SQL Data Warehouse
+# <a name="primary-key-foreign-key-and-unique-key-in-sql-analytics"></a>Clave principal, clave externa y clave única en SQL Analytics
 
-Conozca las restricciones de tabla de Azure SQL Data Warehouse, incluida la clave principal, la clave externa y la clave única.
+Conozca las restricciones de tabla de SQL Analytics, incluida la clave principal, la clave externa y la clave única.
 
 ## <a name="table-constraints"></a>Restricciones de tabla 
-Azure SQL Data Warehouse admite estas restricciones de tabla: 
+SQL Analytics admite estas restricciones de tabla: 
 - PRIMARY KEY solo se admite cuando se usan NONCLUSTERED y NOT ENFORCED.    
 - Solo se admite la restricción UNIQUE cuando se usa NOT ENFORCED.   
 
-No se admite la restricción FOREIGN KEY en Azure SQL Data Warehouse.  
+No se admite la restricción FOREIGN KEY en SQL Analytics.  
 
-## <a name="remarks"></a>Comentarios
-Tener una clave principal o una clave única permite al motor de almacenamiento de datos generar un plan de ejecución óptimo para una consulta.  Todos los valores de una columna de clave principal o de una columna de restricción única deben ser únicos. 
+## <a name="remarks"></a>Observaciones
+Tener una clave principal o una clave única permite al motor de SQL Analytics generar un plan de ejecución óptimo para una consulta.  Todos los valores de una columna de clave principal o de una columna de restricción única deben ser únicos. 
 
-Después de crear una tabla con una clave principal o una restricción única en Azure Data Warehouse, los usuarios deben asegurarse de que todos los valores de esas columnas sean únicos.  En caso contrario, la consulta podría devolver resultados inexactos.  En este ejemplo se muestra cómo una consulta puede devolver resultados inexactos si la columna de restricción única o de clave principal incluye valores duplicados.  
+Después de crear una tabla con una clave principal o una restricción única en SQL Analytics, los usuarios deben asegurarse de que todos los valores de esas columnas sean únicos.  En caso contrario, la consulta podría devolver resultados inexactos.  En este ejemplo se muestra cómo una consulta puede devolver resultados inexactos si la columna de restricción única o de clave principal incluye valores duplicados.  
 
 ```sql
  -- Create table t1
@@ -158,12 +158,12 @@ a1          total
 ```
 
 ## <a name="examples"></a>Ejemplos
-Creación de una tabla de almacenamiento de datos con una clave principal: 
+Creación de una tabla de SQL Analytics con una clave principal: 
 
 ```sql 
 CREATE TABLE mytable (c1 INT PRIMARY KEY NONCLUSTERED NOT ENFORCED, c2 INT);
 ```
-Creación de una tabla de almacenamiento de datos con una restricción única:
+Creación de una tabla de SQL Analytics con una restricción única:
 
 ```sql
 CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
@@ -171,4 +171,4 @@ CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de crear las tablas para el almacenamiento de datos, el paso siguiente es cargar datos en la tabla. Para obtener un tutorial de carga, consulte [Carga de datos en Azure SQL Data Warehouse](load-data-wideworldimportersdw.md).
+Después de crear las tablas para la base de datos de SQL Analytics, el paso siguiente es cargar los datos en la tabla. Puede encontrar un tutorial al respecto en [Carga de datos en bases de datos de SQL Analytics](load-data-wideworldimportersdw.md).

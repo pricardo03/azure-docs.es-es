@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 10c26c738fe51f6e557491475afd0545d3f04ab3
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: cc25fb9b21d535ef07bcfae673be48216427b370
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492453"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164787"
 ---
 # <a name="hc-series"></a>Serie HC
 
@@ -23,6 +23,10 @@ ACU: 297-315
 Premium Storage: Compatible
 
 Almacenamiento en caché de Premium Storage: Compatible
+
+Migración en vivo: No compatible
+
+Actualizaciones con conservación de memoria: No compatible
 
 | Size | vCPU | Procesador | Memoria (GB) | Ancho de banda de memoria, en GB/s | Frecuencia de CPU base (GHz) | Frecuencia de todos los núcleos (GHz, pico) | Frecuencia de cada núcleo (GHz, pico) | Rendimiento de RDMA (GB/s) | Compatibilidad con MPI | Almacenamiento temporal (GB) | Discos de datos máx. | NIC Ethernet máx. |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 934a4fdf7cabb89c4b98c7800252cb24d4e23abf
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 3369dc7cde7082659df556e008adb5e45b4c011c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77013849"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246198"
 ---
 ## <a name="limitations"></a>Limitaciones
 
@@ -98,6 +98,8 @@ El precio del host se establece en función de la familia de máquinas virtuales
 Las licencias de software, el almacenamiento y el uso de la red se facturan por separado del host y las máquinas virtuales. No hay ningún cambio en esos elementos facturables.
 
 Para más información, consulte [Precios de Azure Dedicated Host](https://aka.ms/ADHPricing).
+
+También puede ahorrar costos con una [instancia reservada de Azure Dedicated Host](../articles/virtual-machines/prepay-dedicated-hosts-reserved-instances.md).
  
 ## <a name="vm-families-and-hardware-generations"></a>Familias de máquinas virtuales y generaciones de hardware
 

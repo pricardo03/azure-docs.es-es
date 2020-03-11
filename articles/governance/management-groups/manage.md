@@ -3,12 +3,12 @@ title: 'Trabajo con grupos de administración: Gobernanza en Azure'
 description: Aprenda a visualizar, mantener, actualizar y eliminar la jerarquía de grupos de administración.
 ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 59f1b48e0a668d506a87ae1ef14de6df76b26ad7
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 94df67888c0ed0ea532844a92a362a181621d3d3
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751233"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267937"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Administración de los recursos con grupos de administración
 
@@ -17,6 +17,12 @@ Si su organización tiene varias suscripciones, puede que necesite una manera de
 Los grupos de administración proporcionan capacidad de administración de nivel empresarial a gran escala con independencia del tipo de suscripciones que tenga.  Para más información acerca de los grupos de administración, consulte [Organización de los recursos con grupos de administración de Azure](overview.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+
+>[!IMPORTANT]
+>Los tokens de usuario y la memoria caché del grupo de administración de Azure Resource Manager duran 30 minutos antes de que se produzca una actualización obligatoria.  Después de realizar cualquier acción como mover un grupo de administración o una suscripción, puede tardar hasta 30 minutos en mostrarse.  
+>Para ver las actualizaciones antes de que tenga que actualizar el token actualizando el explorador, inicie y cierre sesión, o solicite un nuevo token.  
+
+
 
 ## <a name="change-the-name-of-a-management-group"></a>Cambio del nombre de un grupo de administración
 

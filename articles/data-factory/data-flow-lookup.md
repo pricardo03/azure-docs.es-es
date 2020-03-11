@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/03/2019
-ms.openlocfilehash: 5cc54c95759ba1490f498305f05cc49a4411686d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 02/26/2020
+ms.openlocfilehash: 2216e1bf058eef486dbfefba24d52bdc6bdb232f
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930330"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164685"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Transformación Búsqueda del flujo de datos de asignación de Azure Data Factory
 
@@ -36,9 +36,22 @@ Después de usar la transformación Búsqueda, puede agregar una división de tr
 
 ## <a name="first-or-last-value"></a>Primer o último valor
 
-Si la Búsqueda devuelve varias coincidencias, puede que quiera reducir el número de filas coincidentes mediante la selección de la primera o la última coincidencia. Puede hacerlo mediante una transformación Agregar después de la de Búsqueda.
+La Transformación Búsqueda se implementa como una combinación externa izquierda. Si la actividad Búsqueda devuelve varias coincidencias, es posible que desee reducir el número de filas coincidentes mediante la selección de la fila de la primera coincidencia, la última coincidencia o una fila aleatoria.
 
-En este caso, se usa una transformación Agregar llamada ```PickFirst``` para elegir el primer valor de entre las coincidencias de búsqueda.
+### <a name="option-1"></a>Opción 1
+
+![Búsqueda de fila única](media/data-flow/singlerowlookup.png "Búsqueda de fila única")
+
+* Coincidencia con varias filas: Déjelo en blanco para que se devuelva una coincidencia de fila única
+* Coincidencia en: Seleccionar la primera, la última o cualquier coincidencia
+* Condiciones de ordenación: Si selecciona la primera o la última, ADF requiere que los datos estén ordenados para que haya una lógica detrás de la primera y la última
+
+> [!NOTE]
+> Use la opción de primera o última en el selector de una sola fila solo si necesita controlar qué valor va a devolver la búsqueda. El uso de búsquedas de "cualquiera" o de varias filas se realizará con más rapidez.
+
+### <a name="option-2"></a>Opción 2
+
+También puede hacerlo mediante una Transformación Aggregate (Agregar) después de la de Búsqueda. En este caso, se usa una transformación Agregar llamada ```PickFirst``` para elegir el primer valor de entre las coincidencias de búsqueda.
 
 ![Agregar después de Búsqueda](media/data-flow/lookup333.png "Agregar después de Búsqueda")
 

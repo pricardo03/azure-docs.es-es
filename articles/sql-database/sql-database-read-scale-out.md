@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: f111b19eb07c218a9f3250ef3ffdb8a97cf07542
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 1a1b9907cd931716949d92d948a7d541fd2d5057
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420730"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206952"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Uso de réplicas de solo lectura para equilibrar las cargas de trabajo de las consultas de solo lectura
 
@@ -35,7 +35,7 @@ La característica Escalado horizontal de lectura está habilitada de forma pred
 Si desea asegurarse de que la aplicación se conecta a la réplica principal sin tener en cuenta el valor `ApplicationIntent` de la cadena de conexión SQL, debe deshabilitar explícitamente el escalado horizontal de lectura cuando cree la base de datos o modifique su configuración. Por ejemplo, si actualiza una base de datos de nivel Estándar o De uso General al nivel Premium, Crítico para la empresa o Hiperescala y desea asegurarse de que todas las conexiones siguen estableciéndose con la réplica principal, deshabilite el escalado horizontal de lectura. Para más información acerca de cómo deshabilitarlo, consulte [Habilitar y deshabilitar el escalado horizontal de lectura](#enable-and-disable-read-scale-out).
 
 > [!NOTE]
-> Las características Almacén de datos de consultas, Eventos extendidos, SQL Profiler y Auditoría no son compatibles con las réplicas de solo lectura.
+> Las características Almacén de datos de consultas, Eventos extendidos y SQL Profiler no son compatibles con las réplicas de solo lectura.
 
 ## <a name="data-consistency"></a>Coherencia de datos
 
@@ -96,7 +96,7 @@ Puede administrar la configuración de escalado horizontal de lectura en la hoja
 ### <a name="powershell"></a>PowerShell
 
 > [!IMPORTANT]
-> El módulo de Azure Resource Manager (RM) para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. El módulo de AzureRM continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo.  Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos. Para más información sobre la compatibilidad, consulte [Presentación del nuevo módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az).
+> El módulo de Azure Resource Manager (RM) para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. El módulo de AzureRM continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo.  Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos. Para obtener más información sobre la compatibilidad, vea [Presentación del nuevo módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
 Para administrar el escalado horizontal de lectura en Azure PowerShell se requiere la versión de Azure PowerShell de diciembre de 2016 u otra posterior. Para saber dónde encontrar la versión más reciente de PowerShell, consulte [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 

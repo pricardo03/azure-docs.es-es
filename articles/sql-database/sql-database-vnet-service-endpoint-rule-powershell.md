@@ -1,6 +1,6 @@
 ---
 title: PowerShell para puntos de conexión de red virtual y reglas para bases de datos únicas y agrupadas
-description: Proporciona scripts de PowerShell para crear y administrar puntos de conexión del servicio virtual para su base de datos de Azure SQL y su almacenamiento de SQL Data Warehouse.
+description: Proporciona scripts de PowerShell para crear y administrar puntos de conexión de servicio virtual para su instancia de Azure SQL Database y Azure Synapse.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,19 +11,20 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 76c4ea6c3fc5f415316e2b5cfcdf80c0681cc3f6
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+tags: azure-synapse
+ms.openlocfilehash: f61403ef50af209fdc6e811191d31ccc83f8da73
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422491"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191885"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell:  Creación de una regla de red virtual y un punto de conexión de servicio virtual para SQL
 
-Las *reglas de red virtual* son una característica de firewall que controla si el servidor de las bases de datos únicas y el grupo elástico de Azure [SQL Database](sql-database-technical-overview.md) o las bases de datos de [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) acepta las comunicaciones que se envían desde subredes específicas en redes virtuales.
+Las *reglas de red virtual* son una característica de firewall que controla si el servidor de bases de datos únicas y del grupo elástico de Azure [SQL Database](sql-database-technical-overview.md) o de las bases de datos de [Azure Synapse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) acepta las comunicaciones que se envían desde subredes específicas de redes virtuales.
 
 > [!IMPORTANT]
-> Este artículo se aplica a Azure SQL Server y tanto a las bases de datos de SQL Database como a SQL Data Warehouse que se crean en el servidor de Azure SQL. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse. En cambio, este artículo *no* se aplica a la implementación de la **instancia administrada** de Azure SQL Database, ya que no tiene un punto de conexión de servicio asociado a ella.
+> Este artículo se aplica al servidor de Azure SQL y tanto a las bases de datos de SQL Database como al almacenamiento de datos de Azure Synapse que se crean en el servidor de Azure SQL. Para simplificar, se usa SQL Database cuando se hace referencia tanto a SQL Database como a Azure Synapse. En cambio, este artículo *no* se aplica a la implementación de la **instancia administrada** de Azure SQL Database, ya que no tiene un punto de conexión de servicio asociado a ella.
 
 En este artículo se proporciona y se describe un script de PowerShell que realiza las siguientes acciones:
 
@@ -38,7 +39,7 @@ Sus motivaciones para crear una regla se explican en: [Puntos de conexión de se
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> El módulo de Azure Resource Manager de PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo Az y en los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos.
 
 ## <a name="major-cmdlets"></a>Cmdlets principales
 
@@ -115,7 +116,7 @@ Write-Host 'Completed script 1, the "Variables".';
 
 <a name="a-script-20" />
 
-### <a name="script-2-prerequisites"></a>Script 2: Requisitos previos
+### <a name="script-2-prerequisites"></a>Script 2: Prerrequisitos
 
 Este script se prepara para el siguiente script, donde se encuentra la acción del punto de conexión. Este script crea automáticamente los siguientes elementos de lista, pero solo si aún no existen. Puede omitir el script 2 si está seguro de que estos elementos ya existen:
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: f3cb583a3594b14266249ef80f8c49633c1df1de
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: cd634c41a1d6e3d9846e8299dd281b52beb77130
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152200"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912796"
 ---
 # <a name="linear-regression-module"></a>Módulo de regresión lineal
 En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
@@ -51,17 +51,15 @@ Durante años los estadísticos han estado desarrollando métodos cada vez más 
 
 Este módulo admite dos métodos de ajuste de un modelo de regresión con distintas opciones:
 
-+ [Creación de un modelo de regresión con gradiente descendiente en línea](#bkmk_GradientDescent)
++ [Ajuste de un modelo de regresión mediante mínimos cuadrados](#create-a-regression-model-using-ordinary-least-squares)
+
+    Para conjuntos de datos pequeños es mejor seleccionar la técnica de los mínimos cuadrados. Esta debería proporcionar resultados similares a Excel.
+    
++ [Creación de un modelo de regresión con gradiente descendiente en línea](#create-a-regression-model-using-online-gradient-descent)
 
     El gradiente descendiente es una mejor función de pérdida para los modelos más complejos o que tienen demasiado pocos datos de entrenamiento dado el número de variables.
 
-
-
-+ [Ajuste de un modelo de regresión mediante mínimos cuadrados](#bkmk_OrdinaryLeastSquares)
-
-    Para conjuntos de datos pequeños es mejor seleccionar la técnica de los mínimos cuadrados. Esta debería proporcionar resultados similares a Excel.
-
-## <a name="bkmk_OrdinaryLeastSquares"></a> Creación de un modelo de regresión mediante mínimos cuadrados
+### <a name="create-a-regression-model-using-ordinary-least-squares"></a>Creación de un modelo de regresión mediante mínimos cuadrados
 
 1. Agregue el módulo **Modelo de regresión lineal** a la canalización del diseñador.
 
@@ -86,7 +84,7 @@ Este módulo admite dos métodos de ajuste de un modelo de regresión con distin
 
 8. Ejecución de la canalización
 
-## <a name="results-for-ordinary-least-squares-model"></a>Resultados del modelo de mínimos cuadrados
+### <a name="results-for-ordinary-least-squares-model"></a>Resultados del modelo de mínimos cuadrados
 
 Una vez completado el entrenamiento:
 
@@ -94,7 +92,7 @@ Una vez completado el entrenamiento:
 + Para realizar predicciones, conecte el modelo entrenado al módulo [Score Model](./score-model.md) (Modelo de puntuación) junto con un conjunto de datos de valores nuevos. 
 
 
-## <a name="bkmk_GradientDescent"></a> Creación de un modelo de regresión con gradiente descendiente en línea
+### <a name="create-a-regression-model-using-online-gradient-descent"></a>Creación de un modelo de regresión con gradiente descendiente en línea
 
 1. Agregue el módulo **Modelo de regresión lineal** a la canalización del diseñador.
 
@@ -105,6 +103,8 @@ Una vez completado el entrenamiento:
 3. En **Create trainer mode** (Crear modo de entrenador), indique si desea entrenar el modelo con un conjunto de parámetros predefinido o si desea optimizarlo con un barrido de parámetros.
 
     + **Single Parameter** (Parámetro único): Si sabe cómo quiere configurar la red de regresión lineal, puede proporcionar un conjunto específico de valores como argumentos.
+    
+    + **Parameter Range** (Intervalo de parámetros): seleccione esta opción si no está seguro de los mejores parámetros y quiere ejecutar un barrido de parámetros. Seleccione un rango de valores para iterarlos y el módulo [Optimización de hiperparámetros de un modelo](tune-model-hyperparameters.md) itera en todas las combinaciones posibles de los valores proporcionados para determinar los hiperparámetros que generan los resultados óptimos.  
 
    
 4. En **Learning rate** (Velocidad de aprendizaje), especifique la velocidad de aprendizaje inicial para el optimizador estocástico de gradiente descendiente.
@@ -133,7 +133,7 @@ Una vez completado el entrenamiento:
 
 13. Ejecución de la canalización
 
-## <a name="results-for-online-gradient-descent"></a>Resultados del gradiente descendiente en línea
+### <a name="results-for-online-gradient-descent"></a>Resultados del gradiente descendiente en línea
 
 Una vez completado el entrenamiento:
 

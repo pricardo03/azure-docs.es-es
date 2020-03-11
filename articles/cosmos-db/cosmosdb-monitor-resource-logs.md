@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: sngun
-ms.openlocfilehash: 670797eb833b0a145a18e20c6bba711ca11609bc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 184fc65dae57292243be9abdca71a129512b3d0b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476002"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252054"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Supervisión de datos de Azure Cosmos DB mediante la configuración de diagnóstico en Azure
 
@@ -99,7 +99,7 @@ Para obtener información detallada sobre cómo crear una configuración de diag
    | summarize count = count()  by OperationName, requestResourceType_s, bin(TimeGenerated, 1h) 
    ```
 
-1. ¿Cuál es el rendimiento máximo que ofrece una partición?
+1. ¿Cuál es el rendimiento máximo que ha consumido una partición?
 
    ```Kusto
    AzureDiagnostics

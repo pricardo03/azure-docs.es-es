@@ -2,13 +2,13 @@
 title: Eliminación del modo completo
 description: Muestra cómo los tipos de recursos controlan la eliminación en modo completo en las plantillas de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: 80d2ee356e3bc15a178862c453bf7f1ab8d66c77
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/26/2020
+ms.openlocfilehash: 5f797974212636460306c6a17869d6b8380545ab
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207815"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664413"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Eliminación de recursos de Azure en implementaciones en modo completo
 
@@ -141,7 +141,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft.SaaS](#microsoftsaas)
-> - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
 > - [Microsoft.SecurityGraph](#microsoftsecuritygraph)
@@ -297,6 +296,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | automationAccounts | Sí |
 > | automationAccounts/configurations | Sí |
 > | automationAccounts/jobs | Sin |
+> | automationAccounts / privateEndpointConnectionProxies | Sin |
+> | automationAccounts / privateEndpointConnections | Sin |
+> | automationAccounts / privateLinkResources | Sin |
 > | automationAccounts/runbooks | Sí |
 > | automationAccounts/softwareUpdateConfigurations | Sin |
 > | automationAccounts/webhooks | Sin |
@@ -716,6 +718,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | registries/importImage | Sin |
 > | registries/privateEndpointConnectionProxies | Sin |
 > | registries/privateEndpointConnectionProxies/validate | Sin |
+> | registries / privateEndpointConnections | Sin |
 > | registries/privateLinkResources | Sin |
 > | registries/queueBuild | Sin |
 > | registries/regenerateCredential | Sin |
@@ -1057,6 +1060,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | partnerNamespaces / eventChannels | Sin |
 > | partnerRegistrations | Sí |
 > | partnerTopics | Sí |
+> | partnerTopics / eventSubscriptions | Sin |
 > | systemTopics | Sí |
 > | systemTopics / eventSubscriptions | Sin |
 > | topics | Sí |
@@ -1293,6 +1297,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- |
 > | getEntities | Sin |
 > | managementGroups | Sin |
+> | managementGroups / settings | Sin |
 > | resources | Sin |
 > | startTenantBackfill | Sin |
 > | tenantBackfillStatus | Sin |
@@ -1554,6 +1559,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | legacyPeerings | Sin |
 > | peerAsns | Sin |
 > | peerings | Sí |
+> | peeringServiceCountries | Sin |
 > | peeringServiceProviders | Sin |
 > | peeringServices | Sí |
 
@@ -1678,13 +1684,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- |
 > | applications | Sí |
 > | saasresources | Sin |
-
-## <a name="microsoftscheduler"></a>Microsoft.Scheduler
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Eliminación del modo completo |
-> | ------------- | ----------- |
-> | jobcollections | Sí |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
@@ -2015,6 +2014,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Eliminación del modo completo |
 > | ------------- | ----------- |
 > | devices | Sí |
+> | registeredSubscriptions | Sin |
 > | vendors | Sin |
 > | vendors / skus | Sin |
 > | vendors/vnfs | Sin |

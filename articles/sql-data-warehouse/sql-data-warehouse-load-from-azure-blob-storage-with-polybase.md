@@ -1,5 +1,5 @@
 ---
-title: Carga de datos de Contoso Retail
+title: Carga de datos de Contoso Retail en un almacenamiento de datos de SQL Analytics
 description: Use los comandos de PolyBase y T-SQL para cargar dos tablas de datos de Contoso Retail en Azure SQL Analytics.
 services: sql-data-warehouse
 author: kevinvngo
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: af505d7614b527d6dc7e1ce54136578d67824cf9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 4da4ea54de5517864567583cc6853df40b4370a9
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721173"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197307"
 ---
-# <a name="load-contoso-retail-data-to-a-sql-analytics-data-warehouse"></a>Carga de datos de Contoso Retail en el almacenamiento de datos de SQL Analytics
+# <a name="load-contoso-retail-data-to-a-sql-analytics-data-warehouse"></a>Carga de datos de Contoso Retail en un almacenamiento de datos de SQL Analytics
 
-En este tutorial, aprenderá a usar los comandos de PolyBase y T-SQL para cargar dos tablas de datos de Contoso Retail en el almacenamiento de datos de SQL Analytics. 
+En este tutorial, aprenderá a usar los comandos de PolyBase y T-SQL para cargar dos tablas de datos de Contoso Retail en un almacenamiento de datos de SQL Analytics. 
 
 En este tutorial, aprenderá lo siguiente:
 
@@ -29,12 +29,15 @@ En este tutorial, aprenderá lo siguiente:
 3. Realización de optimizaciones una vez finalizada la carga
 
 ## <a name="before-you-begin"></a>Antes de empezar
+
 Para ejecutar este tutorial, necesita una cuenta de Azure que cuente ya con un almacenamiento de datos de SQL Analytics. Si no tiene ningún almacenamiento de datos aprovisionado, consulte [Creación de un almacenamiento de datos y establecimiento de una regla de firewall a nivel de servidor](create-data-warehouse-portal.md).
 
-## <a name="1-configure-the-data-source"></a>1. Configuración del origen de datos
+## <a name="configure-the-data-source"></a>Configuración del origen de datos
+
 PolyBase usa objetos externos T-SQL para definir la ubicación y los atributos de los datos externos. Las definiciones del objeto externo se almacenan en el almacenamiento de datos de SQL Analytics. Los datos se almacenan externamente.
 
-### <a name="11-create-a-credential"></a>1.1. Creación de una credencial
+## <a name="create-a-credential"></a>Creación de una credencial
+
 **Omita este paso** si va a cargar los datos públicos de Contoso. No es necesario un acceso seguro a los datos públicos, pues ya son accesibles para cualquier persona.
 
 **No omita este paso** si va a usar este tutorial como plantilla para cargar sus propios datos. Para tener acceso a los datos a través de una credencial, use el siguiente script para crear una credencial con ámbito de base de datos. A continuación, utilícela al definir la ubicación del origen de datos.
@@ -72,7 +75,8 @@ WITH (
 );
 ```
 
-### <a name="12-create-the-external-data-source"></a>1.2. Creación del origen de datos externo
+## <a name="create-the-external-data-source"></a>Creación del origen de datos externo
+
 Utilice este comando [CREATE EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15) para almacenar la ubicación de los datos y el tipo de datos. 
 
 ```sql
@@ -87,9 +91,9 @@ WITH
 > [!IMPORTANT]
 > Si decide que sus contenedores de Almacenamiento de blobs de Azure serán públicos, recuerde que, como propietario de los datos, se le aplicarán cargos de salida de datos cuando los datos dejen el centro de datos. 
 > 
-> 
 
-## <a name="2-configure-data-format"></a>2. Configuración del formato de datos
+## <a name="configure-the-data-format"></a>Configuración del formato de los datos
+
 Los datos se almacenan en archivos de texto en Almacenamiento de blobs de Azure y un delimitador separa cada campo. En SSMS, ejecute el siguiente comando CREATE EXTERNAL FILE FORMAT para especificar el formato de los datos en los archivos de texto. Los datos de Contoso no están comprimidos y están delimitados por canalización.
 
 ```sql
@@ -104,10 +108,10 @@ WITH
 );
 ``` 
 
-## <a name="3-create-the-external-tables"></a>3. Creación de la tablas externas
+## <a name="create-the-external-tables"></a>Creación de la tablas externas
 Ahora que ha especificado el origen de datos y el formato de archivo, está listo para crear las tablas externas. 
 
-### <a name="31-create-a-schema-for-the-data"></a>3.1. Creación de un esquema de los datos
+## <a name="create-a-schema-for-the-data"></a>Creación de un esquema de los datos
 A fin de crear un lugar para almacenar los datos de Contoso en su base de datos, cree un esquema.
 
 ```sql
@@ -115,7 +119,8 @@ CREATE SCHEMA [asb]
 GO
 ```
 
-### <a name="32-create-the-external-tables"></a>3.2. Creación de la tablas externas
+## <a name="create-the-external-tables"></a>Creación de la tablas externas
+
 Ejecute el script siguiente para crear las tablas externas DimProduct y FactOnlineSales. Todo lo que está haciendo aquí es definir nombres de columna y tipos de datos, que enlazamos a la ubicación y formato de los archivos de Azure Blob Storage. La definición se guarda en el almacenamiento de datos de SQL Analytics y los datos seguirán almacenados en Azure Storage Blob.
 
 El parámetro **LOCATION** es la carpeta situada bajo la carpeta raíz en Azure Blob Storage. Cada tabla está en una carpeta diferente.
@@ -202,10 +207,11 @@ WITH
 ;
 ```
 
-## <a name="4-load-the-data"></a>4. Carga de los datos
+## <a name="load-the-data"></a>Carga de los datos
 Hay diferentes maneras de obtener acceso a datos externos.  Puede consultar datos directamente desde las tablas externas, cargar los datos en nuevas tablas en el almacenamiento de datos o agregar datos externos a tablas de almacenamiento de datos existentes.  
 
-### <a name="41-create-a-new-schema"></a>4.1. Creación de un nuevo esquema
+###  <a name="create-a-new-schema"></a>Creación de un nuevo esquema
+
 CTAS crea una nueva tabla que contiene datos.  En primer lugar, cree un esquema de los datos de Contoso.
 
 ```sql
@@ -213,7 +219,8 @@ CREATE SCHEMA [cso]
 GO
 ```
 
-### <a name="42-load-the-data-into-new-tables"></a>4.2. Carga de los datos en nuevas tablas
+### <a name="load-the-data-into-new-tables"></a>Carga de los datos en nuevas tablas
+
 Para cargar datos de Azure Blob Storage a la tabla del almacenamiento de datos, use la instrucción [CREATE TABLE AS SELECT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7). La carga con [CTAS](sql-data-warehouse-develop-ctas.md) aprovecha las tablas externas de tipos rigurosos que ha creado. Para cargar los datos en nuevas tablas, utilice una instrucción CTAS por tabla. 
  
 CTAS crea una nueva tabla y la rellena con los resultados de una instrucción SELECT. CTAS define la nueva tabla para tener las mismas columnas y tipos de datos que los resultados de la instrucción SELECT. Si selecciona todas las columnas de una tabla externa, la nueva tabla será una réplica de las columnas y los tipos de datos de la tabla externa.
@@ -228,7 +235,8 @@ CREATE TABLE [cso].[DimProduct]            WITH (DISTRIBUTION = HASH([ProductKey
 CREATE TABLE [cso].[FactOnlineSales]       WITH (DISTRIBUTION = HASH([ProductKey]  ) ) AS SELECT * FROM [asb].[FactOnlineSales]        OPTION (LABEL = 'CTAS : Load [cso].[FactOnlineSales]        ');
 ```
 
-### <a name="43-track-the-load-progress"></a>4.3. Seguimiento del progreso de carga
+### <a name="track-the-load-progress"></a>Seguimiento del progreso de la carga
+
 Puede seguir el progreso de la carga con las vistas de administración dinámica (DMV). 
 
 ```sql
@@ -264,7 +272,8 @@ ORDER BY
     gb_processed desc;
 ```
 
-## <a name="5-optimize-columnstore-compression"></a>5. Optimización de compresión de almacén de columnas
+## <a name="optimize-columnstore-compression"></a>Optimización de compresión de almacén de columnas
+
 De forma predeterminada, el almacenamiento de datos de SQL Analytics guarda la tabla como un índice de almacén de columnas agrupado. Una vez completada una carga, puede que algunas de las filas de datos no se compriman en el almacén de columnas.  Existen motivos diferentes por los que esto puede ocurrir. Para aprender más, consulte el artículo sobre [administración de índices de almacén de columnas](sql-data-warehouse-tables-index.md).
 
 Para optimizar el rendimiento de las consultas y la compresión de almacén de columnas después de una carga, vuelva a crear la tabla para obligar al índice de almacén de columnas a comprimir todas las filas. 
@@ -279,7 +288,8 @@ ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 
 Para más información sobre el mantenimiento de los índices de almacén de columnas, consulte la sección sobre [administración de índices de almacén de columnas](sql-data-warehouse-tables-index.md) .
 
-## <a name="6-optimize-statistics"></a>6. Optimización de estadísticas
+## <a name="optimize-statistics"></a>Optimización de estadísticas
+
 Es mejor crear estadísticas de columna única inmediatamente después de una carga. Si sabe que algunas columnas no van a estar en predicados de consulta, puede omitir la creación de estadísticas en dichas columnas. Si crea estadísticas de columna única en cada columna, la recopilación de todas las estadísticas puede llevar mucho tiempo. 
 
 Si decide crear estadísticas de columna única en todas las columnas de cada una de las tablas, puede usar el ejemplo de código de procedimiento almacenado `prc_sqldw_create_stats` del artículo sobre [estadísticas](sql-data-warehouse-tables-statistics.md).
@@ -329,7 +339,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 ```
 
 ## <a name="achievement-unlocked"></a>Logro conseguido.
-Ha cargado correctamente los datos públicos en el almacenamiento de datos de SQL Analytics. Buen trabajo.
+Ha cargado correctamente datos públicos en el almacenamiento de datos. Buen trabajo.
 
 Ya puede empezar a consultar las tablas para explorar los datos. Ejecute la consulta siguiente para averiguar las ventas totales por marca:
 
@@ -342,5 +352,5 @@ GROUP BY p.[BrandName]
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para cargar el conjunto de datos completo, ejecute la [carga del esquema Contoso Retail Data Warehouse completo](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) de ejemplo del repositorio de ejemplos de Microsoft SQL Server.
+Para cargar el conjunto de datos completo, ejecute el ejemplo de [carga del almacenamiento de datos completo de Contoso Retail](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) desde el repositorio de ejemplos de Microsoft SQL Server.
 Para obtener más consejos de desarrollo, consulte [Diseño de decisiones y técnicas de codificación para almacenamientos de datos](sql-data-warehouse-overview-develop.md).

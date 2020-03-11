@@ -12,6 +12,17 @@
       href: quick-create-powershell.md
     - name: 'Creación de red virtual: CLI de Azure'
       href: quick-create-cli.md
+    - name: NAT
+      items:
+        - name: 'Creación de una instancia de NAT Gateway: Portal'
+          href: quickstart-create-nat-gateway-portal.md
+        - name: 'Creación de una instancia de NAT Gateway: PowerShell'
+          href: quickstart-create-nat-gateway-powershell.md
+        - name: 'Creación de una instancia de NAT Gateway: CLI'
+          href: quickstart-create-nat-gateway-cli.md
+        - name: 'Creación de una instancia de NAT Gateway: Plantilla de Resource Manager'
+          displayname: Resource Manager
+          href: quickstart-create-nat-gateway-template.md
   expanded: true
 - name: Tutoriales
   items:
@@ -23,6 +34,14 @@
       href: tutorial-restrict-network-access-to-resources.md
     - name: Conexión de redes virtuales
       href: tutorial-connect-virtual-networks-portal.md
+    - name: NAT
+      items:
+        - name: 'Creación y validación de una instancia de NAT Gateway: Portal'
+          href: tutorial-create-validate-nat-gateway-portal.md
+        - name: 'Creación y validación de una instancia de NAT Gateway: PowerShell'
+          href: tutorial-create-validate-nat-gateway-powershell.md
+        - name: 'Creación y validación de una instancia de NAT Gateway: CLI'
+          href: tutorial-create-validate-nat-gateway-cli.md
 - name: Ejemplos
   items:
     - name: Azure CLI
@@ -123,20 +142,6 @@
           href: virtual-network-nsg-manage-log.md
     - name: Conectividad
       items:
-        - name: NAT
-          items:
-            - name: 'Creación de una instancia de NAT Gateway: Portal'
-              href: quickstart-create-nat-gateway-portal.md
-            - name: 'Creación de una instancia de NAT Gateway: PowerShell'
-              href: quickstart-create-nat-gateway-powershell.md
-            - name: 'Creación de una instancia de NAT Gateway: CLI'
-              href: quickstart-create-nat-gateway-cli.md
-            - name: 'Creación y validación de una instancia de NAT Gateway: Portal'
-              href: tutorial-create-validate-nat-gateway-portal.md
-            - name: 'Creación y validación de una instancia de NAT Gateway: PowerShell'
-              href: tutorial-create-validate-nat-gateway-powershell.md
-            - name: 'Creación y validación de una instancia de NAT Gateway: CLI'
-              href: tutorial-create-validate-nat-gateway-cli.md
         - name: Enrutado del tráfico de red
           items:
             - name: Portal de Azure

@@ -4,15 +4,15 @@ description: Replique servidores de Azure Analysis Services con la escalabilidad
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 03/02/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fd91701a20b8a760eadcafe6f93f9ba5857a1c9f
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 3ea304d038618fc428f20e7ad72b398f593d09a8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310193"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247990"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalabilidad horizontal de Azure Analysis Services
 
@@ -74,19 +74,23 @@ Para obtener un rendimiento máximo para las operaciones de procesamiento y cons
 
 ## <a name="monitor-qpu-usage"></a>Supervisión del uso de QPU
 
-Para determinar si la escalabilidad horizontal del servidor es necesaria, supervise el servidor en Azure Portal con Métricas. Si se supera el nivel máximo de QPU con regularidad, significa que el número de consultas en los modelos excede el límite de QPU del plan. La métrica de longitud de la cola de trabajos del grupo de consultas también aumenta si el número de consultas de la cola del grupo de subprocesos de consulta excede el número de QPU disponibles. 
+Para determinar si es necesario realizar un escalado horizontal del servidor, [supervise el servidor](analysis-services-monitor.md) en Azure Portal con métricas. Si se supera el nivel máximo de QPU con regularidad, significa que el número de consultas en los modelos excede el límite de QPU del plan. La métrica de longitud de la cola de trabajos del grupo de consultas también aumenta si el número de consultas de la cola del grupo de subprocesos de consulta excede el número de QPU disponibles. 
 
 Otra buena métrica para inspeccionar es QPU media por ServerResourceType. Esta métrica compara el promedio de la unidad de procesamiento de consultas (QPU) del servidor principal con el grupo de consultas. 
 
 ![Métricas de escalado horizontal de consultas](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
-### <a name="to-configure-qpu-by-serverresourcetype"></a>Para configurar la QPU por ServerResourceType
+**Para configurar la QPU mediante ServerResourceType**
+
 1. En un gráfico de líneas Métricas, haga clic en **Agregar métrica**. 
 2. En **RECURSO**, seleccione el servidor y, en **ESPACIO DE NOMBRES DE MÉTRICA**, seleccione **Métricas estándar de Analysis Services**; luego, en **MÉTRICA**, seleccione **QPU** y, en **AGREGACIÓN**, seleccione **Media**. 
 3. Haga clic en **Aplicar separación**. 
 4. En **VALORES**, seleccione **ServerResourceType**.  
 
-Para más información, vea [Supervisión de las métricas del servidor](analysis-services-monitor.md).
+### <a name="detailed-diagnostic-logging"></a>Registros de diagnóstico detallados
+
+Utilice Azure Monitor Logs para realizar diagnósticos más detallados de los recursos del servidor con escala horizontal. Con los registros, puede usar consultas de Log Analytics para desglosar la QPU y la memoria en función de cada servidor y cada réplica. Para más información, vea estas consultas de ejemplo de los [registros de diagnóstico de Analysis Services](analysis-services-logging.md#example-queries).
+
 
 ## <a name="configure-scale-out"></a>Configuración de la escalabilidad horizontal
 

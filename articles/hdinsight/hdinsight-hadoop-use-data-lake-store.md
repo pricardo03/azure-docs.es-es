@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 02/05/2020
-ms.openlocfilehash: c67fb21783a926f813d165528520b9d088154412
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.date: 03/01/2020
+ms.openlocfilehash: 3e7e5919a3f862f5cad243654972683d1879c4ba
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162419"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251084"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Uso de Data Lake Storage Gen1 con clústeres de Azure HDInsight
 
@@ -31,7 +31,7 @@ En este artículo, aprenderá cómo funciona Data Lake Storage Gen1 con clúster
 
 ## <a name="availability-for-hdinsight-clusters"></a>Disponibilidad de los clústeres de HDInsight
 
-Apache Hadoop admite una noción del sistema de archivos predeterminado. El sistema de archivos predeterminado implica una autoridad y un esquema predeterminados. También se puede usar para resolver rutas de acceso relativas. Durante el proceso de creación del clúster de HDInsight, puede especificar un contenedor de blobs en Azure Storage como sistema de archivos predeterminado; también, con HDInsight 3.5 y versiones más recientes, puede seleccionar Azure Storage o Azure Data Lake Storage Gen1 como sistema de archivos predeterminado con algunas excepciones.
+Apache Hadoop admite una noción del sistema de archivos predeterminado. El sistema de archivos predeterminado implica una autoridad y un esquema predeterminados. También se puede usar para resolver rutas de acceso relativas. Durante el proceso de creación del clúster de HDInsight, puede especificar un contenedor de blobs en Azure Storage como sistema de archivos predeterminado; también, con HDInsight 3.5 y versiones más recientes, puede seleccionar Azure Storage o Azure Data Lake Storage Gen1 como sistema de archivos predeterminado con algunas excepciones. Tenga en cuenta que el clúster y la cuenta de almacenamiento tienen que ubicarse en la misma región.
 
 Los clústeres de HDInsight pueden usar Data Lake Storage Gen1 de dos maneras:
 
@@ -42,12 +42,12 @@ A partir de ahora, solo algunos tipos o versiones de clústeres de HDInsight adm
 
 | Tipo de clúster de HDInsight | Data Lake Storage Gen1 como almacenamiento predeterminado | Data Lake Storage Gen1 como almacenamiento adicional| Notas |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight versión 4.0 | No | No |ADLS Gen1 no es compatible con HDInsight 4.0 |
+| HDInsight versión 4.0 | Sin | Sin |ADLS Gen1 no es compatible con HDInsight 4.0 |
 | HDInsight versión 3.6 | Sí | Sí | Con la excepción de HBase|
 | Versión de HDInsight 3.5 | Sí | Sí | Con la excepción de HBase|
-| Versión de HDInsight 3.4 | No | Sí | |
-| HDInsight versión 3.3 | No | No | |
-| HDInsight versión 3.2 | No | Sí | |
+| Versión de HDInsight 3.4 | Sin | Sí | |
+| HDInsight versión 3.3 | Sin | Sin | |
+| HDInsight versión 3.2 | Sin | Sí | |
 | Storm | | |Data Lake Storage Gen1 se puede usar para escribir datos de una topología de Storm. Puede usar Data Lake Storage para datos de referencia que luego puede leer una topología de Storm.|
 
 > [!WARNING]  

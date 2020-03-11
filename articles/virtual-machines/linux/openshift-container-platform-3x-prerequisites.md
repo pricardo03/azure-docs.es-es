@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 069561c4bed55bf6021b594d693e076ef8d313bd
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 76e7a9aa9c0f17501885c8bd06c6997fdc8d2104
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035471"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255691"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Requisitos previos para implementar OpenShift Container Platform 3.11 en Azure
 
@@ -59,7 +59,7 @@ az login
 ```
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Debe usar un grupo de recursos dedicado para hospedar el almacén de claves. Este grupo es independiente del grupo de recursos en el que se implementan los recursos del clúster de OpenShift.
+Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Debe usar un grupo de recursos dedicado para hospedar el almacén de claves. Este grupo es independiente del grupo de recursos en el que se implementan los recursos del clúster de OpenShift.
 
 En el ejemplo siguiente se crea un grupo de recursos denominado *keyvaultrg* en la ubicación *eastus*:
 
@@ -102,9 +102,9 @@ OpenShift se comunica con Azure mediante un nombre de usuario y una contraseña,
 
 Cree una entidad de servicio con [az ad sp create-for-rbac](/cli/azure/ad/sp) y genere las credenciales necesarias para OpenShift.
 
-En el ejemplo siguiente se crea una entidad de servicio y se le asignan permisos de colaborador para un grupo de recursos llamado openshiftrg.
+En el ejemplo siguiente se crea una entidad de servicio y se le asignan permisos de colaborador para un grupo de recursos llamado *openshiftrg*.
 
-En primer lugar, cree el grupo de recursos llamado openshiftrg:
+En primer lugar, cree el grupo de recursos llamado *openshiftrg*:
 
 ```azurecli
 az group create -l eastus -n openshiftrg
@@ -158,7 +158,7 @@ Deberá almacenar estos archivos en secretos de Key Vault.  Use el mismo Key Vau
 | routingcertfile  | Archivo CERT de enrutamiento  |
 | routingkeyfile   | Archivo de clave de enrutamiento   |
 
-Cree los secretos con la CLI de Azure. A continuación tiene un ejemplo.
+Cree los secretos con la CLI de Azure. A continuación se muestra un ejemplo.
 
 ```bash
 az keyvault secret set --vault-name KeyVaultName -n mastercafile --file ~/certificates/masterca.pem

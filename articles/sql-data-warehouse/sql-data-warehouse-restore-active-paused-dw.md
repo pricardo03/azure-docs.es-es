@@ -1,6 +1,6 @@
 ---
 title: Restauración de un almacenamiento de datos existente
-description: Guía de procedimientos para restaurar una instancia de Azure SQL Data Warehouse existente.
+description: Guía para la restauración de un grupo de SQL eliminado.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -11,29 +11,29 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d0bcf9ca6373984989d24efd2af4ffbbb19c5548
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: bf83de481cf15711da45edf00e63262a05489247
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759693"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199549"
 ---
-# <a name="restore-an-existing-azure-sql-data-warehouse"></a>Restauración de una instancia de Azure SQL Data Warehouse existente
+# <a name="restore-an-existing-sql-pool"></a>Restauración de un grupo de SQL existente
 
-En este artículo, aprenderá a restaurar una instancia de Azure SQL Data Warehouse existente mediante Azure Portal y PowerShell:
+En este artículo, aprenderá a restaurar un grupo de SQL existente en Azure Synapse Analytics mediante Azure Portal y PowerShell.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-**Compruebe la capacidad DTU**. Cada instancia de SQL Data Warehouse está hospedada en un servidor SQL Server (por ejemplo, myserver.database.windows.net) que tiene una cuota de DTU predeterminada. Compruebe que el servidor de SQL Server tiene suficiente cuota de DTU restante para la base de datos que se va a restaurar. Para más información sobre cómo calcular la unidad DTU necesaria o solicitar más DTU, consulte cómo [solicitar un cambio en la cuota de DTU](sql-data-warehouse-get-started-create-support-ticket.md).
+**Compruebe la capacidad DTU**. Cada grupo está hospedado en un servidor SQL Server (por ejemplo, myserver.database.windows.net) que tiene una cuota de DTU predeterminada. Compruebe que el servidor de SQL Server tiene suficiente cuota de DTU restante para la base de datos que se va a restaurar. Para más información sobre cómo calcular la unidad DTU necesaria o solicitar más DTU, consulte cómo [solicitar un cambio en la cuota de DTU](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 1. Asegúrese de [instalar Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 2. Tenga un punto de restauración existente desde el que desee realizar la restauración. Si desea crear una restauración, consulte [el tutorial para crear un de restauración definido por el usuario](sql-data-warehouse-restore-points.md).
 
-## <a name="restore-an-existing-data-warehouse-through-powershell"></a>Restauración de una base de datos de almacenamiento de datos existente mediante PowerShell
+## <a name="restore-an-existing-sql-pool-through-powershell"></a>Restauración de un grupo de SQL existente mediante PowerShell
 
-Para restaurar una base de datos de almacenamiento de datos existente a partir de un punto de restauración, use el cmdlet [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) de PowerShell.
+Para restaurar un grupo de SQL existente a partir de un punto de restauración, use el cmdlet [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) de PowerShell.
 
 1. Abra PowerShell.
 
@@ -41,17 +41,17 @@ Para restaurar una base de datos de almacenamiento de datos existente a partir d
 
 3. Seleccione la suscripción que contiene la base de datos que se va a restaurar.
 
-4. Enumere los puntos de restauración de la base de datos de almacenamiento de datos.
+4. Enumere los puntos de restauración del grupo de SQL.
 
 5. Elija el punto de restauración deseado mediante RestorePointCreationDate.
 
-6. Restaure la base de datos de almacenamiento de datos al punto de restauración deseado mediante el comando [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) de PowerShell.
-        1. Para restaurar la instancia de SQL Data Warehouse en un servidor lógico diferente, asegúrese de especificar el nombre del otro servidor lógico.  Este servidor lógico también puede estar en un grupo de recursos y una región diferentes.
+6. Restaure el grupo de SQL al punto de restauración deseado mediante el comando [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) de PowerShell.
+        1. Para restaurar el grupo de SQL en un servidor lógico diferente, asegúrese de especificar el nombre del otro servidor lógico.  Este servidor lógico también puede estar en un grupo de recursos y una región diferentes.
         2. Para realizar la restauración en otra suscripción, use el botón Mover para mover el servidor lógico a otra suscripción.
 
-7. Compruebe que la base de datos de almacenamiento de datos restaurada está en línea.
+7. Compruebe que el grupo de SQL restaurado está en línea.
 
-8. Una vez finalizada la restauración, puede configurar la base de datos de almacenamiento de datos recuperada siguiendo la explicación que se proporciona en el apartado [Configuración de la base de datos después de realizar la recuperación](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
+8. Una vez finalizada la restauración, puede configurar el grupo de SQL recuperado siguiendo la guía [Configuración de la base de datos después de realizar la recuperación](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
 
 ```Powershell
 
@@ -87,20 +87,20 @@ $RestoredDatabase.status
 
 ```
 
-## <a name="restore-an-existing-data-warehouse-through-the-azure-portal"></a>Restauración de una base de datos de almacenamiento de datos existente mediante Azure Portal
+## <a name="restore-an-existing-sql-pool-through-the-azure-portal"></a>Restauración de un grupo de SQL existente mediante Azure Portal
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Vaya a la instancia de SQL Data Warehouse desde la que desea realizar la restauración.
+2. Vaya al grupo de SQL desde el que desea restaurar.
 3. En la parte superior de la hoja de información general, seleccione **Restaurar**.
 
     ![ Introducción a la restauración](./media/sql-data-warehouse-restore-active-paused-dw/restoring-01.png)
 
-4. Seleccione **Puntos de restauración automáticos** o **Puntos de restauración definidos por el usuario**. Si la base de datos de almacenamiento de datos no tiene ningún punto de restauración automática, espere unas horas o cree un punto de restauración definido por el usuario antes de llevar a cabo la restauración. En el caso de los puntos de restauración definidos por el usuario, seleccione uno existente o cree uno nuevo. En **Servidor**, puede elegir un servidor lógico de otro grupo de recursos y región, o bien crear uno nuevo. Después de proporcionar todos los parámetros, haga clic en **Revisar y restaurar**.
+4. Seleccione **Puntos de restauración automáticos** o **Puntos de restauración definidos por el usuario**. Si el grupo de SQL no tiene ningún punto de restauración automática, espere unas horas o cree un punto de restauración definido por el usuario antes de llevar a cabo la restauración. En el caso de los puntos de restauración definidos por el usuario, seleccione uno existente o cree uno nuevo. En **Servidor**, puede elegir un servidor lógico de otro grupo de recursos y región, o bien crear uno nuevo. Después de proporcionar todos los parámetros, haga clic en **Revisar y restaurar**.
 
     ![Puntos de restauración automáticos](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Restauración de un almacén de datos eliminado](sql-data-warehouse-restore-deleted-dw.md)
-- [Restauración desde un almacenamiento de datos de copia de seguridad geográfica](sql-data-warehouse-restore-from-geo-backup.md)
+- [Restauración de un grupo de SQL eliminado](sql-data-warehouse-restore-deleted-dw.md)
+- [Restauración de un grupo de SQL a partir de una copia de seguridad de replicación geográfica](sql-data-warehouse-restore-from-geo-backup.md)
 
  

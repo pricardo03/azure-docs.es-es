@@ -1,5 +1,6 @@
 ---
-title: 'Administración de configuración: Herramienta de modelado de amenazas de Microsoft (Azure) | Microsoft Docs'
+title: Administración de configuración para Microsoft Threat Modeling Tool
+titleSuffix: Azure
 description: mitigaciones para amenazas expuestas en Threat Modeling Tool
 services: security
 documentationcenter: na
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: fedf8118f5581056e40594419c17f074c339a61b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 3c89fae09583c96cf8139885fe2554cf6784b4e3
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161543"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269822"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Marco de seguridad: Administración de configuración | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -32,7 +33,7 @@ ms.locfileid: "73161543"
 | **Puerta de enlace de campo de IoT** | <ul><li>[Cifrado del sistema operativo y particiones adicionales en la puerta de enlace de campo de IoT con Bitlocker](#field-bit-locker)</li><li>[Comprobación de que las credenciales de inicio de sesión predeterminadas de la puerta de enlace de campo se modifican durante la instalación](#default-change)</li></ul> |
 | **Puerta de enlace de nube de IoT** | <ul><li>[Comprobación de que la puerta de enlace de la nube implementa un proceso para mantener actualizado el firmware de los dispositivos conectados](#cloud-firmware)</li></ul> |
 | **Límite de confianza de la máquina** | <ul><li>[Comprobación de que los dispositivos tienen controles de seguridad de punto de conexión configurados según las directivas organizativas](#controls-policies)</li></ul> |
-| **Azure Storage** | <ul><li>[Comprobación de la administración segura de las claves de acceso de almacenamiento de Azure](#secure-keys)</li><li>[Comprobación de que solo se permiten orígenes de confianza si CORS está activado en Azure Storage](#cors-storage)</li></ul> |
+| **Almacenamiento de Azure** | <ul><li>[Comprobación de la administración segura de las claves de acceso de almacenamiento de Azure](#secure-keys)</li><li>[Comprobación de que solo se permiten orígenes de confianza si CORS está activado en Azure Storage](#cors-storage)</li></ul> |
 | **WCF** | <ul><li>[Habilitación de la característica de limitación del servicio de WCF](#throttling)</li><li>[Revelación de información de WCF mediante metadatos](#info-metadata)</li></ul> | 
 
 ## <a id="csp-js"></a>Implementación de la directiva de seguridad de contenido [CSP] y deshabilitación de Javascript en línea
@@ -40,7 +41,7 @@ ms.locfileid: "73161543"
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [An Introduction to Content Security Policy](https://www.html5rocks.com/en/tutorials/security/content-security-policy/) (Introducción a la directiva de seguridad del contenido), [Content Security Policy Reference](https://content-security-policy.com/) (Referencia a la directiva de seguridad del contenido), [Security features](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/) (Características de seguridad), [Introduction to content security policy](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy) (Introducción a la directiva de seguridad del contenido), [Can I use CSP?](https://caniuse.com/#feat=contentsecuritypolicy) (¿Puedo usar la directiva de seguridad de contenido [CSP]?) |
@@ -72,7 +73,7 @@ Example: var str="alert(1)"; eval(str);
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Filtro de protección de XSS](https://www.owasp.org/index.php/List_of_useful_HTTP_headers#X-XSS-Protection) |
@@ -83,7 +84,7 @@ Example: var str="alert(1)"; eval(str);
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [ASP.NET Debugging Overview](https://msdn.microsoft.com/library/ms227556.aspx)(Información general de depuración ASP.NET), [ASP.NET Tracing Overview](https://msdn.microsoft.com/library/bb386420.aspx) (Información general de seguimiento ASP.NET), [How to: Enable Tracing for an ASP.NET Application](https://msdn.microsoft.com/library/0x5wc973.aspx) (Habilitación del seguimiento para una aplicación ASP.NET), [How to: Enable Debugging for ASP.NET Applications](https://msdn.microsoft.com/library/e8z01xdh(VS.80).aspx) (Habilitación de la depuración para aplicaciones ASP.NET). |
@@ -94,7 +95,7 @@ Example: var str="alert(1)"; eval(str);
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
@@ -105,7 +106,7 @@ Example: var str="alert(1)"; eval(str);
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [OWASP click-jacking Defense Cheat Sheet](https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet) (Hoja de referencia rápida de OWASP sobre la defensa ante el secuestro de clic), [IE Internals - Combating click-jacking With X-Frame-Options](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/) (Elementos internos de Internet Explorer: combatir el secuestro de clic con X-Frame-Options) |
@@ -140,7 +141,7 @@ Código de web.config para los sitios que solo deben enmarcar las páginas del m
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Formularios Web Forms, MVC5 |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
@@ -171,7 +172,7 @@ Tenga en cuenta que es fundamental garantizar que la lista de orígenes del atri
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Formularios Web Forms, MVC5 |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Request Validation - Preventing Script Attacks](https://www.asp.net/whitepapers/request-validation) (Validación de solicitudes: prevención de ataques de script) |
@@ -197,7 +198,7 @@ Tenga en cuenta que esta característica de validación de solicitud no es compa
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
@@ -208,7 +209,7 @@ Tenga en cuenta que esta característica de validación de solicitud no es compa
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [IE8 Security Part V: Comprehensive Protection](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx) (Seguridad de IE8 [parte V]: protección total), [MIME types](https://en.wikipedia.org/wiki/Mime_type) (Tipos de MIME) |
@@ -273,7 +274,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | EnvironmentType: Azure |
 | **Referencias**              | [Removing standard server headers on Windows Azure Web Sites](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/) (Eliminación de encabezados de servidor estándar de los sitios web de Windows Azure) |
@@ -284,18 +285,18 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de datos | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | SQL Azure, OnPrem |
 | **Atributos**              | N/A, SQL Version: V12 |
 | **Referencias**              | [Procedimientos para configurar un firewall de Azure SQL Database](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/), [Configuración de Firewall de Windows para el acceso al motor de base de datos](https://msdn.microsoft.com/library/ms175043) |
-| **Pasos** | Los sistemas de firewall ayudan a evitar el acceso no autorizado a los recursos del equipo. Si desea acceder a una instancia del motor de base de datos de SQL Server a través de un firewall, debe configurar el firewall en el equipo que ejecuta SQL Server para que lo permita |
+| **Pasos** | Los sistemas de firewall ayudan a evitar el acceso no autorizado a los recursos de los equipos. Si desea acceder a una instancia del motor de base de datos de SQL Server a través de un firewall, debe configurar el firewall en el equipo que ejecuta SQL Server para que lo permita |
 
 ## <a id="cors-api"></a>Comprobación de que solo se permiten orígenes de confianza si CORS está activado en ASP.NET Web API
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | MVC 5 |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Enabling Cross-Origin Requests in ASP.NET Web API 2](https://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api) (Habilitación de solicitudes de origen cruzado en ASP-NET Web API 2), [Funciones para CORS en ASP.NET Web API 2](https://msdn.microsoft.com/magazine/dn532203.aspx) |
@@ -391,7 +392,7 @@ public class ResourcesController : ApiController
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | MVC 6 |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Habilitación de solicitudes de origen cruzado (CORS) en ASP.NET Core 1.0](https://docs.asp.net/en/latest/security/cors.html) |
@@ -486,7 +487,7 @@ Para deshabilitar CORS en una acción o un controlador, utilice el atributo [Dis
 | **Fase de SDL**               | Implementación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [How To: Encrypt Configuration Sections in ASP.NET 2.0 Using DPAPI](https://msdn.microsoft.com/library/ff647398.aspx) (Procedimiento para cifrar secciones de configuración en ASP.NET 2.0 mediante DPAPI), [Especificar un proveedor de configuración protegida](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Uso de Azure Key Vault para proteger los secretos de la aplicación](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
+| **Referencias**              | [Cómo: Encrypt Configuration Sections in ASP.NET 2.0 Using DPAPI](https://msdn.microsoft.com/library/ff647398.aspx) (Procedimiento para cifrar secciones de configuración en ASP.NET 2.0 mediante DPAPI), [Especificar un proveedor de configuración protegida](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Uso de Azure Key Vault para proteger los secretos de la aplicación](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
 | **Pasos** | Los archivos de configuración tales como web.config y appsettings.json se suelen usar para almacenar información confidencial, como nombres de usuario, contraseñas, cadenas de conexión a la base de datos y claves de cifrado. Si no protege esta información, la aplicación es vulnerable a atacantes o usuarios malintencionados que obtienen información confidencial, como nombres de usuario y contraseñas de cuentas, nombres de bases de datos y nombres de servidores. Según el tipo de implementación (Azure o local), cifre las secciones confidenciales de los archivos de configuración mediante DPAPI o servicios como Azure Key Vault. |
 
 ## <a id="admin-strong"></a>Comprobación de que todas las interfaces de administración están protegidas con credenciales seguras
@@ -505,7 +506,7 @@ Para deshabilitar CORS en una acción o un controlador, utilice el atributo [Dis
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Enabling Secure Boot and bit-locker Device Encryption on Windows 10 IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/securebootandbitlocker) (Habilitación del arranque seguro y del cifrado de dispositivos de BitLocker en Windows 10 IoT Core) |
@@ -516,7 +517,7 @@ Para deshabilitar CORS en una acción o un controlador, utilice el atributo [Dis
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
@@ -560,7 +561,7 @@ Para deshabilitar CORS en una acción o un controlador, utilice el atributo [Dis
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Puerta de enlace de la nube de IoT | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | Elección de puerta de enlace: Azure IoT Hub |
 | **Referencias**              | [Introducción a la administración de dispositivos con IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [Cómo actualizar firmware de dispositivo](../../iot-hub/tutorial-firmware-update.md) |
@@ -593,18 +594,18 @@ Para deshabilitar CORS en una acción o un controlador, utilice el atributo [Dis
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure Storage | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [CORS Support for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dn535601.aspx) (Compatibilidad de CORS para los servicios de Azure Storage) |
-| **Pasos** | Azure Storage permite habilitar el uso compartido de recursos entre orígenes. Puede especificar los dominios que pueden tener acceso a los recursos de cada una de las cuentas de almacenamiento. De forma predeterminada, el uso compartido de recursos entre orígenes está deshabilitado en todos los servicios. Puede habilitarlo mediante la API de REST o la biblioteca del cliente de almacenamiento para llamar a uno de los métodos a fin de establecer las directivas del servicio. |
+| **Pasos** | Azure Storage permite habilitar el uso compartido de recursos entre orígenes. Puede especificar los dominios que pueden tener acceso a los recursos de cada una de las cuentas de almacenamiento. De forma predeterminada, el uso compartido de recursos entre orígenes está deshabilitado en todos los servicios. Puede habilitarlo mediante la API de REST o la biblioteca de clientes de Storage para llamar a uno de los métodos a fin de establecer las directivas del servicio. |
 
 ## <a id="throttling"></a>Habilitación de la característica de limitación del servicio de WCF
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | .NET Framework 3 |
 | **Atributos**              | N/D  |
 | **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com) |
@@ -627,11 +628,11 @@ El siguiente es un ejemplo de configuración con la limitación habilitada:
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | .NET Framework 3 |
 | **Atributos**              | N/D  |
 | **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com) |
-| **Pasos** | Los metadatos pueden ayudar a los atacantes a obtener información sobre el sistema y a planear la forma de ataque. Los servicios de WCF pueden configurarse para exponer los metadatos. Los metadatos proporcionan información descriptiva detallada del servicio y no se deben difundir en entornos de producción. Las propiedades `HttpGetEnabled`  /  `HttpsGetEnabled` de la clase de ServiceMetaData definen si un servicio va a exponer los metadatos | 
+| **Pasos** | Los metadatos pueden ayudar a los atacantes a obtener información sobre el sistema y a planear la forma de ataque. Los servicios de WCF pueden configurarse para exponer los metadatos. Los metadatos proporcionan información descriptiva detallada del servicio y no se deben difundir en entornos de producción. Las propiedades `HttpGetEnabled` / `HttpsGetEnabled` de la clase de ServiceMetaData definen si un servicio va a exponer los metadatos | 
 
 ### <a name="example"></a>Ejemplo
 El código siguiente indica a WCF que difunda los metadatos del servicio

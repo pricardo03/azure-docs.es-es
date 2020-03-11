@@ -1,18 +1,17 @@
 ---
 title: Consultas de búsqueda en registros de Azure Monitor | Microsoft Docs
 description: En este artículo se proporciona un tutorial de introducción a la búsqueda de consultas de registro en Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/06/2018
-ms.openlocfilehash: d92cd42f0fceadee16035b605e8d25c6bc23bc67
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: e13f4abc37e348759e7d0b8a2f7d890c82fe0d15
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932995"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660247"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Consultas de búsqueda en registros de Azure Monitor
 Las consultas de registro de Azure Monitor pueden comenzar por un nombre de tabla o un comando de búsqueda. Este tutorial trata las consultas de búsqueda. Cada método tiene sus ventajas.

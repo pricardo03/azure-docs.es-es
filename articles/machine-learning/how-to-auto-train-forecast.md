@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f5bd6b741f85f35fe03c941ed09728354d6b3d2d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 859f8a9c2bf644461c8945255de9f925b4e943f4
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905702"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251845"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entrenamiento automático de un modelo de previsión de series temporales
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -57,7 +57,7 @@ Los aprendizajes de series temporales nativos también se proporcionan como part
 
 La media móvil integrada autorregresiva (ARIMA) es un método estadístico popular para la previsión de series temporales. Esta técnica de previsión se usa normalmente en escenarios de previsión a corto plazo en los que los datos muestran evidencia de tendencias como ciclos, que pueden ser imprevisibles y difíciles de modelar o predecir. Auto-ARIMA transforma los datos en datos estacionarios para recibir resultados coherentes y confiables.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un área de trabajo de Azure Machine Learning. Para crear el área de trabajo, consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 * En este artículo se presupone una familiarización básica con la configuración de una experimento de aprendizaje de automático automatizado. Siga el [tutorial](tutorial-auto-train-models.md) o los [procedimientos](how-to-configure-auto-train.md) para ver los patrones de diseño del experimento de aprendizaje automático automatizado.
@@ -178,13 +178,14 @@ Consulte los [cuadernos de ejemplo de previsión](https://github.com/Azure/Machi
 ### <a name="configure-a-dnn-enable-forecasting-experiment"></a>Configuración de un experimento de previsión con DNN habilitada
 
 > [!NOTE]
-> La compatibilidad con DNN de la previsión en el aprendizaje automático automatizado se encuentra en versión preliminar.
+> La compatibilidad con DNN para la previsión en el aprendizaje automático automatizado se encuentra en versión preliminar y no es compatible con las ejecuciones locales.
 
 Con el fin de usar las DNN para la previsión, deberá establecer el parámetro `enable_dnn` de AutoMLConfig en true. 
 
-Para usar las DNN, se recomienda usar un clúster de proceso AML con las SKU de GPU y al menos dos nodos como destino de proceso. Para más información, consulte la [documentación del proceso de AML](how-to-set-up-training-targets.md#amlcompute). Vea [Tamaños de máquinas virtuales optimizadas para GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) para más información sobre los tamaños de máquina virtual que incluyen GPU.
+Se recomienda usar un clúster de proceso AML con las SKU de GPU y al menos dos nodos como destino de proceso. Para dejar el tiempo suficiente para que se complete el entrenamiento de DNN, se recomienda establecer el tiempo de espera del experimento como mínimo en un par de horas.
+Para más información sobre los tamaños de proceso y máquina virtual de AML que incluyen las GPU, consulte la [documentación del proceso de AML](how-to-set-up-training-targets.md#amlcompute) y la [documentación sobre tamaños de máquinas virtuales optimizadas para GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
 
-Para permitir el tiempo suficiente para que se complete el entrenamiento de DNN, se recomienda establecer el tiempo de espera del experimento en al menos un par de horas.
+Consulte en el [cuaderno de previsión de producción de bebidas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) un ejemplo de código detallado que aprovecha las DNN.
 
 ### <a name="view-feature-engineering-summary"></a>Visualización del resumen de ingeniería de las características
 

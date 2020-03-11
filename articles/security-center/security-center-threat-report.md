@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
-ms.openlocfilehash: 10e1081c7a91c65c21ffcb3da66930fb7c6e73bb
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: f8b4063d87fa9a89dccd42eddea644609bd6ff27
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603453"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921256"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Informe de inteligencia frente a amenazas de Azure Security Center
 En este documento se explica cómo los informes de inteligencia frente a amenazas de Azure Security Center pueden ayudarle a aprender más sobre una amenaza que ha generado una alerta de seguridad.
 
 ## <a name="what-is-a-threat-intelligence-report"></a>¿Qué es un informe de inteligencia frente a amenazas?
-La detección de amenazas de Security supervisa la información de seguridad de sus recursos de Azure, la red y las soluciones de asociados relacionadas. Después, analiza estos datos (a menudo, relacionando la información de diferentes orígenes) para identificar las amenazas. Para más información, consulte [Cómo detecta y responde Azure Security Center a las amenazas](security-center-alerts-overview.md#detect-threats).
+La protección contra amenazas de Security Center supervisa la información de seguridad de sus recursos de Azure, la red y las soluciones de asociados relacionadas. Después, analiza estos datos (a menudo, relacionando la información de diferentes orígenes) para identificar las amenazas. Para más información, consulte [Cómo detecta y responde Azure Security Center a las amenazas](security-center-alerts-overview.md#detect-threats).
 
 Cuando Security Center identifica una amenaza, desencadena una [alerta de seguridad](security-center-managing-and-responding-alerts.md), que contiene información detallada sobre un evento determinado, junto con sugerencias para remediarlo. Para ayudar a los equipos de respuesta a incidentes a investigar y solucionar las amenazas, Security Center incluye un informe de inteligencia frente a amenazas que contiene información sobre la amenaza detectada, y además:
 

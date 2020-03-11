@@ -2,17 +2,17 @@
 title: 'Serie Dv2 y Dsv2: máquinas virtuales de Azure'
 description: Especificaciones de las máquinas virtuales de la serie Dv2 y Dsv2.
 services: virtual-machines
-author: jonbeck7
+author: joelpelley
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: cdfb8e333e3834adf242029e9e00eac9cf9abebe
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 808b14f118e842cb9e52d110075f92ba25a343c9
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492413"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164430"
 ---
 # <a name="dv2-and-dsv2-series"></a>Series Dv2 y DSv2
 
@@ -27,6 +27,10 @@ ACU: 210-250
 Premium Storage:  No compatible
 
 Almacenamiento en caché de Premium Storage:  No compatible
+
+Migración en vivo: Compatible
+
+Actualizaciones con conservación de memoria: Compatible
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo de almacenamiento temporal: IOPS/MBps de lectura/MBps de escritura | Discos de datos máx. | Rendimiento: E/S | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -46,7 +50,11 @@ Premium Storage:  Compatible
 
 Almacenamiento en caché de Premium Storage:  Compatible
 
-| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS/MBps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/MBps | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
+Migración en vivo: Compatible
+
+Actualizaciones con conservación de memoria: Compatible
+
+| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS/Mbps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_DS1_v2 | 1  | 3,5 | 7   | 4  | 4000/32 (43)    | 3200/48   | 2/750   |
 | Standard_DS2_v2 | 2  | 7   | 14  | 8  | 8000/64 (86)    | 6400/96   | 2/1500  |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/24/2017
 ms.author: yurid
-ms.openlocfilehash: ed2c1f874bd61e846cbdf1f68181a8f374c89524
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 69062e42a5d572cf7b73bec3932613d39be9b92f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603366"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921511"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines"></a>Azure Security Center y Azure Virtual Machines
 [Azure Security Center](https://azure.microsoft.com/services/security-center/) ayuda a evita y a detectar las amenazas, además de a responder a ellas. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
@@ -33,7 +33,7 @@ Security Center le ayuda a proteger los datos de máquinas virtuales en Azure pr
 * Recomendaciones de protección de puntos de conexión
 * Validación de cifrado de disco
 * Evaluación y corrección de vulnerabilidades
-* Detección de amenazas
+* Alertas de seguridad de las características de protección contra amenazas
 
 Además de ayudarle a proteger las máquinas virtuales de Azure, Security Center también proporciona funcionalidades de administración y supervisión de seguridad de Cloud Services, App Services, Virtual Networks y mucho más. 
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: a46bdb47ee92a422d10aad5b41487530d23d1ec9
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 2bca7034780c4bfbbadd97558bf4b4891c7d6ec5
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484696"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251095"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
 
@@ -58,7 +58,7 @@ En la tabla siguiente se proporciona información sobre las regiones y los lími
 
 | **Región geopolítica** | **Regiones de Azure** | **Ubicaciones de ExpressRoute** |
 | --- | --- | --- |
-| **Nube del US Gov** |US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia, US DoD Central, US DoD (este)  |Chicago, Dallas, New York, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
+| **Nube del US Gov** |US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia, US DoD Central, US DoD (este)  |Atlanta, Chicago, Dallas, New York, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
 | **Este de China** |Este de China, Este de China 2 |Shanghai, Shanghai2 |
 | **Norte de China** |Norte de China, Norte de China 2 |Beijing, Beijing2 |
 | **Alemania** |Centro de Alemania, Alemania oriental |Berlín+, Fráncfort |
@@ -150,6 +150,7 @@ Las nubes nacionales de Azure están aisladas entre sí y de los servicios comer
 ### <a name="us-government-cloud"></a>Nube del US Gov
 | **Ubicación** | **Dirección** | **Regiones de Azure locales**| **ER Direct** | **Proveedores de servicios** |
 | --- | --- | --- | --- | --- |
+| **Atlanta** | [Equinix AT1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at1/) | N/D | 10 Gb/s, 100 Gb/s | Equinix |
 | **Chicago** | [Equinix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | N/D | 10 Gb/s, 100 Gb/s | AT&T NetBond, Equinix, Level 3 Communications y Verizon |
 | **Dallas** | [Equinix DA3](https://www.equinix.com/locations/americas-colocation/united-states-colocation/dallas-data-centers/da3/) | N/D | 10 Gb/s, 100 Gb/s | Equinix, Megaport y Verizon |
 | **Nueva York** | [Equinix NY5](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny5/) | N/D | 10 Gb/s, 100 Gb/s | Equinix, CenturyLink Cloud Connect, Verizon |
@@ -203,7 +204,7 @@ Si es un empleado remoto y no tiene conectividad de fibra o quiere explorar otra
 ## <a name="c1partners"></a>Conectividad a través de proveedores de servicios adicionales
 | **Ubicación** | **Exchange** | **Proveedores de conectividad** |
 | --- | --- | --- |
-| **Ámsterdam** | Equinix, Interxion, Level 3 Communications | BICS, CloudXpress, Eurofiber, Fastweb S.p.A, Gulf Bridge International, Kalaam Telecom Bahrain B.S.C, MainOne, Nianet, POST Telecom Luxembourg, Proximus, TDC Erhverv, Telecom Italia Sparkle, Telekom Deutschland GmbH y Telia |
+| **Ámsterdam** | Equinix, Interxion, Level 3 Communications | BICS, CloudXpress, Eurofiber, Fastweb S.p.A, Gulf Bridge International, Kalaam Telecom Bahrain B.S.C, MainOne, Nianet, POST Telecom Luxembourg, Proximus, RETN, TDC Erhverv, Telecom Italia Sparkle, Telekom Deutschland GmbH, Telia |
 | **Atlanta** | Equinix| Crown Castle
 | **Ciudad del cabo** | Teraco | MTN |
 | **Chicago** | Equinix| Crown Castle, Spectrum Enterprise, Windstream |

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: juliako
-ms.openlocfilehash: 54c32a87b5afdf165be8187c7189a11c106bbd8f
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 1c2d6287a89c7816c30cf26978859c07dba0251d
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562350"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197511"
 ---
 # <a name="azure-media-services-overview"></a>Introducción a Azure Media Services 
 
@@ -33,6 +33,15 @@ Microsoft Azure Media Services (AMS) es una plataforma extensible basada en la n
 
 Puede crear flujos de trabajo de un extremo a otro usando solamente Media Services. También puede usar componentes de terceros para algunas partes del flujo de trabajo. Por ejemplo, codifique mediante un codificador de terceros. A continuación, cargue, proteja, empaquete y entregue con Media Services. Puede elegir entre transmitir en secuencias el contenido en directo o entregar el contenido a petición. 
 
+
+## <a name="compliance-privacy-and-security"></a>Cumplimiento, privacidad y seguridad
+
+Como recordatorio importante, debe cumplir todas las leyes aplicables en el uso de Azure Media Services, y no puede usar Media Services ni ningún otro servicio de Azure de forma que infrinja los derechos de otros o que puedan ser perjudiciales para otros.
+
+Antes de cargar un vídeo o una imagen en Media Services, debe tener todos los derechos adecuados para usar ese vídeo o imagen, incluidos (cuando lo exija la ley) todos los consentimientos necesarios de las personas (si las hay) que aparecen en ellos, para el uso, el procesamiento y el almacenamiento de sus datos en Media Services y Azure. Algunas jurisdicciones pueden imponer requisitos legales especiales sobre la recopilación, el procesamiento en línea y el almacenamiento de determinadas categorías de datos, como los datos biométricos. Antes de usar Media Services y Azure para el procesamiento y el almacenamiento de datos sujetos a requisitos legales especiales, debe garantizar el cumplimiento de tales requisitos legales que puedan aplicarse en su caso.
+
+Para información sobre el cumplimiento, la privacidad y la seguridad en Media Services, visite el [Centro de confianza de Microsoft](https://www.microsoft.com/trust-center/?rtc=1). En lo que respecta a las obligaciones de privacidad y a las prácticas de retención y tratamiento de los datos de Microsoft, revise la [declaración de privacidad](https://privacy.microsoft.com/PrivacyStatement), los [términos de Online Services](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("OST") y el [anexo de procesamiento de datos](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA") de Microsoft. Con el uso de Media Services, acepta estar vinculado por el OST, el DPA y la declaración de privacidad.
+ 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar a usar Azure Media Services, debe tener lo siguiente:

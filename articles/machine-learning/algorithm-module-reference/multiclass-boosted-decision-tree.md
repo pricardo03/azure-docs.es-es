@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/19/2019
-ms.openlocfilehash: 0bcca16bd89781428773eda168e6ee3c2f5784ef
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/19/2020
+ms.openlocfilehash: 7d51e3007b7773e28d846f8d30178426f5668cfb
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152183"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920066"
 ---
 # <a name="multiclass-boosted-decision-tree"></a>Árbol de decisión ampliado multiclase
 
@@ -35,25 +35,26 @@ Puede entrenar este tipo de modelo mediante [Entrenar modelo](././train-model.md
 1.  Especifique cómo quiere que se entrene el modelo. Para ello, establezca la opción **Create trainer mode** (Crear modo entrenador).
 
     + **Single Parameter** (Parámetro único): Si sabe cómo quiere configurar el modelo, puede proporcionar un conjunto específico de valores como argumentos.
-
-
-    *  **Maximum number of leaves per tree** (Número máximo de hojas por árbol) limita el número máximo de nodos terminales (hojas) que se pueden crear en un árbol.
     
-        Al aumentar este valor, podría aumentar el tamaño del árbol y obtener una mayor precisión, a riesgo de experimentar un sobreajuste y un mayor tiempo de entrenamiento.
+    + **Parameter Range** (Intervalo de parámetros): seleccione esta opción si no está seguro de los mejores parámetros y quiere ejecutar un barrido de parámetros. Seleccione un rango de valores que iterar y el módulo [Optimización de hiperparámetros de un modelo](tune-model-hyperparameters.md) itera en todas las combinaciones posibles de los valores proporcionados para determinar los hiperparámetros que generan los resultados óptimos.  
+
+1. **Maximum number of leaves per tree** (Número máximo de hojas por árbol) limita el número máximo de nodos terminales (hojas) que se pueden crear en un árbol.
+    
+        By increasing this value, you potentially increase the size of the tree and achieve higher precision, at the risk of overfitting and longer training time.
   
-    * **Minimum number of samples per leaf node** (Número mínimo de muestras por nodo hoja) indica el número de casos necesarios para crear cualquier nodo terminal (hoja) en un árbol.  
+1. **Minimum number of samples per leaf node** (Número mínimo de muestras por nodo hoja) indica el número de casos necesarios para crear cualquier nodo terminal (hoja) en un árbol.  
 
-         Al aumentar este valor, aumenta el umbral para crear reglas nuevas. Por ejemplo, con el valor predeterminado de 1, incluso un solo caso puede provocar que se cree una regla nueva. Si aumenta el valor a 5, los datos de entrenamiento tendrían que contener cinco casos como mínimo que cumplan las mismas condiciones.
+         By increasing this value, you increase the threshold for creating new rules. For example, with the default value of 1, even a single case can cause a new rule to be created. If you increase the value to 5, the training data would have to contain at least five cases that meet the same conditions.
 
-    * La **velocidad de aprendizaje** define el tamaño del paso durante el aprendizaje. Especifique un número comprendido entre 0 y 1.
+1. La **velocidad de aprendizaje** define el tamaño del paso durante el aprendizaje. Especifique un número comprendido entre 0 y 1.
 
-         La velocidad de aprendizaje determina la rapidez o la lentitud con la que el aprendiz converge en una solución óptima. Si el tamaño del paso es demasiado grande, puede pasar por alto la solución óptima. Si el tamaño del paso es demasiado pequeño, el entrenamiento tarda más tiempo en converger en la mejor solución.
+         The learning rate determines how fast or slow the learner converges on an optimal solution. If the step size is too large, you might overshoot the optimal solution. If the step size is too small, training takes longer to converge on the best solution.
 
-    * **Number of trees constructed** (Número de árboles construidos) indica el número total de árboles de decisión que se van a crear en el conjunto. Si crea más árboles de decisión, puede obtener una cobertura potencialmente mejor, pero aumentará el tiempo de entrenamiento.
+1. **Number of trees constructed** (Número de árboles construidos) indica el número total de árboles de decisión que se van a crear en el conjunto. Si crea más árboles de decisión, puede obtener una cobertura potencialmente mejor, pero aumentará el tiempo de entrenamiento.
 
-    *  **Random number seed** (Inicialización con número aleatorio) establece opcionalmente un número entero no negativo para que se use como valor de inicialización aleatorio. Al especificar un valor, se garantiza la reproducibilidad durante las ejecuciones que tienen los mismos datos y parámetros.  
+1. **Random number seed** (Inicialización con número aleatorio) establece opcionalmente un número entero no negativo para que se use como valor de inicialización aleatorio. Al especificar un valor, se garantiza la reproducibilidad durante las ejecuciones que tienen los mismos datos y parámetros.  
 
-         El valor de inicialización aleatorio se establece de forma predeterminada en 42. Las ejecuciones sucesivas que usen un valor de inicialización aleatorio diferente podrían tener resultados diferentes.
+         The random seed is set by default to 42. Successive runs using different random seeds can have different results.
 
 > [!Note]
 > Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), conecte un conjunto de datos etiquetado y el módulo [Entrenar modelo](./train-model.md).

@@ -8,20 +8,28 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: c923dfed24253ce2e3551c13a457f19d155a1e40
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: a9c045162e650b4468fb53676e367d2c658bf7cc
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77068447"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912584"
 ---
+## <a name="what-is-the-time-required-for-migration"></a>¿Cuál es el tiempo necesario para la migración?
+
+El planeamiento y la ejecución de la migración depende en gran medida de la complejidad de la arquitectura y puede tardar unos dos meses.  
+
+## <a name="what-is-the-definition-of-a-new-customer-on-iaas-vms-classic"></a>¿Cuál es la definición de un cliente nuevo en máquinas virtuales de IaaS (clásicas)?
+
+Los clientes que no disponían de máquinas virtuales de IaaS (clásicas) en sus suscripciones durante el mes de febrero de 2020 (un mes antes de que entraran en desuso) se consideran clientes nuevos. 
+
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>¿Afecta este plan de migración a alguno de los servicios o las aplicaciones existentes que se ejecutan en máquinas virtuales de Azure? 
 
-No. Las máquinas virtuales (clásicas) son servicios totalmente compatibles en la disponibilidad general. Puede seguir usando estos recursos para expandir su huella en Microsoft Azure.
+No hasta el 1 de marzo de 2023 para las máquinas virtuales de IaaS (clásicas). Las máquinas virtuales de IaaS (clásicas) son servicios totalmente compatibles en la disponibilidad general. Puede seguir usando estos recursos para expandir su huella en Microsoft Azure. El 1 de marzo de 2023, estas máquinas virtuales se retirarán completamente y todas las máquinas virtuales activas o asignadas se detendrán y desasignarán. No habrá ningún impacto en otros recursos clásicos, como Cloud Services (clásico), cuentas de almacenamiento (clásicas), etc.   
 
 ## <a name="what-happens-to-my-vms-if-i-dont-plan-on-migrating-in-the-near-future"></a>¿Qué ocurre con mis máquinas virtuales si por ahora no tengo planeado migrar? 
 
-Las API y el modelo de recursos clásicos existentes no van a quedar en desuso. Queremos facilitar la migración, dadas las características avanzadas disponibles en el modelo de implementación de Resource Manager. Es muy recomendable que repase [algunos de los avances realizados](../articles/azure-resource-manager/management/deployment-models.md) como parte de IaaS en Resource Manager.
+El 1 de marzo de 2023, las máquinas virtuales de IaaS (clásicas) se retirarán completamente y todas las máquinas virtuales activas o asignadas se detendrán y desasignarán. Para evitar el impacto en el negocio, le recomendamos encarecidamente que empiece a planear la migración hoy mismo y que la complete antes del 1 de marzo de 2023. Las API, Cloud Services y el modelo de recursos clásicos existentes no van a quedar en desuso. Queremos facilitar la migración, dadas las características avanzadas disponibles en el modelo de implementación de Resource Manager. Se recomienda empezar a planear la migración de estos recursos a Azure Resource Manager. 
 
 ## <a name="what-does-this-migration-plan-mean-for-my-existing-tooling"></a>¿Qué supone este plan de migración para las herramientas existentes? 
 
@@ -37,7 +45,7 @@ Puede anular la migración siempre que los recursos se encuentren en el estado p
 
 ## <a name="can-i-roll-back-my-migration-if-the-commit-operation-fails"></a>¿Puedo revertir la migración si se produce un error en la operación de confirmación? 
 
-No se puede anular la migración si se produce un error en la operación de confirmación. Todas las operaciones de migración, incluida la de confirmación, son idempotentes. Por consiguiente, se recomienda que vuelva a intentar la operación en breve. Si sigue viendo un error, cree una incidencia de soporte técnico o publique una entrada de foro en [Microsoft Q&A](https://docs.microsoft.com/answers/index.html).
+No se puede anular la migración si se produce un error en la operación de confirmación. Todas las operaciones de migración, incluida la de confirmación, son idempotentes. Por consiguiente, se recomienda que vuelva a intentar la operación en breve. Si sigue experimentando un error, cree una incidencia de soporte técnico.
 
 ## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>¿Tengo que comprar otro circuito de ExpressRoute para usar IaaS en Resource Manager? 
 

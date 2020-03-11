@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: f94427ddfbdc19836cd177fd642987aaaeedf1ee
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 653b12ddd54c5ec9e4e7dd23a323f34460daa962
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152098"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920423"
 ---
 # <a name="multiclass-neural-network-module"></a>Módulo Multiclass Neural Network
 
@@ -46,7 +46,7 @@ Para calcular la salida de la red para una entrada determinada, se calcula un va
 
     - **Single Parameter** (Parámetro único): Elija esta opción si ya sabe cómo desea configurar el modelo.
 
-    
+    - **Parameter Range** (Intervalo de parámetros): seleccione esta opción si no está seguro de los mejores parámetros y quiere ejecutar un barrido de parámetros. Seleccione un rango de valores que iterar y el módulo [Optimización de hiperparámetros de un modelo](tune-model-hyperparameters.md) itera en todas las combinaciones posibles de los valores proporcionados para determinar los hiperparámetros que generan los resultados óptimos.  
 
 3. **Hidden layer specification** (Especificación de capa oculta): Seleccione el tipo de arquitectura de red que se va a crear.
 

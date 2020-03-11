@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: reference
 author: peterclu
 ms.author: peterlu
-ms.date: 12/17/2019
-ms.openlocfilehash: d3feb62c0c7fa24dd998add08d17ebd1d4e9ee6c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.date: 02/22/2020
+ms.openlocfilehash: ece4b7a85ff5738900b8f999cc2f14ba35ecab0d
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162589"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920100"
 ---
-# <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Referencia de módulo y algoritmo para el diseñador de Azure Machine Learning
+# <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Referencia de módulo y algoritmo para el diseñador de Azure Machine Learning (versión preliminar)
 
 Este contenido de referencia proporciona el contexto técnico de cada uno de los algoritmos y módulos de aprendizaje automático disponibles en el diseñador de Azure Machine Learning (versión preliminar).
 
@@ -57,6 +57,7 @@ Para obtener ayuda con la elección de algoritmos, consulte
 | Lenguaje R | Escriba código e insértelo en un módulo para integrar R con la canalización. | [Ejecución script de R](execute-r-script.md) |
 | Text Analytics | Proporcione herramientas de cálculo especializadas para trabajar con texto estructurado y no estructurado. | [Extracción de características de n-gramas a partir de texto](extract-n-gram-features-from-text.md) <br/> [Hash de características](feature-hashing.md) <br/> [Preprocesamiento de texto](preprocess-text.md) |
 | Recomendación | Compile modelos de recomendación. | [Evaluate Recommender](evaluate-recommender.md) (Evaluar recomendador) <br/> [Score SVD Recommender](score-svd-recommender.md) (Puntuar recomendador de SVD) <br/> [Train SVD Recommender](train-SVD-recommender.md) (Entrenar recomendador de SVD) |
+| Detección de anomalías | Compile modelos de detección de anomalías. | [Detección de anomalías basada en PCA](pca-based-anomaly-detection.md) <br/> [Train Anomaly Detection Model](train-anomaly-detection-model.md) (entrenar un modelo de detección de anomalías) |
 
 ## <a name="error-messages"></a>Mensajes de error
 

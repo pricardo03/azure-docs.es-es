@@ -15,15 +15,18 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: da397c180b6ccaf91084a0ec22210c7bcc88a5dc
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: a79e718c04f81b1552d63ab98b6dcd6bb428fb50
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084797"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918344"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Usar Miniaturas de vídeo multimedia de Azure para crear un resumen de vídeo  
- 
+
+> [!NOTE]
+> El procesador de multimedia **Azure Media Video Thumbnails** se va a retirar. Para ver la fecha de retirada, consulte el tema sobre los [componentes heredados](legacy-components.md).
+
 ## <a name="overview"></a>Información general
 
 El procesador de multimedia (PM) **Miniaturas de vídeo multimedia de Azure** le permite crear un resumen de un vídeo útil para aquellos clientes que solo quieren ver un resumen de un vídeo largo. Por ejemplo, es posible que los clientes quieran ver un breve "vídeo de resumen" al mantener el mouse sobre una miniatura. Al ajustar los parámetros de **Miniaturas de vídeo multimedia de Azure** mediante un valor predeterminado de configuración, puede usar la eficaz tecnología de detección de tomas y concatenación del PM para generar de forma algorítmica un subclip descriptivo.  
@@ -56,7 +59,7 @@ Al crear una tarea de miniatura de vídeo con **Miniaturas de vídeo multimedia 
 
 En este momento puede modificar los siguientes parámetros:
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | --- | --- |
 | outputAudio |Especifica si el vídeo resultante contiene audio o no. <br/>Los valores permitidos son: True o False. El valor predeterminado es True. |
 | fadeInFadeOut |Especifica si se usan transiciones de fundido entre las distintas miniaturas de movimiento.  <br/>Los valores permitidos son: True o False.  El valor predeterminado es True. |
@@ -288,7 +291,7 @@ Configure el entorno de desarrollo y rellene el archivo app.config con la inform
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Vínculos relacionados
-[Azure Media Services Analytics Overview (Información general sobre Azure Media Services Analytics)](media-services-analytics-overview.md)
+[Información general de análisis de Azure Media Services](media-services-analytics-overview.md)
 
 [Demostraciones de Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

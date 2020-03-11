@@ -79,6 +79,8 @@
       href: sample-designer-datasets.md
     - name: Ejemplos de MLOps de un extremo a otro
       href: 'https://github.com/microsoft/MLOps'
+    - name: Canalizaciones del diseñador
+      href: samples-designer.md
 - name: Conceptos
   items:
     - name: Área de trabajo
@@ -216,30 +218,6 @@
           href: how-to-cicd-data-ingestion.md
     - name: Entrenamiento de modelos
       items:
-        - name: Uso del diseñador
-          displayName: sample designer experiments
-          items:
-            - name: Predicción del precio
-              displayName: 'regression, studio'
-              href: how-to-designer-sample-regression-automobile-price-basic.md
-            - name: Predicción del precio (avanzado)
-              displayName: 'regression, studio'
-              href: how-to-designer-sample-regression-automobile-price-compare-algorithms.md
-            - name: Predicción de ingresos
-              displayName: 'classification, studio'
-              href: how-to-designer-sample-classification-predict-income.md
-            - name: Predicción del riesgo crediticio (avanzado)
-              displayName: 'classification, studio'
-              href: how-to-designer-sample-classification-credit-risk-cost-sensitive.md
-            - name: Predicción de la renovación
-              displayName: 'classification, studio'
-              href: how-to-designer-sample-classification-churn.md
-            - name: Predicción de retrasos en los vuelos
-              displayName: 'classification, studio'
-              href: how-to-designer-sample-classification-flight-delay.md
-            - name: Clasificación del texto
-              displayName: 'classification, studio'
-              href: how-to-designer-sample-text-classification.md
         - name: Uso de estimadores para ML
           items:
             - name: Creación de estimadores de entrenamiento

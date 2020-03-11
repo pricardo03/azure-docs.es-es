@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: memildin
-ms.openlocfilehash: d208629ee29bb9102f16fcb1d541677bd4a4d5fa
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 330cbc3f28f5e549d5a21417c3d7ccc1e5444769
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77431700"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919539"
 ---
 # <a name="monitoring-the-security-of-your-containers"></a>Supervisión de la seguridad de los contenedores
 
@@ -29,7 +29,7 @@ Azure Security Center trata los tres aspectos siguientes de la seguridad de los 
 
 - **Protección de los clústeres de Azure Kubernetes Service**: Security Center proporciona recomendaciones cuando detecta vulnerabilidades en la configuración de los clústeres de Azure Kubernetes Service. Para obtener información detallada sobre las recomendaciones específicas que pueden aparecer, consulte las [recomendaciones de Kubernetes Service](recommendations-reference.md#recs-containers).
 
-- **Protección en tiempo de ejecución**: si tiene el plan de tarifa estándar de Security Center, obtendrá detección de amenazas en tiempo real para los entornos en contenedores. Security Center genera alertas para actividades sospechosas en el nivel de clúster de host y AKS. Para más información sobre las alertas de seguridad relevantes que pueden aparecer, consulte las secciones [Alertas para contenedores: clústeres de Azure Kubernetes Service](alerts-reference.md#alerts-akscluster) y [Alertas para contenedores: nivel de host](alerts-reference.md#alerts-containerhost) de la tabla de referencia de alertas.
+- **Protección en tiempo de ejecución**: si tiene el plan de tarifa estándar de Security Center, obtendrá protección contra amenazas en tiempo real para los entornos en contenedores. Security Center genera alertas para actividades sospechosas en el nivel de clúster de host y AKS. Para más información sobre las alertas de seguridad relevantes que pueden aparecer, consulte las secciones [Alertas para contenedores: clústeres de Azure Kubernetes Service](alerts-reference.md#alerts-akscluster) y [Alertas para contenedores: nivel de host](alerts-reference.md#alerts-containerhost) de la tabla de referencia de alertas.
 
 ## <a name="scanning-your-arm-based-container-registries-for-vulnerabilities"></a>Examen de los registros de contenedor basados en ARM para detectar vulnerabilidades 
 

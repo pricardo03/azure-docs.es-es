@@ -1,18 +1,15 @@
 ---
 title: Supervisión de los servicios y aplicaciones de Azure mediante Grafana
 description: Enrute los datos de Azure Monitor y Application Insights para que puedan verse en Grafana.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 11/06/2017
-ms.openlocfilehash: f5464710d5c7908eeec5dd917bfeff4756ff4e80
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 142e3e19c13710963d239a75bc237b63713c29cc
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552103"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672215"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Supervisar los servicios de Azure en Grafana
 Ahora, los servicios y las aplicaciones de Azure se pueden supervisar desde [Grafana](https://grafana.com/) gracias al [complemento de origen de datos de Azure Monitor](https://grafana.com/plugins/grafana-azure-monitor-datasource). El complemento recopila datos de rendimiento de aplicación recabados por Azure Monitor, incluidos varios registros y métricas. De este modo, podrá ver estos datos en el panel de Grafana.
@@ -68,7 +65,7 @@ Tras haber iniciado sesión correctamente, deberá ver que el complemento de ori
 
 4. Proporcione los detalles de conexión a las API que le gustaría usar. Puede conectarse a todas o a algunas de ellas. 
     * Si se conecta tanto a las métricas como a los registros de Azure Monitor, puede volver a usar las mismas credenciales; para ello, seleccione **Same details as Azure Monitor API** (Mismos detalles que la API de Azure Monitor).
-    * Al configurar el complemento, puede indicar qué nube de Azure (pública, Azure Gobierno de EE. UU., Azure Alemania o Azure China) quiere que supervise el complemento.
+    * Al configurar el complemento, puede indicar qué nube de Azure (pública, Azure US Gov, Azure Alemania o Azure China) quiere que supervise el complemento.
     * Si usa Application Insights, también puede incluir la API de Application Insights y el identificador de la aplicación para recopilar métricas basadas en Application Insights. Para más información, vea [Getting your API key and Application ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID) (Obtener la clave de API y el identificador de aplicación).
 
         > [!NOTE]
@@ -94,7 +91,7 @@ Tras haber iniciado sesión correctamente, deberá ver que el complemento de ori
 4. Seleccione el origen de datos de Azure Monitor que ha configurado.
    * Recopilación de métricas de Azure Monitor: seleccione **Azure Monitor** en la lista desplegable de servicio. Aparece una lista de selectores, donde puede seleccionar los recursos y las métricas que quiere supervisar en este gráfico. Para recopilar métricas de una VM, use el espacio de nombres **Microsoft.Compute/VirtualMachines**. Cuando haya seleccionado las VM y las métricas, puede empezar a ver los datos en el panel.
      ![Configuración del gráfico de Grafana para Azure Monitor](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
-   * Recopilación de datos de registro de Azure Monitor: seleccione **Azure Log Analytics** en la lista desplegable de servicio. Seleccione el área de trabajo que le gustaría consultar y establezca el texto de consulta. Puede copiar aquí cualquier consulta de registro que ya tenga o puede crear una. A medida que escribe la consulta, aparecerá IntelliSense y sugerirá las opciones de Autocompletar. Seleccione el tipo de visualización, **Serie temporal** **Tabla**, y ejecute la consulta.
+   * Recopilación de datos de registro de Azure Monitor: seleccione **Azure Log Analytics** en la lista desplegable de servicio. Seleccione el área de trabajo que le gustaría consultar y establezca el texto de consulta. Puede copiar aquí cualquier consulta de registro que ya tenga o puede crear una. A medida que escribe la consulta, aparecerá IntelliSense y sugerirá las opciones de Autocompletar. Seleccione el tipo de visualización, **Serie temporal** y **Tabla**, y ejecute la consulta.
     
      > [!NOTE]
      >

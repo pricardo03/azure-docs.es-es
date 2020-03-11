@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2da009189e0265aafcb26b7ec96837965f1ea0c5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f17192e738bb82fb348c660488e6296aa550bd25
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76838554"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913487"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solución de errores y advertencias comunes con el indexador en Azure Cognitive Search
 
@@ -152,9 +152,9 @@ El documento se leyó y se procesó, pero el indexador no pudo agregarlo al índ
 
 <a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"/>
 
-## <a name="error-could-not-index-document-because-the-indexer-data-to-index-was-invalid"></a>Error: No se pudo indexar el documento porque los datos del indexador para el índice no eran válidos
+## <a name="error-could-not-index-document-because-some-of-the-documents-data-was-not-valid"></a>Error: Could not index document because some of the document's data was not valid (No se pudo indexar el documento porque algunos datos del documento no eran válidos)
 
-El documento se leyó y se procesó, pero debido a un error de coincidencia en la configuración de los campos del índice y la naturaleza de los datos extraídos por el indexador, no se pudo agregar al índice de búsqueda. Estos pueden ser los motivos:
+El indexador leyó y procesó el documento, pero debido a un error de coincidencia en la configuración de los campos del índice y los datos extraídos y procesados por el indexador, no se pudo agregar al índice de búsqueda. Estos pueden ser los motivos:
 
 | Motivo | Detalles/ejemplo
 | --- | ---
@@ -166,12 +166,11 @@ El documento se leyó y se procesó, pero debido a un error de coincidencia en l
 
 En todos estos casos, consulte [Tipos de datos admitidos](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) y [Asignación de tipos de datos para indexadores](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) para asegurarse de compilar correctamente el esquema de índice y de haber configurado las [asignaciones de campos de indexador](search-indexer-field-mappings.md) adecuadas. El mensaje de error incluirá detalles que pueden ayudar a realizar un seguimiento del origen del error de coincidencia.
 
-<a name="could-not-process-document-within-indexer-max-run-time"/>
-
 ## <a name="error-integrated-change-tracking-policy-cannot-be-used-because-table-has-a-composite-primary-key"></a>Error: No se puede usar la directiva de seguimiento de cambios integrada porque la tabla tiene una clave principal compuesta.
 
 Esto se aplica a tablas SQL y suele ocurrir cuando la clave se define como una clave compuesta o cuando la tabla ha definido un índice agrupado único (como en un índice de SQL, no un índice de Azure Search). La razón principal es que el atributo clave se ha modificado para que sea una clave principal compuesta en el caso de un [índice agrupado único](https://docs.microsoft.com/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). En ese caso, asegúrese de que la tabla SQL no tenga un índice agrupado único o de que asigna el campo de clave a un campo del que se garantiza que no tiene valores duplicados.
 
+<a name="could-not-process-document-within-indexer-max-run-time"/>
 
 ## <a name="error-could-not-process-document-within-indexer-max-run-time"></a>Error: No se pudo procesar el documento en el tiempo de ejecución máximo del indexador
 

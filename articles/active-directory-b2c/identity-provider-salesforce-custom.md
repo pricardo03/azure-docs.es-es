@@ -3,20 +3,20 @@ title: Configuración del inicio de sesión con un proveedor de Salesforce SAML 
 titleSuffix: Azure AD B2C
 description: Configuración del inicio de sesión con un proveedor de Salesforce SAML mediante directivas personalizadas en Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/21/2018
-ms.author: marsma
+ms.date: 02/27/2020
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0a745f83dcceef25634032cbe6fdb971f4f533ce
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 67fe9ef4ad2b025d11f88976973658c9cd8ae693
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850611"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187957"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión con un proveedor de Salesforce SAML mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76850611"
 
 En este artículo se muestra cómo habilitar el inicio de sesión para los usuarios desde una cuenta de organización de Salesforce mediante [directivas personalizadas](custom-policy-overview.md) en Azure Active Directory B2C (Azure AD B2C). Habilite el inicio de sesión mediante la adición de un [perfil técnico de SAML](saml-technical-profile.md) a una directiva personalizada.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Siga los pasos de [Introducción a las directivas personalizadas en Azure Active Directory B2C](custom-policy-get-started.md).
 - Si aún no lo ha hecho, regístrese en una [cuenta gratuita de Developer Edition](https://developer.salesforce.com/signup). Este artículo usa la [experiencia Salesforce Lightning](https://developer.salesforce.com/page/Lightning_Experience_FAQ).
@@ -103,11 +103,11 @@ Debe almacenar el certificado que creó en el inquilino de Azure AD B2C.
 
 Si desea que los usuarios inicien sesión con una cuenta de Salesforce, deberá definir la cuenta como un proveedor de notificaciones con el que Azure AD B2C pueda comunicarse mediante un punto de conexión. El punto de conexión proporciona un conjunto de notificaciones que Azure AD B2C usa para comprobar que un usuario concreto se ha autenticado.
 
-Puede definir una cuenta de Salesforce como un proveedor de notificaciones; para ello, agréguela al elemento **ClaimsProvider** en el archivo de extensión de la directiva.
+Puede definir una cuenta de Salesforce como un proveedor de notificaciones; para ello, agréguela al elemento **ClaimsProvider** en el archivo de extensión de la directiva. Para más información, consulte [Definición de un perfil técnico de SAML](saml-technical-profile.md).
 
 1. Abra el archivo *TrustFrameworkExtensions.xml*.
-2. Busque el elemento **ClaimsProviders**. Si no existe, agréguelo debajo del elemento raíz.
-3. Agregue un nuevo elemento **ClaimsProvider** tal como se muestra a continuación:
+1. Busque el elemento **ClaimsProviders**. Si no existe, agréguelo debajo del elemento raíz.
+1. Agregue un nuevo elemento **ClaimsProvider** tal como se muestra a continuación:
 
     ```XML
     <ClaimsProvider>
@@ -142,14 +142,32 @@ Puede definir una cuenta de Salesforce como un proveedor de notificaciones; para
             <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId"/>
             <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId"/>
           </OutputClaimsTransformations>
-          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop"/>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml-idp"/>
         </TechnicalProfile>
       </TechnicalProfiles>
     </ClaimsProvider>
     ```
 
-4. Actualice el valor de **PartnerEntity** con la dirección URL de metadatos de Salesforce que ha copiado anteriormente.
-5. Actualice el valor de ambas instancias de **StorageReferenceId** con el nombre de la clave de su certificado de firma. Por ejemplo, B2C_1A_SAMLSigningCert.
+1. Actualice el valor de **PartnerEntity** con la dirección URL de metadatos de Salesforce que ha copiado anteriormente.
+1. Actualice el valor de ambas instancias de **StorageReferenceId** con el nombre de la clave de su certificado de firma. Por ejemplo, B2C_1A_SAMLSigningCert.
+1. Busque la sección `<ClaimsProviders>` y agregue el siguiente fragmento de código XML. Si la directiva ya contiene el perfil técnico `SM-Saml-idp`, vaya al paso siguiente. Para más información, consulte [Administración de sesión de inicio de sesión único](custom-policy-reference-sso.md).
+
+    ```XML
+    <ClaimsProvider>
+      <DisplayName>Session Management</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="SM-Saml-idp">
+          <DisplayName>Session Management Provider</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <Metadata>
+            <Item Key="IncludeSessionIndex">false</Item>
+            <Item Key="RegisterServiceProviders">false</Item>
+          </Metadata>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    ```
+1. Guarde el archivo.
 
 ### <a name="upload-the-extension-file-for-verification"></a>Carga del archivo de extensión para su comprobación
 

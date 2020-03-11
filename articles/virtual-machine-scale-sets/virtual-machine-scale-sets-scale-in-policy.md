@@ -1,32 +1,32 @@
 ---
 title: Uso de directivas personalizadas de reducción horizontal con conjuntos de escalado de máquinas virtuales de Azure
 description: Aprenda a usar directivas de reducción horizontal personalizadas con conjuntos de escalado de máquinas virtuales de Azure que utilizan la configuración de escalabilidad automática para administrar el recuento de instancias
-author: avverma
+services: virtual-machine-scale-sets
+author: avirishuv
+manager: vashan
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 02/26/2020
 ms.author: avverma
-ms.openlocfilehash: 8e51ebab36d75d1c9512446ee0370f7359a72551
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: ffcdaf76bdd08ee5505ddbeff6a6698e231b6171
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271760"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919845"
 ---
-# <a name="preview-use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Vista previa: Uso de directivas personalizadas de reducción horizontal con conjuntos de escalado de máquinas virtuales de Azure
+# <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Uso de directivas personalizadas de reducción horizontal con conjuntos de escalado de máquinas virtuales de Azure
 
-Una implementación de conjuntos de escalado de máquinas virtuales se puede escalar horizontalmente o reducir horizontalmente en función de una matriz de métricas, incluidas las métricas personalizadas de la plataforma y las definidas por el usuario. Mientras que una escalabilidad horizontal crea nuevas máquinas virtuales basadas en el modelo de conjuntos de escalado, una reducción horizontal afecta a las máquinas virtuales en ejecución que pueden tener diferentes configuraciones y/o funciones a medida que evoluciona la carga de trabajo del conjunto de escalado. 
+Una implementación de conjuntos de escalado de máquinas virtuales se puede escalar horizontalmente o reducir horizontalmente en función de una matriz de métricas, incluidas las métricas personalizadas de la plataforma y las definidas por el usuario. Mientras que una escalabilidad horizontal crea nuevas máquinas virtuales basadas en el modelo de conjuntos de escalado, una reducción horizontal afecta a las máquinas virtuales en ejecución que pueden tener diferentes configuraciones o funciones a medida que evoluciona la carga de trabajo del conjunto de escalado. 
 
-La característica de la directiva de reducción horizontal proporciona a los usuarios una manera de configurar el orden en el que se reducen horizontalmente las máquinas virtuales. La versión preliminar presenta tres configuraciones de reducción horizontal: 
+La característica de la directiva de reducción horizontal proporciona a los usuarios una manera de configurar el orden en el que se reducen horizontalmente las máquinas virtuales, por medio de tres configuraciones de escalado horizontal. 
 
 1. Valor predeterminado
 2. NewestVM
 3. OldestVM
-
-***Esta característica en vista previa (GB) se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción.***
 
 ### <a name="default-scale-in-policy"></a>Directiva predeterminada de reducción horizontal
 
@@ -54,6 +54,17 @@ Una directiva de reducción horizontal se define en el modelo de conjuntos de es
 
 Se puede definir una directiva de reducción horizontal en el modelo de conjuntos de escalado de máquinas virtuales de las siguientes maneras:
 
+### <a name="azure-portal"></a>Portal de Azure
+ 
+En los pasos siguientes se define la directiva de reducción horizontal al crear un nuevo conjunto de escalado. 
+ 
+1. Vaya a **Conjuntos de escalado de máquinas virtuales**.
+1. Seleccione **+ Agregar** para crear un nuevo conjunto de escalado.
+1. Vaya a la pestaña **Escalado**. 
+1. Busque la sección **Directiva de reducción horizontal**.
+1. Seleccione una directiva de reducción horizontal en el menú desplegable.
+1. Cuando haya terminado de crear el nuevo conjunto de escalado, seleccione el botón **Revisar y crear**.
+
 ### <a name="using-api"></a>Uso de la API
 
 Ejecute PUT en el conjunto de escalado de máquinas virtuales mediante la API 2019-03-01:
@@ -70,6 +81,33 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
         } 
     }    
 } 
+```
+### <a name="azure-powershell"></a>Azure PowerShell
+
+Cree un grupo de recursos y, a continuación, cree un nuevo conjunto de escalado con la directiva de reducción horizontal establecida como *OldestVM*.
+
+```azurepowershell-interactive
+New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "<VMSS location>"
+New-AzVmss `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "<VMSS location>" `
+  -VMScaleSetName "myScaleSet" `
+  -ScaleInPolicy “OldestVM”
+```
+
+### <a name="azure-cli-20"></a>CLI de Azure 2.0
+
+En el ejemplo siguiente se agrega la directiva de reducción horizontal al crear un nuevo conjunto de escalado. En primer lugar, cree un grupo de recursos y, después, cree un nuevo conjunto de escalado con la directiva de reducción horizontal como *OldestVM*. 
+
+```azurecli-interactive
+az group create --name <myResourceGroup> --location <VMSSLocation>
+az vmss create \
+  --resource-group <myResourceGroup> \
+  --name <myVMScaleSet> \
+  --image UbuntuLTS \
+  --admin-username <azureuser> \
+  --generate-ssh-keys \
+  --scale-in-policy OldestVM
 ```
 
 ### <a name="using-template"></a>Uso de una plantilla
@@ -94,6 +132,15 @@ El mismo proceso se aplica cuando se usa "NewestVM" en la directiva de reducció
 
 La modificación de la directiva de reducción horizontal sigue el mismo proceso que la aplicación de la directiva de reducción horizontal. Por ejemplo, si en el ejemplo anterior desea cambiar la directiva de "OldestVM" a "NewestVM", puede hacerlo de la siguiente manera:
 
+### <a name="azure-portal"></a>Portal de Azure
+
+Puede modificar la directiva de reducción horizontal de un conjunto de escalado existente a través de Azure Portal. 
+ 
+1. En un conjunto de escalado de máquinas virtuales existente, seleccione **Escalado** en el menú de la izquierda.
+1. Seleccione la pestaña **Directiva de reducción horizontal**.
+1. Seleccione una directiva de reducción horizontal en el menú desplegable.
+1. Cuando finalice, seleccione **Guardar**. 
+
 ### <a name="using-api"></a>Uso de la API
 
 Ejecute PUT en el conjunto de escalado de máquinas virtuales mediante la API 2019-03-01:
@@ -110,6 +157,27 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
         } 
     }    
 }
+```
+### <a name="azure-powershell"></a>Azure PowerShell
+
+Actualice la directiva de reducción horizontal de un conjunto de escalado existente:
+
+```azurepowershell-interactive
+Update-AzVmss `
+ -ResourceGroupName "myResourceGroup" `
+ -VMScaleSetName "myScaleSet" `
+ -ScaleInPolicy “OldestVM”
+```
+
+### <a name="azure-cli-20"></a>CLI de Azure 2.0
+
+Lo siguiente es un ejemplo para actualizar la directiva de reducción horizontal de un conjunto de escalado existente: 
+
+```azurecli-interactive
+az vmss update \  
+  --resource-group <myResourceGroup> \
+  --name <myVMScaleSet> \
+  --scale-in-policy OldestVM
 ```
 
 ### <a name="using-template"></a>Uso de una plantilla
@@ -169,7 +237,7 @@ En el caso de los conjuntos de escalado de máquinas virtuales no de zona, la di
 
 ## <a name="troubleshoot"></a>Solución de problemas
 
-1. Error al habilitar scaleInPolicy: si recibe un error de "BadRequest" con un mensaje de error que indica que "no se pudo encontrar el miembro 'scaleInPolicy' en el objeto de tipo 'properties'", compruebe la versión de API usada para el conjunto de escalado de máquinas virtuales. Se requiere la versión 2019-03-01 de la API o una posterior para esta versión preliminar.
+1. Error al habilitar scaleInPolicy: si recibe un error de "BadRequest" con un mensaje de error que indica que "no se pudo encontrar el miembro 'scaleInPolicy' en el objeto de tipo 'properties'", compruebe la versión de API usada para el conjunto de escalado de máquinas virtuales. Se requiere la versión 2019-03-01 de la API o una posterior para esta característica.
 
 2. Selección incorrecta de las máquinas virtuales para la reducción horizontal: consulte los ejemplos anteriores. Si el conjunto de escalado de máquinas virtuales es una implementación de zona, la directiva de reducción horizontal se aplica primero a las zonas desequilibradas y, luego, al conjunto de escalado una vez que logre el equilibrio de zona. Si el orden de reducción horizontal no es coherente con los ejemplos anteriores, genere una consulta para el equipo de conjuntos de escalado de máquinas virtuales a fin de resolver el problema.
 

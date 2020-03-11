@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: a17ff15e71251e781cd30c33a5616af85e4f4eb9
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 1aff2815144f776b351e92d8945b267d1451f9f6
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260090"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915714"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Uso de la inserción de dependencias en Azure Functions con .NET
 
@@ -21,7 +21,7 @@ Azure Functions admite el modelo de diseño de software de inserción de depende
 
 - La compatibilidad con la inserción de dependencias comienza con Azure Functions 2.x.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para poder usar la inserción de dependencias, debe instalar los siguientes paquetes NuGet:
 
@@ -130,7 +130,7 @@ Si necesita su propio proveedor de registro, registre un tipo personalizado como
 
 > [!WARNING]
 > - No agregue `AddApplicationInsightsTelemetry()` a la colección de servicios, ya que registra los servicios que entran en conflicto con los servicios proporcionados por el entorno.
-> - No registre su propio `TelemetryConfiguration` o `TelemetryClient` si usa la funcionalidad de Application Insights integrada.
+> - No registre su propio `TelemetryConfiguration` o `TelemetryClient` si usa la funcionalidad de Application Insights integrada. Si tiene que configurar su propia instancia de `TelemetryClient`, cree una a través de la `TelemetryConfiguration` insertada, tal como se muestra en [Monitor Azure Functions](./functions-monitoring.md#version-2x-and-later-2).
 
 ## <a name="function-app-provided-services"></a>Servicios proporcionados por la aplicación de funciones
 

@@ -1,29 +1,23 @@
 ---
-title: Eliminación de un tipo de nodo de Azure Service Fabric
+title: Eliminación de un tipo de nodo en Azure Service Fabric | Microsoft Docs
 description: Aprenda a quitar un tipo de nodo de un clúster de Service Fabric que se ejecute en Azure.
+author: inputoutputcode
+manager: sridmad
 ms.topic: conceptual
-ms.date: 02/14/2019
-ms.openlocfilehash: f3dc3210fdb436038174bb8d9347424f14d3faa3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/21/2020
+ms.author: chrpap
+ms.openlocfilehash: d8ee2327f65332d32038806f2d2416cac190875b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464496"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661983"
 ---
-# <a name="remove-a-service-fabric-node-type"></a>Quitar un tipo de nodo de Service Fabric
+# <a name="how-to-remove-a-service-fabric-node-type"></a>Eliminación de un tipo de nodo de Service Fabric
 En este artículo, se explica cómo escalar un clúster de Azure Service Fabric quitando un tipo de nodo existente de un clúster. Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Un equipo o máquina virtual que forma parte de un clúster se denomina nodo. Los conjuntos de escalado de máquinas virtuales son un recurso de proceso de Azure que se puede usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Cada tipo de nodo que se define en un clúster de Azure está [configurado como un conjunto de escalado independiente](service-fabric-cluster-nodetypes.md). Cada tipo de nodo, a continuación, se puede administrar por separado. Después de crear un clúster de Service Fabric, puede escalarlo horizontalmente quitando un tipo de nodo (conjunto de escalado de máquinas virtuales) junto con todos sus nodos.  Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster.  Según se escala el clúster, las aplicaciones se escalan automáticamente.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-Use [Remove-AzServiceFabricNodeType](https://docs.microsoft.com/powershell/module/az.servicefabric/remove-azservicefabricnodetype) para quitar un tipo de nodo de Service Fabric.
-
-Las tres operaciones que se producen cuando se lama a Remove-AzServiceFabricNodeType son las siguientes:
-1.  Se elimina el conjunto de escalado de máquinas virtuales que subyace al tipo de nodo.
-2.  El tipo de nodo se elimina del clúster.
-3.  En el caso de cada uno de los nodos de ese tipo de nodo, se quita del sistema todo el estado de ese nodo. Si hay servicios en ese nodo, primero se moverán a otro nodo. Si el administrador de clústeres no puede encontrar un nodo para la réplica o servicio, la operación se retrasará o bloqueará.
-
 > [!WARNING]
-> No es aconsejable usar Remove-AzServiceFabricNodeType para quitar un tipo de nodo de un clúster de producción de forma frecuente. Se trata de un comando muy peligroso, ya que elimina el recurso del conjunto de escalado de máquinas virtuales que hay detrás del tipo de nodo. 
+> No se recomienda usar este enfoque muy a menudo para quitar un tipo de nodo de un clúster de producción. Se trata de un comando muy peligroso, ya que elimina el recurso del conjunto de escalado de máquinas virtuales que hay detrás del tipo de nodo. 
 
 ## <a name="durability-characteristics"></a>Características de durabilidad
 Al usar Remove-AzServiceFabricNodeType, se da prioridad a la seguridad frente a la velocidad. El tipo de nodo debe tener un [nivel de durabilidad](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) Silver o Gold, ya que:
@@ -31,43 +25,154 @@ Al usar Remove-AzServiceFabricNodeType, se da prioridad a la seguridad frente a 
 - Las durabilidades Silver y Gold identifican cualquier cambio tiene lugar en el conjunto de escalado.
 - La durabilidad Gold también permite controlar las actualizaciones de Azure que tienen lugar bajo el conjunto de escalado.
 
-Service Fabric “organiza” los cambios subyacentes y las actualizaciones para que no se pierdan los datos. Pero, al quitar un nodo con una durabilidad Bronze, puede que se pierda la información de estado. Si quita un tipo de nodo principal y la aplicación no tiene ningún estado, es aceptable el uso de Bronze. Al ejecutar cargas de trabajo con estado en producción, la configuración mínima tiene que ser Silver. De forma similar, para escenarios de producción, el tipo de nodo principal siempre tiene que ser Silver o Gold.
+Service Fabric “organiza” los cambios subyacentes y las actualizaciones para que no se pierdan los datos. Sin embargo, al quitar un tipo de nodo con una durabilidad Bronze, puede que se pierda la información de estado. Si quita un tipo de nodo principal y la aplicación no tiene ningún estado, es aceptable el uso de Bronze. Al ejecutar cargas de trabajo con estado en producción, la configuración mínima tiene que ser Silver. De forma similar, para escenarios de producción, el tipo de nodo principal siempre tiene que ser Silver o Gold.
 
 ### <a name="more-about-bronze-durability"></a>Más información sobre la durabilidad Bronze
 
 Al quitar un tipo de nodo Bronze, todos los nodos del tipo de nodo dejarán de estar activos de inmediato. Service Fabric no obtiene las actualizaciones del conjunto de escalado de los nodos Bronze y, por lo tanto, todas las máquinas virtuales dejan de estar activas de inmediato. Si tenía algún elemento con estado en esos nodos, los datos se perderán. Ahora, aunque no tengan estado, todos los nodos de Service Fabric participarán en el anillo, lo que podría hacer que se perdiera un grupo de nodos entero y desestabilizar al propio clúster.
 
-## <a name="recommended-node-type-removal-process"></a>Proceso de eliminación de tipo de nodo recomendado
+## <a name="remove-a-non-primary-node-type"></a>Eliminación de tipos de nodos no principales
 
-Para quitar el tipo de nodo, ejecute el cmdlet [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype).  El cmdlet tarda un tiempo en completarse.  Una vez que todas las máquinas virtuales hayan desaparecido (representadas como "Fuera de servicio"), fabric:/System/InfrastructureService/[nombre de tipo de nodo] mostrará un estado de Error.
+1. Compruebe estos requisitos previos antes de iniciar el proceso.
 
-```powershell
-$groupname = "mynodetype"
-$nodetype = "nt2vm"
-$clustername = "mytestcluster"
+    - El clúster está en buen estado.
+    - Todavía habrá suficiente capacidad después de quitar el tipo de nodo; por ejemplo, el número de nodos para colocar el recuento de réplicas necesario.
 
-Remove-AzServiceFabricNodeType -Name $clustername  -NodeType $nodetype -ResourceGroupName $groupname
+2. Saque del tipo de nodo todos los servicios que tengan restricciones de selección de ubicación para usarlo.
 
-Connect-ServiceFabricCluster -ConnectionEndpoint mytestcluster.eastus.cloudapp.azure.com:19000 `
-          -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint <thumbprint> `
-          -FindType FindByThumbprint -FindValue <thumbprint> `
-          -StoreLocation CurrentUser -StoreName My
-```
+    - Modifique la aplicación o el manifiesto de servicio para que ya no hagan referencia al tipo de nodo.
+    - Implemente el cambio.
 
-Luego, puede actualizar el recurso de clúster para quitar el tipo de nodo. Puede usar la implementación de plantilla de Resource Manager o editar el recurso de clúster a través de [Azure Resource Manager](https://resources.azure.com). Esta acción iniciará una actualización de clúster que quitará al servicio fabric:/System/InfrastructureService/[nombre del tipo de nodo]que se encuentra en estado de error.
+    A continuación, asegúrese de que:
+    - Todos los servicios modificados anteriormente ya no se ejecutan en el nodo que pertenece al tipo de nodo.
+    - Todos los servicios están en buen estado.
 
-Se seguirán viendo los nodos con el estado "Fuera de servicio" en Service Fabric Explorer. Ejecute [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) en cada uno de los nodos que quiera quitar.
+3. Desmarque el tipo de nodo como no principal (omítalo para los tipos de nodos no principales).
 
+    - Busque la plantilla de Azure Resource Manager usada para la implementación.
+    - Busque la sección relacionada con el tipo de nodo en la sección Service Fabric.
+    - Cambie la propiedad isPrimary a false. ** No quite la sección relacionada con el tipo de nodo de esta tarea.
+    - Implemente la plantilla de Azure Resource Manager modificada. ** En función de la configuración del clúster, este paso puede tardar unos minutos.
+    
+    A continuación, asegúrese de que:
+    - La sección Service Fabric del portal indica que el clúster está listo.
+    - El clúster está en buen estado.
+    - Ninguno de los nodos que pertenecen al tipo de nodo están marcados como nodo de inicialización.
 
-```powershell
-$nodes = Get-ServiceFabricNode | Where-Object {$_.NodeType -eq $nodetype} | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending
+4. Deshabilite los datos para el tipo de nodo.
 
-Foreach($node in $nodes)
-{
-    Remove-ServiceFabricNodeState -NodeName $node.NodeName -TimeoutSec 300 -Force 
-}
-```
+    Conéctese al clúster mediante PowerShell y, luego, ejecute el siguiente paso.
+    
+    ```powershell
+    $nodeType = "" # specify the name of node type
+    $nodes = Get-ServiceFabricNode
+    
+    foreach($node in $nodes)
+    {
+      if ($node.NodeType -eq $nodeType)
+      {
+        $node.NodeName
+     
+        Disable-ServiceFabricNode -Intent RemoveNode -NodeName $node.NodeName -Force
+      }
+    }
+    ```
+
+    - Para la durabilidad Bronze, espere a que todos los nodos lleguen al estado Deshabilitado.
+    - En el caso de la durabilidad Silver o Gold, algunos nodos pasarán a Deshabilitado y el resto estará en estado Deshabilitando. Compruebe la pestaña de detalles de los nodos en estado Deshabilitando. Si todos los nodos están detenidos para garantizar el cuórum de las particiones del servicio de infraestructura, es seguro continuar.
+
+5. Detenga los datos para el tipo de nodo.
+
+    Conéctese al clúster mediante PowerShell y, luego, ejecute el siguiente paso.
+    
+    ```powershell
+    foreach($node in $nodes)
+    {
+      if ($node.NodeType -eq $nodeType)
+      {
+        $node.NodeName
+     
+        Start-ServiceFabricNodeTransition -Stop -OperationId (New-Guid) -NodeInstanceId $node.NodeInstanceId -NodeName $node.NodeName -StopDurationInSeconds 10000
+      }
+    }
+    ```
+    
+    Espere a que todos los nodos del tipo de nodo estén marcados como inactivos.
+    
+6. Quite los datos para el tipo de nodo.
+
+    Conéctese al clúster mediante PowerShell y, luego, ejecute el siguiente paso.
+    
+    ```powershell
+    foreach($node in $nodes)
+    {
+      if ($node.NodeType -eq $nodeType)
+      {
+        $node.NodeName
+     
+        Remove-ServiceFabricNodeState -NodeName $node.NodeName -Force
+      }
+    }
+    ```
+
+    Espere hasta que se quiten todos los nodos del clúster. Los nodos no se deben mostrar en SFX.
+
+7. Quite el tipo de nodo de la sección Service Fabric.
+
+    - Busque la plantilla de Azure Resource Manager usada para la implementación.
+    - Busque la sección relacionada con el tipo de nodo en la sección Service Fabric.
+    - Quite la sección correspondiente al tipo de nodo.
+    - En el caso de los clústeres de durabilidad Silver y superior, actualice el recurso de clúster en la plantilla y configure directivas de mantenimiento para omitir el estado de la aplicación fabric:/System; para ello, agregue `applicationDeltaHealthPolicies` como se indica a continuación. La directiva siguiente debe omitir los errores existentes, pero no permitir nuevos errores de estado. 
+ 
+ 
+     ```json
+    "upgradeDescription":  
+    { 
+      "forceRestart": false, 
+      "upgradeReplicaSetCheckTimeout": "10675199.02:48:05.4775807", 
+      "healthCheckWaitDuration": "00:05:00", 
+      "healthCheckStableDuration": "00:05:00", 
+      "healthCheckRetryTimeout": "00:45:00", 
+      "upgradeTimeout": "12:00:00", 
+      "upgradeDomainTimeout": "02:00:00", 
+      "healthPolicy": { 
+        "maxPercentUnhealthyNodes": 100, 
+        "maxPercentUnhealthyApplications": 100 
+      }, 
+      "deltaHealthPolicy":  
+      { 
+        "maxPercentDeltaUnhealthyNodes": 0, 
+        "maxPercentUpgradeDomainDeltaUnhealthyNodes": 0, 
+        "maxPercentDeltaUnhealthyApplications": 0, 
+        "applicationDeltaHealthPolicies":  
+        { 
+            "fabric:/System":  
+            { 
+                "defaultServiceTypeDeltaHealthPolicy":  
+                { 
+                        "maxPercentDeltaUnhealthyServices": 0 
+                } 
+            } 
+        } 
+      } 
+    },
+    ```
+
+    Implemente la plantilla de Azure Resource Manager modificada. ** Este paso tardará un rato, habitualmente puede llegar a las dos horas. Esta actualización cambiará la configuración a InfrastructureService, por lo que es necesario reiniciar el nodo. En este caso `forceRestart` se pasa por alto. 
+    El parámetro `upgradeReplicaSetCheckTimeout` especifica el tiempo máximo que Service Fabric espera a que una partición pase a un estado seguro, si aún no lo está. Una vez que se superan las comprobaciones de seguridad de todas las particiones de un nodo, Service Fabric continúa con la actualización en ese nodo.
+    El valor del parámetro `upgradeTimeout` puede reducirse a 6 horas, pero debe usarse la seguridad máxima de 12 horas.
+
+    A continuación, asegúrese de que:
+    - El recurso de Service Fabric en el portal muestra Listo.
+
+8. Quite todas las referencias a los recursos relacionados con el tipo de nodo.
+
+    - Busque la plantilla de Azure Resource Manager usada para la implementación.
+    - Elimine de la plantilla el conjunto de escalado de máquinas virtuales y otros recursos relacionados con el tipo de nodo.
+    - Implemente los cambios.
+
+    A continuación:
+    - Espere a que la implementación finalice.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga más información sobre las [características de durabilidad](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) del clúster.

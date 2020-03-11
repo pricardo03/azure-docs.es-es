@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 47cea412489693cedb05bd8a94a914b1757b8058
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: b1f7aaeaf5d1537e0e5a427ad994f7e31e43fee3
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152166"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921375"
 ---
 # <a name="multiclass-decision-forest-module"></a>Módulo sobre el bosque de decisión multiclase
 
@@ -55,6 +55,7 @@ El clasificador del bosque de decisión en Azure Machine Learning consta de un
 
     + **Single Parameter** (Parámetro único): seleccione esta opción si sabe cómo quiere configurar el modelo y proporcione un conjunto de valores como argumentos.
 
+    + **Parameter Range** (Intervalo de parámetros): seleccione esta opción si no está seguro de los mejores parámetros y quiere ejecutar un barrido de parámetros. Seleccione un rango de valores para iterarlos y el módulo [Optimización de hiperparámetros de un modelo](tune-model-hyperparameters.md) itera en todas las combinaciones posibles de los valores proporcionados para determinar los hiperparámetros que generan los resultados óptimos.   
 
 5. **Número de árboles de decisión**: escriba el número máximo de árboles de decisión que se pueden crear en el conjunto. Si crea más árboles de decisión, puede obtener potencialmente mejor cobertura, pero puede aumentar el tiempo de entrenamiento.
 

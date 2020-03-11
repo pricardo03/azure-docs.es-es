@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: bb1913d77616869c889c464a41e8166b3a88b03c
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 8c76333d5a2be8a2c589dbe54389b023fef34854
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028870"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252531"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Conexión privada a una cuenta de almacenamiento mediante el punto de conexión privado de Azure
 Un punto de conexión privado de Azure es el bloque de creación fundamental para Private Link en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de Private Link.
@@ -29,24 +29,22 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 ## <a name="create-a-vm"></a>Crear una VM
 En esta sección, va a crear una red virtual y la subred para hospedar la máquina virtual que se usa para acceder al recurso de Private Link (una cuenta de almacenamiento en este ejemplo).
 
-### <a name="create-the-virtual-network"></a>Crear la red virtual
+## <a name="virtual-network-and-parameters"></a>Red virtual y parámetros
 
 En esta sección, va a crear una red virtual y una subred para hospedar la máquina virtual que se usa para acceder al recurso de Private Link.
 
-1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Red virtual**.
-1. En **Creación de una red virtual**, escriba o seleccione esta información:
+En los pasos de esta sección, tendrá que reemplazar los siguientes parámetros por la siguiente información:
 
-    | Configuración | Value |
-    | ------- | ----- |
-    | Nombre | Escriba *MyVirtualNetwork*. |
-    | Espacio de direcciones | Escriba *10.1.0.0/16*. |
-    | Subscription | Seleccione su suscripción.|
-    | Resource group | Seleccione **Crear nuevo**, escriba *myResourceGroup* y, después, seleccione **Aceptar**. |
-    | Location | Seleccione **WestCentralUS**.|
-    | Subred: nombre | Escriba *mySubnet*. |
-    | Subred: intervalo de direcciones | Escriba *10.1.0.0/24*. |
-    |||
-1. Deje el resto tal como está y seleccione **Crear**.
+| Parámetro                   | Value                |
+|-----------------------------|----------------------|
+| **\<nombre-de-grupo-recursos>**  | myResourceGroup |
+| **\<nombre-de-red-virtual>** | myVirtualNetwork          |
+| **\<nombre-de-región>**          | Centro-Oeste de EE. UU.      |
+| **\<espacio-de-direcciones-IPv4>**   | 10.1.0.0\16          |
+| **\<nombre-de-subred>**          | mySubnet        |
+| **\<intervalo-de-direcciones-de-subred>** | 10.1.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 
 ### <a name="create-virtual-machine"></a>Crear máquina virtual

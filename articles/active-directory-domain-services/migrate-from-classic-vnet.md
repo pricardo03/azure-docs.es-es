@@ -9,18 +9,23 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: 114a460b3db67af278f813de2e7a18d571cf3c28
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: e7caacf23cb489da6f9f85748ae839bc4babff8e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613439"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917312"
 ---
 # <a name="migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migración de Azure AD Domain Services desde el modelo de red virtual clásica a Resource Manager
 
 Azure Active Directory Domain Services (AD DS) admite un único traslado para los clientes que actualmente usan el modelo de red virtual clásica al modelo de red virtual de Resource Manager. Los dominios administrados de Azure AD DS que usan el modelo de implementación de Resource Manager proporcionan características adicionales, como la directiva de contraseñas específica, los registros de auditoría y la protección de bloqueo de cuentas.
 
 En este artículo se describen las ventajas y consideraciones que hay que tener en cuenta para la migración, así como los pasos necesarios para migrar correctamente una instancia de Azure AD DS existente.
+
+> [!NOTE]
+> En 2017, Azure AD Domain Services estaba disponible para su hospedaje en una red de Azure Resource Manager. Desde entonces, hemos podido crear un servicio más seguro gracias a las modernas funcionalidades de Azure Resource Manager. Como las implementaciones de Azure Resource Manager están reemplazando totalmente a las implementaciones clásicas, las implementaciones de las redes virtuales clásicas de Azure AD DS se retirarán el 1 de marzo de 2023.
+>
+> Para más información, consulte el [aviso de desuso oficial](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/).
 
 ## <a name="overview-of-the-migration-process"></a>Introducción al proceso de migración
 

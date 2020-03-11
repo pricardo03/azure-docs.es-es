@@ -4,12 +4,12 @@ description: Aprenda a configurar un contenedor de ASP.NET Core precompilado pa
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/13/2019
-ms.openlocfilehash: cab99b9d20ce8a3190eb9aa59650dab32fca324d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: b1d9e59109f5ace25abb9840b48e44ff03d394e7
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768425"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255907"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Configuración de una aplicación de ASP.NET Core para Azure App Service
 
@@ -38,6 +38,28 @@ Ejecute el siguiente comando en [Cloud Shell](https://shell.azure.com) para esta
 ```azurecli-interactive
 az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "DOTNETCORE|2.1"
 ```
+
+## <a name="customize-build-automation"></a>Personalización de la automatización de compilaciones
+
+Si implementa la aplicación utilizando paquetes Git o zip con la automatización de compilaciones activada, la automatización de compilaciones de App Service se ejecutará en este orden:
+
+1. Se ejecuta un script personalizado, si se especifica en `PRE_BUILD_SCRIPT_PATH`.
+1. Se ejecuta `dotnet restore` para restaurar las dependencias de NuGet.
+1. Se ejecuta `dotnet publish` para compilar un archivo binario para producción.
+1. Se ejecuta un script personalizado, si se especifica en `POST_BUILD_SCRIPT_PATH`.
+
+`PRE_BUILD_COMMAND` y `POST_BUILD_COMMAND` son variables de entorno que, de forma predeterminada, están vacías. Para ejecutar comandos anteriores a la compilación, defina `PRE_BUILD_COMMAND`. Para ejecutar comandos posteriores a la compilación, defina `POST_BUILD_COMMAND`.
+
+En el ejemplo siguiente, se especifican las dos variables de una serie de comandos, separados por comas.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
+```
+
+Si desea conocer otras variables de entorno para personalizar la automatización de compilaciones, consulte este artículo sobre la [configuración de Oryx](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
+
+Para más información acerca de cómo se ejecuta App Service y se compilan aplicaciones de ASP.NET Core en Linux, consulte el siguiente artículo de la [documentación de Oryx sobre la detección y compilación de aplicaciones de .NET Core](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/dotnetcore.md).
 
 ## <a name="access-environment-variables"></a>Acceso a variables de entorno
 
@@ -145,6 +167,8 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 ## <a name="open-ssh-session-in-browser"></a>Abrir sesión SSH en el explorador
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
+
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

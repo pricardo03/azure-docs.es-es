@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: b6cbca454d1463ffe6e73d7021ea563e7121b7be
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 2d746167f993438e5fce467365844df2078c08a6
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084620"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919318"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Detección de caras y emociones con Análisis multimedia de Azure
+
+> [!NOTE]
+> El procesador de multimedia **Azure Media Face Detector** se va a retirar. Para ver la fecha de retirada, consulte el tema sobre los [componentes heredados](legacy-components.md).
 
 ## <a name="overview"></a>Información general
 
@@ -65,7 +68,7 @@ Face Detector (Detector de caras) usa técnicas de fragmentación (donde los met
 ### <a name="input-video"></a>Vídeo de entrada
 [Vídeo de entrada](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
-### <a name="task-configuration-preset"></a>Configuración de tareas (valor preestablecido)
+### <a name="task-configuration-preset"></a>Configuración de tareas (valor predeterminado)
 Al crear una tarea con **Azure Media Face Detector**(Detector de caras multimedia de Azure), debe especificar un valor predeterminado de configuración. El siguiente valor predeterminado de configuración es solo para detección de caras.
 
 ```json
@@ -78,7 +81,7 @@ Al crear una tarea con **Azure Media Face Detector**(Detector de caras multimedi
 ```
 
 #### <a name="attribute-descriptions"></a>Descripciones de atributos
-| Nombre del atributo | DESCRIPCIÓN |
+| Nombre del atributo | Descripción |
 | --- | --- |
 | Mode |Rápido: procesamiento rápido, pero menos preciso (valor predeterminado).|
 
@@ -137,7 +140,7 @@ El siguiente ejemplo de salida de JSON se truncó.
 ### <a name="input-video"></a>Vídeo de entrada
 [Vídeo de entrada](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
-### <a name="task-configuration-preset"></a>Configuración de tareas (valor preestablecido)
+### <a name="task-configuration-preset"></a>Configuración de tareas (valor predeterminado)
 Al crear una tarea con **Azure Media Face Detector**(Detector de caras multimedia de Azure), debe especificar un valor predeterminado de configuración. El siguiente valor predeterminado de configuración especifica la creación de JSON basándose en la detección de emociones.
 
 ```json
@@ -153,7 +156,7 @@ Al crear una tarea con **Azure Media Face Detector**(Detector de caras multimedi
 
 
 #### <a name="attribute-descriptions"></a>Descripciones de atributos
-| Nombre del atributo | DESCRIPCIÓN |
+| Nombre del atributo | Descripción |
 | --- | --- |
 | Mode |Faces: Solo detección de caras.<br/>PerFaceEmotion: Devuelve emociones independientemente para cada detección de cara.<br/>AggregateEmotion: Devuelve valores de emociones medios para todas las caras del fotograma. |
 | AggregateEmotionWindowMs |Utilizar si se selecciona el modo AggregateEmotion. Especifica la longitud del vídeo que se utiliza para generar cada resultado agregado, en milisegundos. |
@@ -164,8 +167,8 @@ A continuación figuran valores recomendados para la configuración de ventana e
 
 || Valores predeterminados | Máximos | Mínimos |
 |--- | --- | --- | --- |
-| AggregateEmotionWindowMs |0,5 |2 |0,25|
-| AggregateEmotionIntervalMs |0,5 |1 |0,25|
+| AggregateEmotionWindowMs |0.5 |2 |0,25|
+| AggregateEmotionIntervalMs |0.5 |1 |0,25|
 
 ### <a name="json-output"></a>Salida de JSON
 Salida de JSON para la emoción agregada (truncada):
@@ -523,7 +526,7 @@ namespace FaceDetection
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Vínculos relacionados
-[Azure Media Services Analytics Overview (Información general sobre Azure Media Services Analytics)](media-services-analytics-overview.md)
+[Información general de análisis de Azure Media Services](media-services-analytics-overview.md)
 
 [Demostraciones de Azure Media Analytics](https://amslabs.azurewebsites.net/demos/Analytics.html)
 

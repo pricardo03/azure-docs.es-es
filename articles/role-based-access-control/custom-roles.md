@@ -11,22 +11,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2019
+ms.date: 02/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 64161451c0c8b1af7666fcd104d337856e5803c7
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 8c5db13b343783a86dc04b84e09746bc4406186b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821452"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660706"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Roles personalizados en los recursos de Azure
 
 Si los [roles integrados para los recursos de Azure](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear sus propios roles personalizados. Igual que los roles integrados, puede asignar roles personalizados a usuarios, grupos y entidades de servicio en los ámbitos de suscripción, grupo de recursos y recurso.
 
-Los roles personalizados se pueden compartir entre suscripciones que confían en el mismo directorio de Azure AD. Hay un límite de **5000** roles personalizados por directorio. (Para nubes especializadas, como Azure Government, Azure Alemania y Azure China 21Vianet, el límite es de 2000 roles personalizados). Se pueden crear roles personalizados con Azure PowerShell, la CLI de Azure o la API REST.
+Los roles personalizados se pueden compartir entre suscripciones que confían en el mismo directorio de Azure AD. Hay un límite de **5000** roles personalizados por directorio. (Para nubes especializadas, como Azure Government, Azure Alemania y Azure China 21Vianet, el límite es de 2000 roles personalizados). Se pueden crear roles personalizados con Azure Portal (versión preliminar), Azure PowerShell, la CLI de Azure o la API REST.
 
 ## <a name="custom-role-example"></a>Ejemplo de rol personalizado
 
@@ -70,7 +70,7 @@ Después de crear un rol personalizado, aparece en Azure Portal con un icono de 
 
 1. Decidir cómo se quiere crear el rol personalizado
 
-    Puede crear roles personalizados con [Azure PowerShell](custom-roles-powershell.md), la [CLI de Azure](custom-roles-cli.md) o la [API de REST](custom-roles-rest.md).
+    Puede crear roles personalizados con [Azure Portal](custom-roles-portal.md) (versión preliminar), [Azure PowerShell](custom-roles-powershell.md), la [CLI de Azure](custom-roles-cli.md) o la [API REST](custom-roles-rest.md).
 
 1. Determinar los permisos que necesita
 
@@ -90,12 +90,12 @@ Para ver un tutorial paso a paso sobre cómo crear un rol personalizado, consult
 
 Un rol personalizado tiene las siguientes propiedades.
 
-| Propiedad | Obligatorio | type | DESCRIPCIÓN |
+| Propiedad | Obligatorio | Tipo | Descripción |
 | --- | --- | --- | --- |
-| `Name` | Sí | Cadena | Nombre para mostrar del rol personalizado. Aunque una definición de roles es un recurso de nivel de suscripción, una definición de roles se puede usar en varias suscripciones que compartan el mismo directorio de Azure AD. Este nombre para mostrar debe ser único en el ámbito del directorio de Azure AD. Puede incluir letras, números, espacios y caracteres especiales. El número máximo de caracteres es 128. |
-| `Id` | Sí | Cadena | El identificador exclusivo del rol personalizado. Para Azure PowerShell y la CLI de Azure, este identificador se genera automáticamente cuando se crea un rol. |
-| `IsCustom` | Sí | Cadena | Indica si es un rol personalizado. Establecido en `true` para los roles personalizados. |
-| `Description` | Sí | Cadena | Descripción del rol personalizado. Puede incluir letras, números, espacios y caracteres especiales. El número máximo de caracteres es 1024. |
+| `Name` | Sí | String | Nombre para mostrar del rol personalizado. Aunque una definición de roles es un recurso de nivel de suscripción, una definición de roles se puede usar en varias suscripciones que compartan el mismo directorio de Azure AD. Este nombre para mostrar debe ser único en el ámbito del directorio de Azure AD. Puede incluir letras, números, espacios y caracteres especiales. El número máximo de caracteres es 128. |
+| `Id` | Sí | String | El identificador exclusivo del rol personalizado. Para Azure PowerShell y la CLI de Azure, este identificador se genera automáticamente cuando se crea un rol. |
+| `IsCustom` | Sí | String | Indica si es un rol personalizado. Establecido en `true` para los roles personalizados. |
+| `Description` | Sí | String | Descripción del rol personalizado. Puede incluir letras, números, espacios y caracteres especiales. El número máximo de caracteres es 1024. |
 | `Actions` | Sí | String[] | Matriz de cadenas que especifica las operaciones de administración que el rol permite realizar. Para obtener más información, consulte [Actions](role-definitions.md#actions). |
 | `NotActions` | Sin | String[] | Matriz de cadenas que especifica las operaciones de administración que se excluyen de las `Actions` permitidas. Para obtener más información, consulte [notActions](role-definitions.md#notactions). |
 | `DataActions` | Sin | String[] | Matriz de cadenas que especifica las operaciones de datos que el rol permite realizar en los datos dentro de ese objeto. Para más información, vea [DataActions](role-definitions.md#dataactions). |
@@ -106,14 +106,13 @@ Un rol personalizado tiene las siguientes propiedades.
 
 Al igual que los roles integrados, la propiedad `AssignableScopes` especifica los ámbitos en los que el rol está disponible para la asignación. La propiedad `AssignableScopes` de un rol personalizado también controla quién puede crear, eliminar, actualizar o ver dicho rol.
 
-| Tarea | Operación | DESCRIPCIÓN |
+| Tarea | Operación | Descripción |
 | --- | --- | --- |
 | Creación o eliminación de un rol personalizado | `Microsoft.Authorization/ roleDefinitions/write` | Los usuarios que tienen acceso a esta operación en todos los ámbitos `AssignableScopes` del rol personalizado pueden crear (o eliminar) roles personalizados para usar en esos ámbitos. Por ejemplo, los [propietarios](built-in-roles.md#owner) y [administradores del acceso de los usuarios](built-in-roles.md#user-access-administrator) de las suscripciones, los grupos de recursos y los recursos. |
 | Actualización de un rol personalizado | `Microsoft.Authorization/ roleDefinitions/write` | Los usuarios que tienen acceso a esta operación en todos los ámbitos `AssignableScopes` del rol personalizado pueden actualizar roles personalizados en esos ámbitos. Por ejemplo, los [propietarios](built-in-roles.md#owner) y [administradores del acceso de los usuarios](built-in-roles.md#user-access-administrator) de las suscripciones, los grupos de recursos y los recursos. |
 | Visualización de un rol personalizado | `Microsoft.Authorization/ roleDefinitions/read` | Los usuarios que tienen acceso a esta operación en un ámbito pueden ver los roles personalizados que están disponibles para su asignación en ese ámbito. Todos los roles integrados permiten que los roles personalizados estén disponibles para la asignación. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Creación de roles personalizados para los recursos de Azure con Azure PowerShell](custom-roles-powershell.md)
-- [Creación de roles personalizados para los recursos de Azure con la CLI de Azure](custom-roles-cli.md)
+- [Creación o actualización de roles personalizados de Azure mediante Azure Portal (versión preliminar)](custom-roles-portal.md)
 - [Descripción de definiciones de roles para los recursos de Azure](role-definitions.md)
 - [Solución de problemas del control de acceso basado en rol para recursos de Azure](troubleshooting.md)

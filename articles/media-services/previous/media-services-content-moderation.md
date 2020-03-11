@@ -14,14 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: a8560df6120dd773e13dbfc7427d9a16e6f6c83b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 83fe7867a3128ac82597c028452863a1ad681ace
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895994"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914337"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usar Azure Media Content Moderator para detectar contenido para adultos 
+
+> [!NOTE]
+> Se va a retirar el procesador de multimedia de **Azure Media Content Moderator**. Para conocer la fecha de retirada, consulte el tema sobre los [componentes heredados](legacy-components.md).
 
 ## <a name="overview"></a>Información general
 El procesador multimedia (MP) **Azure Media Content Moderator** le permite usar la moderación automatizada en sus vídeos. Por ejemplo, puede usarlo para detectar posible contenido para adultos en los vídeos y revisar el contenido que hayan indicado sus equipos de moderadores.
@@ -44,7 +47,7 @@ La salida JSON incluye los siguientes elementos:
 
 ### <a name="root-json-elements"></a>Elementos raíz JSON
 
-| Elemento | DESCRIPCIÓN |
+| Elemento | Descripción |
 | --- | --- |
 | version |La versión de Content Moderator. |
 | timescale |"Tics" por segundo del vídeo. |
@@ -57,7 +60,7 @@ La salida JSON incluye los siguientes elementos:
 
 ### <a name="fragments-json-elements"></a>Elementos JSON de fragmentos
 
-|Elemento|DESCRIPCIÓN|
+|Elemento|Descripción|
 |---|---|
 | start |La hora de inicio del primer evento, en "tics". |
 | duration |La longitud del fragmento, en "tics". |
@@ -66,12 +69,12 @@ La salida JSON incluye los siguientes elementos:
 
 ### <a name="events-json-elements"></a>Elementos de eventos JSON
 
-|Elemento|DESCRIPCIÓN|
+|Elemento|Descripción|
 |---|---|
 | reviewRecommended | `true` o `false`, dependiendo de si **adultScore** o **racyScore** superan los umbrales internos. |
 | adultScore | Puntuación de confianza del posible contenido para adultos, en una escala del 0,00 al 0,99. |
 | racyScore | Puntuación de confianza del posible contenido obsceno, en una escala del 0,00 al 0,99. |
-| index | Índice del marco en una escala que va desde el primer hasta el último índice de fotograma. |
+| índice | Índice del marco en una escala que va desde el primer hasta el último índice de fotograma. |
 | timestamp | La ubicación del marco en "tics". |
 | shotIndex | El índice de la captura principal. |
 
@@ -224,7 +227,7 @@ The following example of a Content Moderator JSON output was truncated.
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Vínculos relacionados
-[Azure Media Services Analytics Overview (Información general sobre Azure Media Services Analytics)](media-services-analytics-overview.md)
+[Información general de análisis de Azure Media Services](media-services-analytics-overview.md)
 
 [Demostraciones de Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

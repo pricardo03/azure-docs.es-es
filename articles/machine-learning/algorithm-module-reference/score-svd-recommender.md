@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 0b321f3548910a2bc79e4473609de30eda8c8622
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.date: 02/10/2020
+ms.openlocfilehash: a3eafc28dc6d0f44a1f1019cb3393259aa2a698a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314358"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920355"
 ---
 # <a name="score-svd-recommender"></a>Puntuación del recomendador SVD
 
-En este artículo se describe cómo usar el módulo Score SVD Recommender (Puntuar recomendador de SVD) del diseñador de Azure Machine Learning. Use este módulo para crear predicciones con un modelo de recomendación entrenado basado en el algoritmo de descomposición de un solo valor (SVD).
+En este artículo se describe cómo usar el módulo Score SVD Recommender (Puntuar recomendador de SVD) del diseñador de Azure Machine Learning (versión preliminar). Use este módulo para crear predicciones con un modelo de recomendación entrenado basado en el algoritmo de descomposición de un solo valor (SVD).
 
 El recomendador SVD puede generar dos tipos diferentes de predicciones:
 
@@ -91,7 +91,7 @@ Para recomendar elementos para los usuarios, debe proporcionar una lista de usua
 
 5. **Número máximo de elementos que se van a recomendar a un usuario**: Escriba el número de elementos que se devolverán para cada usuario. De forma predeterminada, el módulo recomienda cinco elementos.
 
-6. **Tamaño mínimo del grupo de recomendaciones por usuario**: Escriba un valor que indique cuántas recomendaciones anteriores son necesarias. De forma predeterminada, este parámetro se establece en **2**, lo que significa que por lo menos otros dos usuarios han recomendado el elemento.
+6. **Tamaño mínimo del grupo de recomendaciones por usuario**: Escriba un valor que indique cuántas recomendaciones anteriores son necesarias. De forma predeterminada, este parámetro se establece en 2, lo que significa que por lo menos otros dos usuarios han recomendado el elemento.
 
    Use esta opción solo si va a puntuar en modo de evaluación. La opción no está disponible si selecciona **De todos los elementos** o **De elementos sin clasificación (para sugerir nuevos elementos a los usuarios)** .
 

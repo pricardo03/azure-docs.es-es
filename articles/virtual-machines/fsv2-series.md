@@ -2,17 +2,17 @@
 title: 'Serie Fsv2: Azure Virtual Machines'
 description: Especificaciones de las máquinas virtuales de la serie Fsv2.
 services: virtual-machines
-author: jonbeck7
+author: brbell
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 47ddd4733e4778493ad5e3671ae9c914176de33f
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: f28c6b61aee3c8cbc078db1c2cfb48ed1fba4554
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492409"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164855"
 ---
 # <a name="fsv2-series"></a>Serie Fsv2
 
@@ -25,6 +25,10 @@ ACU: 195 - 210
 Premium Storage:  Compatible
 
 Almacenamiento en caché de Premium Storage:  Compatible
+
+Migración en vivo: Compatible
+
+Actualizaciones con conservación de memoria: Compatible
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS/Mbps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|---|

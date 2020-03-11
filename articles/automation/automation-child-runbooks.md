@@ -5,23 +5,23 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6acf66e01c4f7b4bd2735687f542a0dbf472cfb4
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 5527b96ddf6ccebb60ca8130e48f6aae87a3f715
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500188"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246548"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks secundarios en Azure Automation
 
-Un procedimiento recomendado en Azure Automation es escribir runbooks reutilizables y modulares con una función discreta a la que llamen otros runbooks. Con frecuencia, un runbook primario llama a uno o varios runbooks secundarios para realizar la funcionalidad necesaria. Existen dos maneras de llamar a un runbook secundario, y hay varias diferencias que debería conocer para poder determinar cuál de ellas es mejor para sus escenarios.
+Un procedimiento recomendado en Azure Automation es escribir runbooks reutilizables y modulares con una función discreta a la que llamen otros runbooks. Con frecuencia, un runbook primario llama a uno o varios runbooks secundarios para realizar la funcionalidad necesaria. Existen dos maneras de llamar a un runbook secundario y hay varias diferencias que debería conocer para poder determinar cuál de ellas es mejor para sus escenarios.
 
 >[!NOTE]
 >Este artículo se ha actualizado para usar el nuevo módulo Az de Azure PowerShell. Aún puede usar el módulo de AzureRM que continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo. Para más información acerca del nuevo módulo Az y la compatibilidad con AzureRM, consulte [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0) (Presentación del nuevo módulo Az de Azure PowerShell). Para obtener instrucciones sobre la instalación del módulo Az en Hybrid Runbook Worker, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Puede actualizar los módulos de su cuenta de Automation a la versión más reciente mediante [Actualización de módulos de Azure PowerShell en Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="invoking-a-child-runbook-using-inline-execution"></a>Invocación de un runbook secundario mediante la ejecución en línea
 
-Para invocar un runbook en línea desde otro runbook, use el nombre del runbook y proporcione valores para sus parámetros, exactamente igual a como usaría una actividad o un cmdlet.  De esta manera, todos los runbooks de la misma cuenta de Automation estarán disponibles para que todos los demás los usen. El runbook primario espera a que el runbook secundario se complete antes de pasar a la siguiente línea, y cualquier salida se devuelve directamente al elemento primario.
+Para invocar un runbook en línea desde otro runbook, use el nombre del runbook y proporcione valores para sus parámetros, igual a como usaría una actividad o un cmdlet. De esta manera, todos los runbooks de la misma cuenta de Automation estarán disponibles para que todos los demás los usen. El runbook primario espera a que el runbook secundario se complete antes de pasar a la siguiente línea y cualquier salida se devuelve directamente al elemento primario.
 
 Al invocar un runbook en línea, este se ejecuta en el mismo trabajo que el runbook primario. No hay ninguna indicación en el historial de trabajos del runbook secundario. Todas las excepciones y salidas de flujo pertenecientes al runbook secundario se asocian al primario. Este comportamiento da lugar a que se creen menos trabajos y facilita el seguimiento y la solución de problemas.
 
@@ -34,14 +34,14 @@ Los parámetros de un runbook secundario al que se llama de modo insertado puede
 ¿Qué tipos de runbook pueden llamarse entre sí?
 
 * Un [runbook de PowerShell](automation-runbook-types.md#powershell-runbooks) y un [runbook gráfico](automation-runbook-types.md#graphical-runbooks) pueden llamarse entre sí de modo insertado, ya que ambos se basan en PowerShell.
-* Un [runbook de flujo de trabajo de PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) y un runbook gráfico de flujo de trabajo de PowerShell pueden llamarse entre sí de modo insertado, ya que ambos tipos se basan en el flujo de trabajo de PowerShell.
+* Un [runbook de Flujo de trabajo de PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) y un runbook gráfico de Flujo de trabajo de PowerShell pueden llamarse entre sí de modo insertado, ya que ambos tipos se basan en Flujo de trabajo de PowerShell.
 * Los tipos de PowerShell y los tipos de flujo de trabajo de PowerShell no pueden llamarse entre sí de modo insertado, y deben utilizar **Start-AzAutomationRunbook**.
 
 ¿Cuándo es importante el orden de publicación?
 
-El orden de publicación de runbooks solo es importante para los runbooks de flujo de trabajo de PowerShell y los runbooks gráficos de flujo de trabajo de PowerShell.
+El orden de publicación de los runbooks solo es importante para los runbooks de Flujo de trabajo de PowerShell y los runbooks gráficos de Flujo de trabajo de PowerShell.
 
-Cuando el runbook llama a un runbook secundario gráfico o de flujo de trabajo de PowerShell con la ejecución insertada, usa el nombre del runbook. El nombre debe comenzar con ".\\", para especificar que el script se encuentra en el directorio local.
+Cuando el runbook llama a un runbook secundario gráfico o de Flujo de trabajo de PowerShell con la ejecución insertada, usa el nombre del runbook. El nombre debe comenzar por **.\\** para especificar que el script se encuentra en el directorio local.
 
 ### <a name="example"></a>Ejemplo
 
@@ -64,17 +64,17 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 > [!IMPORTANT]
 > Si el runbook invoca un runbook secundario con el cmdlet **Start-AzAutomationRunbook** y el parámetro *Wait*, y el runbook secundario genera un resultado de objeto, es posible que se produzca un error en la operación. Para solucionar el error, consulte la información sobre [runbooks secundarios con salida de objetos](troubleshoot/runbooks.md#child-runbook-object), con el fin de aprender a implementar la lógica de sondeo en busca de resultados mediante el cmdlet [Get AzAutomationJobOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord).
 
-Puede utilizar **Start-AzAutomationRunbook** para iniciar un runbook, tal como se describe en [Inicio de un runbook con PowerShell](start-runbooks.md#start-a-runbook-with-powershell). Existen dos modos de usar este cmdlet. En un modo, el cmdlet devuelve el identificador del trabajo cuando se crea el trabajo secundario del runbook secundario. En el otro, que el script habilita mediante la especificación del parámetro *Wait*, el cmdlet espera a que finalice el trabajo secundario para devolver la salida del runbook secundario.
+Puede utilizar **Start-AzAutomationRunbook** para iniciar un runbook, tal como se describe en [Inicio de un runbook con PowerShell](start-runbooks.md#start-a-runbook-with-powershell). Existen dos modos de usar este cmdlet. En un modo, el cmdlet devuelve el identificador del trabajo cuando se crea el trabajo del runbook secundario. En el otro, que el script habilita mediante la especificación del parámetro *Wait*, el cmdlet espera a que finalice el trabajo secundario para devolver la salida del runbook secundario.
 
-Si el trabajo de un runbook secundario se inició con un cmdlet, se ejecuta en un trabajo independiente al del runbook primario. Como resultado de este comportamiento, habrá más trabajos que cuando se inicia el runbook insertado y será más difícil realizar un seguimiento de los trabajos. Asimismo, el primario puede iniciar varios runbooks secundarios de forma asincrónica sin tener que esperar a que se complete cada uno de ellos. Para esta ejecución en paralelo que llama a los runbooks secundarios en modo insertado, el runbook primario debe usar la [palabra clave parallel](automation-powershell-workflow.md#parallel-processing).
+El trabajo de un runbook secundario que se inició con un cmdlet se ejecuta de forma independiente al trabajo del runbook primario. Como resultado de este comportamiento, habrá más trabajos que cuando se inicia el runbook insertado y será más difícil realizar un seguimiento de los trabajos. Asimismo, el primario puede iniciar varios runbooks secundarios de forma asincrónica sin tener que esperar a que se complete cada uno de ellos. Para esta ejecución en paralelo que llama a los runbooks secundarios en modo insertado, el runbook primario debe usar la [palabra clave parallel](automation-powershell-workflow.md#parallel-processing).
 
-La salida del runbook secundario no se devuelve al runbook primario de forma confiable debido al tiempo. Además, puede que variables como $VerbosePreference, $WarningPreference y otras no se propaguen a los runbooks secundarios. Para evitar estos problemas, puede iniciar los runbooks secundarios como trabajos de Automation independientes mediante el cmdlet **Start-AzAutomationRunbook** con el parámetro *Wait*. Esta técnica bloquea el runbook primario hasta que se completa el runbook secundario.
+La salida del runbook secundario no se devuelve al runbook primario de forma confiable debido al tiempo. Además, puede que variables como *$VerbosePreference*, *$WarningPreference* y otras no se propaguen a los runbooks secundarios. Para evitar estos problemas, puede iniciar los runbooks secundarios como trabajos de Automation independientes mediante el cmdlet **Start-AzAutomationRunbook** con el parámetro *Wait*. Esta técnica bloquea el runbook primario hasta que se completa el runbook secundario.
 
 Si no quiere bloquear el runbook primario durante la espera, puede iniciar el runbook secundario mediante el cmdlet **Start-AzAutomationRunbook** sin el parámetro *Wait*. En este caso, el runbook debe usar [Get-AzAutomationJob](/powershell/module/az.automation/get-azautomationjob) para esperar la finalización del trabajo. También debe usar [Get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput) y [Get-AzAutomationJobOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) para recuperar los resultados.
 
-Los parámetros de un runbook secundario iniciado con un cmdlet se proporcionan como una tabla hash, tal y como se describe en [Parámetros de runbook](start-runbooks.md#runbook-parameters). Solo pueden usarse los tipos de datos simples. Si el runbook tiene un parámetro con un tipo de datos complejo, debe llamarse en línea.
+Los parámetros de un runbook secundario iniciado con un cmdlet se proporcionan como una tabla hash, como se describe en [Parámetros de runbook](start-runbooks.md#runbook-parameters). Solo pueden usarse los tipos de datos simples. Si el runbook tiene un parámetro con un tipo de datos complejo, debe llamarse en línea.
 
-Es posible que se pierda el contexto de suscripción cuando inicia runbooks secundarios como trabajos individuales. Para que el runbook secundario ejecute los cmdlets del módulo Az en una suscripción de Azure específica, debe autenticarse en esta suscripción de forma independiente al runbook primario.
+Es posible que se pierda el contexto de suscripción cuando inicia runbooks secundarios como trabajos individuales. Para que el runbook secundario ejecute los cmdlets del módulo Az en una suscripción de Azure específica, el secundario debe autenticarse en esta suscripción de forma independiente al runbook primario.
 
 Si los trabajos de una misma cuenta de Automation funcionan con varias suscripciones, la selección de una suscripción en uno de los trabajos puede cambiar el contexto de suscripción actualmente seleccionado para otros trabajos. Para evitar esta situación, use `Disable-AzContextAutosave –Scope Process` al principio de cada runbook. Esta acción solo guarda el contexto de esa ejecución de runbook.
 

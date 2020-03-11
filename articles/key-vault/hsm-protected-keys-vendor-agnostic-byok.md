@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
-ms.openlocfilehash: 9b8f1065660ea8331853f8804e709134fe682ba7
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 0e3246f9da202b54cc0d1285795c25cfafb678d8
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566121"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78207037"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-preview"></a>Importación de claves protegidas con HSM en Key Vault (versión preliminar)
 
@@ -90,6 +90,9 @@ La KEK debe:
 - Generarse en el mismo almacén de claves al que quiere importar la clave de destino
 - Crearse con las operaciones de clave permitidas establecidas en `import`
 
+> [!NOTE]
+> La KEK debe tener "import" como la única operación de clave permitida. "import" es mutuamente excluyente con todas las demás operaciones de clave.
+
 Use el comando [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) para crear una KEK que tenga operaciones de clave establecidas en `import`. Registre el identificador de clave (`kid`) que se devuelve con el siguiente comando (usará el valor `kid` en el [paso 3](#step-3-generate-and-prepare-your-key-for-transfer)).
 
 ```azurecli
@@ -115,7 +118,7 @@ Transfiera el archivo BYOK al equipo conectado.
 > [!NOTE] 
 > No se admite la importación de claves RSA de 1024 bits. Actualmente no se admite la importación de una clave de curva elíptica (EC).
 > 
-> **Problema conocido**: se produce un error al importar una clave de destino RSA 4K desde los HSM SafeNet Luna. Cuando se resuelva el problema, se actualizará este artículo.
+> **Problema conocido**: la importación de una clave de destino RSA 4K desde los HSM SafeNet Luna solo se admite con el firmware 7.4.0 o una versión más reciente.
 
 ### <a name="step-4-transfer-your-key-to-azure-key-vault"></a>Paso 4: Transferencia de la clave a Azure Key Vault
 

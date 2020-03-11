@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/09/2019
+ms.date: 02/26/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 256194d8b0b5e6b08210e9338d945774603ac328
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ffb2ff87eb78ed4088225f832b6df55726196493
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429803"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656649"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -37,7 +37,7 @@ La arquitectura de los informes de Azure Active Directory (Azure AD) consta de l
 
 En este artículo se ofrece una visión general del reporte de inicios de sesión.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
 
@@ -59,7 +59,7 @@ El informe de inicios de sesión de usuario proporciona respuestas a las pregunt
 
 En el menú de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory** o busque y seleccione **Azure Active Directory** desde cualquier página.
 
-![Seleccionar Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
+![Seleccionar Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
 
 En **Supervisión**, seleccione **Inicios de sesión** para abrir el [informe de inicios de sesión](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
 
@@ -101,59 +101,90 @@ Seleccione un elemento de la vista de lista para obtener información más detal
 
 ## <a name="filter-sign-in-activities"></a>Filtrado de las actividades de inicio de sesión
 
-En primer lugar, limite los datos informados a un nivel que le resulte más adecuado. En segundo lugar, filtre los datos de inicios de sesión mediante el campo de fecha como filtro predeterminado. Azure AD proporciona una amplia variedad de filtros adicionales que puede establecer.
+En primer lugar, limite los datos informados a un nivel que le resulte más adecuado. En segundo lugar, filtre los datos de inicios de sesión mediante el campo de fecha como filtro predeterminado. Azure AD proporciona una amplia variedad de filtros adicionales que puede establecer:
 
 ![Actividad de inicio de sesión](./media/concept-sign-ins/04.png "Actividad de inicio de sesión")
 
-El filtro **usuario** permite especificar el nombre o el nombre principal de usuario (UPN) del usuario que le interesa.
+**Identificador de solicitud**: el identificador de la solicitud que le interesa.
 
-El filtro **aplicación** permite especificar el nombre de la aplicación que le interesa.
+**Usuario**: el nombre o el nombre principal de usuario (UPN) del usuario que le interesa.
 
-El filtro **estado de inicio de sesión** le permite seleccionar:
+**Aplicación**: el nombre de la aplicación de destino.
+ 
+**Estado**: el estado de inicio de sesión que le interesa:
 
-- All
 - Correcto
+
 - Error
 
-El filtro de **acceso condicional** le permite seleccionar el estado de la directiva de entidad emisora de certificados para el inicio de sesión:
+- Interrumpido
 
-- All
-- No aplicado
+
+**Dirección IP**: la dirección IP del dispositivo que se utiliza para conectarse al inquilino.
+
+**Ubicación**: la ubicación desde la que se inició la conexión:
+
+- City
+
+- Estado/provincia
+
+- País/región
+
+
+**Recurso**: el nombre del servicio que se usa para el inicio de sesión.
+
+
+**Identificador de recurso**: el identificador del servicio que se utiliza para el inicio de sesión.
+
+
+**Aplicación cliente**: el tipo de aplicación cliente que se usa para conectarse al inquilino:
+
+![Filtro de aplicación cliente](./media/concept-sign-ins/client-app-filter.png)
+
+
+|Nombre|Autenticación moderna|Descripción|
+|---|:-:|---|
+|SMTP autenticado| |Utilizado por clientes POP e IMAP para enviar mensajes de correo electrónico.|
+|Detección automática| |Usada por clientes Outlook y EAS para buscar y conectarse a buzones en Exchange Online.|
+|Exchange ActiveSync| |Este filtro muestra todos los intentos de inicio de sesión en los que se ha intentado el protocolo EAS.|
+|Browser|![Comprobar](./media/concept-sign-ins/check.png)|Muestra todos los intentos de inicio de sesión de los usuarios mediante exploradores web.|
+|Exchange ActiveSync| | Muestra todos los intentos de inicio de sesión de los usuarios con aplicaciones cliente que usan Exchange ActiceSync para conectarse a Exchange Online.|
+|PowerShell de Exchange Online| |Se usa para conectarse a Exchange Online con PowerShell remoto. Si bloquea la autenticación básica para PowerShell de Exchange Online, debe usar el módulo de PowerShell de Exchange Online para conectarse. Para obtener instrucciones, consulte [Conexión a Exchange Online PowerShell con autenticación multifactor](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
+|Servicios web de Exchange| |Una interfaz de programación que se usa en Outlook, Outlook para Mac y aplicaciones de terceros.|
+|IMAP4| |Un cliente de correo heredado que utiliza IMAP para recuperar el correo electrónico.|
+|MAPI sobre HTTP| |Utilizado por Outlook 2010 y versiones posteriores.|
+|Aplicaciones móviles y aplicaciones de escritorio|![Comprobar](./media/concept-sign-ins/check.png)|Muestra todos los intentos de inicio de sesión de los usuarios que usan aplicaciones móviles y clientes de escritorio.|
+|Libreta de direcciones sin conexión| |Una copia de las colecciones de listas de direcciones que Outlook descarga y usa.|
+|Outlook en cualquier lugar (RPC sobre HTTP)| |Utilizado por Outlook 2016 y versiones anteriores.|
+|Servicio Outlook| |Usado por la aplicación de correo electrónico y calendario de Windows 10.|
+|POP3| |Un cliente de correo heredado que utiliza POP3 para recuperar el correo electrónico.|
+|Servicios web de creación de informes| |Se usan para recuperar datos de informes en Exchange Online.|
+|Otros clientes| |Muestra todos los intentos de inicio de sesión de los usuarios en los que la aplicación cliente no está incluida o es desconocida.|
+
+
+
+**Sistema operativo**: el sistema operativo que se ejecuta en el dispositivo utilizado para iniciar sesión en el inquilino. 
+
+
+**Explorador de dispositivos**: si la conexión se inició desde un explorador, este campo le permite filtrar por nombre de explorador.
+
+
+**Id. de correlación**: el identificador de correlación de la actividad.
+
+
+**Acceso condicional**: el estado de las reglas de acceso condicional aplicadas
+
+- No aplicado 
+
 - Correcto
+
 - Error
 
-El filtro **Fecha** le permite definir un período de tiempo para los datos devueltos.  
-Los valores posibles son:
 
-- Un mes
-- 7 días
-- 24 horas
-- Intervalo de tiempo personalizado
 
-Cuando se selecciona un intervalo de tiempo personalizado, puede configurar una hora de inicio y una hora de finalización.
 
-Si agrega campos adicionales a la vista de inicios de sesión, estos campos se agregarán automáticamente a la lista de filtros. Por ejemplo, si agrega el campo **Aplicación cliente** a la lista, también obtendrá otra opción de filtro que le permitirá establecer los siguientes filtros:  
-![Actividad de inicio de sesión](./media/concept-sign-ins/12.png "Actividad de inicio de sesión")
 
-- **Browser**  
-    Este filtro muestra todos los eventos en los que se han realizado intentos de inicio de sesión mediante los flujos del explorador.
-- **Exchange ActiveSync (compatible)**  
-    Este filtro muestra todos los intentos de inicio de sesión en los que se ha intentado el protocolo Exchange ActiveSync (EAS) desde plataformas compatibles como iOS, Android y Windows Phone.
-- **Exchange ActiveSync (no compatible)**  
-    Este filtro muestra todos los intentos de inicio de sesión en los que se ha intentado el protocolo EAS desde plataformas no compatibles como las distribuciones Linux.
-- **Clientes de escritorio y Mobile Apps**: el filtro muestra todos los intentos de inicio de sesión que se realizaron sin usar los flujos del explorador. Por ejemplo, aplicaciones móviles desde cualquier plataforma que utilice cualquier protocolo o desde aplicaciones cliente de escritorio como Office en Windows o MacOS.
-  
-- **Otros clientes**
-    - **IMAP**  
-        Un cliente de correo heredado que utiliza IMAP para recuperar el correo electrónico.
-    - **MAPI**  
-        Office 2013, donde ADAL está habilitado y utiliza MAPI.
-    - **Clientes antiguos de Office**  
-        Office 2013 en su configuración predeterminada, donde ADAL no está habilitado y utiliza MAPI, u Office 2016 donde ADAL se ha deshabilitado.
-    - **POP**  
-        Un cliente de correo heredado que utiliza POP3 para recuperar el correo electrónico.
-    - **SMTP**  
-        Un cliente de correo heredado que utiliza SMTP para enviar el correo electrónico.
+
 
 ## <a name="download-sign-in-activities"></a>Descarga de actividades de inicio de sesión
 

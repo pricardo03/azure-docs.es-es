@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: zarhoads
-ms.openlocfilehash: 02bfdbc840065558003b249e1e3ea52f46ec64d6
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 3c22f63b7085c7ab8d6b54e383528568dc9c12e7
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596274"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917040"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Rotación de certificados en Azure Kubernetes Service (AKS)
 
@@ -84,6 +84,9 @@ Compruebe que los certificados se han actualizado mediante la ejecución de un c
 kubectl get no
 ```
 
+> [!NOTE]
+> Si tiene algún servicio que se ejecute sobre AKS, como [Azure Dev Spaces][dev-spaces], es posible que también tenga que [actualizar los certificados relacionados con esos servicios][dev-spaces-rotate].
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo se ha mostrado cómo rotar automáticamente los certificados, las entidades de certificación (CA) y las cuentas de servicio (SA) del clúster. Para obtener más información sobre los procedimientos recomendados de seguridad de AKS, puede consultar las [Prácticas recomendadas para la seguridad de los clústeres y las actualizaciones en Azure Kubernetes Service (AKS)][aks-best-practices-security-upgrades].
@@ -94,3 +97,5 @@ En este artículo se ha mostrado cómo rotar automáticamente los certificados, 
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [aks-best-practices-security-upgrades]: operator-best-practices-cluster-security.md
+[dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
+[dev-spaces-rotate]: ../dev-spaces/troubleshooting.md#error-using-dev-spaces-after-rotating-aks-certificates
