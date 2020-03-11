@@ -9,12 +9,12 @@ ms.workload: big-compute
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: lahugh
-ms.openlocfilehash: 14cbacf43e83dc768e9a85620df131533b746671
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 0134e7d92ddca9bd3b45abaf642f33de9d209b33
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465633"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192309"
 ---
 # <a name="securely-access-key-vault-with-batch"></a>Acceso seguro a Key Vault con Batch
 
@@ -40,7 +40,7 @@ cd C:\Program Files (x86)\Windows Kits\10\bin\x64
 A continuación, use la herramienta `makecert` para crear archivos de certificado autofirmados denominados `batchcertificate.cer` y `batchcertificate.pvk`. El nombre común (cn) utilizado no es importante para esta aplicación, pero resulta útil si le indica en qué se usa el certificado.
 
 ```console
-makecert -sv batchcertificate.pvk -n "cn=batch.cert.mydomain.org batchcertificate.cer -b 09/23/2019 -e 09/23/2019 -r -pe -a sha256 -len 2048
+makecert -sv batchcertificate.pvk -n "cn=batch.cert.mydomain.org" batchcertificate.cer -b 09/23/2019 -e 09/23/2019 -r -pe -a sha256 -len 2048
 ```
 
 Batch requiere un archivo de `.pfx`. Use la herramienta [pvk2pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) para convertir los archivos `.cer` y `.pvk` creados por `makecert` en un solo archivo `.pfx`.
@@ -51,9 +51,9 @@ pvk2pfx -pvk batchcertificate.pvk -spc batchcertificate.cer -pfx batchcertificat
 
 ## <a name="create-a-service-principal"></a>Creación de una entidad de servicio
 
-El acceso a Key Vault se concede a un **usuario** o a una **entidad de servicio**. Para obtener acceso a Key Vault mediante programación, use una entidad de servicio con el certificado que se creó en el paso anterior.
+El acceso a Key Vault se concede a un **usuario** o a una **entidad de servicio**. Para acceder a Key Vault mediante programación, use una entidad de servicio con el certificado que se creó en el paso anterior.
 
-Para obtener más información sobre las entidades de servicio de Azure, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
+Para más información sobre las entidades de servicio de Azure, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
 > [!NOTE]
 > La entidad de servicio debe estar en el mismo inquilino de Azure AD que Key Vault.
@@ -77,7 +77,7 @@ Las direcciones URL de la aplicación no son importantes, ya que solo se usan pa
 
 ## <a name="grant-rights-to-key-vault"></a>Concesión de derechos a Key Vault
 
-La entidad de servicio creada en el paso anterior necesita permiso para recuperar los secretos de Key Vault. Los permisos se pueden conceder a través de Azure Portal o con el siguiente comando de PowerShell.
+La entidad de servicio creada en el paso anterior necesita permiso para recuperar los secretos de Key Vault. Los permisos se pueden conceder mediante Azure Portal o con el siguiente comando de PowerShell.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"https://batch.mydomain.com' -PermissionsToSecrets 'Get'
@@ -87,13 +87,13 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"
 
 Cree un grupo de Batch y, a continuación, vaya a la pestaña Certificado del grupo y asigne el certificado que creó. El certificado está ahora en todos los nodos de Batch.
 
-A continuación, es necesario asignar el certificado a la cuenta de Batch. La asignación del certificado a la cuenta nos permite asignarlo a los grupos y, a continuación, a los nodos. La forma más fácil de hacerlo es ir a la cuenta de Batch en el portal, navegar a **Certificados** y seleccionar **Agregar**. Cargue el archivo `.pfx` generado en el paso [Obtener un certificado](#obtain-a-certificate) y proporcione la contraseña. Una vez completado, el certificado se agrega a la lista y puede comprobar la huella digital.
+A continuación, es necesario asignar el certificado a la cuenta de Batch. La asignación del certificado a la cuenta nos permite asignarlo a los grupos y, a continuación, a los nodos. La forma más fácil de hacerlo es ir a la cuenta de Batch en el portal, ir a **Certificados** y seleccionar **Agregar**. Cargue el archivo `.pfx` generado en el paso [Obtención de un certificado](#obtain-a-certificate) y proporcione la contraseña. Una vez completado, el certificado se agrega a la lista y puede comprobar la huella digital.
 
 Ahora, cuando cree un grupo de Batch, puede ir a **Certificados** dentro del grupo y asignar el certificado que creó a ese grupo. Al hacerlo, asegúrese de seleccionar **LocalMachine** para la ubicación del almacén. El certificado se carga en todos los nodos de Batch del grupo.
 
 ## <a name="install-azure-powershell"></a>Instalar Azure Powershell
 
-Si planea acceder a Key Vault mediante scripts de PowerShell en los nodos, deberá tener instalada la biblioteca de Azure PowerShell. Hay varias maneras de hacerlo; si los nodos tienen instalado Windows Management Framework (WMF) 5, puede usar el comando install-module para descargarlo. Si usa nodos que no tienen WMF 5, la forma más fácil de instalarlo es agrupar el archivo `.msi` de Azure PowerShell con los archivos de Batch y, a continuación, llamar al instalador como la primera parte del script de inicio de Batch. Para más información, vea este ejemplo:
+Si planea acceder a Key Vault mediante scripts de PowerShell en los nodos, deberá tener instalada la biblioteca de Azure PowerShell. Hay varias maneras de hacerlo; si los nodos tienen instalado Windows Management Framework (WMF) 5, puede usar el comando install-module para descargarlo. Si usa nodos que no tienen WMF 5, la forma más fácil de instalarlo es agrupar el archivo `.msi` de Azure PowerShell con los archivos de Batch y, a continuación, llamar al instalador como la primera parte del script de inicio de Batch. Para más información, vea este ejemplo:
 
 ```powershell
 $psModuleCheck=Get-Module -ListAvailable -Name Azure -Refresh
@@ -104,7 +104,7 @@ if($psModuleCheck.count -eq 0) {
 
 ## <a name="access-key-vault"></a>Acceda a Key Vault.
 
-Ahora ya está todo listo para obtener acceso a Key Vault en scripts que se ejecutan en nodos de Batch. Para obtener acceso a Key Vault desde un script, lo único que necesita es que el script se autentique en Azure AD mediante el certificado. Para hacer esto en PowerShell, use los siguientes comandos de ejemplo. Especifique el GUID adecuado para **Huella digital**, **Id. de la aplicación** (el identificador de la entidad de servicio) e **Identificador de inquilino** (el inquilino en el que existe la entidad de servicio).
+Ahora ya está todo listo para acceder a Key Vault en scripts que se ejecutan en nodos de Batch. Para acceder a Key Vault desde un script, lo único que necesita es que el script se autentique en Azure AD mediante el certificado. Para hacer esto en PowerShell, use los siguientes comandos de ejemplo. Especifique el GUID adecuado para **Huella digital**, **Id. de aplicación** (el identificador de la entidad de servicio) e **Id. del inquilino** (el inquilino en el que existe la entidad de servicio).
 
 ```powershell
 Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint -ApplicationId

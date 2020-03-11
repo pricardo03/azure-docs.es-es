@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 02/24/2020
+ms.date: 03/03/2020
 ms.author: jgao
-ms.openlocfilehash: e881cde36bc56c175004e8d6adb9b7b85e9b5454
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 3129d4c664ec487f2def6cc0d2668b7493f4c988
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616312"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272645"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Uso de scripts de implementación en plantillas (versión preliminar)
 
@@ -222,10 +222,16 @@ Las salidas del script de implementación se deben guardar en la ubicación AZ_S
 
 [jq](https://stedolan.github.io/jq/) se usa en el ejemplo anterior. Se incluye con las imágenes de contenedor. Consulte [Configuración del entorno de desarrollo](#configure-development-environment).
 
-## <a name="handle-non-terminating-errors"></a>Control de errores de no terminación
+## <a name="develop-deployment-scripts"></a>Desarrollo de scripts de implementación
+
+### <a name="handle-non-terminating-errors"></a>Control de errores de no terminación
 
 Puede controlar el modo en que PowerShell responde a los errores de no terminación mediante la variable [ **$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
 ) en el script de implementación. El motor de scripts de implementación no establece ni cambia el valor.  A pesar del valor establecido para $ErrorActionPreference, el script de implementación establece el estado de aprovisionamiento de los recursos en *Error* cuando el script encuentra un error.
+
+### <a name="pass-secured-strings-to-deployment-script"></a>Paso de cadenas protegidas al script de implementación
+
+El establecimiento de variables de entorno en las instancias de contenedor le permite proporcionar configuración dinámica de la aplicación o el script ejecutados por el contenedor. El script de implementación controla las variables de entorno no protegidas y protegidas de la misma manera que Azure Container Instance. Para más información, consulte [Establecimiento de variables de entorno en instancias de contenedor](../../container-instances/container-instances-environment-variables.md#secure-values).
 
 ## <a name="debug-deployment-scripts"></a>Depuración de scripts de implementación
 

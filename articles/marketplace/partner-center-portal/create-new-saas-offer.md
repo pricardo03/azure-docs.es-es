@@ -7,13 +7,13 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/22/2020
-ms.openlocfilehash: 4cac2fcd16f779a6b31e36ca175801eedaa31d5d
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.date: 02/28/2020
+ms.openlocfilehash: 9d06b34b459bf1d48aa293a889af57fb6192015d
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705826"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208872"
 ---
 # <a name="create-a-new-saas-offer"></a>Creación de una oferta de SaaS
 
@@ -134,16 +134,7 @@ Una versión de prueba es una excelente manera de presentar la oferta a clientes
 
 Al habilitar una versión de prueba, se le pedirá que configure un entorno de demostración para que los clientes prueben su oferta durante un período fijo. 
 
-### <a name="type-of-test-drive"></a>Tipo de versión de prueba
-
-- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** : Una plantilla de implementación que contiene todos los recursos de Azure que componen la solución. Los productos que se ajustan a este escenario usan solo recursos de Azure.
-- **[Dynamics 365 for Business Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** : Microsoft hospeda y mantiene el servicio de la unidad de prueba (lo que incluye el aprovisionamiento y la implementación) de un sistema de planeamiento de recursos empresariales Business Central (finanzas, operaciones, cadena de suministros, CRM, etc.)  
-- **[Dynamics 365 for Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** : Microsoft hospeda y mantiene el servicio de la unidad de prueba (incluido el aprovisionamiento y la implementación) para un sistema de Customer Engagement (ventas, servicio, servicio de proyecto, el servicio de campo, etc.)  
-- **[Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** : Microsoft hospeda y mantiene el servicio de la unidad de prueba (lo que incluye el aprovisionamiento y la implementación) de un sistema de planeamiento de recursos empresariales Finance and Operations (finanzas, operaciones, fabricación, cadena de suministros, etc.) 
-- **[Aplicación lógica](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** : una plantilla de implementación que abarca todas las arquitecturas de soluciones complejas. Todos los productos personalizados deben usar este tipo de versión de prueba.
-- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** : un vínculo incrustado a un panel personalizado. Los productos que deseen realizar una demostración de un objeto visual interactivo de Power BI deben usar este tipo de versión de prueba. Todo lo que necesita para la carga aquí es la dirección URL insertada de Power BI.
-
-#### <a name="additional-test-drive-resources"></a>Recursos adicionales de una unidad de prueba
+#### <a name="test-drive-resources"></a>Recursos de la versión de prueba
 - [Procedimientos recomendados técnicos de la versión de prueba](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Procedimientos recomendados de marketing de la versión de prueba](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
 - [Póster Introducción a las versiones de prueba](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)
@@ -234,7 +225,7 @@ Especifique los detalles que se muestran en Marketplace, lo que incluye descripc
 - **Nombre** (obligatorio): El nombre que se define aquí aparecerá como título de la descripción de la oferta en los Marketplace que ha elegido. El nombre se rellena previamente en función de lo que se haya escrito en **Nueva oferta**. El nombre puede ser una marca comercial. No puede contener emojis (a menos que sean símbolos de marca comercial y copyright), y no puede tener más de 50 caracteres.
 - **Resumen** (se requiere): especifique una descripción breve de la oferta que se va a usar en los resultados de búsqueda en las descripciones de Marketplace. En este campo se puede escribir hasta 100 caracteres de texto.
 - **Descripción** (se requiere): especifique una descripción de la oferta que se va a mostrar en la información general de las descripciones de Marketplace. Considere la posibilidad de incluir una propuesta de valor, los beneficios clave, todas las asociaciones de la categoría o sector, las oportunidades de compra en la aplicación, todas las divulgaciones necesarias y un vínculo para obtener más información.
-En este campo se puede escribir hasta 3000 caracteres de texto. En el artículo [Escribir una excelente descripción de la aplicación](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description) encontrará más sugerencias.
+En este campo se puede escribir hasta 3000 caracteres de texto, incluido el incremento. En el artículo [Escribir una excelente descripción de la aplicación](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description) encontrará más sugerencias.
 - **Palabras clave de búsqueda**: escriba un máximo de tres palabras clave de búsqueda que los clientes puedan usar para buscar su oferta en Marketplace.
 - **Instrucciones para las Tareas iniciales**  (se requiere): se explica cómo configurar y empezar a usar la aplicación para los clientes potenciales.  Este tutorial de inicio rápido puede contener vínculos a documentación en línea más detallada. En este campo se puede escribir hasta 3000 caracteres de texto.
 
@@ -290,7 +281,7 @@ Siga las instrucciones siguientes para usar el editor de texto enriquecido:
 #### <a name="files-and-images"></a>Archivos e imágenes
 
 - **Documentos** (se requiere): agregue a su oferta documentos de marketing relacionados, en formato PDF. Incluya un proporciona un mínimo de un (1) documento por oferta y un máximo de tres (3).
-- **Imágenes** (opcional): en todos los catálogos, hay varios lugares en los que pueden aparecer imágenes del logotipo de su oferta, que requieren los siguientes tamaños: Pequeño ( 48 x 48 píxeles _(se requiere),_ Mediano: 90 x 90 píxeles, Grande: 216 x 216 píxeles _(se requiere),_ Ancho: 255 x 115 píxeles y Héroe: 815 x 290 píxeles. Todas las imágenes deben estar en formato .PNG.
+- **Imágenes** (opcional): en todos los catálogos, hay varios lugares en los que pueden aparecer imágenes del logotipo de su oferta, que requieren los siguientes tamaños: Pequeño ( 48 x 48 píxeles _(se requiere),_ Mediano: 90 x 90 píxeles _(se requiere)_ , Grande: 216 x 216 píxeles _(se requiere),_ Ancho: 255 x 115 píxeles y Héroe: 815 x 290 píxeles. Todas las imágenes deben estar en formato .PNG.
 - **Capturas de pantalla** (se requiere): agregue capturas de pantalla que muestren la oferta. Se pueden agregar hasta cinco (5) y deben ser de 1280 x 720 píxeles. Todas las imágenes deben estar en formato .PNG.
 - **Vídeos** (opcional): agregue vínculos a vídeos en que se muestre la oferta. Puede usar vínculos a vídeos de YouTube o Vimeo para que acompañen a la oferta para los clientes. También tendrá que incluir una imagen en miniatura del vídeo con un tamaño de 1280 x 720 píxeles y en formato PNG. Puede mostrar un máximo de cuatro vídeos por oferta.
 

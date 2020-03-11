@@ -7,21 +7,22 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: f5ff4ca94f9e9c6bd03cde6b948331e42cc6225a
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 346fc3d5a4e7b165caafd9847b9797abae0c9113
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77617816"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659992"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Actualización de Azure Load Balancer interno con necesidad de conexión de salida
 [Azure Standard Load Balancer](load-balancer-overview.md) ofrece un amplio conjunto de funcionalidades y alta disponibilidad gracias a la redundancia de zona. Para más información acerca de la SKU de Load Balancer, consulte la [tabla de comparación](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus). Dado que Standard Load Balancer interno no proporciona conexión de salida, se ofrece una solución para crear una instancia de Standard Public Load Balancer en su lugar.
 
-Hay tres fases en una actualización:
+Hay cuatro fases en una actualización:
 
 1. Migrar la configuración a Standard Public Load Balancer
 2. Agregar máquinas virtuales a los grupos de back-end de Standard Public Load Balancer
-3. Configurar reglas de NSG para la subred o las máquinas virtuales que deben evitar Internet
+3. Crear una regla de salida en Load Balancer para la conexión de salida
+4. Configurar reglas de NSG para la subred o las máquinas virtuales que deben evitar Internet
 
 Este artículo trata sobre la migración de la configuración. La incorporación de máquinas virtuales a los grupos de back-end puede variar en función de su entorno específico. pero [se proporcionan](#add-vms-to-backend-pools-of-standard-load-balancer) algunas recomendaciones generales de alto nivel.
 
@@ -83,7 +84,7 @@ Para ejecutar el script:
     **Ejemplo**
 
    ```azurepowershell
-   ./AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
+   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
    ```
 
 ### <a name="add-vms-to-backend-pools-of-standard-load-balancer"></a>Incorporación de máquinas virtuales a los grupos de back-end de Standard Load Balancer
@@ -109,6 +110,12 @@ Estos son algunos escenarios en los que puede agregar máquinas virtuales a los 
 
 * **Creación de nuevas máquinas virtuales para agregarlas a los grupos de back-end de la instancia de Standard Public Load Balancer recién creada**.
     * [Aquí](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines) encontrará más instrucciones sobre cómo crear una máquina virtual y cómo asociarla con Standard Load Balancer.
+
+### <a name="create-an-outbound-rule-for-outbound-connection"></a>Creación de una regla de salida para la conexión de salida
+
+Siga las [instrucciones ](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-portal#create-outbound-rule-configuration) para crear una regla de salida para poder:
+* Definir la NAT de salida desde cero.
+* Escalar y ajustar el comportamiento de la NAT de salida existente.
 
 ### <a name="create-nsg-rules-for-vms-which-to-refrain-communication-from-or-to-the-internet"></a>Creación de reglas de NSG para las máquinas virtuales a fin de evitar la comunicación en Internet
 Si quiere evitar que el tráfico de Internet llegue a las máquinas virtuales, puede crear una [regla de NSG](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) en la interfaz de red de las máquinas virtuales.

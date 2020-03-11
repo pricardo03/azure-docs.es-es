@@ -1,21 +1,19 @@
 ---
-title: Establecimiento de alertas en Azure Application Insights | Microsoft Docs
+title: Establecimiento de alertas en Azure Application Insights
 description: Reciba notificaciones acerca de tiempos de respuesta lentos, excepciones y otros cambios de rendimiento o uso de la aplicación web.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/23/2019
 ms.reviewer: lagayhar
-ms.openlocfilehash: a21e2676d1b03472c58e2f95095a1a59d00b16be
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.subservice: alerts
+ms.openlocfilehash: 80759c94d7cc5b60b6e38a34b85fb64c3c18fd2e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678406"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666724"
 ---
 # <a name="set-alerts-in-application-insights"></a>Definición de alertas en Application Insights
+
 [Azure Application Insights][start] puede avisarle sobre los cambios en las métricas de rendimiento o de uso de la aplicación web. 
 
 Application Insights supervisa la aplicación activa en una [amplia variedad de plataformas][platforms] para ayudarlo a diagnosticar problemas de rendimiento y a entender los patrones de uso.
@@ -28,6 +26,7 @@ Hay varios tipos de alertas:
 * [**Diagnósticos proactivos**](../../azure-monitor/app/proactive-diagnostics.md) se configuran automáticamente para que le notifiquen acerca de patrones de rendimiento no habituales.
 
 ## <a name="set-a-metric-alert"></a>Establecimiento de una alerta de métrica
+
 Abra la pestaña Reglas de alerta y, a continuación, utilice el botón Agregar.
 
 ![En la pestaña Reglas de alerta, elija Agregar alerta. Establezca la aplicación como el recurso que se va a medir, proporcione un nombre para la alerta y elija una métrica.](./media/alerts/01-set-metric.png)
@@ -175,7 +174,7 @@ Use la nueva experiencia de alertas o las alertas prácticamente en tiempo real 
 * [Uso de PowerShell para automatizar la configuración de alertas](../../azure-monitor/app/powershell-alerts.md)
 * [Uso de Webhook para automatizar la respuesta a alertas](../../azure-monitor/platform/alerts-webhooks.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 * [Pruebas web de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Use PowerShell to set alerts in Application Insights (Uso de PowerShell para definir alertas en Application Insights)](../../azure-monitor/app/powershell-alerts.md)
 * [Proactive diagnostics](../../azure-monitor/app/proactive-diagnostics.md) 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 482154a37334b056719a18355f87b467d4fe95c7
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 2aeb2ab4cfb4ed5e8652638aaced320cc7119d3e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604242"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919488"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Administración entre inquilinos en Security Center
 
@@ -50,7 +50,7 @@ Las vistas y acciones son básicamente las mismas. Estos son algunos ejemplos:
 - **Corrección de recomendaciones**: supervise y corrija una [recomendación](security-center-recommendations.md) para varios recursos de varios inquilinos de una sola vez. Luego, puede abordar de inmediato las vulnerabilidades que presentan el riesgo más alto en todos los inquilinos.
 - **Administrar alertas**: detecte [alertas](security-center-alerts-overview.md) en los distintos inquilinos. Tome medidas en los recursos que no cumplen con los [pasos de corrección](security-center-managing-and-responding-alerts.md) accionables.
 
-- **Administrar las características de protección en la nube avanzada y mucho más**: administre los distintos servicios de detección y protección ante amenazas, como el [acceso a VM Just-in-Time (JIT)](security-center-just-in-time.md), la [protección de red adaptable](security-center-adaptive-network-hardening.md), los [controles de aplicaciones adaptables](security-center-adaptive-application.md), etc.
+- **Administrar las características de protección en la nube avanzada y mucho más**: administre los distintos servicios de protección contra amenazas, como el [acceso a VM Just-in-Time (JIT)](security-center-just-in-time.md), la [protección de red adaptable](security-center-adaptive-network-hardening.md), los [controles de aplicaciones adaptables](security-center-adaptive-application.md), etc.
  
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo se explica cómo funciona la administración entre inquilinos en Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:

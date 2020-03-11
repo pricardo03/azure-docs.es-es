@@ -1,26 +1,26 @@
 ---
 title: Direcciones IP de administración de HDInsight de Azure
-description: Obtenga información sobre las direcciones IP a las que debe permitir el tráfico de entrada, con el fin de configurar correctamente los grupos de seguridad de red y las rutas definidas por el usuario para la red virtual con Azure HDInsight.
-author: hol82
-ms.author: hol
-ms.reviewer: hrasheed
+description: Obtenga información sobre las direcciones IP a las que tiene que permitir el tráfico de entrada, con el fin de configurar correctamente los grupos de seguridad de red y las rutas definidas por el usuario para la red virtual con Azure HDInsight.
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/16/2019
-ms.openlocfilehash: 982e80f4c47a6f59b65edb06461a9d592248cc61
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.custom: hdinsightactive
+ms.date: 03/03/2020
+ms.openlocfilehash: 5e8f39b58f258742108fe323d9395efd87bc288f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76929884"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271807"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Direcciones IP de administración de HDInsight
 
 > [!Important]
 > En la mayoría de los casos, ahora puede usar la característica [etiqueta de servicio](hdinsight-service-tags.md) para los grupos de seguridad de red, en lugar de agregar manualmente las direcciones IP. Solo se agregarán nuevas regiones para las etiquetas de servicio y las direcciones IP estáticas quedarán en desuso.
 
-Si usa grupos de seguridad de red (NSG) o rutas definidas por el usuario (UDR) para controlar el tráfico entrante a su clúster de HDInsight, debe asegurarse de que el clúster pueda comunicarse con los servicios críticos de mantenimiento y administración de Azure.  Algunas de las direcciones IP de esos servicios son específicas de la región y algunas de ellas se aplican a todas las regiones de Azure. También es posible que deba permitir el tráfico desde el servicio Azure DNS si no usa DNS personalizado.
+Si usa grupos de seguridad de red (NSG) o rutas definidas por el usuario (UDR) para controlar el tráfico entrante a su clúster de HDInsight, tiene que asegurarse de que el clúster pueda comunicarse con los servicios críticos de mantenimiento y administración de Azure.  Algunas de las direcciones IP de esos servicios son específicas de una región y otra se aplican a todas las regiones de Azure. También es posible que deba permitir el tráfico desde el servicio Azure DNS si no usa DNS personalizado.
 
 En las secciones siguientes se describen las direcciones IP específicas que se deben permitir.
 
@@ -30,7 +30,7 @@ Si usa el servicio DNS proporcionado por Azure, debe permitir el acceso desde __
 
 ## <a name="health-and-management-services-all-regions"></a>Servicios de mantenimiento y administración: Todas las regiones
 
-Permita el tráfico desde las siguientes direcciones IP de los servicios de mantenimiento y administración de Azure HDInsight que se aplican a todas las regiones de Azure:
+Permita el tráfico desde las siguientes direcciones IP para los servicios de mantenimiento y administración de Azure HDInsight, esto es aplicable a todas las regiones de Azure:
 
 | Dirección IP de origen | Destination  | Dirección |
 | ---- | ----- | ----- |
@@ -48,8 +48,8 @@ Permita el tráfico desde las direcciones IP enumeradas en los servicios de mant
 
 | Country | Region | Direcciones IP de origen permitidas | Destino permitido | Dirección |
 | ---- | ---- | ---- | ---- | ----- |
-| Asia | Asia oriental | 23.102.235.122</br>52.175.38.134 | \*:443 | Entrada |
-| &nbsp; | Sudeste asiático | 13.76.245.160</br>13.76.136.249 | \*:443 | Entrada |
+| Asia | Este de Asia | 23.102.235.122</br>52.175.38.134 | \*:443 | Entrada |
+| &nbsp; | Sudeste de Asia | 13.76.245.160</br>13.76.136.249 | \*:443 | Entrada |
 | Australia | Este de Australia | 104.210.84.115</br>13.75.152.195 | \*:443 | Entrada |
 | &nbsp; | Sudeste de Australia | 13.77.2.56</br>13.77.2.94 | \*:443 | Entrada |
 | Brasil | Sur de Brasil | 191.235.84.104</br>191.235.87.113 | \*:443 | Entrada |
@@ -65,7 +65,7 @@ Permita el tráfico desde las direcciones IP enumeradas en los servicios de mant
 | Alemania | Centro de Alemania | 51.4.146.68</br>51.4.146.80 | \*:443 | Entrada |
 | &nbsp; | Nordeste de Alemania | 51.5.150.132</br>51.5.144.101 | \*:443 | Entrada |
 | India | Centro de la India | 52.172.153.209</br>52.172.152.49 | \*:443 | Entrada |
-| &nbsp; | India del Sur | 104.211.223.67<br/>104.211.216.210 | \*:443 | Entrada |
+| &nbsp; | Sur de la India | 104.211.223.67<br/>104.211.216.210 | \*:443 | Entrada |
 | Japón | Japón Oriental | 13.78.125.90</br>13.78.89.60 | \*:443 | Entrada |
 | &nbsp; | Japón Occidental | 40.74.125.69</br>138.91.29.150 | \*:443 | Entrada |
 | Corea | Centro de Corea del Sur | 52.231.39.142</br>52.231.36.209 | \*:443 | Entrada |
@@ -84,8 +84,9 @@ Para más información sobre las direcciones IP que se van a usar para Azure Gov
 
 Para más información, vea la sección [Control del tráfico de red](hdinsight-plan-virtual-network-deployment.md#networktraffic).
 
-Si está usando rutas definidas por el usuario (UDR), debe especificar una ruta y permitir el tráfico saliente desde la red virtual a las IP anteriores, con el siguiente salto configurado en "Internet".
+Si está usando rutas definidas por el usuario (UDR), debe especificar una ruta y permitir el tráfico saliente desde la red virtual a las IP anteriores, con el próximo salto configurado en "Internet".
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación de redes virtuales para clústeres de Azure HDInsight](hdinsight-create-virtual-network.md)
+* [Etiquetas de servicio del grupo de seguridad de red (NSG) para Azure HDInsight](hdinsight-service-tags.md)

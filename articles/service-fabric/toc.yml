@@ -121,7 +121,7 @@
       href: service-fabric-content-roadmap.md
     - name: Escenarios de aplicación
       href: service-fabric-application-scenarios.md
-    - name: Arquitectura
+    - name: Architecture
       href: service-fabric-architecture.md
     - name: Seguridad
       items:
@@ -145,7 +145,7 @@
               href: service-fabric-containers-overview.md
             - name: Docker Compose (versión preliminar)
               href: service-fabric-docker-compose.md
-            - name: Gobernanza de recursos
+            - name: Regulación de recursos
               href: service-fabric-resource-governance.md
         - name: Reliable Services
           items:
@@ -177,7 +177,7 @@
           items:
             - name: Introducción a Reliable Actors
               href: service-fabric-reliable-actors-introduction.md
-            - name: Arquitectura
+            - name: Architecture
               href: service-fabric-reliable-actors-platform.md
             - name: Implementación de características de nivel de servicio
               href: service-fabric-reliable-actors-using.md
@@ -210,7 +210,7 @@
               href: service-fabric-manifest-example-container-app.md
         - name: Modelo de alojamiento
           href: service-fabric-hosting-model.md
-        - name: Seguridad de las aplicaciones
+        - name: Seguridad de la aplicación
           href: service-fabric-application-and-service-security.md
         - name: Estado de servicio
           href: service-fabric-concepts-state.md
@@ -280,7 +280,7 @@
               href: service-fabric-cluster-nodetypes.md
             - name: Actualización de clústeres en Azure
               href: service-fabric-cluster-upgrade.md
-            - name: Escalado
+            - name: Ampliación
               href: service-fabric-cluster-scaling.md
             - name: Patrones de redes en clúster
               href: service-fabric-patterns-networking.md
@@ -290,13 +290,13 @@
               href: service-fabric-standalone-clusters-overview.md
             - name: Actualización de clústeres independientes
               href: service-fabric-cluster-upgrade-standalone.md
-            - name: Escalado
+            - name: Ampliación
               href: service-fabric-cluster-scaling-standalone.md
         - name: Administrador de recursos del clúster
           items:
             - name: Introducción al administrador de recursos de clúster
               href: service-fabric-cluster-resource-manager-introduction.md
-            - name: Arquitectura
+            - name: Architecture
               href: service-fabric-cluster-resource-manager-architecture.md
             - name: Descripción de un clúster
               href: service-fabric-cluster-resource-manager-cluster-description.md
@@ -316,6 +316,8 @@
               href: service-fabric-cluster-resource-manager-defragmentation-metrics.md
             - name: Equilibrado de un clúster
               href: service-fabric-cluster-resource-manager-balancing.md
+            - name: Agrupación en subclústeres
+              href: service-fabric-cluster-resource-manager-subclustering.md
             - name: Limitaciones
               href: service-fabric-cluster-resource-manager-advanced-throttling.md
             - name: Movimiento de servicio
@@ -358,7 +360,7 @@
       href: concepts-managed-identity.md
     - name: Configuración de las credenciales del repositorio del contenedor
       href: configure-container-repository-credentials.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Configurado su entorno de desarrollo
       items:
@@ -697,7 +699,7 @@
                   href: service-fabric-cluster-upgrade-windows-server.md
                 - name: Actualización de la configuración del clúster
                   href: service-fabric-cluster-config-upgrade-windows-server.md
-                - name: Valores de configuración
+                - name: Parámetros de configuración
                   href: service-fabric-cluster-manifest.md
                 - name: Establecimiento del control de acceso
                   href: service-fabric-cluster-security-roles.md

@@ -1,18 +1,14 @@
 ---
 title: Supervisión del uso y el rendimiento en las aplicaciones de escritorio de Windows
 description: Analice el uso y el rendimiento de la aplicación de escritorio de Windows con Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/29/2019
-ms.openlocfilehash: a9dfc32a0f33db5639d5f74667a90a248dc358a1
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 8234b9ba2c92fc64cfa8f598db99954e00caab45
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052452"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670838"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Supervisión del uso y el rendimiento en las aplicaciones de escritorio de Windows clásicas
 
@@ -24,7 +20,7 @@ Las aplicaciones hospedadas en el entorno local, en Azure y en otras nubes puede
 3. En Visual Studio, edite los paquetes NuGet de su proyecto de aplicación y agregue Microsoft.ApplicationInsights.WindowsServer. (O elija Microsoft.ApplicationInsights si únicamente le interesa la API sola, sin los módulos de recopilación de telemetría estándar).
 4. Establezca la clave de instrumentación en el código:
    
-    `TelemetryConfiguration.Active.InstrumentationKey = "`*su clave*`";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "` *su clave* `";`
    
     o en ApplicationInsights.config (si tiene instalado uno de los paquetes de telemetría estándar):
    

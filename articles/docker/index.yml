@@ -1,0 +1,43 @@
+### YamlMime:Landing
+title: Docker en la documentación de Azure
+summary: Docker es una conocida plataforma de creación de imágenes y administración de contenedores que le permite trabajar rápidamente con contenedores en Linux y Windows. Aprenda a sacar el máximo partido a Docker en Azure.
+metadata:
+  title: Docker en la documentación de Azure
+  description: Docker es una conocida plataforma de creación de imágenes y administración de contenedores que le permite trabajar rápidamente con contenedores en Linux y Windows. Aprenda a sacar el máximo partido a Docker en Azure.
+  services: multiple
+  ms.service: multiple
+  ms.topic: landing-page
+  author: georgewallace
+  ms.author: gwallace
+  ms.date: 03/08/2020
+  ms.openlocfilehash: daff334cbbe118d6fdbc42a5497313f9671fd7f1
+  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 03/09/2020
+  ms.locfileid: "78944018"
+landingContent:
+- title: Implementación de Docker en Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Implementación de Docker en la plantilla de inicio rápido de Ubuntu
+      url: https://azure.microsoft.com/resources/templates/docker-simple-on-ubuntu/
+- title: Introducción
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Ejecución de una aplicación web Python (Django) con PostgreSQL en Azure App Service
+      url: ../app-service/containers/tutorial-python-postgresql-app.md
+    - text: Creación de una infraestructura de desarrollo en una máquina virtual Linux en Azure con Jenkins, GitHub y Docker
+      url: ../jenkins/tutorial-jenkins-github-docker-cicd.md
+- title: Recursos
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Sitio de Azure de Docker
+      url: https://docs.docker.com/docker-for-azure/why/
+    - text: Controlador de Azure de Docker
+      url: https://docs.docker.com/machine/drivers/azure/
+    - text: Más información acerca de Docker
+      url: https://docker.com

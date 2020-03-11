@@ -1,5 +1,5 @@
 ---
-title: ¿Qué es la seguridad de nivel de columna de SQL Data Warehouse?
+title: ¿Qué es la seguridad de nivel de columna de Azure Synapse?
 description: La seguridad de nivel de columna permite a los clientes controlar el acceso a las columnas de tablas de base de datos según el contexto de ejecución del usuario o la pertenencia a un grupo, lo cual permite simplificar el diseño y la codificación de seguridad de la aplicación, e implementar restricciones en el acceso a las columnas.
 services: sql-data-warehouse
 author: julieMSFT
@@ -7,16 +7,17 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 04/02/2019
+ms.date: 02/05/2020
 ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 344701989a753e17d8a026f6bb771a6030bdb71f
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+tags: azure-synapse
+ms.openlocfilehash: aa9791f019436cc5c7effc9bce197d89131a6557
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513055"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199978"
 ---
 # <a name="column-level-security"></a>Seguridad de nivel de columna
 
@@ -24,7 +25,7 @@ La seguridad de nivel de columna permite a los clientes controlar el acceso a co
 
 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
-Desde que se publicó este vídeo, la [seguridad de nivel de fila](/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017) también está disponible en SQL Data Warehouse. 
+Desde que se publicó este vídeo, la [seguridad de nivel de fila](/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017) también está disponible en Azure Synapse. 
 
 La seguridad de nivel de columna simplifica el diseño y la codificación de la seguridad de la aplicación y esto le permite restringir el acceso a las columnas para proteger información confidencial. Por ejemplo, garantiza que determinados usuarios puedan acceder solo a ciertas columnas de una tabla pertenecientes a su departamento. La lógica de la restricción de acceso está ubicada en el nivel de base de datos en lugar de estar alejado de los datos en otro nivel de aplicación. La base de datos aplica las restricciones de acceso cada vez que se intenta acceder a los datos desde cualquier nivel. Esta restricción hace que la seguridad resulte más sólida y confiable, ya que reduce el área expuesta del sistema de seguridad global. Además, la seguridad de nivel de columna también elimina la necesidad de introducir vistas para filtrar las columnas a fin de imponer restricciones de acceso a los usuarios.
 

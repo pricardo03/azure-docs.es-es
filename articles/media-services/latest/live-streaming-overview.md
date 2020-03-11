@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: juliako
-ms.openlocfilehash: 93005b181075ac671af6c8d73a3f2a06ed9eb0d8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b366262ce7849658eb84444d873956c25ab38804
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977750"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78244662"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en vivo con Azure Media Services v3
 
@@ -44,7 +44,7 @@ Con Media Services puede aprovechar el [empaquetado dinámico](dynamic-packaging
 El cifrado dinámico permite cifrar de forma dinámica el contenido en directo o a petición con AES-128 o cualquiera de los tres principales sistemas de administración de derechos digitales (DRM): Microsoft PlayReady, Google Widevine y Apple FairPlay. Media Services también proporciona un servicio para entregar claves AES y licencias de DMR (PlayReady, Widevine y FairPlay) a los clientes autorizados. Para obtener más información, consulte [Cifrado dinámico](content-protection-overview.md).
 
 > [!NOTE]
-> Widevine es un servicio que ofrece Google Inc. y está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
+> Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
 
 ## <a name="dynamic-manifest"></a>Manifiesto dinámico
 
@@ -52,7 +52,7 @@ El filtro dinámico se usa para controlar el número de pistas, formatos, veloci
 
 ## <a name="live-event-types"></a>Tipos de objetos LiveEvent
 
-Los objetos [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) son responsables de la ingesta y el procesamiento de las fuentes de vídeo en directo. Un objeto LiveEvent puede ser de uno de estos dos tipos: paso a través y codificación en directo. Para obtener más información sobre el streaming en vivo en Media Services v3, vea [Eventos en directo y salidas en vivo](live-events-outputs-concept.md).
+Los objetos [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) son responsables de la ingesta y el procesamiento de las fuentes de vídeo en directo. Un evento en directo se puede establecer en una codificación de *paso a través* (un codificador en directo local envía una secuencia de velocidad de bits múltiple) o en una *codificación en directo* (un codificador en directo local envía una secuencia de velocidad de bits única). Para obtener más información sobre el streaming en vivo en Media Services v3, vea [Eventos en directo y salidas en vivo](live-events-outputs-concept.md).
 
 ### <a name="pass-through"></a>Paso a través
 

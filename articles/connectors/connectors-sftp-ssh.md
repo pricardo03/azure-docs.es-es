@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 02/28/2020
 tags: connectors
-ms.openlocfilehash: 3370eea8909f30563babcf2a84f727ba51f67e29
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: e7a0791cc2bca672e7fde142650ad25e7e8ab58b
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77647640"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161881"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Supervisión, creación y administración de archivos SFTP mediante SSH y Azure Logic Apps
 
@@ -31,7 +31,28 @@ Para conocer las diferencias entre el conector SFTP-SSH y el conector SFTP, revi
 
 ## <a name="limits"></a>límites
 
-* De forma predeterminada, las acciones SFTP-SSH pueden leer o escribir archivos de *1 GB o más pequeños*, pero solo en fragmentos de *15 MB* a la vez. Para controlar archivos de más de 15 MB, las acciones SFTP-SSH admiten [fragmentación de mensajes](../logic-apps/logic-apps-handle-large-messages.md), excepto para la acción Copiar archivo, que solo puede controlar los archivos de 15 MB. La acción **Obtener contenido de archivo** usa implícitamente la fragmentación de mensajes.
+* Las acciones de SFTP-SSH que admiten la [fragmentación](../logic-apps/logic-apps-handle-large-messages.md) pueden administrar archivos de hasta 1 GB, mientras que las acciones de SFTP-SSH que no admiten la fragmentación pueden administrar archivos de hasta 50 MB. Aunque el tamaño de fragmento predeterminado es de 15 MB, este tamaño puede cambiar dinámicamente, empezando por 5 MB y aumentando gradualmente hasta 50 MB, como máximo, en función de factores como la latencia de red, el tiempo de respuesta del servidor, etc.
+
+  > [!NOTE]
+  > En el caso de las aplicaciones lógicas de un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versión con la etiqueta ISE de este conector usa en su lugar los [límites de mensajes de ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits).
+
+  El tamaño del fragmento está asociado a una conexión, lo que significa que puede usar la misma conexión para las acciones que admiten la fragmentación y, a continuación, para las acciones que no la admiten. En este caso, el tamaño del fragmento para las acciones que no admiten fragmentación abarca de 5 MB a 50 MB. En esta tabla se muestra qué acciones de SFTP-SSH admiten fragmentación:
+
+  | Acción | Compatibilidad con la fragmentación |
+  |--------|------------------|
+  | **Copiar archivo** | Sin |
+  | **Crear archivo** | Sí |
+  | **Crear carpeta** | No aplicable |
+  | **Eliminar archivo** | No aplicable |
+  | **Extraer archivo en la carpeta** | No aplicable |
+  | **Obtener contenido de archivo** | Sí |
+  | **Obtener contenido de archivo mediante la ruta de acceso** | Sí |
+  | **Obtener metadatos de archivo** | No aplicable |
+  | **Obtener metadatos de archivo mediante la ruta de acceso** | No aplicable |
+  | **Enumerar archivos de la carpeta** | No aplicable |
+  | **Cambiar nombre de archivo** | No aplicable |
+  | **Actualizar archivo** | Sin |
+  |||
 
 * Los desencadenadores SFTP-SSH no admiten la fragmentación. Cuando se solicita el contenido del archivo, los desencadenadores seleccionan solo los archivos que tienen un tamaño de 15 MB o menos. Para obtener archivos de más de 15 MB, siga este patrón en su lugar:
 
@@ -46,10 +67,6 @@ Para conocer las diferencias entre el conector SFTP-SSH y el conector SFTP, revi
 Estas son otras diferencias importantes entre el conector SFTP-SSH y el conector SFTP donde el conector SFTP-SSH tiene estas funcionalidades:
 
 * Usa la biblioteca [SSH.NET](https://github.com/sshnet/SSH.NET), que es una biblioteca de Secure Shell (SSH) de código abierto que admite .NET.
-
-* De forma predeterminada, las acciones SFTP-SSH pueden leer o escribir archivos de *1 GB o más pequeños*, pero solo en fragmentos de *15 MB* a la vez.
-
-  Para controlar los archivos de más de 15 MB, las acciones SFTP-SSH pueden usar la [fragmentación de mensajes](../logic-apps/logic-apps-handle-large-messages.md). Sin embargo, la acción Copiar archivo admite solo los archivos de 15 MB porque esa acción no admite la fragmentación de mensajes. Los desencadenadores SFTP-SSH no admiten la fragmentación. Para cargar archivos de gran tamaño, necesita permisos de lectura y escritura para la carpeta raíz en el servidor SFTP.
 
 * Proporciona la acción **Crear carpeta**, que crea una carpeta en la ruta de acceso especificada en el servidor SFTP.
 

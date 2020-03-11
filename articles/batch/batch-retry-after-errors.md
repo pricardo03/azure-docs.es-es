@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 02/15/2020
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: eda567fda13d6caca679d0ce4947e042eca9530d
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 94ed936e619461a2dbf7ec837c2d80e21c01c88e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651934"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919998"
 ---
 # <a name="detecting-and-handling-batch-service-errors"></a>Detección y control de errores en el servicio Batch
 
@@ -33,11 +33,16 @@ Es importante recordar comprobar si hay errores al trabajar con una API del serv
 - La limitación puede producir errores como respuestas con código de estado HTTP 429 o 503 con el encabezado Retry-after.
 - Los errores 4xx que incluyen errores como AlreadyExists e InvalidOperation. Esto significa que el recurso no está en el estado correcto para la transición de estado.
 
+Para información detallada sobre los distintos tipos de códigos de error y los códigos de error específicos, vea [Estado del lote y códigos de error](https://docs.microsoft.com/rest/api/batchservice/batch-status-and-error-codes).
+
 ## <a name="when-to-retry"></a>Cuándo se debe reintentar
 
 Las API de Batch le notificarán si se produce un error. Todos pueden volver a intentarse y todos incluyen un controlador de reintentos global para ese propósito. Es mejor utilizar este mecanismo integrado.
 
 Después de un error, debe esperar un poco (varios segundos entre reintentos) antes de volver a intentarlo. Si realiza reintentos con demasiada frecuencia o demasiado rápido, el controlador de reintentos lo limitará.
 
+### <a name="for-more-information"></a>Para obtener más información  
+
+Vínculos a [API y herramientas de Batch](batch-apis-tools.md) e información de referencia de las API. La API .NET, por ejemplo, tiene una [clase RetryPolicyProvider]( https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.retrypolicyprovider?view=azure-dotnet) donde debe especificarse la directiva de reintentos necesaria. 
 
 Para obtener información detallada sobre cada API y sus directivas de reintento predeterminadas, consulte [Códigos de estado y de error de Batch](https://docs.microsoft.com/rest/api/batchservice/batch-status-and-error-codes).

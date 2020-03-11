@@ -3,18 +3,18 @@ title: Adición de un elemento emergente a un punto de un mapa | Microsoft Azure
 description: En este artículo, obtendrá información sobre cómo agregar un elemento emergente a un punto mediante el SDK web de Microsoft Azure Maps.
 author: jingjing-z
 ms.author: jinzh
-ms.date: 07/29/2019
+ms.date: 02/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 45d210725f7f09663b126528479655d7f4d9c19f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 588de08666930937c3ad965b2609f8e207b75eca
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933355"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208855"
 ---
 # <a name="add-a-popup-to-the-map"></a>Adición de un elemento emergente al mapa
 
@@ -80,16 +80,16 @@ A continuación se muestra el código de ejemplo de ejecución completo de la fu
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Adición de un elemento emergente con Azure Maps' src='//codepen.io/azuremaps/embed/MPRPvz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/MPRPvz/'>Adición de un elemento emergente con Azure Maps</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Adición de un elemento emergente con Azure Maps' src='//codepen.io/azuremaps/embed/MPRPvz/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/MPRPvz/'>Adición de un elemento emergente con Azure Maps</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="reusing-a-popup-with-multiple-points"></a>Reutilizar un elemento emergente con varios puntos
 
-Si tiene una gran cantidad de puntos y solo desea mostrar un elemento emergente a la vez, lo mejor es crear un único elemento emergente y reutilizarlo. Al reutilizar el elemento emergente, el número de elementos DOM creados por la aplicación se reduce tanto que puede proporcionar un mejor rendimiento. En el ejemplo siguiente se crean tres características de punto. Si hace clic en cualquiera de ellas, se mostrará un menú emergente con el contenido de esa característica de punto.
+Hay casos en los que el mejor enfoque es crear un elemento emergente y reutilizarlo. Por ejemplo, puede tener una gran cantidad de puntos y desear mostrar solo un elemento emergente cada vez. Al reutilizar el elemento emergente, el número de elementos DOM creados por la aplicación se reduce tanto que puede proporcionar un mejor rendimiento. En el ejemplo siguiente se crean tres características de punto. Si hace clic en cualquiera de ellas, se mostrará un menú emergente con el contenido de esa característica de punto.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Reutilizar un elemento emergente con varias marcas' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen sobre <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>reutilización de elementos emergentes con varias marcas</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Reutilizar un elemento emergente con varias marcas' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen sobre <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>reutilización de elementos emergentes con varias marcas</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="customizing-a-popup"></a>Personalización de un elemento emergente
@@ -98,8 +98,145 @@ De forma predeterminada, el elemento emergente tiene un fondo blanco, una flecha
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Elemento emergente personalizado" src="//codepen.io/azuremaps/embed/ymKgdg/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Elemento emergente personalizado" src="//codepen.io/azuremaps/embed/ymKgdg/?height=500&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte el fragmento de código (pen) <a href='https://codepen.io/azuremaps/pen/ymKgdg/'>elemento emergente personalizado</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## <a name="add-popup-templates-to-the-map"></a>Incorporación de plantillas emergentes al mapa
+
+Las plantillas emergentes facilitan la creación de diseños basados en datos para los elementos emergentes. En las secciones siguientes se muestra el uso de varias plantillas emergentes para generar contenido con formato mediante las propiedades de las características.
+
+### <a name="string-template"></a>Plantilla de cadena
+
+La plantilla de cadena reemplaza los marcadores de posición por los valores de las propiedades de la característica. No es necesario asignar un valor de tipo String a las propiedades de la característica. Por ejemplo, `value1` contiene un entero. A continuación, estos valores se pasan a la propiedad Content de `popupTemplate`. 
+
+La opción `numberFormat` especifica el formato del número que se va a mostrar. Si no se especifica el `numberFormat`, el código utilizará el formato de fecha de las plantillas emergentes. La opción `numberFormat` da formato a los números mediante la función [Number.toLocaleString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString). Para dar formato a números grandes, considere la posibilidad de usar la opción `numberFormat` con funciones de [NumberFormat.Format](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat/format). Por ejemplo, el siguiente fragmento de código usa `maximumFractionDigits` para limitar el número de dígitos de fracción a dos.
+
+> [!Note]
+> Solo hay una manera en la que la plantilla de cadena puede representar imágenes. En primer lugar, la plantilla de cadena debe tener una etiqueta de imagen. El valor que se pasa a la etiqueta de imagen debe ser una dirección URL a una imagen. A continuación, la plantilla de cadena debe tener `isImage` establecida en true en `HyperLinkFormatOptions`. La opción `isImage` especifica que el hipervínculo es para una imagen y el hipervínculo se cargará en una etiqueta de imagen. Cuando se haga clic en el hipervínculo, se abrirá la imagen.
+
+```javascript
+new atlas.data.Feature(new atlas.data.Point([-20, -20]), {
+    title: 'Template 1 - String template',
+    value1: 1.2345678,
+    value2: {
+        subValue: 'Pizza'
+    },
+    arrayValue: [3, 4, 5, 6],
+    popupTemplate: {
+        content: 'This template uses a string template with placeholders.<br/><br/> - Value 1 = {value1}<br/> - Value 2 = {value2/subValue}<br/> - Array value [2] = {arrayValue/2}',
+        numberFormat: {
+            maximumFractionDigits: 2
+        }
+    }
+}),
+```
+
+### <a name="propertyinfo-template"></a>Plantilla PropertyInfo
+
+La plantilla PropertyInfo muestra las propiedades disponibles de la característica. La opción `label` especifica el texto que se va a mostrar al usuario. Si no se especifica `label`, el hipervínculo se mostrará. Y, si el hipervínculo es una imagen, se mostrará el valor asignado a la etiqueta "Alt". `dateFormat` especifica el formato de la fecha. Si no se especifica, la fecha se representará como una cadena. La opción `hyperlinkFormat` representa los vínculos en los que se pueden hacer clic; de forma similar, se puede usar la opción `email` para representar direcciones de correo electrónico en las que se puede hacer clic.
+
+Antes de que la plantilla PropertyInfo muestre las propiedades al usuario final, comprueba de forma recursiva que las propiedades se definen realmente para esa característica. También se omite la visualización de las propiedades de estilo y título. Por ejemplo, no mostrará `color`, `size`, `anchor`, `strokeOpacity` y `visibility`. Por lo tanto, una vez completada la comprobación de la ruta de acceso de la propiedad en el back-end, la plantilla PropertyInfo muestra el contenido en un formato de tabla.
+
+```javascript
+new atlas.data.Feature(new atlas.data.Point([20, -20]), {
+    title: 'Template 2 - PropertyInfo',
+    createDate: new Date(),
+    dateNumber: 1569880860542,
+    url: 'https://aka.ms/AzureMapsSamples',
+    email: 'info@microsoft.com',
+    popupTemplate: {
+        content: [{
+    propertyPath: 'createDate',
+    label: 'Created Date'
+    },
+    {
+    propertyPath: 'dateNumber',
+    label: 'Formatted date from number',
+    dateFormat: {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        timeZone: 'UTC',
+        timeZoneName: 'short'
+    }
+    },
+    {
+    propertyPath: 'url',
+    label: 'Code samples',
+    hideLabel: true,
+    hyperlinkFormat: {
+        lable: 'Go to code samples!',
+        target: '_blank'
+    }
+    },
+    {
+    propertyPath: 'email',
+    label: 'Email us',
+    hideLabel: true,
+    hyperlinkFormat: {
+        target: '_blank',
+        scheme: 'mailto:'
+        }
+    }
+        ]
+    }
+}),
+
+```
+
+### <a name="multiple-content-templates"></a>Varias plantillas de contenido
+
+Una característica también puede mostrar contenido mediante una combinación de la plantilla String y la plantilla PropertyInfo. En este caso, la plantilla String representa los valores de los marcadores de posición en un fondo blanco.  Y la plantilla PropertyInfo representa una imagen de ancho completo dentro de una tabla. Las propiedades de este ejemplo son similares a las que se explican en los ejemplos anteriores.
+
+```javascript
+new atlas.data.Feature(new atlas.data.Point([0, 0]), {
+    title: 'Template 3 - Multiple content template',
+    value1: 1.2345678,
+    value2: {
+    subValue: 'Pizza'
+    },
+    arrayValue: [3, 4, 5, 6],
+    imageLink: 'https://azuremapscodesamples.azurewebsites.net/common/images/Pike_Market.jpg',
+    popupTemplate: {
+    content: [
+      'This template has two pieces of content; a string template with placeholders and a array of property info which renders a full width image.<br/><br/> - Value 1 = {value1}<br/> - Value 2 = {value2/subValue}<br/> - Array value [2] = {arrayValue/2}',
+      [{
+        propertyPath: 'imageLink',
+        label: 'Image',
+        hideImageLabel: true,
+        hyperlinkFormat: {
+          isImage: true
+        }
+      }]
+    ],
+    numberFormat: {
+      maximumFractionDigits: 2
+    }
+    }
+    }),
+]);
+```
+
+### <a name="points-without-a-defined-template"></a>Puntos sin una plantilla definida
+
+Cuando la plantilla Popup no se define como una plantilla String, una plantilla PropertyInfo o una combinación de ambas, utiliza la configuración predeterminada. Cuando las propiedades `title` y `description` son las únicas asignadas, la plantilla emergente muestra un fondo blanco y un botón de cerrar en la esquina superior derecha. Y, en pantallas pequeñas y medianas, muestra una flecha en la parte inferior. La configuración predeterminada se muestra dentro de una tabla para todas las propiedades distintas de `title` y `description`. Incluso cuando se revierte a la configuración predeterminada, la plantilla emergente todavía se puede manipular mediante programación. Por ejemplo, los usuarios pueden desactivar la detección de hipervínculos y la configuración predeterminada se seguirá aplicando a otras propiedades.
+
+Haga clic en los puntos del mapa en CodePen. Hay un punto en el mapa para cada una de las siguientes plantillas emergentes: Plantilla String, plantilla PropertyInfo y plantilla de contenido Multiple. También hay tres puntos para mostrar cómo se representan las plantillas mediante la configuración predeterminada.
+
+<br/>
+
+<iframe height='500' scrolling='no' title='PopupTemplates' src='//codepen.io/azuremaps/embed/dyovrzL/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/dyovrzL/'>PopupTemplates</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## <a name="reuse-popup-template"></a>Reutilización de la plantilla emergente
+
+De forma similar a cómo se reutilizan las ventanas emergentes, puede volver a usar las plantillas emergentes. Este enfoque es útil cuando solo desea mostrar una plantilla emergente cada vez, para varios puntos. Al reutilizar la plantilla emergente, el número de elementos DOM que la aplicación crea se reduce, con lo que se mejora el rendimiento de la aplicación. En el ejemplo siguiente se usa la misma plantilla emergente para tres puntos. Si hace clic en cualquiera de ellas, se mostrará un menú emergente con el contenido de esa característica de punto.
+
+<br/>
+
+<iframe height='500' scrolling='no' title='ReusePopupTemplate' src='//codepen.io/azuremaps/embed/WNvjxGw/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/WNvjxGw/'>ReusePopupTemplate</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="popup-events"></a>Eventos emergentes
@@ -108,7 +245,7 @@ Los elementos emergentes se pueden abrir, cerrar y arrastrar. La clase del eleme
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Eventos emergentes" src="//codepen.io/azuremaps/embed/BXrpvB/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Eventos emergentes" src="//codepen.io/azuremaps/embed/BXrpvB/?height=500&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte el fragmento de código (pen) <a href='https://codepen.io/azuremaps/pen/BXrpvB/'>eventos de elemento emergente</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

@@ -10,12 +10,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 1367bf32eea58b828c00ee23a59a32a2fec699ab
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 8fdc64632be8b5fcb3dca8de2ee833fef25719fe
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983102"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656745"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Limitaciones y restricciones de URI de redireccionamiento o URL de respuesta
 
@@ -54,7 +54,7 @@ El modelo de aplicación de Azure AD no admite URI con caracteres comodín para
 > [!NOTE]
 > La nueva experiencia de [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) no permite a los desarrolladores agregar URI con caracteres comodín en la interfaz de usuario. La adición de un URI con caracteres comodín para las aplicaciones que inician sesión en cuentas profesionales o educativas solo está permitida a través del editor de manifiestos de la aplicación. A partir de ahora, las nuevas aplicaciones no podrán usar caracteres comodín en el URI de redireccionamiento. Aun así, las aplicaciones antiguas que contienen caracteres comodín en los URI de redireccionamiento seguirán funcionando.
 
-Si su escenario requiere más URI de redireccionamiento de los permitidos en el límite máximo, en lugar de agregar un URI de redireccionamiento con caracteres comodín, considere la posibilidad de seguir uno de los enfoques que se indican a continuación.
+Si su escenario requiere más identificadores URI de redireccionamiento que el límite máximo permitido, en lugar de agregar un URI de redireccionamiento con caracteres comodín, considere la posibilidad de seguir el siguiente enfoque.
 
 ### <a name="use-a-state-parameter"></a>Uso de un parámetro de estado
 
@@ -70,10 +70,6 @@ Según este enfoque:
 
 > [!NOTE]
 > Este enfoque permite que un cliente en peligro modifique los parámetros adicionales que se envían en el parámetro de estado, con lo que se redirige al usuario a una dirección URL diferente, que es la [amenaza de redirector abierto](https://tools.ietf.org/html/rfc6819#section-4.2.4) que se describe en RFC 6819. Por lo tanto, el cliente debe proteger estos parámetros, para lo que debe cifrar el estado o comprobarlo por otros medios, por ejemplo, mediante la validación del nombre de dominio en el URI de redireccionamiento con el token.
-
-### <a name="add-redirect-uris-to-service-principals"></a>Adición de URI de redireccionamiento a entidades de servicio
-
-Otro enfoque consiste en agregar URI de redireccionamiento a las [entidades de servicio](app-objects-and-service-principals.md#application-and-service-principal-relationship) que representan el registro de la aplicación en cualquier inquilino de Azure AD. Siga este enfoque si no puede usar un parámetro de estado o si su escenario requiere la adición de nuevos URI de redireccionamiento al registro de la aplicación para cada nuevo inquilino que se admita. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

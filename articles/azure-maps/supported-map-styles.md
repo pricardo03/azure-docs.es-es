@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 9cdfd0d029057e36e010203b7c35a5aafee4b574
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: a65f20e04603403a1d3a180e364626d5b4440661
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208291"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664538"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Estilos de mapa admitidos en Azure Maps
 Azure Maps es compatible con varios estilos de mapa integrados, tal como se describe a continuación.
@@ -52,7 +52,7 @@ El mapa estilo **satélite** es una combinación de imágenes aéreas o por sat�
 ## <a name="satellite_road_labels"></a>satellite_road_labels
 Este estilo de mapa es un híbrido de carreteras y etiquetas que se superpone a imágenes aéreas o por satélite.
 
-![estilo de mapa satellite_road_labels](./media/supported-map-styles/satellite_road_labels.png)
+![estilo de mapa satellite_road_labels](./media/supported-map-styles/satellite-road-labels.png)
 
 **API correspondientes:**
 * Control de mapa de SDK web
@@ -61,7 +61,7 @@ Este estilo de mapa es un híbrido de carreteras y etiquetas que se superpone a 
 ## <a name="grayscale_dark"></a>grayscale_dark
 **escala de grises oscuros** es una versión oscura del estilo de mapa de carreteras.
 
-![estilo de mapa gray_scale](./media/supported-map-styles/grayscale_dark.png)
+![estilo de mapa gray_scale](./media/supported-map-styles/grayscale-dark.png)
 
 **API correspondientes:**
 * [Imagen de mapa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
@@ -73,7 +73,7 @@ Este estilo de mapa es un híbrido de carreteras y etiquetas que se superpone a 
 ## <a name="grayscale_light"></a>grayscale_light
 **escala de grises claros** es una versión clara del estilo de mapa de carreteras.
 
-![estilo de mapa de escala de grises claros](./media/supported-map-styles/grayscale_light.png)
+![estilo de mapa de escala de grises claros](./media/supported-map-styles/grayscale-light.png)
 
 **API correspondientes:**
 * Control de mapa de SDK web
@@ -99,6 +99,14 @@ Este estilo de mapa es un híbrido de carreteras y etiquetas que se superpone a 
 * Control de mapa de SDK web
 * Control de mapa de Android
 
+## <a name="high_contrast_dark"></a>high_contrast_dark
+
+**high_contrast_dark** es un estilo de mapa oscuro con un contraste mayor que el de los demás estilos.
+
+![estilo de mapa oscuro de contraste alto](./media/supported-map-styles/high-contrast-dark.png)
+
+**API correspondientes:**
+* Control de mapa de SDK web
 
 ## <a name="next-steps"></a>Pasos siguientes
 

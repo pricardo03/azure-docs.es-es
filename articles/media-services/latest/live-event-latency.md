@@ -1,6 +1,6 @@
 ---
-title: Latencia de LiveEvent en Azure Media Services | Microsoft Docs
-description: En este tema se proporciona información general sobre la latencia de LiveEvent y se muestra cómo establecer una latencia baja.
+title: Configuración de latencia baja de LiveEvent en Azure Media Services | Microsoft Docs
+description: En este tema se proporciona información general sobre la configuración de latencia baja de LiveEvent y se muestra cómo establecer una latencia baja.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,14 +13,14 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: 393b87aeed759950b946ccb45a008da9af4b7ebe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a82a0644fac099b568ab86ea213b98cd8e7d5c22
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702787"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199655"
 ---
-# <a name="live-event-latency-in-media-services"></a>Latencia de objeto LiveEvent en Media Services
+# <a name="live-event-low-latency-settings"></a>Configuración de latencia baja en eventos en directo
 
 En este artículo se muestra cómo establecer una latencia baja en un objeto [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents). También se describen los resultados típicos que se ven cuando se usa la configuración de latencia baja en varios reproductores. Los resultados varían en función de la latencia de red y CDN.
 

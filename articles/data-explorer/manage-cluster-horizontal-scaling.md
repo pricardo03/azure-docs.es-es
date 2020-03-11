@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: d0c9fe9ebd040ee59ae8717e95fd1911eaef61be
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: ff7420619cffc2287ab8ff6332df605d56329549
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560463"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664140"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>Administración del escalado horizontal de clústeres en Azure Data Explorer para ajustarse a los cambios en la demanda
 
@@ -59,13 +59,14 @@ Cuando el clúster se acerca a un estado de sobreutilización, escale horizontal
 * El número de instancias de clúster esté por debajo del número máximo de instancias definido por el usuario.
 * La utilización de la memoria caché sea alta durante más de una hora.
 * La utilización de la CPU sea alta durante más de una hora.
+* La utilización de la ingesta sea alta durante más de una hora.
 
 > [!NOTE]
 > La lógica de la escalabilidad horizontal no tiene en cuenta actualmente las métricas de uso de la ingesta. Si esas métricas son importantes para su caso de uso, utilice la [escalabilidad automática personalizada](#custom-autoscale).
 
 **Reducción horizontal**
 
-Cuando el clúster se acerque a un estado de infrautilización, reduzca horizontalmente para reducir los costos, pero mantener el rendimiento. Se usan varias métricas para comprobar que es seguro reducir horizontalmente en el clúster. Las siguientes reglas se evalúan a diario durante 7 días antes de que se realice la reducción horizontal:
+Cuando el clúster se acerque a un estado de infrautilización, reduzca horizontalmente para reducir los costos, pero mantener el rendimiento. Se usan varias métricas para comprobar que es seguro reducir horizontalmente en el clúster. Las reglas siguientes se evalúan cada hora durante 6 horas antes de que se realice la reducción horizontal:
 * El número de instancias es superior a 2 y al número mínimo de instancias definidas.
 * Para garantizar que no haya ninguna sobrecarga en los recursos, deben comprobarse las siguientes métricas antes de llevar a cabo la reducción horizontal: 
     * El uso de la memoria caché no es alto

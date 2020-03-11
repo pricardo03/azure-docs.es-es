@@ -1,6 +1,6 @@
 ---
 title: Tipos de LiveEvent en Azure Media Services | Microsoft Docs
-description: 'En Azure Media Services, los objetos LiveEvent pueden ser de uno de estos dos tipos: codificación en directo y paso a través. En este artículo se muestra una tabla detallada que compara los tipos de LiveEvent.'
+description: 'En Azure Media Services, los objetos LiveEvent pueden ser de uno de estos dos tipos: *codificación en directo* y de *paso a través*. En este artículo se muestra una tabla detallada que compara los tipos de LiveEvent.'
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,16 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 2dd3b3ffae39d43a3b865804af2e743bad87f8ea
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: a28d4d96f643c12eeb6aa542db2c6af06f4fd954
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543059"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78244638"
 ---
 # <a name="live-event-types-comparison"></a>Comparación de tipos de objetos LiveEvent
 
-En Azure Media Services, los objetos [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) pueden ser de uno de estos dos tipos: codificación en directo y paso a través. 
+En Azure Media Services, un [evento en directo](https://docs.microsoft.com/rest/api/media/liveevents) se puede establecer en una *codificación de paso a través* (un codificador en directo local envía una secuencia de velocidad de bits múltiple) o en una *codificación en directo* (un codificador en directo local envía una secuencia de velocidad de bits única). 
+
+En este artículo se comparan las características de los tipos de eventos en directo.
 
 ## <a name="types-comparison"></a>Comparación de tipos 
 
@@ -34,13 +36,13 @@ En la tabla siguiente se comparan las características de los tipos de LiveEvent
 
 | Característica | LiveEvent de paso a través | Evento en directo Standard o Premium1080p |
 | --- | --- | --- |
-| La entrada de velocidad de bits única se codifica en varias velocidades de bits en la nube |No |Sí |
+| La entrada de velocidad de bits única se codifica en varias velocidades de bits en la nube |Sin |Sí |
 | Resolución de vídeo máxima para la fuente de contribución |4 K (4096 x 2160 en 60 fotogramas por segundo) |1080 p (1920 x 1088 en 30 fotogramas por segundo)|
 | Niveles máximos recomendados en la fuente de contribución|Hasta 12|Un audio|
 | Número máximo de niveles en la salida| Igual que la entrada|Hasta 6 (vea debajo los valores predeterminados del sistema)|
 | Ancho de banda agregado máximo de la fuente de contribución|60 Mbps|N/D|
 | Velocidad de bits máxima para una sola capa de la contribución |20 Mbps|20 Mbps|
-| Compatibilidad con pistas de audio de varios idiomas|Sí|No|
+| Compatibilidad con pistas de audio de varios idiomas|Sí|Sin|
 | Códecs compatibles de vídeo de entrada |H.264/AVC y H.265/HEVC|H.264/AVC|
 | Códecs compatibles de vídeo de salida|Igual que la entrada|H.264/AVC|
 | Profundidad de bits, entrada y salida de vídeo compatibles|Hasta 10 bits incluido HDR 10/HLG|8 bits|
@@ -53,13 +55,13 @@ En la tabla siguiente se comparan las características de los tipos de LiveEvent
 | Tiempo de ejecución máximo| 24 horas x 365 días, lineal en directo | 24 horas x 365 días, lineal en directo (vista previa)|
 | Posibilidad de pasar a través de los subtítulos CEA 608/708 insertados|Sí|Sí|
 | Capacidad de activar Transcripción en directo|Sí|Sí|
-| Compatibilidad con inserción de tabletas táctiles|No|No|
-| Compatibilidad con señalización de anuncios mediante API| No|No|
+| Compatibilidad con inserción de tabletas táctiles|Sin|Sin|
+| Compatibilidad con señalización de anuncios mediante API| Sin|Sin|
 | Compatibilidad con los mensajes de señalización de anuncios mediante SCTE-35 en banda|Sí|Sí|
 | Capacidad para la recuperación de breves pausas en la fuente de contribución|Sí|Parcial|
 | Compatibilidad con GOP de entrada no uniformes|Sí|No: la entrada debe tener una duración fija del grupo de imágenes|
 | Compatibilidad con la entrada de la velocidad de fotogramas variable|Sí|No: la entrada debe ser una velocidad de fotogramas fija. Se tolerarán pequeñas variaciones, por ejemplo, durante las escenas con grandes movimientos. Pero la fuente de contribución no puede reducir la velocidad de fotogramas (por ejemplo, a 15 fotogramas por segundo).|
-| Apagado automático de LiveEvent cuando se pierde la fuente de entrada|No|Después de 12 horas, si no hay ningún objeto LiveEvent en ejecución|
+| Apagado automático de LiveEvent cuando se pierde la fuente de entrada|Sin|Después de 12 horas, si no hay ningún objeto LiveEvent en ejecución|
 
 ## <a name="system-presets"></a>Valores predeterminados del sistema
 

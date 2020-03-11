@@ -1,5 +1,5 @@
 - name: Documentación de Cloud Foundry
-  href: index.md
+  href: index.yml
 - name: Guías de inicio rápido
   expanded: true
   items:

@@ -1,26 +1,26 @@
 ---
 title: Importancia de la carga de trabajo
-description: Directrices para establecer la importancia de las consultas en Azure SQL Data Warehouse.
+description: Instrucciones para configurar la importancia de las consultas de SQL Analytics en Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 05/01/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 76a77c1833ae1827f2a6a9b577b3cca51b35a344
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: azure-synapse
+ms.openlocfilehash: de7bb28770bc356514c392c3478fd0e33658f878
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351425"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191782"
 ---
-# <a name="azure-sql-data-warehouse-workload-importance"></a>Importancia de la carga de trabajo de Azure SQL Data Warehouse
+# <a name="azure-synapse-analytics-workload-importance"></a>Importancia de la carga de trabajo de Azure Synapse Analytics
 
-En este artículo se explica cómo la importancia de la carga de trabajo puede influir en el orden de ejecución de las solicitudes de SQL Data Warehouse.
+En este artículo se explica cómo la importancia de la carga de trabajo puede influir en el orden de ejecución de las solicitudes de SQL Analytics en Azure Synapse.
 
 ## <a name="importance"></a>importancia
 
@@ -38,7 +38,7 @@ Más allá del escenario de importancia básico ya descrito con datos de ventas 
 
 ### <a name="locking"></a>Bloqueo
 
-El acceso a bloqueos de la actividad de lectura y escritura es un área de contención natural. Las actividades como [modificación de particiones](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) o [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest) requieren bloqueos elevados.  Sin la importancia de la carga de trabajo SQL Data Warehouse se optimiza para mejorar el rendimiento. La optimización para el rendimiento significa que, cuando las solicitudes en ejecución y las que están en cola tienen las mismas necesidades de bloqueo y hay recursos disponibles, las solicitudes en cola pueden omitir las solicitudes con necesidades de bloqueo mayores que llegaron anteriormente a la cola de solicitud. Una vez que la importancia de la carga de trabajo se aplica a las solicitudes con necesidades de bloqueo más altas, se ejecutará la solicitud con la importancia de la solicitud antes de una solicitud con una menor importancia.
+El acceso a bloqueos de la actividad de lectura y escritura es un área de contención natural. Las actividades como [modificación de particiones](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) o [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest) requieren bloqueos elevados.  Sin importancia de la carga de trabajo, SQL Analytics en Azure Synapse optimiza el rendimiento. La optimización para el rendimiento significa que, cuando las solicitudes en ejecución y las que están en cola tienen las mismas necesidades de bloqueo y hay recursos disponibles, las solicitudes en cola pueden omitir las solicitudes con necesidades de bloqueo mayores que llegaron anteriormente a la cola de solicitud. Una vez que la importancia de la carga de trabajo se aplica a las solicitudes con necesidades de bloqueo más altas, se ejecutará la solicitud con la importancia de la solicitud antes de una solicitud con una menor importancia.
 
 Considere el ejemplo siguiente:
 
@@ -50,7 +50,7 @@ Si Q2 y Q3 tienen la misma importancia y Q1 todavía está en ejecución, se emp
 
 ### <a name="non-uniform-requests"></a>Solicitudes no uniformes
 
-Otro escenario donde la importancia puede ayudar a cumplir las demandas de consultas es cuando se envían solicitudes con clases de recursos distintas.  Como se mencionó anteriormente, en la misma importancia, SQL Data Warehouse se optimiza para lograr un mejor rendimiento. Cuando se ponen en cola solicitudes de distinto tamaño (como smallrc o mediumrc), SQL Data Warehouse elegirá la primera solicitud que llegue y que se ajuste a los recursos disponibles. Si se aplica la importancia de la carga de trabajo, la solicitud con la importancia más alta se programará a continuación.
+Otro escenario donde la importancia puede ayudar a cumplir las demandas de consultas es cuando se envían solicitudes con clases de recursos distintas.  Como se mencionó anteriormente, con la misma importancia, SQL Analytics se optimiza para lograr un mejor rendimiento. Cuando se ponen en cola solicitudes de distinto tamaño (como smallrc o mediumrc), SQL Analytics elige la primera solicitud que llegue y que se ajuste a los recursos disponibles. Si se aplica la importancia de la carga de trabajo, la solicitud con la importancia más alta se programará a continuación.
   
 Considere el ejemplo siguiente en DW500c:
 
@@ -63,7 +63,7 @@ Como Q5 es mediumrc, requiere dos espacios de simultaneidad. Q5 debe esperar que
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información sobre cómo crear un clasificador, consulte [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql).  
-- Para más información sobre la clasificación de una carga de trabajo de SQL Data Warehouse, consulte el artículo sobre la [clasificación de cargas de trabajo](sql-data-warehouse-workload-classification.md).  
+- Para más información sobre la clasificación de la carga de trabajo, consulte [Clasificación de la carga de trabajo](sql-data-warehouse-workload-classification.md).  
 - Consulte el inicio rápido sobre cómo [crear un clasificador de carga de trabajo](quickstart-create-a-workload-classifier-tsql.md) para aprender a crear uno. 
 - Consulte los artículos de procedimientos para [configurar la importancia de la carga de trabajo](sql-data-warehouse-how-to-configure-workload-importance.md) y sobre cómo [administrar y supervisar la administración de la carga de trabajo](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
 - Consulte [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) para ver las consultas y la importancia asignada.

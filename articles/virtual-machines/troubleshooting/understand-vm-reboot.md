@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 1bf023dc886481354306a763a0f9c56286c57e05
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: e94ffb3d34082745c3d7ca86cfda2b93c0ed08da
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749870"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919420"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Descripción de un reinicio del sistema de una máquina virtual de Azure
 
@@ -30,10 +30,7 @@ La mejor manera de proteger las aplicaciones que se ejecutan en Azure del reinic
 
 Para proporcionar este nivel de redundancia a la aplicación, se recomienda agrupar dos máquinas virtuales, o más, en un conjunto de disponibilidad. Esta configuración garantiza que durante un evento de mantenimiento planeado o no planeado haya al menos una máquina virtual disponible que cumpla el 99,95 % del [Acuerdo de Nivel de Servicio de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_5/).
 
-Para más información acerca de los conjuntos de disponibilidad, consulte los siguientes artículos:
-
-- [Administración de la disponibilidad de las máquinas virtuales Windows en Azure](../windows/manage-availability.md)
-- [Configuración de un conjunto de disponibilidad para máquinas virtuales con Windows en el modelo de implementación clásica](../windows/classic/configure-availability.md)
+Para más información sobre los conjuntos de disponibilidad, consulte [Administrar la disponibilidad de las máquinas virtuales](../windows/manage-availability.md).
 
 ## <a name="resource-health-information"></a>Información acerca de Resource Health
 

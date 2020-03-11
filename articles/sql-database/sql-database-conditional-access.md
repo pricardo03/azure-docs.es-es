@@ -1,6 +1,6 @@
 ---
 title: Acceso condicional
-description: Aprenda a configurar Acceso condicional para Azure SQL Database y Data Warehouse.
+description: Aprenda a configurar el acceso condicional para Azure SQL Database y Azure Synapse.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,25 +10,26 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 03/29/2019
-ms.openlocfilehash: 9b8c0dbe03e47d32d8194408663973f07a07b1b9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 02/06/2020
+tag: azure-synpase
+ms.openlocfilehash: f2431ee7c62079a3691a5ea99e562460df8f9309
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827160"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197579"
 ---
-# <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Acceso condicional (MFA) con Azure SQL Database y Data Warehouse  
+# <a name="conditional-access-mfa-with-azure-sql-database-and-azure-synapse-analytics"></a>Acceso condicional (MFA) con Azure SQL Database y Azure Synapse Analytics
 
-Azure [SQL Database](sql-database-technical-overview.md), la [instancia administrada](sql-database-managed-instance.md) y [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) admiten el acceso condicional de Microsoft. 
+Azure [SQL Database](sql-database-technical-overview.md), [Instancia administrada](sql-database-managed-instance.md) y [Azure Synapse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) admiten el acceso condicional de Microsoft. 
 
 > [!NOTE]
-> Este tema se aplica al servidor de Azure SQL y tanto a las bases de datos de SQL Database como a SQL Data Warehouse que se crean en el servidor de Azure SQL. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse.
+> Este tema se aplica al servidor de Azure SQL y a las instancias de SQL Database y Azure Synapse que se crean en dicho servidor. Para simplificar, se usa SQL Database cuando se hace referencia tanto a SQL Database como a Azure Synapse.
 
 Los pasos siguientes muestran cómo configurar SQL Database para aplicar una directiva de Acceso condicional.  
 
-## <a name="prerequisites"></a>Requisitos previos  
-- Debe configurar SQL Database o SQL Data Warehouse para que admitan la autenticación de Azure Active Directory. Para ver pasos concretos, consulte [Configuración y administración de la autenticación de Azure Active Directory con SQL Database o SQL Data Warehouse](sql-database-aad-authentication-configure.md).  
+## <a name="prerequisites"></a>Prerrequisitos  
+- Debe configurar la instancia de SQL Database o el grupo de SQL en Azure Synapse para admitir la autenticación de Azure Active Directory. Para ver los pasos concretos, consulte [Configuración y administración de la autenticación de Azure Active Directory con SQL Database o Azure Synapse](sql-database-aad-authentication-configure.md).  
 - Cuando se habilita la autenticación multifactor, debe conectarse con una herramienta admitida, como la versión más reciente de SSMS. Para más información, consulte [Configuración de Multi-Factor Authentication de Azure SQL Database para SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).  
 
 ## <a name="configure-ca-for-azure-sql-dbdw"></a>Configuración de la CA para Azure SQL DB/DW  
@@ -44,14 +45,14 @@ Los pasos siguientes muestran cómo configurar SQL Database para aplicar una dir
    Si no encuentra **Azure SQL Database** como aparece en la tercera captura de pantalla siguiente, realice estos pasos:   
    - Inicie sesión en la instancia de Azure SQL DB/DW mediante SSMS con una cuenta de administrador de AAD.  
    - Ejecute `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER`.  
-   - Inicie sesión en AAD y compruebe que Azure SQL Database y Data Warehouse aparezcan entre las aplicaciones en su entorno AAD.  
+   - Inicie sesión en AAD y compruebe que Azure SQL Database y Azure Synapse aparecen entre las aplicaciones en su instancia de AAD.  
 
 5. Seleccione **Controles de acceso**, seleccione **Conceder** y active la directiva que desea aplicar. Para este ejemplo, se selecciona **Requerir autenticación multifactor**.  
    ![Seleccionar Conceder acceso](./media/sql-database-conditional-access/grant-access.png)  
 
 ## <a name="summary"></a>Resumen  
 La aplicación seleccionada (Azure SQL Database) que permite conectarse a Azure SQL DB/DW con Azure AD Premium ahora aplica la directiva de Acceso condicional seleccionada, **Requerir autenticación multifactor**.  
-Si tiene preguntas sobre Azure SQL Database y Data Warehouse con respecto a la autenticación multifactor, póngase en contacto con MFAforSQLDB@microsoft.com.  
+Si tiene preguntas sobre Azure SQL Database y Azure Synapse con respecto a la autenticación multifactor, póngase en contacto con MFAforSQLDB@microsoft.com.  
 
 ## <a name="next-steps"></a>Pasos siguientes  
 

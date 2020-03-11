@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 660b39a063496eb6566d51dbef2c914499dc70c9
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 2/27/2020
+ms.openlocfilehash: 72735e83af97fde8377e27daa45501704ef5a3c8
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74776012"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164549"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>Migración de la base de datos MariaDB a Azure Database for MariaDB mediante el volcado y la restauración
 En este artículo se explican dos formas habituales de hacer una copia de seguridad y restaurar bases de datos en Azure Database for MariaDB
@@ -22,10 +22,10 @@ En este artículo se explican dos formas habituales de hacer una copia de seguri
 Para seguir esta guía de procedimientos, necesita lo siguiente:
 - [Creación de un servidor de Azure Database for MariaDB: Azure Portal](quickstart-create-mariadb-server-database-using-azure-portal.md)
 - Utilidad de línea de comandos [mysqldump](https://mariadb.com/kb/en/library/mysqldump/) instalada en la máquina.
-- MySQL Workbench [Descargar MySQL Workbench](https://dev.mysql.com/downloads/workbench/), Toad, Navicat u otra herramienta de MySQL de terceros para ejecutar los comandos de volcado y restauración.
+- MySQL Workbench [Descargar MySQL Workbench](https://dev.mysql.com/downloads/workbench/) u otra herramienta de MySQL de terceros para ejecutar los comandos de volcado y restauración.
 
 ## <a name="use-common-tools"></a>Uso de herramientas comunes
-Use herramientas y utilidades comunes como MySQL Workbench, mysqldump, Toad o Navicat para conectarse a Azure Database for MariaDB de manera remota y restaurar ahí los datos. Use estas herramientas en el equipo cliente con una conexión a Internet para conectarse a Azure Database for MariaDB. Use una conexión cifrada SSL para aprovechar los procedimientos recomendados de seguridad; vea también la información sobre [conectividad SSL en Azure Database for MariaDB](concepts-ssl-connection-security.md). No es necesario mover los archivos de volcado a ninguna ubicación en la nube especial al migrar a Azure Database for MariaDB. 
+Use herramientas y utilidades comunes como MySQL Workbench o mysqldump para conectarse a Azure Database for MariaDB de manera remota y restaurar ahí los datos. Use estas herramientas en el equipo cliente con una conexión a Internet para conectarse a Azure Database for MariaDB. Use una conexión cifrada SSL para aprovechar los procedimientos recomendados de seguridad; vea también la información sobre [conectividad SSL en Azure Database for MariaDB](concepts-ssl-connection-security.md). No es necesario mover los archivos de volcado a ninguna ubicación en la nube especial al migrar a Azure Database for MariaDB. 
 
 ## <a name="common-uses-for-dump-and-restore"></a>Usos habituales de volcado y restauración
 Puede emplear utilidades de MySQL, como mysqldump y mysqlpump para realizar un volcado de las bases de datos y cargarlas en un servidor Azure Database for MariaDB en varios escenarios comunes. 
@@ -41,7 +41,7 @@ Puede emplear utilidades de MySQL, como mysqldump y mysqlpump para realizar un v
    ```
 - Para evitar problemas de compatibilidad, asegúrese de usar la misma versión de MariaDB en los sistemas de origen y de destino al realizar el volcado de las bases de datos. Por ejemplo, si el servidor MariaDB existente tiene la versión 10.2, debe migrar a Azure Database for MariaDB configurado para ejecutar dicha versión. El comando `mysql_upgrade` no funciona en un servidor de Azure Database for MariaDB y no se admite. Si tiene que actualizar entre versiones de MariaDB, primero vuelque o exporte la base de datos con una versión menor a una versión superior de MariaDB en su propio entorno. A continuación, ejecute `mysql_upgrade` antes de intentar la migración a una instancia de Azure Database for MariaDB.
 
-## <a name="performance-considerations"></a>Consideraciones sobre rendimiento
+## <a name="performance-considerations"></a>Consideraciones de rendimiento
 Para optimizar el rendimiento, tenga en cuenta estas consideraciones al volcar grandes bases de datos:
 -   Use la opción `exclude-triggers` en mysqldump al volcar las bases de datos. Excluya los desencadenadores de los archivos de volcado para evitar que los comandos de desencadenamiento se disparen durante la restauración de datos. 
 -   Use la opción `single-transaction` para establecer el modo de aislamiento de transacción a REPEATABLE READ y enviar una instrucción SQL START TRANSACTION al servidor antes de volcar datos. El volcado de muchas tablas en una única transacción provoca el consumo de almacenamiento adicional durante la restauración. Las opciones `single-transaction` y `lock-tables` son mutuamente excluyentes porque LOCK TABLES hace que las transacciones pendientes se confirmen implícitamente. Para volcar las tablas grandes, combine la opción `single-transaction` con la opción `quick`. 
@@ -81,7 +81,7 @@ $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sq
 ```
 
 ## <a name="create-a-database-on-the-target-server"></a>Creación de una base de datos en el servidor de destino
-Cree una base de datos vacía en el servidor de destino de Azure Database for MariaDB donde se van a migrar los datos. Use una herramienta como MySQL Workbench, Toad o Navicat para crear la base de datos. La base de datos puede tener el mismo nombre que la base de datos que contiene los datos volcados, o puede crear una base de datos con un nombre diferente.
+Cree una base de datos vacía en el servidor de destino de Azure Database for MariaDB donde se van a migrar los datos. Use una herramienta como MySQL Workbench para crear la base de datos. La base de datos puede tener el mismo nombre que la base de datos que contiene los datos volcados, o puede crear una base de datos con un nombre diferente.
 
 Para conectarse, busque la información de conexión en la página **Introducción** de su instancia de Azure Database for MariaDB.
 

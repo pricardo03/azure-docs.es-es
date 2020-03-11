@@ -51,6 +51,8 @@
       href: batch-api-basics.md
     - name: API y herramientas
       href: batch-apis-tools.md
+    - name: Detección y control de errores en el servicio Batch
+      href: batch-retry-after-errors.md
     - name: Procedimientos recomendados
       href: best-practices.md
     - name: Cuotas y límites
@@ -131,8 +133,6 @@
           href: batch-job-schedule.md
         - name: Comprobación de errores de trabajos y tareas
           href: batch-job-task-error-checking.md
-        - name: Detección y control de errores en el servicio Batch
-          href: batch-retry-after-errors.md
     - name: Trabajo persistente y resultado de la tarea
       href: batch-task-output.md
       items:

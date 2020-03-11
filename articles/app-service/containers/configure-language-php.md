@@ -4,12 +4,12 @@ description: Aprenda a configurar un contenedor de PHP precompilado para la apli
 ms.devlang: php
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: a3de4769193d95a3ef483924c4d65c4fa1cc9f8d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: ad121d605e521704597471b446fa79cb43dfccc7
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671832"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255847"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configuración de una aplicación de PHP en Linux para Azure App Service
 
@@ -39,56 +39,30 @@ Ejecute el siguiente comando en [Cloud Shell](https://shell.azure.com) para esta
 az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "PHP|7.2"
 ```
 
-## <a name="run-composer"></a>Ejecución de Composer
+## <a name="customize-build-automation"></a>Personalización de la automatización de compilaciones
 
-De forma predeterminada, Kudu no ejecuta [Composer](https://getcomposer.org/). Para habilitar la automatización de Composer durante la implementación de Kudu, debe proporcionar un [script de implementación personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
+Si implementa la aplicación mediante el uso de paquetes Git o zip con la automatización de compilaciones activada, App Service genera pasos de automatización a través de la siguiente secuencia:
 
-Desde una ventana del terminal local, cambie el directorio a la raíz del repositorio. Siga los [pasos de instalación mediante la línea de comandos](https://getcomposer.org/download/) para descargar *composer.phar*.
+1. Ejecute el script personalizado si lo especifica `PRE_BUILD_SCRIPT_PATH`.
+1. Ejecute `php composer.phar install`.
+1. Ejecute el script personalizado si lo especifica `POST_BUILD_SCRIPT_PATH`.
 
-Ejecute los comandos siguientes:
+`PRE_BUILD_COMMAND` y `POST_BUILD_COMMAND` son variables de entorno que, de forma predeterminada, están vacías. Para ejecutar comandos anteriores a la compilación, defina `PRE_BUILD_COMMAND`. Para ejecutar comandos posteriores a la compilación, defina `POST_BUILD_COMMAND`.
 
-```bash
-npm install kuduscript -g
-kuduscript --php --scriptType bash --suppressPrompt
+En el ejemplo siguiente se especifican las dos variables para una serie de comandos, separados por comas.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
 ```
 
-La raíz del repositorio tiene ahora dos nuevos archivos además de *composer.phar*: *.deployment* y *deploy.sh*. Estos archivos funcionan tanto para las versiones de Windows y Linux de App Service.
+Para obtener más variables de entorno para personalizar la automatización de compilaciones, consulte la [configuración de Oryx](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
 
-Abra *deploy.sh* y busque la sección `Deployment`. Reemplace toda la sección por el código siguiente:
-
-```bash
-##################################################################################################################################
-# Deployment
-# ----------
-
-echo PHP deployment
-
-# 1. KuduSync
-if [[ "$IN_PLACE_DEPLOYMENT" -ne "1" ]]; then
-  "$KUDU_SYNC_CMD" -v 50 -f "$DEPLOYMENT_SOURCE" -t "$DEPLOYMENT_TARGET" -n "$NEXT_MANIFEST_PATH" -p "$PREVIOUS_MANIFEST_PATH" -i ".git;.hg;.deployment;deploy.sh"
-  exitWithMessageOnError "Kudu Sync failed"
-fi
-
-# 3. Initialize Composer Config
-initializeDeploymentConfig
-
-# 4. Use composer
-echo "$DEPLOYMENT_TARGET"
-if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
-  echo "Found composer.json"
-  pushd "$DEPLOYMENT_TARGET"
-  php composer.phar install $COMPOSER_ARGS
-  exitWithMessageOnError "Composer install failed"
-  popd
-fi
-##################################################################################################################################
-```
-
-Confirme todos los cambios e implemente el código de nuevo. Composer ahora debería estar funcionando como parte de la automatización de la implementación.
+Para más información sobre cómo se ejecuta App Service y se compilan aplicaciones de PHP en Linux, consulte la [documentación de Oryx sobre cómo se detectan y se compilan las aplicaciones de PHP](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/php.md).
 
 ## <a name="customize-start-up"></a>Personalización del inicio
 
-De forma predeterminada, el contenedor PHP integrado, ejecute el servidor Apache. Al iniciarse, ejecuta `apache2ctl -D FOREGROUND"`. Si lo desea, puede ejecutar otro comando al inicio si ejecuta lo siguiente en [Cloud Shell](https://shell.azure.com):
+De forma predeterminada, el contenedor PHP integrado ejecuta el servidor Apache. Al iniciarse, ejecuta `apache2ctl -D FOREGROUND"`. Si lo desea, puede ejecutar otro comando al inicio si ejecuta lo siguiente en [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
@@ -219,7 +193,7 @@ Para que los cambios surtan efecto, reinicie la aplicación.
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Cuando una aplicación de PHP en funcionamiento se comporta de manera diferente en App Service o genera errores, intente lo siguiente:
 
@@ -230,15 +204,7 @@ Cuando una aplicación de PHP en funcionamiento se comporta de manera diferente 
     - Algunas plataformas web pueden usar scripts de inicio personalizados cuando se ejecutan en modo de producción.
 - Ejecute la aplicación en App Service en el modo de depuración. Por ejemplo, en [Laravel](https://meanjs.org/), puede configurar la aplicación para que genere mensajes de depuración en producción al [configurar el ajuste de la aplicación `APP_DEBUG` en `true`](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
 
-### <a name="robots933456"></a>robots933456
-
-Puede ver el mensaje siguiente en los registros del contenedor:
-
-```
-2019-04-08T14:07:56.641002476Z "-" - - [08/Apr/2019:14:07:56 +0000] "GET /robots933456.txt HTTP/1.1" 404 415 "-" "-"
-```
-
-Puede omitir este mensaje sin problemas. `/robots933456.txt` es una ruta de acceso de la dirección URL ficticia que utiliza App Service para comprobar si el contenedor es capaz de atender las solicitudes. Una respuesta 404 simplemente indica que la ruta de acceso no existe, pero permite a App Service saber que el contenedor está en buen estado y listo para responder a las solicitudes.
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

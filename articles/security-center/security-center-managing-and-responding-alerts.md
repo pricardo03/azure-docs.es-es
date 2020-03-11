@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/27/2019
 ms.author: memildin
-ms.openlocfilehash: 5c199d074a6655ad14a0c66925e4302f70424970
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 834a097eb77cc7de2d0a3643bf1499ff7517ddb0
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615984"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912280"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Administración y respuesta a alertas de seguridad en Azure Security Center
 
@@ -67,7 +67,7 @@ Security Center recopila, analiza e integra automáticamente los datos de regist
 
 1. Los pasos de corrección sugeridos por Security Center varían según la alerta de seguridad. Sígalos para cada una de las alertas. 
 
-    En algunos casos, para mitigar una alerta de detección de amenazas, puede que tenga que usar otros servicios o controles de Azure para implementar la corrección recomendada. 
+    En algunos casos, para mitigar una alerta de seguridad, puede que tenga que usar otros servicios o controles de Azure para implementar la corrección recomendada. 
 
     Los temas siguientes le guiarán a través de las diferentes alertas según los tipos de recursos:
     

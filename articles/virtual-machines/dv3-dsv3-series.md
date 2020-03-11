@@ -2,17 +2,17 @@
 title: 'Series Dv3 y DSv3: Azure Virtual Machines'
 description: Especificaciones de las máquinas virtuales de las series Dv3 y DSv3.
 services: virtual-machines
-author: jonbeck7
+author: joelpelley
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: db50cadee4aeb618e85e977ca02f4fa6ff203d4b
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 9ea5811fa20ea4866655de74d79ff3905ba03f16
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492617"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164413"
 ---
 # <a name="dv3-and-dsv3-series"></a>Series Dv3 y DSv3
 
@@ -33,6 +33,10 @@ ACU: 160-190
 Premium Storage:  No compatible
 
 Almacenamiento en caché de Premium Storage:  No compatible
+
+Migración en vivo: Compatible
+
+Actualizaciones con conservación de memoria: Compatible
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal: IOPS/Mbps de lectura/Mbps de escritura | Nº máx. de NIC/ancho de banda de red |
 |---|---|---|---|---|---|---|
@@ -55,6 +59,10 @@ ACU: 160-190
 Premium Storage:  Compatible
 
 Almacenamiento en caché de Premium Storage:  Compatible
+
+Migración en vivo: Compatible
+
+Actualizaciones con conservación de memoria: Compatible
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS/Mbps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|---|

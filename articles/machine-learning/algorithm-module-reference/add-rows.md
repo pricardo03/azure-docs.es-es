@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 71f15d959bf9d42e67cd7c35ca91d6cd2caa718d
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 7787a765bf48adc15f4675c6c03ff3d04fa388c6
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152472"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918502"
 ---
 # <a name="add-rows-module"></a>Módulo Adición de filas
 
@@ -32,7 +32,7 @@ La concatenación de filas es útil en escenarios como los siguientes:
 
 Para concatenar las filas de dos conjuntos de datos, las filas deben tener exactamente el mismo esquema. Esto significa, el mismo número de columnas y el mismo tipo de datos en las columnas.
 
-1.  Arrastre el módulo **Adición de filas** a la canalización. Puede encontrarlo en **Transformación de datos**, en la categoría **Manipulate** (Manipular).
+1.  Arrastre el módulo **Adición de filas** a la canalización. Puede encontrarlo en **Transformación de datos**.
 
 2. Conecte los conjuntos de datos a los dos puertos de entrada. El conjunto de datos que desea anexar debe estar conectado al segundo puerto (derecho). 
   

@@ -14,14 +14,17 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: fd31528325ddbe913333bc228fc3847242abcd24
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: f4c021531a4d04bf16e5dbee4172952433f675d9
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083749"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913011"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Detección de movimientos con Análisis multimedia de Azure
+
+> [!NOTE]
+> El procesador de multimedia **Azure Media Motion Detector** se va a retirar. Para ver la fecha de retirada, consulte el tema sobre los [componentes heredados](legacy-components.md).
  
 ## <a name="overview"></a>Información general
 
@@ -42,7 +45,7 @@ Cuando cree una tarea con **Azure Media Motion Detector**, tiene que especificar
 ### <a name="parameters"></a>Parámetros
 Puede usar los siguientes parámetros:
 
-| NOMBRE | Opciones | DESCRIPCIÓN | Valor predeterminado |
+| Nombre | Opciones | Descripción | Valor predeterminado |
 | --- | --- | --- | --- |
 | sensitivityLevel |String: 'bajo', 'medio', 'alto' |Establece el nivel de sensibilidad que se usa para notificar los movimientos. Es necesario ajustarlo bien para controlar el número de falsos positivos. |'medio' |
 | frameSamplingValue |Un número entero positivo |Establece la frecuencia con la que se ejecuta el algoritmo. 1 es en cada fotograma, 2 significa en uno de cada dos fotogramas y así sucesivamente. |1 |
@@ -95,7 +98,7 @@ La API del Detector de movimiento brinda indicadores una vez que hay objetos en 
 
 En la tabla siguiente, se describen elementos del archivo JSON de salida.
 
-| Elemento | DESCRIPCIÓN |
+| Elemento | Descripción |
 | --- | --- |
 | version |Esto se refiere a la versión de la API de vídeo. La versión actual es 2. |
 | timescale |"Tics" por segundo del vídeo. |
@@ -106,12 +109,12 @@ En la tabla siguiente, se describen elementos del archivo JSON de salida.
 | duration |La longitud del evento, en "tics". |
 | interval |El intervalo de cada entrada del evento, en "tics". |
 | events |Cada fragmento de evento contiene el movimiento detectado dentro de esa duración. |
-| Tipo |En la versión actual, este valor siempre es "2" para el movimiento genérico. Esta etiqueta brinda a las API de vídeo la flexibilidad para clasificar el movimiento en las versiones futuras. |
+| type |En la versión actual, este valor siempre es "2" para el movimiento genérico. Esta etiqueta brinda a las API de vídeo la flexibilidad para clasificar el movimiento en las versiones futuras. |
 | regionId |Tal como se explicó anteriormente, este valor siempre será 0 en esta versión. Esta etiqueta brinda a la API de vídeo la flexibilidad para encontrar el movimiento en diversas regiones en las versiones futuras. |
 | regions |Se refiere al área del vídeo donde le interesa el movimiento. <br/><br/>-"id" representa el área de la región: en esta versión es solo una, Id. 0. <br/>-"tipo" representa la forma de la región que le interesa para un movimiento. Actualmente, se admiten los valores "rectángulo" y "polígono".<br/> Si especifica "rectángulo", las dimensiones de la región son X, Y, ancho y alto. Las coordenadas X e Y representan las coordenadas XY del lado superior izquierdo de la región en una escala normalizada de 0,0 a 1,0. El ancho y el alto representan el tamaño de la región en una escala normalizada de 0,0 a 1,0. En la versión actual, X, Y, ancho y alto son valores fijos siempre en 0, 0 y 1, 1. <br/>Si especifica "polígono", la región tiene dimensiones en puntos. <br/> |
 | fragments |Los metadatos se separan en diferentes segmentos denominados fragmentos. Cada fragmento contiene un inicio, una duración, un número de intervalo y eventos. Un fragmento sin eventos significa que no se detectó movimiento durante esa hora de inicio y la duración. |
 | corchetes [] |Cada corchete representa un intervalo del evento. Si ese intervalo contiene corchetes vacíos, significa que no se detectó movimiento. |
-| Ubicaciones |Esta nueva entrada de eventos muestra la ubicación donde se produjo el movimiento. Se trata de un valor más específico que las zonas de detección. |
+| locations |Esta nueva entrada de eventos muestra la ubicación donde se produjo el movimiento. Se trata de un valor más específico que las zonas de detección. |
 
 En el siguiente ejemplo de JSON se muestra la salida:
 

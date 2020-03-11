@@ -2,13 +2,13 @@
 title: Compatibilidad de etiquetas de los recursos
 description: Muestra los tipos de recursos de Azure que admiten etiquetas. Proporciona detalles de todos los servicios de Azure.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: 09dd71ef8c3ac4803a988dffbdca47116c967a0e
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/26/2020
+ms.openlocfilehash: 6100c667c7df0b3e1740777565d260af9fa818a3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207934"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657580"
 ---
 # <a name="tag-support-for-azure-resources"></a>Compatibilidad de etiquetas de los recursos de Azure
 En este artículo se describe si un tipo de recurso admite [etiquetas](tag-resources.md). La columna con la etiqueta **Admite etiquetas** indica si el tipo de recurso tiene una propiedad para la etiqueta. La columna con la etiqueta **Etiqueta en el informe de costos** indica si ese tipo de recurso pasa la etiqueta al informe de costos. Puede ver los costos por etiquetas en el [análisis de costos de Cost Management](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) y los [datos de uso diario y de facturación de Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -116,8 +116,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.Migrate](#microsoftmigrate)
 > - [Microsoft.MixedReality](#microsoftmixedreality)
 > - [Microsoft.NetApp](#microsoftnetapp)
-> - [Microsoft.Notebooks](#microsoftnotebooks)
 > - [Microsoft.Network](#microsoftnetwork)
+> - [Microsoft.Notebooks](#microsoftnotebooks)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
 > - [Microsoft.ObjectStore](#microsoftobjectstore)
 > - [Microsoft.OffAzure](#microsoftoffazure)
@@ -136,7 +136,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft.SaaS](#microsoftsaas)
-> - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
 > - [Microsoft.SecurityGraph](#microsoftsecuritygraph)
@@ -292,6 +291,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | automationAccounts | Sí | Sí |
 > | automationAccounts/configurations | Sí | Sí |
 > | automationAccounts/jobs | Sin | Sin |
+> | automationAccounts / privateEndpointConnectionProxies | Sin | Sin |
+> | automationAccounts / privateEndpointConnections | Sin | Sin |
+> | automationAccounts / privateLinkResources | Sin | Sin |
 > | automationAccounts/runbooks | Sí | Sí |
 > | automationAccounts/softwareUpdateConfigurations | Sin | Sin |
 > | automationAccounts/webhooks | Sin | Sin |
@@ -711,6 +713,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | registries/importImage | Sin | Sin |
 > | registries/privateEndpointConnectionProxies | Sin | Sin |
 > | registries/privateEndpointConnectionProxies/validate | Sin | Sin |
+> | registries / privateEndpointConnections | Sin | Sin |
 > | registries/privateLinkResources | Sin | Sin |
 > | registries/queueBuild | Sin | Sin |
 > | registries/regenerateCredential | Sin | Sin |
@@ -1052,6 +1055,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | partnerNamespaces / eventChannels | Sin | Sin |
 > | partnerRegistrations | Sí | Sí |
 > | partnerTopics | Sí | Sí |
+> | partnerTopics / eventSubscriptions | Sin | Sin |
 > | systemTopics | Sí | Sí |
 > | systemTopics / eventSubscriptions | Sin | Sin |
 > | topics | Sí | Sí |
@@ -1288,6 +1292,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | getEntities | Sin | Sin |
 > | managementGroups | Sin | Sin |
+> | managementGroups / settings | Sin | Sin |
 > | resources | Sin | Sin |
 > | startTenantBackfill | Sin | Sin |
 > | tenantBackfillStatus | Sin | Sin |
@@ -1395,15 +1400,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | netAppAccounts | Sí | Sin |
 > | netAppAccounts/capacityPools | Sí | Sin |
 > | netAppAccounts/capacityPools/volumes | Sí | Sin |
-> | netAppAccounts/capacityPools/volumes/mountTargets | Sí | Sin |
-> | netAppAccounts/capacityPools/volumes/snapshots | Sí | Sin |
-
-## <a name="microsoftnotebooks"></a>Microsoft.Notebooks
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
-> | ------------- | ----------- | ----------- |
-> | NotebookProxies | Sin | Sin |
+> | netAppAccounts/capacityPools/volumes/snapshots | Sin | Sin |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -1495,6 +1492,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > Para Azure Front Door Service, puede aplicar etiquetas al crear el recurso, pero no se admite actualmente la actualización o la adición de etiquetas.
 
 
+## <a name="microsoftnotebooks"></a>Microsoft.Notebooks
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | NotebookProxies | Sin | Sin |
+
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
@@ -1556,6 +1560,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | legacyPeerings | Sin | Sin |
 > | peerAsns | Sin | Sin |
 > | peerings | Sí | Sí |
+> | peeringServiceCountries | Sin | Sin |
 > | peeringServiceProviders | Sin | Sin |
 > | peeringServices | Sí | Sí |
 
@@ -1680,13 +1685,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | applications | Sí | Sí |
 > | saasresources | Sin | Sin |
-
-## <a name="microsoftscheduler"></a>Microsoft.Scheduler
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
-> | ------------- | ----------- | ----------- |
-> | jobcollections | Sí | Sí |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
@@ -2026,6 +2024,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | devices | Sí | Sí |
+> | registeredSubscriptions | Sin | Sin |
 > | vendors | Sin | Sin |
 > | vendors / skus | Sin | Sin |
 > | vendors/vnfs | Sin | Sin |

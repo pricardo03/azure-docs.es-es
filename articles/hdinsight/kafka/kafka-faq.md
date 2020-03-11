@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: c8d2ef0330a32d5cab88355cc749322ec3a5ea30
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: ff4079263fd7afb02e132a798997687fad7e9961
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530942"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206986"
 ---
 # <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>Preguntas frecuentes sobre Apache Kafka en Azure HDInsight
 
@@ -50,7 +50,7 @@ Con [Enterprise Security Package (ESP)](../domain-joined/apache-domain-joined-ar
 
 ## <a name="is-my-data-encrypted-can-i-use-my-own-keys"></a>¿Se cifran los datos? ¿Puedo usar mis propias claves?
 
-Todos los mensajes de Kafka en los discos administrados se cifran con [Azure Storage Service Encryption (SSE)](../../storage/common/storage-service-encryption.md). Los datos en tránsito (por ejemplo, los datos que se transmiten desde los clientes a los agentes y viceversa) no se cifran de forma predeterminada. Es posible cifrar este tráfico si [configura SSL personalmente](./apache-kafka-ssl-encryption-authentication.md). Además, HDInsight le permite administrar sus propias claves para cifrar los datos en reposo. Consulte [Método Bring Your Own Key para Apache Kafka en Azure HDInsight](apache-kafka-byok.md) para más información.
+Todos los mensajes de Kafka en los discos administrados se cifran con [Azure Storage Service Encryption (SSE)](../../storage/common/storage-service-encryption.md). Los datos en tránsito (por ejemplo, los datos que se transmiten desde los clientes a los agentes y viceversa) no se cifran de forma predeterminada. Es posible cifrar este tráfico si [configura SSL personalmente](./apache-kafka-ssl-encryption-authentication.md). Además, HDInsight le permite administrar sus propias claves para cifrar los datos en reposo. Para obtener más información, consulte [Cifrado de disco mediante claves administradas por el cliente](../disk-encryption.md).
 
 ## <a name="how-do-i-connect-clients-to-my-cluster"></a>¿Cómo se conectan los clientes al clúster?
 

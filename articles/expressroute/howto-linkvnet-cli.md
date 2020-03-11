@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: a8814030e6c4345227ec05ea1554104e0b21efbc
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c80c667cb281168de6f11bbb6a536c01fefb7935
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076538"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206969"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Conexión de una red virtual a un circuito ExpressRoute mediante la CLI
 
@@ -155,15 +155,17 @@ El intervalo de *RoutingWeight* abarca de 0 a 32 000. El valor predeterminado es
 ## <a name="configure-expressroute-fastpath"></a>Configuración de FastPath de ExpressRoute 
 Puede habilitar [FastPath de ExpressRoute](expressroute-about-virtual-network-gateways.md) si su circuito de ExpressRoute está en [ExpressRoute Direct](expressroute-erdirect-about.md) y la puerta de enlace de red virtual es de tipo Ultra Performance o ErGw3AZ. FastPath mejora el rendimiento de la ruta de datos, como paquetes y conexiones por segundo entre la red local y la red virtual. 
 
-> [!NOTE] 
-> Si ya tiene una conexión de red virtual pero no ha habilitado FastPath, debe eliminar la conexión de red virtual y crear una nueva. 
-> 
->  
+**Configuración de FastPath en una conexión nueva**
 
 ```azurecli
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
 ```
 
+**Actualización de una conexión existente para habilitar FastPath**
+
+```azurecli
+az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

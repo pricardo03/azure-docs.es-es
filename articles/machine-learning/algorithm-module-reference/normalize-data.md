@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 8eb54e232478ae24e1efb49a8ad43dc827aa2b6a
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 2cf0efb24a10da602ac0c26276a081342776cdcc
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77150687"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920406"
 ---
 # <a name="normalize-data-module"></a>Módulo Normalize Data
 
@@ -104,7 +104,7 @@ El módulo **Normalize Data** genera dos salidas:
 
 - Para guardar la transformación, con el fin de poder aplicar el mismo método de normalización a otro conjunto de datos, seleccione el módulo y, después, seleccione **Register dataset** (Registrar conjunto de datos) en la pestaña **Outputs** (Salidas) del panel derecho.
 
-    A continuación, puede cargar las transformaciones guardadas desde el grupo **Transformaciones** del panel de navegación izquierdo y aplicarlas a un conjunto de datos con el mismo esquema con [./Aplicar transformación](apply-transformation.md).  
+    A continuación, puede cargar las transformaciones guardadas desde el grupo **Transformaciones** del panel de navegación izquierdo y aplicarlas a un conjunto de datos con el mismo esquema con [Aplicar transformación](apply-transformation.md).  
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1,6 +1,6 @@
 ---
-title: Uso de un recurso compartido de archivos de Azure con Azure Storage | Microsoft Docs
-description: Aprenda a usar un recurso compartido de archivos de Azure con Windows y Windows Server.
+title: Recuperación de una cuenta de almacenamiento eliminada
+description: Aprenda a recuperar una cuenta de almacenamiento eliminada.
 author: todmccoy
 manager: dcscontentpm
 ms.service: storage
@@ -10,12 +10,12 @@ ms.author: rogarana
 ms.subservice: files
 services: storage
 tags: ''
-ms.openlocfilehash: e1e581134b4e3821659c43bb7f55003239594bd9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 05465d4a03335ac607ba8981116c66fd6dac9416
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74234453"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252632"
 ---
 # <a name="how-to-recover-a-deleted-storage-account"></a>Recuperación de una cuenta de almacenamiento eliminada
 

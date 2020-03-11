@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f1656d730d55d4c5ab7fb963e49a8057ad88c9f
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 80f8d66795971c6a5c84be7088387e63d7acd7a7
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185536"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248683"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configuración de dominios personalizados con Azure AD Application Proxy
 
@@ -130,9 +130,9 @@ No hay ninguna restricción sobre los métodos de firma del certificado. Se admi
 
 Puede usar certificados comodín siempre y cuando el carácter comodín coincida con la dirección URL externa. Debe utilizar certificados comodín para [aplicaciones comodín](application-proxy-wildcard.md). Si desea utilizar el certificado para acceder también a los subdominios, debe agregar los caracteres comodín de subdominio como nombres alternativos del firmante en el mismo certificado. Por ejemplo, un certificado para *\*.adventure-works.com* no funcionará para *\*.apps.adventure-works.com* a menos que agregue *\*.apps.adventure-works.com* como un nombre alternativo del firmante. 
 
-Puede usar los certificados emitidos por su propia infraestructura de clave pública (PKI) si la cadena de certificados está instalada en los dispositivos cliente. Intune puede implementar estos certificados en dispositivos administrados. En el caso de los dispositivos no administrados, debe instalar estos certificados manualmente.
+Puede usar los certificados emitidos por su propia infraestructura de clave pública (PKI) si la cadena de certificados está instalada en los dispositivos cliente. Intune puede implementar estos certificados en dispositivos administrados. En el caso de los dispositivos no administrados, debe instalar estos certificados manualmente. 
 
-No es una buena idea usar una CA raíz privada. La CA raíz privada también necesitaría insertarse en los equipos cliente, lo que presenta muchos desafíos. 
+No se recomienda usar una entidad de certificación raíz privada, ya que la entidad de certificación raíz privada también tendría que insertarse en las máquinas cliente, lo que puede suponer numerosos desafíos.
 
 ### <a name="certificate-management"></a>Administración de certificados
 

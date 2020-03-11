@@ -1,14 +1,14 @@
 ---
 title: Bloqueo de recursos
 description: Obtenga más información sobre las opciones de bloqueo de Azure Blueprints para proteger los recursos cuando asigne un plano técnico.
-ms.date: 04/24/2019
+ms.date: 02/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: e042a4d117e28a2fd2228ce36f1be98a1da31e91
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: b810e8d4ddd263f9e651704d1bf9b785ce0202db
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77057352"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199706"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprensión del bloqueo de recursos en planos técnicos de Azure Blueprint
 
@@ -33,6 +33,59 @@ Los recursos creados por los artefactos en una asignación de plano técnico tie
 Es típico que alguien con el[control de acceso basado en roles](../../../role-based-access-control/overview.md) (RBAC) adecuado en la suscripción, como el rol "Propietario", pueda modificar o eliminar cualquier recurso. Este acceso no es el caso cuando se aplican planos de bloqueo como parte de una asignación implementada. Si la asignación se estableció con la opción **Solo lectura** o **No eliminar**, ni siquiera el propietario de la suscripción puede realizar la acción bloqueada en el recurso protegido.
 
 Esta medida de seguridad protege la coherencia del plano técnico definido y el entorno en el que se ha diseñado para crear a partir de una eliminación o modificación accidental o mediante programación.
+
+### <a name="assign-at-management-group"></a>Asignación a un grupo de administración
+
+Una opción adicional para impedir que los propietarios de suscripciones eliminen una asignación de plano técnico es asignar el plano técnico a un grupo de administración. En este escenario, solo los **propietarios** del grupo de administración tienen los permisos necesarios para eliminar la asignación del plano técnico.
+
+Para asignar el plano técnico a un grupo de administración en lugar de a una suscripción, la llamada a la API REST cambia para tener el siguiente aspecto:
+
+```http
+PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{assignmentMG}/providers/Microsoft.Blueprint/blueprintAssignments/{assignmentName}?api-version=2018-11-01-preview
+```
+
+El grupo de administración definido por `{assignmentMG}` tiene que estar dentro de la jerarquía de grupos de administración o ser el mismo grupo de administración en el que se está guardada la definición del plano técnico.
+
+El cuerpo de la solicitud de la asignación del plano técnico tiene el siguiente aspecto:
+
+```json
+{
+    "identity": {
+        "type": "SystemAssigned"
+    },
+    "location": "eastus",
+    "properties": {
+        "description": "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+        "blueprintId": "/providers/Microsoft.Management/managementGroups/{blueprintMG}/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+        "scope": "/subscriptions/{targetSubscriptionId}",
+        "parameters": {
+            "storageAccountType": {
+                "value": "Standard_LRS"
+            },
+            "costCenter": {
+                "value": "Contoso/Online/Shopping/Production"
+            },
+            "owners": {
+                "value": [
+                    "johnDoe@contoso.com",
+                    "johnsteam@contoso.com"
+                ]
+            }
+        },
+        "resourceGroups": {
+            "storageRG": {
+                "name": "defaultRG",
+                "location": "eastus"
+            }
+        }
+    }
+}
+```
+
+La diferencia clave en el cuerpo de esta solicitud y otra que se asigna a una suscripción es la propiedad `properties.scope`. Esta propiedad obligatoria tiene que establecerse en la suscripción a la que se aplica la asignación del plano técnico. La suscripción tiene que ser un elemento secundario directo de la jerarquía de grupos de administración en la que se almacena la asignación del plano técnico.
+
+> [!NOTE]
+> Un plano asignado al ámbito del grupo de administración sigue funcionando como una asignación de plano técnico a nivel de suscripción. La única diferencia es que la asignación del plano técnico se almacena para impedir que los propietarios de la suscripción eliminen la asignación y los bloqueos asociados.
 
 ## <a name="removing-locking-states"></a>Eliminación de los estados de bloqueo
 
@@ -61,7 +114,7 @@ Las [propiedades de asignación de denegación](../../../role-based-access-contr
 
 ## <a name="exclude-a-principal-from-a-deny-assignment"></a>Exclusión de una entidad de seguridad en una asignación de denegación
 
-En algunos escenarios de diseño y seguridad, puede que necesite excluir una entidad de seguridad de la [asignación de denegación](../../../role-based-access-control/deny-assignments.md) que creó la asignación del plano técnico. Esto se hace en la API REST mediante la adición de hasta cinco valores en la matriz **excludedPrincipals** de la propiedad **locks** propiedad cuando [se crea la asignación](/rest/api/blueprints/assignments/createorupdate). Este es un ejemplo de un cuerpo de la solicitud que incluye **excludedPrincipals**:
+En algunos escenarios de diseño y seguridad, puede que necesite excluir una entidad de seguridad de la [asignación de denegación](../../../role-based-access-control/deny-assignments.md) que creó la asignación del plano técnico. Este paso se lleva a cabo en la API REST mediante la adición de hasta cinco valores en la matriz **excludedPrincipals** de la propiedad **locks** cuando [se crea la asignación](/rest/api/blueprints/assignments/createorupdate). La siguiente definición de asignación es un ejemplo de un cuerpo de solicitud que incluye **excludedPrincipals**:
 
 ```json
 {

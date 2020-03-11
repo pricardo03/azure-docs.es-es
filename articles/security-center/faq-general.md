@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: b13e5e0000cdd8e33f459400cc4c24d107ccaba3
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: f9043ae1414b63f25583d52100774f3e87754a74
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604797"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661846"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Preguntas más frecuentes: preguntas generales sobre Azure Security Center
 
@@ -38,16 +38,17 @@ Azure Security Center supervisa los siguientes recursos de Azure:
 * Máquinas virtuales (se incluyen [Cloud Services](../cloud-services/cloud-services-choose-me.md))
 * Conjuntos de escalado de máquinas virtuales
 * Instancias de Azure Virtual Network
+* Contenedores
 * Servicio de SQL Azure
 * Cuenta de Azure Storage
 * Azure Web Apps ([en App Service Environment](../app-service/environment/intro.md))
 * Soluciones de asociados integradas en su suscripción de Azure, como un firewall de aplicaciones web en las máquinas virtuales y en App Service Environment
 
-Además, Azure Security Center también puede supervisar los equipos que no son de Azure (incluidos los locales) (se admiten tanto los [equipos Windows ](./quick-onboard-windows-computer.md) como los [equipos Linux ](./quick-onboard-linux-computer.md)).
+Además, las máquinas que no son de Azure (incluidas las locales) también pueden supervisarse mediante Azure Security Center. Se admiten tanto [máquinas Windows](./quick-onboard-windows-computer.md) como [máquinas Linux](./quick-onboard-linux-computer.md).
 
 
 ## <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>¿Cómo puedo ver el estado de seguridad actual de los recursos de Azure?
-La página **Introducción a Security Center** muestra la posición de seguridad general del entorno con la información desglosada por Computación, Redes, Almacenamiento y datos, y Aplicaciones. Cada tipo de recurso tiene un indicador que muestra si se ha identificado alguna posible vulnerabilidad de seguridad. Al hacer clic en cada icono, se muestra una lista de problemas de seguridad que ha identificado Security Center, junto con un inventario de los recursos de la suscripción.
+La página **Introducción a Security Center** muestra la posición de seguridad general del entorno con la información desglosada por Computación, Redes, Almacenamiento y datos, y Aplicaciones. Cada tipo de recurso tiene un indicador que muestra las vulnerabilidades de seguridad identificadas. Al hacer clic en cada icono, se muestra una lista de problemas de seguridad que ha identificado Security Center, junto con un inventario de los recursos de la suscripción.
 
 
 

@@ -14,45 +14,42 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
-ms.author: zhchia
-ms.openlocfilehash: d9720ca769eab8cf0e4ee763c720f6ba12ebb1d9
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.author: Zhchia
+ms.openlocfilehash: 27a26a0c8378f34794afd87cf11b6bb878f7b53c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063312"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248428"
 ---
 # <a name="tutorial-configure-rollbar-for-automatic-user-provisioning"></a>Tutorial: Configuración de Rollbar para el aprovisionamiento automático de usuarios
 
-El objetivo de este tutorial es mostrar los pasos que se realizan en Rollbar y Azure Active Directory (Azure AD) para configurar Azure AD con el objetivo de aprovisionar y desaprovisionar automáticamente usuarios o grupos en Rollbar.
+En este tutorial, se describen los pasos que debe realizar en Rollbar y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando se configura, Azure AD aprovisiona y cancela el aprovisionamiento de usuarios y grupos de manera automática en [Rollbar](https://rollbar.com/pricing/) mediante el servicio de aprovisionamiento de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../manage-apps/user-provisioning.md). 
 
-> [!NOTE]
-> Este tutorial describe un conector que se crea sobre el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
->
-> Este conector está actualmente en versión preliminar pública. Para más información sobre los términos de uso generales de Microsoft Azure para las características en versión preliminar, consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## <a name="capabilities-supported"></a>Funcionalidades admitidas
+> [!div class="checklist"]
+> * Crear usuarios en Rollbar
+> * Quitar usuarios de Rollbar cuando ya no necesiten acceso
+> * Mantener los atributos de usuario sincronizados entre Azure AD y Rollbar
+> * Aprovisionar grupos y pertenencias a grupos en Rollbar
+> * [Inicio de sesión único](https://docs.microsoft.com/azure/active-directory/saas-apps/rollbar-tutorial) en Rollbar (recomendado)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
-* Un inquilino de Azure AD.
+* [Un inquilino de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
+* Una cuenta de usuario en Azure AD con [permiso](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
 * [Un inquilino de Rollbar](https://rollbar.com/pricing/) que tenga un plan empresarial.
 * Una cuenta de usuario de Rollbar con permisos de administrador.
 
-## <a name="assigning-users-to-rollbar"></a>Asignación de usuarios a Rollbar
+## <a name="step-1-plan-your-provisioning-deployment"></a>Paso 1. Planeación de la implementación de aprovisionamiento
+1. Obtenga información sobre [cómo funciona el servicio de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+2. Determine quién estará en el [ámbito de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+3. Determine qué datos [asignar entre Azure AD y Rollbar](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-Azure Active Directory usa un concepto denominado *asignaciones* para determinar qué usuarios deben recibir acceso a determinadas aplicaciones. En el contexto del aprovisionamiento automático de usuarios, solo se sincronizan los usuarios y grupos que se han asignado a una aplicación en Azure AD.
-
-Antes de configurar y habilitar el aprovisionamiento automático de usuarios, debe decidir qué usuarios o grupos de Azure AD necesitan acceder a Rollbar. Una vez que lo decida, puede seguir estas instrucciones para asignar dichos usuarios o grupos a Rollbar:
-* [Asignar un usuario o grupo a una aplicación empresarial](../manage-apps/assign-user-or-group-access-portal.md)
-
-## <a name="important-tips-for-assigning-users-to-rollbar"></a>Sugerencias importantes para asignar usuarios a Rollbar
-
-* Se recomienda asignar un único usuario de Azure AD a Rollbar para probar la configuración de aprovisionamiento automático de usuarios. Más tarde, se pueden asignar otros usuarios o grupos.
-
-* Al asignar un usuario a Rollbar, debe seleccionar un rol válido específico de la aplicación (si está disponible) en el cuadro de diálogo de asignación. Los usuarios con el rol de **Acceso predeterminado** quedan excluidos del aprovisionamiento.
-
-## <a name="setup-rollbar-for-provisioning"></a>Configuración de Rollbar para el aprovisionamiento
+## <a name="step-2-configure-rollbar-to-support-provisioning-with-azure-ad"></a>Paso 2. Configuración de Rollbar para admitir el aprovisionamiento con Azure AD
 
 Antes de configurar Rollbar para el aprovisionamiento automático de usuarios con Azure AD, deberá habilitar el aprovisionamiento SCIM en Rollbar.
 
@@ -60,43 +57,31 @@ Antes de configurar Rollbar para el aprovisionamiento automático de usuarios co
 
     ![Consola de administración de Rollbar](media/rollbar-provisioning-tutorial/image00.png)
 
-2. Navegue hasta **Rollbar Tenant Name > Account Access Tokens** (Nombre de inquilino de Rollbar > 
-Tokens de acceso de cuenta).
+2. Vaya a **Rollbar Tenant Name > Identity Provider** (Nombre de inquilino de Rollbar > Proveedor de identidades).
 
-    ![Consola de administración de Rollbar](media/rollbar-provisioning-tutorial/account.png)
+    ![Proveedor de identidades Rollbar](media/rollbar-provisioning-tutorial/idp.png)
 
-3. Copie el valor de **SCIM**. Este valor se escribirá en el campo Token secreto de la pestaña Aprovisionamiento en la aplicación Rollbar en Azure Portal.
+3. Desplácese hacia abajo hasta **Provisioning Options** (Opciones de aprovisionamiento). Copie el token de acceso. Este valor se escribirá en el campo **Token secreto** de la pestaña de aprovisionamiento de la aplicación Rollbar en Azure Portal. Active la casilla **Enable user and team provisioning** (Habilitar el aprovisionamiento de usuarios y equipos) y haga clic en **Save** (Guardar).
 
-    ![Consola de administración de Rollbar](media/rollbar-provisioning-tutorial/scim.png)
+    ![Token de acceso de Rollbar](media/rollbar-provisioning-tutorial/token.png)
 
-## <a name="add-rollbar-from-the-gallery"></a>Incorporación de Rollbar desde la galería
 
-Para configurar Rollbar para el aprovisionamiento automático de usuarios con Azure AD, es preciso agregar Rollbar desde la galería de aplicaciones de Azure AD a la lista de aplicaciones SaaS administradas.
+## <a name="step-3-add-rollbar-from-the-azure-ad-application-gallery"></a>Paso 3. Incorporación de Rollbar desde la galería de aplicaciones de Azure AD
 
-**Para agregar Rollbar desde la galería de aplicaciones de Azure AD, siga estos pasos:**
+Para empezar a administrar el aprovisionamiento de Rollbar, agregue Rollbar desde la galería de aplicaciones de Azure AD. Si ha configurado previamente Rollbar para el inicio de sesión único, puede usar la misma aplicación. Sin embargo, se recomienda que cree una aplicación independiente al probar la integración inicialmente. Puede encontrar más información sobre cómo agregar una aplicación desde la galería [aquí](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione **Azure Active Directory**.
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Paso 4. Determinar quién estará en el ámbito de aprovisionamiento 
 
-    ![Botón Azure Active Directory](common/select-azuread.png)
+El servicio de aprovisionamiento de Azure AD le permite definir quién se aprovisionará, en función de la asignación a la aplicación y de los atributos del usuario o grupo. Si elige el ámbito del que se aprovisionará en la aplicación en función de la asignación, puede usar los pasos [siguientes](../manage-apps/assign-user-or-group-access-portal.md) para asignar usuarios y grupos a la aplicación. Si elige el ámbito del que se aprovisionará en función únicamente de los atributos del usuario o grupo, puede usar un filtro de ámbito, tal como se describe [aquí](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-2. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+* Al asignar usuarios y grupos a Rollbar, debe seleccionar un rol que no sea **Acceso predeterminado**. Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el rol de acceso predeterminado, puede [actualizar el manifiesto de aplicación](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para agregar roles adicionales. 
 
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+* Empiece por algo pequeño. Pruebe con un pequeño conjunto de usuarios y grupos antes de implementarlo en todos. Cuando el ámbito del aprovisionamiento se define en los usuarios y grupos asignados, puede controlarlo asignando uno o dos usuarios o grupos a la aplicación. Cuando el ámbito se establece en todos los usuarios y grupos, puede especificar un [filtro de ámbito basado en atributos](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-3. Para agregar una nueva aplicación, seleccione el botón **Nueva aplicación** en la parte superior del panel.
 
-    ![Botón Nueva aplicación](common/add-new-app.png)
+## <a name="step-5-configure-automatic-user-provisioning-to-rollbar"></a>Paso 5. Configuración del aprovisionamiento automático de usuarios en Rollbar 
 
-4. En el cuadro de búsqueda, escriba **Rollbar**, seleccione **Rollbar** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
-
-    ![Rollbar en la lista de resultados](common/search-new-app.png)
-
-## <a name="configuring-automatic-user-provisioning-to-rollbar"></a>Configuración del aprovisionamiento automático de usuarios en Rollbar 
-
-Esta sección le guía por los pasos necesarios para configurar el servicio de aprovisionamiento de AD Azure para crear, actualizar y deshabilitar usuarios o grupos en Rollbar en función de las asignaciones de grupos y usuarios de Azure AD.
-
-> [!TIP]
-> También puede habilitar el inicio de sesión único basado en SAML para Rollbar siguiendo las instrucciones del [tutorial de inicio de sesión único de Rollbar](rollbar-tutorial.md). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático de usuarios, aunque estas dos características se complementan entre sí.
+Esta sección le guía por los pasos necesarios para configurar el servicio de aprovisionamiento de Azure AD a fin de crear, actualizar y deshabilitar usuarios o grupos en TestApp en función de las asignaciones de grupos o usuarios de Azure AD.
 
 ### <a name="to-configure-automatic-user-provisioning-for-rollbar-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para Rollbar en Azure AD:
 
@@ -116,33 +101,40 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba el valor del **token de acceso de la cuenta** recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Rollbar. Si la conexión no se establece, asegúrese de que la cuenta de Rollbar tiene permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador**, escriba el valor del token de acceso recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Rollbar. Si no se establece la conexión, asegúrese de que la cuenta de Rollbar tiene permisos de administrador y pruebe de nuevo.
 
-    ![Consola de administración de Rollbar](media/rollbar-provisioning-tutorial/admin.png)
+    ![Aprovisionamiento](./media/rollbar-provisioning-tutorial/admin.png)
 
-6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save**(Guardar).
+7. Seleccione **Guardar**.
 
 8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Rollbar** (Sincronizar usuarios de Azure Active Directory con Rollbar).
 
-    ![Asignaciones de usuario de Rollbar](media/rollbar-provisioning-tutorial/usermapping.png)
+9. Examine los atributos de usuario que se sincronizan entre Azure AD y Rollbar en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Rollbar con el objetivo de realizar operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), deberá asegurarse de que la API de Rollbar admite el filtrado de usuarios basado en ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
 
-9. Examine los atributos de usuario que se sincronizan entre Azure AD y Rollbar en la sección **Asignaciones de atributos**. Los atributos seleccionados como propiedades de **coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Rollbar con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
-
-    ![Atributos de usuario de Rollbar](media/rollbar-provisioning-tutorial/userattribute.png)
+   |Atributo|Tipo|
+   |---|---|
+   |userName|String|
+   |externalId|String|
+   |active|Boolean|
+   |name.familyName|String|
+   |name.givenName|String|
+   |emails[type eq "work"]|String|
 
 10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Rollbar** (Sincronizar grupos de Azure Active Directory con Rollbar).
 
-    ![Asignaciones de grupos de Rollbar](media/rollbar-provisioning-tutorial/groupmapping.png)
+11. Examine los atributos de grupo que se sincronizan entre Azure AD y Rollbar en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **coincidencia** se usan para buscar coincidencias con los grupos de Rollbar para las operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-11. Examine los atributos de grupo que se sincronizan entre Azure AD y Rollbar en la sección **Asignaciones de atributos**. Los atributos seleccionados como propiedades de **coincidencia** se usan para buscar coincidencias con los grupos de Rollbar para las operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
+      |Atributo|Tipo|
+      |---|---|
+      |DisplayName|String|
+      |externalId|String|
+      |members|Referencia|
 
-    ![Atributos de grupo de Rollbar](media/rollbar-provisioning-tutorial/groupattribute.png)
-
-12. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. Para habilitar el servicio de aprovisionamiento de Azure AD para Rollbar, cambie **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
@@ -156,15 +148,20 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 
-    Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en Rollbar.
+Esta operación inicia el ciclo de sincronización inicial de todos los usuarios y grupos definidos en **Ámbito** en la sección **Configuración**. El ciclo de sincronización inicial tarda más tiempo en realizarse que los ciclos posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. 
 
-    Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../app-provisioning/check-status-user-account-provisioning.md).
-    
+## <a name="step-6-monitor-your-deployment"></a>Paso 6. Supervisión de la implementación
+Una vez configurado el aprovisionamiento, use los recursos siguientes para supervisar la implementación:
+
+1. Use los [registros de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar qué usuarios se han aprovisionado correctamente o sin éxito.
+2. Consulte la [barra de progreso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) para ver el estado del ciclo de aprovisionamiento y cuánto falta para que finalice.
+3. Si la configuración de aprovisionamiento parece estar en mal estado, la aplicación pasará a estar en cuarentena. Más información sobre los estados de cuarentena [aquí](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../app-provisioning/check-status-user-account-provisioning.md)
+* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../manage-apps/check-status-user-account-provisioning.md)

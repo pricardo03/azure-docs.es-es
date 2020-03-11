@@ -14,14 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 11f897852ce820e666d7403f42735b2ee3bdd73b
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 11889bd6df0bcc9564c17fdaacc333df1d418660
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084821"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918349"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Uso de Análisis multimedia de Azure para convertir el contenido de texto de archivos de vídeo en texto digital  
+
+> [!NOTE]
+> El procesador de multimedia **Azure Media OCR** se va a retirar. Para ver la fecha de retirada, consulte el tema sobre los [componentes heredados](legacy-components.md).
 
 ## <a name="overview"></a>Información general
 Si necesita extraer el contenido de texto de los archivos de vídeo y generar un texto digital que se pueda editar y en el que se pueda buscar, utilice OCR (reconocimiento óptico de caracteres) de Análisis multimedia de Azure. Este procesador multimedia de Azure detecta contenido de texto en los archivos de vídeo y genera archivos de texto para su uso. El OCR le permite automatizar la extracción de metadatos significativos a partir de la señal de vídeo de los elementos multimedia.
@@ -43,7 +46,7 @@ Configuración de tareas (valor predeterminado) Cuando se crea una tarea con **A
 >
 
 ### <a name="attribute-descriptions"></a>Descripciones de atributos
-| Nombre del atributo | DESCRIPCIÓN |
+| Nombre del atributo | Descripción |
 | --- | --- |
 |AdvancedOutput| Si establece AdvancedOutput en true, la salida JSON contendrá datos posicionales para cada palabra única (además de frases y regiones). Si no desea ver estos detalles, establezca la marca en false. El valor predeterminado es false. Para más información, vea [este blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
 | Idioma |(Opcional) Describe el idioma del texto que desea buscar. Uno de los siguientes: Detección automática (predeterminado), alemán, árabe, chino (simplificado y tradicional), checo, coreano, danés, español, finés, francés, griego, húngaro, inglés, italiano, japonés, neerlandés, noruego, polaco, portugués, rumano, ruso, serbio cirílico, serbio latino, eslovaco, sueco, turco. |
@@ -104,7 +107,7 @@ La salida de vídeo OCR proporciona datos segmentados en tiempo en los caractere
 
 La salida contiene los siguientes atributos:
 
-| Elemento | DESCRIPCIÓN |
+| Elemento | Descripción |
 | --- | --- |
 | Timescale |"Tics" por segundo del vídeo |
 | Offset |Diferencia de tiempo para las marcas de tiempo En la versión 1.0 de las API de vídeo, será siempre 0. |
@@ -117,7 +120,7 @@ La salida contiene los siguientes atributos:
 | interval |Intervalo de cada evento en el fragmento determinado |
 | events |La matriz que contiene las regiones |
 | region |Objeto que representa las palabras o frases detectadas |
-| Idioma |Idioma del texto detectado en una región |
+| language |Idioma del texto detectado en una región |
 | orientation |Orientación del texto detectado en una región |
 | lines |Matriz de líneas de texto detectadas en una región |
 | text |El texto real |
@@ -370,5 +373,5 @@ namespace OCR
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Vínculos relacionados
-[Azure Media Services Analytics Overview (Información general sobre análisis de Servicios multimedia de Azure)](media-services-analytics-overview.md)
+[Información general de análisis de Azure Media Services](media-services-analytics-overview.md)
 

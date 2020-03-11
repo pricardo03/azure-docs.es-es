@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 15a396a86103f41f49d3b49878ec51c1e71add40
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 4f94ef66610b56d8843d59e5ca72a48143b742e8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772486"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251393"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Supervisión en Azure Database for MariaDB
 La supervisión de los datos sobre los servidores le permite solucionar problemas y optimizar la carga de trabajo. Azure Database for MariaDB proporciona diversas métricas que proporcionan información sobre el comportamiento del servidor.
@@ -24,7 +24,7 @@ Para obtener instrucciones paso a paso, consulte [How to set up alerts](howto-al
 ### <a name="list-of-metrics"></a>Lista de métricas
 Estas métricas están disponibles para Azure Database for MariaDB:
 
-|Métrica|Nombre de métrica para mostrar|Unidad|DESCRIPCIÓN|
+|Métrica|Nombre de métrica para mostrar|Unidad|Descripción|
 |---|---|---|---|
 |cpu_percent|Porcentaje de CPU|Percent|Porcentaje de CPU en uso.|
 |memory_percent|Porcentaje de memoria|Percent|Porcentaje de memoria en uso.|
@@ -56,13 +56,28 @@ El [Almacén de consultas](concepts-query-store.md) realiza un seguimiento del r
 
 La característica [Recomendaciones de rendimiento](concepts-performance-recommendations.md) identifica oportunidades para mejorar el rendimiento de la carga de trabajo. Proporciona recomendaciones para crear índices que tienen el potencial de mejorar el rendimiento de las cargas de trabajo. Para generar recomendaciones de índices, la característica tiene en cuenta diversas funcionalidades de la base de datos, como su esquema y la carga de trabajo devueltos por el Almacén de consultas. Después de implementar cualquier recomendación de rendimiento, los clientes deben probar el rendimiento para evaluar el efecto de estos cambios.
 
-## <a name="service-health"></a>Estado del servicio
-[Azure Service Health](../service-health/overview.md) proporciona una vista de todas las notificaciones de estado del servicio de la suscripción. Puede configurar alertas de Service Health para que se le notifique por su canal de comunicación preferido los problemas o cambios que podrían afectar a los servicios y las regiones de Azure que usa.
+## <a name="planned-maintenance-notification"></a>Notificación de mantenimiento planeado
 
-Puede ver los eventos de mantenimiento programado para Azure Database for MariaDB mediante el tipo de evento **mantenimiento planeado**. Para aprender a crear **alertas de estado del servicio**, visite el artículo [Creación de alertas del registro de actividad en notificaciones del servicio](../service-health/alerts-activity-log-service-notifications.md).
+Las **notificaciones de mantenimiento planeado** le permiten recibir alertas de mantenimiento planeado futuro para su instancia de Azure Database for MariaDB. Estas notificaciones se integran con el mantenimiento planeado de [Service Health](../service-health/overview.md) y le permiten ver todo el mantenimiento programado para sus suscripciones en un mismo lugar. También ayuda a escalar la notificación a las audiencias adecuadas de distintos grupos de recursos, ya que puede tener distintos contactos responsables para los distintos recursos. Recibirá la notificación sobre el próximo mantenimiento 72 horas antes del evento.
+
+> [!Note]
+> Intentaremos por todos los medios proporcionar la **notificación de mantenimiento planeado** con una antelación de 72 horas para todos los eventos. Sin embargo, en los casos de revisiones críticas o de seguridad, es posible que las notificaciones se envíen más cerca del evento o se omitan.
+
+### <a name="to-receive-planned-maintenance-notification"></a>Para recibir una notificación de mantenimiento planeado
+
+1. En el [portal](https://portal.azure.com), seleccione **Estado del servicio**.
+2. En la sección **Alertas**, seleccione **Alertas de estado**.
+3. Seleccione **+ Añadir alerta de Service Health** y rellene los campos.
+4. Rellene los campos obligatorios. 
+5. Elija la opción de **Tipo de evento** y elija **Mantenimiento planeado** o **Seleccionar todo**.
+6. En **Grupos de acciones** defina cómo quiere recibir la alerta (obtener un correo electrónico, desencadenar una aplicación lógica, etc.).  
+7. Asegúrese de que Habilitar regla tras la creación esté establecido en Sí.
+8. Seleccione **Crear regla de alertas** para completar la alerta.
+
+Para conocer los pasos detallados sobre cómo crear **alertas de Service Health**, consulte [Creación de alertas del registro de actividad en notificaciones del servicio](../service-health/alerts-activity-log-service-notifications.md).
 
 > [!IMPORTANT]
-> Las notificaciones de mantenimiento planeado están disponibles en versión preliminar únicamente en las regiones Este de EE. UU. y Sur de Reino Unido.
+> Las notificaciones de mantenimiento planeado se encuentran actualmente en versión preliminar
 
 ## <a name="next-steps"></a>Pasos siguientes
 

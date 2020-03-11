@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 3e831e58b47d53e2924956cab13568c69bc1432e
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: d889cd3325784f564d03e5d75dde1ec760c66804
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153747"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268531"
 ---
 # <a name="split-data-module"></a>Módulo Split Data
 
@@ -84,34 +84,74 @@ Este módulo es especialmente útil cuando necesita separar los datos en conjunt
 
     En función de la expresión regular que proporcione, el conjunto de datos se divide en dos conjuntos de filas: las filas con valores que coinciden con la expresión y todas las filas restantes. 
 
+En los siguientes ejemplos se muestra cómo dividir un conjunto de datos mediante la opción **Expresión regular**. 
+
+### <a name="single-whole-word"></a>Palabra completa única 
+
+En este ejemplo se colocan en el primer conjunto de datos todas las filas que contienen el texto `Gryphon` en la columna `Text` y las demás filas se colocan en la segunda salida de **Split Data**:
+
+```text
+    \"Text" Gryphon  
+```
+
+### <a name="substring"></a>Substring
+
+En este ejemplo se busca la cadena especificada en cualquier posición dentro de la segunda columna del conjunto de datos, indicada aquí por el valor de índice de 1. La coincidencia distingue entre mayúsculas y minúsculas.
+
+```text
+(\1) ^[a-f]
+```
+
+El primer conjunto de datos de resultados contiene todas las filas en las que la columna de índice comienza con uno de estos caracteres: `a`, `b`, `c`, `d`, `e`, `f`. Todas las demás filas se dirigen a la segunda salida.
+
 ## <a name="relative-expression-split"></a>División de expresión relativa
 
 1. Agregue el módulo [Split Data](./split-data.md) a la canalización y conéctelo como entrada en el conjunto de datos que quiere dividir.
   
 2. Para **Splitting mode**, seleccione **Relative expression split**.
   
-3. En el cuadro de texto **Expresión relacional**, escriba una expresión que realice una operación de comparación, en una sola columna:
+3. En el cuadro de texto **Expresión relacional**, escriba una expresión que realice una operación de comparación en una sola columna:
 
-
- - Columna numérica:
-    - La columna contiene números de cualquier tipo de datos numéricos, incluidos los tipos de datos de fecha y hora.
-
-    - La expresión puede hacer referencia a un máximo de un nombre de columna.
-
-    - Utilice el carácter "y" comercial (&) para la operación AND y use el carácter de barra vertical (|) para la operación OR.
-
-    - Se admiten los siguientes operadores: `<`, `>`, `<=`, `>=`, `==`, `!=`.
-
-    - No puede agrupar las operaciones con `(` y `)`.
-
- - Columna de cadenas: 
-    - Se admiten los siguientes operadores: `==`, `!=`.
-
-
+   Para la **columna numérica**:
+   - La columna contiene números de cualquier tipo de datos numéricos, incluidos los tipos de datos de fecha y hora.
+   - La expresión puede hacer referencia a un máximo de un nombre de columna.
+   - Use el carácter de "Y" comercial `&` para la operación AND. Use el carácter de barra vertical `|` para la operación OR.
+   - Se admiten los siguientes operadores: `<`, `>`, `<=`, `>=`, `==`, `!=`.
+   - No puede agrupar las operaciones con `(` y `)`.
+   
+   Para la **columna de cadena**:
+   - Se admiten los siguientes operadores: `==`, `!=`.
 
 4. Ejecución de la canalización
 
     La expresión divide el conjunto de datos en dos conjuntos de filas: las filas con valores que cumplen la condición y todas las filas restantes.
+
+En los siguientes ejemplos se muestra cómo dividir un conjunto de datos mediante la opción **Expresión relativa** en el módulo **Split Data**:  
+
+### <a name="using-calendar-year"></a>Uso del año natural
+
+Un escenario común consiste en dividir un conjunto de datos por años. La expresión siguiente selecciona todas las filas donde los valores de la columna `Year` son mayores que `2010`.
+
+```text
+\"Year" > 2010
+```
+
+La expresión de fecha debe tener en cuenta todas las partes de la fecha que se incluyen en la columna de datos y el formato de las fechas de la columna de datos debe ser coherente. 
+
+Por ejemplo, en una columna de fecha con el formato `mmddyyyy`, la expresión debe ser similar a la siguiente:
+
+```text
+\"Date" > 1/1/2010
+```
+
+### <a name="using-column-indices"></a>Uso de índices de columna
+
+La siguiente expresión muestra cómo puede utilizar el índice de columna para seleccionar todas las filas de la primera columna del conjunto de datos que contienen valores menores o iguales a 30, pero no iguales a 20.
+
+```text
+(\0)<=30 & !=20
+```
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

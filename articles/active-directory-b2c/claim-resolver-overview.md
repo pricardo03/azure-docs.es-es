@@ -3,20 +3,20 @@ title: Solucionadores de notificaciones en las directivas personalizadas
 titleSuffix: Azure AD B2C
 description: Aprenda a usar solucionadores de notificaciones en una directiva personalizada de Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
-ms.author: marsma
+ms.date: 03/02/2020
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4434c877f69391f5dc5926c6aed07049ba46b7b7
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 02277d2da2e431ac1cefdd9b018af4c25f7d5a9a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425653"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189844"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los solucionadores de notificaciones en las directivas personalizadas de Azure Active Directory B2C
 
@@ -75,6 +75,7 @@ Las secciones siguientes enumeran los solucionadores de notificaciones disponibl
 | {OIDC:Prompt} | El parámetro de cadena de consulta `prompt`. | login |
 | {OIDC:Resource} |El parámetro de cadena de consulta `resource`. | N/D |
 | {OIDC:scope} |El parámetro de cadena de consulta `scope`. | openid |
+| {OIDC:RedirectUri} |El parámetro de cadena de consulta `redirect_uri`. | https://jwt.ms |
 
 ### <a name="context"></a>Context
 
@@ -85,7 +86,7 @@ Las secciones siguientes enumeran los solucionadores de notificaciones disponibl
 | {Context:DateTimeInUtc} |Hora y fecha en UTC.  | 10/10/2018 12:00:00 p. m. |
 | {Context:DeploymentMode} |Modo de implementación de la directiva.  | Producción |
 | {Context:IPAddress} | Dirección IP del usuario. | 11.111.111.11 |
-
+| {Context:KMSI} | Indica si se ha seleccionado la casilla [Mantener la sesión iniciada](custom-policy-keep-me-signed-in.md). |  true |
 
 ### <a name="non-protocol-parameters"></a>Parámetros sin protocolo
 
@@ -116,9 +117,9 @@ Cualquier nombre de parámetro incluido como parte de una solicitud OIDC u OAuth
 | {SAML:ForceAuthn} | Valor del atributo `ForceAuthN` del elemento `AuthnRequest` de la solicitud SAML. | True |
 | {SAML:ProviderName} | Valor del atributo `ProviderName` del elemento `AuthnRequest` de la solicitud SAML.| Contoso.com |
 
-## <a name="using-claim-resolvers"></a>Uso de solucionadores de notificaciones 
+## <a name="using-claim-resolvers"></a>Uso de solucionadores de notificaciones
 
-Puede usar solucionadores de notificaciones con los siguientes elementos: 
+Puede usar solucionadores de notificaciones con los siguientes elementos:
 
 | Elemento | Elemento | Configuración |
 | ----- | ----------------------- | --------|
@@ -134,7 +135,7 @@ Puede usar solucionadores de notificaciones con los siguientes elementos:
 |[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |
 |Perfil técnico de [RelyingParty](relyingparty.md#technicalprofile)| `OutputClaim`| 2 |
 
-Configuración: 
+Configuración:
 1. Los metadatos de `IncludeClaimResolvingInClaimsHandling` se deben establecer en `true`.
 1. El atributo de notificaciones de entrada o salida `AlwaysUseDefaultValue` se debe establecer en `true`.
 
@@ -194,7 +195,7 @@ Como resultado, Azure AD B2C envía los parámetros anteriores a la página de 
 
 ### <a name="content-definition"></a>Definición de contenido
 
-En el parámetro `LoadUri` de [ContentDefinition](contentdefinitions.md), puede enviar resoluciones de notificaciones para extraer contenido de distintos lugares, en función de los parámetros utilizados. 
+En el parámetro `LoadUri` de [ContentDefinition](contentdefinitions.md), puede enviar resoluciones de notificaciones para extraer contenido de distintos lugares, en función de los parámetros utilizados.
 
 ```XML
 <ContentDefinition Id="api.signuporsignin">
@@ -223,7 +224,7 @@ Con Azure Application Insights y los solucionadores de notificaciones, puede obt
 
 ### <a name="relying-party-policy"></a>Directiva del usuario de confianza
 
-En un perfil técnico de directiva de [Usuario de confianza](relyingparty.md), es posible que quiera enviar el identificador de inquilino o el identificador de correlación a la aplicación de usuario de confianza en el JWT. 
+En un perfil técnico de directiva de [Usuario de confianza](relyingparty.md), es posible que quiera enviar el identificador de inquilino o el identificador de correlación a la aplicación de usuario de confianza en el JWT.
 
 ```XML
 <RelyingParty>

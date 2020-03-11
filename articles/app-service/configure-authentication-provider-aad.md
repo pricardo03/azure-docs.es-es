@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 09/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 69959418c52eb7324efe19ca41481e426b822ab4
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 717336e0ddfe99c96afda4861f4de1239ee949bf
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842371"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913215"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-ad-login"></a>Configuración de la aplicación de App Service para usar el inicio de sesión de Azure AD
 
@@ -25,6 +25,9 @@ Siga estos procedimientos recomendados para configurar la aplicación y la auten
 - Evite el uso compartido de permisos entre entornos mediante registros de aplicación independientes para ranuras de implementación independientes. Al probar nuevo código, esta práctica puede ayudar a evitar que los problemas afecten a la aplicación de producción.
 
 ## <a name="express"> </a>Configuración rápida
+
+> [!NOTE]
+> La opción **Rápida** no está disponible en las nubes de las administraciones públicas. 
 
 1. En [Azure Portal], busque y seleccione **App Services** y luego elija la aplicación.
 2. En el panel de navegación izquierdo, seleccione **Autenticación/Autorización** > **Activado**.

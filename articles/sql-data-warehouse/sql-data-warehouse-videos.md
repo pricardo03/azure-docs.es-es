@@ -1,6 +1,6 @@
 ---
 title: Vídeos
-description: Vínculos a varias listas de reproducción de vídeo de Azure SQL Data Warehouse.
+description: Vínculos a varias listas de reproducción de vídeo de Azure Synapse Analytics.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 02/15/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5d01ff2eb74844997eb1640123e4af59abe2340b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: bc6d0aed017dea46a781ca2b1d8d238e9d761e1b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692441"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192173"
 ---
-# <a name="azure-sql-data-warehouse---videos"></a>Azure SQL Data Warehouse: vídeos
+# <a name="azure-synapse-analytics---sql-pool-videos"></a>Vídeos de Azure Synapse Analytics: grupo de SQL
 
-Vea los vídeos más recientes de Azure SQL Data Warehouse para obtener información sobre las nuevas funcionalidades y mejoras de rendimiento. 
+Vea los vídeos más recientes del grupo de SQL de Azure Synapse para conocer las nuevas funcionalidades y mejoras de rendimiento. 
 
-Para empezar, seleccione el vídeo de información general a continuación para obtener información acerca de las nuevas actualizaciones para Azure SQL Data Warehouse. Además, obtenga información sobre cómo se pueden usar los patrones de Data Warehouse modernos para abordar escenarios reales, como los ciberdelitos.
+Para empezar, seleccione el vídeo de información general que se muestra a continuación para conocer las nuevas actualizaciones al grupo de SQL de Azure Synapse. Además, aprenda cómo se pueden usar los patrones de almacenamiento de datos modernos para abordar escenarios reales, como los ciberdelitos.
 </br>
 
 <a href="https://www.youtube.com/watch?v=7MDCWgxPnVY&list=PLXtHYVsvn_b_v4EKljH6dGo9qJ7JjItWL&index=2">

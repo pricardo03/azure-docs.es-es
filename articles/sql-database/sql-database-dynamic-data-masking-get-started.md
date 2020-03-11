@@ -1,25 +1,26 @@
 ---
 title: Enmascaramiento de datos dinámicos
-description: El enmascaramiento dinámico de datos limita la exposición de información confidencial enmascarándola a los usuarios de SQL Database y Data Warehouse que no tienen privilegios.
+description: El enmascaramiento dinámico de datos enmascara los datos confidenciales para los usuarios de SQL Database y Azure Synapse sin privilegios con el fin de limitar su exposición.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/04/2019
-ms.openlocfilehash: 149c42829762920583948958da8252a01e35ef1f
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 02/06/2020
+tags: azure-synpase
+ms.openlocfilehash: e5b281d59245d8fbd32b18f4ac5fe577fc7ff309
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721921"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192921"
 ---
-# <a name="dynamic-data-masking-for-azure-sql-database-and-data-warehouse"></a>Enmascaramiento dinámico de datos en Azure SQL Database y Data Warehouse
+# <a name="dynamic-data-masking-for-azure-sql-database-and-azure-synapse-analytics"></a>Enmascaramiento dinámico de datos para Azure SQL Database y Azure Synapse Analytics
 
 El enmascaramiento dinámico de datos de SQL Database limita la exposición de información confidencial mediante su enmascaramiento a los usuarios sin privilegios. 
 
@@ -29,7 +30,7 @@ Por ejemplo, un representante de servicio de un centro de llamadas podría ident
 
 ## <a name="dynamic-data-masking-basics"></a>Aspectos básicos del enmascaramiento dinámico de datos
 
-Para configurar una directiva de enmascaramiento dinámico de datos en Azure Portal, se selecciona la operación de enmascaramiento dinámico de datos en la hoja de configuración de SQL Database. Esta característica no se puede establecer mediante el portal para SQL DW (use PowerShell o la API de REST)
+Para configurar una directiva de enmascaramiento dinámico de datos en Azure Portal, se selecciona la operación de enmascaramiento dinámico de datos en la hoja de configuración de SQL Database. Esta característica no se puede establecer para Azure Synapse mediante el portal (use PowerShell o la API REST)
 
 ### <a name="dynamic-data-masking-permissions"></a>Permisos de enmascaramiento de datos dinámicos
 

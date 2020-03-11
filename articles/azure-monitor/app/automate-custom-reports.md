@@ -1,19 +1,15 @@
 ---
 title: Automatizar informes personalizados con datos de Azure Application Insights
 description: Automatizar informes personalizados diarios, semanales o mensuales con datos de Azure Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 2b23374972a071421b59bedf0eb5b9358b37d7a9
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: d91595a863901fcc420611ac644c7856e74320dd
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677622"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655130"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar informes personalizados con datos de Azure Application Insights
 
@@ -91,7 +87,7 @@ availabilityResults
 5. Seleccione la **_plantilla de resumen programada de Application Insights_** .
 
      > [!NOTE]
-     > De forma predeterminada, las aplicaciones de función se crean con la versión 2.x del entorno en tiempo de ejecución. Debe [dirigirse a la versión del entorno de ejecución de Azure Functions](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) **1.x** para usar la plantilla de resumen programado de Application Insights.  ![captura de pantalla del entorno de ejecución](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
+     > De forma predeterminada, las aplicaciones de función se crean con la versión 2.x del entorno en tiempo de ejecución. Debe [dirigirse a la versión del entorno de ejecución de Azure Functions](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) **1.x** para usar la plantilla de resumen de programación de Application Insights.  ![captura de pantalla del entorno de ejecución](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
 
 
 

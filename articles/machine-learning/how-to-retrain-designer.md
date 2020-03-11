@@ -1,23 +1,23 @@
 ---
-title: Nuevo entrenamiento de modelos mediante el diseñador de Azure Machine Learning
+title: Volver a entrenar modelos mediante el diseñador de Azure Machine Learning (versión preliminar)
 titleSuffix: Azure Machine Learning
-description: Aprenda a volver a entrenar modelos con canalizaciones publicadas en el diseñador de Azure Machine Learning.
+description: Obtenga información sobre cómo volver a entrenar modelos con canalizaciones publicadas en el diseñador de Azure Machine Learning (versión preliminar).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.author: peterlu
-author: peterclu
-ms.date: 12/15/2019
-ms.openlocfilehash: d1382da739fd8ca56d4cc53c2c302331bdfbf1c3
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.author: keli19
+author: likebupt
+ms.date: 02/24/2020
+ms.openlocfilehash: 8e7874ec2a0ea160d29f8755ca8680c4dfbeec1d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311876"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268499"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer"></a>Volver a entrenar modelos con el diseñador de Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Volver a entrenar modelos con el diseñador de Azure Machine Learning (versión preliminar)
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 En esta guía paso a paso, aprenderá a usar el diseñador de Azure Machine Learning para volver a entrenar un modelo de aprendizaje automático. Descubra cómo usar las canalizaciones publicadas para automatizar los flujos de trabajo de aprendizaje automático para volver a entrenar.
 
@@ -29,7 +29,7 @@ En este artículo, aprenderá a:
 > * Publicar la canalización de entrenamiento.
 > * Volver a entrenar el modelo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree).
 
@@ -69,11 +69,11 @@ El diseñador guarda todas las salidas de canalización, incluidos los modelos e
 
 1. Seleccione el módulo **Train Model** (Entrenar modelo).
 
-1. En el panel Configuración, seleccione **Salidas**.
+1. En el panel de configuración, seleccione **Outputs+logs** (Salidas+registros).
 
-1. Seleccione **Trained_model** para descargar el modelo.
+1. Haga clic en el icono **View output** (Ver salida) y siga las instrucciones de la ventana emergente para buscar el modelo entrenado.
 
-![Captura de pantalla que muestra cómo descargar el modelo entrenado](./media/how-to-retrain-designer/download-model.png)
+![Captura de pantalla que muestra cómo descargar el modelo entrenado](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="create-a-pipeline-parameter"></a>Creación de un parámetro de canalización
 
@@ -119,7 +119,7 @@ Siga estos pasos para enviar un punto de conexión de la canalización ejecutado
 
 1. Seleccione la canalización que quiere ejecutar.
 
-1. Seleccione **Run** (Ejecutar).
+1. Seleccione **Submit** (Enviar).
 
 1. En el cuadro de diálogo de configuración, puede especificar un nuevo valor de ruta de acceso a los datos de entrada, que señala al nuevo conjunto de datos.
 
@@ -127,7 +127,9 @@ Siga estos pasos para enviar un punto de conexión de la canalización ejecutado
 
 ### <a name="submit-runs-with-code"></a>Envío de ejecuciones con código
 
-Hay varias maneras de tener acceso al punto de conexión de REST mediante programación en función del entorno de desarrollo. Puede encontrar ejemplos de código que muestran cómo enviar ejecuciones de canalizaciones con parámetros en la pestaña **Consumir** de la canalización.
+Puede encontrar el punto de conexión REST de una canalización publicada en el panel de información general. Mediante una llamada al punto de conexión, puede volver a entrenar la canalización publicada.
+
+Para hacer una llamada a REST, necesitará un encabezado de autenticación de tipo portador de OAuth 2.0. Consulte la siguiente [sección de tutorial](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) para más información sobre la configuración de la autenticación en el área de trabajo y la realización de una llamada a REST con parámetros.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

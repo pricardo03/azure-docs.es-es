@@ -6,20 +6,23 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
-ms.openlocfilehash: 27978d367ded7a31d73949cd675ae9e6f8cb887c
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: fc208a3542528fb4554a365a02e13c2da3055cf2
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264006"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192207"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Streaming de registros de aplicaciones de Azure Spring Cloud en tiempo real
 Azure Spring Cloud permite el streaming de registros en la CLI de Azure para obtener registros de la consola de la aplicación en tiempo real para solucionar problemas. También puede realizar el [análisis de registros y métricas con la configuración de diagnóstico](./diagnostic-services.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Instale la [extensión de la CLI de Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension) para Spring Cloud, la versión mínima es 0.2.0.
 * Una instancia de **Azure Spring Cloud** con una aplicación en ejecución, por ejemplo [Spring Cloud App](./spring-cloud-quickstart-launch-app-cli.md).
+
+> [!NOTE]
+>  La extensión de la CLI de ASC se actualiza de la versión 0.2.0 a la 0.2.1. Este cambio afecta a la sintaxis del comando de la transmisión de registros `az spring-cloud app log tail`, que se reemplaza por `az spring-cloud app logs`. El comando `az spring-cloud app log tail` quedará en desuso en una futura versión. Si ha usado la versión 0.2.0, puede actualizar a 0.2.1. En primer lugar, quite la versión anterior con el comando `az extension remove -n spring-cloud`.  Luego, instale la 0.2.1 mediante el comando: `az extension add -n spring-cloud`.
 
 ## <a name="use-cli-to-tail-logs"></a>Uso de la CLI para el final de los registros
 
@@ -33,7 +36,7 @@ En los siguientes ejemplos, el grupo de recursos y el nombre del servicio se omi
 ### <a name="tail-log-for-app-with-single-instance"></a>Final del registro de la aplicación con una sola instancia
 Si una aplicación denominada auth-service solo tiene una instancia, puede ver el registro de la instancia de la aplicación con el siguiente comando:
 ```
-az spring-cloud app log tail -n auth-service
+az spring-cloud app logs -n auth-service
 ```
 Esto devolverá registros:
 ```
@@ -66,7 +69,7 @@ auth-service-default-12-75cc4577fc-n25mh  Running   UP
 Después, puede transmitir los registros de una instancia de la aplicación con la opción `-i/--instance`:
 
 ```
-az spring-cloud app log tail -n auth-service -i auth-service-default-12-75cc4577fc-pw7hb
+az spring-cloud app logs -n auth-service -i auth-service-default-12-75cc4577fc-pw7hb
 ```
 
 También puede obtener los detalles de las instancias de la aplicación en Azure Portal.  Después de seleccionar **Aplicaciones** en el panel de navegación izquierdo del servicio Azure Spring Cloud, seleccione **App Instances**.
@@ -75,11 +78,11 @@ También puede obtener los detalles de las instancias de la aplicación en Azure
 De forma predeterminada, `az spring-cloud ap log tail` imprime solo los registros existentes transmitidos a la consola de la aplicación y, a continuación, se cierra. Si desea hacer streaming de los nuevos registros, agregue-f (--follow):  
 
 ```
-az spring-cloud app log tail -n auth-service -f
+az spring-cloud app logs -n auth-service -f
 ``` 
 Para comprobar todas las opciones de registro admitidas:
 ``` 
-az spring-cloud app log tail -h 
+az spring-cloud app logs -h 
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

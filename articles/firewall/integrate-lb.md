@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 02/28/2020
 ms.author: victorh
-ms.openlocfilehash: 91f34d06532b2d7f56d293df40939212a4f3d68c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: ab9a500d9535b55702b8baff15f8cc47e6ac2c86
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167076"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196737"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integración de Azure Firewall con Azure Standard Load Balancer
 
@@ -32,16 +32,30 @@ La ruta asimétrica se produce cuando un paquete toma una ruta al destino y toma
 
 ### <a name="fix-the-routing-issue"></a>Corrección del problema de enrutamiento
 
-Al implementar una instancia de Azure Firewall en una subred, un paso es crear una ruta predeterminada para la subred que dirige los paquetes a través de la dirección IP privada del firewall ubicado en AzureFirewallSubnet. Para más información, consulte [Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal](tutorial-firewall-deploy-portal.md#create-a-default-route).
+Al implementar una instancia de Azure Firewall en una subred, un paso es crear una ruta predeterminada para la subred que dirige los paquetes a través de la dirección IP privada del firewall ubicado en AzureFirewallSubnet. Para más información, consulte el [Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal](tutorial-firewall-deploy-portal.md#create-a-default-route).
 
 Al introducir el firewall en el escenario del equilibrador de carga, quiere que su tráfico de Internet llegue a través de la dirección IP pública del firewall. Desde allí, el firewall aplica sus reglas de firewall y traduce las direcciones de red de los paquetes a la dirección IP pública del equilibrador de carga. Allí es donde se produce el problema. Los paquetes llegan a la dirección IP pública del firewall, pero vuelven al firewall a través de la dirección IP privada (mediante la ruta predeterminada).
 Para evitar este problema, cree una ruta de host adicional para la dirección IP pública del firewall. Los paquetes que van a la dirección IP pública del firewall se enrutan a través de Internet. Esto evita que tomen la ruta predeterminada a la dirección IP privada del firewall.
 
 ![Ruta asimétrica](media/integrate-lb/Firewall-LB-asymmetric.png)
 
-Por ejemplo, las rutas siguientes son para un firewall en la dirección IP pública 13.86.122.41 y dirección IP privada 10.3.1.4.
+### <a name="route-table-example"></a>Ejemplo de tabla de rutas
 
-![Tabla de rutas](media/integrate-lb/route-table.png)
+Por ejemplo, las rutas siguientes son para un firewall en la dirección IP pública 20.185.97.136 y la dirección IP privada 10.0.1.4.
+
+> [!div class="mx-imgBorder"]
+> ![Tabla de rutas](media/integrate-lb/route-table.png)
+
+### <a name="nat-rule-example"></a>Ejemplo de regla NAT
+
+En el ejemplo siguiente, una regla NAT traduce el tráfico RDP al firewall en 20.185.97.136 a través del equilibrador de carga en 20.42.98.220:
+
+> [!div class="mx-imgBorder"]
+> ![Regla de NAT](media/integrate-lb/nat-rule-02.png)
+
+### <a name="health-probes"></a>Sondeos de estado
+
+Recuerde que debe tener un servicio web que se ejecute en los hosts del grupo de equilibradores de carga si usa sondeos de estado TCP para el puerto 80 o sondeos HTTP/HTTPS.
 
 ## <a name="internal-load-balancer"></a>Equilibrador de carga interno
 
@@ -56,6 +70,8 @@ Por lo tanto, puede implementar este escenario similar para el escenario del equ
 Para mejorar la seguridad de su escenario de equilibrio de carga, puede usar grupos de seguridad de red (NSG).
 
 Por ejemplo, puede crear un NSG en la subred de back-end donde se encuentran las máquinas virtuales de carga equilibrada. Permita el tráfico entrante procedente de la dirección IP/puerto del firewall.
+
+![Grupo de seguridad de red](media/integrate-lb/nsg-01.png)
 
 Para más información sobre NSG, consulte [Grupos de seguridad](../virtual-network/security-overview.md).
 

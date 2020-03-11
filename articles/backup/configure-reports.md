@@ -3,12 +3,12 @@ title: Configuración de informes de Azure Backup
 description: Configuración y visualización de informes para Azure Backup con Log Analytics y Azure Workbooks
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: cefe81e53e89b8d7903469e836f3c5d2665febea
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 651d1383f0f292895ed95c91bafd5206d4f04c2c
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77582711"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161208"
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
 
@@ -47,6 +47,9 @@ En la sección de supervisión del almacén de Recovery Services, seleccione **C
 
 Azure Backup también proporciona una directiva integrada de Azure Policy, que automatiza la configuración de diagnóstico para todos los almacenes de un ámbito determinado. Consulte el siguiente artículo para obtener información sobre el uso de esta directiva: [Configuración de los valores de diagnóstico del almacén a gran escala](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics)
 
+> [!NOTE]
+> Una vez que configure los diagnósticos, las inserciones de datos iniciales pueden tardar hasta 24 horas en completarse. Una vez que los datos comienzan a fluir en el área de trabajo de LA, es posible que no pueda ver los datos en los informes inmediatamente, ya que los datos para el día parcial actual no se muestran en los informes (más detalles [aquí](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports)). Por lo tanto, se recomienda empezar a ver los informes 2 días después de configurar los almacenes para enviar datos a Log Analytics.
+
 3. **Visualice los informes en Azure Portal:**
 
 Una vez que haya configurado los almacenes para enviar los datos a LA, puede visualizar los informes de copia de seguridad; para ello, vaya a la hoja de cualquier almacén y haga clic en el elemento de menú **Informes de copias de seguridad**. 
@@ -56,7 +59,8 @@ Una vez que haya configurado los almacenes para enviar los datos a LA, puede vis
 Al hacer clic en este vínculo, se abre el libro del informe de copia de seguridad.
 
 > [!NOTE]
-> Actualmente, la carga inicial del informe puede tardar hasta 1 minuto.
+> * Actualmente, la carga inicial del informe puede tardar hasta 1 minuto.
+> * El almacén de Recovery Services es simplemente un punto de entrada para los informes de copia de seguridad. Una vez que el libro del informe de copia de seguridad se abra en la hoja de un almacén, podrá ver los datos agregados en todos los almacenes (si selecciona el conjunto adecuado de las áreas de trabajo de LA).
 
 A continuación se muestra una descripción de las distintas pestañas que contiene el informe:
 

@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 1f609c33ea474508eb107c0df9993c2ba3483660
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 761011cba71c3907994616904cc854003abda7ee
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087028"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245134"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutorial: Entrenar e implementar un modelo desde la CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -68,7 +68,7 @@ El directorio `examples/cli-train-deploy` del proyecto contiene los siguientes a
 El repositorio contiene los siguientes archivos, que se usan para implementar el modelo entrenado como servicio Web:
 
 * `aciDeploymentConfig.yml`: un archivo de __configuración de implementación__. Este archivo define el entorno de hospedaje necesario para el modelo.
-* `inferenceConfig.yml`: un archivo de configuración de inferencia. Este archivo define el entorno de software que el servicio usa para puntuar los datos con el modelo.
+* `inferenceConfig.yml`: un archivo de __configuración de inferencia__. Este archivo define el entorno de software que el servicio usa para puntuar los datos con el modelo.
 * `score.py`: un script de Python que acepta datos entrantes, los puntúa con el modelo y, luego, devuelve una respuesta.
 * `scoring-env.yml`: las dependencias de conda que se necesitan para ejecutar el modelo y el script `score.py`.
 * `testdata.json`: Un archivo de datos que se puede usar para probar el servicio Web implementado.
@@ -381,7 +381,7 @@ Este comando implementa un servicio nuevo denominado `myservice`, con la versió
 
 En el archivo `inferenceConfig.yml` se proporciona información sobre cómo usar el modelo para inferencias. Por ejemplo, hace referencia al script de entrada (`score.py`) y a las dependencias de software. 
 
-Para más información sobre la estructura de este archivo, consulte el [esquema de configuración de inferencia](reference-azure-machine-learning-cli.md#inference-configuration-schema). Para más información sobre los scripts de entrada, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md#prepare-deployment-artifacts).
+Para más información sobre la estructura de este archivo, consulte el [esquema de configuración de inferencia](reference-azure-machine-learning-cli.md#inference-configuration-schema). Para más información sobre los scripts de entrada, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
 
 El `aciDeploymentConfig.yml` describe el entorno de implementación que se usa para hospedar el servicio. La configuración de implementación es específica del tipo de proceso que se usa para la implementación. En este caso, se usa una instancia de Azure Container Instances. Para más información, consulte el [esquema de configuración de implementación](reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 

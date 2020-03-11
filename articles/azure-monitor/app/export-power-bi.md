@@ -1,18 +1,14 @@
 ---
 title: Exportación a Power BI desde Azure Application Insights | Microsoft Docs
 description: Las consultas de Analytics se pueden mostrar en Power BI.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 08/10/2018
-ms.openlocfilehash: 3ec20f82bc12b60e5b88a02bb92a4a0ada4dcae7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0e17ca6e07ec76f0a7a1cb04f7aa13619fb9970c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73668007"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664004"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentación de Power BI desde Application Insights
 [Power BI](https://www.powerbi.com/) es un conjunto de herramientas de negocios que pueden ayudar a analizar datos y compartir conocimientos. Cada dispositivo cuenta con paneles que incluyen gran cantidad de datos. Puede combinar datos de varios orígenes, incluidas las consultas de Analytics en [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -81,7 +77,7 @@ Instale [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
    ![Captura de pantalla de Power BI Desktop, con el cambio de título resaltado](./media/export-power-bi/changetitle.png)
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Pueden producirse errores relacionados con las credenciales o el tamaño del conjunto de datos. Aquí se ofrece cierta información sobre qué hacer cuando se producen estos errores.
 
@@ -123,7 +119,7 @@ Este método crea un panel completo de telemetría. El conjunto de datos inicial
 
 ### <a name="get-the-adapter"></a>Obtención del adaptador
 1. Inicie sesión en [Power BI](https://app.powerbi.com/).
-2. Abra **Obtener datos** ![captura de pantalla del icono de Obtener datos en la esquina inferior izquierda](./media/export-power-bi/001.png), **Servicios**.
+2. Abra **Obtener datos** ![Captura de pantalla del icono de obtener datos en la esquina inferior izquierda](./media/export-power-bi/001.png), **Servicios**.
 
     ![Capturas de pantalla de Obtener de un origen de datos de Application Insights](./media/export-power-bi/002.png)
 
