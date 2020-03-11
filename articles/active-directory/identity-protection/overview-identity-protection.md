@@ -85,15 +85,15 @@ Identity Protection requiere que los usuarios tengan el rol Lector de seguridad,
 
 | Capacidad | Detalles | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
 | --- | --- | --- | --- | --- |
-| Directivas de riesgo | Directiva de riesgo de usuario (mediante Identity Protection) | Sí | No | Sin |
-| Directivas de riesgo | Directiva de riesgo de inicio de sesión (mediante Identity Protection o acceso condicional) | Sí | No | Sin |
-| Informes de seguridad | Información general | Sí | No | Sin |
+| Directivas de riesgo | Directiva de riesgo de usuario (mediante Identity Protection) | Sí | No | No |
+| Directivas de riesgo | Directiva de riesgo de inicio de sesión (mediante Identity Protection o acceso condicional) | Sí | No | No |
+| Informes de seguridad | Información general | Sí | No | No |
 | Informes de seguridad | Usuarios de riesgo | Acceso total | Información limitada | Información limitada |
 | Informes de seguridad | Inicios de sesión no seguros | Acceso total | Información limitada | Información limitada |
-| Informes de seguridad | Detecciones de riesgo | Acceso total | Información limitada | Sin |
-| Notificaciones | Alertas detectadas sobre usuarios en riesgo | Sí | No | Sin |
-| Notificaciones | Resumen semanal | Sí | No | Sin |
-| | Directiva de registro de MFA | Sí | No | Sin |
+| Informes de seguridad | Detecciones de riesgo | Acceso total | Información limitada | No |
+| Notificaciones | Alertas detectadas sobre usuarios en riesgo | Sí | No | No |
+| Notificaciones | Resumen semanal | Sí | No | No |
+| | Directiva de registro de MFA | Sí | No | No |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
