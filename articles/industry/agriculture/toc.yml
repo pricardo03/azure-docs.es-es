@@ -9,6 +9,8 @@
       href: generate-soil-moisture-map-in-azure-farmbeats.md
     - name: Ingesta de datos de telemetría históricos
       href: ingest-historical-telemetry-data-in-azure-farmbeats.md
+    - name: Consulta de los datos de telemetría ingeridos
+      href: query-telemetry-data-from-azure-farmbeats.md
 - name: Conceptos
   items:
     - name: Patrones de integración

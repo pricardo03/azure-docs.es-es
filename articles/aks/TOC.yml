@@ -216,7 +216,7 @@
           href: api-server-authorized-ip-ranges.md
         - name: Implementaciones de control con Azure Policy (versión preliminar)
           href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
-        - name: Actualización de las credenciales de la entidad de servicio del clúster
+        - name: Actualización de credenciales del clúster
           href: update-credentials.md
         - name: Restricción y control del tráfico de salida del clúster
           href: limit-egress-traffic.md
