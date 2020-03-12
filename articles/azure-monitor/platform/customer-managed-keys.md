@@ -1,18 +1,17 @@
 ---
 title: Configuración de la clave administrada por el cliente de Azure Monitor
 description: Información y pasos para configurar la clave administrada por el cliente (CMK) para cifrar los datos en las áreas de trabajo de Log Analytics mediante una clave de Azure Key Vault.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 02/24/2020
-ms.openlocfilehash: 2ea77be0a7aabefaf8f6ed9a5bd841ea1fdda263
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: b3e110766b2e131330f3108b7938e9e5e01e48a4
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620309"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208566"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Configuración de la clave administrada por el cliente de Azure Monitor 
 
@@ -185,7 +184,7 @@ Authorization: Bearer <token>
   "identity": {
     "type": "SystemAssigned",
     "tenantId": "tenant-id",
-    "principalId": "principal-Id"
+    "principalId": "principal-id"
     },
   "properties": {
     "provisioningState": "Succeeded",
@@ -199,10 +198,10 @@ Authorization: Bearer <token>
   }
 ```
 
-"principalId" es un GUID generado por el servicio de identidad administrada para el recurso de *clúster*.
+"principal-id" es un GUID generado por el servicio de identidad administrada para el recurso de *clúster*.
 
 > [!IMPORTANT]
-> Copie y guarde el valor "cluster-id", lo necesitará en los pasos siguientes.
+> Copie y guarde el valor "principal-id", ya que lo necesitará en los pasos siguientes.
 
 
 ### <a name="grant-key-vault-permissions"></a>Concesión de permisos a Key Vault
@@ -214,7 +213,7 @@ Actualice Key Vault con una nueva directiva de acceso que conceda permisos al r
 Abra su instancia de Key Vault en Azure Portal y haga clic en "Directivas de acceso" y luego en "+ Agregar directiva de acceso" para crear una nueva directiva con esta configuración:
 
 - Permisos de clave: seleccione los permisos "Obtener", "Encapsular clave" y "Desencapsular clave".
-- Seleccionar entidad de seguridad: escriba el identificador del clúster, que fue devuelto en la respuesta del paso anterior.
+- Seleccionar entidad de seguridad: escriba el identificador de la entidad de seguridad, que se devolvió en la respuesta del paso anterior.
 
 ![Concesión de permisos a Key Vault](media/customer-managed-keys/grant-key-vault-permissions.png)
 
@@ -529,10 +528,10 @@ La identidad se asigna al recurso de *clúster* en el momento de su creación.
   "location": "region-name"
 }
 ```
-"principalId" es un GUID generado por el servicio de identidad administrada.
+"principle-id" es un GUID generado por el servicio de identidad administrada.
 
 > [!IMPORTANT]
-> Copie y guarde el valor "cluster-id", lo necesitará en los pasos siguientes.
+> Copie y guarde el valor "principle-id", ya que lo necesitará en los pasos siguientes.
 
 ### <a name="associate-a-component-to-a-cluster-resource-using-components---create-or-update-api"></a>Asociación de un componente a un recurso de *clúster* mediante la API [Componentes: crear o actualizar](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate)
 

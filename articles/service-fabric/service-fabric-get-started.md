@@ -3,14 +3,14 @@ title: Configuración de un entorno de desarrollo de Windows
 description: Instale las herramientas, el SDK y el motor en tiempo de ejecución y cree un clúster de desarrollo local. Después de completar esta instalación, estará listo para compilar aplicaciones en Windows.
 author: peterpogorski
 ms.topic: conceptual
-ms.date: 02/05/2020
+ms.date: 03/02/2020
 ms.custom: sfrev
-ms.openlocfilehash: 6768f45e61880370295ce7725e553828e66f3d39
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: f08c6b0675475b4e15ce6db3a9dbe0e2863b9ddb
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77062122"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252763"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparación del entorno de desarrollo en Windows
 
@@ -68,8 +68,8 @@ Si únicamente necesita el SDK, puede instalar este paquete:
 
 Las versiones actuales son:
 
-* SDK y herramientas de Service Fabric 4.0.466
-* Entorno de ejecución de Service Fabric 7.0.466
+* SDK y herramientas de Service Fabric 4.0.470
+* Entorno de ejecución de Service Fabric 7.0.470
 
 Para obtener una lista de las versiones admitidas, consulte [Versiones de Service Fabric](service-fabric-versions.md).
 

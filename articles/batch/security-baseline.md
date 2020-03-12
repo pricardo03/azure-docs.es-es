@@ -5,15 +5,15 @@ author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/22/2020
+ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4094ace5772b99c646a31d6a4722bbb080fbfff7
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 779b7d071b1161c53bdba08738539c4c682882d2
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589655"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273543"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Línea de base de seguridad de Azure para Batch
 
@@ -21,11 +21,11 @@ La línea de base de seguridad de Azure para Batch contiene recomendaciones que 
 
 La línea de base para estos servicios se extrae de la [Prueba comparativa de seguridad de Azure versión 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), que proporciona recomendaciones sobre cómo puede proteger las soluciones en la nube en Azure con nuestra guía de procedimientos recomendados.
 
-Para más información, consulte [Introducción a las líneas de base de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Para obtener más información, consulte [Introducción a las líneas de base de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
 
 ## <a name="network-security"></a>Seguridad de redes
 
-*Para más información, consulte [Control de seguridad: seguridad de red](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Para obtener más información, consulte [Control de seguridad: seguridad de red](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: Proteja los recursos mediante grupos de seguridad de red o Azure Firewall en su red virtual
 
@@ -59,7 +59,7 @@ Descripción de la seguridad de red proporcionada por Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
 
-**Supervisión de Azure Security Center**: no disponible actualmente
+**Supervisión de Azure Security Center**: Sí
 
 **Responsabilidad**: Customer
 
@@ -209,7 +209,7 @@ Creación de alertas en Azure Monitor: https://docs.microsoft.com/azure/azure-mo
 
 ## <a name="logging-and-monitoring"></a>Registro y supervisión
 
-*Para más información, consulte [Control de seguridad: registro y supervisión](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Para obtener más información, consulte [Control de seguridad: registro y supervisión](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: Uso de orígenes de sincronización de hora aprobados
 
@@ -271,7 +271,7 @@ Cómo conectarse de forma remota a los nodos del grupo de Azure Batch:
 
 https://docs.microsoft.com/azure/batch/batch-api-basics#error-handling
 
-**Supervisión de Azure Security Center**: no disponible actualmente
+**Supervisión de Azure Security Center**: Sí
 
 **Responsabilidad**: Customer
 
@@ -323,7 +323,7 @@ https://docs.microsoft.com/azure/batch/batch-diagnostics
 
 **Guía**: use Windows Defender en los nodos de Batch individuales en el caso de los sistemas operativos Windows o proporcione su propia solución antimalware si usa Linux.
 
-**Supervisión de Azure Security Center**: no disponible actualmente
+**Supervisión de Azure Security Center**: Sí
 
 **Responsabilidad**: Customer
 
@@ -345,7 +345,7 @@ https://docs.microsoft.com/azure/batch/batch-diagnostics
 
 ## <a name="identity-and-access-control"></a>Identidad y Access Control
 
-*Para más información, consulte [Control de seguridad: identidad y control de acceso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Para obtener más información, consulte [Control de seguridad: identidad y control de acceso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### <a name="31-maintain-inventory-of-administrative-accounts"></a>3.1: Mantenimiento de un inventario de cuentas administrativas
 
@@ -466,7 +466,7 @@ Cómo supervisar la identidad de los usuarios y la actividad de acceso en Azure 
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Supervisión de Azure Security Center**: no disponible actualmente
+**Supervisión de Azure Security Center**: Sí
 
 **Responsabilidad**: Customer
 
@@ -511,7 +511,7 @@ Cómo usar las revisiones de acceso de identidad de Azure:
 
 https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
-**Supervisión de Azure Security Center**: no disponible actualmente
+**Supervisión de Azure Security Center**: Sí
 
 **Responsabilidad**: Customer
 
@@ -524,13 +524,13 @@ Cómo integrar los registros de actividad de Azure en Azure Monitor:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
-**Supervisión de Azure Security Center**: no disponible actualmente
+**Supervisión de Azure Security Center**: Sí
 
 **Responsabilidad**: Customer
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12: Alerta de las desviaciones de comportamiento en los inicios de sesión de las cuentas
 
-**Guía**: use las características de protección de identidad y detección de riesgo de Azure Active Directory (AAD) para configurar respuestas automatizadas a las acciones sospechosas detectadas relacionadas con las identidades de los usuarios. Además, puede hacer que Azure Sentinel ingiera los datos para investigarlos más.
+**Guía**: use las características de protección de identidad y detección de riesgo de Azure Active Directory (AAD) para configurar respuestas automatizadas a las acciones sospechosas detectadas relacionadas con las identidades de los usuarios. Además, puede ingerir datos en Azure Sentinel para investigarlos más a fondo.
 
 
 Visualización de inicios de sesión de riesgo de AAD:
@@ -551,7 +551,7 @@ https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Responsabilidad**: Customer
 
-### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13: Proporcione a Microsoft acceso a los datos pertinentes del cliente durante los escenarios de soporte técnico
+### <a name="313-divprovide-microsoft-with-access-to-relevant-customer-data-during-support-scenariosbrdiv"></a>3.13: <div>Proporcione a Microsoft acceso a los datos pertinentes del cliente durante los escenarios de soporte técnico<br></div>
 
 **Guía**: no disponible; Caja de seguridad del cliente todavía no se admite para Azure Batch. Lista de servicios admitidos por Caja de seguridad del cliente: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
@@ -561,11 +561,11 @@ https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 ## <a name="data-protection"></a>Protección de datos
 
-*Para más información, consulte [Control de seguridad: protección de datos](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Para obtener más información, consulte [Control de seguridad: protección de datos](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Mantenimiento de un inventario de información confidencial
 
-**Guía**: use etiquetas para ayudar a realizar el seguimiento de los recursos de Azure que almacenan o procesan información confidencial.
+**Instrucciones**: use etiquetas para ayudar a realizar el seguimiento de los recursos de Azure que almacenan o procesan información confidencial.
 
 
 Creación y uso de etiquetas:
@@ -578,7 +578,7 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: Aislamiento de los sistemas que almacenan o procesan información confidencial
 
-**Guía**: Implemente suscripciones y/o grupos de administración independientes para los entornos de desarrollo, prueba y producción. Los grupos de Azure Batch deben separarse mediante una red virtual o subred, etiquetarse adecuadamente y protegerse con grupos de seguridad de red (NSG). Los datos de Azure Batch deben residir en una cuenta de Azure Storage protegida.
+**Instrucciones**: Implemente suscripciones y/o grupos de administración independientes para los entornos de desarrollo, prueba y producción. Los grupos de Azure Batch deben separarse mediante una red virtual o subred, etiquetarse adecuadamente y protegerse con grupos de seguridad de red (NSG). Los datos de Azure Batch deben residir en una cuenta de Azure Storage protegida.
 
 
 Cómo crear un grupo de Azure Batch en una red virtual:
@@ -602,7 +602,7 @@ https://docs.microsoft.com/azure/storage/common/storage-security-guide
 Las características de identificación, clasificación y prevención de pérdida de datos todavía no están disponibles para Azure Storage ni los recursos de proceso. Implemente una solución de terceros, si es necesario, para fines de cumplimiento.
 
 
-En el caso de la plataforma subyacente administrada por Microsoft, Microsoft trata todo el contenido de los clientes como confidencial y hace grandes esfuerzos para proteger a los clientes contra la pérdida y exposición de sus datos. Para garantizar la seguridad de los datos del cliente dentro de Azure, Microsoft ha implementado y mantiene un conjunto de eficaces controles y funcionalidades de protección de datos.
+En el caso de la plataforma subyacente administrada por Microsoft, Microsoft trata todo el contenido de los clientes como confidencial y hace grandes esfuerzos para proteger a los clientes contra la pérdida y exposición de sus datos. Para garantizar la seguridad de los datos de los clientes dentro de Azure, Microsoft ha implementado y mantiene un conjunto de controles y funcionalidades eficaces de protección de datos.
 
 
 Descripción de la protección de datos de clientes en Azure:
@@ -614,13 +614,13 @@ Cómo proteger cuentas de Azure Storage:
 
 https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
-**Supervisión de Azure Security Center**: Sí
+**Supervisión de Azure Security Center**: no disponible actualmente
 
-**Responsabilidad**: Customer
+**Responsabilidad**: Compartido
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: Cifrado de toda la información confidencial en tránsito
 
-**Guía**: Cifre toda la información confidencial en tránsito. De forma predeterminada, los recursos de Microsoft Azure negociarán TLS 1.2. Asegúrese de que los clientes que se conectan a los grupos de Azure Batch o los almacenes de datos (cuentas de Azure Storage) pueden negociar TLS 1.2 o superior.
+**Instrucciones**: Cifre toda la información confidencial en tránsito. De forma predeterminada, los recursos de Microsoft Azure negociarán TLS 1.2. Asegúrese de que los clientes que se conectan a los grupos de Azure Batch o los almacenes de datos (cuentas de Azure Storage) pueden negociar TLS 1.2 o superior.
 
 
 Asegúrese de que se requiere HTTPS para acceder a la cuenta de almacenamiento que contiene los datos de Azure Batch.
@@ -642,7 +642,7 @@ https://docs.microsoft.com/azure/storage/common/storage-security-guide#encryptio
 Las características de identificación, clasificación y prevención de pérdida de datos todavía no están disponibles para Azure Storage ni los recursos de proceso. Implemente una solución de terceros, si es necesario, para fines de cumplimiento.
 
 
-En el caso de la plataforma subyacente administrada por Microsoft, Microsoft trata todo el contenido de los clientes como confidencial y hace grandes esfuerzos para proteger a los clientes contra la pérdida y exposición de sus datos. Para garantizar la seguridad de los datos del cliente dentro de Azure, Microsoft ha implementado y mantiene un conjunto de eficaces controles y funcionalidades de protección de datos.
+En el caso de la plataforma subyacente administrada por Microsoft, Microsoft trata todo el contenido de los clientes como confidencial y hace grandes esfuerzos para proteger a los clientes contra la pérdida y exposición de sus datos. Para garantizar la seguridad de los datos de los clientes dentro de Azure, Microsoft ha implementado y mantiene un conjunto de controles y funcionalidades eficaces de protección de datos.
 
 
 Descripción de la protección de datos de clientes en Azure:
@@ -654,7 +654,7 @@ Cómo proteger cuentas de Azure Storage:
 
 https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
-**Supervisión de Azure Security Center**: Sí
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Compartido
 
@@ -682,15 +682,15 @@ https://docs.microsoft.com/azure/role-based-access-control/role-assignments-port
 
 
 
-En el caso de la plataforma subyacente administrada por Microsoft, Microsoft trata todo el contenido de los clientes como confidencial y hace grandes esfuerzos para proteger a los clientes contra la pérdida y exposición de sus datos. Para garantizar la seguridad de los datos del cliente dentro de Azure, Microsoft ha implementado y mantiene un conjunto de eficaces controles y funcionalidades de protección de datos.
+En el caso de la plataforma subyacente administrada por Microsoft, Microsoft trata todo el contenido de los clientes como confidencial y hace grandes esfuerzos para proteger a los clientes contra la pérdida y exposición de sus datos. Para garantizar la seguridad de los datos de los clientes dentro de Azure, Microsoft ha implementado y mantiene un conjunto de controles y funcionalidades eficaces de protección de datos.
 
 
 
-Descripción de la protección de datos de clientes en Azure:
+Descripción de la protección de datos de los clientes en Azure:
 
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
-**Supervisión de Azure Security Center**: Sí
+**Supervisión de Azure Security Center**: no disponible actualmente
 
 **Responsabilidad**: Compartido
 
@@ -704,7 +704,7 @@ Cómo administrar claves de cifrado para cuentas de Azure Storage:
 
 https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal
 
-**Supervisión de Azure Security Center**: no disponible actualmente
+**Supervisión de Azure Security Center**: Sí
 
 **Responsabilidad**: Customer
 
@@ -728,13 +728,13 @@ Cómo habilitar el registro o la auditoría adicionales para una cuenta de Azure
 
 https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account
 
-**Supervisión de Azure Security Center**: no disponible actualmente
+**Supervisión de Azure Security Center**: Sí
 
 **Responsabilidad**: Customer
 
 ## <a name="vulnerability-management"></a>Administración de vulnerabilidades
 
-*Para más información, consulte [Control de seguridad: administración de vulnerabilidades](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Para obtener más información, consulte [Control de seguridad: administración de vulnerabilidades](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: Ejecución de herramientas de análisis de vulnerabilidades automatizadas
 
@@ -751,7 +751,7 @@ Opcionalmente, si dispone de Rapid7, Qualys o cualquier otra suscripción de pla
 
 **Guía**: Microsoft mantiene y actualiza las imágenes de nodo del grupo de Azure Batch de base. Asegúrese de que el sistema operativo de los nodos del grupo de Azure Batch permanece revisado a lo largo de la duración del clúster, lo que puede requerir la habilitación de actualizaciones automáticas, la supervisión de los nodos o la realización de reinicios periódicos.
 
-**Supervisión de Azure Security Center**: no disponible actualmente
+**Supervisión de Azure Security Center**: Sí
 
 **Responsabilidad**: Compartido
 
@@ -773,7 +773,7 @@ Opcionalmente, si dispone de Rapid7, Qualys o cualquier otra suscripción de pla
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5: Use un proceso de clasificación de riesgos para priorizar la corrección de vulnerabilidades detectadas.
 
-**Guía**: use un programa de puntuación de riesgos común (por ejemplo, Common Vulnerability Scoring System) o la clasificación de riesgos predeterminada proporcionada por su herramienta de análisis de terceros.
+**Guía**: use un programa de puntuación de riesgos común (por ejemplo, Common Vulnerability Scoring System) o la clasificación de riesgos predeterminada proporcionada por su herramienta de examen de terceros.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -781,14 +781,14 @@ Opcionalmente, si dispone de Rapid7, Qualys o cualquier otra suscripción de pla
 
 ## <a name="inventory-and-asset-management"></a>Administración de recursos y del inventario
 
-*Para más información, consulte [Control de seguridad: inventario y administración de recursos](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Para obtener más información, consulte [Control de seguridad: inventario y administración de recursos](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1: Uso de la detección de recursos de Azure
 
 **Guía**: use Azure Resource Graph para consultar o detectar todos los recursos (por ejemplo, proceso, almacenamiento, red, etc.) dentro de las suscripciones. Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y de que puede enumerar todas las suscripciones de Azure, así como los recursos de las suscripciones.
 
 
-Aunque los recursos clásicos de Azure se pueden detectar a través de Resource Graph, se recomienda encarecidamente crear y usar los recursos de Azure Resource Manager que figuran a continuación.
+Aunque los recursos clásicos de Azure se pueden detectar a través de Resource Graph, se recomienda encarecidamente crear y usar los recursos de Azure Resource Manager (ARM) en adelante.
 
 
 Creación de consultas con Azure Graph:
@@ -863,11 +863,14 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 - Tipos de recursos no permitidos
 - Tipos de recursos permitidos
 
+
 Use Azure Resource Graph para consultar o detectar recursos dentro de las suscripciones. Asegúrese de que todos los recursos de Azure presentes en el entorno estén aprobados.
+
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Cómo crear consultas con Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+
+Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -901,16 +904,15 @@ Cómo crear consultas con Azure Graph: https://docs.microsoft.com/azure/governan
 
 **Guía**: use Azure Policy para establecer restricciones en el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 
+
 - Tipos de recursos no permitidos
 - Tipos de recursos permitidos
 
-Configuración y administración de Azure Policy:
 
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Denegación de un tipo de recurso específico con Azure Policy:
 
-https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+Denegación de un tipo de recurso específico con Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -924,14 +926,12 @@ https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-
 
 **Responsabilidad**: Customer
 
-### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager-via-scripts"></a>6.11: Limitación de la capacidad de los usuarios para interactuar con Azure Resource Manager mediante scripts
+### <a name="611-divlimit-users-ability-to-interact-with-azure-resource-manager-via-scriptsdiv"></a>6.11: <div>Limitación de la capacidad de los usuarios para interactuar con Azure Resource Manager mediante scripts</div>
 
-**Guía**: use el acceso condicional de Azure para limitar la capacidad de los usuarios de interactuar con Azure Resource Manager mediante la configuración de la opción "Bloquear acceso" en la aplicación "Microsoft Azure Management".
+**Guía**: use el acceso condicional de Azure para limitar la capacidad de los usuarios de interactuar con Azure Resource Manager mediante la configuración de la opción "Bloquear acceso" en la aplicación "Administración de Microsoft Azure".
 
 
-Configuración del acceso condicional para bloquear el acceso a Azure Resource Manager:
-
-https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Configuración del acceso condicional para bloquear el acceso a Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -949,9 +949,7 @@ esto no es aplicable a Azure Batch, ya que los usuarios (no administradores) de 
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13: Segregación física o lógica de aplicaciones de alto riesgo
 
-**Guía**: No disponible,
-
-la prueba comparativa está pensada para aplicaciones web que se ejecutan en Azure App Service o instancias de IaaS.
+**Guía**: no aplicable, la prueba comparativa está pensada para aplicaciones web que se ejecutan en Azure App Service o instancias de IaaS.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -959,17 +957,21 @@ la prueba comparativa está pensada para aplicaciones web que se ejecutan en Azu
 
 ## <a name="secure-configuration"></a>Configuración segura
 
-*Para más información, consulte [Control de seguridad: configuración segura](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Para obtener más información, consulte [Control de seguridad: configuración segura](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Establecimiento de configuraciones seguras para todos los recursos de Azure
 
 **Guía**: use alias de Azure Policy en el espacio de nombres "Microsoft.Batch" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de las cuentas y los grupos de Azure Batch.
 
 
-Visualización de los alias de Azure Policy disponibles: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Visualización de los alias de Azure Policy disponibles:
+
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
 
-Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Configuración y administración de Azure Policy:
+
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -991,7 +993,9 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 - Microsoft.Storage
 - Microsoft.Network
 
+
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 Descripción de los efectos de Azure Policy: https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
@@ -1009,11 +1013,17 @@ Descripción de los efectos de Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Almacenamiento seguro de la configuración de los recursos de Azure
 
-**Guía**: Si usa definiciones de directivas personalizadas de Azure para las cuentas y los grupos de Azure Batch y los recursos relacionados, use Azure DevOps o Azure Repos para almacenar y administrar el código de forma segura.
+**Guía**: Si usa definiciones de directivas personalizadas de Azure para las cuentas y los grupos de Azure Batch, o para los recursos relacionados, use Azure Repos para almacenar y administrar el código de forma segura.
 
-Cómo almacenar código en Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
-Documentación de Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+Cómo almacenar código en Azure DevOps:
+
+https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+
+
+Documentación de Azure Repos:
+
+https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -1024,9 +1034,14 @@ Documentación de Azure Repos: https://docs.microsoft.com/azure/devops/repos/ind
 **Guía**: Si usa imágenes personalizadas para los grupos de Azure Batch, use el control de acceso basado en rol (RBAC) para asegurarse de que solo los usuarios autorizados pueden acceder a las imágenes.
 
 
-Descripción de RBAC en Azure: https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
+Descripción de RBAC en Azure:
 
-Cómo configurar RBAC en Azure: https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
+https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
+
+
+Cómo configurar el RBAC en Azure:
+
+https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -1058,8 +1073,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Guía**: use alias de Azure Policy en el espacio de nombres "Microsoft.Batch" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de la instancia de Azure Batch. También puede usar cualquier directiva integrada creada específicamente para Azure Batch o los recursos usados por Azure Batch, como:
 
-- Las subredes deben estar asociadas con un grupo de seguridad de red.
-- Las cuentas de almacenamiento deben usar un punto de conexión del servicio de red virtual
+- Las subredes deben estar asociadas a un grupo de seguridad de red: las cuentas de almacenamiento deben usar un punto de conexión de servicio de red virtual.
 - Se deben habilitar los registros de diagnóstico en las cuentas de Batch
 
 Visualización de los alias de Azure Policy disponibles: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
@@ -1098,7 +1112,7 @@ Cómo proporcionar la autenticación de Key Vault con una identidad administrada
 
 https://docs.microsoft.com/azure/key-vault/managed-identity
 
-**Supervisión de Azure Security Center**: no disponible actualmente
+**Supervisión de Azure Security Center**: Sí
 
 **Responsabilidad**: Customer
 
@@ -1112,7 +1126,7 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Elimine la exposición de credenciales no intencionada
 
-**Guía**: Implemente el escáner de credenciales para identificar las credenciales en el código. El escáner de credenciales también fomenta el traslado de credenciales detectadas a ubicaciones más seguras, como Azure Key Vault. 
+**Instrucciones**: Implemente el escáner de credenciales para identificar las credenciales en el código. El escáner de credenciales también fomenta el traslado de credenciales detectadas a ubicaciones más seguras, como Azure Key Vault. 
 
 Cómo configurar el escáner de credenciales: https://secdevtools.azurewebsites.net/helpcredscan.html
 
@@ -1122,7 +1136,7 @@ Cómo configurar el escáner de credenciales: https://secdevtools.azurewebsites.
 
 ## <a name="malware-defense"></a>Defensa contra malware
 
-*Para más información, consulte [Control de seguridad: defensa contra malware](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Para obtener más información, consulte [Control de seguridad: defensa contra malware](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Uso de software antimalware administrado centralmente
 
@@ -1158,7 +1172,7 @@ https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
 ## <a name="data-recovery"></a>Recuperación de datos
 
-*Para más información, consulte [Control de seguridad: recuperación de datos](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Para obtener más información, consulte [Control de seguridad: recuperación de datos](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Garantía de copias de seguridad automáticas periódicas
 
@@ -1187,7 +1201,7 @@ Realización de una copia de seguridad de las claves del almacén de claves en A
 
 https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
 
-**Supervisión de Azure Security Center**: no disponible actualmente
+**Supervisión de Azure Security Center**: Sí
 
 **Responsabilidad**: Customer
 
@@ -1205,7 +1219,7 @@ Cómo restaurar una clave administrada por el cliente con PowerShell:
 
 https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
 
-**Supervisión de Azure Security Center**: no disponible actualmente
+**Supervisión de Azure Security Center**: No aplicable
 
 **Responsabilidad**: Customer
 
@@ -1218,13 +1232,13 @@ Cómo habilitar la eliminación temporal en Azure Key Vault:
 
 https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell
 
-**Supervisión de Azure Security Center**: no disponible actualmente
+**Supervisión de Azure Security Center**: Sí
 
 **Responsabilidad**: Customer
 
 ## <a name="incident-response"></a>Respuesta a los incidentes
 
-*Para más información, consulte [Control de seguridad: respuesta ante incidentes](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Para obtener más información, consulte [Control de seguridad: respuesta ante incidentes](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
 
 ### <a name="101-create-incident-response-guide"></a>10.1: Creación de una guía de respuesta ante incidentes
 
@@ -1250,7 +1264,7 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 ### <a name="103-test-security-response-procedures"></a>10.3: Prueba de los procedimientos de respuesta de seguridad
 
-**Guía**: Realice ejercicios para probar las capacidades de respuesta a los incidentes de los sistemas con regularidad. Identifique puntos débiles y brechas y revise el plan según sea necesario.
+**Instrucciones**: Realice ejercicios para probar las capacidades de respuesta a los incidentes de los sistemas con regularidad. Identifique puntos débiles y brechas y revise el plan según sea necesario.
 
 Consulte la publicación de NIST: Guía para probar, entrenar y ejecutar programas para planes y capacidades de TI: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
@@ -1274,7 +1288,7 @@ https://docs.microsoft.com/azure/security-center/security-center-provide-securit
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: Incorporación de alertas de seguridad en el sistema de respuesta a incidentes
 
-**Guía**: Exporte sus alertas y recomendaciones de Azure Security Center mediante la característica de exportación continua. La exportación continua le permite exportar alertas y recomendaciones de forma manual o continua. Puede usar el conector de datos de Azure Security Center para transmitir las alertas a Azure Sentinel.
+**Instrucciones**: Exporte sus alertas y recomendaciones de Azure Security Center mediante la característica de exportación continua. La exportación continua le permite exportar alertas y recomendaciones de forma manual o continua. Puede usar el conector de datos de Azure Security Center para transmitir las alertas a Azure Sentinel.
 
 
 Configuración de la exportación continua:
@@ -1292,7 +1306,7 @@ https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: Automatización de la respuesta a las alertas de seguridad
 
-**Guía**: use la característica de automatización del flujo de trabajo de Azure Security Center para desencadenar automáticamente las respuestas mediante "Logic Apps" en las alertas y recomendaciones de seguridad.
+**Instrucciones**: use la característica de automatización del flujo de trabajo de Azure Security Center para desencadenar automáticamente respuestas mediante "Logic Apps" en las alertas y recomendaciones de seguridad.
 
 
 
@@ -1306,7 +1320,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Pruebas de penetración y ejercicios del equipo rojo
 
-*Para más información, consulte [Control de seguridad: Pruebas de penetración y ejercicios del equipo rojo](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Para obtener más información, consulte [Control de seguridad: Pruebas de penetración y ejercicios del equipo rojo](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-to-remediate-all-critical-security-findings-within-60-days"></a>11.1: Realización de pruebas de penetración periódicas de los recursos de Azure y aseguramiento de la corrección de todos los resultados de seguridad críticos en un plazo de 60 días
 
@@ -1324,3 +1338,7 @@ https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Responsabilidad**: Compartido
 
+## <a name="next-steps"></a>Pasos siguientes
+
+- Consulte el artículo sobre la [prueba comparativa de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/overview).
+- Obtenga más información sobre las [líneas de base de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).

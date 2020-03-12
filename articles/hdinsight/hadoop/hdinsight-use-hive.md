@@ -1,20 +1,19 @@
 ---
 title: ¿Qué son Apache Hive y HiveQL en Azure HDInsight?
 description: Apache Hive es un sistema de almacenamiento de datos para Apache Hadoop. Puede consultar datos almacenados en Hive mediante HiveQL, que se parece a Transact-SQL. En este documento, aprenda a usar Hive y HiveQL con Azure HDInsight.
-keywords: hiveql,qué es hive,hadoop hiveql,cómo usar hive,aprender hive,qué es hive
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 10/04/2019
-ms.openlocfilehash: e07939bd5f0264df637fda439d96be213a8d28d1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 02/28/2020
+ms.openlocfilehash: 20fdafc3077d1017c17d1055596dab150dffec72
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499208"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206646"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>¿Qué son Apache Hive y HiveQL en Azure HDInsight?
 
@@ -24,13 +23,12 @@ Hive le permite proyectar la estructura del proyecto en datos que están estruct
 
 HDInsight proporciona varios tipos de clúster, que están optimizados para cargas de trabajo específicas. Se suelen usar los siguientes tipos de clúster para consultas de Hive:
 
-* __Interactive Query__: un clúster de Hadoop que proporciona funcionalidad de [procesamiento analítico de baja latencia (LLAP)](https://cwiki.apache.org/confluence/display/Hive/LLAP) para mejorar los tiempos de respuesta de las consultas interactivas. Para más información, vea el documento [Uso de Hive interactivo con HDInsight (versión preliminar)](../interactive-query/apache-interactive-query-get-started.md).
-
-* __Hadoop__: un clúster de Hadoop que está optimizado para cargas de trabajo de procesamiento por lotes. Para más información, consulte el documento [Introducción a Apache Hadoop en HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
-
-* __Spark__: Apache Spark tiene funcionalidad integrada para trabajar con Hive. Para más información, consulte el documento [Introducción a Apache Spark en HDInsight](../spark/apache-spark-jupyter-spark-sql.md).
-
-* __HBase__: se puede usar HiveQL para consultar datos almacenados en Apache HBase. Para más información, consulte el documento [Introducción a Apache HBase en HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md).
+|Tipo de clúster |Descripción|
+|---|---|
+|Interactive Query|un clúster de Hadoop que proporciona funcionalidad de [procesamiento analítico de baja latencia (LLAP)](https://cwiki.apache.org/confluence/display/Hive/LLAP) para mejorar los tiempos de respuesta de las consultas interactivas. Para más información, vea el documento [Uso de Hive interactivo con HDInsight (versión preliminar)](../interactive-query/apache-interactive-query-get-started.md).|
+|Hadoop|un clúster de Hadoop que está optimizado para cargas de trabajo de procesamiento por lotes. Para más información, consulte el documento [Introducción a Apache Hadoop en HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md).|
+|Spark|Apache Spark tiene funcionalidad integrada para trabajar con Hive. Para más información, consulte el documento [Introducción a Apache Spark en HDInsight](../spark/apache-spark-jupyter-spark-sql.md).|
+|HBase|se puede usar HiveQL para consultar datos almacenados en Apache HBase. Para más información, consulte el documento [Introducción a Apache HBase en HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md).|
 
 ## <a name="how-to-use-hive"></a>Uso de Hive
 
@@ -42,7 +40,7 @@ Utilice la siguiente tabla para descubrir distintas formas de usar Hive con HDIn
 | [Herramientas de HDInsight para Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Windows |
 | [Vista de Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Cualquiera (en función del explorador) |
 | [Cliente Beeline](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux, Unix, Mac OS X o Windows |
-| [API DE REST](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux, Unix, Mac OS X o Windows |
+| [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux, Unix, Mac OS X o Windows |
 | [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Windows |
 
 ## <a name="hiveql-language-reference"></a>Referencia del lenguaje HiveQL
@@ -106,11 +104,11 @@ Hive también puede extenderse a través de **funciones definidas por el usuario
 
 * [Un ejemplo de función definida por el usuario de Apache Hive para convertir formatos de fecha y hora en una marca de tiempo de Hive](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
-## <a id="data"></a>Datos de ejemplo
+## <a name="example-data"></a>Datos de ejemplo
 
 Hive en HDInsight tiene ya cargada una tabla interna denominada `hivesampletable`. Además, HDInsight proporciona conjuntos de datos de ejemplo que se pueden usar con Hive. Estos conjuntos de datos se almacenan en los directorios `/example/data` y `/HdiSamples`. Estos directorios existen en el almacenamiento predeterminado del clúster.
 
-## <a id="job"></a>Ejemplo de consulta de Hive
+## <a name="example-hive-query"></a>Ejemplo de consulta de Hive
 
 Las siguientes instrucciones de HiveQL proyectan columnas sobre el archivo `/example/data/sample.log`:
 
@@ -133,17 +131,14 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 
 En el ejemplo anterior, las instrucciones de HiveQL realizan las acciones siguientes:
 
-* `DROP TABLE`: si la tabla ya existe, la elimina.
-
-* `CREATE EXTERNAL TABLE`: crea una nueva tabla **externa** en Hive. Las tablas externas solo almacenan la definición de Tabla en Hive. Los datos permanecen en la ubicación y formato originales.
-
-* `ROW FORMAT`: indica cómo se da formato a los datos de Hive. En este caso, los campos de cada registro se separan mediante un espacio.
-
-* `STORED AS TEXTFILE LOCATION`: indica a Hive dónde se almacenan los datos (el directorio `example/data`) y que se almacenen como texto. Los datos pueden estar en un archivo o distribuidos en varios archivos dentro del directorio.
-
-* `SELECT`: selecciona el número total de filas donde la columna **t4** contiene el valor **[ERROR]** . Esta instrucción devuelve un valor de **3** porque hay tres filas que contienen este valor.
-
-* `INPUT__FILE__NAME LIKE '%.log'`: Hive intenta aplicar el esquema a todos los archivos en el directorio. En este caso, el directorio contiene archivos que no coinciden con el esquema. Para evitar que haya datos inservibles en los resultados, esta instrucción indica a Hive que solo se deben devolver datos de archivos que terminen en .log.
+|. |Descripción |
+|---|---|
+|DROP TABLE|si la tabla ya existe, la elimina.|
+|CREATE EXTERNAL TABLE|crea una nueva tabla **externa** en Hive. Las tablas externas solo almacenan la definición de Tabla en Hive. Los datos permanecen en la ubicación y formato originales.|
+|ROW FORMAT|indica a Hive cómo se da formato a los datos. En este caso, los campos de cada registro se separan mediante un espacio.|
+|STORED AS TEXTFILE LOCATION|indica a Hive dónde se almacenan los datos (el directorio `example/data`) y que se almacenen como texto. Los datos pueden estar en un archivo o distribuidos en varios archivos dentro del directorio.|
+|SELECT|selecciona el número total de filas donde la columna **t4**contiene el valor**[ERROR]** . Esta instrucción devuelve un valor de **3** porque hay tres filas que contienen este valor.|
+|INPUT__FILE__NAME LIKE '%.log'|Hive intenta aplicar el esquema a todos los archivos en el directorio. En este caso, el directorio contiene archivos que no coinciden con el esquema. Para evitar que haya datos inservibles en los resultados, esta instrucción indica a Hive que solo se deben devolver datos de archivos que terminen en .log.|
 
 > [!NOTE]  
 > Las tablas externas se deben utilizar cuando se espera que un origen externo actualice los datos subyacentes. Por ejemplo, un proceso de carga de datos automatizado o una operación de MapReduce.
@@ -169,18 +164,18 @@ SELECT t1, t2, t3, t4, t5, t6, t7
 
 Estas instrucciones realizan las acciones siguientes:
 
-* `CREATE TABLE IF NOT EXISTS`: si la tabla no existe, créela. Dado que no se utiliza la palabra clave **EXTERNAL**, esta instrucción crea una tabla interna. La tabla se almacena en el almacenamiento de datos de Hive y Hive la administra por completo.
-
-* `STORED AS ORC`: almacena los datos en el formato de columnas de filas optimizadas (ORC, Optimized Row Columnar). ORC es un formato altamente optimizado y eficiente para almacenar datos de Hive.
-
-* `INSERT OVERWRITE ... SELECT`: selecciona filas de la tabla **log4jLogs** que contiene **[ERROR]** y luego inserta los datos en la tabla **errorLogs**.
+|. |Descripción |
+|---|---|
+|CREATE TABLE IF NOT EXISTS|Si la tabla no existe, créela. Dado que no se utiliza la palabra clave **EXTERNAL**, esta instrucción crea una tabla interna. La tabla se almacena en el almacenamiento de datos de Hive y Hive la administra por completo.|
+|STORED AS ORC|almacena los datos en el formato de columnas de filas optimizadas (ORC, Optimized Row Columnar). ORC es un formato altamente optimizado y eficiente para almacenar datos de Hive.|
+|INSERT OVERWRITE... SELECT|selecciona filas de la tabla **log4jLogs**que contiene**[ERROR]**y luego inserta los datos en la tabla**errorLogs**.|
 
 > [!NOTE]  
 > A diferencia de las tablas externas, la eliminación de una tabla interna también eliminará los datos subyacentes.
 
 ## <a name="improve-hive-query-performance"></a>Mejora del rendimiento de las consultas de Hive
 
-### <a id="usetez"></a>Apache Tez
+### <a name="apache-tez"></a>Apache Tez
 
 [Apache Tez](https://tez.apache.org) es un marco que permite que aplicaciones con uso intensivo de datos, como Hive, se ejecuten con mucha más eficacia a escala. Tez está habilitado de manera predeterminada.  Los [documentos de diseño de Apache Hive en Tez](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) incluyen detalles sobre las opciones de implementación y las configuraciones de ajuste.
 
