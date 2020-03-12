@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: 934853b80c6e6377923df4c2b5cce7b7d7d57d7c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: bbdd1bedb7b9a9f00a0b65ccc4c108ba6fd2638c
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754931"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398948"
 ---
 # <a name="optimize-reads-and-writes-cost-in-azure-cosmos-db"></a>Optimización del costo de lecturas y escrituras en Azure Cosmos DB
 
@@ -30,14 +30,6 @@ No tiene que pensar en diferenciar unidades de solicitud entre lecturas y escrit
 
 Leer un elemento que tiene un tamaño de 1 KB cuesta 1 RU. Escribir un elemento de 1 KB cuesta 5 RU. Los costos de lectura y escritura corresponden cuando se usa el [nivel de coherencia](consistency-levels.md) de la sesión predeterminada.  Las consideraciones acerca de las RU incluyen: el tamaño del elemento, el recuento de propiedades, la coherencia de los datos, las propiedades indexadas, la indexación y los patrones de consulta.
 
-## <a name="normalized-cost-for-1-million-reads-and-writes"></a>Costo normalizado de 1 millón de lecturas y escrituras
-
-Si aprovisiona 1000 RU/s, se traduce en 3,6 millones de RU/hora y costará 0,08 USD la hora (en Estados Unidos y Europa). Para un elemento de 1 KB, puede realizar 3,6 millones de lecturas o 0,72 millones de escrituras (este valor se calcula como: `3.6 million RU / 5`) por hora con este rendimiento aprovisionado. Normalizado a un millón de lecturas y escrituras, el costo sería de 0,022 USD para 1 millón de lecturas (este valor se calcula como: 0,08 USD/3,6 millones) y 0,111 USD para 1 millón de escrituras (este valor se calcula como: 0,08 USD/0,72 millones).
-
-## <a name="number-of-regions-and-the-request-units-cost"></a>Número de regiones y costo de las unidades de solicitud
-
-El costo de las escrituras es constante, independientemente del número de regiones asociadas con la cuenta de Azure Cosmos. En otras palabras, una escritura de 1 KB costará 5 RU independientemente del número de regiones asociadas con la cuenta. Hay una cantidad no trivial de recursos dedicados a la replicación, la aceptación y el procesamiento del tráfico de replicación en todas las regiones. Para más información sobre la optimización de los costos en varias regiones, consulte el artículo [Optimizing the cost of multi-region Cosmos accounts](optimize-cost-regions.md) (Optimización del costo para cuentas de Cosmos de varias regiones).
-
 ## <a name="optimize-the-cost-of-writes-and-reads"></a>Optimización del costo de lecturas y escrituras
 
 Al realizar operaciones de escritura, debe aprovisionar capacidad suficiente para admitir el número de escrituras necesarias por segundo. Puede aumentar el rendimiento aprovisionado mediante el SDK, el portal, la CLI antes de realizar las escrituras y, luego, reducir el rendimiento una vez completadas las escrituras. El rendimiento durante el período de escritura es el rendimiento mínimo necesario para los datos especificados, además del rendimiento necesario para la carga de trabajo de insert, suponiendo que no hay otras cargas de trabajo en ejecución. 
@@ -50,9 +42,9 @@ También puede insertar masivamente datos en Azure Cosmos DB o copiar datos desd
 
 A continuación, puede seguir obteniendo más información sobre la optimización de costos en Azure Cosmos DB con los siguientes artículos:
 
-* Sobre la [optimización para desarrollo y pruebas](optimize-dev-test.md)
+* Obtenga más información sobre la [optimización para desarrollo y pruebas](optimize-dev-test.md).
 * Obtenga más información sobre [la factura de Azure Cosmos DB](understand-your-bill.md).
 * Obtenga más información sobre la [optimización del costo de la capacidad del rendimiento](optimize-cost-throughput.md).
-* Más información sobre la [optimización del costo de almacenamiento](optimize-cost-storage.md)
-* Más información sobre la [optimización del costo de consulta](optimize-cost-queries.md)
+* Obtenga más información sobre la [optimización del costo del almacenamiento](optimize-cost-storage.md).
+* Obtenga más información sobre la [optimización del costo de las consultas](optimize-cost-queries.md).
 * Obtenga más información sobre la [optimización del costo de las cuentas de Azure Cosmos de varias regiones](optimize-cost-regions.md).

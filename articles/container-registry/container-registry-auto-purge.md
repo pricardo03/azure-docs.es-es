@@ -3,12 +3,12 @@ title: Purgar etiquetas y manifiestos
 description: Use un comando de purga para eliminar varias etiquetas y manifiestos de una instancia de Azure Container Registry en función de la edad y un filtro de etiquetas y, opcionalmente, programar operaciones de purga.
 ms.topic: article
 ms.date: 08/14/2019
-ms.openlocfilehash: 0ec1f5f6f5c3c572b8558c971b58e46cce36e3fd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f9d86b628bdd0ce0db3067b02a47517d8aadcba3
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923103"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087338"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>Purga automática de imágenes a partir de una instancia de Azure Container Registry
 
@@ -47,7 +47,7 @@ Como mínimo, especifique lo siguiente cuando ejecute `acr purge`:
 
 Para parámetros adicionales, ejecute `acr purge --help`. 
 
-El comando `acr purge` admite otras características de los comandos de ACR Tasks, incluidas las [variables de ejecución](container-registry-tasks-reference-yaml.md#run-variables) y los [registros de ejecución de tareas](container-registry-tasks-overview.md#view-task-logs) que se transmiten y también se guardan para poderse recuperar posteriormente.
+El comando `acr purge` admite otras características de los comandos de ACR Tasks, incluidas las [variables de ejecución](container-registry-tasks-reference-yaml.md#run-variables) y los [registros de ejecución de tareas](container-registry-tasks-logs.md) que se transmiten y también se guardan para poderse recuperar posteriormente.
 
 ### <a name="run-in-an-on-demand-task"></a>Ejecución en una tarea a petición
 
@@ -124,7 +124,7 @@ az acr run \
 
 Revise la salida del comando para ver las etiquetas y los manifiestos que coinciden con los parámetros de selección. Dado que el comando se ejecuta con `--dry-run`, no se elimina ningún dato.
 
-Salida de ejemplo:
+Salida del ejemplo:
 
 ```console
 [...]

@@ -8,12 +8,12 @@ ms.author: xshi
 ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 42431c0db55219c3cb49968986c1a0c7f071b219
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 10c8008d73390174c44ec503f708c1e2c0011e09
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509282"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944312"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Uso de Visual Studio Code para desarrollar y depurar módulos para Azure IoT Edge
 
@@ -28,7 +28,7 @@ En este artículo se proporcionan instrucciones para desarrollar y depurar módu
 >[!NOTE]
 >El soporte técnico del desarrollo y depuración para dispositivos ARM64 de Linux está en [versión preliminar pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para más información, consulte [Desarrollo y depuración de módulos ARM64 IoT Edge en Visual Studio Code (versión preliminar)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Puede usar un equipo o máquina virtual con Windows, macOS o Linux como equipo de desarrollo. En equipos Windows, puede desarrollar módulos de Windows o Linux. Para desarrollar módulos de Windows, use un equipo Windows que ejecute la versión 1809, la compilación 17763 o una más reciente. Para desarrollar módulos de Linux, use un equipo Windows que cumpla los [requisitos de Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
@@ -37,7 +37,7 @@ Instale [Visual Studio Code](https://code.visualstudio.com/) y después agregue 
 - [Herramientas de Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 - [Extensión de Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 - Extensiones de Visual Studio específicas del lenguaje en el que esté desarrollando:
-  - C#, incluyendo Azure Functions: [Extensión de C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+  - C#, incluyendo Azure Functions: [Extensión de C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
   - Python: [Extensión de Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   - Java: [Paquete de extensiones de Java para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
   - C. [Extensión de C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)

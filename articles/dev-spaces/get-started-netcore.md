@@ -5,12 +5,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: En este tutorial se muestra cómo usar Azure Dev Spaces y Visual Studio Code para depurar e iterar rápidamente una aplicación .NET Core en Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
-ms.openlocfilehash: e23685d410b2d663efde8c530be01adaab637bf8
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 306e1c7a43ddd10faa0a537d567257fe95336c23
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252425"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942505"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-net-core-with-azure-dev-spaces"></a>Creación de un espacio de desarrollo de Kubernetes: Visual Studio Code y .NET Core con Azure Dev Spaces
 
@@ -81,7 +81,7 @@ Escriba el siguiente comando de la CLI de Azure, mediante el grupo de recursos q
 Hay características enriquecidas, como la depuración de Kubernetes, disponibles para los desarrolladores de .NET Core y Node.js que usan VS Code.
 
 1. Si no lo tiene, instale [VS Code](https://code.visualstudio.com/Download).
-1. Descargue e instale las extensiones para [VS de Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) y [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). Para cada extensión, haga clic en Instalar una vez que se encuentre en la página de Marketplace de esta, y de nuevo en VS Code.
+1. Descargue e instale las extensiones para [VS de Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) y [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp). Para cada extensión, haga clic en Instalar una vez que se encuentre en la página de Marketplace de esta, y de nuevo en VS Code.
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Crear una aplicación web que se ejecuta en un contenedor
 
