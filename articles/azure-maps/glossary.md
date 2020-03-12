@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: a6c1e14e332f6081111d2a58a30702093b99a876
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: c9d5c2efc14dec5beee0eaf81a4f628421ef3d49
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198248"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657051"
 ---
 # <a name="glossary"></a>Glosario
 
@@ -47,9 +47,9 @@ En la lista siguiente se describen las palabras comunes que se usan con los serv
 
 <a name="asynchronous-request"></a> **Solicitud asincrónica**: solicitud HTTP que abre una conexión y realiza una solicitud al servidor que devuelve un identificador para la solicitud asincrónica. A continuación, cierra la conexión. El servidor continúa procesando la solicitud y el usuario puede comprobar el estado mediante el identificador. Cuando finaliza el procesamiento de la solicitud, el usuario puede descargar la respuesta. Este tipo de solicitud se suele usar para procesos de larga duración.
 
-<a name="autocomplete"></a> **Autocompletar**: una característica de una aplicación predice el resto de una palabra que un usuario está escribiendo. 
+<a name="autocomplete"></a> **Autocompletar**: una característica de una aplicación que predice el resto de una palabra que un usuario está escribiendo. 
 
-<a name="autosuggest"></a> **Sugerencias automáticas**: una característica en una aplicación predice posibilidades lógicas para lo que el usuario está escribiendo.
+<a name="autosuggest"></a> **Sugerencias automáticas**: una característica de una aplicación que predice las posibilidades lógicas para lo que el usuario está escribiendo.
 
 <a name="azure-location-based-services-lbs"></a> **Azure Location Based Services (LBS)** : nombre anterior de Azure Maps cuando estaba en versión preliminar.
 

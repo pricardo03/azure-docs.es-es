@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/21/2020
+ms.date: 02/26/2020
 ms.author: radeltch
-ms.openlocfilehash: 015fb6c720fee9ed219ec9ffa2ece14d26bb4ac9
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: b58c24fdd7912b3e424a493932fe09b1a1f058c5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566223"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661284"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux con Azure NetApp Files para aplicaciones SAP
 
@@ -96,9 +96,6 @@ Ahora ya es posible lograr alta disponibilidad en SAP NetWeaver mediante el uso 
 ![Información general sobre la alta disponibilidad de SAP NetWeaver](./media/high-availability-guide-rhel/high-availability-guide-rhel-anf.png)
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la base de datos SAP HANA usan direcciones IP virtuales y el nombre de host virtual. En Azure, se requiere un equilibrador de carga para usar una dirección IP virtual. Se recomienda usar [Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). En la lista siguiente se muestra la configuración del equilibrador de carga con distintas direcciones IP de front-end para (A)SCS y ERS.
-
-> [!IMPORTANT]
-> La agrupación en clústeres de varios SID de SAP ASCS/ERS con Red Hat Linux como sistema operativo invitado en las VM de Azure **NO se admite**. La agrupación en clústeres de varios SID describe la instalación de varias instancias de SAP ASCS/ERS con SID diferentes en un clúster de Pacemaker.
 
 ### <a name="ascs"></a>(A)SCS
 
@@ -1256,6 +1253,7 @@ Siga estos pasos para instalar un servidor de aplicaciones de SAP.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en Red Hat Enterprise Linux para SAP Applications: guía de varios SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
 * [Planeamiento e implementación de Azure Virtual Machines para SAP][planning-guide]
 * [Implementación de Azure Virtual Machines para SAP][deployment-guide]
 * [Implementación de DBMS de Azure Virtual Machines para SAP][dbms-guide]

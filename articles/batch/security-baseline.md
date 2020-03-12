@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 779b7d071b1161c53bdba08738539c4c682882d2
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: af0466299d1f972fe9334beb5f31c886c1928a1c
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273543"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329006"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Línea de base de seguridad de Azure para Batch
 
@@ -628,7 +628,7 @@ Asegúrese de que se requiere HTTPS para acceder a la cuenta de almacenamiento q
 
 Descripción del cifrado en tránsito de la cuenta de Azure Storage:
 
-https://docs.microsoft.com/azure/storage/common/storage-security-guide#encryption-in-transit
+https://docs.microsoft.com/azure/storage/blobs/security-recommendations
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -1272,7 +1272,7 @@ Consulte la publicación de NIST: Guía para probar, entrenar y ejecutar program
 
 **Responsabilidad**: Customer
 
-### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-nbspfor-security-incidents"></a>10.4: Provisión de detalles de contacto de incidentes de seguridad y configuración de notificaciones de alerta para incidentes de seguridad
+### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-nbspfor-security-incidents"></a>10.4: Provisión de detalles de contacto de incidentes de seguridad y configuración de notificaciones de alerta&nbsp; para incidentes de seguridad
 
 **Guía**: la información de contacto del incidente de seguridad la utilizará Microsoft para ponerse en contacto con usted si Microsoft Security Response Center (MSRC) detecta que un tercero no autorizado o ilegal ha accedido a los datos.
 
@@ -1340,5 +1340,5 @@ https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte el artículo sobre la [prueba comparativa de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/overview).
+- Consulte la [prueba comparativa de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/overview).
 - Obtenga más información sobre las [líneas de base de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
