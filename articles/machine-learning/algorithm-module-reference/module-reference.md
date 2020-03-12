@@ -9,12 +9,12 @@ ms.topic: reference
 author: peterclu
 ms.author: peterlu
 ms.date: 02/22/2020
-ms.openlocfilehash: ece4b7a85ff5738900b8f999cc2f14ba35ecab0d
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 334cf69db70e8a1e0c2994c492f15ff44505af0d
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920100"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673369"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Referencia de módulo y algoritmo para el diseñador de Azure Machine Learning (versión preliminar)
 
@@ -57,7 +57,7 @@ Para obtener ayuda con la elección de algoritmos, consulte
 | Lenguaje R | Escriba código e insértelo en un módulo para integrar R con la canalización. | [Ejecución script de R](execute-r-script.md) |
 | Text Analytics | Proporcione herramientas de cálculo especializadas para trabajar con texto estructurado y no estructurado. | [Extracción de características de n-gramas a partir de texto](extract-n-gram-features-from-text.md) <br/> [Hash de características](feature-hashing.md) <br/> [Preprocesamiento de texto](preprocess-text.md) |
 | Recomendación | Compile modelos de recomendación. | [Evaluate Recommender](evaluate-recommender.md) (Evaluar recomendador) <br/> [Score SVD Recommender](score-svd-recommender.md) (Puntuar recomendador de SVD) <br/> [Train SVD Recommender](train-SVD-recommender.md) (Entrenar recomendador de SVD) |
-| Detección de anomalías | Compile modelos de detección de anomalías. | [Detección de anomalías basada en PCA](pca-based-anomaly-detection.md) <br/> [Train Anomaly Detection Model](train-anomaly-detection-model.md) (entrenar un modelo de detección de anomalías) |
+
 
 ## <a name="error-messages"></a>Mensajes de error
 

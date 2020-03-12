@@ -3,12 +3,12 @@ title: Publicación de una oferta de servicios administrados en Azure Marketplac
 description: Aprenda a publicar una oferta de servicio administrada que incorpore los clientes a la administración de recursos delegados de Azure.
 ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 841cb52791709be5649d66b72f5c18ef35b740ef
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 6ae93759073be6b05d118ccf46f6b6367fff5fc6
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155254"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328949"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publicación de una oferta de servicios administrados en Azure Marketplace
 
@@ -155,9 +155,6 @@ Después de que un cliente agregue su oferta, podrá [delegar uno o varios grupo
 > La delegación debe realizarse desde una cuenta que no sea de invitado en el inquilino del cliente que tenga el [rol Propietario integrado](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) para la suscripción que se va a incorporar (o que contenga los grupos de recursos que se están incorporando). Para ver todos los usuarios que puedan delegar la suscripción, cualquiera de los usuarios del inquilino del cliente puede seleccionar la suscripción en Azure Portal, abrir **Control de acceso (IAM)** y [ver todos los usuarios con el rol Propietario](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
 Después de que el cliente delega una suscripción (o uno o varios grupos de recursos dentro de una suscripción), el proveedor de recursos **Microsoft.ManagedServices** se registrará para esa suscripción, y los usuarios del inquilino podrán acceder a los recursos delegados según las autorizaciones de la oferta.
-
-> [!NOTE]
-> En este momento, las suscripciones (o los grupos de recursos dentro de una suscripción) no se podrán delegar si la suscripción utiliza Azure Databricks. Del mismo modo, si ya se ha delegado una suscripción (o los grupos de recursos dentro de una suscripción), actualmente no es posible crear áreas de trabajo de Databricks en esa suscripción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

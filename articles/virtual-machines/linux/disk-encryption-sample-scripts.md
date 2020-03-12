@@ -2,17 +2,18 @@
 title: Scripts de ejemplo de Azure Disk Encryption
 description: Este artículo es el apéndice de Microsoft Azure Disk Encryption para máquinas virtuales Linux.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ad0e3bbba729436c3a07f44d989a40f5349dfb3e
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c98da4b41da183f56d80fad1e8c01706d1cfcf23
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326361"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970506"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Scripts de ejemplo de Azure Disk Encryption 
 
@@ -42,7 +43,7 @@ Si ya está familiarizado con los requisitos previos para Azure Disk Encryption,
 En la siguiente tabla se muestran los parámetros que se pueden usar en el script de PowerShell: 
 
 
-|Parámetro|DESCRIPCIÓN|¿Obligatorio?|
+|Parámetro|Descripción|¿Obligatorio?|
 |------|------|------|
 |$resourceGroupName| Nombre del grupo de recursos al que pertenece la instancia de KeyVault.  Si no existe, se creará un grupo de recursos con este nombre.| True|
 |$keyVaultName|Nombre de la instancia de KeyVault en donde se colocarán las claves de cifrado. Si no existe, se creará un almacén con este nombre.| True|

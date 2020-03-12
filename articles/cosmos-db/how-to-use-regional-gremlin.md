@@ -5,14 +5,14 @@ author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 09/09/2019
-ms.openlocfilehash: 6bce69889910296f5ff28090e62cfe27c0640d95
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 7aa1e0aa6bbbee9d40eb0d48318a8e2908a75f9d
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755032"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897861"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Puntos de conexión regionales para la cuenta de grafos de Azure Cosmos DB
 La base de datos de grafos de Azure Cosmos DB se [distribuye globalmente](distribute-data-globally.md), por lo que las aplicaciones pueden usar varios puntos de conexión de lectura. Las aplicaciones que necesitan acceso de escritura en varias ubicaciones deben habilitar la funcionalidad de [arquitectura multimaestro](how-to-multi-master.md).

@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2019
+ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 13fa733417558ab8be9ff1e5a9f1e484fb40f445
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9f0a7425fc09d391828a748832f662f02c6022cf
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102942"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970780"
 ---
 # <a name="scaling-media-processing"></a>Escalado de procesamiento de elementos multimedia
 
@@ -46,10 +46,8 @@ En el resto del artículo se muestra cómo usar la [CLI de Media Services v3](h
 
 > [!NOTE]
 > Para los trabajos de análisis de audio y vídeo desencadenados por Media Services v3 o Video Indexer, se recomienda encarecidamente aprovisionar la cuenta con 10 MRU S3. Si necesita más de 10 MRU S3, abra una incidencia de soporte técnico desde [Azure Portal](https://portal.azure.com/).
->
-> Actualmente, no puede usar Azure Portal para administrar otros recursos de v3. Use la [API REST](https://aka.ms/ams-v3-rest-ref), la [CLI](https://aka.ms/ams-v3-cli-ref) o uno de los [SDK](media-services-apis-overview.md#sdks) admitidos.
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Prerrequisitos 
 
 [Cree una cuenta de Media Services](create-account-cli-how-to.md).
 
@@ -73,7 +71,7 @@ Se le cobra en función del número de minutos que se aprovisionan las unidades 
 
 [Análisis de vídeos](analyze-videos-tutorial-with-api.md) 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [Cuotas y limitaciones](limits-quotas-constraints.md)
 * [CLI de Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

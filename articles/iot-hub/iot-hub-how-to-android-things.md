@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: robinsh
-ms.openlocfilehash: 82f6da54aec7aee94c19fd75a06d2850ca0db8b6
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a06583e9aab4b082517d47c1022f7bec5184b9bc
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883128"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673396"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Desarrollo para la plataforma Android Things con SDK de Azure IoT
 
@@ -20,7 +20,7 @@ Los [SDK de Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devg
 
 En este tutorial se describen los pasos para crear una aplicación de dispositivo en Android Things mediante el SDK de Java de Azure IoT.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Hardware compatible con Android Things con sistema operativo Android Things.  Puede seguir la [documentación de Android Things](https://developer.android.com/things/get-started/kits#flash-at) sobre cómo instalar la imagen del sistema operativo Android Things.  Asegúrese de que el dispositivo Android Things esté conectado a Internet con periféricos esenciales, como un teclado, una pantalla y un mouse.  En este tutorial se usa Raspberry Pi 3.
 
@@ -45,7 +45,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
    **MyAndroidThingsDevice**: nombre que se da al dispositivo registrado. Use MyAndroidDevice como se muestra. Si elige otro nombre para el dispositivo, tendrá que usarlo en todo el artículo y actualizar el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
+    az extension add --name azure-iot
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyAndroidThingsDevice
     ```
 

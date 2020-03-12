@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0273a0a729d39de27b9e417c23624992d1d55b42
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: b7ca4677507f73467dddac09050f250ae34342a9
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064413"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329476"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introducción al uso de Azure Stream Analytics: Detección de fraudes en tiempo real
 
@@ -94,7 +94,7 @@ Para que un proceso pueda enviar datos a un centro de eventos, este debe tener u
     >[!NOTE]
     >Asegúrese de que trabaja en el centro de eventos, no en el espacio de nombres del centro de eventos.
 
-3.  Agregue una directiva denominada `sa-policy-manage-demo` y, en **Notificación**, seleccione **Administrar**.
+3.  Agregue una directiva denominada `asa-policy-manage-demo` y, en **Notificación**, seleccione **Administrar**.
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
  

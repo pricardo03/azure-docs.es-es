@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d63aaa0103715a928cdd5332de738a473b329f2e
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: da44e8482e335c209f45db478797efa5461bbfe1
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186081"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671853"
 ---
 # <a name="configure-a-conditional-access-policy-in-report-only-mode-preview"></a>Configuración de una directiva de acceso condicional en modo de solo informe (versión preliminar)
 
@@ -48,8 +48,8 @@ Para ver el resultado de una directiva de solo informe para un inicio de sesión
 
 Para ver el impacto agregado de las directivas de acceso condicional mediante el nuevo libro Conditional Access Insights, debe integrar Azure Monitor con Azure AD y exportar los registros de inicio de sesión. Hay dos pasos para configurar esta integración: 
 
-1. [Regístrese para obtener una suscripción a Azure Monitor y cree un área de trabajo](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
-1. [Exporte los registros de inicio de sesión de Azure AD a Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
+1. [Regístrese para obtener una suscripción a Azure Monitor y cree un área de trabajo](/azure/azure-monitor/learn/quick-create-workspace).
+1. [Exporte los registros de inicio de sesión de Azure AD a Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
 
 Para más información sobre los precios de Azure Monitor, consulte la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). Encontrará recursos para calcular los costos, establecer un límite diario o personalizar el período de retención de datos en el artículo [Administrar el uso y los costos con los registros de Azure Monitor](../../azure-monitor/platform/manage-cost-storage.md#estimating-the-costs-to-manage-your-environment).
 

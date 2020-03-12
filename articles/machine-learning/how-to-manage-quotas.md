@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 11/04/2019
-ms.openlocfilehash: 443fcad17e5832a014dc463f0dd8a44d90667b75
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 03/05/2020
+ms.openlocfilehash: 17a4652604c0faa804d24530869aac0848c972b3
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646462"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399130"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Administración y solicitud de cuotas para recursos de Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,7 +38,7 @@ Tenga en cuenta estos límites al diseñar y escalar sus recursos de Azure Machi
 
 Este es un desglose de los límites de cuota de los distintos tipos de recursos de su suscripción de Azure.
 
-> [!Important]
+> [!IMPORTANT]
 > Los límites están sujetos a cambios. El más reciente siempre se puede encontrar en el [documento](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits/) de la cuota de nivel de servicio para todo Azure.
 
 ### <a name="virtual-machines"></a>Máquinas virtuales

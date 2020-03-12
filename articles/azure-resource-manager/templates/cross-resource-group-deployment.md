@@ -3,12 +3,12 @@ title: Implementación de recursos entre suscripciones y grupo de recursos
 description: Muestra cómo tener como destino más de un grupo de recursos y una suscripción de Azure durante la implementación.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 47573fedd7915d95d6ed98e3fd0aaf840331552b
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 3cc31e64e9595c637a23fc54d9d02274ded40dda
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250604"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944025"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Implementación de recursos de Azure en más de un grupo de recursos o una suscripción
 
@@ -331,7 +331,7 @@ New-AzResourceGroupDeployment `
 
 El resultado del ejemplo anterior es:
 
-```powershell
+```output
  Name             Type                       Value
  ===============  =========================  ==========
  parentRG         String                     Parent resource group is parentGroup

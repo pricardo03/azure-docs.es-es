@@ -1,25 +1,26 @@
 ---
-title: 'Autenticación de salida: Azure Scheduler'
+title: Autenticación saliente
 description: Aprenda a configurar o quitar la autenticación de salida de Azure Scheduler
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
+ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
-ms.openlocfilehash: 2ea09330fb8d3d97da5fbc197dba9668f1a4f685
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: bcd14e618323aec1c7ce47fcebb25099fa96be81
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300844"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898508"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Autenticación de salida en Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) reemplaza a Azure Scheduler, que se [va a retirar](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para seguir utilizando los trabajos configurados en Scheduler, [migre a Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) cuanto antes.
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) reemplaza a Azure Scheduler, que se [va a retirar](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para seguir utilizando los trabajos configurados en Scheduler, [migre a Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) cuanto antes. 
+>
+> Scheduler ya no está disponible en Azure portal, pero la [API REST](/rest/api/scheduler) y los [cmdlets de PowerShell para Azure Scheduler](scheduler-powershell-reference.md) siguen disponibles en la actualidad para que pueda administrar los trabajos y las colecciones de trabajos.
 
 Es posible que los trabajos de Azure Scheduler tengan que llamar a servicios que requieran autenticación, como otros servicios de Azure, Salesforce.com, Facebook y sitios web personalizados seguros. El servicio llamado puede determinar si el trabajo del Programador puede acceder a los recursos solicitados. 
 
@@ -44,7 +45,7 @@ El Programador admite estos modelos de autenticación:
 
 Al agregar autenticación mediante el modelo `ClientCertificate`, especifique estos elementos adicionales en el cuerpo de la solicitud.  
 
-| Elemento | Obligatorio | DESCRIPCIÓN |
+| Elemento | Obligatorio | Descripción |
 |---------|----------|-------------|
 | **autenticación** (elemento principal) | El objeto de autenticación para usar un certificado de cliente SSL |
 | **type** | Sí | El tipo de autenticación. Para los certificados de cliente SSL, el valor es `ClientCertificate`. |
@@ -56,7 +57,7 @@ Al agregar autenticación mediante el modelo `ClientCertificate`, especifique es
 
 Cuando se envía una solicitud con información de autenticación, la respuesta contiene estos elementos de autenticación.
 
-| Elemento | DESCRIPCIÓN | 
+| Elemento | Descripción | 
 |---------|-------------| 
 | **autenticación** (elemento principal) | El objeto de autenticación para usar un certificado de cliente SSL |
 | **type** | El tipo de autenticación. Para los certificados de cliente SSL, el valor es `ClientCertificate`. |
@@ -164,7 +165,7 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 Al agregar autenticación mediante el modelo `Basic`, especifique estos elementos adicionales en el cuerpo de la solicitud.
 
-| Elemento | Obligatorio | DESCRIPCIÓN |
+| Elemento | Obligatorio | Descripción |
 |---------|----------|-------------|
 | **autenticación** (elemento principal) | El objeto de autenticación para usar la autenticación básica | 
 | **type** | Sí | El tipo de autenticación. En autenticación básica, el valor es `Basic`. | 
@@ -176,7 +177,7 @@ Al agregar autenticación mediante el modelo `Basic`, especifique estos elemento
 
 Cuando se envía una solicitud con información de autenticación, la respuesta contiene estos elementos de autenticación.
 
-| Elemento | DESCRIPCIÓN | 
+| Elemento | Descripción | 
 |---------|-------------|
 | **autenticación** (elemento principal) | El objeto de autenticación para usar la autenticación básica |
 | **type** | El tipo de autenticación. En el caso de la autenticación básica, el valor es `Basic`. |
@@ -282,7 +283,7 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 Al agregar autenticación mediante el modelo `ActiveDirectoryOAuth`, especifique estos elementos adicionales en el cuerpo de la solicitud.
 
-| Elemento | Obligatorio | DESCRIPCIÓN |
+| Elemento | Obligatorio | Descripción |
 |---------|----------|-------------|
 | **autenticación** (elemento principal) | Sí | El objeto de autenticación para usar la autenticación de ActiveDirectoryOAuth |
 | **type** | Sí | El tipo de autenticación. En autenticación ActiveDirectoryOAuth, el valor es `ActiveDirectoryOAuth`. |
@@ -296,7 +297,7 @@ Al agregar autenticación mediante el modelo `ActiveDirectoryOAuth`, especifique
 
 Cuando se envía una solicitud con información de autenticación, la respuesta contiene estos elementos de autenticación.
 
-| Elemento | DESCRIPCIÓN |
+| Elemento | Descripción |
 |---------|-------------|
 | **autenticación** (elemento principal) | El objeto de autenticación para usar la autenticación de ActiveDirectoryOAuth |
 | **type** | El tipo de autenticación. En autenticación ActiveDirectoryOAuth, el valor es `ActiveDirectoryOAuth`. | 
@@ -403,10 +404,9 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 }
 ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="next-steps"></a>Pasos siguientes
 
-* [¿Qué es Azure Scheduler?](scheduler-intro.md)
 * [Conceptos, terminología y jerarquía de entidades de Azure Scheduler](scheduler-concepts-terms.md)
 * [Límites, valores predeterminados y códigos de error de Azure Scheduler](scheduler-limits-defaults-errors.md)
-* [API REST de Azure Scheduler](https://msdn.microsoft.com/library/mt629143)
+* [Referencia de API de REST de Azure Scheduler](/rest/api/scheduler)
 * [Referencia de cmdlets de PowerShell de Azure Scheduler](scheduler-powershell-reference.md)

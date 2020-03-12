@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 08/05/2019
 ms.author: juliako
-ms.openlocfilehash: dc844392d64178cb9000db15af39f923521efc19
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 1f40f16ddbe5231dd754ad97b54e414c6ce9b9e7
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838378"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328836"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Creación de una cuenta de Video Indexer conectada a Azure
 
@@ -23,9 +23,9 @@ Al crear una cuenta de Video Indexer, puede elegir una cuenta de evaluación gra
 
 En este artículo se muestra cómo crear una cuenta de Video Indexer que está vinculada a su suscripción de Azure y a una cuenta de Azure Media Services. Se proporcionan los pasos para conectarse a Azure mediante el flujo automático (predeterminado). También se muestra cómo conectarse a Azure manualmente (avanzado).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción de Azure.
+* Suscripción a Azure.
 
     Si aún no tiene una suscripción de Azure, [regístrese para obtener una cuenta de evaluación gratuita de Azure](https://azure.microsoft.com/free/).
 
@@ -57,7 +57,7 @@ Busque **Microsoft.Media** y **Microsoft.EventGrid**. Si no se encuentra en el e
 
 ![EventGrid](./media/create-account/event-grid.png)
 
-## <a name="connect-to-azure"></a>Conexión a Azure
+## <a name="connect-to-azure"></a>Conexión con Azure
 
 > [!NOTE]
 > Si su suscripción de Azure usa la autenticación multifactor basada en certificados, resulta fundamental que siga estos pasos en un dispositivo que tenga instalados los certificados necesarios.
@@ -72,7 +72,7 @@ Busque **Microsoft.Media** y **Microsoft.EventGrid**. Si no se encuentra en el e
 
     ![conectar Video Indexer a Azure](./media/create-account/connect-vi-to-azure-subscription.png)
 
-4. Seleccione una región de Azure de las ubicaciones admitidas: Oeste de EE. UU. 2, Europa del Norte o Asia Oriental.
+4. Seleccione una región de Azure de las ubicaciones admitidas: Oeste de EE. UU. 2, Norte de Europa o Este de Asia.
 5. En **Cuenta de Azure Media Services**, elija una de estas opciones:
 
     * Para crear una cuenta de Media Services nueva, seleccione **Crear nuevo grupo de recursos**. Escriba un nombre para el grupo de recursos.
@@ -124,8 +124,8 @@ Si se produjo un error en la conexión a Azure, puede intentar solucionar el pro
 4. Para que Video Indexer se autentique con la API de Media Services, es necesario crear una aplicación de AD. Los pasos siguientes le guían por el proceso de autenticación de Azure AD que se describe en [Introducción a la autenticación de Azure AD mediante Azure Portal](../previous/media-services-portal-get-started-with-aad.md):
 
     1. En la nueva cuenta de Media Services, seleccione **Acceso de API**.
-    2. Seleccione [Service principal authentication method](../previous/media-services-portal-get-started-with-aad.md#service-principal-authentication) (Método de autenticación de la entidad de servicio).
-    3. Obtenga el identificador de cliente y el secreto de cliente, como se describe en la sección [Obtención del identificador de cliente y del secreto de cliente](../previous/media-services-portal-get-started-with-aad.md#get-the-client-id-and-client-secret).
+    2. Seleccione [Service principal authentication method](../previous/media-services-portal-get-started-with-aad.md) (Método de autenticación de la entidad de servicio).
+    3. Obtención del identificador de cliente y del secreto de cliente
 
         Después de seleccionar **Configuración**->**Claves**, agregar una **descripción** y presionar **Guardar**, el valor de la clave se rellena.
 
@@ -140,7 +140,7 @@ En el cuadro de diálogo **Connect Video Indexer to an Azure subscription** (Con
 
 En el cuadro de diálogo, proporcione la siguiente información:
 
-|Configuración|DESCRIPCIÓN|
+|Configuración|Descripción|
 |---|---|
 |Región de la cuenta de Video Indexer|El nombre de la región de la cuenta de Video Indexer. Para un mejor rendimiento y reducir los costos, se recomienda encarecidamente especificar el nombre de la región donde se encuentran el recurso de Azure Media Services y la cuenta de Azure Storage. |
 |Inquilino de Azure Active Directory (AAD)|El nombre del inquilino de Azure AD, por ejemplo, "contoso.onmicrosoft.com". La información del inquilino se puede recuperar desde Azure Portal. Coloque el cursor sobre el nombre del usuario con sesión iniciada en la esquina superior derecha. Busque el nombre a la derecha de **Domain** (Dominio).|

@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 600cd3f3ad8826b52648b51beb8c66a382766b80
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 60bfc964ffc394b3f79c9d279158003f383b7331
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367882"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943438"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configuración del comportamiento de inicio de sesión de Azure Active Directory de una aplicación mediante una directiva de detección del dominio de inicio
 
@@ -258,7 +258,7 @@ Use el ejemplo anterior para obtener el valor de **ObjectID** de la directiva y 
 #### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Paso 2: Supresión de la asignación de directiva de la entidad de servicio de aplicación  
 
 ``` powershell
-Remove-AzureADApplicationPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
+Remove-AzureADServicePrincipalPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
 #### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Paso 3: Comprobación de que se eliminó correctamente; para ello, enumere las entidades de servicio a las que se asignó la directiva 

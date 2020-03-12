@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/09/2019
+ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0ba7846b60ca6649b4342d5096e92dfd8c96601
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 733743f4680f3197a1754d87b4672641b2321907
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756307"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399345"
 ---
 # <a name="start-using-privileged-identity-management"></a>Empiece a usar Privileged Identity Management
 
@@ -27,7 +27,7 @@ Con Privileged Identity Management (PIM), puede administrar, controlar y supervi
 
 En este artículo se describe cómo habilitar y empezar a usar Privileged Identity Management.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para usar Privileged Identity Management, debe tener una de las licencias siguientes:
 
@@ -62,7 +62,7 @@ Para empezar a usar Privileged Identity Management en el directorio, primero deb
 
     ![Seleccione una ventana de la cuenta para comprobar su identidad.](./media/pim-getting-started/pick-account.png)
 
-1. Si se necesita más información para la comprobación, se le guiará por el proceso. Para más información, consulte [Obtención de ayuda con la verificación en dos pasos](https://go.microsoft.com/fwlink/p/?LinkId=708614).
+1. Si se necesita más información para la comprobación, se le guiará por el proceso. Para más información, consulte [Obtención de ayuda con la verificación en dos pasos](../user-help/multi-factor-authentication-end-user-troubleshoot.md).
 
     ![Ventana que indica que se necesita más información si la organización necesita más información](./media/pim-getting-started/more-information-required.png)
 
@@ -102,7 +102,7 @@ Una vez que se configuró Privileged Identity Management, puede iniciar las tare
 
 ![Ventana de navegación en Privileged Identity Management que muestra las opciones Tareas y Administrar](./media/pim-getting-started/pim-quickstart-tasks.png)
 
-| Tarea y administrar | DESCRIPCIÓN |
+| Tarea y administrar | Descripción |
 | --- | --- |
 | **Mis roles**  | Muestra una lista de los roles elegibles y activos que tiene asignados. Aquí es donde puede activar cualquier función elegible asignada. |
 | **Mis solicitudes** | Muestra las solicitudes pendientes para activar las asignaciones de rol elegibles. |
@@ -115,7 +115,7 @@ Una vez que se configuró Privileged Identity Management, puede iniciar las tare
 
 Para que sea más fácil abrir Privileged Identity Management, debe agregar un icono de Privileged Identity Management al panel de Azure Portal.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 1. Haga clic en **Todos los servicios** y busque el servicio **Azure AD Privileged Identity Management**.
 

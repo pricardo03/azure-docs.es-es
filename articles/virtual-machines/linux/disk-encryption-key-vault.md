@@ -1,25 +1,25 @@
 ---
 title: Creación y configuración de un almacén de claves para Azure Disk Encryption
 description: En este artículo se proporcionan los pasos necesarios para crear y configurar un almacén de claves para su uso con Azure Disk Encryption
-ms.service: virtual-machines
+ms.service: virtual-machines-linux
 ms.topic: article
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 90306c55d976670f432d146d94764c4d90b8667d
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a818d9fe9707d1789fbe8e77489fc380fd2c92dd
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829965"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970624"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Creación y configuración de un almacén de claves para Azure Disk Encryption
 
 Azure Disk Encryption usa Azure Key Vault para controlar y administrar las claves y los secretos de cifrado de discos.  Para más información sobre los almacenes de claves, consulte [Introducción a Azure Key Vault](../../key-vault/key-vault-get-started.md) y [Protección de un almacén de claves](../../key-vault/key-vault-secure-your-key-vault.md). 
 
 > [!WARNING]
-> - Si ya ha usado Azure Disk Encryption con Azure AD para cifrar una máquina virtual, debe seguir usando esta opción para cifrar la máquina virtual. Para más información, consulte [Creación y configuración de un almacén de claves para Azure Disk Encryption con Azure AD (versión anterior)](disk-encryption-key-vault-aad.md).
+> - Si ya ha usado Azure Disk Encryption con Azure AD para cifrar una VM, debe seguir usando esta opción para cifrar la VM. Para más información, consulte [Creación y configuración de un almacén de claves para Azure Disk Encryption con Azure AD (versión anterior)](disk-encryption-key-vault-aad.md).
 
 La creación y configuración de un almacén de claves para su uso con Azure Disk Encryption conlleva estos tres pasos:
 
@@ -45,7 +45,7 @@ Aunque se puede acceder al portal a través de un explorador, tanto la CLI de Az
 
 ### <a name="connect-to-your-azure-account"></a>Conexión a la cuenta de Azure
 
-Antes de usar la CLI de Azure o Azure PowerShell, es preciso conectarse a su suscripción de Azure. Para ello, [inicie sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), [inicie sesión con Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-2.5.0) o escriba sus credenciales en Azure Portal cuando se le soliciten.
+Antes de usar la CLI de Azure o Azure PowerShell, es preciso conectarse a su suscripción de Azure. Para ello, [inicie sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), [inicie sesión con Azure Powershell](/powershell/azure/authenticate-azureps?view=azps-2.5.0) o escriba sus credenciales en Azure Portal cuando se le soliciten.
 
 ```azurecli-interactive
 az login
@@ -63,7 +63,7 @@ Un grupo de recursos es un contenedor lógico en el que se implementan y se admi
 
 Cree un grupo de recursos mediante el comando [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) de la CLI de Azure, el comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) de Azure PowerShell o bien desde [Azure Portal](https://portal.azure.com).
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" --location eastus
@@ -84,7 +84,7 @@ Cree un almacén de claves mediante el comando [az keyvault create](/cli/azure/k
 
 Cada instancia de Key Vault debe tener un nombre único. Reemplace <nombre-almacén de claves-único> por el nombre del almacén de claves en los ejemplos siguientes.
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 Al crear un almacén de claves mediante la CLI de Azure, agregue la marca "--enabled-for-disk-encryption".
 
@@ -113,7 +113,7 @@ La plataforma Azure necesita acceso a las claves de cifrado o secretos del almac
 
 Si no ha habilitado el almacén de claves para el cifrado de discos, la implementación o la implementación de plantillas en el momento de la creación (como se muestra en el paso anterior), debe actualizar sus directivas de acceso avanzadas.  
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) para habilitar el cifrado de disco para el almacén de claves. 
 
@@ -183,7 +183,7 @@ Azure Disk Encryption no admite la especificación de números de puerto como pa
   * Dirección URL de almacén de claves aceptable: *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
   * Dirección URL de almacén de claves inaceptable *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 Use el comando [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) de la CLI de Azure para generar una clave de cifrado de claves y almacenarla en el almacén de claves.
 
@@ -223,5 +223,5 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName MyResourceGroup -VMName "MyVM
 - [Script de la CLI de requisitos previos de Azure Disk Encryption](https://github.com/ejarvi/ade-cli-getting-started)
 - [Script de PowerShell de requisitos previos de Azure Disk Encryption](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)
 - Información acerca de [Escenarios de Azure Disk Encryption en máquinas virtuales Linux](disk-encryption-linux.md)
-- Información acerca de cómo [solucionar los problemas de Azure Disk Encryption](disk-encryption-troubleshooting.md)
+- Aprenda a [solucionar los problemas de Azure Disk Encryption](disk-encryption-troubleshooting.md)
 - Lea los [scripts de ejemplo de Azure Disk Encryption](disk-encryption-sample-scripts.md)

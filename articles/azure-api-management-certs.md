@@ -10,12 +10,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: gwallace
-ms.openlocfilehash: 5ce96796cbfdcefbaf5568ff199cba6a87f65e05
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 4b49a9b391eeca2d2e249b171d99f231bda6fdff
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359876"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329127"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Carga de un certificado de administración de servicios de Azure
 Los certificados de administración le permiten autenticar con el modelo de implementación clásica que proporciona Azure. Muchos programas y herramientas (como Visual Studio o Azure SDK) utilizan estos certificados para automatizar la configuración y la implementación de diferentes servicios de Azure. 
@@ -52,4 +52,4 @@ Una vez que tenga creado un certificado de administración, (archivo .cer con so
     ![Configuración](./media/azure-api-management-certs/certificate_details.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que tiene un certificado de administración asociado a una suscripción, puede conectarse mediante programación (después de haber instalado localmente el certificado correspondiente) a la [API de REST del modelo de implementación clásica](/azure/#pivot=sdkstools) y automatizar los distintos recursos de Azure que también están asociados a esa suscripción.
+Ahora que tiene un certificado de administración asociado a una suscripción, puede conectarse mediante programación (después de haber instalado localmente el certificado correspondiente) a la [API de REST del modelo de implementación clásica](/azure/?pivot=sdkstools) y automatizar los distintos recursos de Azure que también están asociados a esa suscripción.

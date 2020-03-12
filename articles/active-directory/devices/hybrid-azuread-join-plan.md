@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bae957eba627be7fa3b968585a03d28aa5b0af56
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 76d3be0fc00465c35dbc79a258b57db962969cc8
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255017"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672328"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido
 
@@ -59,7 +59,7 @@ La unión a Azure AD híbrido admite una amplia variedad de dispositivos Windows
 - Windows Server 2016
 - Windows Server 2019
 
-Para dispositivos que ejecutan el sistema operativo de escritorio Windows, las versiones admitidas se enumeran en el artículo [Información sobre la versión de Windows 10](https://docs.microsoft.com/windows/release-information/). Como procedimiento recomendado, Microsoft recomienda actualizar a la versión más reciente de Windows 10.
+Para dispositivos que ejecutan el sistema operativo de escritorio Windows, las versiones admitidas se enumeran en el artículo [Información sobre la versión de Windows 10](/windows/release-information/). Como procedimiento recomendado, Microsoft recomienda actualizar a la versión más reciente de Windows 10.
 
 ### <a name="windows-down-level-devices"></a>Dispositivos de Windows de nivel inferior
 
@@ -87,7 +87,7 @@ Como primer paso del planeamiento, debe revisar el entorno y determinar si neces
 
 - Si se basa en la instantánea de una máquina virtual (VM) para crear otras VM, asegúrese de que esa instantánea no sea de una VM que ya se haya registrado en Azure AD como unión a Azure AD híbrido.
 
-- Si usa el [filtro de escritura unificado](https://docs.microsoft.com/windows-hardware/customize/enterprise/unified-write-filter) y tecnologías similares que borran los cambios en el disco en el reinicio, se deben aplicar después de que el dispositivo esté unido a Azure AD híbrido. La habilitación de estas tecnologías antes de que se complete la unión a Azure AD híbrido dará lugar a que la unión del dispositivo se termine en cada reinicio.
+- Si usa el [filtro de escritura unificado](/windows-hardware/customize/enterprise/unified-write-filter) y tecnologías similares que borran los cambios en el disco en el reinicio, se deben aplicar después de que el dispositivo esté unido a Azure AD híbrido. La habilitación de estas tecnologías antes de que se complete la unión a Azure AD híbrido dará lugar a que la unión del dispositivo se termine en cada reinicio.
 
 ### <a name="handling-devices-with-azure-ad-registered-state"></a>Control de dispositivos con el estado registrado de Azure AD
 Si los dispositivos unidos a un dominio de Windows 10 están [registrados en Azure AD](overview.md#getting-devices-in-azure-ad) con su inquilino, podría provocar un doble estado de dispositivos registrados en Azure AD y unidos a Azure AD híbrido. Se recomienda actualizar a Windows 10 1803 (con KB4489894 aplicado) o una versión superior para solucionar automáticamente esta situación. En las versiones anteriores a 1803, deberá quitar manualmente el estado registrado en Azure AD antes de habilitar la unión a Azure AD híbrido. A partir de la versión 1803, se han realizado los siguientes cambios para evitar este doble estado:
@@ -100,7 +100,7 @@ Si los dispositivos unidos a un dominio de Windows 10 están [registrados en Az
 > El dispositivo registrado de Azure AD no se quitará automáticamente si está administrado por Intune.
 
 ### <a name="additional-considerations"></a>Consideraciones adicionales
-- Si su entorno usa la infraestructura de escritorio virtual (VDI), consulte [Identidad del dispositivo y virtualización del escritorio](https://docs.microsoft.com/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
+- Si su entorno usa la infraestructura de escritorio virtual (VDI), consulte [Identidad del dispositivo y virtualización del escritorio](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
 
 - La unión a Azure AD híbrido es compatible con TPM 2.0 compatible con FIPS y no se admite en TPM 1.2. Si los dispositivos tienen TPM 1.2 compatible con FIPS, debe deshabilitarlos antes de continuar con la unión a Azure AD híbrido. Microsoft no proporciona ninguna herramienta para deshabilitar el modo FIPS para TPM, ya que eso depende del fabricante de TPM. Póngase en contacto con el OEM de hardware para obtener soporte técnico. A partir de la versión 10 1903 de Windows, los TPM 1,2 no se usan para la unión de Azure AD híbrida y los dispositivos que tengan esos TPM se considerarán como si no tuvieran un TPM.
 
@@ -116,7 +116,7 @@ La unión a Azure AD híbrido funciona con entornos administrados y federados, 
 
 ### <a name="managed-environment"></a>Entorno administrado
 
-Un entorno administrado se puede implementar mediante [Sincronización de hash de contraseña (PHS)](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) o [Autenticación de paso a través (PTA)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) con [Inicio de sesión único de conexión directa](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso).
+Un entorno administrado se puede implementar mediante [Sincronización de hash de contraseña (PHS)](/azure/active-directory/hybrid/whatis-phs) o [Autenticación de paso a través (PTA)](/azure/active-directory/hybrid/how-to-connect-pta) con [Inicio de sesión único de conexión directa](/azure/active-directory/hybrid/how-to-connect-sso).
 
 Estos escenarios no requieren que se configure un servidor de federación para la autenticación.
 
@@ -133,7 +133,7 @@ Un entorno federado debe tener un proveedor de identidades que admita los requis
   `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> Tanto **adfs/services/trust/2005/windowstransport** como **adfs/services/trust/13/windowstransport** se deben habilitar como puntos de conexión accesibles desde la intranet y NO deben exponerse como accesible desde Proxy de aplicación web. Para más información sobre cómo deshabilitar los puntos de conexión de Windows de WS-Trust, consulte [Deshabilitar los puntos de conexión de Windows de WS-Trust en el proxy](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Para ver qué puntos de conexión están habilitados, vaya a **Servicio** > **Puntos de conexión** en la consola de administración de AD FS.
+> Tanto **adfs/services/trust/2005/windowstransport** como **adfs/services/trust/13/windowstransport** se deben habilitar como puntos de conexión accesibles desde la intranet y NO deben exponerse como accesible desde Proxy de aplicación web. Para más información sobre cómo deshabilitar los puntos de conexión de Windows de WS-Trust, consulte [Deshabilitar los puntos de conexión de Windows de WS-Trust en el proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Para ver qué puntos de conexión están habilitados, vaya a **Servicio** > **Puntos de conexión** en la consola de administración de AD FS.
 
 > [!NOTE]
 > Azure AD no admite tarjetas inteligentes ni certificados en dominios administrados.
@@ -147,9 +147,9 @@ Según el escenario que coincida con la infraestructura de identidad, consulte l
 
 ## <a name="review-on-premises-ad-upn-support-for-hybrid-azure-ad-join"></a>Revisión del soporte de UPN de AD local para la unión a Azure AD híbrido
 
-A veces, los UPN de AD local podrían ser diferentes de los UPN de Azure AD. En tales casos, Unión a Azure AD híbrido para Windows 10 proporciona compatibilidad limitada para los UPN de AD local, según el tipo de [método de autenticación](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn), el tipo de dominio y la versión de Windows 10. Hay dos tipos de UPN de AD local que pueden existir en su entorno:
+A veces, los UPN de AD local podrían ser diferentes de los UPN de Azure AD. En tales casos, Unión a Azure AD híbrido para Windows 10 proporciona compatibilidad limitada para los UPN de AD local, según el tipo de [método de autenticación](/azure/security/fundamentals/choose-ad-authn), el tipo de dominio y la versión de Windows 10. Hay dos tipos de UPN de AD local que pueden existir en su entorno:
 
-- UPN enrutable: Un UPN enrutable tiene un dominio verificado válido, que está registrado en un registrador de dominios. Por ejemplo, si contoso.com es el dominio principal, en Azure AD, contoso.org es el dominio principal en la instancia local de AD que pertenece a Contoso y que está [verificado en Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
+- UPN enrutable: Un UPN enrutable tiene un dominio verificado válido, que está registrado en un registrador de dominios. Por ejemplo, si contoso.com es el dominio principal, en Azure AD, contoso.org es el dominio principal en la instancia local de AD que pertenece a Contoso y que está [verificado en Azure AD](/azure/active-directory/fundamentals/add-custom-domain)
 - UPN no enrutable: Un UPN no enrutable no tiene un dominio verificado. Es aplicable solo dentro de la red privada de su organización. Por ejemplo, si contoso.com es el dominio principal en Azure AD, contoso.local es el dominio principal en la instancia local de AD, pero no es un dominio verificable en Internet, y solo se usa dentro de la red de Contoso.
 
 En la tabla siguiente se proporcionan detalles sobre la compatibilidad de estos UPN de AD local en Unión a Azure AD híbrido para Windows 10.

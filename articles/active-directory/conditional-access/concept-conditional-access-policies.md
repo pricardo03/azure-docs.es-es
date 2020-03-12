@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87224c9e3e697b86aab51d1e922af8ab2130ac40
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 2d2ebcc885b4018f4d9c3ff1b525ffc19b1abdda
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186230"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671924"
 ---
 # <a name="building-a-conditional-access-policy"></a>Creación de una directiva de acceso condicional
 
@@ -131,6 +131,6 @@ El artículo [Directivas de acceso condicional habituales](concept-conditional-a
 
 [Planeamiento de una implementación de Azure Multi-Factor Authentication basada en la nube](../authentication/howto-mfa-getstarted.md)
 
-[Administración del cumplimiento del dispositivo con Intune](https://docs.microsoft.com/intune/device-compliance-get-started)
+[Administración del cumplimiento del dispositivo con Intune](/intune/device-compliance-get-started)
 
-[Microsoft Cloud App Security y acceso condicional](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+[Microsoft Cloud App Security y acceso condicional](/cloud-app-security/proxy-intro-aad)

@@ -4,12 +4,12 @@ description: Creación de una función de PowerShell sin servidor desencadenada 
 ms.topic: tutorial
 ms.date: 09/20/2019
 ms.custom: ''
-ms.openlocfilehash: 51146886e3f52cb6a60d49da0d57aea1e2c55106
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 9dbb22a2449e4c41bff802ab827da4489fc7ffeb
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196542"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331032"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Tutorial: Uso de una función de Azure desencadenada por HTTP para crear un grupo de contenedores
 
@@ -42,7 +42,7 @@ En este artículo se supone que publica el proyecto con el nombre *myfunctionapp
 
 ## <a name="enable-an-azure-managed-identity-in-the-function-app"></a>Habilitación de una identidad administrada por Azure en la aplicación de funciones
 
-Ahora, habilite una [identidad administrada](../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json#adding-a-system-assigned-identity) asignada por el sistema en la aplicación de funciones. El host de PowerShell que ejecuta la aplicación se puede autenticar automáticamente mediante esta identidad, lo que permite que las funciones realicen acciones en los servicios de Azure a los que se ha concedido acceso a la identidad. En este tutorial, concederá permisos de identidad administrada para crear recursos en el grupo de recursos de la aplicación de funciones. 
+Ahora, habilite una [identidad administrada](../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json#add-a-system-assigned-identity) asignada por el sistema en la aplicación de funciones. El host de PowerShell que ejecuta la aplicación se puede autenticar automáticamente mediante esta identidad, lo que permite que las funciones realicen acciones en los servicios de Azure a los que se ha concedido acceso a la identidad. En este tutorial, concederá permisos de identidad administrada para crear recursos en el grupo de recursos de la aplicación de funciones. 
 
 En primer lugar, use el comando [az group show][az-group-show] para obtener el identificador del grupo de recursos de la aplicación de funciones y almacenarlo en una variable de entorno. En este ejemplo se da por supuesto que el comando se ejecuta en un shell de Bash.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd53b95472c72d70721612d8684779c206aad74e
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: f3ce27c59ead4e126cb143d1831ece0e93e119ef
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888796"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672290"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Solución de problemas de dispositivos híbridos unidos a Azure Active Directory 
 
@@ -356,7 +356,7 @@ Use registros de Visor de eventos para buscar la fase y el código de error para
    - Resolución: Deshabilite TPM en los dispositivos con este error. La versión 1809 de Windows detecta automáticamente los errores de TPM y completa Hybrid Azure AD joined sin usar TPM.
 - **NTE_AUTHENTICATION_IGNORED** (0x80090031/-2146893775)
    - Motivo: TPM bloqueado.
-   - Resolución: Se trata de un error transitorio. Espere el tiempo de enfriamiento. La unión debería poder realizarse correctamente tras un tiempo. Más información en la el artículo de [Conceptos básicos de TPM](https://docs.microsoft.com/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering).
+   - Resolución: Se trata de un error transitorio. Espere el tiempo de enfriamiento. La unión debería poder realizarse correctamente tras un tiempo. Más información en la el artículo de [Conceptos básicos de TPM](/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering).
 
 ##### <a name="network-errors"></a>Errores de red
 

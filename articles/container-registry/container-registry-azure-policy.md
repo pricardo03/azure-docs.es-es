@@ -3,12 +3,12 @@ title: Cumplimiento mediante Azure Policy
 description: Asignación de directivas integradas en Azure Policy para auditar el cumplimiento de los registros de contenedor de Azure
 ms.topic: article
 ms.date: 02/26/2020
-ms.openlocfilehash: 331fcfaf72b1ad2022aa3edeefefa597e5bcfe17
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 012cd013de1c60fddcfb28e4bca96d761ada41ab
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921715"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330743"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Auditoría del cumplimiento de los registros de contenedor de Azure mediante Azure Policy
 
@@ -68,14 +68,14 @@ Name                                                                            
 [Preview]: Container Registries should be encrypted with a Customer-Managed Key (CMK)  /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/cce1ed4f38a147ad994ab60a
 ```
 
-Luego, ejecute [az policy state list](/cli/azure/policy/state#az-policy-assignment-list) para devolver el estado de cumplimiento con formato JSON para todos los recursos de un identificador de directiva específico:
+Luego, ejecute [az policy state list](/cli/azure/policy/state#az-policy-state-list) para devolver el estado de cumplimiento con formato JSON para todos los recursos de un identificador de directiva específico:
 
 ```azurecli
 az policy state list \
   --resource <policyID>
 ```
 
-O bien ejecute [az policy state list](/cli/azure/policy/state#az-policy-assignment-list) para devolver el estado de cumplimiento con formato JSON de un recurso de registro específico, como *myregistry*:
+O bien ejecute [az policy state list](/cli/azure/policy/state#az-policy-state-list) para devolver el estado de cumplimiento con formato JSON de un recurso de registro específico, como *myregistry*:
 
 ```azurecli
 az policy state list \

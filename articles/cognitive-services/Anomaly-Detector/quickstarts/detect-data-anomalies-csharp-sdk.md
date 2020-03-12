@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: abc2e2371368f01c96eb0b4d2f0a777952ebacf4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fdb35edc35e07ed4ee718281942565a8f1d061d4
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448915"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402693"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-net"></a>Inicio rápido: Biblioteca cliente de Anomaly Detector para .NET
 
@@ -28,7 +28,7 @@ Use la biblioteca cliente de Anomaly Detector para .NET para las siguientes acci
 
 [Documentación de referencia de la biblioteca](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Paquete (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [Buscar el código en GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 * La versión actual de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
@@ -56,7 +56,7 @@ dotnet build
 
 La salida de la compilación no debe contener advertencias ni errores. 
 
-```console
+```output
 ...
 Build succeeded.
  0 Warning(s)

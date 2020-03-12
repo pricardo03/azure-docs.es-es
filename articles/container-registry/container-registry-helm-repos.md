@@ -3,12 +3,12 @@ title: Almacenamiento de gráficos de Helm
 description: Información sobre cómo almacenar gráficos de Helm para las aplicaciones de Kubernetes mediante repositorios en Azure Container Registry
 ms.topic: article
 ms.date: 01/28/2020
-ms.openlocfilehash: 26588bb4dc3cf50656103b50d5d0559908a1ccb7
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 7969efe37558fffb26b983131c56ae11f3ef9368
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524638"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398971"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Inserción y extracción de gráficos de Helm en Azure Container Registry
 
@@ -118,7 +118,7 @@ helm chart push mycontainerregistry.azurecr.io/helm/wordpress:latest
 
 Después de una inserción correcta, la salida es similar a:
 
-```console
+```output
 The push refers to repository [mycontainerregistry.azurecr.io/helm/wordpress]
 ref:     mycontainerregistry.azurecr.io/helm/wordpress:latest
 digest:  5899db028dcf96aeaabdadfa5899db025899db025899db025899db025899db02
@@ -141,7 +141,7 @@ az acr repository show \
 
 La salida es parecida a esta:
 
-```console
+```output
 {
   "changeableAttributes": {
     "deleteEnabled": true,
@@ -168,7 +168,7 @@ az acr repository show-manifests \
 
 La salida, abreviada en este ejemplo, muestra un valor de `configMediaType` de `application/vnd.cncf.helm.config.v1+json`:
 
-```console
+```output
 [
   {
     [...]
@@ -216,7 +216,7 @@ helm inspect chart wordpress
 
 Cuando no se proporciona ningún número de versión, se usa la versión *más reciente*. Helm devuelve información detallada sobre el gráfico, tal como se muestra en la siguiente salida condensada:
 
-```
+```output
 apiVersion: v1
 appVersion: 5.3.2
 dependencies:
@@ -256,7 +256,7 @@ helm install wordpress --generate-name
 
 A medida que continúe la instalación, siga las instrucciones de la salida del comando para ver las direcciones URL y las credenciales de WordPress. También puede ejecutar el comando `kubectl get pods` para ver los recursos de Kubernetes implementados mediante el gráfico de Helm:
 
-```console
+```output
 NAME                                    READY   STATUS    RESTARTS   AGE
 wordpress-1598530621-67c77b6d86-7ldv4   1/1     Running   0          2m48s
 wordpress-1598530621-mariadb-0          1/1     Running   0          2m48s
@@ -311,7 +311,7 @@ helm fetch stable/wordpress
 
 Escriba `ls` para mostrar el gráfico descargado y anote la versión de Wordpress que se incluye en el nombre de archivo. El comando `helm fetch stable/wordpress` no ha especificado una versión determinada, por lo que se capturó la versión *más reciente*. En la siguiente salida de ejemplo, el gráfico de Wordpress es de la versión *8.1.0*:
 
-```
+```output
 wordpress-8.1.0.tgz
 ```
 
@@ -323,7 +323,7 @@ az acr helm push --name mycontainerregistry wordpress-8.1.0.tgz
 
 Transcurridos unos instantes, la CLI de Azure notifica que se ha guardado el gráfico, como se muestra en la siguiente salida de ejemplo:
 
-```
+```output
 {
   "saved": true
 }
@@ -345,7 +345,7 @@ helm search mycontainerregistry
 
 Se muestra el gráfico de Wordpress que se insertó en el paso anterior, como se muestra en la siguiente salida de ejemplo:
 
-```
+```output
 NAME                CHART VERSION   APP VERSION DESCRIPTION
 helmdocs/wordpress  8.1.0           5.3.2       Web publishing platform for building blogs and websites.
 ```
@@ -366,7 +366,7 @@ helm inspect mycontainerregistry/wordpress
 
 Cuando no se proporciona ningún número de versión, se usa la versión *más reciente*. Helm devuelve información detallada sobre el gráfico, tal como se muestra en la siguiente salida de ejemplo condensada:
 
-```
+```output
 apiVersion: v1
 appVersion: 5.3.2
 description: Web publishing platform for building blogs and websites.
@@ -416,7 +416,7 @@ Durante el proceso de instalación deben completarse los siguientes pasos:
 
 A medida que continúe la instalación, siga las instrucciones de la salida del comando para ver las direcciones URL y las credenciales de Wordpress. También puede ejecutar el comando `kubectl get pods` para ver los recursos de Kubernetes implementados mediante el gráfico de Helm:
 
-```
+```output
 NAME                                    READY   STATUS    RESTARTS   AGE
 wordpress-1598530621-67c77b6d86-7ldv4   1/1     Running   0          2m48s
 wordpress-1598530621-mariadb-0          1/1     Running   0          2m48s

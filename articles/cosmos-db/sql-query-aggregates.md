@@ -1,17 +1,17 @@
 ---
 title: Funciones de agregado en Azure Cosmos DB
 description: Obtenga información sobre la sintaxis de las funciones de agregado de SQL, los tipos de funciones de agregado compatibles con Azure Cosmos DB.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.author: mjbrown
-ms.openlocfilehash: 1ce3b18dd31944a1a4d4e6fad8fb49e63996dace
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.date: 03/05/2020
+ms.author: tisande
+ms.openlocfilehash: df9700dd51c8915ff28c34cf0a29c2f5e48baa44
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871846"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897825"
 ---
 # <a name="aggregate-functions-in-azure-cosmos-db"></a>Funciones de agregado en Azure Cosmos DB
 
@@ -61,9 +61,9 @@ Los resultados son:
 
 ## <a name="types-of-aggregate-functions"></a>Tipos de funciones de agregado
 
-API de SQL admite las siguientes funciones de agregado. SUM y AVG operan en valores numéricos, y COUNT, MIN y MAX trabajan con números, cadenas, valores booleanos y valores null.
+La API de SQL admite las siguientes funciones de agregado. SUM y AVG operan en valores numéricos, y COUNT, MIN y MAX trabajan con números, cadenas, valores booleanos y valores null.
 
-| Función | DESCRIPCIÓN |
+| Función | Descripción |
 |-------|-------------|
 | COUNT | Devuelve el número de elementos de la expresión. |
 | SUM   | Devuelve la suma de todos los valores de la expresión. |
@@ -74,7 +74,7 @@ API de SQL admite las siguientes funciones de agregado. SUM y AVG operan en valo
 También puede aplicar agregaciones a los resultados de la iteración de una matriz.
 
 > [!NOTE]
-> En el Explorador de datos de Azure Portal, las consultas de agregación pueden agregar resultados parciales a lo largo de solo una página de consulta. El SDK genera un único valor acumulado en todas las páginas. Para realizar consultas de agregación mediante código, necesita el SDK de .NET 1.12.0, el SDK de .NET Core 1.1.0 o el SDK de Java 1.9.5 o superior.
+> En el Explorador de datos de Azure Portal, las consultas de agregación pueden agregar resultados parciales a lo largo de solo una página de consulta. El SDK genera un único valor acumulado en todas las páginas. Para realizar consultas de agregación mediante código, necesita el SDK de .NET 1.12.0, el SDK de .NET Core 1.1.0 o el SDK de Java 1.9.5 o posterior.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

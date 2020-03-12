@@ -1,32 +1,33 @@
 ---
-title: 'Conceptos, términos y entidades: Azure Scheduler | Microsoft Docs'
+title: Conceptos, términos y entidades
 description: Aprenda los conceptos, terminología y jerarquía de entidades, incluidos trabajos y colecciones de trabajos de Azure Scheduler.
 services: scheduler
 ms.service: scheduler
 ms.suite: infrastructure-services
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
+ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 7e31f891cfd758b888e4045566ad2cd2d9ab6fb8
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 0a744c2de320ddad2e7959cae7b62d7990879953
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300947"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898573"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceptos, terminología y entidades de Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) reemplaza a Azure Scheduler, que se [va a retirar](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para seguir utilizando los trabajos configurados en Scheduler, [migre a Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) cuanto antes.
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) reemplaza a Azure Scheduler, que se [va a retirar](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para seguir utilizando los trabajos configurados en Scheduler, [migre a Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) cuanto antes. 
+>
+> Scheduler ya no está disponible en Azure portal, pero la [API REST](/rest/api/scheduler) y los [cmdlets de PowerShell para Azure Scheduler](scheduler-powershell-reference.md) siguen disponibles en la actualidad para que pueda administrar los trabajos y las colecciones de trabajos.
 
 ## <a name="entity-hierarchy"></a>Jerarquía de entidades
 
 La API REST de Azure Scheduler expone y usa estas entidades principales o los recursos:
 
-| Entidad | DESCRIPCIÓN |
+| Entidad | Descripción |
 |--------|-------------|
 | **Trabajo** | Define una única acción periódica, con estrategias simples o complejas para su ejecución. Las acciones pueden incluir solicitudes HTTP, de cola de Storage, de cola de Service Bus o de tema de Service Bus. | 
 | **Colección de trabajos** | Contiene un grupo de trabajos y mantiene configuraciones, cuotas y aceleradores compartidos por los trabajos de la colección. Como propietario de la suscripción de Azure, puede crear colecciones de trabajos y agrupar los trabajos en función de los límites de uso o de la aplicación. Una colección de trabajos tiene estos atributos: <p>- Está limitada a una región. <br>- Le permite aplicar cuotas para que pueda restringir el uso de todos los trabajos de una colección. <br>- Las cuotas incluyen MaxJobs y MaxRecurrence. | 
@@ -81,7 +82,7 @@ En el nivel superior, un trabajo de Scheduler tiene estas partes básicas:
 
 El trabajo también incluye datos proporcionados por el sistema, como el siguiente entorno en tiempo de ejecución programado del trabajo. La definición de código del trabajo es un objeto en formato JavaScript Object Notation (JSON), que tiene estos elementos:
 
-| Elemento | Obligatorio | DESCRIPCIÓN | 
+| Elemento | Obligatorio | Descripción | 
 |---------|----------|-------------| 
 | [**startTime**](#start-time) | Sin | La hora de inicio para el trabajo con un desplazamiento de zona horaria en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**action**](#action) | Sí | Los detalles de la acción principal, que puede incluir un objeto **errorAction** | 
@@ -245,7 +246,7 @@ Un trabajo se vuelve a producir si la definición de JSON del trabajo incluye el
 },
 ```
 
-| Propiedad | Obligatorio | Value | DESCRIPCIÓN | 
+| Propiedad | Obligatorio | Value | Descripción | 
 |----------|----------|-------|-------------| 
 | **frequency** | Sí, cuando se usa **recurrence** | "Minute", "Hour", "Day", "Week", "Month", "Year" | La unidad de tiempo entre las repeticiones | 
 | **interval** | Sin | 1 a 1000, ambos inclusive | Un entero positivo que determina el número de unidades de tiempo entre cada repetición según la **frecuencia** | 
@@ -275,7 +276,7 @@ Para el caso de que un trabajo de Scheduler pueda producir un error, puede confi
 },
 ```
 
-| Propiedad | Obligatorio | Value | DESCRIPCIÓN | 
+| Propiedad | Obligatorio | Value | Descripción | 
 |----------|----------|-------|-------------| 
 | **retryType** | Sí | **Fixed**, **None** | Determina si se especifica una directiva de reintentos (**fixed**) o no (**none**). | 
 | **retryInterval** | Sin | PT30S | Especifica el intervalo y la frecuencia entre los reintentos en [ formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). El valor mínimo es de 15 segundos, mientras que el valor máximo es de 18 meses. | 
@@ -319,11 +320,9 @@ Por ejemplo:
 }
 ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="next-steps"></a>Pasos siguientes
 
-* [¿Qué es Azure Scheduler?](scheduler-intro.md)
-* [Conceptos, terminología y jerarquía de entidades](scheduler-concepts-terms.md)
 * [Creación de programaciones complejas y periodicidad avanzada](scheduler-advanced-complexity.md)
-* [Límites, cuotas, valores predeterminados y códigos de error](scheduler-limits-defaults-errors.md)
 * [Referencia de API de REST de Azure Scheduler](/rest/api/scheduler)
 * [Referencia de cmdlets de PowerShell de Azure Scheduler](scheduler-powershell-reference.md)
+* [Límites, cuotas, valores predeterminados y códigos de error](scheduler-limits-defaults-errors.md)

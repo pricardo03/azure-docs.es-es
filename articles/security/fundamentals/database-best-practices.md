@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 72b15d77baedae318d4503f2d481b08202730459
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 316c3ef3c5bd16b52291029924d04fc159375bc8
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68928002"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943663"
 ---
 # <a name="azure-database-security-best-practices"></a>Procedimientos recomendados para la seguridad de las bases de datos de Azure
 En este artículo se describen los procedimientos recomendados para la seguridad de base de datos.
@@ -72,7 +72,7 @@ Si usa autenticación de SQL Server, debe:
 
 - Administrar las credenciales seguras usted mismo.
 - Proteger las credenciales en la cadena de conexión.
-- Proteger (potencialmente) las credenciales transmitidas a través de la red desde el servidor web a la base de datos. Para obtener más información, consulte [Instrucciones: conectar con SQL Server mediante la Autenticación de SQL en ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
+- Proteger (potencialmente) las credenciales transmitidas a través de la red desde el servidor web a la base de datos. Para más información, vea: [Cómo: conectar con SQL Server mediante la Autenticación de SQL en ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Autenticación de Azure Active Directory (AD)*
 La autenticación de Azure AD es un mecanismo de conexión a Azure SQL Database y [SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) mediante identidades de Azure AD. Con la autenticación de Azure AD, puede administrar las identidades de los usuarios de la base de datos y otros servicios de Microsoft en una ubicación central. La administración de identificadores central ofrece una ubicación única para administrar usuarios de base de datos y simplifica la administración de permisos.
@@ -166,10 +166,6 @@ La habilitación de estas funcionalidades ayuda a:
 - Detectar posibles amenazas y responder a ellas.
 
 Además, la detección de amenazas integra las alertas con Azure Security Center para obtener una vista centralizada del estado de seguridad de todos los recursos de Azure.
-
-## <a name="enable-feature-restrictions"></a>Habilitación de restricciones de características
-
-Los datos contenidos en las bases de datos pueden estar expuestos a atacantes que usan vectores de ataque que aprovechan los errores de base de datos y los tiempos de ejecución de consultas. Azure SQL Database proporciona una serie de mecanismos de restricción de características para proteger su base de datos. Para obtener más información, consulte [Restricciones de las características de SQL Database](/azure/sql-database/sql-database-feature-restrictions).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea [Patrones y procedimientos recomendados de seguridad en Azure](best-practices-and-patterns.md) para obtener más procedimientos recomendados de seguridad que pueda aplicar cuando diseñe, implemente y administre las soluciones en la nube mediante Azure.

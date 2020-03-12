@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 779328f4c21afb4392663e6f8840749ea505c529
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: dac8e0f2e10906f2cc56ecf86e0cc70947cb7e85
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242427"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897774"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purecloud-by-genesys"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con PureCloud by Genesys
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a integrar PureCloud by Genesys con Azure Active Di
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -123,9 +123,9 @@ Para habilitar el inicio de sesión único de Azure AD en Azure Portal, siga es
 
 1. Además, la aplicación PureCloud by Genesys espera que se devuelvan algunos atributos más en la respuesta de SAML, como se muestra en la tabla siguiente. Estos atributos también se rellenan previamente, pero puede revisarlos según necesite.
 
-    | NOMBRE | Atributo de origen|
+    | Nombre | Atributo de origen|
     | ---------------| --------------- |
-    | Email | user.userprinicipalname |
+    | Email | user.userprincipalname |
     | OrganizationName | `Your organization name` |
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
@@ -210,7 +210,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en PureCloud by Gene
 
     ![Configurar inicio de sesión único](./media/purecloud-by-genesys-tutorial/configure05.png)
 
-    a. En el cuadro **Full name** (Nombre completo), escriba el nombre del usuario. Por ejemplo:  **B.Simon**.
+    a. En el cuadro **Full name** (Nombre completo), escriba el nombre del usuario. Por ejemplo: **B.Simon**.
 
     b. En el cuadro **Email** (Correo electrónico), escriba el correo electrónico del usuario. Por ejemplo, **b.simon\@contoso.com**.
 

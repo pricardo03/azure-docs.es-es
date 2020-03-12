@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 6ff12122d541a9dbb160a424e0d11cf03fdcb9fe
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 51fa6d4859eb4b7f059b499ba73d84d9fc65e6f6
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970234"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398978"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconocimiento de logotipos de servicios de Azure imágenes de cámara
 
@@ -30,7 +30,7 @@ Este tutorial le mostrará cómo:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - [Visual Studio 2017 o cualquier versión posterior](https://www.visualstudio.com/downloads/)
 - Carga de trabajo Xamarin para Visual Studio (consulte [Instalación de Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
@@ -107,7 +107,7 @@ La aplicación requiere una cuenta de entidad de servicio de Azure para implemen
 
 Las entidades de servicio se pueden crear mediante Azure Cloud Shell o mediante la CLI de Azure, como se indica aquí. Para comenzar, inicie sesión y seleccione la suscripción que desea usar.
 
-```console
+```azurecli
 az login
 az account list
 az account set --subscription "<subscription name or subscription id>"
@@ -115,7 +115,7 @@ az account set --subscription "<subscription name or subscription id>"
 
 A continuación, cree la entidad de servicio. (Este proceso podría tardar algún tiempo en finalizar).
 
-```console
+```azurecli
 az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongPassword>
 ```
 
@@ -135,7 +135,7 @@ Tome nota de los valores de `clientId` y `tenantId`. Agréguelos a los campos pe
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
 
-## <a name="run-the-app"></a>Ejecución de la aplicación
+## <a name="run-the-app"></a>Ejecución la aplicación
 
 Ya ha dado a la aplicación acceso a:
 

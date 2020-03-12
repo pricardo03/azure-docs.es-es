@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2f0956b44d6df64fb73e5eee7844574237d8755
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4626e0149028a140d143fb8d0969a03b732201fa
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067634"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79036973"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Corrección de las reglas predeterminadas modificadas en Azure AD Connect
 
@@ -34,7 +34,7 @@ A partir de la versión 1.3.7.0 de Azure AD Connect, es fácil identificar la re
 
 En el editor se muestran las reglas predeterminadas modificadas con un icono de advertencia delante del nombre.
 
-![Icono Advertencia](media/how-to-connect-fix-default-rules/default2.png)
+![Icono de advertencia](media/how-to-connect-fix-default-rules/default2.png)
 
  También se muestra una regla deshabilitada con el mismo nombre junto a estas (esta es la regla predeterminada estándar).
 
@@ -73,7 +73,7 @@ Si las extensiones no funcionan, pruebe a agregar dos nuevas reglas de sincroniz
 #### <a name="add-an-inbound-sync-rule"></a>Agregar una regla de sincronización de entrada
 Una regla de sincronización de entrada significa que el origen del atributo es un espacio conector y el destino es el metaverso. Por ejemplo, para que exista un nuevo flujo de atributo de Active Directory local a Azure Active Directory, cree una nueva regla de sincronización de entrada. Inicie el **Editor de reglas de sincronización**, seleccione la dirección **Entrante** y seleccione **Agregar nueva regla**. 
 
- !Synchronization Rules Editor](media/how-to-connect-fix-default-rules/default3a.png)
+ ![Editor de reglas de sincronización](media/how-to-connect-fix-default-rules/default3a.png)
 
 Siga su propia convención de nomenclatura para asignar un nombre a la regla. En este caso, utilizamos **Custom In from AD - User**. Esto significa que la regla es personalizada y de entrada del espacio del conector de Active Directory al metaverso.   
 
