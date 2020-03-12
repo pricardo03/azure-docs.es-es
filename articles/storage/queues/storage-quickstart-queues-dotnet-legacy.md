@@ -8,18 +8,18 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: cbrooks
-ms.openlocfilehash: f51038b1e79a699c15ad2fd969d75c09a2530f6f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5d5e8250a75cc26d4b9843875f71325e163ef23b
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457609"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943557"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Inicio rápido: Uso del SDK de Azure Storage v11 para .NET para administrar una cola
 
 En este inicio rápido, obtendrá información sobre cómo usar la biblioteca cliente de Azure Storage versión 11 para .NET a fin de crear una cola y agregarle mensajes. A continuación, aprenderá a leer y procesar los mensajes de la cola. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -35,7 +35,7 @@ Para obtener información acerca de cuándo elegir .NET Core o .NET Framework, c
 ### <a name="linux"></a>Linux
 
 - Instale [.NET Core para Linux](https://www.microsoft.com/net/download/linux)
-- Opcionalmente, instale [Visual Studio Code](https://www.visualstudio.com/) y la [extensión de C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068)
+- Opcionalmente, instale [Visual Studio Code](https://www.visualstudio.com/) y la [extensión de C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 
 ### <a name="macos"></a>macOS
 

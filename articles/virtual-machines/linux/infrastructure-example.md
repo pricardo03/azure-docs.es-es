@@ -1,26 +1,18 @@
 ---
 title: Tutorial de la infraestructura de Azure de ejemplo
 description: Obtenga información sobre las directrices clave de diseño e implementación para implementar una infraestructura de ejemplo en Azure.
-documentationcenter: ''
-services: virtual-machines-linux
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 281fc2c0-b533-45fa-81a3-728c0049c73d
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf63db18dac5fa202bbf339723c6555c4acb2ca2
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6040bf8862131f5a8a5564cd2f5d845fa0490a95
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036035"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944901"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Tutorial de la infraestructura de Azure de ejemplo para máquinas virtuales Linux
 Este artículo le guía a través de la creación de una infraestructura de aplicación de ejemplo. Detallaremos el diseño de una infraestructura para una tienda en línea sencilla que reúna todas las directrices y decisiones relacionadas con las convenciones de nomenclatura, los conjuntos de disponibilidad, las redes virtuales, los equilibradores de carga y, realmente, la implementación de sus máquinas virtuales (VM).
@@ -33,7 +25,7 @@ Adventure Works Cycles desea crear una aplicación de la tienda en línea en Azu
 * Dos servidores MongoDB parte de un clúster particionado para almacenar pedidos y datos de productos en un nivel de base de datos
 * Dos controladores de dominio de Active Directory para los proveedores y las cuentas de cliente en un nivel de autenticación
 * Todos los servidores se encuentran en dos subredes:
-  * Una subred front-end para los servidores web 
+  * una subred front-end para los servidores web 
   * Una subred back-end para los servidores de aplicaciones, el clúster de MongoDB y los controladores de dominio
 
 ![Diagrama de distintos niveles de infraestructura de aplicaciones](./media/infrastructure-example/example-tiers.png)

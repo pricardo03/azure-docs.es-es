@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: helohr
-ms.openlocfilehash: ee641a694371ffd3fbc691a05edac707e37e959d
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+manager: lizross
+ms.openlocfilehash: a2ff3f6fa9896e45ecd6ab40d40d46a046edf1cb
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607339"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127391"
 ---
 # <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop"></a>Solución de problemas de máquinas virtuales Windows 7 en Windows Virtual Desktop
 
@@ -39,7 +40,7 @@ Si Windows Virtual Desktop no puede encontrarle o no puede encontrar las credenc
 
 Para corregir este error, agregue el usuario al grupo Usuario de Escritorio remoto:
 
-1. Abra Azure Portal.
+1. Abra Azure Portal.
 2. Seleccione la máquina virtual en la que vio el mensaje de error.
 3. Seleccione **Ejecutar un comando**.
 4. Ejecute el siguiente comando, pero reemplace `<username>` por el nombre del usuario que desea agregar:

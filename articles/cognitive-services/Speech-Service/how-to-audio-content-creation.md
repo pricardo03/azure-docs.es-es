@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: dapine
-ms.openlocfilehash: 4785356963e7df1d7b175ac21ceebc921f851ffb
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ab0d2b8d95b4cb5996dd93fa0bb24085c9de26d5
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913657"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331543"
 ---
 # <a name="improve-synthesis-with-audio-content-creation"></a>Mejora de síntesis con Audio Content Creation
 
@@ -43,7 +43,7 @@ En este diagrama se muestran los pasos necesarios para optimizar y exportar sali
 
 Siga estos pasos para crear un recurso de voz y conectarlo con Speech Studio.
 
-1. Siga estas instrucciones para [registrarse en una cuenta de Azure](get-started.md#new-resource) y [crear un recurso de Voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Asegúrese de que el plan de tarifa está establecido en **S0**. Si usa una de las voces neuronales, asegúrese de crear el recurso en una [región compatible](regions.md#standard-and-neural-voices).
+1. Siga estas instrucciones para [registrarse en una cuenta de Azure](get-started.md#new-resource) y [crear un recurso de Voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-the-resource). Asegúrese de que el plan de tarifa está establecido en **S0**. Si usa una de las voces neuronales, asegúrese de crear el recurso en una [región compatible](regions.md#standard-and-neural-voices).
 2. Inicie sesión en [Audio Content Creation](https://aka.ms/audiocontentcreation).
 3. Seleccione un proyecto existente o haga clic en **Crear nuevo**.
 4. Puede modificar su suscripción en cualquier momento con la opción **Configuración**, que se encuentra en la navegación superior.

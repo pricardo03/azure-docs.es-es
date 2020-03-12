@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 5db65ab6f1c96ff816252ecaba2170adf358001c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 59cce6d89bc863ad489a8ed37c7f284d3085c775
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606575"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117276"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Protección de datos y seguridad de Azure Data Box Disk
 
@@ -34,7 +34,7 @@ El diagrama siguiente indica el flujo de datos a través de la solución Azure D
 
 ## <a name="security-features"></a>Características de seguridad
 
-Data Box Disk proporciona una solución segura para proteger los datos al garantizar que solo las entidades autorizadas puedan ver, modificar o eliminar los datos. Las características de seguridad de esta solución están destinadas al disco y al servicio asociado, lo que garantiza la seguridad de los datos almacenados. 
+Data Box Disk proporciona una solución segura para proteger los datos al garantizar que solo las entidades autorizadas puedan ver, modificar o eliminar los datos. Las características de seguridad de esta solución están destinadas al disco y al servicio asociado, lo que garantiza la seguridad de los datos almacenados.
 
 ### <a name="data-box-disk-protection"></a>Protección de Data Box Disk
 
@@ -48,7 +48,7 @@ Data Box Disk se protege mediante las siguientes características:
 
 Los datos que fluyen en Data Box Disk se protegen mediante las siguientes características:
 
-- Cifrado BitLocker de los datos en todo momento. 
+- Cifrado BitLocker de los datos en todo momento.
 - Eliminación segura de los datos desde el disco una vez completada la carga de datos en Azure. La eliminación de datos se realiza según los estándares de NIST 800-88r1.
 
 ### <a name="data-box-service-protection"></a>Protección del servicio Data Box
@@ -56,10 +56,9 @@ Los datos que fluyen en Data Box Disk se protegen mediante las siguientes caract
 El servicio Data Box se protege mediante las siguientes características:
 
 - El acceso al servicio Data Box Disk requiere que la organización tenga una suscripción de Azure que incluya dicho servicio. Su suscripción regula las características a las que puede tener acceso en Azure Portal.
-- Dado que el servicio Data Box está hospedado en Azure, se encuentra protegido por las características de seguridad de Azure. Para obtener más información acerca de las características de seguridad que proporciona Microsoft Azure, visite el [Centro de confianza de Microsoft Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx). 
+- Dado que el servicio Data Box está hospedado en Azure, se encuentra protegido por las características de seguridad de Azure. Para obtener más información acerca de las características de seguridad que proporciona Microsoft Azure, visite el [Centro de confianza de Microsoft Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx).
 - Data Box Disk almacena la clave de paso del disco que se usa para desbloquearlo en el servicio. 
-- El servicio Data Box Disk almacena los detalles del pedido y del estado en el servicio. Esta información se elimina cuando se elimina el pedido. 
-
+- El servicio Data Box Disk almacena los detalles del pedido y del estado en el servicio. Esta información se elimina cuando se elimina el pedido.
 
 ## <a name="managing-personal-data"></a>Administración de datos personales
 

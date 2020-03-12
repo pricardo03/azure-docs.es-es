@@ -12,17 +12,6 @@
       href: quick-create-powershell.md
     - name: 'Creación de red virtual: CLI de Azure'
       href: quick-create-cli.md
-    - name: NAT
-      items:
-        - name: 'Creación de una instancia de NAT Gateway: Portal'
-          href: quickstart-create-nat-gateway-portal.md
-        - name: 'Creación de una instancia de NAT Gateway: PowerShell'
-          href: quickstart-create-nat-gateway-powershell.md
-        - name: 'Creación de una instancia de NAT Gateway: CLI'
-          href: quickstart-create-nat-gateway-cli.md
-        - name: 'Creación de una instancia de NAT Gateway: Plantilla de Resource Manager'
-          displayname: Resource Manager
-          href: quickstart-create-nat-gateway-template.md
   expanded: true
 - name: Tutoriales
   items:
@@ -36,6 +25,15 @@
       href: tutorial-connect-virtual-networks-portal.md
     - name: NAT
       items:
+        - name: 'Creación de una instancia de NAT Gateway: Portal'
+          href: quickstart-create-nat-gateway-portal.md
+        - name: 'Creación de una instancia de NAT Gateway: PowerShell'
+          href: quickstart-create-nat-gateway-powershell.md
+        - name: 'Creación de una instancia de NAT Gateway: CLI'
+          href: quickstart-create-nat-gateway-cli.md
+        - name: 'Creación de una instancia de NAT Gateway: Plantilla de Resource Manager'
+          displayname: Resource Manager
+          href: quickstart-create-nat-gateway-template.md
         - name: 'Creación y validación de una instancia de NAT Gateway: Portal'
           href: tutorial-create-validate-nat-gateway-portal.md
         - name: 'Creación y validación de una instancia de NAT Gateway: PowerShell'

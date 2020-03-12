@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: helohr
-ms.openlocfilehash: 354ee312099902372863ce2ea636d2f9f9943d5c
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+manager: lizross
+ms.openlocfilehash: 37c3e57fd96a0161564b23ce18d01573d0dd73f9
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566493"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127900"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expansión de un grupo de hosts existente con nuevos hosts de sesión
 
@@ -76,13 +77,13 @@ Siga las instrucciones que se indican en [Creación de un grupo de hosts con Azu
 
 Todos los valores de esta sección deben coincidir con lo que proporcionó cuando creó por primera vez el grupo de hosts y las máquinas virtuales de host de sesión, excepto los de *Usuarios de escritorio predeterminados*:
 
-1.  En *Suscripción*, seleccione la suscripción en la que creó el grupo de hosts por primera vez.
-2.  En *Grupo de recursos*, seleccione el mismo grupo de recursos donde se encuentran las máquinas virtuales de host de sesión del grupo de hosts existente.
-3.  En *Región*, seleccione la misma región donde se encuentran las máquinas virtuales de host de sesión del grupo de hosts existente.
-4.  En *Nombre del grupo de hosts*, escriba el nombre del grupo de hosts existente.
-5.  En *Tipo de escritorio*, seleccione el tipo de escritorio que coincida con el grupo de hosts existente.
-6.  En *Usuarios de escritorio predeterminados*, escriba una lista separada por comas de los usuarios adicionales que pueden iniciar sesión en los clientes de Windows Virtual Desktop y acceder a un escritorio una vez finalizada la oferta de Azure Marketplace. Por ejemplo, si quiere asignar acceso a user3@contoso.com y user4@contoso.com, escriba user3@contoso.com,user4@contoso.com.
-7.  Seleccione **Siguiente: Configurar máquina virtual**.
+1.    En *Suscripción*, seleccione la suscripción en la que creó el grupo de hosts por primera vez.
+2.    En *Grupo de recursos*, seleccione el mismo grupo de recursos donde se encuentran las máquinas virtuales de host de sesión del grupo de hosts existente.
+3.    En *Región*, seleccione la misma región donde se encuentran las máquinas virtuales de host de sesión del grupo de hosts existente.
+4.    En *Nombre del grupo de hosts*, escriba el nombre del grupo de hosts existente.
+5.    En *Tipo de escritorio*, seleccione el tipo de escritorio que coincida con el grupo de hosts existente.
+6.    En *Usuarios de escritorio predeterminados*, escriba una lista separada por comas de los usuarios adicionales que pueden iniciar sesión en los clientes de Windows Virtual Desktop y acceder a un escritorio una vez finalizada la oferta de Azure Marketplace. Por ejemplo, si quiere asignar acceso a user3@contoso.com y user4@contoso.com, escriba user3@contoso.com,user4@contoso.com.
+7.    Seleccione **Siguiente: Configurar máquina virtual**.
 
 >[!NOTE]
 >Excepto *Usuarios de escritorio predeterminados*, todos los campos deben coincidir exactamente con lo que se ha configurado en el grupo de hosts existente. Si no coinciden, se producirá un nuevo grupo de hosts.

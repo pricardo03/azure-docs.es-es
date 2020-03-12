@@ -5,17 +5,17 @@ ms.topic: article
 ms.date: 02/14/2019
 ms.author: mikhegn
 ms.openlocfilehash: 2a00a352d09562ffe46dc8e6e63a5d4963ac3a3f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464575"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127600"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Procedimientos: Depurar contenedores de Windows en Azure Service Fabric mediante Visual Studio 2019
 
 Con Visual Studio 2019, puede depurar aplicaciones .NET en contenedores como servicios de Service Fabric. En este artículo se muestra cómo configurar el entorno y, a continuación, depurar una aplicación .NET en un contenedor que se ejecuta en un clúster de Service Fabric local.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * En Windows 10, siga este inicio rápido para [configurar Windows 10 para ejecutar contenedores de Windows](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10).
 * En Windows Server 2016, siga este inicio rápido para [configurar Windows 2016 para ejecutar contenedores de Windows](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server).

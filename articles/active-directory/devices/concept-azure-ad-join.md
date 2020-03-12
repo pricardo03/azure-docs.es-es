@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24ec4373bceb3cc3c9e5be2c7a0dab1f62197b3c
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 40f89fbe19b93601f9e0525f0387e402bd175fe4
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512205"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672683"
 ---
 # <a name="azure-ad-joined-devices"></a>Dispositivos unidos a Azure AD
 
@@ -45,9 +45,9 @@ La unión a Azure AD está pensaba para las organizaciones en las que la nube e
 
 Los dispositivos unidos a Azure AD inician sesión con una cuenta organizativa de Azure AD. Es posible limitar aún más el acceso a los recursos de la organización en función de esa cuenta de Azure AD y a las [directivas de acceso condicional](../conditional-access/overview.md) aplicadas a la identidad del dispositivo.
 
-Los administradores pueden proteger y controlar aún más los dispositivos unidos a Azure AD con herramientas de administración de dispositivos móviles (MDM), como Microsoft Intune o en escenarios de administración conjunta con Microsoft Endpoint Configuration Manager. Estas herramientas proporcionan una manera de aplicar las configuraciones que requiere la organización, como el cifrado del almacenamiento, la complejidad de las contraseñas y las instalaciones y actualizaciones de software. Los administradores pueden hacer que las aplicaciones de la organización estén disponibles en los dispositivos unidos a Azure AD con Configuration Manager para [administrar aplicaciones de Microsoft Store para Empresas y Educación](https://docs.microsoft.com/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
+Los administradores pueden proteger y controlar aún más los dispositivos unidos a Azure AD con herramientas de administración de dispositivos móviles (MDM), como Microsoft Intune o en escenarios de administración conjunta con Microsoft Endpoint Configuration Manager. Estas herramientas proporcionan una manera de aplicar las configuraciones que requiere la organización, como el cifrado del almacenamiento, la complejidad de las contraseñas y las instalaciones y actualizaciones de software. Los administradores pueden hacer que las aplicaciones de la organización estén disponibles en los dispositivos unidos a Azure AD con Configuration Manager para [administrar aplicaciones de Microsoft Store para Empresas y Educación](/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
 
-La unión a Azure AD se puede lograr mediante opciones de autoservicio, como la configuración rápida (OOBE), la inscripción masiva o [Windows Autopilot](https://docs.microsoft.com/intune/enrollment-autopilot).
+La unión a Azure AD se puede lograr mediante opciones de autoservicio, como la configuración rápida (OOBE), la inscripción masiva o [Windows Autopilot](/intune/enrollment-autopilot).
 
 Los dispositivos unidos a Azure AD todavía puede mantener el acceso de inicio de sesión único a los recursos locales cuando están en la red de la organización. Los dispositivos que están unidos a Azure AD todavía pueden autenticarse en los servidores locales como archivo, impresión y otras aplicaciones.
 
@@ -74,8 +74,8 @@ El objetivo de los dispositivos unidos a Azure AD es simplificar:
 
 La unión a Azure AD se puede implementar mediante cualquiera de los métodos siguientes:
 
-- [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)
-- [Implementación masiva](https://docs.microsoft.com/intune/windows-bulk-enroll)
+- [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot)
+- [Implementación masiva](/intune/windows-bulk-enroll)
 - [Experiencia de autoservicio](azuread-joined-devices-frx.md)
 
 ## <a name="next-steps"></a>Pasos siguientes

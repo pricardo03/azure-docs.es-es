@@ -6,13 +6,14 @@ ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
+ms.subservice: imaging
 manager: gwallace
-ms.openlocfilehash: d226a7b31dc9f8cf219c6d0d0f886fb5b21741a6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 4a3a9bd518b9bc695855ad2b0b659d3cf1834c05
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976339"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945045"
 ---
 # <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Vista previa: Creación de una versión de una imagen de una máquina virtual a partir de otra existente mediante Azure Image Builder
 
@@ -21,7 +22,7 @@ En este artículo se muestra cómo tomar una versión de imagen existente en una
 Se usará una plantilla .json de ejemplo para configurar la imagen. El archivo .json que se usa aquí es: [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json). 
 
 
-## <a name="register-the-features"></a>Registrar las características
+## <a name="register-the-features"></a>Registro de las características
 Para usar el generador de imágenes de Azure durante la versión preliminar, tendrá que registrar la nueva característica.
 
 ```azurecli-interactive
@@ -73,7 +74,7 @@ imageDefName=myIbImageDef
 runOutputName=aibSIGLinuxUpdate
 ```
 
-Cree una variable para el identificador de la suscripción. Puede obtenerlo mediante `az account show | grep id`.
+Cree una variable para el id. de suscripción. Puede obtenerlo mediante `az account show | grep id`.
 
 ```azurecli-interactive
 subscriptionID=<Subscription ID>

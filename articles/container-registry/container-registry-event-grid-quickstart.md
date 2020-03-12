@@ -4,12 +4,12 @@ description: En este tutorial, habilita eventos de Event Grid para el registro d
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1ff9572cf8614e3eb5d015a602ca3f878875a0a4
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: dbeba56820a520e3435eeb0c5c8dbc5aae981241
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455347"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78403230"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Inicio rápido: Envío de eventos de registro de contenedor privado a Event Grid
 
@@ -110,7 +110,7 @@ az eventgrid event-subscription create \
 
 Una vez completada la suscripción, debería ver una salida similar a la siguiente:
 
-```JSON
+```json
 {
   "destination": {
     "endpointBaseUrl": "https://eventgridviewer.azurewebsites.net/api/updates",
@@ -149,8 +149,7 @@ az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://githu
 
 Debería ver un resultado similar al siguiente mientras ACR Tasks se compila e inserta la imagen. El resultado de ejemplo siguiente se ha truncado por razones de espacio.
 
-```console
-$ az acr build -r $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
+```output
 Sending build context to ACR...
 Queued a build with build ID: aa2
 Waiting for build agent...
@@ -172,8 +171,7 @@ az acr repository show-tags --name $ACR_NAME --repository myimage
 
 La etiqueta "v1" de la imagen que se ha compilado debe aparecer en el resultado, similar al siguiente:
 
-```console
-$ az acr repository show-tags --name $ACR_NAME --repository myimage
+```output
 [
   "v1"
 ]
@@ -189,10 +187,9 @@ az acr repository delete --name $ACR_NAME --image myimage:v1
 
 Debería ver un resultado similar al siguiente, que pida confirmación para eliminar el manifiesto y las imágenes asociadas:
 
-```console
-$ az acr repository delete --name $ACR_NAME --image myimage:v1
+```output
 This operation will delete the manifest 'sha256:f15fa9d0a69081ba93eee308b0e475a54fac9c682196721e294b2bc20ab23a1b' and all the following images: 'myimage:v1'.
-Are you sure you want to continue? (y/n): y
+Are you sure you want to continue? (y/n): 
 ```
 
 ## <a name="view-registry-events"></a>Visualización de eventos del registro

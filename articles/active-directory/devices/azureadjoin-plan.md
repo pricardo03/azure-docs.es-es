@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67c42de09c75b7dd6737b80071f1f6eba094b132
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: a6bbecf0e365ba7a8424da775245181fa64c21f6
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512426"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672695"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedimientos: Planeación de la implementación de la unión a Azure AD
 
@@ -24,7 +24,7 @@ Unión a Azure AD permite unir dispositivos directamente a Azure AD sin necesida
 
 Este artículo proporciona la información que necesita para planear su implementación de Unión a Azure AD.
  
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este artículo se da por hecho que está familiarizado con la [introducción a la administración de dispositivos en Azure Active Directory](../device-management-introduction.md).
 
@@ -59,7 +59,7 @@ Unión a Azure AD funciona con entornos tanto administrados como federados.
 
 ### <a name="managed-environment"></a>Entorno administrado
 
-Un entorno administrado se puede implementar mediante [Sincronización de hash de contraseña](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) o [Autenticación de paso a través](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) con Inicio de sesión único de conexión directa.
+Un entorno administrado se puede implementar mediante [Sincronización de hash de contraseña](/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) o [Autenticación de paso a través](/azure/active-directory/hybrid/how-to-connect-pta-quick-start) con Inicio de sesión único de conexión directa.
 
 Estos escenarios no requieren que se configure un servidor de federación para la autenticación.
 
@@ -78,7 +78,7 @@ Cuando use AD FS, debe habilitar los siguientes puntos de conexión de WS-Trust
 Si el proveedor de identidades no admite estos protocolos, la opción Unión a Azure AD no funcionará de forma nativa. 
 
 >[!NOTE]
-> Actualmente, la unión de Azure AD no funciona con [AD FS 2019 configurado con proveedores de autenticación externos como método de autenticación principal](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). La unión de Azure AD tiene, de forma predeterminada, la autenticación de contraseña como método principal, lo que provoca errores de autenticación en este escenario.
+> Actualmente, la unión de Azure AD no funciona con [AD FS 2019 configurado con proveedores de autenticación externos como método de autenticación principal](/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). La unión de Azure AD tiene, de forma predeterminada, la autenticación de contraseña como método principal, lo que provoca errores de autenticación en este escenario.
 
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>Tarjetas inteligentes y autenticación basada en certificados
@@ -91,7 +91,7 @@ No se puede usar las tarjetas inteligentes ni la autenticación basada en certif
 
 Si crea usuarios en:
 
-- **Active Directory local**, debe sincronizarlos con Azure AD mediante [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis). 
+- **Active Directory local**, debe sincronizarlos con Azure AD mediante [Azure AD Connect](/azure/active-directory/hybrid/how-to-connect-sync-whatis). 
 - **Azure AD**, no se requiere ninguna configuración adicional.
 
 Los nombres principales de usuario locales son distintos de los nombres principales de usuario de Azure AD no se admiten en los dispositivos unidos a Azure AD. Si los usuarios usan un UPN local, debe planear usar su UPN principal en Azure AD.
@@ -127,9 +127,9 @@ Revise las directivas compatibles y no compatibles para determinar si puede usar
 - ¿Las directivas no compatibles son necesarias para los dispositivos o usuarios unidos a Azure AD?
 - ¿Las directivas no compatibles son aplicables a una implementación basada en la nube?
 
-Si la solución MDM no está disponible a través de la galería de aplicaciones de Azure AD, puede agregarla siguiendo el proceso descrito en [Azure Active Directory integration with MDM](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm) (Integración de Azure Active Directory con MDM). 
+Si la solución MDM no está disponible a través de la galería de aplicaciones de Azure AD, puede agregarla siguiendo el proceso descrito en [Azure Active Directory integration with MDM](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) (Integración de Azure Active Directory con MDM). 
 
-A través de la administración conjunta, puede usar SCCM para administrar determinados aspectos de los dispositivos, mientras que las directivas se entregan a través de la plataforma MDM. Microsoft Intune permite la administración conjunta con SCCM. Para más información sobre la administración conjunta de dispositivos con Windows 10, consulte [¿Qué es la administración conjunta?](https://docs.microsoft.com/configmgr/core/clients/manage/co-management-overview). Si usa un producto MDM distinto de Intune, consulte a su proveedor de MDM sobre los escenarios de administración conjunta aplicables.
+A través de la administración conjunta, puede usar SCCM para administrar determinados aspectos de los dispositivos, mientras que las directivas se entregan a través de la plataforma MDM. Microsoft Intune permite la administración conjunta con SCCM. Para más información sobre la administración conjunta de dispositivos con Windows 10, consulte [¿Qué es la administración conjunta?](/configmgr/core/clients/manage/co-management-overview). Si usa un producto MDM distinto de Intune, consulte a su proveedor de MDM sobre los escenarios de administración conjunta aplicables.
 
 **Recomendación:** Considere la posibilidad de usar la administración solo con MDM para los dispositivos unidos a Azure AD.
 
@@ -155,7 +155,7 @@ Si las aplicaciones se han creado de manera personalizada u hospedado localmente
 - Habilitar la autenticación integrada de Windows para que funcione. 
 - Proporcionar una experiencia de inicio de sesión único sin aviso a los usuarios. 
 
-Si usa AD FS, consulte [Comprobar y administrar el inicio de sesión único con AD FS](https://docs.microsoft.com/previous-versions/azure/azure-services/jj151809(v%3dazure.100)). 
+Si usa AD FS, consulte [Comprobar y administrar el inicio de sesión único con AD FS](/previous-versions/azure/azure-services/jj151809(v%3dazure.100)). 
 
 **Recomendación:** Considere la posibilidad del hospedaje en la nube (por ejemplo, Azure) y la integración con Azure AD para obtener una mejor experiencia.
 
@@ -163,7 +163,7 @@ Si usa AD FS, consulte [Comprobar y administrar el inicio de sesión único con 
 
 Los usuarios obtienen inicio de sesión único desde dispositivos unidos a Azure AD si el dispositivo tiene acceso a un controlador de dominio. 
 
-**Recomendación:** Implemente el [proxy de aplicación de Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) para permitir el acceso seguro para estas aplicaciones.
+**Recomendación:** Implemente el [proxy de aplicación de Azure AD](/azure/active-directory/manage-apps/application-proxy) para permitir el acceso seguro para estas aplicaciones.
 
 ### <a name="on-premises-network-shares"></a>Recursos compartidos de red local
 
@@ -171,7 +171,7 @@ Los usuarios disponen de inicio de sesión único desde dispositivos unidos a Az
 
 ### <a name="printers"></a>Impresoras
 
-Para las impresoras, deberá implementar la [impresión en la nube híbrida](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) para detectar impresoras en dispositivos unidos a Azure AD. 
+Para las impresoras, deberá implementar la [impresión en la nube híbrida](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) para detectar impresoras en dispositivos unidos a Azure AD. 
 
 Mientras que las impresoras no se pueden detectar automáticamente en un entorno solo de nube, los usuarios también pueden usar la ruta de acceso UNC de las impresoras para agregarlas directamente. 
 
@@ -183,25 +183,25 @@ Los dispositivos unidos a AD Azure no admiten las aplicaciones locales basadas e
 
 ### <a name="remote-desktop-services"></a>Servicios de Escritorio remoto
 
-La conexión a Escritorio remoto para dispositivos unidos a Azure AD requiere que el equipo host esté unido a Azure AD o unido a Azure AD híbrido. No se admite el escritorio remoto desde un dispositivo no unido o que no sea Windows. Para obtener más información, consulte [Conectarse a un equipo remoto unido a Azure Active Directory](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc)
+La conexión a Escritorio remoto para dispositivos unidos a Azure AD requiere que el equipo host esté unido a Azure AD o unido a Azure AD híbrido. No se admite el escritorio remoto desde un dispositivo no unido o que no sea Windows. Para obtener más información, consulte [Conectarse a un equipo remoto unido a Azure Active Directory](/windows/client-management/connect-to-remote-aadj-pc)
 
 ## <a name="understand-your-provisioning-options"></a>Explicación de las opciones de aprovisionamiento
 
 Puede aprovisionar la unión a Azure AD con los siguientes enfoques:
 
-- **Autoservicio en la configuración o en Configuración**: en el modo de autoservicio, los usuarios se someten al proceso de unión a Azure AD durante la experiencia de configuración rápida o desde la Configuración de Windows. Para obtener más información, consulte [Una su dispositivo de trabajo a la red de su organización](https://docs.microsoft.com/azure/active-directory/user-help/user-help-join-device-on-network). 
-- **Windows Autopilot**: permite la configuración previa de dispositivos para una experiencia más fluida en la configuración rápida para realizar una unión a Azure AD. Para obtener más información, consulte [Introducción a Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot). 
-- **Inscripción masiva**: permite la unión a Azure AD controlada por un administrador mediante una herramienta de aprovisionamiento en bloque para configurar dispositivos. Para obtener más información, consulte [Inscripción masiva para dispositivos Windows](https://docs.microsoft.com/intune/windows-bulk-enroll).
+- **Autoservicio en la configuración o en Configuración**: en el modo de autoservicio, los usuarios se someten al proceso de unión a Azure AD durante la experiencia de configuración rápida o desde la Configuración de Windows. Para obtener más información, consulte [Una su dispositivo de trabajo a la red de su organización](/azure/active-directory/user-help/user-help-join-device-on-network). 
+- **Windows Autopilot**: permite la configuración previa de dispositivos para una experiencia más fluida en la configuración rápida para realizar una unión a Azure AD. Para obtener más información, consulte [Introducción a Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
+- **Inscripción masiva**: permite la unión a Azure AD controlada por un administrador mediante una herramienta de aprovisionamiento en bloque para configurar dispositivos. Para obtener más información, consulte [Inscripción masiva para dispositivos Windows](/intune/windows-bulk-enroll).
  
 A continuación se incluye una comparación de estos tres enfoques 
  
 |   | Configuración de autoservicio | Windows Autopilot | Inscripción masiva |
 | --- | --- | --- | --- |
-| Requiere la interacción del usuario para la configuración | Sí | Sí | No |
-| Requiere un esfuerzo de TI | No | Sí | Sí |
+| Requiere la interacción del usuario para la configuración | Sí | Sí | Sin |
+| Requiere un esfuerzo de TI | Sin | Sí | Sí |
 | Flujos aplicables | OOBE y Configuración | Solo OOBE | Solo OOBE |
-| Derechos de administrador local para el usuario principal | Sí, de forma predeterminada | Configurable | No |
-| Requerir soporte técnico del OEM del dispositivo | No | Sí | No |
+| Derechos de administrador local para el usuario principal | Sí, de forma predeterminada | Configurable | Sin |
+| Requerir soporte técnico del OEM del dispositivo | Sin | Sí | Sin |
 | Versiones compatibles | 1511 y posteriores | 1709 y posteriores | 1703 y posteriores |
  
 Elija el enfoque o los enfoques de implementación. Para ello, revise la tabla anterior y tenga en cuenta las consideraciones siguientes a la hora de adoptar alguno:  
@@ -296,7 +296,7 @@ Puede usar esta implementación para [requerir dispositivos administrados para e
 
 > [!div class="nextstepaction"]
 > [Unir un nuevo dispositivo Windows 10 con Azure AD durante la primera ejecución](azuread-joined-devices-frx.md)
-> [Unir el dispositivo de trabajo a la red de la organización](https://docs.microsoft.com/azure/active-directory/user-help/user-help-join-device-on-network)
+> [Unir el dispositivo de trabajo a la red de la organización](/azure/active-directory/user-help/user-help-join-device-on-network)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

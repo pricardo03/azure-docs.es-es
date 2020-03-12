@@ -182,9 +182,13 @@
             - name: Personalización de la interfaz de usuario
               href: custom-policy-ui-customization.md
               displayName: 'ux, input, cors, html, css'
+            - name: Personalización de idioma
+              href: custom-policy-localization.md
             - name: Correo electrónico personalizado
               href: custom-email.md
               displayName: verification
+            - name: Deshabilitación de la comprobación de correo electrónico
+              href: custom-policy-disable-email-verification.md
             - name: Habilitar JavaScript
               href: javascript-samples.md
             - name: Complejidad de la contraseña

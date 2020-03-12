@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 381f1486f13907aa52558029789e49bc4e5c4961
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 65352b8f8f85f5e7a2e25ae99d5ca3368ad78711
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687612"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126518"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introducción a Azure App Service en Linux
 
@@ -42,7 +42,7 @@ App Service en Linux es compatible con un toda una serie de imágenes integradas
 * Consola básica
 * SSH
 
-## <a name="scaling"></a>Escalado
+## <a name="scaling"></a>Ampliación
 
 * Los clientes pueden escalar o reducir aplicaciones web verticalmente mediante la modificación del nivel en su [plan de App Service](https://docs.microsoft.com/azure/app-service/overview-hosting-plans?toc=%2fazure%2fapp-service-web%2ftoc.json).
 
@@ -58,7 +58,7 @@ App Service en Linux solo se admite con los planes de App Service [Gratis, Bási
 
 Debido a una limitación actual, para el mismo grupo de recursos no puede mezclar aplicaciones de Windows y Linux en la misma región.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 > [!NOTE]
 > Hay una nueva funcionalidad de registro integrada con la [supervisión de Azure (versión preliminar)](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#send-logs-to-azure-monitor-preview). 
@@ -91,7 +91,7 @@ Para más información sobre App Service en Linux, consulte:
 * [Configuración de entornos de ensayo en Azure App Service](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Implementación continua de Docker Hub](app-service-linux-ci-cd.md)
 
-Puede publicar preguntas y problemas en [nuestro foro](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+Puede publicar preguntas y problemas en [nuestro foro](https://docs.microsoft.com/answers/topics/azure-webapps.html).
 
 <!--Image references-->
 [1]: ./media/app-service-linux-intro/kudu-docker-logs.png

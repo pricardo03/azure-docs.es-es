@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 03/10/2020
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 51bf005bdad4197120fed96894ac1cdd150738ee
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: d997cb592d9d648998f2b44d9f61f465f05faeb0
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75935217"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79079825"
 ---
 # <a name="choose-a-speech-recognition-mode"></a>Elección de un modo de reconocimiento de voz
 
@@ -33,7 +33,7 @@ Al final de una expresión reconocida, el servicio detiene el procesamiento de a
 Para obtener más información sobre el uso de la función `RecognizeOnceAsync`, vea la [Documentación de .NET del SDK de Voz](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizeonceasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechRecognizer_RecognizeOnceAsync).
 
 ```csharp
-var result = await recognizer.RecognizeOnceAsync().ConfigureAwait(false);
+var result = await recognizer.RecognizeOnceAsync();
 ```
 
 ::: zone-end
@@ -72,7 +72,7 @@ Para consultar otros lenguajes, consulte la [Documentación de referencia del SD
 
 ## <a name="continuous"></a>Continuo
 
-Si necesita un reconocimiento de ejecución prolongada, use las funciones de inicio y detención correspondientes para el reconocimiento continuo. La función de inicio iniciará y continuará el procesamiento de todas las expresiones hasta que se invoque la función de detención o hasta que haya transcurrido demasiado tiempo en silencio. Al usar el modo continuo, asegúrese de registrarse en los diversos eventos que se activarán cuando se produzcan. Por ejemplo, el evento "reconocido" se activa cuando se produce el reconocimiento de voz. Debe tener un controlador de eventos para controlar el reconocimiento. El servicio de Voz exige un límite de 10 minutos de tiempo total de reconocimiento de voz por sesión.
+Si necesita un reconocimiento de ejecución prolongada, use las funciones de inicio y detención correspondientes para el reconocimiento continuo. La función de inicio iniciará y continuará el procesamiento de todas las expresiones hasta que se invoque la función de detención o hasta que haya transcurrido demasiado tiempo en silencio. Al usar el modo continuo, asegúrese de registrarse en los diversos eventos que se activarán cuando se produzcan. Por ejemplo, el evento "reconocido" se activa cuando se produce el reconocimiento de voz. Debe tener un controlador de eventos para controlar el reconocimiento.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -88,10 +88,10 @@ recognizer.Recognized += (s, e) =>
 };
 
 // Start continuous speech recognition
-await recognizer.StartContinuousRecognitionAsync().ConfigureAwait(false);
+await recognizer.StartContinuousRecognitionAsync();
 
 // Stop continuous speech recognition
-await recognizer.StopContinuousRecognitionAsync().ConfigureAwait(false);
+await recognizer.StopContinuousRecognitionAsync();
 ```
 
 ::: zone-end

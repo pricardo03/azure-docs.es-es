@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
-ms.openlocfilehash: e4fc3555d7d880dcbd4f76d8f507300e98c237db
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 5f481ebf219eea8ae31e9802144bbf771a24e8b8
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718351"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79081784"
 ---
 # <a name="limits-and-quotas"></a>Límites y cuotas
 
@@ -27,7 +27,7 @@ Se espera que el número de etiquetas y de imágenes de aprendizaje por proyecto
 |-----|-----|-----|
 |Proyectos|2|100|
 |Imágenes de aprendizaje por proyecto |5\.000|100 000|
-|Predicciones/mes|10 000 |Ilimitado|
+|Predicciones/mes|10 000 |Sin límite|
 |Etiquetas/proyecto|50|500|
 |Iteraciones |10|10|
 |Mínimo de imágenes marcadas por etiqueta; clasificación (es recomendable 50 o más) |5|5|
@@ -42,8 +42,8 @@ Se espera que el número de etiquetas y de imágenes de aprendizaje por proyecto
 |Alto y ancho máximos de la imagen, en píxeles|sin límite|sin límite|
 |Tamaño de imagen máximo (carga de la imagen de aprendizaje) |6 MB|6 MB|
 |Tamaño de imagen máximo (predicción)|4 MB|4 MB|
-|Núm. máximo de regiones por imagen de entrenamiento de detección de objetos|200|200|
-|Núm. máximo de etiquetas por imagen de clasificación|30|30|
+|Núm. máximo de regiones por imagen de entrenamiento de detección de objetos|300|300|
+|Núm. máximo de etiquetas por imagen de clasificación|100|100|
 
 > [!NOTE]
 > Se aceptarán imágenes de menos de 256 píxeles, pero se escalarán.

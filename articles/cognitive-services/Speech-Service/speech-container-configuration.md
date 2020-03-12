@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 03/09/2020
 ms.author: dapine
-ms.openlocfilehash: 34b4664ec13f7ba1871433e37d86170b2207a17a
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: dd5a531e4a979cba9c2a766c7774762a0427ad02
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816573"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037321"
 ---
 # <a name="configure-speech-service-containers"></a>Configuración de contenedores del servicio de voz
 
@@ -23,7 +23,7 @@ Los contenedores de Voz permiten a los clientes compilar una arquitectura de apl
 
 El entorno en tiempo de ejecución del contenedor de **Speech** se configura mediante los argumentos del comando `docker run`. Este contenedor tiene varias opciones de configuración necesarias, así como otras opcionales. Hay disponibles varios [ejemplos](#example-docker-run-commands) del comando. La configuración específica del contenedor es la configuración de facturación.
 
-## <a name="configuration-settings"></a>Valores de configuración
+## <a name="configuration-settings"></a>Parámetros de configuración
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
@@ -50,9 +50,9 @@ Este valor se puede encontrar en el siguiente lugar:
 
 - Azure Portal: Información general de **Speech**, con la etiqueta `Endpoint`
 
-| Obligatorio | NOMBRE | Tipo de datos | DESCRIPCIÓN |
+| Obligatorio | Nombre | Tipo de datos | Descripción |
 | -------- | ---- | --------- | ----------- |
-| Sí | `Billing` | Cadena | Identificador URI del punto de conexión de facturación. Para más información sobre cómo obtener el URI de facturación, consulte la [recopilación de los parámetros necesarios](speech-container-howto.md#gathering-required-parameters). Para más información y para obtener una lista completa de los puntos de conexión regionales, consulte [Nombres de subdominios personalizados para Cognitive Services.](../cognitive-services-custom-subdomains.md) |
+| Sí | `Billing` | String | Identificador URI del punto de conexión de facturación. Para más información sobre cómo obtener el URI de facturación, consulte la [recopilación de los parámetros necesarios](speech-container-howto.md#gathering-required-parameters). Para más información y para obtener una lista completa de los puntos de conexión regionales, consulte [Nombres de subdominios personalizados para Cognitive Services.](../cognitive-services-custom-subdomains.md) |
 
 ## <a name="eula-setting"></a>Opción de configuración Eula
 
@@ -74,20 +74,20 @@ Este valor se puede encontrar en el siguiente lugar:
 
 Utilice montajes de enlace para leer y escribir datos hacia y desde el contenedor. Puede especificar un montaje de entrada o un montaje de salida mediante la opción `--mount` del comando [docker run](https://docs.docker.com/engine/reference/commandline/run/).
 
-Los contenedores de Voz estándar no usan montajes de entrada o salida para almacenar datos de entrenamiento o servicio. Sin embargo, los contenedores de Voz personalizados dependen de los montajes de volumen.
+Los contenedores de Voz estándar no usan montajes de entrada o salida para almacenar datos de entrenamiento o servicio. Sin embargo, los contenedores de voz personalizados dependen de los montajes de volumen.
 
 La sintaxis exacta de la ubicación de montaje del host varía según el sistema operativo del host. Además, la ubicación de montaje del [equipo host](speech-container-howto.md#the-host-computer) puede no estar accesible debido a un conflicto entre los permisos que utiliza la cuenta de servicio de Docker y los permisos de la ubicación de montaje del host.
 
-| Opcional | NOMBRE | Tipo de datos | DESCRIPCIÓN |
+| Opcional | Nombre | Tipo de datos | Descripción |
 | -------- | ---- | --------- | ----------- |
-| No permitida | `Input` | Cadena | Los contenedores de Voz estándar no usan esto. Los contenedores de Voz personalizados usan los [montajes de volumen](#volume-mount-settings).                                                                                    |
-| Opcional | `Output` | Cadena | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output` |
+| No permitida | `Input` | String | Los contenedores de Voz estándar no usan esto. Los contenedores de voz personalizados usan los [montajes de volumen](#volume-mount-settings).                                                                                    |
+| Opcional | `Output` | String | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output` |
 
 ## <a name="volume-mount-settings"></a>Configuración de montaje de volumen
 
-Los contenedores de Voz personalizados usan [montajes de volumen](https://docs.docker.com/storage/volumes/) para conservar los modelos personalizados. Para especificar un montaje de volumen, agregue la opción `-v` (o `--volume`) al comando [docker run](https://docs.docker.com/engine/reference/commandline/run/).
+Los contenedores de voz personalizados usan [montajes de volumen](https://docs.docker.com/storage/volumes/) para conservar los modelos personalizados. Para especificar un montaje de volumen, agregue la opción `-v` (o `--volume`) al comando [docker run](https://docs.docker.com/engine/reference/commandline/run/).
 
-Los modelos personalizados se descargan la primera vez que se ingesta un nuevo modelo como parte del comando docker run del contenedor de Voz personalizado. Las ejecuciones secuenciales del mismo `ModelId` para un contenedor de Voz personalizado usarán el modelo descargado anteriormente. Si no se proporciona el montaje de volumen, no se pueden conservar los modelos personalizados.
+Los modelos personalizados se descargan la primera vez que se ingesta un nuevo modelo como parte del comando docker run del contenedor de Voz personalizado. Las ejecuciones secuenciales del mismo `ModelId` para un contenedor de voz personalizado usarán el modelo descargado anteriormente. Si no se proporciona el montaje de volumen, no se pueden conservar los modelos personalizados.
 
 La configuración de montaje de volumen consta de tres campos `:` de colores separados:
 
@@ -115,7 +115,7 @@ Los ejemplos siguientes usan las opciones de configuración para ilustrar cómo 
 
 Reemplace {_argument_name_} por sus propios valores:
 
-| Marcador de posición | Valor | Formato o ejemplo |
+| Marcador de posición | Value | Formato o ejemplo |
 | ----------- | ----- | ----------------- |
 | **{CLAVE_API}** | La clave del punto de conexión del recurso `Speech` en la página Claves de `Speech` de Azure.   | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`                                                                                  |
 | **{URI_PUNTODECONEXIÓN}** | El valor del punto de conexión de facturación está disponible en la página Información general de Azure `Speech`. | Consulte el apartado de [recopilación de los parámetros necesarios](speech-container-howto.md#gathering-required-parameters) para ejemplos explícitos. |

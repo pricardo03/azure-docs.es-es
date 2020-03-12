@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c26197a14e78b1cf1a1e078ba0145eca207206bf
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 05a3a8cf14a591dd3037175e4eed5b5bd8d3096c
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561971"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672659"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Descripción de las estaciones de trabajo seguras administradas por Azure
 
@@ -81,18 +81,18 @@ Las estrategias de contención refuerzan la seguridad aumentando el número y ti
 
 Para tener una estación de trabajo protegida es fundamental una solución de cadena de suministro en la que use una estación de trabajo de confianza denominada "raíz de confianza". La tecnología que debe tenerse en cuenta en la selección de la raíz del hardware de confianza debe contener las siguientes tecnologías incluidas en los equipos portátiles modernos: 
 
-* [Módulo de plataforma segura (TPM) 2.0](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-tpm):
-* [Cifrado de unidad BitLocker](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-bitlocker)
-* [Arranque seguro UEFI](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-secure-boot)
-* [Controladores y firmware distribuidos mediante Windows Update](https://docs.microsoft.com/windows-hardware/drivers/dashboard/understanding-windows-update-automatic-and-optional-rules-for-driver-distribution)
-* [Virtualización y HVCI habilitados](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-vbs)
-* [Controladores y aplicaciones HVCI-Ready](https://docs.microsoft.com/windows-hardware/test/hlk/testref/driver-compatibility-with-device-guard)
-* [Windows Hello](https://docs.microsoft.com/windows-hardware/design/device-experiences/windows-hello-biometric-requirements)
-* [Protección de E/S de DMA](https://docs.microsoft.com/windows/security/information-protection/kernel-dma-protection-for-thunderbolt)
-* [Iniciar protección del sistema](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-system-guard/system-guard-how-hardware-based-root-of-trust-helps-protect-windows)
-* [En espera moderna](https://docs.microsoft.com/windows-hardware/design/device-experiences/modern-standby)
+* [Módulo de plataforma segura (TPM) 2.0](/windows-hardware/design/device-experiences/oem-tpm):
+* [Cifrado de unidad BitLocker](/windows-hardware/design/device-experiences/oem-bitlocker)
+* [Arranque seguro UEFI](/windows-hardware/design/device-experiences/oem-secure-boot)
+* [Controladores y firmware distribuidos mediante Windows Update](/windows-hardware/drivers/dashboard/understanding-windows-update-automatic-and-optional-rules-for-driver-distribution)
+* [Virtualización y HVCI habilitados](/windows-hardware/design/device-experiences/oem-vbs)
+* [Controladores y aplicaciones HVCI-Ready](/windows-hardware/test/hlk/testref/driver-compatibility-with-device-guard)
+* [Windows Hello](/windows-hardware/design/device-experiences/windows-hello-biometric-requirements)
+* [Protección de E/S de DMA](/windows/security/information-protection/kernel-dma-protection-for-thunderbolt)
+* [Iniciar protección del sistema](/windows/security/threat-protection/windows-defender-system-guard/system-guard-how-hardware-based-root-of-trust-helps-protect-windows)
+* [En espera moderna](/windows-hardware/design/device-experiences/modern-standby)
 
-En esta solución, la raíz de confianza se implementará con la tecnología [Microsoft Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot) con hardware que cumpla los requisitos técnicos modernos. Para proteger una estación de trabajo, Autopilot le permite aprovechar los dispositivos de Windows 10 optimizados para fabricantes de equipos originales de Microsoft. Estos dispositivos vienen en un buen estado conocido de fábrica. En lugar de restablecer la imagen inicial de un dispositivo potencialmente inseguro, Autopilot puede transformar un dispositivo de Windows en un dispositivo con un estado "preparado para la empresa". Autopilot aplica valores y directivas, instala aplicaciones e incluso cambia la edición de Windows 10. Por ejemplo, Autopilot podría cambiar la instalación de Windows de un dispositivo de Windows 10 Pro a Windows 10 Enterprise para que pueda usar características avanzadas.
+En esta solución, la raíz de confianza se implementará con la tecnología [Microsoft Autopilot](/windows/deployment/windows-autopilot/windows-autopilot) con hardware que cumpla los requisitos técnicos modernos. Para proteger una estación de trabajo, Autopilot le permite aprovechar los dispositivos de Windows 10 optimizados para fabricantes de equipos originales de Microsoft. Estos dispositivos vienen en un buen estado conocido de fábrica. En lugar de restablecer la imagen inicial de un dispositivo potencialmente inseguro, Autopilot puede transformar un dispositivo de Windows en un dispositivo con un estado "preparado para la empresa". Autopilot aplica valores y directivas, instala aplicaciones e incluso cambia la edición de Windows 10. Por ejemplo, Autopilot podría cambiar la instalación de Windows de un dispositivo de Windows 10 Pro a Windows 10 Enterprise para que pueda usar características avanzadas.
 
 ![Niveles de una estación de trabajo segura](./media/concept-azure-managed-workstation/supplychain.png)
 
@@ -105,7 +105,7 @@ Esta guía hace referencia a varios perfiles y roles de seguridad que pueden ayu
 
 * **Seguridad mejorada**: esta solución protegida, de nivel inicial es adecuada para usuarios domésticos, de pequeñas empresas y desarrolladores en general.
 
-   Una estación de trabajo mejorada basada en directivas es una forma de aumentar la seguridad de un perfil de seguridad bajo. Proporciona una forma segura de trabajar con los datos del cliente a la vez que usa herramientas de productividad como el correo electrónico o la exploración web. Puede usar directivas de auditoría e Intune para supervisar el comportamiento de los usuarios y el uso de perfiles de una estación de trabajo mejorada. Puede implementar el perfil de la estación de trabajo mejorada con el script de Windows 10 (1809) y este aprovecha la protección de malware avanzada mediante [Advanced Threat Protection (ATP)](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection).
+   Una estación de trabajo mejorada basada en directivas es una forma de aumentar la seguridad de un perfil de seguridad bajo. Proporciona una forma segura de trabajar con los datos del cliente a la vez que usa herramientas de productividad como el correo electrónico o la exploración web. Puede usar directivas de auditoría e Intune para supervisar el comportamiento de los usuarios y el uso de perfiles de una estación de trabajo mejorada. Puede implementar el perfil de la estación de trabajo mejorada con el script de Windows 10 (1809) y este aprovecha la protección de malware avanzada mediante [Advanced Threat Protection (ATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection).
 
 * **Seguridad alta**: la manera más eficaz de reducir la superficie de ataque de una estación de trabajo es suprimir la posibilidad de autoadministrarla. La eliminación de los derechos administrativos locales es un paso que mejora la seguridad, pero puede afectar a la productividad si se implementa de forma incorrecta. El perfil de alta seguridad se basa en el perfil de seguridad mejorada con una diferencia importante: la eliminación del administrador local. Este perfil está diseñado para usuarios de alto perfil: ejecutivos, usuarios de datos sobre nóminas e información confidencial, y aprobadores de servicios y procesos.
 
@@ -121,8 +121,8 @@ Esta guía hace referencia a varios perfiles y roles de seguridad que pueden ayu
 
 * **Aislada**: este escenario personalizado, sin conexión, representa el extremo final de la gama. No se proporcionan scripts de instalación en este caso. Puede que tenga que administrar una función crítica para la empresa que requiera un sistema operativo heredado no admitido o no revisado. Por ejemplo, una línea de producción de gran valor o un sistema de soporte vital. Dado que la seguridad es fundamental y los servicios en la nube no están disponibles, puede administrar y actualizar estos equipos manualmente o con una arquitectura aislada de bosque de Active Directory como el entorno de administración de seguridad mejorada (ESAE). En estas circunstancias, considere la posibilidad de eliminar todos los accesos excepto los de las comprobaciones de estado básicas de Intune y ATP.
 
-   * [Requisitos de comunicaciones de red de Intune](https://docs.microsoft.com/intune/network-bandwidth-use)
-   * [Requisitos de comunicaciones de red de ATP](https://docs.microsoft.com/azure-advanced-threat-protection/configure-proxy)
+   * [Requisitos de comunicaciones de red de Intune](/intune/network-bandwidth-use)
+   * [Requisitos de comunicaciones de red de ATP](/azure-advanced-threat-protection/configure-proxy)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

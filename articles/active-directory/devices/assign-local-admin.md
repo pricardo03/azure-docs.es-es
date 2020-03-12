@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd8087e9eaa11ced5da9b445af9d33377b4391c0
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 613c5e9f153f2e3f02ab35d3be16ef3b29d15634
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379661"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672724"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Administración del grupo de administradores locales en dispositivos unidos a Azure AD
 
@@ -24,7 +24,7 @@ Para administrar un dispositivo Windows, debe ser miembro del grupo de administr
 
 En este artículo se explica cómo funciona la actualización de la pertenencia y cómo puede personalizarla durante una unión a Azure AD. El contenido de este artículo no se aplica a una unión a Azure AD **híbrido**.
 
-## <a name="how-it-works"></a>Cómo funciona
+## <a name="how-it-works"></a>Funcionamiento
 
 Al conectar un dispositivo Windows con Azure AD mediante una unión a Azure AD, Azure AD agrega los siguientes principios de seguridad al grupo de administradores locales del dispositivo:
 
@@ -68,8 +68,8 @@ Los administradores de dispositivos se asignan a todos los dispositivos unidos a
 
 De forma predeterminada, Azure AD agrega el usuario que realiza la unión a Azure AD al grupo de administradores del dispositivo. Si desea evitar que los usuarios normales se conviertan en administradores locales, tiene las siguientes opciones:
 
-- [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot): Windows Autopilot le ofrece una opción para evitar que el usuario principal que realiza la unión se convierta en un administrador local. Puede hacerlo mediante la [creación de un perfil de Autopilot](https://docs.microsoft.com/intune/enrollment-autopilot#create-an-autopilot-deployment-profile).
-- [Inscripción masiva](https://docs.microsoft.com/intune/windows-bulk-enroll): una unión a Azure AD que se realiza en el contexto de una inscripción masiva tiene lugar en el contexto de un usuario creado automáticamente. Los usuarios que inician sesión después de que se hayan unido un dispositivo no se agregan al grupo de administradores.   
+- [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot): Windows Autopilot le ofrece una opción para evitar que el usuario principal que realiza la unión se convierta en un administrador local. Puede hacerlo mediante la [creación de un perfil de Autopilot](/intune/enrollment-autopilot#create-an-autopilot-deployment-profile).
+- [Inscripción masiva](/intune/windows-bulk-enroll): una unión a Azure AD que se realiza en el contexto de una inscripción masiva tiene lugar en el contexto de un usuario creado automáticamente. Los usuarios que inician sesión después de que se hayan unido un dispositivo no se agregan al grupo de administradores.   
 
 ## <a name="manually-elevate-a-user-on-a-device"></a>Elevación manual de un usuario en un dispositivo 
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: alkohli
-ms.openlocfilehash: f57a0431bbdafee2d38038d0039b47a34e5454c7
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 3aa1190fb713c2fbdedcb1ce84a65d4263693827
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315829"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942556"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Desarrollo de un módulo de IoT Edge en C# para mover archivos en Data Box Edge
 
@@ -21,7 +21,7 @@ Este artículo le guía por la creación de un módulo de IoT Edge para la imple
 
 Puede usar módulos de Azure IoT Edge con Data Box Edge para transformar los datos a medida que se migran a Azure. El módulo usado en este artículo implementa la lógica para copiar un archivo de un recurso compartido local a un recurso compartido en la nube en el dispositivo Data Box Edge.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Cree un registro de contenedor para almacenar y administrar los módulos (imágenes de Docker).
@@ -40,7 +40,7 @@ El dispositivo Data Box Edge puede implementar y ejecutar módulos de IoT Edge. 
 
 Una vez que el archivo está en el recurso compartido en la nube, se carga automáticamente en la cuenta de Azure Storage.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar, asegúrese de que tiene:
 
@@ -52,8 +52,8 @@ Antes de comenzar, asegúrese de que tiene:
 
 - Los siguientes recursos de desarrollo:
 
-    - [Visual Studio Code](https://code.visualstudio.com/)
-    - [Extensión de C# para Visual Studio Code (con tecnología de OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+    - [Visual Studio Code](https://code.visualstudio.com/).
+    - [Extensión de C# para Visual Studio Code (con tecnología de OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
     - [Extensión de Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
     - [SDK de .NET Core 2.1](https://www.microsoft.com/net/download).
     - [Docker CE](https://store.docker.com/editions/community/docker-ce-desktop-windows). Es posible que deba crear una cuenta para descargar e instalar el software.
@@ -63,7 +63,7 @@ Antes de comenzar, asegúrese de que tiene:
 Azure Container Registry es un registro privado de Docker en Azure donde se pueden almacenar y administrar las imágenes de contenedor privado de Docker. Los dos servicios de Docker Registry más conocidos disponibles en la nube son Azure Container Registry y Docker Hub. En este artículo se usa Container Registry.
 
 1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
-2. Seleccione **Crear un recurso > Contenedores > Container Registry**. Haga clic en **Create**(Crear).
+2. Seleccione **Crear un recurso > Contenedores > Container Registry**. Haga clic en **Crear**.
 3. Proporcione:
 
    1. Un **nombre de registro** único en Azure que contenga entre 5 y 50 caracteres alfanuméricos.
@@ -93,7 +93,7 @@ Cree una plantilla de solución de C que pueda personalizar con su propio códig
 
 1. En Visual Studio Code, seleccione **View > Command Palette** (Ver > Paleta de comandos) para abrir la paleta de comandos de VS Code.
 2. En la paleta de comandos, escriba y ejecute el comando **Azure: Sign in** (Azure: iniciar sesión) y siga las instrucciones para iniciar sesión en la cuenta de Azure. Si ya ha iniciado sesión, puede omitir este paso.
-3. En la paleta de comandos, escriba y ejecute el comando **Azure IoT Edge: New IoT Edge solution** (Nueva solución de IoT Edge). En la paleta de comandos, proporcione la siguiente información para crear la solución:
+3. En la paleta de comandos, escriba y ejecute el comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: nueva solución de IoT Edge). En la paleta de comandos, proporcione la siguiente información para crear la solución:
 
     1. Seleccione la carpeta en la que desea crear la solución.
     2. Proporcione un nombre para la solución o acepte el valor predeterminado: **EdgeSolution**.

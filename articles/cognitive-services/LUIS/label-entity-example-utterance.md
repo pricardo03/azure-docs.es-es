@@ -7,15 +7,15 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: diberry
-ms.openlocfilehash: f7d6e98205afad2ed2c4aea30e635254f79acaa1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5499e8362e1107a18b997a6a485e11343c328d0d
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448085"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898373"
 ---
 # <a name="label-machine-learned-entity-in-an-example-utterance"></a>Etiquetado de una entidad de aprendizaje automático en una expresión de ejemplo
 
@@ -86,7 +86,7 @@ Los roles de entidad se etiquetan mediante la paleta de entidades.
 1. En la página Intent detail (Detalle de intención), seleccione la **paleta de entidades** de la barra de herramientas contextual.
 1. Una vez que se abra la paleta de entidades, seleccione la entidad en la lista de entidades.
 1. Vaya al **inspector de entidades** y seleccione un rol existente o cree uno nuevo.
-1. En el texto de la expresión de ejemplo, etiquete el texto con el rol de entidad. 
+1. En el texto de la expresión de ejemplo, etiquete el texto con el rol de entidad.
 
 ## <a name="unlabel-entities"></a>Anulación de etiquetas de entidades
 

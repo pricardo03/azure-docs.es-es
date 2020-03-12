@@ -1,21 +1,19 @@
 ---
 title: Obtención de datos de utilización de una máquina virtual de Azure mediante la API REST
 description: Use las API de REST de Azure para recopilar métricas de utilización de una máquina virtual.
-services: virtual-machines
 author: rloutlaw
-ms.reviewer: routlaw
-manager: gwallace
-ms.service: load-balancer
+ms.service: virtual-machines
+ms.subservice: monitoring
 ms.custom: REST
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
-ms.openlocfilehash: 523b81e53f2b0622b237993dbd88fb9492079c86
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 07e91f3d9fd32f01db91415bfd90746cd1aef403
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035803"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944754"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Obtener métricas de utilización de máquina virtual mediante la API de REST
 
@@ -35,14 +33,14 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Los siguientes encabezados son obligatorios: 
 
-|Encabezado de solicitud|DESCRIPCIÓN|  
+|Encabezado de solicitud|Descripción|  
 |--------------------|-----------------|  
 |*Content-Type:*|Necesario. Establézcalo en `application/json`.|  
 |*Authorization:*|Necesario. Establézcalo en un [token de acceso](/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` válido. |  
 
 ### <a name="uri-parameters"></a>Parámetros del identificador URI
 
-| NOMBRE | DESCRIPCIÓN |
+| Nombre | Descripción |
 | :--- | :---------- |
 | subscriptionId | El id. de suscripción que identifica una suscripción de Azure. Si tiene varias suscripciones, consulte [Trabajo con varias suscripciones](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | El nombre del grupo de recursos de Azure asociado al recurso. Puede obtener este valor de la API Azure Resource Manager, la CLI o el portal. |

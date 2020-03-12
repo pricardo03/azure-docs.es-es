@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 083433d31f088eae1e138dd9cbd5ac05bbe8a304
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: f9d8c0cd803424e117bd4dc7a3382b7b32df2d05
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773308"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672716"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Funcionamiento del inicio de sesión único en recursos locales de dispositivos unidos a Azure AD
 
@@ -24,7 +24,7 @@ Probablemente no sea una sorpresa le sorprenda que un dispositivo unido a Azure 
 
 En este artículo se explica cómo funciona.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
  Si las máquinas unidas a Azure AD no están conectadas a la red de su organización, se requiere una red privada virtual u otra infraestructura de red. El inicio de sesión único local requiere una comunicación de campo visual con los controladores de dominio de AD DS local.
 
@@ -42,11 +42,11 @@ Un entorno con ambos, Azure AD y AD local, también se conoce como entorno híbr
 Durante un intento de acceso a un recurso que solicita Kerberos en el entorno local del usuario, el dispositivo:
 
 1. Envía las credenciales de usuario y la información de dominio local al controlador de dominio encontrado para autenticar al usuario.
-1. Recibe un [vale de concesión de vales (TGT)](https://docs.microsoft.com/windows/desktop/secauthn/ticket-granting-tickets) de Kerberos que se utiliza para acceder a los recursos unidos a AD. Si se produce un error al intentar obtener el TGT del dominio de AAD Connect (el tiempo de espera de DCLocator puede producir un retraso), se intentan las entradas del Administrador de credenciales o el usuario puede recibir un mensaje emergente de autenticación que solicita las credenciales para el recurso de destino.
+1. Recibe un [vale de concesión de vales (TGT)](/windows/desktop/secauthn/ticket-granting-tickets) de Kerberos que se utiliza para acceder a los recursos unidos a AD. Si se produce un error al intentar obtener el TGT del dominio de AAD Connect (el tiempo de espera de DCLocator puede producir un retraso), se intentan las entradas del Administrador de credenciales o el usuario puede recibir un mensaje emergente de autenticación que solicita las credenciales para el recurso de destino.
 
 Todas las aplicaciones que están configuradas para la **autenticación integrada de Windows** tienen un inicio de sesión único perfecto al intentar el usuario acceder.
 
-Windows Hello para empresas requiere configuración adicional para habilitar el inicio de sesión único de forma local desde un dispositivo unido a Azure AD. Para más información, consulte [Configure Azure AD joined devices for On-premises Single-Sign On using Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base) (Configuración de los dispositivos unidos a Azure AD para el inicio de sesión único local con Windows Hello para empresas). 
+Windows Hello para empresas requiere configuración adicional para habilitar el inicio de sesión único de forma local desde un dispositivo unido a Azure AD. Para más información, consulte [Configure Azure AD joined devices for On-premises Single-Sign On using Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base) (Configuración de los dispositivos unidos a Azure AD para el inicio de sesión único local con Windows Hello para empresas). 
 
 ## <a name="what-you-get"></a>Lo que obtiene
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: afa9437a00c6f30688c7942feea94f7db7ed490a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: d3cd330001bcf53e7bd4fb9e6955c76a9ef20511
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919352"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331083"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>Inicio rápido: síntesis asincrónica para audio de formato largo en Python (versión preliminar)
 
@@ -30,7 +30,7 @@ Esta guía de inicio rápido requiere:
 
 * Python 2.7.x o 3.x.
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) o su editor favorito de código.
-* Una suscripción a Azure y una clave de suscripción al servicio de Voz. [Cree una cuenta de Azure](../../get-started.md#new-resource) y [cree un recurso de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) para obtener la clave. Al crear el recurso de voz, asegúrese de que el plan de tarifa está establecido en **S0** y la ubicación está establecida en una [región compatible](../../regions.md#standard-and-neural-voices).
+* Una suscripción a Azure y una clave de suscripción al servicio de Voz. [Cree una cuenta de Azure](../../get-started.md#new-resource) y [cree un recurso de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-resource) para obtener la clave. Al crear el recurso de voz, asegúrese de que el plan de tarifa está establecido en **S0** y la ubicación está establecida en una [región compatible](../../regions.md#standard-and-neural-voices).
 
 ## <a name="create-a-project-and-import-required-modules"></a>Creación de un proyecto e importación de los módulos necesarios
 

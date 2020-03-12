@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: b90b6f8eabbda229fbed4dcef6a5d863ea721faf
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 001dfbc78c0027249143e933684523d47af383d1
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77659142"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096784"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>Prepararse para el cambio de formato a los registros de la plataforma Azure Monitor archivados en una cuenta de almacenamiento
 
 > [!WARNING]
-> Si va a enviar [registros o métricas de recursos de Azure Monitor a una cuenta de almacenamiento mediante la configuración de diagnóstico](resource-logs-collect-storage.md) o [registros de actividad a una cuenta de almacenamiento mediante perfiles de registro](activity-log-export.md), el formato de los datos de la cuenta de almacenamiento cambió a Líneas JSON el 1 de noviembre de 2018. En las instrucciones siguientes se describe la repercusión y el modo de actualizar las herramientas para administrar el nuevo formato.
+> Si va a enviar [registros o métricas de recursos de Azure Monitor a una cuenta de almacenamiento mediante la configuración de diagnóstico](resource-logs-collect-storage.md) o [registros de actividad a una cuenta de almacenamiento mediante perfiles de registro](resource-logs-collect-storage.md), el formato de los datos de la cuenta de almacenamiento cambió a Líneas JSON el 1 de noviembre de 2018. En las instrucciones siguientes se describe la repercusión y el modo de actualizar las herramientas para administrar el nuevo formato.
 >
 
 ## <a name="what-changed"></a>Qué cambia
