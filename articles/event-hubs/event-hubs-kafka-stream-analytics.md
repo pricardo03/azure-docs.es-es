@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: d7b060a2b35ca41bf87b69be706284174d7b1012
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 8047ac5d3db2db230a00583e888a4afea3b282b9
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587165"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969373"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Tutorial: Procesamiento de eventos de Apache Kafka para Event Hubs mediante Stream Analytics 
 En este artículo se muestra cómo transmitir datos a Event Hubs habilitado para Kafka y cómo procesarlos con Azure Stream Analytics. Estos pasos son los siguientes: 
@@ -60,7 +60,7 @@ Al crear un espacio de nombres en el nivel **estándar** de Event Hubs, se habil
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{CONNECTION STRING for EVENT HUB NAMESPACE}";
     ```
 
-5. Vaya a `azure-event-hubs-for-kafka/quickstart/java/producer/src/main/java/com/example/app` y abra el archivo **TestDataReporter.java** en el editor que prefiera. 
+5. Vaya a `azure-event-hubs-for-kafka/quickstart/java/producer/src/main/java/` y abra el archivo **TestDataReporter.java** en el editor que prefiera. 
 6. Comente las siguientes líneas de código:
 
     ```java

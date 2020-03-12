@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2c1a088e4c200dcc4a2ff35db942e3eb8480674
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: c6bb57a60b2ed3b39bf83154d3afea88071efbac
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512098"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672417"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validación controlada de la unión a Azure AD híbrido
 
@@ -82,13 +82,13 @@ Use el ejemplo siguiente para crear un objeto de directiva de grupo (GPO) y conf
 Si utiliza AD FS, primero deberá configurar el SCP del cliente mediante las instrucciones mencionadas anteriormente mediante la vinculación del GPO a los servidores de AD FS. El objeto SCP define el origen de autoridad de los objetos del dispositivo. Puede ser local o Azure AD. Cuando el SCP del cliente se configura para AD FS, el origen de los objetos del dispositivo se establece como Azure AD.
 
 > [!NOTE]
-> Si no pudo configurar SCP en el cliente en los servidores de AD FS, el origen de las identidades de los dispositivos se considerará local. ADFS comenzará a eliminar los objetos de dispositivo del directorio local después del período estipulado definido en el atributo "MaximumInactiveDays" del registro de dispositivos de ADFS. Los objetos del registro de dispositivos de ADFS se pueden encontrar con el [cmdlet Get-AdfsDeviceRegistration](https://docs.microsoft.com/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps).
+> Si no pudo configurar SCP en el cliente en los servidores de AD FS, el origen de las identidades de los dispositivos se considerará local. ADFS comenzará a eliminar los objetos de dispositivo del directorio local después del período estipulado definido en el atributo "MaximumInactiveDays" del registro de dispositivos de ADFS. Los objetos del registro de dispositivos de ADFS se pueden encontrar con el [cmdlet Get-AdfsDeviceRegistration](/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps).
 
 ## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Validación controlada de la unión a Azure AD híbrido en dispositivos Windows de nivel inferior
 
 Para registrar dispositivos de nivel inferior de Windows, las organizaciones deben instalar [Microsoft Workplace Join para equipos sin Windows 10](https://www.microsoft.com/download/details.aspx?id=53554) que se encuentra disponible en el Centro de descarga de Microsoft.
 
-El paquete se puede implementar mediante un sistema de distribución de software como  [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/configmgr/). El paquete admite las opciones de instalación silenciosa estándar mediante el parámetro quiet. La rama actual de Configuration Manager ofrece ventajas adicionales sobre las versiones anteriores, como la posibilidad de realizar el seguimiento de los registros completados.
+El paquete se puede implementar mediante un sistema de distribución de software como  [Microsoft Endpoint Configuration Manager](/configmgr/). El paquete admite las opciones de instalación silenciosa estándar mediante el parámetro quiet. La rama actual de Configuration Manager ofrece ventajas adicionales sobre las versiones anteriores, como la posibilidad de realizar el seguimiento de los registros completados.
 
 El instalador crea una tarea programada en el sistema que se ejecuta en el contexto del usuario. La tarea se desencadena cuando el usuario inicia sesión en Windows. La tarea une de forma silenciosa el dispositivo con Azure AD con las credenciales de usuario después de realizar la autenticación con Azure AD.
 

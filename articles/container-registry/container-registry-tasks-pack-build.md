@@ -3,12 +3,12 @@ title: Compilar imagen con Cloud Native Buildpack
 description: Use el comando az acr pack build para compilar una imagen de contenedor desde una aplicación e insertarla en Azure Container Registry, sin usar ningún documento Dockerfile.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 9cd1ae464213027cba3012c93c0ca3894c804750
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: c42bde6bbab5973094302a2d41f004d7600bdf9e
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456119"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087079"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Compilación e inserción de una imagen desde una aplicación mediante una instancia de Cloud Native Buildpacks
 
@@ -30,7 +30,7 @@ Como mínimo, especifique lo siguiente cuando ejecute `az acr pack build`:
 * Una de las [ubicaciones de contexto compatibles](container-registry-tasks-overview.md#context-locations) con ACR Tasks, como un directorio local, un repositorio de GitHub o un tarball remoto
 * El nombre de una imagen de compilador de buildpacks adecuada para la aplicación. Azure Container Registry copia en caché imágenes del compilador, como `cloudfoundry/cnb:0.0.34-cflinuxfs3`, para agilizar las compilaciones.  
 
-El comando `az acr pack build` admite otras características de los comandos de ACR Tasks, incluidas las [variables de ejecución](container-registry-tasks-reference-yaml.md#run-variables) y los [registros de ejecución de tareas](container-registry-tasks-overview.md#view-task-logs) que se transmiten y también se guardan para poderse recuperar posteriormente.
+El comando `az acr pack build` admite otras características de los comandos de ACR Tasks, incluidas las [variables de ejecución](container-registry-tasks-reference-yaml.md#run-variables) y los [registros de ejecución de tareas](container-registry-tasks-logs.md) que se transmiten y también se guardan para poderse recuperar posteriormente.
 
 ## <a name="example-build-nodejs-image-with-cloud-foundry-builder"></a>Ejemplo: Compilación de la imagen de Node.js con el compilador de Cloud Foundry
 

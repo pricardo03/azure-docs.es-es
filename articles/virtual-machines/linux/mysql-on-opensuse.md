@@ -2,24 +2,20 @@
 title: Instalación de MySQL en una máquina virtual con OpenSUSE en Azure
 description: Aprenda a instalar MySQL en una máquina virtual con OpenSUSE Linux en Azure.
 services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 1594e10e-c314-455a-9efb-a89441de364b
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: d5f2ef2d82cbcced6202ad2c09f23dd734d373b3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 0d3f0a61da3654c31c99cfac43c86b081876f700
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035594"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944574"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Instalación de MySQL en una máquina virtual que ejecuta OpenSUSE Linux en Azure
 
@@ -30,7 +26,7 @@ Si decide instalar y usar la CLI localmente, necesitará la CLI de Azure versió
 
 ## <a name="create-a-virtual-machine-running-opensuse-linux"></a>Creación de una máquina virtual que ejecuta OpenSUSE Linux
 
-En primer lugar, cree un grupo de recursos. En este ejemplo, el grupo de recursos se denomina *mySQSUSEResourceGroup* y se crea en la región *East US*.
+En primer lugar, cree un grupo de recursos. En este ejemplo, el grupo de recursos se denomina *mySQSUSEResourceGroup* y se crea en la región *Este de EE. UU.* .
 
 ```azurecli-interactive
 az group create --name mySQLSUSEResourceGroup --location eastus

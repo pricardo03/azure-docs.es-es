@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a usar el agente de Microsoft Azure Re
 ms.topic: tutorial
 ms.date: 02/14/2018
 ms.custom: mvc
-ms.openlocfilehash: 5958f6574f8c559bae8f500b1cb555e96e007d0e
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: c9258b7f95337330e4f1de36e389f6b8f2276976
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171816"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672942"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Recuperación de archivos de Azure en Windows Server
 
@@ -21,7 +21,7 @@ Azure Backup permite la recuperación de elementos individuales de las copias de
 > * Seleccionar un punto de recuperación
 > * Restaurar elementos desde un punto de recuperación
 
-En este tutorial se da por supuesto que ya ha realizado los pasos necesarios para [realizar la copia de seguridad de Windows Server en Azure](backup-configure-vault.md) y que tiene al menos una copia de seguridad de los archivos de Windows Server en Azure.
+En este tutorial se da por supuesto que ya ha realizado los pasos necesarios para [realizar la copia de seguridad de Windows Server en Azure](backup-windows-with-mars-agent.md) y que tiene al menos una copia de seguridad de los archivos de Windows Server en Azure.
 
 ## <a name="initiate-recovery-of-individual-items"></a>Iniciar la recuperación de elementos individuales
 
