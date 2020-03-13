@@ -116,6 +116,8 @@
       href: how-to-modify-assessment.md
     - name: Incorporación de herramientas de migración
       href: how-to-migrate.md
+    - name: Migración de máquinas virtuales de VMware a máquinas virtuales de Azure cifradas con SSE y CMK
+      href: how-to-migrate-vmware-vms-with-cmk-disks.md
     - name: Preparación de los equipos para la migración
       href: prepare-for-migration.md
     - name: Eliminación de un proyecto de Azure Migrate

@@ -154,6 +154,8 @@
           href: sisense.md
         - name: Redash
           href: redash.md
+        - name: Kibana (conector de K2Bridge)
+          href: k2bridge.md
     - name: Seguridad
       items:
         - name: Administración de la seguridad del clúster

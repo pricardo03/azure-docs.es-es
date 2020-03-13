@@ -50,6 +50,8 @@
       href: named-entity-types.md
     - name: Compatibilidad de idioma y región
       href: language-support.md
+    - name: Desplazamientos de texto
+      href: concepts/text-offsets.md
 - name: Guías paso a paso
   items:
     - name: Llamada a la API de Text Analytics

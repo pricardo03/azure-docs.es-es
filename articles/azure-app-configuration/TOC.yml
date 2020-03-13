@@ -88,6 +88,8 @@
           href: concept-disaster-recovery.md
 - name: Guías paso a paso
   items:
+    - name: Habilitación de una característica para un subconjunto de usuarios
+      href: howto-feature-filters-aspnet-core.md
     - name: Importación o exportación de datos de configuración
       href: howto-import-export-data.md
     - name: Enrutamiento de eventos a un punto de conexión personalizado

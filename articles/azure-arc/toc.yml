@@ -12,6 +12,8 @@
       href: ./servers/onboard-portal.md
     - name: Conexión de máquinas a escala mediante una entidad de servicio
       href: ./servers/onboard-service-principal.md
+    - name: Conexión de máquinas a Azure Arc con DSC de PowerShell
+      href: ./servers/onboard-dsc.md
 - name: Referencia
   items:
     - name: Interfaz de la CLI del agente de máquinas conectadas a Azure

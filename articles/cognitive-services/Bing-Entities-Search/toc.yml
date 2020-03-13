@@ -26,14 +26,8 @@
           href: quickstarts/ruby.md
     - name: SDK
       items:
-        - name: 'Con C#'
-          href: quickstarts/entity-sdk-csharp-quickstart.md
-        - name: Uso de Node.js
-          href: quickstarts/entity-sdk-node-quickstart.md
-        - name: Usar Python
-          href: quickstarts/entity-sdk-python-quickstart.md
-        - name: Usar Java
-          href: quickstarts/entity-sdk-java-quickstart.md
+        - name: Bibliotecas de cliente de Bing Entity Search
+          href: ./quickstarts/client-libraries.md
 - name: Tutoriales
   items:
     - name: Compilación de una aplicación web de una sola página
@@ -42,7 +36,7 @@
   items:
     - name: Ejemplos de código
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Entity+Search'
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Cambio de tamaño y recorte de miniaturas
       maintainContext: true

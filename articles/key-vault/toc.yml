@@ -125,6 +125,8 @@
       href: event-grid-tutorial.md
     - name: Recepción de notificaciones a través de Event Grid y Logic Apps
       href: event-grid-logicapps.md
+    - name: Rotación de secretos para recursos de usuarios individuales
+      href: tutorial-rotation.md
     - name: Integración con Azure Policy
       href: azure-policy.md
     - name: Integración con el servicio Azure Private Link (versión preliminar)

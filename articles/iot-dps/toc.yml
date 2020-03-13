@@ -97,6 +97,8 @@
       href: concepts-security.md
     - name: Servicio
       href: concepts-service.md
+    - name: Descripción de las direcciones IP de DPS
+      href: iot-dps-understand-ip-address.md
     - name: Atestación de TPM
       href: concepts-tpm-attestation.md
     - name: Atestación de clave simétrica
@@ -127,6 +129,8 @@
           href: how-to-manage-dps-with-cli.md
         - name: Control del acceso a las API del servicio de aprovisionamiento
           href: how-to-control-access.md
+        - name: Configuración del filtrado de IP
+          href: iot-dps-ip-filtering.md
     - name: Aprovisionamiento de dispositivos IoT Edge
       items:
         - name: Linux
