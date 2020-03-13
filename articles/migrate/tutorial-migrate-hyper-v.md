@@ -4,12 +4,12 @@ description: Aprenda a migrar máquinas virtuales de Hyper-V locales a Azure con
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.custom: MVC
-ms.openlocfilehash: a321c3e731a6649f0831f7d515f1c464b311c9ac
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: e1b670db3399857278c646d3793e8ec946d385b0
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76545915"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943299"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migración de máquinas virtuales de Hyper-V a Azure 
 
@@ -31,7 +31,7 @@ Este tutorial es el tercero de una serie en la que se muestra cómo evaluar y mi
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar este tutorial, debe:
 
@@ -243,7 +243,10 @@ Después de comprobar que la migración de prueba funciona según lo previsto, p
 
 ## <a name="complete-the-migration"></a>Completar la migración
 
-1. Una vez finalizada la migración, haga clic con el botón derecho en la máquina virtual > **Detener migración**. Así se detiene la replicación en la máquina local y se limpia la información acerca del estado de replicación de la máquina virtual.
+1. Una vez finalizada la migración, haga clic con el botón derecho en la máquina virtual > **Detener migración**. Esto hace lo siguiente:
+    - Detiene la replicación en la máquina local.
+    - Quita la máquina del recuento de **Servidores en replicación** en Azure Migrate: Server Migration.
+    - Limpia la información de estado de replicación de la máquina virtual.
 2. Instale el agente de [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) o [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) de la máquina virtual de Azure en las máquinas migradas.
 3. Realice los ajustes de la aplicación posteriores a la migración, como actualizar las cadenas de conexión de la base de datos y las configuraciones del servidor web.
 4. Realice las pruebas finales de la aplicación y la aceptación de la migración en la aplicación migrada que ahora se ejecuta en Azure.

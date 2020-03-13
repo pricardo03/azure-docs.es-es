@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: tutorial
-ms.date: 12/20/2019
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 038716f43c18432b1b8e7c86c3ffbcab46f1db8f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fa10ab5a4b1c69b359936edf91da767da08d2f98
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75382803"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943105"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Tutorial: Compilación de un cliente de revisión ortográfica de página web
 
@@ -27,9 +27,9 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 > - Consulta simple a Bing Spell Check API
 > - Visualización de resultados de la consulta
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
-Para seguir con el tutorial, necesita una clave de suscripción para Bing Spell Check API. Si no tiene ninguna, [suscríbase para obtener una evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
+Para seguir con el tutorial, necesita una clave de suscripción para Bing Spell Check API. Si no tiene, [cree un recurso de Bing Spell Check](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7) en Azure Portal. También puede usar una [clave de prueba](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
 
 ## <a name="create-a-new-web-page"></a>Creación de una página web
 

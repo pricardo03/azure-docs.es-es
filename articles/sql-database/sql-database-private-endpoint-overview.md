@@ -7,15 +7,15 @@ titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
-ms.date: 09/17/2019
-ms.openlocfilehash: 427ba0e46f8f4090ce8c2080b1d6780b165e864c
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.date: 03/09/2020
+ms.openlocfilehash: ab9c5c5c1134d2e09a790a788a3b7e55f807dd9b
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121087"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945372"
 ---
-# <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>Private Link para Azure SQL Database y Data Warehouse (versión preliminar)
+# <a name="private-link-for-azure-sql-database-and-data-warehouse"></a>Private Link para Azure SQL Database y Data Warehouse
 
 Private Link permite conectarse a varios servicios PaaS en Azure mediante un **punto de conexión privado**. Para obtener una lista de los servicios PaaS que admiten la funcionalidad Private Link, vaya a la página de la [documentación de Private Link](../private-link/index.yml). Un punto de conexión privado es una dirección IP privada dentro de una [red virtual](../virtual-network/virtual-networks-overview.md) y una subred específicas. 
 
@@ -145,7 +145,7 @@ El resultado muestra que una dirección IP está activa, la cual corresponde a l
 
 ### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>Comprobación de la conectividad mediante SQL Server Management Studio (SSMS)
 > [!NOTE]
->Use el **nombre de dominio completo (FQDN)** del servidor en cadenas de conexión para los clientes. Cualquier intento de inicio de sesión realizado directamente en la dirección IP generará un error por diseño.
+> Use el **nombre de dominio completo (FQDN)** del servidor en las cadenas de conexión de los clientes. Cualquier intento de inicio de sesión realizado directamente en la dirección IP generará un error. Este comportamiento es así por diseño, ya que el punto de conexión privado enruta el tráfico a SQL Gateway en la región y es preciso especificar el nombre de dominio completo para que los inicios de sesión se realicen correctamente.
 
 Siga los pasos para usar [SSMS para conectarse a SQL Database](sql-database-connect-query-ssms.md). Tras conectarse a SQL Database mediante SSMS, compruebe que ha establecido la conexión desde la dirección IP de la máquina virtual de Azure, para lo que debe ejecutar la siguiente consulta:
 
@@ -153,8 +153,9 @@ Siga los pasos para usar [SSMS para conectarse a SQL Database](sql-database-conn
 select client_net_address from sys.dm_exec_connections 
 where session_id=@@SPID
 ````
-> [!NOTE]
-> En la versión preliminar, las conexiones a un punto de conexión privado solo admiten**Proxy** como [directiva de conexión](sql-database-connectivity-architecture.md#connection-policy).
+
+## <a name="limitations"></a>Limitaciones 
+Las conexiones a un punto de conexión privado solo admiten**Proxy** como [directiva de conexión](sql-database-connectivity-architecture.md#connection-policy)
 
 
 ## <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Conexión desde una máquina virtual de Azure en una red virtual emparejada (VNet) 

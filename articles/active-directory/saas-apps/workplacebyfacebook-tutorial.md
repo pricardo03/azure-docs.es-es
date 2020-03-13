@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 03/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c58ff181ec144dcd0b1089b0e53f868f241be73f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 98706d0c9a86d53ae31d05bec48d7071f251b651
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985295"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944386"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Workplace by Facebook
 
@@ -30,9 +30,9 @@ En este tutorial, obtendrá información sobre cómo integrar Workplace by Faceb
 * Permitir que los usuarios inicien sesión automáticamente en Workplace by Facebook con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -157,6 +157,8 @@ En esta sección, habilitará a B. Simon para usar el inicio de sesión único 
     a. Active la opción **Single-sign on (SSO)** (Inicio de sesión único [SSO]).
     
     b. Haga clic en **+ Add new SSO Provider** (+ Agregar nuevo proveedor de SSO).
+    > [!NOTE]
+    > Asegúrese de activar también la casilla Password login (Inicio de sesión con contraseña). Los administradores pueden necesitar esta opción para el inicio de sesión mientras realizan la sustitución del certificado para evitar quedarse bloqueados.
 
 1. En la pestaña **Autenticación**, seleccione **Inicio de sesión único (SSO)** y realice los pasos siguientes:
 
@@ -238,7 +240,7 @@ Al hacer clic en el icono de Workplace by Facebook en el panel de acceso, deber�
 
 - [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
@@ -247,4 +249,3 @@ Al hacer clic en el icono de Workplace by Facebook en el panel de acceso, deber�
 - [Prueba de Workplace by Facebook con Azure AD](https://aad.portal.azure.com)
 
 - [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

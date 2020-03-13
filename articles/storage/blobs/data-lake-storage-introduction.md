@@ -8,12 +8,12 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 75bd27f0945c66b9757055c0777b43a050ba67d7
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 2f920e29fafdc55478e0e2c16d683bd1c3bc81d8
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921001"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942932"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introducción a Azure Data Lake Storage Gen2
 
@@ -25,15 +25,15 @@ Data Lake Storage Gen2 convierte a Azure Storage en los cimientos para crear lag
 
 Parte fundamental de Data Lake Storage Gen2 es la incorporación de un [espacio de nombres jerárquico](data-lake-storage-namespace.md) en Blob Storage. El espacio de nombres jerárquico organiza los objetos o archivos en una jerarquía de directorios para un acceso eficaz a los datos. Una convención de nomenclatura de almacenamiento de objetos común usa barras diagonales en el nombre para imitar una estructura jerárquica de directorios. Esta estructura se hace realidad con Data Lake Storage Gen2. Operaciones como el cambio de nombre o la eliminación de un directorio se convierten en operaciones de metadatos atómicas únicas en el directorio, en lugar de enumerar y procesar todos los objetos que comparten el prefijo del nombre del directorio.
 
-Anteriormente, los análisis basados en la nube tenían que llegar a un acuerdo en materia de rendimiento, administración y seguridad. Data Lake Storage Gen2 aborda cada uno de estos aspectos de las siguientes formas:
+Data Lake Storage Gen2 se basa en Blob Storage y mejora el rendimiento, la administración y la seguridad de las siguientes maneras:
 
--   El **rendimiento** se optimiza porque no es necesario copiar ni transformar datos como requisito previo para el análisis. El espacio de nombres jerárquico mejora considerablemente el rendimiento de las operaciones de administración de directorios y, consecuentemente, el rendimiento general del trabajo.
+-   El **rendimiento** se optimiza porque no es necesario copiar ni transformar datos como requisito previo para el análisis. En comparación con el espacio de nombres plano de Blob Storage, el espacio de nombres jerárquico mejora considerablemente el rendimiento de las operaciones de administración de directorios, que mejora el rendimiento general del trabajo.
 
 -   La **administración** es más fácil, ya que puede organizar y manipular archivos a través de directorios y subdirectorios.
 
 -   La **seguridad** se aplicable porque se pueden definir permisos POSIX en los directorios o archivos individuales.
 
--   La **rentabilidad** se hace posible gracias a que Data Lake Storage Gen2 se ha diseñado a partir de [Azure Blob Storage](storage-blobs-introduction.md) de bajo costo. Las características adicionales reducen aún más el costo total de propiedad para la ejecución de análisis de macrodatos en Azure.
+Además, Azure Data Lake Storage Gen2 es muy rentable, ya que se basa en [Azure Blob Storage](storage-blobs-introduction.md) de bajo costo. Las características adicionales reducen aún más el costo total de propiedad para la ejecución de análisis de macrodatos en Azure.
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Características clave de Data Lake Storage Gen2
 

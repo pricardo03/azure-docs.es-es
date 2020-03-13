@@ -1,14 +1,15 @@
 ---
 title: 'Tutorial: Configuración de Azure Cloud Shell para Terraform'
-description: Use Terraform con Azure Cloud Shell para simplificar la autenticación y la configuración de plantillas.
+description: En este tutorial, se usa Terraform con Azure Cloud Shell para simplificar la autenticación y configuración de plantillas.
+keywords: azure devops terraform cloud shell
 ms.topic: tutorial
-ms.date: 10/26/2019
-ms.openlocfilehash: db9edfadbe01edc1ee9df09c284e3895ee11f3d3
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.date: 03/09/2020
+ms.openlocfilehash: 3a9db1143ba07b549a271d53d610e0a4853467c6
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159132"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945332"
 ---
 # <a name="tutorial-configure-azure-cloud-shell-for-terraform"></a>Tutorial: Configuración de Azure Cloud Shell para Terraform
 
@@ -31,6 +32,10 @@ Los módulos de Azure Terraform requieren credenciales para acceder a los recurs
 ```hcl
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
+    # The "feature" block is required for AzureRM provider 2.x. 
+    # If you are using version 1.x, the "features" block is not allowed.
+    version = "~>2.0"
+    features {}
 }
 ```
 

@@ -1,14 +1,15 @@
 ---
 title: 'Tutorial: Creación de un clúster de máquinas virtuales de Azure con Terraform y HCL'
-description: Uso de Terraform y HCL para crear un clúster de máquinas virtuales Linux con un equilibrador de carga en Azure
+description: En este tutorial, se usan Terraform y HCL para crear un clúster de máquinas virtuales Linux con un equilibrador de carga en Azure
+keywords: azure devops terraform vm virtual machine cluster
 ms.topic: tutorial
-ms.date: 10/26/2019
-ms.openlocfilehash: 39e9857ad0119c08e949bbe5f6accb07432f3469
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.date: 03/09/2020
+ms.openlocfilehash: ae1b8eac15309ff27297d9472e70d32e68acaaac
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470877"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945263"
 ---
 # <a name="tutorial-create-an-azure-vm-cluster-with-terraform-and-hcl"></a>Tutorial: Creación de un clúster de máquinas virtuales de Azure con Terraform y HCL
 
@@ -49,6 +50,8 @@ En esta sección, genera una entidad de servicio de Azure y dos archivos de conf
    variable client_secret {}
   
    provider "azurerm" {
+      version = "~>1.40"
+     
       subscription_id = var.subscription_id
       tenant_id = var.tenant_id
       client_id = var.client_id
@@ -129,7 +132,6 @@ En esta sección, creará un archivo que contiene las definiciones de recursos p
       name                          = "testConfiguration"
       subnet_id                     = azurerm_subnet.test.id
       private_ip_address_allocation = "dynamic"
-      load_balancer_backend_address_pools_ids = [azurerm_lb_backend_address_pool.test.id]
     }
    }
 

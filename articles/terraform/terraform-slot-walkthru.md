@@ -1,14 +1,15 @@
 ---
 title: 'Tutorial: Aprovisionamiento de una infraestructura con espacios de implementación de Azure mediante Terraform'
-description: Tutorial sobre el uso de Terraform con espacios de implementación del proveedor de Azure
+description: En este tutorial, se usa Terraform con ranuras de implementación del proveedor de Azure
+keywords: azure devops terraform deployment slots
 ms.topic: tutorial
-ms.date: 11/07/2019
-ms.openlocfilehash: 68c790b4fad442d94e6ac82d1a545b8554d2dd4f
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.date: 03/09/2020
+ms.openlocfilehash: ddd4d84ee8bf4ab1e90dd68da185cdd9075fe1e0
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159183"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943484"
 ---
 # <a name="tutorial-provision-infrastructure-with-azure-deployment-slots-using-terraform"></a>Tutorial: Aprovisionamiento de infraestructuras con espacios de implementación de Azure mediante Terraform
 
@@ -16,7 +17,7 @@ Puede usar [espacios de implementación de Azure](/azure/app-service/deploy-stag
 
 Este artículo muestra un ejemplo del uso de las ranuras de implementación, en el que se le guía a través de la implementación de dos aplicaciones mediante GitHub y Azure. Una aplicación se hospeda en un espacio de producción. La segunda aplicación se hospeda en un espacio de ensayo. Los nombres "producción" y "ensayo" son arbitrarios; pueden adaptarse a lo que resulte adecuado para su escenario. Una vez configurados los espacios de implementación, usará Terraform para cambiar de uno a otro según sea necesario.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
 
@@ -68,7 +69,12 @@ Este artículo muestra un ejemplo del uso de las ranuras de implementación, en 
 
     ```hcl
     # Configure the Azure provider
-    provider "azurerm" { }
+    provider "azurerm" { 
+        # The "feature" block is required for AzureRM provider 2.x. 
+        # If you are using version 1.x, the "features" block is not allowed.
+        version = "~>2.0"
+        features {}
+    }
 
     resource "azurerm_resource_group" "slotDemo" {
         name = "slotDemoResourceGroup"
@@ -247,7 +253,12 @@ Para probar el cambio entre los dos espacios de implementación, siga estos paso
 
     ```hcl
     # Configure the Azure provider
-    provider "azurerm" { }
+    provider "azurerm" { 
+        # The "feature" block is required for AzureRM provider 2.x. 
+        # If you are using version 1.x, the "features" block is not allowed.
+        version = "~>2.0"
+        features {}
+    }
 
     # Swap the production slot and the staging slot
     resource "azurerm_app_service_active_slot" "slotDemoActiveSlot" {

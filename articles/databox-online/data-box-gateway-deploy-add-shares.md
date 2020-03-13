@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: alkohli
-ms.openlocfilehash: d930b1db48e3a5c4bda96f0b7d80a9c9f24d53d9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 623ec5e082a8ed889329936d020bf28434a56fbf
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400654"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942539"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Tutorial: Transferencia de datos con Azure Data Box Gateway
 
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a:
 > * Conexión a un recurso compartido
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de agregar recursos compartidos a Data Box Gateway, asegúrese de que:
 
@@ -61,7 +61,7 @@ Para crear un recurso compartido, realice el procedimiento siguiente:
    
     5. Este paso depende de si está creando un recurso compartido SMB o NFS.
      
-    - **Recurso compartido SMB**: en **Usuario local con todos los privilegios**, seleccione **Crear nuevo** o **Usar existente**. Si crea un usuario local, escriba un **nombre de usuario** y una **contraseña** y, luego, **confirme la contraseña**. Con esta acción se asignan los permisos al usuario local. Después de asignar aquí los permisos, puede usar el Explorador de archivos para modificarlos.
+    - **Recurso compartido SMB**: en **Usuario local con todos los privilegios**, seleccione **Crear nuevo** o **Usar existente**. Si crea un usuario local, escriba un **nombre de usuario** y una **contraseña** y, luego, **confirme la contraseña**. Con esta acción se asignan los permisos al usuario local. Actualmente no se admite la modificación de permisos de nivel de recurso compartido.
     
         ![Incorporación de recurso compartido de SMB](./media/data-box-gateway-deploy-add-shares/add-share-smb-1.png)
         
@@ -133,7 +133,7 @@ En el cliente Linux conectado al dispositivo de Data Box Edge, haga el procedimi
 
 > [!NOTE] 
 > Las siguientes advertencias son aplicables a esta versión:
-> - Una vez creado un archivo en los recursos compartidos, no se puede cambiar el nombre del archivo.
+> - Una vez que se crea un archivo en los recursos compartidos, no se puede cambiar su nombre.
 > - La eliminación de un archivo de un recurso compartido no elimina la entrada en la cuenta de almacenamiento.
 > - Si usa `rsync` para copiar los datos, no se admite la opción `rsync -a`.
 

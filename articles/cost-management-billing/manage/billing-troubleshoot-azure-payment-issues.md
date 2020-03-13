@@ -10,20 +10,37 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/12/2020
+ms.date: 03/06/2020
 ms.author: jaserano
-ms.openlocfilehash: 199d32efef256fe3b56dbcf0a5d3ac6351f2d0b3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: cd9d17eb365937035919b7e712a4b5824f747bda
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200921"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942590"
 ---
 # <a name="troubleshoot-azure-payment-issues"></a>Solución de problemas de pago de Azure
 
 Puede experimentar problemas o errores al intentar actualizar la cuenta de información de pago en Microsoft Azure Portal o en el centro de cuentas de Azure.
 
 Para resolver el problema, seleccione a continuación el tema que más se asemeje al error.
+
+## <a name="my-credit-card-was-declined-when-i-tried-to-sign-up-for-azure"></a>Se ha rechazado mi tarjeta de crédito al intentar suscribirme a Azure
+
+Para solucionar problemas relacionados con el rechazo de la tarjeta de crédito, consulte [Solución de problemas de una tarjeta rechazada en el registro de Azure](troubleshoot-declined-card.md).
+
+## <a name="unable-to-see-subscriptions-under-my-account-to-update-the-payment-method"></a>No se pueden ver las suscripciones de mi cuenta para actualizar el método de pago
+
+Es posible que esté usando un identificador de correo electrónico diferente del que usa en las suscripciones.
+
+Para solucionar este problema, vea [Error de inicio de sesión No se encontraron suscripciones en Azure Portal o en el Centro de cuentas de Azure](no-subscriptions-found.md).
+
+## <a name="unable-to-use-a-virtual-or-prepaid-credit-or-debit-card-as-a-payment-method"></a>No se pueden usar tarjetas de crédito o débito virtuales o de prepago como método de pago.
+
+*   Las tarjetas de crédito virtuales o de prepago no se aceptan como opción de pago para suscripciones de Azure.
+*   Las tarjetas de débito no se aceptan como opción de pago para suscripciones de Azure.
+
+Para más información, consulte [Solución de problemas de una tarjeta rechazada en el registro de Azure](troubleshoot-declined-card.md).
 
 ## <a name="unable-to-remove-a-credit-card-from-a-saved-billing-payment-method"></a>No se puede eliminar una tarjeta de crédito del método de pago de facturación guardado
 
@@ -33,19 +50,11 @@ Si una tarjeta existente tiene que eliminarse, debe agregar una nueva tarjeta a 
 
 ## <a name="unable-to-delete-an-old-payment-method-after-adding-a-new-payment-method"></a>No se puede eliminar un método de pago anterior después de agregar el nuevo método de pago
 
-El nuevo instrumento de pago podría no estar asociado con la suscripción. Para ayudarle a asociar el instrumento de pago con la suscripción, vea [Agregar, actualizar o quitar una tarjeta de crédito o débito para Azure](change-credit-card.md).
-
-Para solucionar problemas relacionados con una tarjeta rechazada, vea [Solución de problemas de una tarjeta rechazada durante el registro de Azure](troubleshoot-declined-card.md).
+El nuevo instrumento de pago podría no estar asociado con la suscripción. Si necesita ayuda para asociar el instrumento de pago a la suscripción, consulte [Agregar, actualizar o quitar una tarjeta de crédito para Azure](change-credit-card.md).
 
 ## <a name="unable-to-delete-a-payment-method-because-of-cannot-delete-payment-method-error"></a>No se puede eliminar un método de pago debido al mensaje de error *No se puede eliminar método de pago*
 
 Esto sucede cuando hay un saldo pendiente. Liquide los saldos pendientes antes de eliminar el método de pago.
-
-## <a name="unable-to-see-subscriptions-under-my-account-to-update-the-payment-method"></a>No se pueden ver las suscripciones de mi cuenta para actualizar el método de pago
-
-Es posible que esté usando un identificador de correo electrónico diferente del que usa en las suscripciones.
-
-Para solucionar este problema, vea [Error de inicio de sesión No se encontraron suscripciones en Azure Portal o en el Centro de cuentas de Azure](no-subscriptions-found.md).
 
 ## <a name="unable-to-make-payment-for-a-subscription"></a>No se puede realizar el pago de una suscripción
 

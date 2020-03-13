@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 03/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16b23ef246561d052935642c323c2d830e21cbe7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f019d818fb5a017d184bda8d773eb0aaf0f3645a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "73570247"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944415"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-druva"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Druva
 
@@ -33,7 +32,7 @@ En este tutorial, aprenderá a integrar Druva con Azure Active Directory (Azur
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -44,7 +43,8 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Druva admite el inicio de sesión único iniciado tanto por **SP como por IDP**
+* Druva admite inicio de sesión único iniciado por **IDP**
+* Una vez configurado el inicio de sesión único de Druva, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
@@ -81,11 +81,13 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
 1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
-1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, no es necesario realizar ningún paso porque la aplicación ya está integrada previamente con Azure.
+   ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
+1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://login.druva.com/api/commonlogin/samlconsume`
+    a. En el cuadro de texto **Identificador (id. de entidad)** , escriba el valor de la cadena: `DCP-login`.
+    
+    b. En el cuadro de texto **URL de respuesta (URL del Servicio de consumidor de aserciones)** , escriba la siguiente URL: `https://cloud.druva.com/wrsaml/consume`.
 
 1. Haga clic en **Save**(Guardar).
 
@@ -95,10 +97,10 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. Además de lo anterior, la aplicación Druva espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
 
-    | NOMBRE | Atributo de origen|
+    | Nombre | Atributo de origen|
     | ------------------- | -------------------- |
     | emailAddress | user.email |
-    | druva_auth_token | Token de SSO generado a partir de la consola de administración de DCP, sin comillas.  Por ejemplo:  X-XXXXX-XXXX-S-A-M-P-L-E+TXOXKXEXNX=. Azure agrega comillas automáticamente alrededor del token de autenticación. |
+    | druva_auth_token | Token de SSO generado a partir de la consola de administración de DCP, sin comillas.  Por ejemplo: X-XXXXX-XXXX-S-A-M-P-L-E+TXOXKXEXNX=. Azure agrega comillas automáticamente alrededor del token de autenticación. |
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
@@ -118,7 +120,7 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
    1. En el campo **Nombre**, escriba `B.Simon`.  
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Create**(Crear).
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -182,3 +184,5 @@ Al hacer clic en el icono de Druva en el Panel de acceso, debería iniciar sesi�
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prueba de Druva con Azure AD](https://aad.portal.azure.com/)
+
+- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

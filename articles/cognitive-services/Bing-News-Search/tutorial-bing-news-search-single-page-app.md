@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 12/12/2019
+ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e128daa82eca8142a636df0958ddca574e398713
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 801bfcf02174c5dd98d4c7231c674299ef411aff
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383122"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943112"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Tutorial: Creación de una aplicación web de una sola página
 
@@ -39,6 +39,12 @@ En la aplicación del tutorial se muestra cómo:
 > * Controlar los errores que se puedan producir.
 
 La página del tutorial es completamente independiente: no utiliza marcos, hojas de estilo ni archivos de imagen externos. Usa solo características del lenguaje JavaScript ampliamente compatibles y funciona con las versiones actuales de los principales exploradores web.
+
+
+## <a name="prerequisites"></a>Prerrequisitos
+
+Para seguir con el tutorial, necesita claves de suscripción para Bing Search API. Si no las tiene, puede utilizar una [clave de prueba](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) y una [ clave básica de Bing Maps](https://www.microsoft.com/maps/create-a-bing-maps-key).
+
 
 ## <a name="app-components"></a>Componentes de la aplicación
 Igual que sucede con cualquier aplicación web de una sola página, la aplicación del tutorial incluye tres partes:

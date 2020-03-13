@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 701ae5e70612b89c28e3092571e26e4f06389af0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7a15db6bbbcd9dfd43b025b780fda5a8b1d79da2
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924612"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946156"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-edge"></a>Tutorial: Transferencia de datos con Azure Data Box Edge
 
@@ -29,7 +29,7 @@ En este tutorial, aprenderá a:
 > * Conexión al recurso compartido
 
  
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de agregar recursos compartidos a Data Box Edge, asegúrese de que:
 
@@ -52,7 +52,7 @@ Para crear un recurso compartido, realice el procedimiento siguiente:
 
 3. En el panel **Agregar recurso compartido**, lleve a cabo el procedimiento siguiente:
 
-     a. En el cuadro **Nombre**, escriba un nombre único para el recurso compartido.  
+    a. En el cuadro **Nombre**, escriba un nombre único para el recurso compartido.  
     El nombre del recurso compartido solo puede incluir letras minúsculas, números y guiones. Debe tener entre 3 y 63 caracteres y empezar por una letra o un número. Antes y después de los guiones debe haber una letra o un número.
     
     b. Seleccione un **tipo** de recurso compartido.  
@@ -69,7 +69,7 @@ Para crear un recurso compartido, realice el procedimiento siguiente:
    
     f. Dependiendo de si creó un recurso compartido de SMB o NFS, haga uno de estos pasos: 
      
-    - **Recurso compartido de SMB**: En **Usuario local con todos los privilegios**, seleccione **Crear nuevo** o **Usar existente**. Si crea un usuario local, escriba un nombre de usuario y una contraseña y, luego, confirme la contraseña. Con esta acción se asignan permisos al usuario local. Después de asignar aquí los permisos, puede usar el Explorador de archivos para modificarlos.
+    - **Recurso compartido de SMB**: En **Usuario local con todos los privilegios**, seleccione **Crear nuevo** o **Usar existente**. Si crea un usuario local, escriba un nombre de usuario y una contraseña y, luego, confirme la contraseña. Con esta acción se asignan permisos al usuario local. Actualmente no se admite la modificación de permisos de nivel de recurso compartido.
 
         Si activa la casilla de verificación **Permitir operaciones de solo lectura** en los datos de este recurso compartido, puede especificar usuarios de solo lectura.
 
@@ -145,7 +145,7 @@ En el cliente Linux conectado al dispositivo de Data Box Edge, haga el procedimi
 
 > [!NOTE] 
 > Las siguientes advertencias son aplicables a esta versión:
-> - Una vez creado un archivo en el recurso compartido, no se puede cambiar el nombre del archivo. 
+> - Una vez que se crea un archivo en el recurso compartido, no se puede cambiar su nombre. 
 > - La eliminación de un archivo de un recurso compartido no elimina la entrada en la cuenta de almacenamiento.
 
 ## <a name="next-steps"></a>Pasos siguientes

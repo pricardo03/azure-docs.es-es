@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 1acc17f9c2fbeb53b992891174866433d14f128d
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: f692367ad431dc8f1623e1b3d5109c313e351934
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986668"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943876"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutorial: Creación de una aplicación de una sola página mediante Bing Web Search API
 
@@ -32,13 +32,12 @@ Esta aplicación de ejemplo puede:
 
 Para usar esta aplicación, se requiere una [cuenta de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con Bing Search API. Si no tiene una cuenta, puede usar la [evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) para obtener una clave de suscripción.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 A continuación se detalla lo que necesitará para ejecutar la aplicación:
 
 * Node.js 8 o posterior
-* Una clave de suscripción
-
+* Una clave de suscripción para Bing Search API. Si no tiene, [cree un recurso de Bing Search, versión 7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). También puede usar una [clave de prueba](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
 ## <a name="get-the-source-code-and-install-dependencies"></a>Obtención del código fuente e instalación de dependencias
 
 El primer paso consiste en clonar el repositorio con el código fuente de la aplicación de ejemplo.

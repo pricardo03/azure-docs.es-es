@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: c3d571f494d5f08c7c9e3c551eba88fb86e1ec23
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c7b41f77f8eb57c39489f1e5a69b0ac1c3c9c7d4
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448783"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943911"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Creación de una página web de Custom Search
 
@@ -32,10 +32,10 @@ Las tareas que se tratan son:
 > - Agregar entradas ancladas
 > - Integrar la búsqueda personalizada en una página web
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
-- Para seguir con el tutorial, necesita una clave de suscripción para Bing Custom Search API.  Para obtener una clave, consulte [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
-- Si aún no tiene instalado Visual Studio 2017 o versiones posteriores, puede descargar y usar la edición **gratuita** de [Visual Studio 2019 Community](https://www.visualstudio.com/downloads/).
+- Para seguir con el tutorial, necesita una clave de suscripción para Bing Custom Search API.  Para obtener una clave, [cree un recurso de Bing Custom Search](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) en Azure Portal. También puede usar una [clave de prueba](https://azure.microsoft.com/try/cognitive-services).
+- Si aún no tiene instalado Visual Studio 2017, o cualquier versión posterior, puede descargar y usar la edición **gratuita** de [Visual Studio 2019 Community](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-custom-search-instance"></a>Creación de una instancia de búsqueda personalizada
 
@@ -45,7 +45,7 @@ Para crear una instancia de Bing Custom Search:
   
 2. Navegue al [portal](https://customsearch.ai) de Custom Search.  
   
-3. Inicie sesión en el portal mediante una cuenta Microsoft (MSA). Si no tiene una MSA, haga clic en **Creación de una cuenta Microsoft**. Si es la primera vez que usa el portal, se le pedirán los permisos para acceder a los datos. Haga clic en **Sí**.  
+3. Inicie sesión en el portal mediante una cuenta Microsoft (MSA). Si no tiene una MSA, haga clic en **Crear una cuenta Microsoft**. Si es la primera vez que usa el portal, se le pedirán los permisos necesarios para acceder a los datos. Haga clic en **Sí**.  
   
 4. Después de iniciar sesión, haga clic en **New custom search** (Nueva búsqueda personalizada). En la ventana **Create a new custom search instance** (Crear una instancia de búsqueda personalizada), escriba un nombre que sea significativo y que describa el tipo de contenido que devuelve la búsqueda. Puede cambiar el nombre en cualquier momento.  
   
@@ -60,11 +60,11 @@ Para crear una instancia de Bing Custom Search:
 
 Para incluir los resultados de direcciones URL o sitios web específicos, agréguelos a la pestaña **Activos**.
 
-1.  En la página **Configuración**, haga clic en la pestaña **Activos** y escriba la dirección URL de uno o varios sitios web que va a incluir en la búsqueda.
+1.       En la página **Configuración**, haga clic en la pestaña **Activos** y escriba la dirección URL de uno o varios sitios web que va a incluir en la búsqueda.
 
     ![Captura de pantalla de la pestaña Activos del Editor de definiciones](../media/customSrchEditor.png)
 
-2.  Para confirmar que la instancia devuelve resultados, escriba una consulta en el panel de vista previa de la derecha. Bing devuelve solo los resultados de sitios web públicos que ha indizado.
+2.       Para confirmar que la instancia devuelve resultados, escriba una consulta en el panel de vista previa de la derecha. Bing devuelve solo los resultados de sitios web públicos que ha indizado.
 
 ## <a name="add-blocked-entries"></a>Agregar entradas bloqueadas
 

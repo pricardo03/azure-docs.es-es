@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: tutorial
-ms.date: 12/11/2019
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 875a83501b00f0b23aa13317493ab6d341e4e283
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d45b9a153b770dd10da9dd61e8a7b3d138345b8a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448605"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943134"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicación web de una sola página
 
@@ -55,6 +55,10 @@ En este tutorial, solo se describen determinadas partes del código fuente. El c
 
 > [!NOTE]
 > Este tutorial es bastante similar al [tutorial de la aplicación Bing Web Search de una sola página](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), pero solo se centra en los resultados de búsqueda de imágenes.
+
+## <a name="prerequisites"></a>Prerrequisitos
+
+Para seguir con el tutorial, necesita claves de suscripción para Bing Search API y Bing Maps API. Si no las tiene, puede utilizar una [clave de prueba](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) y una [ clave básica de Bing Maps](https://www.microsoft.com/maps/create-a-bing-maps-key).
 
 ## <a name="app-components"></a>Componentes de la aplicación
 
