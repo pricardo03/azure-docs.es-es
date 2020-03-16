@@ -64,8 +64,6 @@
   items:
     - name: almacén de pares clave-valor
       href: concept-key-value.md
-    - name: Cifrado de claves administradas por el cliente
-      href: concept-customer-managed-keys.md
     - name: Instantánea en un momento dado
       href: concept-point-time-snapshot.md
     - name: Administración de características
@@ -74,8 +72,12 @@
       href: concept-github-action.md
     - name: Control de eventos
       href: concept-app-configuration-event.md
-    - name: Authentication
+    - name: Seguridad
       items:
+        - name: Cifrado de claves administradas por el cliente
+          href: concept-customer-managed-keys.md
+        - name: Protección del almacén de configuración con puntos de conexión privados
+          href: concept-private-endpoint.md
         - name: Integración con Identidad administrada de Azure
           href: howto-integrate-azure-managed-service-identity.md
         - name: Habilitar el acceso mediante Azure Active Directory

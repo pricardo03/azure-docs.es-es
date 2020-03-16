@@ -1245,6 +1245,8 @@
           href: app/docker.md
         - name: Desuso del portal de OMS
           href: platform/oms-portal-transition.md
+        - name: Desuso de las métricas de disco
+          href: platform/portal-disk-metrics-deprecation.md
 - name: Recursos
   items:
     - name: Azure Roadmap
