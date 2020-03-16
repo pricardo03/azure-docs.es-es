@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: d3e2fa082184ce8de7685d03803360045b89c911
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 6804834dab81b0774dd29b1ede836492d0dfea4b
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77119766"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383832"
 ---
 Para crear un proyecto de Visual Studio C++ para el desarrollo de la Plataforma universal de Windows (UPW), debe configurar las opciones de desarrollo de Visual Studio, crear el proyecto, seleccionar la arquitectura de destino, configurar la captura de audio e instalar el SDK de voz.
 
@@ -104,4 +104,4 @@ Por último, instale el [paquete NuGet del SDK de voz](https://aka.ms/csspeech/n
 
 1. En el cuadro de diálogo **Vista previa de los cambios**, seleccione **Aceptar**.
 
-1. En el cuadro de diálogo **Aceptación de licencia**, vea la licencia y, a continuación, seleccione **Acepto**. La instalación del paquete comienza y, cuando se completa, el panel **Salida** muestra un mensaje similar al siguiente: `Successfully installed 'Microsoft.CognitiveServices.Speech 1.9.0' to helloworld`.
+1. En el cuadro de diálogo **Aceptación de licencia**, vea la licencia y, a continuación, seleccione **Acepto**. La instalación del paquete comienza y, cuando se completa, el panel **Salida** muestra un mensaje similar al siguiente: `Successfully installed 'Microsoft.CognitiveServices.Speech 1.10.0' to helloworld`.

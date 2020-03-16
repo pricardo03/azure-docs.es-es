@@ -4,12 +4,12 @@ ms.service: data-explorer
 ms.topic: include
 ms.date: 11/03/2019
 ms.author: orspodek
-ms.openlocfilehash: f8b3e541dfd55bbd613af2791329a08402cf8670
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3cd9d017429b629acad39f5b902e842886c3c818
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581979"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304951"
 ---
 ## <a name="configure-the-data-source"></a>Configuración del origen de datos
 
@@ -29,7 +29,7 @@ Puede crear la entidad de servicio en [Azure Portal](#azure-portal) o mediante l
 
 1. Para crear la entidad de servicio, siga las instrucciones de la [documentación de Azure Portal](/azure/active-directory/develop/howto-create-service-principal-portal).
 
-    1. En la sección [Asignación de la aplicación a un rol](/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role), asigne un tipo de rol de **lector** al clúster de Azure Data Explorer.
+    1. En la sección [Asignación de la aplicación a un rol](/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application), asigne un tipo de rol de **lector** al clúster de Azure Data Explorer.
 
     1. En la sección [Obtención de valores para iniciar sesión](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), copie los tres valores de propiedad indicados en los pasos: **Id. de directorio** (Id. de inquilino), **Id. de aplicación** y **Contraseña**.
 
@@ -37,7 +37,7 @@ Puede crear la entidad de servicio en [Azure Portal](#azure-portal) o mediante l
 
     ![Id. de suscripción (Azure Portal)](media/data-explorer-configure-data-source/subscription-id-portal.png)
 
-#### <a name="azure-cli"></a>CLI de Azure
+#### <a name="azure-cli"></a>Azure CLI
 
 1. Crear una entidad de servicio. Establezca un ámbito adecuado y un tipo de rol de `reader`.
 

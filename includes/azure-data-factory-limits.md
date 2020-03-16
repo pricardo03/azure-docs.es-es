@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/08/2020
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 34e828a43567ffc701c1645c55f4ff0352b0e8d3
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 217e48ab21439f03e0b52c894c9aace5b51b1502
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75772881"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086158"
 ---
 Azure Data Factory es un servicio multiinquilino que tiene los siguientes límites predeterminados para asegurarse de que las suscripciones de cliente están protegidas frente a las cargas de trabajo de los demás. Para elevar los límites al máximo de la suscripción, póngase en contacto con el servicio de soporte técnico.
 
@@ -21,7 +21,7 @@ Azure Data Factory es un servicio multiinquilino que tiene los siguientes límit
 
 | Resource | Límite predeterminado | Límite máximo |
 | -------- | ------------- | ------------- |
-| Factorías de datos en una suscripción de Azure | 50 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Factorías de datos en una suscripción de Azure | 800 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Número total de entidades, como canalizaciones, conjuntos de datos, desencadenadores, servicios vinculados y entornos de ejecución de integración, dentro de una factoría de datos | 5\.000 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Núcleos de CPU totales para Azure-SSIS Integration Runtime en una suscripción | 256 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Ejecuciones de canalizaciones simultáneas por factoría de datos compartida entre todas las canalizaciones de la factoría | 10 000  | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
@@ -57,8 +57,8 @@ Azure Data Factory es un servicio multiinquilino que tiene los siguientes límit
 | Grupo de regiones | Regions | 
 | -------- | ------ |
 | Grupo de regiones 1 | Centro de EE. UU., Este de EE. UU., Este de EE. UU. 2, Norte de Europa, Oeste de Europa, Oeste de EE. UU., Oeste de EE. UU. 2 |
-| Grupo de regiones 2 | Este de Australia, Sudeste de Australia, Sur de Brasil, India central, Este de Japón, Centro-norte de EE. UU., Centro-sur de EE. UU., Sudeste Asiático, Centro-oeste de EE. UU. |
-| Grupo de regiones 3 | Centro de Canadá, Asia Oriental, Centro de Francia, Centro de Corea del Sur, Sur de Reino Unido |
+| Grupo de regiones 2 | Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de la India, Este de Japón, Centro-norte de EE. UU., Centro-sur de EE. UU.., Sudeste de Asia, Centro-oeste de EE. UU. |
+| Grupo de regiones 3 | Centro de Canadá, Este de Asia, Centro de Francia, Centro de Corea del Sur, Sur de Reino Unido |
 
 <sup>3</sup> Los objetos de canalización, de conjunto de datos y de servicio vinculado representan una agrupación lógica de la carga de trabajo. Los límites de estos objetos no se corresponden con la cantidad de datos que se pueden mover y procesar con Azure Data Factory. Data Factory está diseñado para escalarse a fin de manejar petabytes de datos.
 

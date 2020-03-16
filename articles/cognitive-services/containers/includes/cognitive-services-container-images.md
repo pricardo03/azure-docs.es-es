@@ -6,14 +6,14 @@ manager: nitinme
 description: Dos tablas que representan los registros de contenedor, los repositorios y los nombres de imagen de todas las ofertas de Cognitive Service.
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/10/2020
+ms.date: 03/10/2020
 ms.author: dapine
-ms.openlocfilehash: 7c229ea306d89f85fb37a68fc84e3e4f6770e5ad
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 55a3bb5f894d3ab753cfec64687abc9c7cae53cb
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75866932"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082397"
 ---
 ### <a name="container-repositories-and-images"></a>Repositorios e imágenes de contenedor
 

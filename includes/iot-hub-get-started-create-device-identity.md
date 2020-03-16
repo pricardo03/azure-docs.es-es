@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 1e919f22d5dd7975f055f262ec9ba69230aebd17
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 68260bf8aafbbe5afd46ec7dfb763eb88ee2123e
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780853"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78893355"
 ---
 En esta sección, se usa la CLI de Azure para crear una identidad del dispositivo para este artículo. Los identificadores de dispositivos distinguen mayúsculas de minúsculas.
 
@@ -22,7 +22,7 @@ En esta sección, se usa la CLI de Azure para crear una identidad del dispositiv
 1. En Azure Cloud Shell, ejecute el comando siguiente para instalar la extensión IoT de Microsoft Azure para la CLI de Azure:
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
+    az extension add --name azure-iot
     ```
 
 2. Cree una identidad del dispositivo denominada `myDeviceId` y recupere la cadena de conexión del dispositivo con estos comandos:

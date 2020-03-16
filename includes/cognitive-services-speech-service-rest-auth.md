@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: 020055c1629a66ec1aa82beb050501803b2a0f18
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: dc5e251fee00ee22edb2261c1abd8404714834ba
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168317"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668818"
 ---
 ## <a name="authentication"></a>Authentication
 
@@ -22,7 +22,7 @@ Cada solicitud requiere un encabezado de autorización. Esta tabla muestra qué 
 
 Cuando se usa el encabezado `Ocp-Apim-Subscription-Key`, solo se le pide que proporcione la clave de suscripción. Por ejemplo:
 
-```
+```http
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
@@ -34,7 +34,7 @@ Para obtener un token de acceso, tiene que realizar una solicitud al punto de co
 
 El punto de conexión `issueToken` tiene el siguiente formato:
 
-```
+```http
 https://<REGION_IDENTIFIER>.api.cognitive.microsoft.com/sts/v1.0/issueToken
 ```
 
@@ -62,7 +62,7 @@ El cuerpo de la respuesta contiene el token de acceso en formato JSON Web Token 
 
 En este ejemplo se muestra un script sencillo de PowerShell para obtener un token de acceso. Reemplace `YOUR_SUBSCRIPTION_KEY` por la clave de suscripción del servicio Voz. Asegúrese de usar el punto de conexión correcto para la región que coincida con su suscripción. En este ejemplo la región es Oeste de EE. UU.
 
-```Powershell
+```powershell
 $FetchTokenHeader = @{
   'Content-type'='application/x-www-form-urlencoded';
   'Content-Length'= '0';
@@ -81,7 +81,7 @@ $OAuthToken
 
 cURL es una herramienta de la línea de comandos disponible en Linux (y en el subsistema Windows para Linux). Este comando cURL muestra cómo obtener un token de acceso. Reemplace `YOUR_SUBSCRIPTION_KEY` por la clave de suscripción del servicio Voz. Asegúrese de usar el punto de conexión correcto para la región que coincida con su suscripción. En este ejemplo la región es Oeste de EE. UU.
 
-```cli
+```console
 curl -v -X POST
  "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
  -H "Content-type: application/x-www-form-urlencoded" \
@@ -93,7 +93,7 @@ curl -v -X POST
 
 Esta clase de C# muestra cómo obtener un token de acceso. Pase la clave de suscripción del servicio Voz al crear una instancia de la clase. Si su suscripción no está en la región Oeste de EE. UU., cambie el valor de `FetchTokenUri` para que coincida con la región de su suscripción.
 
-```cs
+```csharp
 public class Authentication
 {
     public static readonly string FetchTokenUri =

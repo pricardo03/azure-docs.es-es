@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 01/30/2020
+ms.date: 03/05/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: bc48daed4f20af7c275d651820cf9b17a8e24d41
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 5190804180612e885b226f9b00d82b8d2f528a8a
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938339"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78669241"
 ---
 >[!NOTE]
 >Estamos trabajando para agregar regiones adicionales. Cuando se agregue una región, se incorporará a esta lista.
@@ -43,14 +43,22 @@ ms.locfileid: "76938339"
 * Centro de Australia 2
 * Este de Australia
 * Sudeste de Australia
-* Asia oriental
+* Este de Asia
 * Japón Oriental
 * Japón Occidental
 * Centro de Corea del Sur
 * Corea del Sur
-* Sudeste asiático
+* Sudeste de Asia
 * Oeste de la India
 
 **Oriente Medio y África**
 * Norte de Sudáfrica
 * Centro de Emiratos Árabes Unidos
+
+**Azure Government**
+* US DoD (centro)
+* US DoD (este)
+* US Gov: Arizona
+* US Gov Iowa
+* US Gov Texas
+* US Gov - Virginia
