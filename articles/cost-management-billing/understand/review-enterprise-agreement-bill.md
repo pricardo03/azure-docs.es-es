@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: tutorial
-ms.date: 03/03/2020
+ms.date: 03/06/2020
 ms.author: banders
-ms.openlocfilehash: ca1064ce3414f4a796110c022125b68c0674e0d6
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 5de6baf81f67ef6bee43b54e7aa0d62088c15be9
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78270179"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898651"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Descripción de la factura de Azure Enterprise
 
@@ -118,7 +118,7 @@ La tabla siguiente enumera los términos y las descripciones que se muestran en 
 
 Esta sección solo se aplica si está en Australia, Japón o Singapur.
 
-Compare el total de Azure Marketplace en **Informes** > **Resumen de uso** en Enterprise Portal con la factura de Marketplace. La factura de Marketplace es solo para el uso y las compras de Azure Marketplace. Los importes que aparecen en **Resumen de uso** no incluyen impuestos.
+Compare el total de Azure Marketplace en **Informes** > **Resumen de uso** en Enterprise Portal con la factura de Marketplace. La factura de Marketplace es solo para el uso y las compras de Azure Marketplace. Los importes en el **Resumen de uso** ya incluyen un impuesto determinado por el publicador.
 
 Inicie sesión en el [portal de Enterprise](https://ea.azure.com) y seleccione **Informes**. En la esquina superior derecha de la pestaña, cambie la vista de **M** a **C** y haga que coincida con el período de la factura.  
 

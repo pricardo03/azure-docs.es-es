@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: d167a157935c6d51c025d2fbb11586343a2ef3f2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6f62771d707d1aebccbfaf809dee7d0dedf5fefa
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453523"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096115"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutorial: Equilibrio de la carga de tráfico interno con un equilibrador de carga básico en Azure Portal
 
@@ -121,10 +121,10 @@ Para distribuir el tráfico a las máquinas virtuales, el equilibrador de carga 
 1. En la página **Agregar un grupo back-end**, escriba o seleccione los siguientes valores:
    
    - **Name**: escriba *MyBackendPool*.
-   - **Asociado a**: En la lista desplegable seleccione **Conjunto de disponibilidad**.
-   - **Conjunto de disponibilidad**: seleccione **MyAvailabilitySet**.
+   - **Asociado a**: Despliegue y seleccione **Máquina virtual**.
    
-1. Seleccione **Agregar una configuración IP de red de destino**. 
+   
+1. Seleccione **Máquina virtual**. 
    1. Agregar **MyVM1** y **MyVM2** al grupo de back-end.
    2. Después de agregar cada máquina, en la lista desplegable seleccione su **Configuración IP de red**. 
    

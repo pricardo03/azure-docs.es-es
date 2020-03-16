@@ -3,12 +3,12 @@ title: Uso del complemento de Azure Dev Spaces para Jenkins con Azure Kubernetes
 description: Aprenda a usar el complemento de Azure Dev Spaces en una canalización de integración continua.
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: 7b23893eb331f55ff41992a2ca660e79f44a609a
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 281565cec5ee947781ab8ee9f62a00e01f9ababb
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250896"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037038"
 ---
 # <a name="tutorial-using-the-azure-dev-spaces-plug-in-for-jenkins-with-azure-kubernetes-service"></a>Tutorial: Uso del complemento de Azure Dev Spaces para Jenkins con Azure Kubernetes Service 
 
@@ -265,7 +265,7 @@ La configuración de la canalización de Jenkins y Jenkinsfile definen las fases
 
 ![Flujo de canalización de Jenkins](media/tutorial-jenkins-dev-spaces/jenkins-pipeline-flow.png)
 
-1. Descargue una versión modificada del proyecto *mywebapi* proyecto de https://github.com/azure-devops/mywebapi. Este proyecto contiene varios archivos necesarios para crear una canalización, como *Jenkinsfile*, *Dockerfiles* y el gráfico de Helm.
+1. Descargue una versión modificada del proyecto *mywebapi* de [https://github.com/azure-devops/mywebapi](https://github.com/azure-devops/mywebapi). Este proyecto contiene varios archivos necesarios para crear una canalización, como *Jenkinsfile*, *Dockerfiles* y el gráfico de Helm.
 
 2. Inicie sesión en Jenkins. En el menú de la izquierda, seleccione **Add Item** (Agregar elemento).
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f49c2b445af9acb0761d01b731250e068cb96a36
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 9c598222978a1c831be6f5e9db9eb87b2d6b6b96
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562331"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968646"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con 8x8
 
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a integrar 8x8 con Azure Active Directory (Azure 
 * Permitir que los usuarios inicien sesión automáticamente en 8x8 con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -86,20 +86,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente:
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL: `https://sso.8x8.com/saml2`
 
-    |||
-    |-|-|
-    | `https://sso.8x8.com/saml2`|
-    | `https://sso.8x8pilot.com/saml2`|
-
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con uno de los siguientes patrones:
-
-    |||
-    |-|-|
-    | `https://sso.8x8.com/saml2`|
-    | `https://sso.8x8pilot.com/saml2`|
-
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL: `https://sso.8x8.com/saml2`
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo. Utilizará el certificado más adelante en este tutorial en la sección **Configuración del inicio de sesión único de 8x8**.
 
@@ -151,9 +140,15 @@ La siguiente parte del tutorial depende del tipo de suscripción que tenga de 8x
 
 1. En la página principal, haga clic en **Identity Management** (Administración de identidades).
 
+    ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure1.png)
+
 1. Active **Single Sign On (SSO)** (Inicio de sesión único [SSO]) y, a continuación, seleccione **Microsoft Azure AD**.
 
+    ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure2.png)
+
 1. Copie las tres direcciones URL y el certificado de firma de la página **Configurar inicio de sesión único con SAML** de Azure AD en la sección **Microsoft Azure AD SAML Settings** (Configuración de SAML de Microsoft Azure AD) de Configuration Manager de 8x8.
+
+    ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure3.png)
 
     a. Copie **Dirección URL de inicio de sesión** en **IDP Login URL** (Dirección URL de inicio de sesión de IDP).
 
@@ -171,15 +166,27 @@ La siguiente parte del tutorial depende del tipo de suscripción que tenga de 8x
 
 1. Seleccione el **administrador de cuentas de Virtual Office** en el panel de la aplicación.
 
+    ![Configurar en la aplicación](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
+
 1. Seleccione la cuenta **empresarial** que se va a administrar y haga clic en el botón **Iniciar sesión**.
+
+    ![Configurar en la aplicación](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
 
 1. Haga clic en la pestaña **CUENTAS** en la lista de menús.
 
+    ![Configurar en la aplicación](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
+
 1. Haga clic en **Inicio de sesión único** en la lista de cuentas.
+
+    ![Configurar en la aplicación](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
 
 1. Seleccione **Inicio de sesión único** en los método de autenticación y haga clic en **SAML**.
 
+    ![Configurar en la aplicación](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
+
 1. En la sección **Inicio de sesión único de SAML**, siga estos pasos:
+
+    ![Configurar en la aplicación](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_006.png)
 
     a. En el cuadro de texto **URL de inicio de sesión**, pegue el valor de la **URL de inicio de sesión** que ha copiado de Azure Portal.
 
@@ -205,7 +212,7 @@ Al hacer clic en el icono de 8x8 en el panel de acceso, debería iniciar sesión
 
 - [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

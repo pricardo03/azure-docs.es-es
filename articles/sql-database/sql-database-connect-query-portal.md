@@ -12,18 +12,18 @@ author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 10/24/2019
-ms.openlocfilehash: 3990d7ec63c312d38168fe76269e1a920f1a6817
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b3ccc2a5343cf02127990dca80a1300959fa06a3
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827113"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087171"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Inicio rápido: Uso del Editor de consultas SQL de Azure Portal para conectarse a datos y consultarlos
 
 El Editor de consultas SQL es una herramienta del explorador de Azure Portal que proporciona una manera fácil de ejecutar consultas SQL en su base de datos de Azure SQL o almacenamiento de Azure SQL Data Warehouse. En este inicio rápido, usará el editor de consultas para conectarse a una base de datos SQL y ejecutar instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesita:
 
@@ -42,7 +42,7 @@ Para completar este tutorial, necesita:
 
 ## <a name="sign-in-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="connect-using-sql-authentication"></a>Conexión con la autenticación de SQL
 
@@ -58,7 +58,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
     ![buscar editor de consultas](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
-4. En la página **Inicio de sesión**, en la etiqueta **Autenticación de SQL Server**, escriba el **identificador de usuario** y la **contraseña** de la cuenta de administrador del servidor usada para crear la base de datos. Después seleccione **Aceptar**.
+4. En la página **Inicio de sesión**, en la etiqueta **Autenticación de SQL Server**, escriba el **identificador de usuario** y la **contraseña** de la cuenta de administrador del servidor usada para crear la base de datos. Después, seleccione **Aceptar**.
 
     ![iniciar sesión](./media/sql-database-connect-query-portal/login-menu.png)
 
@@ -86,7 +86,7 @@ La configuración de un administrador de Azure Active Directory (Azure AD) le p
 
 7. En el menú de **SQL Server**, seleccione **Bases de datos SQL** y, después, seleccione la base de datos SQL.
 
-8. En el menú de **Base de datos SQL**, seleccione **Editor de consultas (versión preliminar)** . En la página **Inicio de sesión**, en la etiqueta **Autenticación de Active Directory**, aparece un mensaje que indica que ha iniciado sesión si es un administrador de Azure AD. A continuación, seleccione el botón **Continuar como** *\<su usuario o identificador de grupo*.
+8. En el menú de **Base de datos SQL**, seleccione **Editor de consultas (versión preliminar)** . En la página **Inicio de sesión**, en la etiqueta **Autenticación de Active Directory**, aparece un mensaje que indica que ha iniciado sesión si es un administrador de Azure AD. Seleccione el botón **Continuar como** *\<IdentificadorDeSuUsuariooGrupo>* .
 
 ## <a name="view-data"></a>Visualización de datos
 
@@ -167,6 +167,8 @@ Hay algunos aspectos que debe conocer al trabajar con el Editor de consultas.
 
 * El editor de consultas usa los puertos 443 y 1443 para comunicarse.  Asegúrese de que ha habilitado el tráfico HTTPS saliente en estos puertos. También deberá agregar la dirección IP saliente a las reglas de firewall permitidas del servidor para acceder a las bases de datos y los almacenes de datos.
 
+* El editor de consultas funciona con Private Link sin necesidad de agregar la dirección IP del cliente al firewall de SQL Database
+
 * Al presionar F5, se actualiza la página del Editor de consultas y se perderá cualquier consulta en la que se esté trabajando.
 
 * El editor de consultas no puede conectarse a una base de datos `master`.
@@ -176,6 +178,8 @@ Hay algunos aspectos que debe conocer al trabajar con el Editor de consultas.
 * El Editor de consultas solo admite la proyección cilíndrica de tipos de datos geográficos.
 
 * Las vistas y las tablas de base de datos no son compatibles con IntelliSense. Sin embargo, el editor permite autocompletar los nombres que ya se han escrito.
+
+
 
 
 ## <a name="next-steps"></a>Pasos siguientes

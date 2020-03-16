@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 33333f8df1e4809a330815e34074d1bca556cd14
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: c2a0dde496d6af66387210ca9b2ebf9cb4bdae7f
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561840"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087938"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Tutorial: Conexión, configuración y activación de Azure Data Box Gateway
 
@@ -92,6 +92,11 @@ El panel muestra los distintos valores necesarios para configurar y registrar el
    2. En **Autenticación**, seleccione **No** o **NTLM**.
    3. Si usa la autenticación, especifique el **nombre de usuario** y la **contraseña**.
    4. Para validar y aplicar la configuración del proxy web configurado, seleccione **Aplicar**.
+
+   > [!NOTE]
+   > No se admiten los archivos de configuración automática del proxy (PAC). Los archivos de PAC definen el número de exploradores web y otros agentes de usuario que pueden elegir automáticamente el servidor proxy (método de acceso) adecuado para obtener una dirección URL determinada.
+   > Los servidores proxy que intentan interceptar y leer todo el tráfico (y luego vuelven a firmar todo con su propia certificación) no son compatibles, ya que el certificado del proxy no es de confianza.
+   > Normalmente, los servidores proxy transparentes funcionan bien con Azure Data Box Gateway.
 
 4. (Opcional) En el panel izquierdo, seleccione **Configuración horaria** y, después, configure la zona horaria y los servidores NTP principal y secundario del dispositivo. 
 

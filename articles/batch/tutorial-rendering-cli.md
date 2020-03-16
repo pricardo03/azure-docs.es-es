@@ -6,15 +6,15 @@ author: LauraBrenner
 manager: evansma
 ms.service: batch
 ms.topic: tutorial
-ms.date: 12/11/2018
+ms.date: 03/05/2020
 ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 12205fd04b015ac3cfe32765779808b636f53946
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a415a74af654ef9cf56a37c1fca5ac6632ba4418
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023079"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672975"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: Representación de una escena con Azure Batch 
 
@@ -29,11 +29,11 @@ Azure Batch proporciona funcionalidades de representación para la nube según u
 
 En este tutorial se representa una escena 3DS Max con Batch mediante el representador de seguimiento de rayo [Arnold](https://www.autodesk.com/products/arnold/overview). El grupo de Batch usa una imagen de Azure Marketplace con gráficos preinstalados y las aplicaciones de representación que proporcionan las licencias de pago por uso.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Necesita una suscripción de pago por uso u otra opción de compra de Azure para usar aplicaciones de representación en Batch sobre una base de pago por uso. **Las licencias de pago por uso no se admiten si usa una oferta gratis de Azure que proporciona un crédito monetario.**
 
-La escena de 3DS Max de este tutorial se encuentra en [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), junto con un script de ejemplo de Bash y archivos de configuración JSON. La escena 3DS Max procede de los [archivos de ejemplo de Autodesk 3DS Max](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Los archivos de ejemplo de Autodesk 3DS Max están disponibles con licencias tipo Creative Commons Attribution-NonCommercial-Share. Copyright © Autodesk, Inc.).
+La escena de 3DS Max de este tutorial se encuentra en [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), junto con un script de ejemplo de Bash y archivos de configuración JSON. La escena 3DS Max procede de los [archivos de ejemplo de Autodesk 3DS Max](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Los archivos de ejemplo de Autodesk 3DS Max están disponibles con licencias tipo Creative Commons Attribution-NonCommercial-Share. Copyright &copy; Autodesk, Inc.)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -124,7 +124,7 @@ Cree un grupo de Batch para la representación mediante el comando [az batch poo
       "publisher": "batch",
       "offer": "rendering-windows2016",
       "sku": "rendering",
-      "version": "1.3.2"
+      "version": "1.3.8"
     },
     "nodeAgentSKUId": "batch.node.windows amd64"
   },

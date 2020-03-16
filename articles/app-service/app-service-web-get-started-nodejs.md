@@ -96,7 +96,7 @@ En esta sección, implementará la aplicación de Node.js en Azure con VS Code 
 
 1. Seleccione **Yes** (Sí) cuando aparezca el mensaje **Always deploy the workspace "nodejs-docs-hello-world" to (app name)** (Implementar siempre el área de trabajo "nodejs-docs-hello-world" en [nombre de la aplicación]). Al seleccionar **Yes** (Sí) se indica a VS Code que el destino sea automáticamente la misma aplicación web de App Service en las implementaciones posteriores.
 
-1. Si implementa en Linux, seleccione **Browse Website** (Examinar sitio web) en el mensaje para ver la aplicación web recién implementada una vez finalizado el proceso. El explorador debe mostrar "¡Hola mundo!".
+1. Si implementa en Linux, seleccione **Browse Website** (Examinar sitio web) en el mensaje para ver la aplicación web recién implementada una vez finalizado el proceso. El explorador debe mostrar "¡Hola mundo!"
 
 1. Si implementa en Windows, primero debe establecer el número de versión de Node.js para la aplicación web:
 

@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 02/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 564e8dd8e6d7c4c0e3747469875e030be30b1a9b
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: a875cee7e6796a2c865bde4a62f2f0463eb12130
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77046709"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967725"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Salesforce
 
@@ -180,7 +180,7 @@ En esta sección, va a permitir que B. Simon acceda a Salesforce mediante el in
 
     ![Configurar inicio de sesión único](./media/salesforce-tutorial/xmlchoose.png)
 
-1. En la página **SAML Single Sign-On Settings** (Configuración de inicio de sesión único de SAML), los campos se rellenan automáticamente. Haga clic en Save (Guardar).
+1. En la página **SAML Single Sign-On Settings** (Configuración de inicio de sesión único de SAML), seleccione **User Provisioning Enabled** (Aprovisionamiento de usuarios habilitado) y haga clic en **Save** (Guardar).
 
     ![Configurar inicio de sesión único](./media/salesforce-tutorial/salesforcexml.png)
 

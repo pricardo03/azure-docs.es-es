@@ -3,12 +3,12 @@ title: Introducción al estado de Azure | Microsoft Docs
 description: Una visión global del estado de los servicios de Azure
 ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: 4f4a0bf09c9256362e71466b9545389f4341ef38
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 766e9795b01c4a09916a025cba77744dea235faf
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654161"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898339"
 ---
 # <a name="azure-status-overview"></a>Información general del estado de Azure
 
@@ -26,7 +26,7 @@ La página de estado de Azure se actualiza en tiempo real cuando cambia el estad
 
 Aunque la página de estado de Azure siempre muestra la información de estado más reciente, puede ver los eventos más antiguos desde la [página Historial de estado de Azure](https://status.azure.com/status/history/).
 
-Allí puede ver eventos de hasta 90 días atrás, como una causa principal preliminar, mitigación y pasos siguientes para Azure.
+A partir de los eventos que se publicaron en noviembre de 2019, la página del historial de estado muestra aquellos eventos que hayan tenido lugar hasta 365 días antes, e incluye una causa raíz preliminar, la mitigación y los pasos siguientes de Azure.
 
 ## <a name="rss-feed"></a>Fuente RSS
 

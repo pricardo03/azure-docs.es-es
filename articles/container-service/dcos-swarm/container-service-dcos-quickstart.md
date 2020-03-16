@@ -7,18 +7,18 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9efedd5b619a2a3bd592019fea3ca48b7244ca10
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 6274e24bae2e2a6eade0122fe244652eb29cacf9
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278497"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399227"
 ---
 # <a name="deprecated-deploy-a-dcos-cluster"></a>(EN DESUSO) Implementación de un clúster de DC/OS
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-DC/OS proporciona una plataforma distribuida para ejecutar aplicaciones modernas y en contenedores. Con Azure Container Service, el aprovisionamiento de un clúster de DC/OS listo para producción se realiza de forma rápida y sencilla. En este tutorial de inicio rápido se describen los pasos básicos necesarios para implementar un clúster de DC/OS y ejecutar una carga de trabajo básica.
+DC/OS proporciona una plataforma distribuida para ejecutar aplicaciones modernas y en contenedores. Con Azure Container Service, el aprovisionamiento de un clúster de DC/OS listo para producción se realiza de forma rápida y sencilla. En este inicio rápido se describen los pasos básicos necesarios para implementar un clúster de DC/OS y ejecutar una carga de trabajo básica.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -128,19 +128,19 @@ El mecanismo de programación predeterminado para un clúster de ACS DC/OS es Ma
 
 Ejecute el comando siguiente para programar la aplicación que ejecutar en el clúster de DC/OS.
 
-```azurecli
+```console
 dcos marathon app add marathon-app.json
 ```
 
 Para ver el estado de implementación de la aplicación, ejecute el siguiente comando.
 
-```azurecli
+```console
 dcos marathon app list
 ```
 
 Cuando el valor de la columna **WAITING** cambie de *True* a *False*, se habrá completado la implementación de la aplicación.
 
-```azurecli
+```output
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/1    ---       ---      False      DOCKER   None
 ```
@@ -165,7 +165,7 @@ az group delete --name myResourceGroup --no-wait
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha implementado un clúster de DC/OS y ha ejecutado un contenedor de Docker simple en el clúster. Para más información sobre Azure Container Service, continúe con el tutorial de ACS.
+En este inicio rápido, ha implementado un clúster de DC/OS y ha ejecutado un contenedor de Docker simple en el clúster. Para más información sobre Azure Container Service, continúe con el tutorial de ACS.
 
 > [!div class="nextstepaction"]
 > [Administración de un clúster de ACS DC/OS](container-service-dcos-manage-tutorial.md)

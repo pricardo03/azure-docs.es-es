@@ -18,9 +18,9 @@ ms.locfileid: "78399556"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway-using-azure-powershell"></a>Inicio rápido: Tráfico web directo con Azure Application Gateway mediante Azure PowerShell
 
-En este inicio rápido, usará Azure PowerShell para crear una puerta de enlace de aplicaciones. A continuación, pruébelo para asegurarse de que funciona correctamente. 
+En este inicio rápido, usará Azure PowerShell para crear una puerta de enlace de aplicaciones. Luego, lo probará para asegurarse de que funciona correctamente. 
 
-La puerta de enlace de aplicaciones dirige el tráfico web de la aplicación a recursos específicos de un grupo de back-end. Las escuchas se asignan a los puertos, se crean reglas y se agregan recursos a un grupo de back-end. Para simplificar, en este artículo se usa una configuración sencilla con una dirección IP de front-end pública, una escucha básica para hospedar un único sitio en la puerta de enlace de aplicaciones, una regla de enrutamiento de solicitudes básica y dos máquinas virtuales que se usan con el grupo de back-end.
+La puerta de enlace de aplicaciones dirige el tráfico web de la aplicación a recursos específicos de un grupo de back-end. Se asignan escuchas a los puertos, se crean reglas y se agregan recursos a un grupo de back-end. Para simplificar, en este artículo se usa una configuración sencilla con una dirección IP de front-end pública, una escucha básica que hospede un único sitio en la puerta de enlace de aplicaciones, una regla de enrutamiento de solicitudes básica y dos máquinas virtuales que se usan con el grupo de back-end.
 
 También puede completar este inicio rápido con la [CLI de Azure](quick-create-cli.md) o con [Azure Portal](quick-create-portal.md).
 
@@ -238,7 +238,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no necesite los recursos que ha creado con la puerta de enlace de aplicaciones, elimine el grupo de recursos. Cuando elimine el grupo de recursos, también elimina la puerta de enlace de aplicaciones y todos sus recursos relacionados. 
+Cuando ya no necesite los recursos que ha creado con la puerta de enlace de aplicaciones, elimine el grupo de recursos. Al hacerlo, también elimina la puerta de enlace de aplicaciones y todos sus recursos relacionados. 
 
 Para eliminar el grupo de recursos, llame al cmdlet `Remove-AzResourceGroup`:
 

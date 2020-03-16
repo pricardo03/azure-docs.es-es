@@ -9,12 +9,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: 948dfd25881a6a90dd441ad640091d88812cc298
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 711e15986265324bbb353fb2b4404cbfeb48dc84
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931828"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851436"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Inicio rápido: Enviar telemetría desde un dispositivo a IoT Hub y supervisarlo con la CLI de Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "73931828"
 
 IoT Hub es un servicio de Azure que le permite ingerir grandes volúmenes de datos de telemetría desde los dispositivos IoT en la nube para su almacenamiento o procesamiento. En esta guía de inicio rápido, usará la CLI de Azure para crear un IoT Hub y un dispositivo simulado, enviar telemetría de dispositivo al centro y enviar un mensaje de nube a dispositivo. También puede usar el Azure Portal para visualizar las métricas del dispositivo. Se trata de un flujo de trabajo básico para desarrolladores que usan la CLI para interactuar con una aplicación IoT Hub.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 - Si no tiene una suscripción de Azure, [cree una gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de comenzar.
 - CLI de Azure. Puede ejecutar todos los comandos de esta guía de inicio rápido mediante el Azure Cloud Shell, un shell interactivo de la CLI que se ejecuta en el explorador. Si usa el Cloud Shell, no necesita instalar nada. Si prefiere usar la CLI de forma local, esta guía de inicio rápido requiere CLI de Azure versión 2.0.76 o posterior. Para saber qué versión tiene, ejecute el comando az --version. Para la instalación o la actualización, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
@@ -35,6 +35,7 @@ Independientemente de si ejecuta la CLI localmente o en el Cloud Shell, mantenga
 En esta sección, se inicia una instancia de la Azure Cloud Shell. Si usa la CLI localmente, vaya a la sección [Preparar dos sesiones de la CLI](#prepare-two-cli-sessions).
 
 Para iniciar el Cloud Shell:
+
 1. Seleccione el botón **Cloud Shell** en la barra de menú de la parte superior derecha del Azure Portal. 
 
     ![Azure Portal botón Cloud Shell](media/quickstart-send-telemetry-cli/cloud-shell-button.png)
@@ -42,25 +43,30 @@ Para iniciar el Cloud Shell:
     > [!NOTE]
     > Si es la primera vez que usa el Cloud Shell, le pedirá que cree el almacenamiento, que es necesario para usar el Cloud Shell.  Seleccione una suscripción para crear una cuenta de almacenamiento y un recurso compartido de Microsoft Azure Files. 
 
-1. Seleccione el entorno de CLI preferido en la lista desplegable **Seleccionar entorno**. Esta guía de inicio rápido usa el entorno de **Bash**. Todos los siguientes comandos de la CLI funcionan también en el entorno de PowerShell. 
+2. Seleccione el entorno de CLI preferido en la lista desplegable **Seleccionar entorno**. Esta guía de inicio rápido usa el entorno de **Bash**. Todos los siguientes comandos de la CLI funcionan también en el entorno de PowerShell. 
 
     ![Seleccionar el entorno de CLI](media/quickstart-send-telemetry-cli/cloud-shell-environment.png)
 
 ## <a name="prepare-two-cli-sessions"></a>Preparación de dos sesiones de la CLI
+
 En esta sección, va a preparar dos sesiones CLI de Azure. Si utiliza el Cloud Shell, ejecutará las dos sesiones en pestañas del explorador independientes. Si usa un cliente de la CLI local, ejecutará dos instancias independientes de la CLI. Usará la primera sesión como un dispositivo simulado y la segunda sesión para supervisar y enviar mensajes. Para ejecutar un comando, seleccione **Copiar** para copiar un bloque de código en esta guía de inicio rápido, péguelo en la sesión de shell y ejecútelo.
 
 CLI de Azure requiere que haya iniciado sesión en su cuenta de Azure. Todas las comunicaciones entre la sesión de Shell de CLI de Azure y el centro de IoT se autentican y cifran. Como resultado, esta guía de inicio rápido no necesita autenticación adicional que se usaría con un dispositivo real, como una cadena de conexión.
 
-1. Ejecute el comando [az extension add](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add) para agregar la extensión Microsoft Azure IoT para CLI de Azure al shell de la CLI. La extensión IOT agrega comandos específicos de IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) a la CLI de Azure.
+*  Ejecute el comando [az extension add](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add) para agregar la extensión Microsoft Azure IoT para CLI de Azure al shell de la CLI. La extensión IOT agrega comandos específicos de IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) a la CLI de Azure.
 
    ```azurecli
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    ```
-    Después de instalar la extensión de Azure IOT, no es necesario volver a instalarla en ninguna sesión Cloud Shell. 
+   
+   Después de instalar la extensión de Azure IOT, no es necesario volver a instalarla en ninguna sesión Cloud Shell. 
 
-1. Abra una segunda sesión de CLI.  Si utiliza el Cloud Shell, seleccione **Abrir nueva sesión**. Si usa la CLI localmente, abra una segunda instancia. 
+   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-    ![Abrir nueva sesión de Cloud Shell](media/quickstart-send-telemetry-cli/cloud-shell-new-session.png)
+*  Abra una segunda sesión de CLI.  Si utiliza el Cloud Shell, seleccione **Abrir nueva sesión**. Si usa la CLI localmente, abra una segunda instancia. 
+
+    >[!div class="mx-imgBorder"]
+    >![Abrir nueva sesión de Cloud Shell](media/quickstart-send-telemetry-cli/cloud-shell-new-session.png)
 
 ## <a name="create-an-iot-hub"></a>Creación de un IoT Hub
 En esta sección, usará la CLI de Azure para crear un grupo de recursos y un IoT Hub.  Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Una IoT Hub actúa como centro de mensajes central para la comunicación bidireccional entre la aplicación de IoT y los dispositivos. 

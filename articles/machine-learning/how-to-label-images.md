@@ -7,12 +7,12 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 1e27fca86613757c36ac664e2e449cabed68d550
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 6d0a9bf172039adcaa756660d38acc1547e91b49
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772455"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898697"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Etiquetado de imágenes en un proyecto de etiquetado
 
@@ -23,7 +23,7 @@ Después de que el administrador del proyecto [cree un proyecto de etiquetado](h
 > * Herramientas de etiquetado
 > * Cómo usar las herramientas para tareas específicas de etiquetado
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * La dirección URL del portal de etiquetado para un proyecto de etiquetado de datos en ejecución
 * Una [cuenta Microsoft](https://account.microsoft.com/account) o una cuenta de Azure Active Directory para la organización y el proyecto
@@ -58,6 +58,16 @@ Azure habilita el botón **Enviar** una vez etiquetadas todas las imágenes de l
 
 Una vez que haya enviado etiquetas para los datos con los que está trabajando, Azure actualizará la página con un nuevo conjunto de imágenes de la cola de trabajo.
 
+### <a name="assisted-machine-learning"></a>Aprendizaje automático asistido 
+
+En una tarea de clasificación con varias clases o varias etiquetas se pueden desencadenar algoritmos de aprendizaje automático. Si estos algoritmos se han habilitado en su proyecto, puede ver lo siguiente:
+
+* Después de que se haya habilitado una cierta cantidad de imágenes, puede ver el mensaje **Tasks clustered** (Tareas agrupadas) en la parte superior de la pantalla al lado del nombre del proyecto,  lo cual significa que las imágenes se agrupan para mostrar las imágenes que sean similares en la misma página.  En ese caso, cambie a una de las distintas vistas de las imágenes para aprovechar la agrupación.  
+
+* Más adelante puede ver **Tasks prelabeled** (Tareas preetiquetadas) junto al nombre del proyecto.  Luego aparecerán imágenes con una etiqueta sugerida que proviene de un modelo de clasificación de aprendizaje automático. Ninguno de los modelos de Machine Learning tiene una precisión del 100 %. Aunque solo usamos imágenes para las que el modelo sea seguro, existe la posibilidad de que estas etiquetas no estén preetiquetadas correctamente.  Cuando vea estas etiquetas, corrija las incorrectas antes de enviar la página.  
+
+En las primeras fases de un proyecto de etiquetado, es posible que el modelo de Machine Learning sea suficientemente preciso para preetiquetar un pequeño subconjunto de imágenes. Una vez que se etiqueten estas imágenes, el proyecto de etiquetado volverá al etiquetado manual para recopilar más datos para la siguiente ronda del entrenamiento del modelo. Con el paso del tiempo, el modelo pasará a ser más seguro en una mayor proporción de imágenes, lo cual dará como resultado posteriormente un mayor número de tareas preetiquetadas en el proyecto.
+
 ## <a name="tag-images-for-multi-class-classification"></a>Etiquetado de imágenes para la clasificación en varias clases
 
 Si su proyecto es del tipo "multiclase de clasificación de imágenes", asignará una sola etiqueta a toda la imagen. Para revisar las instrucciones en cualquier momento, vaya a la página **Instructions** (Instrucciones) y seleccione **View detailed instructions** (Ver instrucciones detalladas).
@@ -81,6 +91,7 @@ Para corregir un error, haga clic en "**X**" para borrar etiquetas individuales,
 ![Una captura de pantalla muestra la anulación de varias selecciones](./media/how-to-label-images/multiple-deselection.png)
 
 Azure solo habilitará el botón **Enviar** cuando haya aplicado al menos una etiqueta a cada imagen. Seleccione **Submit** (Enviar) para guardar el trabajo.
+
 
 ## <a name="tag-images-and-specify-bounding-boxes-for-object-detection"></a>Etiquetado de imágenes y especificación de rectángulos de selección para la detección de objetos
 

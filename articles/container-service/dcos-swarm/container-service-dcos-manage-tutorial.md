@@ -7,18 +7,18 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1c9b3bfdbe7aff203efa6b36f0e40cb65aba1175
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 4212277dbdf29705152832f3830692b43b8d1297
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278352"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402816"
 ---
 # <a name="deprecated-azure-container-service-tutorial---manage-dcos"></a>(EN DESUSO) Tutorial de Azure Container Service - Administrar DC/OS
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-DC/OS proporciona una plataforma distribuida para ejecutar aplicaciones modernas y en contenedores. Con Azure Container Service, el aprovisionamiento de un clúster de DC/OS listo para producción se realiza de forma rápida y sencilla. En esta guía de inicio rápido se describen los pasos básicos necesarios para implementar un clúster de DC/OS y ejecutar una carga de trabajo básica.
+DC/OS proporciona una plataforma distribuida para ejecutar aplicaciones modernas y en contenedores. Con Azure Container Service, el aprovisionamiento de un clúster de DC/OS listo para producción se realiza de forma rápida y sencilla. En este inicio rápido se describen los pasos básicos necesarios para implementar un clúster de DC/OS y ejecutar una carga de trabajo básica.
 
 > [!div class="checklist"]
 > * Creación de un clúster de ACS DC/OS
@@ -66,7 +66,7 @@ ip=$(az network public-ip list --resource-group myResourceGroup --query "[?conta
 
 Para crear el túnel SSH, ejecute el siguiente comando y siga las instrucciones en pantalla. Si el puerto 80 ya está en uso, se produce un error en el comando. Actualice el puerto de túnel a uno que no esté en uso, como `85:localhost:80`. 
 
-```azurecli
+```console
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 ```
 
@@ -80,7 +80,7 @@ az acs dcos install-cli
 
 Antes de usar la CLI con el clúster, debe configurarse para usar el túnel SSH. Para ello, ejecute el comando siguiente, ajustando el puerto si es necesario.
 
-```azurecli
+```console
 dcos config set core.dcos_url http://localhost
 ```
 
@@ -116,19 +116,19 @@ El mecanismo de programación predeterminado para un clúster de ACS DC/OS es Ma
 
 Ejecute el comando siguiente para programar la aplicación que ejecutar en el clúster de DC/OS.
 
-```azurecli
+```console
 dcos marathon app add marathon-app.json
 ```
 
 Para ver el estado de implementación de la aplicación, ejecute el siguiente comando.
 
-```azurecli
+```console
 dcos marathon app list
 ```
 
 Cuando el valor de la columna **TASKS** cambie de *0/1* a *1/1*, se habrá completado la implementación de la aplicación.
 
-```azurecli
+```output
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     0/1    ---       ---      False      DOCKER   None
 ```
@@ -165,19 +165,19 @@ En el ejemplo anterior, se creó una aplicación de instancia única. Para actua
 
 Actualice la aplicación mediante el comando `dcos marathon app update`.
 
-```azurecli
+```console
 dcos marathon app update demo-app-private < marathon-app.json
 ```
 
 Para ver el estado de implementación de la aplicación, ejecute el siguiente comando.
 
-```azurecli
+```console
 dcos marathon app list
 ```
 
 Cuando el valor de la columna **TASKS** cambie de *1/3* a *3/1*, se habrá completado la implementación de la aplicación.
 
-```azurecli
+```output
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/3    ---       ---      False      DOCKER   None
 ```
@@ -222,13 +222,13 @@ Cree un archivo denominado **nginx-public.json** y copie en él el contenido sig
 
 Ejecute el comando siguiente para programar la aplicación que ejecutar en el clúster de DC/OS.
 
-```azurecli 
+```console
 dcos marathon app add nginx-public.json
 ```
 
 Obtenga la dirección IP pública de los agentes de clúster públicos de DC/OS.
 
-```azurecli 
+```azurecli
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
 ```
 
@@ -256,7 +256,7 @@ az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-c
 
 Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/group#az-group-delete) para quitar el grupo de recursos, el clúster de DC/OS y todos los recursos relacionados.
 
-```azurecli 
+```azurecli
 az group delete --name myResourceGroup --no-wait
 ```
 

@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 12/19/2019
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 93ee5df4327aa396573665cd0c2cbd8222015cce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e0df0773daf8f9be21ac70d8390013adfd93483a
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448896"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402676"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutorial: Detección de anomalías en datos transmitidos con Azure Databricks
 
@@ -40,14 +40,12 @@ En este tutorial se describen las tareas siguientes:
 > * Ejecución de la detección de anomalías en tweets
 
 > [!Note]
-> En este tutorial se presenta un enfoque para implementar la [arquitectura de la solución](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) recomendada para API Anomaly Detector.
+> * En este tutorial se presenta un enfoque para implementar la [arquitectura de la solución](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) recomendada para API Anomaly Detector.
+> * Este tutorial no se puede completar con una evaluación gratuita de Anomaly Detector API o Azure Databricks. 
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+Cree una [suscripción a Azure](https://azure.microsoft.com/free/), en caso de que no tenga.
 
-> [!Note]
-> El tutorial no se puede completar con una clave de evaluación gratuita de API Anomaly Detector. Para usar una cuenta gratuita para crear el clúster de Azure Databricks, antes de crear el clúster, vaya a su perfil y cambie su suscripción a **pago por uso**. Para más información consulte el sitio de [cuentas gratuitas de Azure](https://azure.microsoft.com/free/).
-
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Un [espacio de nombres de Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) y un centro de eventos.
 

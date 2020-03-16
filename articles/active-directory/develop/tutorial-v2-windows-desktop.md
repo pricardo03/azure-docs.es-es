@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1864b4867b8e1367a2397c5ed2ed9a77001dadb4
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 422251da25ae0ef911eb723bb0342a84fe99559c
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701202"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129930"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Llamada a Microsoft Graph API desde una aplicación de escritorio de Windows
 
@@ -30,6 +30,9 @@ Cuando haya completado la guía, la aplicación podrá llamar a una API protegid
 
 > [!NOTE]
 > Esta guía requiere Visual Studio 2015 Update 3, Visual Studio 2017 o Visual Studio 2019. ¿No tiene ninguna de estas versiones? [Descargue Visual Studio 2019 de manera gratuita](https://www.visualstudio.com/downloads/).
+
+>[!NOTE]
+> Si es la primera vez que usa la plataforma de identidad de Microsoft, es aconsejable que comience con [Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de escritorio de Windows](quickstart-v2-windows-desktop.md).
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Funcionamiento de la aplicación de ejemplo generada por esta guía
 

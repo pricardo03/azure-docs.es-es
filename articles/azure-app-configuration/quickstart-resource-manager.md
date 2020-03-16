@@ -6,19 +6,23 @@ ms.author: lcozzens
 ms.date: 03/05/2020
 ms.topic: quickstart
 ms.service: azure-app-configuration
-ms.custom: mvc
-ms.openlocfilehash: 7c6f4b2ea9494c004067a8b19df2c2f098ac2b7f
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.custom:
+- mvc
+- subject-armqs
+ms.openlocfilehash: c45f6855c33dff2790ced306fd7f049b98dd1387
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78274514"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126385"
 ---
-# <a name="quickstart-automated-vm-deployment-with-app-configuration"></a>Inicio rápido: Implementación automatizada de máquina virtual con App Configuration
+# <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template"></a>Inicio rápido: Implementación automatizada de máquina virtual con App Configuration y la plantilla de Resource Manager
 
 El módulo de Azure PowerShell se usa para crear y administrar recursos de Azure mediante cmdlets o scripts de PowerShell. Este inicio rápido le muestra cómo usar Azure PowerShell y las plantillas de Azure Resource Manager para implementar un almacén de Azure App Configuration. Acto seguido, aprenderá a usar los valores de clave en el almacén para implementar una máquina virtual.
 
 Use la plantilla de requisitos previos para crear un almacén de App Configuration y después agregue valores de clave en el almacén mediante Azure Portal o la CLI de Azure. La plantilla principal hace referencia a las configuraciones de clave-valor existentes de un almacén de configuración existente. Los valores recuperados se usan para establecer las propiedades de los recursos creados por la plantilla, como una máquina virtual en este ejemplo.
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -85,7 +89,7 @@ Antes de poder aplicar valores clave a la máquina virtual, tiene que tener ya u
       },
       "skuName": {
         "type": "string",
-        "defaultValue": "free",
+        "defaultValue": "standard",
         "metadata": {
           "description": "Specifies the SKU of the app configuration store."
         }
@@ -332,7 +336,7 @@ Ahora que ha agregado pares clave-valor al almacén, ya está preparado para imp
                     "imageReference": {
                         "publisher": "MicrosoftWindowsServer",
                         "offer": "WindowsServer",
-                        "sku": "[listKeyValue(variables('appConfigRef'), '2019-02-01-preview', variables('windowsOSVersionParameters')).value]",
+                        "sku": "[listKeyValue(variables('appConfigRef'), '2019-10-01', variables('windowsOSVersionParameters')).value]",
                         "version": "latest"
                     },
                     "osDisk": {
@@ -340,7 +344,7 @@ Ahora que ha agregado pares clave-valor al almacén, ya está preparado para imp
                     },
                     "dataDisks": [
                         {
-                            "diskSizeGB": "[listKeyValue(variables('appConfigRef'), '2019-02-01-preview', variables('diskSizeGBParameters')).value]",
+                            "diskSizeGB": "[listKeyValue(variables('appConfigRef'), '2019-10-01', variables('diskSizeGBParameters')).value]",
                             "lun": 0,
                             "createOption": "Empty"
                         }

@@ -8,20 +8,20 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 98ea00eb4d45ad045e1da3c4c5680f44e6705432
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: f463e8883efd5e2dfc4d7fff80912c193665b850
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78300985"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399805"
 ---
-# <a name="what-is-azure-stack-edge"></a>¿Qué es Azure Stack Edge? 
+# <a name="what-is-azure-stack-edge"></a>¿Qué es Azure Stack Edge?
 
 [!INCLUDE [data-box-edge-gateway-rename-note](../../includes/data-box-edge-gateway-rename-note.md)]
 
-Azure Stack Edge es un dispositivo informático perimetral habilitado para la inteligencia artificial que cuenta con funcionalidades de transferencia de datos de red. En este artículo se proporciona información general acerca de la solución de Azure Stack Edge, sus ventajas, sus funcionalidades clave y los escenarios donde puede implementar este dispositivo. 
+Azure Stack Edge es un dispositivo informático perimetral habilitado para la inteligencia artificial que cuenta con funcionalidades de transferencia de datos de red. En este artículo se proporciona información general acerca de la solución de Azure Stack Edge, sus ventajas, sus funcionalidades clave y los escenarios donde puede implementar este dispositivo.
 
-Azure Stack Edge es una solución de hardware como servicio. Microsoft le envía un dispositivo administrado en la nube con una matriz de puertas programables (FPGA) que permite la inferencia acelerada de IA y tiene todas las funcionalidades de una puerta de enlace de almacenamiento de red. 
+Azure Stack Edge es una solución de hardware como servicio. Microsoft le envía un dispositivo administrado en la nube con una matriz de puertas programables (FPGA) que permite la inferencia acelerada de IA y tiene todas las funcionalidades de una puerta de enlace de almacenamiento de red.
 
 ## <a name="use-cases"></a>Casos de uso
 
@@ -38,7 +38,6 @@ Estos son los distintos escenarios en los que se puede usar Azure Stack Edge par
 
 - **Transferir datos a través de la red a Azure**: use Azure Stack Edge para transferir datos a Azure de forma rápida y sencilla para poder realizar más procesos y análisis o para fines de archivado. 
 
-
 ## <a name="key-capabilities"></a>Principales capacidades
 
 Azure Stack Edge tiene las siguientes funcionalidades:
@@ -51,17 +50,17 @@ Azure Stack Edge tiene las siguientes funcionalidades:
 |Acceso a datos     | Ofrece acceso directo a los datos de Azure Storage Blob y Azure Files mediante las API en la nube para un procesamiento de datos adicional en la nube. La memoria caché local del dispositivo se usa para agilizar el acceso a los archivos usados más recientemente.|
 |Administración en la nube     |El dispositivo y el servicio se administran con Azure Portal.  |
 |Carga sin conexión     | El modo sin conexión es compatible con escenarios de carga sin conexión.|
-|Protocolos admitidos     | Compatibilidad con los protocolos estándar SMB y NFS para la ingesta de datos. <br> Para más información sobre las versiones compatibles, vaya a [Requisitos del sistema de Azure Stack Edge](data-box-edge-system-requirements.md).|
+|Protocolos admitidos     | Compatibilidad con los protocolos estándar SMB y NFS para la ingesta de datos. <br> Para más información sobre las versiones compatibles, consulte [Requisitos del sistema de Azure Stack Edge](data-box-edge-system-requirements.md).|
 |Actualización de datos     | Capacidad para actualizar los archivos locales con la versión más reciente de la nube.|
 |Cifrado    | Compatibilidad con BitLocker para, localmente, cifrar los datos y proteger las transferencias de datos hacia la nube a través de *https*.|
 |Limitación de ancho de banda| Limite el uso de ancho de banda durante las horas punta.|
-
+|ExpressRoute | Mayor seguridad a través de ExpressRoute. Use la configuración de emparejamiento en la que el tráfico de los dispositivos locales a los puntos de conexión de almacenamiento en la nube viaja a través de ExpressRoute. Para más información, consulte [Información general sobre ExpressRoute](../expressroute/expressroute-introduction.md).
 
 ## <a name="components"></a>Componentes
 
 La solución Azure Stack Edge consta de un recurso Azure Stack Edge, un dispositivo físico Azure Stack Edge y una interfaz de usuario web local.
 
-* **Dispositivo físico Azure Stack Edge**: un servidor de montaje en bastidor 1U proporcionado por Microsoft que se puede configurar para enviar datos a Azure. 
+* **Dispositivo físico Azure Stack Edge**: un servidor de montaje en bastidor 1U proporcionado por Microsoft que se puede configurar para enviar datos a Azure.
     
 * **Recurso Azure Stack Edge**: es un recurso de Azure Portal que le permite administrar un dispositivo Azure Stack Edge desde una interfaz web a la cual puede acceder desde diferentes ubicaciones geográficas. Use el recurso Azure Stack Edge para crear y administrar recursos, ver y administrar dispositivos y alertas y administrar recursos compartidos.  
 
@@ -75,22 +74,16 @@ La solución Azure Stack Edge consta de un recurso Azure Stack Edge, un disposit
 
     Para más información acerca de cómo usar la interfaz de usuario basada en web, consulte [Uso de la interfaz de usuario web para administrar Azure Stack Edge](data-box-edge-manage-access-power-connectivity-mode.md).
 
-
 ## <a name="region-availability"></a>Disponibilidad en regiones
 
 El dispositivo físico Azure Stack Edge, el recurso de Azure y la cuenta de almacenamiento de destino a la que transferirá los datos no tienen que estar en la misma región.
 
 - **Disponibilidad de recursos**: para ver una lista de todas las regiones en las que está disponible el recurso de Azure Stack Edge, consulte [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Azure Stack Edge también se puede implementar en la nube de Azure Government. Para más información, consulte [¿Qué es Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
     
-- **Cuentas de almacenamiento de destino**: las cuentas de almacenamiento que almacenan los datos están disponibles en todas las regiones de Azure. Las regiones en las que las cuentas de almacenamiento almacenan los datos de Azure Stack Edge deben estar ubicadas cerca de la ubicación del dispositivo para un rendimiento óptimo. Una cuenta de almacenamiento que se encuentra lejos del dispositivo causa latencias largas y un rendimiento más lento. 
-
+- **Cuentas de almacenamiento de destino**: las cuentas de almacenamiento que almacenan los datos están disponibles en todas las regiones de Azure. Las regiones en las que las cuentas de almacenamiento almacenan los datos de Azure Stack Edge deben estar ubicadas cerca de la ubicación del dispositivo para un rendimiento óptimo. Una cuenta de almacenamiento que se encuentra lejos del dispositivo causa latencias largas y un rendimiento más lento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Revise [los requisitos del sistema de Azure Stack Edge](data-box-edge-system-requirements.md).
 - Consulte los [límites de Azure Stack Edge](data-box-edge-limits.md).
 - Implemente [Azure Stack Edge](data-box-edge-deploy-prep.md) en Azure Portal.
-
-
-
-

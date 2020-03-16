@@ -1,6 +1,6 @@
 ---
 title: Copia de datos de Azure Blob Storage a SQL con la herramienta Copiar datos
-description: Cree una factoría de datos de Azure y, luego, use la herramienta Copy Data para copiar datos de Azure Blob Storage a Azure SQL Database.
+description: Creación de una instancia de Azure Data Factory y uso de la herramienta Copy Data para copiar datos de Azure Blob Storage a Azure SQL Database.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,15 +11,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 09/11/2018
-ms.openlocfilehash: 6335fce717772e268f711c2e6e5050fa8c17d573
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 03/03/2020
+ms.openlocfilehash: 52ed43277eef84de826d2f4fa41ba860211a1531
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977333"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969877"
 ---
-# <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copia de datos de Azure Blob Storage a SQL Database mediante la herramienta Copy Data
+# <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copia de datos de Azure Blob Storage a SQL Database con la herramienta Copy Data
 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -36,21 +36,22 @@ En este tutorial, realizará los siguientes pasos:
 > * Uso de la herramienta Copy Data para crear una canalización.
 > * Supervisión de las ejecuciones de canalización y actividad.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-* **Cuenta de Azure Storage**: use Blob Storage como almacén de datos de _origen_. Si no dispone de una cuenta de almacenamiento de Azure, consulte las instrucciones de [Creación de una cuenta de almacenamiento](../storage/common/storage-account-create.md).
-* **Azure SQL Database**: usa una base de datos SQL como almacén de datos _receptor_. Si no tiene una base de datos SQL, consulte las instrucciones de [Creación de una instancia de Azure SQL Database](../sql-database/sql-database-get-started-portal.md).
+* **Cuenta de Azure Storage**: use Blob Storage como almacén de datos de _origen_. Si no dispone de una cuenta de Azure Storage, consulte las instrucciones de [Creación de una cuenta de Azure Storage](../storage/common/storage-account-create.md).
+* **Azure SQL Database**: use una instancia de SQL Database como almacén de datos _receptor_. Si no tiene una instancia de SQL Database, consulte las instrucciones de [Creación de una instancia de Azure SQL Database](../sql-database/sql-database-get-started-portal.md).
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Creación de un blob y una tabla SQL
 
-Prepare su almacenamiento de blobs y su base de datos SQL para el tutorial mediante los pasos siguientes.
+Prepare su instancia de Blob Storage y su instancia de SQL Storage para el tutorial mediante los pasos siguientes.
 
 #### <a name="create-a-source-blob"></a>Creación de un blob de origen
 
 1. Inicie el **Bloc de notas**. Copie el texto siguiente y guárdelo en un archivo llamado **inputEmp.txt** en el disco:
 
     ```
+    FirstName|LastName
     John|Doe
     Jane|Doe
     ```
@@ -59,7 +60,7 @@ Prepare su almacenamiento de blobs y su base de datos SQL para el tutorial media
 
 #### <a name="create-a-sink-sql-table"></a>Creación de una tabla SQL receptora
 
-1. Use el siguiente script de SQL para crear una tabla llamada **dbo.emp** en la base de datos SQL:
+1. Use el siguiente script de SQL para crear una tabla llamada **dbo.emp** en la instancia de SQL Database:
 
     ```sql
     CREATE TABLE dbo.emp
@@ -73,7 +74,7 @@ Prepare su almacenamiento de blobs y su base de datos SQL para el tutorial media
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Permita que los servicios de Azure accedan a SQL Server. Compruebe que la configuración **Permitir el acceso a servicios de Azure** está habilitado para el servidor que ejecuta SQL Database. Esta configuración permite que Data Factory escriba datos en su instancia de base de datos. Para verificar y activar esta configuración, vaya a Azure SQL Server > Información general > Establecer el firewall del servidor > establezca la opción **Permitir el acceso a servicios de Azure** en **Activada**.
+2. Permita que los servicios de Azure accedan a SQL Server. Compruebe que el valor **Permitir que los servicios y recursos de Azure accedan a este servidor** está habilitado para el servidor que ejecuta SQL Database. Esta configuración permite que Data Factory escriba datos en su instancia de base de datos. Para verificar y activar esta configuración, vaya a Azure SQL Server > Seguridad > Firewalls y redes virtuales, y establezca la opción **Permitir que los servicios y recursos de Azure accedan a este servidor** en **Activada**.
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
@@ -111,6 +112,7 @@ Prepare su almacenamiento de blobs y su base de datos SQL para el tutorial media
 
     ![Icono de la herramienta Copy Data](./media/doc-common-process/get-started-page.png)
 1. En la página **Properties** (Propiedades), en **Task name** (Nombre de la tarea), escriba **CopyFromBlobToSqlPipeline**. Luego, seleccione **Siguiente**. La interfaz de usuario de Data Factory crea una canalización con el nombre de la tarea especificado.
+    ![Crear una canalización](./media/tutorial-copy-data-tool/create-pipeline.png)
 
 1. En la página **Almacén de datos de origen**, realice los pasos siguientes:
 
@@ -118,7 +120,7 @@ Prepare su almacenamiento de blobs y su base de datos SQL para el tutorial media
 
     b. Seleccione **Azure Blob Storage** en la galería y, a continuación, seleccione **Continue** (Continuar).
 
-    c. En la página **Nuevo servicio vinculado**, seleccione la cuenta de almacenamiento de la lista **Nombre de la cuenta de almacenamiento** y, finalmente, seleccione **Finalizar**.
+    c. En la página **New Linked Service** (Nuevo servicio vinculado), seleccione la suscripción de Azure y, luego, la cuenta de almacenamiento de la lista **Storage account name** (Nombre de la cuenta de almacenamiento). Pruebe la conexión y, después, seleccione **Create** (Crear).
 
     d. Seleccione el servicio vinculado recién creado como origen y, a continuación, haga clic en **Siguiente**.
 
@@ -130,7 +132,7 @@ Prepare su almacenamiento de blobs y su base de datos SQL para el tutorial media
 
     b. Haga clic en **Siguiente** para ir al siguiente paso.
 
-1. En la página **File format settings** (Configuración de formato de archivo), observe que la herramienta detecta automáticamente los delimitadores de columna y fila. Seleccione **Next** (Siguiente). También puede obtener una vista previa de los datos y ver el esquema de los datos de entrada en esta página.
+1. En la página **File format settings** (Configuración del formato de archivo), active la casilla para *First row as header* (Primera fila como encabezado). Observe que la herramienta detecta automáticamente los delimitadores de columna y fila. Seleccione **Next** (Siguiente). También puede obtener una vista previa de los datos y ver el esquema de los datos de entrada en esta página.
 
     ![Configuración del formato de archivo](./media/tutorial-copy-data-tool/file-format-settings-page.png)
 1. En la página **Almacén de datos de destino**, realice los pasos siguientes:
@@ -139,36 +141,41 @@ Prepare su almacenamiento de blobs y su base de datos SQL para el tutorial media
 
     b. Seleccione **Azure SQL Database** en la galería y, luego, elija **Continuar**.
 
-    c. En la página **Nuevo servicio vinculado** seleccione el nombre del servidor y el de la base de datos de la lista desplegable y especifique el nombre de usuario y la contraseña, y, después, seleccione **Finalizar**.
+    c. En la página **New Linked Service** (Nuevo servicio vinculado), seleccione el nombre del servidor y el de la base de datos en la lista desplegable, y especifique el nombre de usuario y la contraseña y, después, seleccione **Create** (Crear).
 
     ![Configurar Azure SQL DB](./media/tutorial-copy-data-tool/config-azure-sql-db.png)
 
     d. Seleccione el servicio vinculado recién creado como receptor y, a continuación, haga clic en **Siguiente**.
 
-    ![Seleccione el servicio vinculado de receptor](./media/tutorial-copy-data-tool/select-sink-linked-service.png)
-
 1. En la página **Table mapping** (Asignación de tabla), seleccione la tabla **[dbo].[ emp]** y, a continuación, seleccione **Next** (Siguiente).
 
-1. En la página **Schema mapping** (Asignación de esquema), observe que las columnas primera y segunda del archivo de entrada se asignan a las columnas **FirstName** y **LastName** de la tabla **emp**. Seleccione **Next** (Siguiente).
+1. En la página **Column mapping** (Asignación de columnas), observe que las columnas segunda y tercera del archivo de entrada se asignan a las columnas **FirstName** y **LastName** de la tabla **emp**. Ajuste la asignación para asegurarse de que no haya ningún error y, después, seleccione **Next** (Siguiente).
 
-    ![Página Schema mapping (Asignación de esquema)](./media/tutorial-copy-data-tool/schema-mapping.png)
+    ![Página de asignación de columnas](./media/tutorial-copy-data-tool/column-mapping.png)
+
 1. En la página **Settings** (Configuración), seleccione **Next** (Siguiente).
 1. En la página **Summary** (Resumen), revise la configuración y seleccione **Next** (Siguiente).
 1. En la página **Deployment** (Implementación), seleccione **Monitor** (Supervisión) para supervisar la canalización (tarea).
-1. Observe que la pestaña **Monitor** (Supervisión) de la izquierda se selecciona automáticamente. La columna **Actions** (Acciones) incluye los vínculos para ver los detalles de la ejecución de actividad y volver a ejecutar la canalización. Seleccione **Refresh** (Actualizar) para actualizar la lista.
+ 
+    ![Supervisión de la canalización](./media/tutorial-copy-data-tool/monitor-pipeline.png)
 
-1. Para ver las ejecuciones de actividad asociadas con la ejecución de canalización, seleccione el vínculo **View Activity Runs** (Ver ejecuciones de actividad) en la columna **Actions** (Acciones). Para ver detalles sobre la operación de copia, seleccione el vínculo **Details** (Detalles) (icono de gafas) en la columna **Actions** (Acciones). Para volver a la vista Pipeline Runs (Ejecuciones de canalización), seleccione el vínculo **Pipelines** (Canalizaciones) de la parte superior. Para actualizar la vista, seleccione **Refresh** (Actualizar).
+1. En la página Pipeline runs (Ejecuciones de canalización), seleccione **Refresh** (Actualizar) para actualizar la lista. Haga clic en el vínculo en **PIPELINE NAME** (NOMBRE DE CANALIZACIÓN) para ver los detalles de la ejecución de actividad o volver a ejecutar la canalización. 
+    ![Ejecución de la canalización](./media/tutorial-copy-data-tool/pipeline-run.png)
+
+1. En la página Activity runs (Ejecuciones de actividad), seleccione el vínculo **Details** (Detalles) (icono de gafas) en la columna **ACTIVITY NAME** (NOMBRE DE ACTIVIDAD) para obtener más detalles sobre la operación de copia. Para volver a la vista Pipeline Runs (Ejecuciones de canalización), seleccione el vínculo **ALL pipeline runs** (Todas las ejecuciones de canalizaciones) en el menú de la ruta de navegación. Para actualizar la vista, seleccione **Refresh** (Actualizar).
 
     ![Supervisión de las ejecuciones de actividad](./media/tutorial-copy-data-tool/activity-monitoring.png)
 
 
-1. Compruebe que los datos se insertan en la tabla **emp** de la base de datos SQL.
+1. Compruebe que los datos se insertan en la tabla **dbo.emp** de SQL Database.
 
 
 1. Seleccione la pestaña **Author** (Crear) de la izquierda para cambiar al modo de edición. Con el editor puede actualizar los servicios vinculados, los conjuntos de datos y las canalizaciones creados mediante la herramienta. Para más información sobre la edición de estas entidades en la interfaz de usuario de Data Factory, consulte [la versión de Azure Portal de este tutorial](tutorial-copy-data-portal.md).
 
+    ![Pestaña de selección de autor](./media/tutorial-copy-data-tool/author-tab.png)
+
 ## <a name="next-steps"></a>Pasos siguientes
-La canalización de este ejemplo copia los datos de una instancia de Blob Storage en una instancia de SQL Database. Ha aprendido a:
+La canalización de este ejemplo copia los datos de una instancia de Blob Storage a una instancia de SQL Database. Ha aprendido a:
 
 > [!div class="checklist"]
 > * Creación de una factoría de datos.

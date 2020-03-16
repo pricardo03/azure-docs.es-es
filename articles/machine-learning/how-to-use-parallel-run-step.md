@@ -11,12 +11,12 @@ ms.author: vaidyas
 author: vaidya-s
 ms.date: 01/15/2020
 ms.custom: Ignite2019
-ms.openlocfilehash: ff366468c994d8ba151dd476a5bcccc52bb7309f
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 313ba2c02fd65a967ab1969b6f99893de9a3bdb4
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122838"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037349"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Ejecución de la inferencia por lotes en grandes cantidades de datos mediante Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,9 +32,9 @@ En este artículo, obtendrá información sobre las siguientes tareas:
 > * Crear una [canalización de Machine Learning](concept-ml-pipelines.md) para registrar un modelo de clasificación de imágenes previamente entrenado basado en el conjunto de datos de [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/). 
 > * Usar el modelo para ejecutar la inferencia por lotes en las imágenes de ejemplo disponibles en la cuenta de Azure Blob Storage. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+* Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Para un inicio rápido guiado, complete el [tutorial de instalación](tutorial-1st-experiment-sdk-setup.md) si aún no tiene un área de trabajo de Azure Machine Learning o una máquina virtual de cuadernos. 
 
@@ -85,7 +85,7 @@ Ahora debe configurar las entradas y salidas de datos, entre las que se incluyen
 - El directorio que contiene las etiquetas.
 - El directorio de salida.
 
-`Dataset` es una clase para explorar, transformar y administrar datos en Azure Machine Learning. Esta clase tiene dos tipos: `TabularDataset` y `FileDataset`. En este ejemplo usará `FileDataset` como entradas para el paso de canalización de inferencias por lotes. 
+[`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) es una clase para explorar, transformar y administrar datos en Azure Machine Learning. Esta clase tiene dos tipos: [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) y [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py). En este ejemplo usará `FileDataset` como entradas para el paso de canalización de inferencias por lotes. 
 
 > [!NOTE] 
 > Por ahora, la compatibilidad con `FileDataset` en la inferencia por lotes está restringida a Azure Blob Storage. 
@@ -94,7 +94,7 @@ También puede hacer referencia a otros conjuntos de datos del script de inferen
 
 Para más información sobre los conjuntos de datos de Azure Machine Learning, consulte [Creación de conjuntos de datos y acceso a ellos (versión preliminar)](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
 
-Los objetos `PipelineData` se usan para transferir los datos intermedios entre los pasos de la canalización. En este ejemplo, se usa para las salidas de inferencia.
+Los objetos [`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) se usan para transferir los datos intermedios entre los pasos de la canalización. En este ejemplo, se usa para las salidas de inferencia.
 
 ```python
 from azureml.core.dataset import Dataset
@@ -190,7 +190,7 @@ El script *debe contener* dos funciones:
 - `init()`: utilice esta función para cualquier preparación costosa o común para la inferencia posterior. Por ejemplo, para cargar el modelo en un objeto global. Solo se llamará a esta función una vez al principio del proceso.
 -  `run(mini_batch)`: la función se ejecutará para cada instancia de `mini_batch`.
     -  `mini_batch`: ParallelRunStep invocará el método run y pasará una trama de datos de Pandas o una lista como argumento al método. Cada entrada de min_batch será una ruta de acceso de archivo si la entrada es FileDataset o una trama de datos de Pandas si es TabularDataset.
-    -  `response`: el método run() debe devolver una trama de datos de Pandas o una matriz. Para append_row output_action, estos elementos devueltos se anexan al archivo de salida común. Para summary_only, se omite el contenido de los elementos. Para todas las acciones de salida, cada elemento de salida devuelto indica una ejecución correcta del elemento de entrada en el minilote de entrada. El usuario debe asegurarse de que se incluyen suficientes datos en el resultado de la ejecución para asignar la entrada a este. La salida de la ejecución se escribirá en el archivo de salida y no se garantiza que esté en orden, por lo que el usuario debe usar alguna clave en la salida para asignarla a la entrada.
+    -  `response`: el método run() debe devolver una trama de datos de Pandas o una matriz. Para append_row output_action, estos elementos devueltos se anexan al archivo de salida común. Para summary_only, se omite el contenido de los elementos. Para todas las acciones de salida, cada elemento de salida devuelto indica una ejecución correcta del elemento de entrada en el minilote de entrada. Debe asegurarse de que se incluyen suficientes datos en el resultado de la ejecución para asignar la entrada a este. La salida de la ejecución se escribirá en el archivo de salida y no se garantiza que esté en orden, por lo que debe usar alguna clave en la salida para asignarla a la entrada.
 
 ```python
 # Snippets from a sample script.
@@ -331,7 +331,7 @@ parallelrun_step = ParallelRunStep(
 
 ### <a name="run-the-pipeline"></a>Ejecución de la canalización
 
-Ahora ejecute la canalización. En primer lugar, cree un objeto `Pipeline` con la referencia al área de trabajo y el paso de canalización que creó. El parámetro `steps` es una matriz de pasos. En este caso, la puntuación por lotes consta de un solo paso. Para compilar canalizaciones con varios pasos, colóquelos en orden en esta matriz.
+Ahora ejecute la canalización. En primer lugar, cree un objeto [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) con la referencia al área de trabajo y el paso de canalización que creó. El parámetro `steps` es una matriz de pasos. En este caso, la puntuación por lotes consta de un solo paso. Para compilar canalizaciones con varios pasos, colóquelos en orden en esta matriz.
 
 Luego, use la función `Experiment.submit()` para enviar la canalización para su ejecución.
 

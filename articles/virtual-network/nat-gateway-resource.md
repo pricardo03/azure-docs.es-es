@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: 45cb07de9ddc7854e6da8b8739acfaa95dd0ed01
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: d920bde856521f1e662536c1187881e143612039
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304130"
+ms.locfileid: "78359105"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources-public-preview"></a>Diseño de redes virtuales con recursos de puertas de enlace de NAT (versión preliminar pública)
 
@@ -335,7 +335,7 @@ Los puertos SNAT están disponibles para volver a usarlos con la misma direcció
 ## <a name="limitations"></a>Limitaciones
 
 - NAT es compatible con la dirección IP pública de la SKU estándar, el prefijo de IP pública y los recursos del equilibrador de carga.   Ni los recursos básicos (por ejemplo, el equilibrador de carga básico) ni los productos derivados de ellos son compatibles con NAT.  Los recursos básicos se deben colocar en una subred que no esté configurada con NAT.
-- Se admite la familia de direcciones IPv4.  NAT no interactúa con la familia de direcciones IPv6.
+- Se admite la familia de direcciones IPv4.  NAT no interactúa con la familia de direcciones IPv6.  NAT no se puede implementar en una subred con prefijo IPv6.
 - El registro de flujos de grupos de seguridad de red no se admite cuando se usa NAT.
 - NAT no puede abarcar varias redes virtuales.
 
@@ -352,7 +352,7 @@ Queremos saber cómo podemos mejorar el servicio. Comparta sus [comentarios sobr
 * Obtenga información sobre [Virtual Network NAT](nat-overview.md).
 * Obtenga información acerca de las [métricas y alertas de los recursos de puerta de enlace NAT](nat-metrics.md).
 * Obtenga información sobre la [solución de los problemas de los recursos de la puerta de enlace de NAT](troubleshoot-nat.md).
-* [Díganos en UserVoice qué es lo que cree que deberíamos crear a continuación](https://aka.ms/natuservoice).
+* [Indíquenos qué crear a continuación para Virtual Network NAT en UserVoice](https://aka.ms/natuservoice).
 * [Proporcione comentarios sobre la versión preliminar pública](https://aka.ms/natfeedback).
 * Tutorial para validar una puerta de enlace de NAT
   - [CLI de Azure](tutorial-create-validate-nat-gateway-cli.md)

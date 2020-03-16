@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 6fc6479ccda77bff84319d3244b2bd4a0599dc47
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: aeccd604a4dae3b2ca83f5b599d9a6857acee34a
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933986"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037200"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutorial: Implementación de un modelo de Machine Learning con el diseñador (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -27,7 +27,7 @@ Puede implementar el modelo predictivo desarrollado en la [parte uno del tutoria
 > * Implementación del punto de conexión en tiempo real.
 > * Prueba del punto de conexión en tiempo real.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Complete la [parte uno del tutorial](tutorial-designer-automobile-price-train-score.md) para aprender a entrenar y puntuar un modelo de Machine Learning en el diseñador.
 
@@ -39,7 +39,7 @@ Para implementar la canalización, antes debe convertir la canalización de entr
 
 1. Seleccione, encima del lienzo de la canalización, **Create inference pipeline** > **Real-time inference pipeline** (Crear canalización de inferencia > Canalización de inferencia en tiempo real).
 
-    ![Captura de pantalla que muestra dónde encontrar el botón Crear canalización](./media/tutorial-designer-automobile-price-deploy/create-inference-pipeline.png)
+    ![Captura de pantalla que muestra dónde encontrar el botón Crear canalización](./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png)
 
     La canalización debería tener este aspecto: 
 
@@ -56,7 +56,7 @@ Para implementar la canalización, antes debe convertir la canalización de entr
     > De forma predeterminada, la **entrada de servicio web** esperará el mismo esquema de datos que los datos de entrenamiento usados para crear la canalización predictiva. En este escenario, el precio se incluye en el esquema. Sin embargo, este no se usa como factor durante la predicción.
     >
 
-1. Seleccione **Ejecutar** y use el mismo destino de proceso y experimento que usó en la parte 1.
+1. Seleccione **Enviar** y use el mismo destino de proceso y el mismo experimento que usó en la parte 1.
 
 1. Seleccione **Implementar**.
 
@@ -123,4 +123,4 @@ Una vez finalizada la implementación, puede probar el punto de conexión en tie
 En este tutorial ha aprendido los pasos clave para crear, implementar y usar un modelo de Machine Learning en el diseñador. Para más información sobre cómo usar el diseñador para resolver otros tipos de problemas, consulte las otras canalizaciones de ejemplo.
 
 > [!div class="nextstepaction"]
-> [Ejemplo de clasificación de riesgo crediticio](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+> [Ejemplos del diseñador](samples-designer.md)

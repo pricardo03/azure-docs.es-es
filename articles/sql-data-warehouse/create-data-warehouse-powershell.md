@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Creación de un almacenamiento de datos (PowerShell)'
-description: Cree rápidamente un servidor lógico de almacenamiento de datos de Azure Synapse Analytics con una regla de firewall de nivel de servidor mediante Azure PowerShell.
+title: Creación y consulta de un grupo de SQL de Synapse con Azure PowerShell
+description: Cree rápidamente un servidor lógico del grupo de SQL de Synapse con una regla de firewall de nivel de servidor mediante Azure PowerShell.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -11,23 +11,23 @@ ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 9df9b4b1bdb33a856d9e31d65981e8654af049d2
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 3cf55a400c1894794d555e1362f2197aad44a96b
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78200012"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79130298"
 ---
-# <a name="quickstart-create--query-a-data-warehouse-with-azure-powershell"></a>Inicio rápido: Creación y consulta de un almacenamiento de datos con Azure PowerShell
+# <a name="quickstart-create-and-query-a-synapse-sql-pool-with-azure-powershell"></a>Inicio rápido: Creación y consulta de un grupo de SQL de Synapse con Azure PowerShell
 
-Cree un almacenamiento de datos de Azure Synapse Analytics mediante el aprovisionamiento de un grupo de SQL mediante Azure PowerShell.
+Cree un grupo de SQL de Synapse (almacenamiento de datos) en Azure Synapse Analytics mediante Azure PowerShell.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-> [!NOTE]
-> La creación de un almacenamiento puede dar lugar a un nuevo servicio facturable.  Para más información, consulte los [precios de Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> [!IMPORTANT]
+> La creación de un grupo de SQL puede dar lugar a un nuevo servicio facturable.  Para más información, consulte los [precios de Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -94,7 +94,9 @@ New-AzSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-firewall-rule"></a>Configuración de una regla de firewall del servidor
 
-Para crear una [regla de firewall de nivel de servidor de Azure SQL](../sql-database/sql-database-firewall-configure.md), ejecute el comando [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule). Una regla de firewall de nivel de servidor permite a una aplicación externa, como SQL Server Management Studio o la utilidad SQLCMD, conectarse a una instancia de SQL Data Warehouse mediante el firewall del servicio de SQL Data Warehouse. En el ejemplo siguiente, el firewall está abierto solo para otros recursos de Azure. Para habilitar la conectividad externa, cambie la dirección IP a una dirección apropiada para su entorno. Para abrir todas las direcciones IP, utilice 0.0.0.0 como la dirección IP inicial y 255.255.255.255 como la dirección final.
+Para crear una [regla de firewall de nivel de servidor de Azure SQL](../sql-database/sql-database-firewall-configure.md), ejecute el comando [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule). Una regla de firewall de nivel de servidor permite a una aplicación externa, como SQL Server Management Studio, o la utilidad SQLCMD, conectarse a un grupo de SQL a través del firewall del servicio del grupo de SQL. 
+
+En el ejemplo siguiente, el firewall está abierto solo para otros recursos de Azure. Para habilitar la conectividad externa, cambie la dirección IP a una dirección apropiada para su entorno. Para abrir todas las direcciones IP, utilice 0.0.0.0 como la dirección IP inicial y 255.255.255.255 como la dirección final.
 
 ```powershell
 New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
@@ -107,8 +109,8 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 >
 
 
-## <a name="create-a-data-warehouse"></a>Creación del almacenamiento de datos
-En este ejemplo se crea una base de datos de almacenamiento de datos con las variables definidas anteriormente.  Especifica el objetivo del servicio como DW100c, que es un punto de partida de bajo costo para el almacenamiento de datos. 
+## <a name="create-a-sql-pool"></a>Creación de un grupo de SQL
+En el siguiente ejemplo se crea un grupo de SQL mediante las variables definidas anteriormente.  Especifica el objetivo del servicio como DW100c, que es un punto de partida de bajo costo para el grupo de SQL. 
 
 ```Powershell
 New-AzSqlDatabase `
@@ -124,10 +126,10 @@ New-AzSqlDatabase `
 Los parámetros obligatorios son:
 
 * **RequestedServiceObjectiveName**: la cantidad de [unidades de almacenamiento de datos](what-is-a-data-warehouse-unit-dwu-cdwu.md) que solicita. Si se aumenta esta cantidad, aumentará el costo de proceso. Para ver una lista de los valores compatibles, consulte los [límites de memoria y simultaneidad](memory-concurrency-limits.md).
-* **DatabaseName**: el nombre del almacenamiento de datos que está creando.
+* **DatabaseName**: el nombre del grupo de SQL que se crea.
 * **ServerName**: el nombre del servidor que se usa para la creación.
 * **ResourceGroupName**: el grupo de recursos que está usando. Para buscar grupos de recursos que estén disponibles en su suscripción, use Get-AzureResource.
-* **Edición**: debe ser "DataWarehouse" para crear un almacenamiento de datos.
+* **Edición**: debe ser "DataWarehouse" para crear un grupo de SQL.
 
 Los parámetros opcionales son:
 
@@ -151,6 +153,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora ha creado un almacenamiento de datos, ha creado una regla de firewall, la ha conectado a su almacén de datos y ha ejecutado algunas consultas. Para más información, diríjase al tutorial para cargar datos.
-> [!div class="nextstepaction"]
->[Carga de datos en un almacenamiento de datos](load-data-from-azure-blob-storage-using-polybase.md)
+Ya ha creado un grupo de SQL y una regla de firewall, la ha conectado al grupo de SQL y ha ejecutado algunas consultas. Para más información, diríjase al artículo [Carga de datos en un grupo de SQL](load-data-from-azure-blob-storage-using-polybase.md).

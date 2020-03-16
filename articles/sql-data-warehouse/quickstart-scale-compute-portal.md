@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: escalado de procesos: Azure Portal '
-description: Escale proceso en el grupo de SQL en Azure Portal. Escale horizontalmente un proceso para aumentar el rendimiento, o bien revierta la escalabilidad del proceso para ahorrar costos.
+title: Escalado del proceso del grupo de SQL de Synapse (Azure Portal)
+description: El proceso del grupo de SQL de Synapse (almacenamiento de datos) se puede escalar desde Azure Portal.
 services: sql-data-warehouse
 author: Antvgski
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 7463849223fdf81466237c7d0c912763988e80e6
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: df0b21e98812faf99b6e67f262cec6e9c29db2f1
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78200364"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79130261"
 ---
-# <a name="quickstart-scale-compute-in-azure-synapse-analytics-sql-pool-in-the-azure-portal"></a>Inicio rápido: Escalado de proceso en el grupo de SQL de Azure Synapse Analytics en Azure Portal
+# <a name="quickstart-scale-compute-for-synapse-sql-pool-with-the-azure-portal"></a>Inicio rápido: Escalado del proceso del grupo de SQL de Synapse con Azure Portal
 
-Escale proceso en el grupo de SQL en Azure Portal. [Escale horizontalmente un proceso](sql-data-warehouse-manage-compute-overview.md) para aumentar el rendimiento, o bien revierta la escalabilidad del proceso para ahorrar costos. 
+El proceso del grupo de SQL de Synapse (almacenamiento de datos) se puede escalar desde Azure Portal. [Escale horizontalmente un proceso](sql-data-warehouse-manage-compute-overview.md) para aumentar el rendimiento, o bien revierta la escalabilidad del proceso para ahorrar costos. 
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -30,9 +30,9 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Puede escalar un grupo de SQL que ya tenga o usar el [inicio rápido para la creación y conexión en el portal](create-data-warehouse-portal.md) para crear un grupo de SQL llamado **mySampleDataWarehouse**.  En esta guía de inicio rápido se escala **mySampleDataWarehouse**.
+Puede escalar un grupo de SQL que ya tenga, o bien usar el artículo [Inicio rápido: Creación y conexión (Azure Portal)](create-data-warehouse-portal.md) para crear un grupo de SQL llamado **mySampleDataWarehouse**. En esta guía de inicio rápido se escala **mySampleDataWarehouse**.
 
->[!Note]
+>[!IMPORTANT] 
 >El grupo de SQL debe estar en línea para que se pueda escalar. 
 
 ## <a name="scale-compute"></a>Escalado de proceso
@@ -52,7 +52,4 @@ Para cambiar las unidades de almacenamiento de datos:
     ![Mueva el control deslizante](media/quickstart-scale-compute-portal/scale-dwu.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora ha aprendido a escalar proceso del grupo de SQL. Para más información sobre el grupo de SQL, continúe con el tutorial sobre la carga de datos.
-
-> [!div class="nextstepaction"]
->[Carga de datos en un grupo de SQL](load-data-from-azure-blob-storage-using-polybase.md)
+Para más información acerca del grupo de SQL, diríjase al tutorial [Carga de datos en un grupo de SQL](load-data-from-azure-blob-storage-using-polybase.md). 

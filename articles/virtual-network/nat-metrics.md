@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: 268f5f5b7bf1bed27a01085974bea72af6a84f3b
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 51713db8532eb33f102de9320dea9eaeb98c4019
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304062"
+ms.locfileid: "78359081"
 ---
 # <a name="azure-virtual-network-nat-metrics"></a>Métricas de Azure Virtual Network NAT
 
@@ -57,8 +57,10 @@ Resource Health no es compatible.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre [Virtual Network NAT](nat-overview.md).
-- Obtenga información sobre los [recursos de puerta de enlace de NAT](nat-gateway-resource.md)
-- Obtenga información acerca de [Azure Monitor](../azure-monitor/overview.md)
-- Obtenga información sobre la [solución de los problemas de los recursos de la puerta de enlace de NAT](troubleshoot-nat.md).
+* Obtenga más información sobre [Virtual Network NAT](nat-overview.md).
+* Obtenga información sobre los [recursos de puerta de enlace de NAT](nat-gateway-resource.md)
+* Obtenga información acerca de [Azure Monitor](../azure-monitor/overview.md)
+* Obtenga información sobre la [solución de los problemas de los recursos de la puerta de enlace de NAT](troubleshoot-nat.md).
+* [Indíquenos qué crear a continuación para Virtual Network NAT en UserVoice](https://aka.ms/natuservoice).
+
 

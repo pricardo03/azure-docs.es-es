@@ -4,17 +4,17 @@ description: Este tutorial le ayuda a planear y tener en cuenta los costos de lo
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/02/2020
+ms.date: 03/11/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: f5943e37267a79ad342fbd9afe0256a4ca7182e6
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: b81236fd63d9289f797056cf7aaceb7d826511af
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251186"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128358"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Creación y administración de presupuestos de Azure
 
@@ -40,7 +40,7 @@ En este tutorial, aprenderá a:
 
 Los presupuestos se admiten en distintos tipos de cuenta de Azure. Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](understand-cost-mgt-data.md) (Información sobre los datos de Cost Management). Para ver los presupuestos, se necesita al menos acceso de lectura en la cuenta de Azure.
 
-Si su suscripción es nueva, no podrá crear un presupuesto ni usar las características de Cost Management de inmediato. Para poder hacerlo deberán transcurrir un máximo de 48 horas.
+Si tiene una suscripción nueva, no puede crear un presupuesto ni usar las características de Cost Management de inmediato. Para poder hacerlo deberán transcurrir un máximo de 48 horas.
 
 En el caso de las suscripciones con contrato Enterprise de Azure, debe tener acceso de lectura para ver los presupuestos. Para crear y administrar presupuestos, debe tener permiso de colaborador. Puede crear presupuestos individuales para las suscripciones de EA y los grupos de recursos. Sin embargo, no puede crear presupuestos para las cuentas de facturación de EA.
 
@@ -54,7 +54,7 @@ Para más información sobre cómo asignar permisos a los datos de Cost Manageme
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-- Inicie sesión en Azure Portal en https://portal.azure.com.
+- Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Crear un presupuesto en Azure Portal
 
@@ -164,7 +164,7 @@ New-AzureRmConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -Star
 ```
 ## <a name="create-a-budget-with-an-azure-resource-manager-template"></a>Creación de un presupuesto con una plantilla de Azure Resource Manager
 
-Puede crear un presupuesto mediante una plantilla de Azure Resource Manager. La plantilla le ayuda a crear un presupuesto en un grupo de recursos. La plantilla solo admite clientes con Contrato Enterprise.
+Puede crear un presupuesto mediante una plantilla de Azure Resource Manager. La plantilla le ayuda a crear un presupuesto en un grupo de recursos. 
 
 Seleccione la siguiente imagen para iniciar sesión en Azure Portal y abrir la plantilla:
 

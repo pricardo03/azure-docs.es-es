@@ -4,15 +4,15 @@ description: En este artículo se proporciona una introducción al firewall de a
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/04/2019
+ms.date: 03/06/2020
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 7b43a6bdac254493da8693b55158e15746e76dc3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 44bc8db5d8ada0378f8f9d0911ed398ba491d289
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488291"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851193"
 ---
 # <a name="what-is-azure-web-application-firewall"></a>¿Qué es el firewall de aplicaciones web de Azure?
 
@@ -24,7 +24,11 @@ Evitar dichos ataques en el código de la aplicación es todo un desafío. Puede
 
 Las soluciones de WAF pueden reaccionar más rápido ante una amenaza de la seguridad mediante la aplicación centralizada de revisiones que aborden una vulnerabilidad conocida, en lugar de proteger de manera individual cada aplicación web.
 
-WAF se puede implementar con Azure Application Gateway y Azure Front Door Service. Actualmente, WAF tiene características personalizadas para cada servicio específico. Para más información sobre las características de WAF para cada servicio, consulte la introducción a cada servicio.
+## <a name="supported-services"></a>Servicios admitidos
+
+WAF se puede implementar con [Azure Application Gateway](../application-gateway/overview.md) y [Azure Front Door Service](../frontdoor/front-door-overview.md). Ambos servicios son equilibradores de carga de nivel 7 (HTTP/S), pero el primero es un servicio regional, mientras que el segundo es un servicio global. WAF tiene características personalizadas para cada servicio específico.
+
+Para obtener más información, consulte la información general de WAF en cada servicio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

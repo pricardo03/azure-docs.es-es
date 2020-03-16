@@ -1,7 +1,7 @@
 ---
-title: Creación del primer experimento de ML automatizado
+title: Creación de modelos de clasificación de aprendizaje automático automatizado
 titleSuffix: Azure Machine Learning
-description: Aprenda a entrenar e implementar un modelo de clasificación con aprendizaje automático automatizado en Azure Machine Learning Studio.
+description: Aprenda a entrenar e implementar modelos de clasificación con la interfaz de aprendizaje automático automatizado de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 02/04/2020
-ms.openlocfilehash: 70fcdb1c22664a0bd3091fea88c8e23e3d1b81e5
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 96af942ab68d4ae738df56bf94d8410ee5d8cc34
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048280"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129664"
 ---
-# <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Tutorial: Creación del primer modelo de clasificación con el aprendizaje automático automatizado
+# <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Creación de un modelo de clasificación con aprendizaje automático automatizado en Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-En este tutorial aprenderá a crear su primer experimento de aprendizaje automático automatizado mediante Azure Machine Learning Studio sin escribir ni una línea de código. En este ejemplo se crea un modelo de clasificación para predecir si un cliente suscribirá un depósito a plazo fijo con una institución financiera.
+En este tutorial, aprenderá a crear un modelo de clasificación básico sin escribir ninguna línea de código mediante la interfaz de aprendizaje automático automatizado de Azure Machine Learning. Este modelo de clasificación predice si un cliente suscribirá un depósito a plazo fijo con una institución financiera.
 
 Con el aprendizaje automático, puede automatizar las tareas que requieren mucho tiempo. El aprendizaje automático recorre en iteración rápidamente muchas combinaciones de algoritmos e hiperparámetros para ayudarle a encontrar el mejor modelo según una métrica de éxito de su elección.
 
@@ -42,7 +42,7 @@ En este tutorial, aprenderá las siguientes tareas:
 
 Un área de trabajo de Azure Machine Learning es un recurso básico de la nube que se usa para experimentar, entrenar e implementar modelos de aprendizaje automático. Vincula la suscripción y el grupo de recursos de Azure con un objeto fácilmente consumido del servicio. 
 
-Puede crear un área de trabajo mediante Azure Machine Learning Studio, una consola basada en web para administrar los recursos de Azure.
+Puede crear un área de trabajo mediante Azure Portal, una consola basada en web para administrar los recursos de Azure.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
@@ -51,9 +51,9 @@ Puede crear un área de trabajo mediante Azure Machine Learning Studio, una cons
 
 ## <a name="create-and-run-the-experiment"></a>Creación y ejecución de un experimento
 
-Complete los siguientes pasos de configuración y ejecución del experimento en Azure Machine Learning Studio, una interfaz consolidada que incluye herramientas de aprendizaje automático para realizar escenarios de ciencia de datos para los profesionales de ciencia de datos de todos los niveles de conocimiento. Studio no se admite en los exploradores Internet Explorer.
+Complete los siguientes pasos de configuración y ejecución del experimento a través de Azure Machine Learning en https://ml.azure.com, una interfaz web consolidada que incluye herramientas de aprendizaje automático para realizar escenarios de ciencia de datos para los profesionales de ciencia de datos de todos los niveles de conocimiento. Esta interfaz no se admite en los exploradores de Internet Explorer.
 
-1. Inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com).
+1. Inicie sesión en Azure Machine Learning en https://ml.azure.com.
 
 1. Seleccione la suscripción y el área de trabajo que ha creado.
 
@@ -63,13 +63,13 @@ Complete los siguientes pasos de configuración y ejecución del experimento en 
 
    Como es su primer experimento de aprendizaje automático automatizado, verá una lista vacía y vínculos a la documentación.
 
-   ![Azure Machine Learning Studio](./media/tutorial-first-experiment-automated-ml/get-started.png)
+   ![Página de introducción](./media/tutorial-first-experiment-automated-ml/get-started.png)
 
 1. Seleccione **New automated ML run** (Nueva ejecución de ML automatizado). 
 
 1. Cree un nuevo conjunto de datos; para ello, seleccione **From local files** (Desde archivos locales) en la lista desplegable **+ Create dataset** (+ Crear conjunto de datos). 
 
-    1. En el formulario **Basic info** (Información básica), asígnele un nombre al conjunto de datos y, si lo desea, incluya una descripción. El aprendizaje automático automatizado en Azure Machine Learning Studio por ahora solo admite los conjuntos de datos tabulares, por lo que el tipo de conjunto de datos debe ser tabular de forma predeterminada.
+    1. En el formulario **Basic info** (Información básica), asígnele un nombre al conjunto de datos y, si lo desea, incluya una descripción. Actualmente, la interfaz de aprendizaje automático automatizado solo admite TabularDatasets, por lo que el valor predeterminado del tipo de conjunto de datos es *Tabular*.
 
     1. Seleccione **Next** (Siguiente) en la parte inferior izquierda.
 
@@ -163,9 +163,9 @@ A continuación, vaya a las pestañas **Model details** (Detalles del modelo) y 
 
 ![Detalles de la ejecución de iteración](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
 
-## <a name="deploy-the-model"></a>Implementación del modelo
+## <a name="deploy-the-best-model"></a>Implementación del mejor modelo
 
-El aprendizaje automático automatizado en Azure Machine Learning Studio permite implementar el mejor modelo como servicio web en pocos pasos. La implementación es la integración del modelo para que pueda predecir datos nuevos e identificar posibles áreas de oportunidad. 
+La interfaz del aprendizaje automático automatizado permite implementar el mejor modelo como un servicio web en pocos pasos. La implementación es la integración del modelo para que pueda predecir datos nuevos e identificar posibles áreas de oportunidad. 
 
 En este experimento, la implementación em un servicio web significa que la institución financiera tiene ahora una solución web iterativa y escalable para identificar posibles clientes de depósitos a plazo fijo. 
 
@@ -201,9 +201,9 @@ Los archivos de implementación son mayores que los archivos de datos y del expe
 
 ### <a name="delete-the-deployment-instance"></a>Eliminación de la instancia de implementación
 
-Elimine solo la instancia de implementación de Azure Machine Learning Studio, si desea mantener el área de trabajo y el grupo de recursos para otros tutoriales y para explorarlos. 
+Elimine solo la instancia de implementación de Azure Machine Learning de https://ml.azure.com/ si desea mantener el área de trabajo y el grupo de recursos para otros tutoriales y para su exploración. 
 
-1. Vaya a [Azure Machine Learning Studio](https://ml.azure.com/). Vaya al área de trabajo y, a la izquierda, en el panel **Assets** (Recursos), seleccione **Endpoints** (Puntos de conexión). 
+1. Vaya a Azure Machine Learning en https://ml.azure.com/. Vaya al área de trabajo y, a la izquierda, en el panel **Assets** (Recursos), seleccione **Endpoints** (Puntos de conexión). 
 
 1. Seleccione la implementación que desea eliminar y seleccione **Eliminar.** 
 
@@ -215,15 +215,15 @@ Elimine solo la instancia de implementación de Azure Machine Learning Studio, s
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial de aprendizaje automático automatizado ha usado Azure Machine Learning Studio para crear e implementar un modelo de clasificación. Para más información y ver los pasos siguientes, consulte estos artículos:
+En este tutorial ha usado la interfaz de aprendizaje automático automatizado de Azure Machine Learning para crear e implementar un modelo de clasificación. Para más información y ver los pasos siguientes, consulte estos artículos:
 
 > [!div class="nextstepaction"]
 > [Consumo de un servicio web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
-+ Más información sobre la [caracterización](how-to-create-portal-experiments.md#featurization).
-+ Más información acerca de la [generación de perfiles de datos](how-to-create-portal-experiments.md#profile).
 + Más información acerca del [aprendizaje automático automatizado](concept-automated-ml.md).
-+ Para más información sobre las métricas de clasificación y los gráficos, consulte el artículo de [descripción de los resultados de aprendizaje automático automatizado](how-to-understand-automated-ml.md#classification).
++ Para más información sobre las métricas de clasificación y los gráficos, consulte el artículo [Descripción de los resultados de aprendizaje automático automatizado](how-to-understand-automated-ml.md#classification). Más información acerca de las [características](how-to-use-automated-ml-for-ml-models.md#featurization).
++ Más información acerca de la [generación de perfiles de datos](how-to-use-automated-ml-for-ml-models.md#profile).
+
 
 >[!NOTE]
 > Este conjunto de conjuntos de marketing bancario está disponible bajo [licencia de Creative Commons (CCO: dominio público)](https://creativecommons.org/publicdomain/zero/1.0/). Todos los derechos de los contenidos individuales de la base de datos tienen la licencia [Database Contents License](https://creativecommons.org/publicdomain/zero/1.0/) y están disponibles en [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). Este conjunto de datos estaba disponible originalmente en la [base de datos de aprendizaje automático de UCI](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>

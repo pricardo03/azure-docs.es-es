@@ -7,18 +7,19 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 01/27/2020
 ms.author: helohr
-ms.openlocfilehash: 6cb8362b2de1f8345f693b00df021afe84f2d5a5
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+manager: lizross
+ms.openlocfilehash: 0a32ee682490c5930b8c48d069087020c4763dcb
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471778"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127757"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>¿Qué es Windows Virtual Desktop? 
 
 Windows Virtual Desktop es un servicio de virtualización de escritorio y de aplicaciones que se ejecuta en la nube.
 
-A continuación se indica lo que puede hacer al ejecutar Windows Virtual Desktop en Azure:
+A continuación se indica lo que se puede hacer al ejecutar Windows Virtual Desktop en Azure:
 
 * Configurar una implementación de Windows 10 de sesión múltiple que ofrezca toda la funcionalidad de Windows 10 con escalabilidad
 * Virtualizar Office 365 ProPlus y optimizarlo para ejecutarse en escenarios virtuales multiusuario
@@ -29,7 +30,7 @@ A continuación se indica lo que puede hacer al ejecutar Windows Virtual Desktop
 
 ## <a name="introductory-video"></a>Vídeo de introducción
 
-En este vídeo, obtendrá información sobre Windows Virtual Desktop, y conocerá por qué es único y cuáles son las novedades:
+En este vídeo, obtendrá información sobre Windows Virtual Desktop, y conocerá no solo por qué es único, sino también cuáles son sus novedades:
 
 <br></br><iframe src="https://www.youtube.com/embed/NQFtI3JLtaU" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 

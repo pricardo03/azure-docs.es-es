@@ -4,16 +4,16 @@ description: En este artículo se explica cómo instalar y usar la aplicación A
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 03/05/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: 4a50ce5c386f1b928e9f767891840c84534938a9
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: bc676910a05dbec97ae05578399029f85f71e1ef
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169705"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399632"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Análisis del costo con la aplicación Azure Cost Management para Power BI para Contrato Enterprise (EA)
 
@@ -43,7 +43,7 @@ Para instalar la aplicación
   ![Empezar a trabajar con la nueva aplicación: Conectar](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-data2.png)
 9. En el cuadro de diálogo que aparece, escriba el número de inscripción de Contrato Enterprise para **BillingProfileIdOrEnrollmentNumber**. Especifique el número de meses de datos que se van a obtener. Deje el valor de **Ámbito** predeterminado de **Número de inscripción** y, a continuación, seleccione **Siguiente**.  
   ![Introducción de la información de inscripción de EA](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
-10. El siguiente cuadro de diálogo se conecta a Azure y obtiene los datos necesarios para las recomendaciones de instancia reservada. Deje los valores predeterminados tal como están configurados y seleccione **Iniciar sesión**.  
+10. El siguiente cuadro de diálogo se conecta a Azure y obtiene los datos necesarios para las recomendaciones de instancia reservada. *Deje los valores predeterminados tal como están configurados* y seleccione **Iniciar sesión**.  
   ![Conexión a Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
 11. El paso de instalación final se conecta a su inscripción de Contrato Enterprise y requiere una cuenta de [administrador de empresa](../manage/understand-ea-roles.md). Seleccione **Iniciar sesión** para autenticarse con su inscripción de Contrato Enterprise. Este paso también inicia una acción de actualización de datos en Power BI.  
   ![Conexión a la inscripción de Contrato Enterprise](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png)  
@@ -124,6 +124,50 @@ Para más información sobre cómo usar el informe, consulte la sección sobre l
 **RI purchases** (Compras de RI): el informe muestra las compras de instancias reservadas durante el período especificado.
 
 **Price sheet** (Hoja de precios): el informe muestra una lista detallada de precios específicos de una cuenta de facturación o de la inscripción de Contrato Enterprise.
+
+## <a name="troubleshoot-problems"></a>Solucionar problemas
+
+Si tiene problemas con la aplicación Power BI, es posible que la siguiente información sea útil para solucionar problemas.
+
+### <a name="budgetamount-error"></a>Error de BudgetAmount
+
+Puede que reciba el siguiente error:
+
+```
+Something went wrong
+There was an error when processing the data in the dataset.
+Please try again later or contact support. If you contact support, please provide these details.
+Data source error: The 'budgetAmount' column does not exist in the rowset. Table: Budgets.
+```
+
+#### <a name="cause"></a>Causa
+
+Este error se produce debido a un error con los metadatos subyacentes. El problema se produce porque no hay ningún presupuesto disponible en **Cost Management > Presupuesto** en Azure Portal. La corrección del error está en proceso de implementación en Power BI Desktop y en el servicio Power BI. 
+
+#### <a name="solution"></a>Solución
+
+- Hasta que se solucione el error, puede darle una solución alternativa mediante la incorporación de un presupuesto de prueba a Azure Portal a nivel de cuenta de facturación o inscripción en EA. Este presupuesto de prueba desbloquea la conexión con Power BI. Para más información sobre la creación de presupuestos, consulte [Tutorial: Creación y administración de presupuestos en Azure](tutorial-acm-create-budgets.md).
+
+
+### <a name="invalid-credentials-for-azureblob-error"></a>Error de credenciales no válidas para AzureBlob
+
+Puede que reciba el siguiente error:
+
+```
+Failed to update data source credentials: The credentials provided for the AzureBlobs source are invalid.
+```
+
+#### <a name="cause"></a>Causa
+
+Este error se produce si se cambia el método de autenticación de la conexión de blobs de AutoFitComboMeter.
+
+#### <a name="solution"></a>Solución
+
+1. Conexión a los datos.
+1. Después de que especifique la inscripción a EA y el número de meses, asegúrese de que deja el valor predeterminado **Anonymous** (Anónimo) en Authentication method (Método de autenticación) y **None** (Ninguno) en Privacy level setting (Configuración del nivel de privacidad).  
+  ![Conexión a Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png)  
+1. En la siguiente página, seleccione **OAuth2** en Authentication method (Método de autenticación) y **None** (Ninguno) en Privacy level (Nivel de privacidad). Luego, inicie sesión para autenticarse con su inscripción. Este paso también inicia una actualización de los datos de Power BI.
+
 
 ## <a name="data-reference"></a>Referencia de datos
 

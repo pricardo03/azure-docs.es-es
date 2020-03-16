@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: ec6664e7c55057c29c5b741203b326ce460c6e91
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 635b12cc2ffc4d318eaaa74fffc17e4ce4d58c0b
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701236"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129954"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Tutorial: Compilación de un demonio multiinquilino que usa el punto de conexión de la plataforma de identidad de Microsoft
 
@@ -39,7 +39,8 @@ La aplicación se compila como una aplicación ASP.NET MVC. Usa el middleware de
 
 El componente "demonio" de este ejemplo es un controlador de API `SyncController.cs`. Cuando se llama al controlador, se extrae de Microsoft Graph una lista de usuarios del inquilino de Azure Active Directory del cliente (Azure AD). `SyncController.cs` se desencadena mediante una llamada AJAX en la aplicación web. Dicha aplicación usa la [biblioteca de autenticación de Microsoft (MSAL) para .NET](msal-overview.md) para adquirir un token de acceso para Microsoft Graph.
 
-Para más información sobre una aplicación de demonio de consola más sencilla, consulte el [inicio rápido del demonio de .NET Core](quickstart-v2-netcore-daemon.md).
+>[!NOTE]
+> Si nunca ha usado la plataforma de identidad de Microsoft, es aconsejable empezar por leer el [inicio rápido del demonio de .NET Core](quickstart-v2-netcore-daemon.md).
 
 ## <a name="scenario"></a>Escenario
 
@@ -49,7 +50,7 @@ Dado que la aplicación es una aplicación multiinquilino para clientes empresar
 
 Para más información sobre los conceptos que se usan en este ejemplo, lea la [documentación del protocolo de credenciales de cliente del punto de conexión de la plataforma de identidad](v2-oauth2-client-creds-grant-flow.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para ejecutar el ejemplo de este inicio rápido, necesitará lo siguiente:
 

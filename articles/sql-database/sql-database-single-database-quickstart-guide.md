@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 07/29/2019
-ms.openlocfilehash: 4332d57c8d5587a34ba3a593deb9bd635132b03d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6070b53e5f906bc378402d98275b8f798f57b505
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820955"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674430"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Introducción a las bases de datos únicas en Azure SQL Database
 
@@ -34,10 +34,8 @@ En esta sección, verá información general de los artículos disponibles que l
 
 Puede usar PowerShell o la CLI de Azure para crear, configurar y escalar la base de datos.
 
-- [Creación y configuración de una base de datos única con PowerShell](scripts/sql-database-create-and-configure-database-powershell.md)
-- [Creación y configuración de una base de datos única con la CLI de Azure](scripts/sql-database-create-and-configure-database-cli.md)
-- [Actualización de la base de datos única y escalado de los recursos con PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md)
-- [Actualización de la base de datos única y escalado de los recursos con la CLI de Azure](scripts/sql-database-monitor-and-scale-database-cli.md)
+- [Creación y configuración de una base de datos única con PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) o la [CLI de Azure](scripts/sql-database-create-and-configure-database-cli.md)
+- [Actualización de una base de datos única y escalado de recursos mediante PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md) o la [CLI de Azure](scripts/sql-database-monitor-and-scale-database-cli.md)
 
 ## <a name="migrating-to-a-single-database-with-minimal-downtime"></a>Migración a una base de datos única con tiempo de inactividad mínimo
 
@@ -58,4 +56,4 @@ El siguiente módulo de Microsoft Learn le ayuda a aprender de forma gratuita s
 - Para conocer procedimientos más avanzados, consulte [Cómo usar una base de datos única en Azure SQL Database](sql-database-howto-single-database.md).
 - Buscar más scripts de ejemplo escritos en [PowerShell](sql-database-powershell-samples.md) y la [CLI de Azure](sql-database-cli-samples.md).
 - Conozca más información sobre la [API de administración](sql-database-single-databases-manage.md) que puede usar para configurar las bases de datos.
-- [Identificar a la derecha de la SKU de instancia de base de datos administrada de SQL Azure para la base de datos local](/sql/dma/dma-sku-recommend-sql-db/).
+- [Identificación de la SKU de instancia administrada o SQL Database de Azure adecuada para la base de datos local](/sql/dma/dma-sku-recommend-sql-db/).

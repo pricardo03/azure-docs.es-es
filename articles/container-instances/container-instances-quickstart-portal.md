@@ -1,20 +1,15 @@
 ---
 title: 'Inicio rápido: implementación de un contenedor de Docker en una instancia de contenedor (portal)'
 description: En este inicio rápido, usará Azure Portal para implementar rápidamente una aplicación web en contenedores que se ejecuta en una instancia de contenedor aislada de Azure
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: quickstart
-ms.date: 04/17/2019
-ms.author: danlep
+ms.date: 03/09/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e0c5ba57c7664a64c1b11bed215f419f31630d39
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 7a872e955db46b76d3b12f8ffc38d4a8e497ea63
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533521"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087992"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Inicio rápido: Implementación de una instancia de contenedor en Azure mediante Azure Portal
 
@@ -40,15 +35,16 @@ En la página **Aspectos básicos**, escriba los siguientes valores en los cuadr
 
 * Grupo de recursos: **Crear nuevo** > `myresourcegroup`
 * Nombre de contenedor: `mycontainer`
-* Imagen de contenedor: `mcr.microsoft.com/azuredocs/aci-helloworld`
+* Origen de imagen: **Imágenes de inicio rápido**
+* Imagen de contenedor: `mcr.microsoft.com/azuredocs/aci-helloworld` (Linux)
 
 ![Configuración básica de una instancia de contenedor nueva en Azure Portal][aci-portal-03]
 
-En este inicio rápido, usará como **Tipo de imagen** el valor predeterminado de **Público** para implementar la imagen `aci-helloworld` pública de Microsoft. Esta imagen de Linux empaqueta una pequeña aplicación web escrita en Node.js que suministra una página HTML estática.
+En este inicio rápido, use la configuración predeterminada para implementar la imagen `aci-helloworld` pública de Microsoft. Esta imagen de Linux de ejemplo empaqueta una pequeña aplicación web escrita en Node.js que sirve una página HTML estática. También puede traer sus propias imágenes de contenedor almacenadas en Azure Container Registry, Docker Hub u otros registros.
 
 En la página **Redes**, especifique una **etiqueta de nombre DNS** para el contenedor. El nombre debe ser único dentro de la región de Azure en la que crea la instancia de contenedor. El contenedor estará públicamente accesible en `<dns-name-label>.<region>.azurecontainer.io`. Si recibe un mensaje de error "DNS name label not available" (La etiqueta de nombre DNS no está disponible), pruebe otra etiqueta de nombre DNS diferente.
 
-![Configuración de una instancia de contenedor nueva en Azure Portal][aci-portal-04]
+![Configuración de red para una instancia de contenedor nueva en Azure Portal][aci-portal-04]
 
 Deje el resto de opciones con sus valores predeterminados y, luego, seleccione **Revisar y crear**.
 

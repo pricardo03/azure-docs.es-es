@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 50eb88373b05d979d7f4b67b317e98c2a944459b
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: e33f52d5c1f9c06a5acbae5c66b051ca82ef14c0
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701337"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126631"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Adición del inicio de sesión en Microsoft a una aplicación web ASP.NET
 
@@ -30,6 +30,9 @@ Esta guía muestra cómo implementar el inicio de sesión en Microsoft a través
 Cuando haya completado esta guía, la aplicación podrá aceptar inicios de sesión de cuentas personales de outlook.com y live.com. Además, tanto las cuentas profesionales como las educativas de cualquier empresa u organización que esté integrada con la Plataforma de identidad de Microsoft podrán iniciar sesión en la aplicación.
 
 > Esta guía requiere Microsoft Visual Studio 2019.  ¿No lo tiene?  [Descargue Visual Studio 2019 de manera gratuita](https://www.visualstudio.com/downloads/).
+
+>[!NOTE]
+> Si es la primera vez que usa la plataforma de identidad de Microsoft, es aconsejable que comience por el artículo [Adición del inicio de sesión de la plataforma de identidad de Microsoft a una aplicación web de ASP.NET](quickstart-v2-aspnet-webapp.md).
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Funcionamiento de la aplicación de ejemplo generada por esta guía
 

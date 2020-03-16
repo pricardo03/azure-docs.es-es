@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: allensu
-ms.openlocfilehash: 0e19271b5c69610dd9f44c3121e195b80732279c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 205826a6ad952383582f5a8086cbd8b85dbc3794
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669546"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359252"
 ---
 # <a name="what-is-virtual-network-nat-public-preview"></a>¿Qué es Virtual Network NAT (versión preliminar pública)?
 
@@ -192,13 +192,13 @@ Queremos saber cómo podemos mejorar el servicio. Comparta sus [comentarios sobr
 
 ## <a name="limitations"></a>Limitaciones
 
-- NAT es compatible con la dirección IP pública de la SKU estándar, el prefijo de IP pública y los recursos del equilibrador de carga.   Ni los recursos básicos (por ejemplo, el equilibrador de carga básico) ni los productos derivados de ellos son compatibles con NAT.  Los recursos básicos se deben colocar en una subred que no esté configurada con NAT.
-- Se admite la familia de direcciones IPv4.  NAT no interactúa con la familia de direcciones IPv6.
-- El registro de flujos de grupos de seguridad de red no se admite cuando se usa NAT.
-- NAT no puede abarcar varias redes virtuales.
+* NAT es compatible con la dirección IP pública de la SKU estándar, el prefijo de IP pública y los recursos del equilibrador de carga.   Ni los recursos básicos (por ejemplo, el equilibrador de carga básico) ni los productos derivados de ellos son compatibles con NAT.  Los recursos básicos se deben colocar en una subred que no esté configurada con NAT.
+* Se admite la familia de direcciones IPv4.  NAT no interactúa con la familia de direcciones IPv6.  NAT no se puede implementar en una subred con prefijo IPv6.
+* El registro de flujos de grupos de seguridad de red no se admite cuando se usa NAT.
+* NAT no puede abarcar varias redes virtuales.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre [recursos de puerta de enlace de NAT](./nat-gateway-resource.md).
-- [Díganos en UserVoice qué es lo que cree que deberíamos crear a continuación](https://aka.ms/natuservoice).
-- [Proporcione comentarios sobre la versión preliminar pública](https://aka.ms/natfeedback).
+* Obtenga más información sobre [recursos de puerta de enlace de NAT](./nat-gateway-resource.md).
+* [Indíquenos qué crear a continuación para Virtual Network NAT en UserVoice](https://aka.ms/natuservoice).
+* [Proporcione comentarios sobre la versión preliminar pública](https://aka.ms/natfeedback).

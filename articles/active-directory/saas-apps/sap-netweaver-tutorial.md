@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d79c953f22bfe587f740bc29050796834309186a
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 700f2ca4d46b3483531fa0784cb78699befb20ca
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103362"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897749"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-netweaver"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con SAP NetWeaver
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a integrar SAP NetWeaver con Azure Active Directory
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -177,7 +177,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     b. En la lista **Transformación**, seleccione **ExtractMailPrefix()** .
 
-    c. En la lista **Parámetro 1**, seleccione **user.userprinicipalname**.
+    c. En la lista **Parámetro 1**, seleccione **user.userprincipalname**.
 
     d. Haga clic en **Save**(Guardar).
 
@@ -199,7 +199,7 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
     1. En el campo **Nombre**, escriba `B.Simon`.  
     1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
     1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-    1. Haga clic en **Create**(Crear).
+    1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

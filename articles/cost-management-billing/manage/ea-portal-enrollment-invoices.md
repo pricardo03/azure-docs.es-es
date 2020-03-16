@@ -7,12 +7,12 @@ ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: df2d4eb1b28ac9f13511692ca7588414ea4fdff0
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 9fbc2ffcf1158f436c060817f8f25152f839c3e0
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78272393"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037266"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Facturas de inscripciones de Azure Enterprise
 
@@ -30,8 +30,8 @@ Azure Enterprise Portal genera automáticamente un número de pedido de compra p
 1. Seleccione un **período de facturación** en el menú desplegable de intervalos de fechas.
 
    Puede editar un número de pedido de compra durante un período de siete días después de recibir una notificación de factura, pero antes de haber pagado la factura.
-1. Escriba el nuevo número de pedido de compra en el campo **Número de pedido de compra** .
-1. Seleccione  **Guardar**  para enviar el cambio.
+1. Escriba un número de pedido de compra nuevo en el campo**PO Number** (Número de pedido de compra).
+1. Seleccione **Guardar** para enviar el cambio.
 
 ### <a name="to-update-the-azure-marketplace-purchase-order-number"></a>Para actualizar el número de pedido de compra de Azure Marketplace:
 
@@ -41,8 +41,8 @@ Azure Enterprise Portal genera automáticamente un número de pedido de compra p
 1. Seleccione un **período de facturación** en el menú desplegable de intervalos de fechas.
 
    Puede editar un número de pedido de compra durante un período de siete días después de recibir una notificación de factura, pero antes de haber pagado la factura.
-1. Escriba el nuevo número de pedido de compra en el campo **Número de pedido de compra** .
-1. Seleccione  **Guardar**  para enviar el cambio.
+1. Escriba un número de pedido de compra nuevo en el campo**PO Number** (Número de pedido de compra).
+1. Seleccione **Guardar** para enviar el cambio.
 
 ## <a name="cadence-of-azure-enterprise-billing"></a>Cadencia de facturación de Azure Enterprise
 

@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
-ms.openlocfilehash: 1e26af6c4bf86cfd412df7435379e610ffd69e85
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: 5bdc51f47a170922d4fc33e8538695af29e5159c
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367420"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128119"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Tutorial: Creación de entidades de servicio y asignaciones de roles con PowerShell
 
@@ -54,7 +55,7 @@ $svcPrincipalCreds = New-AzureADApplicationPasswordCredential -ObjectId $svcPrin
 ```
 ## <a name="view-your-credentials-in-powershell"></a>Visualización de las credenciales en PowerShell
 
-Antes de crear la asignación de roles para la entidad de servicio, consulte sus credenciales y escríbalas para futura referencia. La contraseña es especialmente importante, porque no podrá recuperarla una vez que cierre esta sesión de PowerShell.
+Antes de crear la asignación de roles para la entidad de servicio, consulte sus credenciales y escríbalas para futura referencia. La contraseña es especialmente importante, porque no se podrá recuperar una vez que se cierre esta sesión de PowerShell.
 
 Estas son las tres credenciales que debe anotar y los cmdlets que necesita para ejecutar para obtenerlas:
 
