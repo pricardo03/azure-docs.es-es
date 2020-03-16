@@ -2,17 +2,16 @@
 title: 'Tutorial: Creación de un gráfico de métricas en Azure Monitor'
 description: Aprenda a crear su primer gráfico de métricas con el Explorador de métricas de Azure.
 author: bwren
-services: azure-monitor
+ms.author: bwren
 ms.subservice: metrics
 ms.topic: tutorial
-ms.date: 12/16/2019
-ms.author: bwren
-ms.openlocfilehash: be4f026ba20ce1582f5626ec7483740831c25c1a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/09/2020
+ms.openlocfilehash: d8f72471dd3109bf584d18f032ec2f4d949a4993
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661471"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082819"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Tutorial: Creación de un gráfico de métricas en Azure Monitor
 El explorador de métricas es una característica de Azure Monitor de Azure Portal que permite crear gráficos a partir de valores de métricas, correlacionar visualmente las tendencias e investigar los repuntes o las caídas en los valores de las métricas. Utilice el explorador de métricas para investigar el estado y el uso de los recursos de Azure o para trazar gráficos a partir de métricas personalizadas. 
@@ -23,6 +22,10 @@ En este tutorial, aprenderá a:
 > * Seleccionar una métrica para la que trazar un gráfico
 > * Realizar agregaciones diferentes de valores de métricas
 > * Modificar el intervalo de tiempo y la granularidad del gráfico
+
+El siguiente es un vídeo que muestra un escenario más amplio que el procedimiento descrito en este artículo. Si no está familiarizado con las métricas, le recomendamos que lea este artículo primero y que vea después el vídeo para conocer más detalles. 
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4qO59]
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

@@ -1,20 +1,22 @@
 ---
 title: Creación de un proyecto de etiquetado de datos
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo crear y ejecutar proyectos para etiquetar los datos del aprendizaje automático.
-author: lobrien
-ms.author: laobri
+description: Aprenda a crear y ejecutar proyectos para etiquetar los datos del aprendizaje automático.  Las herramientas incluyen el etiquetado con asistencia de ML o el etiquetado con intervención humana para ayudar con la tarea.
+author: sdgilley
+ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: e469837c8e374e62824bd8f7a7feb110ed1be9c9
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 03/01/2020
+ms.openlocfilehash: 9974b42f582a3b5f26df0b6e77b42a03f23c47dd
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153118"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898717"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creación de un proyecto de etiquetado de datos y exportación de etiquetas 
+
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Etiquetar datos voluminosos en proyectos de Machine Learning suele ser una tarea compleja. Los proyectos que tienen un componente de Computer Vision (como la clasificación de imágenes o la detección de objetos) normalmente requieren etiquetar miles de imágenes.
  
@@ -22,7 +24,7 @@ Etiquetar datos voluminosos en proyectos de Machine Learning suele ser una tarea
 
 Machine Learning realiza un seguimiento del progreso y el mantenimiento de la cola de tareas de etiquetado incompletas. Los etiquetadores no necesitan una cuenta de Azure para participar. Una vez que se hayan autenticado con su cuenta Microsoft (MSA) o [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), pueden realizar todo el etiquetado que el tiempo les permita.
 
-En Machine Learning, puede iniciar y detener el proyecto, agregar y quitar usuarios y equipos, e incluso supervisar el progreso. Puede exportar los datos etiquetados en formato COCO o como un conjunto de datos de Azure Machine Learning.
+Inicie y detenga el proyecto, agregue y quite etiquetadores y equipos, y supervise el progreso de etiquetado. Puede exportar los datos etiquetados en formato COCO o como un conjunto de datos de Azure Machine Learning.
 
 > [!Important]
 > Actualmente solo se admiten proyectos de etiquetado de clasificación de imágenes e identificación de objetos. Además, las imágenes de datos deben estar disponibles en un almacén de datos de blobs de Azure. (Si no tiene un almacén de datos existente, puede cargar las imágenes durante la creación del proyecto). 
@@ -39,7 +41,7 @@ En este artículo, aprenderá a:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Los datos que quiere etiquetar, ya sea en archivos locales o en Azure Storage.
+* Los datos que quiere etiquetar, ya sea en archivos locales o en el almacenamiento de blobs de Azure.
 * Conjunto de etiquetas que quiere aplicar.
 * Instrucciones para el etiquetado.
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree) antes de empezar.
@@ -55,8 +57,8 @@ Para crear un proyecto, seleccione **Agregar proyecto**. Asigne un nombre adecua
 
 ![Asistente para la creación de proyectos de etiquetado](./media/how-to-create-labeling-projects/labeling-creation-wizard.png)
 
-* Elija un proyecto de tipo **Clasificación de imágenes con varias etiquetas** cuando quiera aplicar *una o varias* etiquetas de un conjunto de clases a una imagen. Por ejemplo, una fotografía de un perro podría etiquetarse como *perro* y *diurno*.
 * Elija un proyecto de tipo **Clasificación de imágenes con varias clases** cuando quiera aplicar una *sola clase* de un conjunto de clases a una imagen.
+* Elija un proyecto de tipo **Clasificación de imágenes con varias etiquetas** cuando quiera aplicar *una o varias* etiquetas de un conjunto de clases a una imagen. Por ejemplo, una fotografía de un perro podría etiquetarse como *perro* y *diurno*.
 * Elija un proyecto de tipo **Identificación del objeto (rectángulo de selección)** cuando quiera asignar una clase y un rectángulo de selección a cada objeto de una imagen.
 
 Seleccione **Siguiente** cuando esté listo para continuar.
@@ -64,6 +66,7 @@ Seleccione **Siguiente** cuando esté listo para continuar.
 ## <a name="specify-the-data-to-label"></a>Especificación de los datos que se van a etiquetar
 
 Si ya ha creado un conjunto de datos que contiene los datos, selecciónelo en la lista desplegable **Seleccione un conjunto de datos existente**. O bien, seleccione **Crear un conjunto de datos** para usar un almacén de información de Azure existente o cargar archivos locales.
+
 
 ### <a name="create-a-dataset-from-an-azure-datastore"></a>Creación de un conjunto de datos a partir de un almacén de datos de Azure
 
@@ -81,6 +84,9 @@ Para crear un conjunto de datos a partir de los datos que ya ha almacenado en el
 1. Proporcione una descripción para el conjunto de datos.
 1. Seleccione **Next** (Siguiente).
 1. Confirme los detalles. Seleccione **Atrás** para modificar la configuración o **Crear** para crear el conjunto de datos.
+
+> [!NOTE]
+> Los datos que elija se cargarán en el proyecto.  Una vez creado el proyecto, los datos que se agreguen al almacén de datos no aparecerán en el proyecto.  
 
 ### <a name="create-a-dataset-from-uploaded-data"></a>Creación de un conjunto de datos a partir de los datos cargados
 
@@ -105,7 +111,7 @@ Escriba una etiqueta por fila. Use el botón **+** para agregar una nueva fila. 
 
 ## <a name="describe-the-labeling-task"></a>Descripción de la tarea de etiquetado
 
-Es importante explicar claramente la tarea de etiquetado. En la página **Instrucciones de etiquetado**, puede agregar un vínculo a un sitio externo que contenga las instrucciones de etiquetado. Mantenga las instrucciones orientadas a tareas y adecuadas para el público. Tenga en cuenta estas preguntas:
+Es importante explicar claramente la tarea de etiquetado. En la página **Instrucciones de etiquetado**, puede agregar un vínculo a un sitio externo que contenga las instrucciones de etiquetado o bien incluir instrucciones en el cuadro de edición de la página. Mantenga las instrucciones orientadas a tareas y adecuadas para el público. Tenga en cuenta estas preguntas:
 
 * ¿Cuáles son las etiquetas que verán y cómo las elegirán? ¿Hay un texto de referencia que puedan consultar?
 * ¿Qué debe hacer si ninguna etiqueta parece adecuada?
@@ -119,9 +125,42 @@ En el caso de los rectángulos de selección, estas son algunas preguntas import
 
 * ¿Cómo se define el cuadro de límite para esta tarea? ¿Debe estar totalmente en el interior del objeto o en el exterior? ¿Debe recortarse lo más cerca posible o hay algo de margen?
 * ¿Qué nivel de cuidado y coherencia espera que los etiquetadores apliquen para definir los rectángulos de selección?
+* ¿Cómo se etiqueta el objeto que se muestra parcialmente en la imagen? 
+* ¿Cómo se etiqueta el objeto parcialmente cubierto por otro objeto?
 
 >[!NOTE]
 > Recuerde que los etiquetadores podrán seleccionar las 9 primeras etiquetas usando las claves numéricas de 1 a 9.
+
+## <a name="use-ml-assisted-labeling"></a>Uso del etiquetado con asistencia de ML
+
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+
+La página **Etiquetado con asistencia de ML** permite desencadenar modelos de Machine Learning automáticos para acelerar la tarea de etiquetado. Al principio del proyecto de etiquetado, las imágenes se presentan en orden aleatorio para reducir el posible sesgo. Sin embargo, los sesgos presentes en el conjunto de datos se reflejarán en el modelo entrenado. Por ejemplo, si el 80 % de las imágenes son de una sola clase, aproximadamente el 80 % de los datos usados para entrenar el modelo serán de esa clase. Este entrenamiento no incluye el aprendizaje activo.
+
+Esta característica está disponible para las tareas de clasificación de imágenes (de varias clases o de varias etiquetas).  
+
+Seleccione *Habilitar el etiquetado con asistencia de ML* y especifique una GPU para habilitar el etiquetado con asistencia, que consta de dos fases:
+* Agrupación en clústeres
+* Etiquetado previo
+
+El número exacto de imágenes con etiqueta necesarias para iniciar el etiquetado con asistencia no es un número fijo.  Puede variar significativamente de un proyecto de etiquetado a otro. En algunos proyectos, a veces es posible ver tareas de etiquetado previo o de agrupación en clústeres después de que se hayan etiquetado manualmente 300 imágenes. El etiquetado con asistencia de ML usa una técnica llamada *transferencia de aprendizaje*, que usa un modelo entrenado previamente para iniciar el proceso de entrenamiento. Si las clases del conjunto de datos son similares a las del modelo entrenado previamente, puede haber etiquetas previas disponibles después de unos pocos cientos de imágenes etiquetadas manualmente. Si el conjunto de datos es significativamente diferente de los datos utilizados para entrenar previamente el modelo, puede tardar mucho más.
+
+Como las etiquetas finales se siguen basando en la entrada del etiquetador, a veces esta tecnología se denomina etiquetado *con intervención humana*.
+
+### <a name="clustering"></a>Agrupación en clústeres
+
+Después de que se envía un determinado número de etiquetas, el modelo de Machine Learning empieza a agrupar imágenes similares.  Estas imágenes similares se presentan a los etiquetadores en la misma pantalla, para acelerar el etiquetado manual. La agrupación en clústeres es especialmente útil cuando el etiquetador está viendo una cuadrícula de 4, 6 o 9 imágenes. 
+
+Una vez que se ha entrenado un modelo de Machine Learning con los datos etiquetados manualmente, el modelo se trunca a su última capa totalmente conectada. A continuación, las imágenes sin etiquetar pasan a través del modelo truncado en un proceso comúnmente conocido como "incrustación" o "caracterización". El proceso incrusta cada imagen en un espacio de alta dimensión definido por esta capa de modelo. Las imágenes que son vecinos más próximos en el espacio se usan para las tareas de agrupación en clústeres. 
+
+### <a name="prelabeling"></a>Etiquetado previo
+
+Después de enviar más etiquetas de imagen, se usa un modelo de clasificación para predecir las etiquetas de las imágenes.  Ahora el etiquetador ve las páginas que contienen etiquetas previstas ya presentes en cada imagen.  La tarea es, en este caso, de revisión de estas etiquetas y de corrección de cualquier imagen con etiqueta incorrecta antes de enviar la página.  
+
+Una vez que se ha entrenado un modelo de Machine Learning con los datos etiquetados manualmente, el modelo se evalúa en un conjunto de pruebas de imágenes etiquetadas manualmente para determinar su precisión en una variedad de distintos umbrales de confianza. Este proceso de evaluación se usa para determinar un umbral de confianza por encima del cual el modelo es lo suficientemente preciso como para mostrar las etiquetas previas. A continuación, el modelo se evalúa con datos sin etiquetar. Las imágenes con predicciones más confiables que este umbral se usan para la etiquetado previo.
+
+> [!NOTE]
+> El etiquetado con asistencia por ML **solo** está disponible en las áreas de trabajo de Enterprise Edition.
 
 ## <a name="initialize-the-labeling-project"></a>Inicialización del proyecto de etiquetado
 
@@ -149,7 +188,7 @@ Para poner en pausa o reiniciar el proyecto, seleccione el botón **Pausar**/**I
 
 Puede etiquetar los datos directamente desde la página **Detalles del proyecto** si selecciona **Label data** (Etiquetar datos).
 
-## <a name="add-labels-to-a-project"></a>Incorporación de etiquetas a un proyecto
+## <a name="add-new-label-class-to-a-project"></a>Incorporación de una nueva clase de etiqueta a un proyecto
 
 Durante el proceso de etiquetado es posible que se necesiten etiquetas adicionales para clasificar las imágenes.  Por ejemplo, puede que desee agregar una etiqueta "Desconocido" u "Otro" para indicar que las imágenes son confusas.
 
