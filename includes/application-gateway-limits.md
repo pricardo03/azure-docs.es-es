@@ -2,14 +2,14 @@
 author: vhorne
 ms.service: application-gateway
 ms.topic: include
-ms.date: 6/5/2019
+ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: 6ab6c4c2051ccd2fbb22c383b9ca0af53ceb13d3
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 48f4c7497583e872c89e4d8cd92dab52ab4f9239
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77054939"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304937"
 ---
 | Resource | Límite predeterminado/máximo | Nota: |
 | --- | --- | --- |
@@ -18,7 +18,7 @@ ms.locfileid: "77054939"
 | Puertos de front-end |100<sup>1</sup> | |
 | Grupos de direcciones de back-end |100<sup>1</sup> | |
 | Servidores back-end por grupo |1,200 | |
-| Agentes de escucha HTTP |100<sup>1</sup> | |
+| Agentes de escucha HTTP |200<sup>1</sup> |Limitado a 100 clientes de escucha activos que enrutan el tráfico. Clientes de escucha activos = número total de clientes de escucha - clientes de escucha no activos.<br>Si se establece una configuración predeterminada dentro de una regla de enrutamiento para enrutar el tráfico (por ejemplo, tiene un cliente de escucha, un grupo de back-end y la configuración de HTTP), también cuenta como cliente de escucha.|
 | Reglas de equilibrio de carga HTTP |100<sup>1</sup> | |
 | Configuración de HTTP de back-end |100<sup>1</sup> | |
 | Instancias por puerta de enlace |V1 SKU: 32<br>V2 SKU: 125 | |

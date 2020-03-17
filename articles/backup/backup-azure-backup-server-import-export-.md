@@ -105,7 +105,7 @@ Siga los pasos para cargar manualmente el certificado de copia de seguridad sin 
 1. Seleccione la pestaña **Administrar aplicación de certificado de equipo** > **Personal**. Busque el certificado con el nombre `CB_AzureADCertforOfflineSeeding_<ResourceId>`.
 1. Seleccione el certificado anterior, haga clic con el botón derecho en **Todas las tareas** y, después, en **Exportar**, sin clave privada y en formato .cer.
 1. Vaya a la aplicación de copia de seguridad sin conexión de Azure en Azure Portal.
-1. Seleccione **Administrar** ** > Certificados y secretos** > **Cargar certificado**. Cargue el certificado exportado en el paso anterior.
+1. Seleccione **Administrar** > **Certificados y secretos** > **Cargar certificado**. Cargue el certificado exportado en el paso anterior.
 
     ![Carga del certificado](./media/backup-azure-backup-import-export/upload-certificate.png)
 

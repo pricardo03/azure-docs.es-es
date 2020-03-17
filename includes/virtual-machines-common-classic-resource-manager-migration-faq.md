@@ -68,7 +68,7 @@ Durante la migración, los recursos se transforman del modelo clásico al de Res
 Cuando traslade una máquina virtual del modo clásico al de Resource Manager, las copias de seguridad realizadas antes de la migración no migrarán a la máquina virtual de Resource Manager recién migrada. Sin embargo, si quiere mantener las copias de seguridad de las máquinas virtuales clásicas, siga estos pasos antes de la migración. 
 
 1. En el almacén de Recovery Services, vaya a la pestaña **Elementos protegidos** y seleccione la máquina virtual. 
-2. Haga clic en Stop Protection (Detener protección). Deje la opción *Eliminar los datos de copia de seguridad asociados***desactivada**.
+2. Haga clic en Stop Protection (Detener protección). Deje la opción *Eliminar los datos de copia de seguridad asociados* **desactivada**.
 
 > [!NOTE]
 > Se le cobrará el costo de la instancia de la copia de seguridad hasta que retenga los datos. Las copias de seguridad se eliminarán según el intervalo de retención. Sin embargo, siempre se conserva la última copia de seguridad hasta que elimina explícitamente los datos de copia de seguridad. Se recomienda comprobar el intervalo de retención de la máquina virtual y el desencadenador "Eliminar datos de copia de seguridad" en el elemento protegido en el almacén una vez finalizado el intervalo de retención. 
