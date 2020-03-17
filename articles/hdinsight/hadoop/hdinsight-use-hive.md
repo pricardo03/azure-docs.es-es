@@ -137,7 +137,7 @@ En el ejemplo anterior, las instrucciones de HiveQL realizan las acciones siguie
 |CREATE EXTERNAL TABLE|crea una nueva tabla **externa** en Hive. Las tablas externas solo almacenan la definición de Tabla en Hive. Los datos permanecen en la ubicación y formato originales.|
 |ROW FORMAT|indica a Hive cómo se da formato a los datos. En este caso, los campos de cada registro se separan mediante un espacio.|
 |STORED AS TEXTFILE LOCATION|indica a Hive dónde se almacenan los datos (el directorio `example/data`) y que se almacenen como texto. Los datos pueden estar en un archivo o distribuidos en varios archivos dentro del directorio.|
-|SELECT|selecciona el número total de filas donde la columna **t4**contiene el valor**[ERROR]** . Esta instrucción devuelve un valor de **3** porque hay tres filas que contienen este valor.|
+|SELECT|selecciona el número total de filas donde la columna **t4** contiene el valor **[ERROR]** . Esta instrucción devuelve un valor de **3** porque hay tres filas que contienen este valor.|
 |INPUT__FILE__NAME LIKE '%.log'|Hive intenta aplicar el esquema a todos los archivos en el directorio. En este caso, el directorio contiene archivos que no coinciden con el esquema. Para evitar que haya datos inservibles en los resultados, esta instrucción indica a Hive que solo se deben devolver datos de archivos que terminen en .log.|
 
 > [!NOTE]  
@@ -168,7 +168,7 @@ Estas instrucciones realizan las acciones siguientes:
 |---|---|
 |CREATE TABLE IF NOT EXISTS|Si la tabla no existe, créela. Dado que no se utiliza la palabra clave **EXTERNAL**, esta instrucción crea una tabla interna. La tabla se almacena en el almacenamiento de datos de Hive y Hive la administra por completo.|
 |STORED AS ORC|almacena los datos en el formato de columnas de filas optimizadas (ORC, Optimized Row Columnar). ORC es un formato altamente optimizado y eficiente para almacenar datos de Hive.|
-|INSERT OVERWRITE... SELECT|selecciona filas de la tabla **log4jLogs**que contiene**[ERROR]**y luego inserta los datos en la tabla**errorLogs**.|
+|INSERT OVERWRITE... SELECT|selecciona filas de la tabla **log4jLogs** que contiene **[ERROR]** y luego inserta los datos en la tabla **errorLogs**.|
 
 > [!NOTE]  
 > A diferencia de las tablas externas, la eliminación de una tabla interna también eliminará los datos subyacentes.
