@@ -5,20 +5,19 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/26/2019
+ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 3369dc7cde7082659df556e008adb5e45b4c011c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 2daaf9bbdf90029f0aad4333ab94e2d1d1d3d7ff
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246198"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128460"
 ---
 ## <a name="limitations"></a>Limitaciones
 
 - Actualmente, los conjuntos de escalado de máquinas virtuales no se admiten en los hosts dedicados.
-- Se admiten las siguientes series de máquinas virtuales: DSv3, ESv3 y Fsv2. 
 
 ## <a name="benefits"></a>Ventajas 
 
@@ -101,17 +100,15 @@ Para más información, consulte [Precios de Azure Dedicated Host](https://aka.m
 
 También puede ahorrar costos con una [instancia reservada de Azure Dedicated Host](../articles/virtual-machines/prepay-dedicated-hosts-reserved-instances.md).
  
-## <a name="vm-families-and-hardware-generations"></a>Familias de máquinas virtuales y generaciones de hardware
+## <a name="sizes-and-hardware-generations"></a>Tamaños y generaciones de hardware
 
-Se define una SKU para un host y representa el tipo y la serie de tamaño de máquina virtual. Puede mezclar varias máquinas virtuales de distintos tamaños en un solo host, siempre que no sean de la misma serie de tamaño. El tipo es la generación de hardware disponible actualmente en la región.
+Se define una SKU para un host y representa el tipo y la serie de tamaño de máquina virtual. Puede mezclar varias máquinas virtuales de distintos tamaños en un solo host, siempre que no sean de la misma serie de tamaño. 
 
-Los distintos `types` de la misma serie de máquinas virtuales serán de distintos proveedores de CPU y tendrán diferentes generaciones de CPU y número de núcleos.
+El *tipo* es la generación de hardware. Los distintos tipos de hardware de la misma serie de máquinas virtuales proceden de distintos proveedores de CPU y tienen diferentes generaciones de CPU y número de núcleos. 
 
-Para más información, consulte la [página de precios](https://aka.ms/ADHPricing) de hosts.
+Los tamaños y tipos de hardware varían según la región. Para más información, consulte la [página de precios](https://aka.ms/ADHPricing) de hosts.
 
-Los hosts dedicados admiten estos tipos o SKU de host:  DSv3_Type1 y ESv3_Type1
 
- 
 ## <a name="host-life-cycle"></a>Ciclo de vida del host
 
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: a9c045162e650b4468fb53676e367d2c658bf7cc
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 57469bef7014010164234638f3d059ac96b125cf
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912584"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383795"
 ---
 ## <a name="what-is-the-time-required-for-migration"></a>¿Cuál es el tiempo necesario para la migración?
 
@@ -22,6 +22,14 @@ El planeamiento y la ejecución de la migración depende en gran medida de la co
 ## <a name="what-is-the-definition-of-a-new-customer-on-iaas-vms-classic"></a>¿Cuál es la definición de un cliente nuevo en máquinas virtuales de IaaS (clásicas)?
 
 Los clientes que no disponían de máquinas virtuales de IaaS (clásicas) en sus suscripciones durante el mes de febrero de 2020 (un mes antes de que entraran en desuso) se consideran clientes nuevos. 
+
+## <a name="what-is-the-definition-of-an-existing-customer-on-iaas-virtual-machines-classic"></a>¿Cuál es la definición de cliente existente en máquinas virtuales IaaS (clásicas)?
+
+Aquel cliente con máquinas virtuales IaaS (clásicas) activas, o detenidas pero asignadas, en sus suscripciones en el mes de febrero de 2020 se considera un cliente existente. Únicamente estos clientes tienen hasta el 1 de marzo de 2023 para migrar sus máquinas virtuales de Azure Service Manager a Azure Resource Manager. 
+
+## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>¿Por qué me aparece un error que indica "NewClassicVMCreationNotAllowedForSubscription"?
+
+Como parte del proceso de retirada, las máquinas virtuales IaaS (clásicas) ya no están disponibles para nuevos clientes. Se le ha identificado como nuevo cliente y, por lo tanto, su operación no se ha autorizado. Se recomienda encarecidamente usar [Azure Virtual Machines con ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). Si no puede usar máquinas virtuales de Azure con ARM, póngase en contacto con soporte técnico para la inclusión en la lista blanca de suscripciones.
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>¿Afecta este plan de migración a alguno de los servicios o las aplicaciones existentes que se ejecutan en máquinas virtuales de Azure? 
 

@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/03/2020
+ms.date: 03/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0219b3e35ed82795e9c799754cabdeb5d17096d6
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: be403815838233350929c7d4ca0eed979d7dfa8c
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78267407"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080332"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso de Azure para hospedar y ejecutar escenarios de carga de trabajo de SAP
 
@@ -43,6 +43,7 @@ Si tiene preguntas específicas, vamos a apuntar a documentos o flujos específi
 - Qué escenarios de implementación de SAP se admiten en las VM de Azure y las instancias grandes de HANA. Puede encontrar información sobre los escenarios admitidos en los siguientes documentos:
     - [Carga de trabajo de SAP en escenarios admitidos en máquinas virtuales de Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations)
     - [Escenarios admitidos para instancias grandes de HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario)
+- Para conocer qué servicios de Azure, tipos de máquinas virtuales de Azure e instancias de almacenamiento de Azure hay disponibles en las diferentes regiones de Azure, vea el sitio [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/) 
 
  
 ## <a name="sap-hana-on-azure-large-instances"></a>SAP HANA en Azure (instancias grandes)
@@ -109,6 +110,9 @@ Para obtener información sobre la integración de servicios de Azure en los com
 
 
 ## <a name="change-log"></a>Registro de cambios
+- 10/03/2020: cambio en [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) para aclarar los límites de rendimiento existentes reales de ANF
+- 09/03/2020: cambio en [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse), [Alta disponibilidad de SAP NetWeaver en VM de Azure en SUSE Linux Enterprise Server con Azure NetApp Files para las aplicaciones de SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files), [Alta disponibilidad para NFS en máquinas virtuales de Azure en SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs), [Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker), [Alta disponibilidad de IBM Db2 LUW en máquinas virtuales de Azure en SUSE Linux Enterprise Server con Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm), [Alta disponibilidad de SAP HANA en máquinas virtuales de Azure en SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) y [Alta disponibilidad para SAP NetWeaver en VM de Azure en Red Hat Enterprise Linux para SAP Applications: guía de varios SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid) para actualizar los recursos de clúster con el agente de recursos azure-lb 
+- 05/03/2020: cambios de estructura y de contenido para regiones y máquinas virtuales de Azure en [Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
 - 03/03/2020: cambio en la [alta disponibilidad para SAP NW en VM de Azure en SLES con ANF para aplicaciones de SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) para cambiar a un diseño de volumen de ANF más eficaz.
 - 01/03/2020: modificación de la [guía de copia de seguridad de SAP HANA en Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide) para incluir el servicio Azure Backup. Reducción y compresión del contenido de [Azure Backup de SAP HANA en el nivel de archivo](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level), y eliminación de un tercer documento relacionado con la copia de seguridad a través de la instantánea del disco. El contenido se controla en la Guía de copia de seguridad de SAP HANA en Azure Virtual Machines 
 - 27/02/2020: cambio en la [alta disponibilidad para SAP NetWeaver en VM de Azure en SLES para aplicaciones de SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse), la [alta disponibilidad para SAP NW en VM de Azure en SLES con ANF para aplicaciones de SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) y la [guía de alta disponibilidad para SAP NetWeaver en VM de Azure en SLES con varios SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) para ajustar el parámetro del clúster "en caso de error".

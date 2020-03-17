@@ -3,12 +3,12 @@ title: Realización de una copia de seguridad de una granja de SharePoint en Azu
 description: Uso del Azure Backup Server para hacer copia de seguridad de los datos de SharePoint y restaurarlos. En este artículo se proporciona la información sobre cómo configurar la granja de SharePoint para almacenar los datos deseados en Azure. Puede restaurar los datos protegidos de SharePoint desde disco o desde Azure.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: ba9d79270da839cf99574322d68ccdba27fe2d93
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 441a896f2faa67a1380007ebb9474d7c311a4842
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77584258"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673135"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Realización de una copia de seguridad de una granja de SharePoint en Azure con MABS
 
@@ -63,12 +63,12 @@ Puede encontrar **ConfigureSharePoint.exe** en la carpeta [ruta de instalación 
 
 1. En el servidor WFE, en un símbolo del sistema, vaya a [ubicación de instalación de MABS]\bin\
 2. Escriba ConfigureSharePoint -EnableSharePointProtection.
-3. Escriba las credenciales de administrador de la granja de servidores. Esta cuenta debe ser miembro del grupo de administradores local en el servidor WFE. Si el administrador de la granja no es un administrador local, conceda los permisos siguientes en el servidor WFE:
+3. Escriba las credenciales de administrador de la granja de servidores. Esta cuenta debe ser miembro del grupo de administradores local en el servidor WFE. Si el administrador de la granja de servidores no es un administrador local, conceda los permisos siguientes en el servidor WFE:
    * Conceda al grupo WSS_Admin_WPG control total sobre la carpeta DPM (%Program Files%\Microsoft Azure Backup\DPM).
    * Conceda al grupo WSS_Admin_WPG acceso de lectura a la clave del Registro de DPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
 > [!NOTE]
-> Deberá ejecutar ConfigureSharePoint.exe cada vez que haya un cambio en las credenciales de administrador de la granja de servidores de SharePoint.
+> Debe volver a ejecutar ConfigureSharePoint.exe cada vez que haya un cambio en las credenciales de administrador de la granja de servidores de SharePoint.
 >
 >
 
@@ -127,7 +127,7 @@ Después de que haya configurado MABS y la granja de SharePoint tal y como se ha
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > MABS ofrece un máximo de dos copias de seguridad diarias a Azure desde el punto de copia de seguridad del disco más reciente disponible. Azure Backup también puede controlar la cantidad de ancho de banda WAN que puede usarse para copias de seguridad en horas de máxima y mínima actividad mediante la [limitación de red de Azure Backup](https://azure.microsoft.com/documentation/articles/backup-configure-vault/#enable-network-throttling).
+    > MABS ofrece un máximo de dos copias de seguridad diarias a Azure desde el punto de copia de seguridad del disco más reciente disponible. Azure Backup también puede controlar la cantidad de ancho de banda WAN que puede usarse para copias de seguridad en horas de máxima y mínima actividad mediante el [límite de ancho de banda de Azure Backup](backup-windows-with-mars-agent.md#enable-network-throttling).
     >
     >
 11. Según la programación de copia de seguridad seleccionada, en la página **Especificar la directiva de retención en línea** , seleccione la directiva de retención para los puntos de copia de seguridad diarios, semanales, mensuales y anuales.

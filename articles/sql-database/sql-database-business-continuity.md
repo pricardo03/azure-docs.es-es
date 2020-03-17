@@ -1,5 +1,5 @@
 ---
-title: 'Continuidad empresarial en la nube: Recuperación de bases de datos'
+title: 'Continuidad empresarial en la nube: recuperación de bases de datos'
 description: Obtenga información acerca de cómo Azure SQL Database permite la continuidad del negocio en la nube y la recuperación de la base de datos, y ayuda a que las aplicaciones críticas de la nube se sigan ejecutando.
 keywords: continuidad del negocio, continuidad del negocio en la nube, recuperación de desastres de la base de datos, recuperación de la base de datos
 services: sql-database
@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 5a6a96f478c4402a830cc522657f56cfd11fa56f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4f30bf112175742566c2957d78154e5a7abd1733
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821820"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096865"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Introducción a la continuidad empresarial con Azure SQL Database
 
@@ -65,7 +65,7 @@ Los [grupos de conmutación por error automática](sql-database-auto-failover-gr
 |:---------------------------------------------| :-------------- | :----------------|
 | Conmutación por error automática                           |     Sin          |      Sí         |
 | Conmutación por error de varias bases de datos simultáneamente  |     Sin          |      Sí         |
-| Actualización de la cadena de conexión después de la conmutación por error      |     Sí         |      Sin          |
+| El usuario debe actualizar la cadena de conexión tras la conmutación por error      |     Sí         |      Sin          |
 | Compatibilidad con la instancia administrada                   |     Sin          |      Sí         |
 | Posibilidad de estar en la misma región que la principal             |     Sí         |      Sin          |
 | Varias réplicas                            |     Sí         |      Sin          |

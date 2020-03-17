@@ -3,12 +3,12 @@ title: Copia de seguridad sin conexión con Azure Data Box
 description: Aprenda a usar Azure Data Box para propagar los datos de grandes copias de seguridad iniciales sin conexión desde el agente de MARS hasta un almacén de Recovery Services.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 9a8288939adba8ec1b0cbe38d2243b1bdd84fa2e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: a031a8cac357e7d212f8f6a3a5dbec749fbccc21
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196525"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672962"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Copia de seguridad sin conexión de Azure Backup con Azure Data Box
 
@@ -124,7 +124,7 @@ El proceso de copia de seguridad sin conexión con MARS y Azure Data Box requier
 
 1. Asegúrese de desinstalar toda instalación anterior del agente de MARS.
 1. Descargue la última versión del agente de MARS [desde este sitio web](https://aka.ms/azurebackup_agent).
-1. Ejecute *MARSAgentInstaller.exe* y siga *solo* los pasos de [instalación y registro del agente](https://docs.microsoft.com/azure/backup/backup-configure-vault#install-and-register-the-agent) en el almacén de Recovery Services en el que quiere que se almacenen las copias de seguridad.
+1. Ejecute *MARSAgentInstaller.exe* y siga *solo* los pasos de [instalación y registro del agente](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) en el almacén de Recovery Services en el que quiere que se almacenen las copias de seguridad.
 
    > [!NOTE]
    > El almacén de Recovery Services debe estar en la misma suscripción que el trabajo de Azure Data Box.
@@ -243,7 +243,7 @@ En esta sección se explican los pasos que se deben llevar a cabo una vez que se
 * [Supervise el trabajo de Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) en Azure Portal Una vez que el trabajo de Azure Data Box ha finalizado, el agente de MARS mueve automáticamente los datos de la cuenta de almacenamiento al almacén de Recovery Services cuando tenga lugar la siguiente copia de seguridad programada. A continuación, marca el trabajo de copia de seguridad como *Trabajo completado* si se ha creado correctamente un punto de recuperación.
 
     >[!NOTE]
-    >El agente de MARS desencadena las copias de seguridad a las horas programadas durante la creación de la directiva. Estos trabajos se marcarán como "Waiting for Azure Data Box job to be completed" (Esperando a que se complete el trabajo de Azure Data Box) hasta que finalice el trabajo.
+    >El agente de MARS desencadena las copias de seguridad a las horas programadas durante la creación de la directiva. Estos trabajos se marcan como "Waiting for Azure Data Box job to be completed" (Esperando a que se complete el trabajo de Azure Data Box) hasta que finaliza el trabajo.
 
 * Una vez que el agente de MARS cree correctamente un punto de recuperación correspondiente a la copia de seguridad inicial, puede eliminar la cuenta de almacenamiento o el contenido específico asociado con el trabajo de Azure Data Box.
 
@@ -307,7 +307,7 @@ Desde el servidor donde intenta configurar la copia de seguridad sin conexión, 
     >[!NOTE]
     > Para obtener el identificador de usuario de Azure, realice una de estas acciones:
     >
-    >* Desde la instancia de PowerShell conectada a Azure, ejecute el comando `Get-AzureRmADUser -UserPrincipalName “Account Holder’s email as defined in the portal”`.
+    >* Desde la instancia de PowerShell conectada a Azure, ejecute el comando `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"`.
     > * Vaya a la ruta de acceso del registro *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup* con el nombre *CurrentUserId*.
 
 6. Haga clic con el botón derecho en la cadena agregada en el paso anterior y seleccione **Modificar**. En el valor, proporcione la huella digital del certificado exportado en el paso 2. Seleccione **Aceptar**.

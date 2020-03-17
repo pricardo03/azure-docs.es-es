@@ -10,19 +10,19 @@ ms.service: backup
 ms.tgt_pltfrm: <optional>
 ms.devlang: <optional>
 ms.topic: article
-ms.date: 8/29/2018
+ms.date: 03/03/2020
 ms.author: dacurwin
-ms.openlocfilehash: 227ec87081817b273b66684e31a0ebd0e11134a0
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: bd298f758d6109b908db01dd2ae3b97e5e2f714a
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197134"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673182"
 ---
 ## <a name="upgrade-the-mars-agent"></a>Actualización del agente de MARS
 
 Las versiones del agente de Microsoft Azure Recovery Services (MARS) inferiores a la 2.0.9083.0 tienen una dependencia en Azure Access Control Service. El agente de MARS también se conoce como agente de Azure Backup.
 
-En 2018, Azure [retiró Azure Access Control Service](../articles/active-directory/azuread-dev/active-directory-acs-migration.md). A partir del 19 de marzo de 2018, todas las versiones del agente MARS inferiores a la 2.0.9083.0 sufrirán errores de copia de seguridad. Para evitar o resolver dichos errores, [actualice el agente de MARS a la versión más reciente](https://go.microsoft.com/fwlink/?linkid=229525). Para identificar los servidores que requieren una actualización del agente de MARS, siga los pasos del [blog de Backup para la actualización de agentes de MARS](https://blogs.technet.microsoft.com/srinathv/2018/01/17/updating-azure-backup-agents/).
+En 2018, Azure [retiró Azure Access Control Service](../articles/active-directory/azuread-dev/active-directory-acs-migration.md). A partir del 19 de marzo de 2018, todas las versiones del agente MARS inferiores a la 2.0.9083.0 sufrirán errores de copia de seguridad. Para evitar o resolver dichos errores, [actualice el agente de MARS a la versión más reciente](https://support.microsoft.com/help/4538314/update-for-azure-backup-for-microsoft-azure-recovery-services-agent). Para identificar los servidores que necesitan una actualización del agente de MARS, siga los pasos de [Actualización del agente de Microsoft Azure Recovery Services (MARS)](../articles/backup/upgrade-mars-agent.md).
 
 El agente de MARS se usa para hacer copias de seguridad de archivos, carpetas y datos de estado del sistema en Azure. System Center DPM y Azure Backup Server usan al agente de MARS para hacer una copia de seguridad de los datos en Azure.

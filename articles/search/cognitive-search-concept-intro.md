@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 14c120af69a94331586f9264a12f5d2333a5d87d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 0a4dd3247a9931de3ae2c699bdf7800407695c86
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586757"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080206"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Introducción a la inteligencia artificial en Azure Cognitive Search
 
@@ -21,7 +21,7 @@ El enriquecimiento con IA es una funcionalidad de la indexación de Azure Cognit
 
 + Las aptitudes del **procesamiento de lenguaje natural** incluyen [reconocimiento de entidades](cognitive-search-skill-entity-recognition.md), [detección de idioma](cognitive-search-skill-language-detection.md), [extracción de frases clave](cognitive-search-skill-keyphrases.md), manipulación de texto, [detección de opiniones](cognitive-search-skill-sentiment.md) y [detección de información de identificación personal](cognitive-search-skill-pii-detection.md). Con estas aptitudes, un texto no estructurado puede asumir nuevas formas, asignado e a campos que se pueden buscar y filtrar en un índice.
 
-+ Las aptitudes de **procesamiento de imágenes** incluyen [reconocimiento óptico de caracteres (OCR)](cognitive-search-skill-ocr.md) e identificación de [características visuales](cognitive-search-skill-image-analysis.md), como detección facial, interpretación de imágenes, reconocimiento de imágenes (personas famosas y puntos de referencia) o atributos como colores o la orientación de la imagen. Puede crear representaciones de texto del contenido de las imágenes, que se puede buscar mediante todas las funcionalidades de consulta de Azure Cognitive Search.
++ Las aptitudes de **procesamiento de imágenes** incluyen [reconocimiento óptico de caracteres (OCR)](cognitive-search-skill-ocr.md) e identificación de [características visuales](cognitive-search-skill-image-analysis.md), como detección facial, interpretación de imágenes, reconocimiento de imágenes (personas famosas y puntos de referencia) o atributos como orientación de la imagen. Puede crear representaciones de texto del contenido de las imágenes, que se puede buscar mediante todas las funcionalidades de consulta de Azure Cognitive Search.
 
 ![Diagrama de una canalización de enriquecimiento](./media/cognitive-search-intro/cogsearch-architecture.png "introducción a la canalización de enriquecimiento")
 

@@ -2,41 +2,57 @@
 author: orspod
 ms.service: data-explorer
 ms.topic: include
-ms.date: 01/08/2020
+ms.date: 02/27/2020
 ms.author: orspodek
-ms.openlocfilehash: f9788e4623ce60ad55d79558d1d77a17eb2a9f26
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: a2297301a0b9c0540c73c0f50483cccfc3181a0f
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779964"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128651"
 ---
 ### <a name="event-system-properties-mapping"></a>Asignación de propiedades del sistema de eventos
 
-Si seleccionó **Propiedades del sistema de eventos** en la sección **Origen de datos** de la tabla anterior, vaya a la [interfaz de usuario web](https://dataexplorer.azure.com/) para ejecutar el comando de KQL correspondiente para crear la asignación correcta.
+> [!Note]
+> * Las propiedades del sistema son compatibles con los eventos de registro único.
+> * En el caso de la asignación `csv`, las propiedades se agregan al principio del registro. En el caso de la asignación `json`, las propiedades se agregan según el nombre que aparece en la lista desplegable.
 
-   **Para la asignación de CSV:**
+Si ha seleccionado **Propiedades del sistema de eventos** en la sección **Origen de datos** de la tabla, debe incluir las siguientes propiedades en el esquema y la asignación de la tabla.
 
-    ```kusto
-    .create table MyTable ingestion csv mapping "CsvMapping1"
+**Ejemplo de esquema de tabla**
+
+Si los datos incluyen tres columnas (`Timespan`, `Metric` y `Value`) y las propiedades que incluye son `x-opt-enqueued-time` y `x-opt-offset`, cree o modifique el esquema de tabla mediante este comando:
+
+```kusto
+    .create-merge table TestTable (TimeStamp: datetime, Metric: string, Value: int, EventHubEnqueuedTime:datetime, EventHubOffset:string)
+```
+
+**Ejemplo de asignación CSV**
+
+Ejecute los siguientes comandos para agregar datos al principio del registro. Observe los valores ordinales.
+
+```kusto
+    .create table TestTable ingestion csv mapping "CsvMapping1"
     '['
-    '   { "column" : "messageid", "DataType":"string", "Properties":{"Ordinal":"0"}},'
-    '   { "column" : "userid", "DataType":"string", "Properties":{"Ordinal":"1"}},'
-    '   { "column" : "other", "DataType":"int", "Properties":{"Ordinal":"2"}}'
+    '   { "column" : "Timespan", "Properties":{"Ordinal":"2"}},'
+    '   { "column" : "Metric", "Properties":{"Ordinal":"3"}},'
+    '   { "column" : "Value", "Properties":{"Ordinal":"4"}},'
+    '   { "column" : "EventHubEnqueuedTime", "Properties":{"Ordinal":"0"}},'
+    '   { "column" : "EventHubOffset", "Properties":{"Ordinal":"1"}}'
     ']'
-    ```
+```
  
-   **Para la asignación de JSON:**
+**Ejemplo de asignación JSON**
 
-    ```kusto
-    .create table MyTable ingestion json mapping "JsonMapping1"
+Los datos se agregan mediante los nombres de las propiedades del sistema tal y como aparecen en la hoja **Conexión de datos** de la lista **Propiedades del sistema de eventos**. Ejecute estos comandos:
+
+```kusto
+    .create table TestTable ingestion json mapping "JsonMapping1"
     '['
-    '    { "column" : "messageid", "datatype" : "string", "Properties":{"Path":"$.message-id"}},'
-    '    { "column" : "userid", "Properties":{"Path":"$.user-id"}},'
-    '    { "column" : "other", "Properties":{"Path":"$.other"}}'
+    '    { "column" : "Timespan", "Properties":{"Path":"$.timestamp"}},'
+    '    { "column" : "Metric", "Properties":{"Path":"$.metric"}},'
+    '    { "column" : "Value", "Properties":{"Path":"$.metric_value"}},'
+    '    { "column" : "EventHubEnqueuedTime", "Properties":{"Path":"$.x-opt-enqueued-time"}},'
+    '    { "column" : "EventHubOffset", "Properties":{"Path":"$.x-opt-offset"}}'
     ']'
-    ```
-
-   > [!TIP]
-   > * Debe incluir todas las propiedades seleccionadas en la asignación. 
-   > * El orden de las propiedades es importante en la asignación de CSV. Las propiedades del sistema deben aparecer antes de todas las demás propiedades y en el mismo orden en el que aparecen en la lista desplegable **Propiedades del sistema de eventos**.
+```
