@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 8208bbf4d196091a6fe4cd962ddc7373d303e125
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 78a6e7fa8d030185f537136a3a2124d8bc59d808
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312437"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037620"
 ---
-# <a name="what-is-azure-machine-learning-designer"></a>¿Qué es el diseñador de Azure Machine Learning? 
+# <a name="what-is-azure-machine-learning-designer-preview"></a>¿Qué es el diseñador de Azure Machine Learning (versión preliminar)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 El diseñador de Azure Machine Learning le permite conectar visualmente [conjuntos de datos](#datasets) y [módulos](#module) en un lienzo interactivo para crear modelos de aprendizaje automático. Para más información sobre cómo empezar a trabajar con el diseñador, consulte [Tutorial: Predicción del precio de un automóvil con el diseñador](tutorial-designer-automobile-price-train-score.md)
@@ -116,7 +116,7 @@ El diseñador crea el mismo objeto [PublishedPipeline](https://docs.microsoft.co
 
 ## <a name="moving-from-the-visual-interface-to-the-designer"></a>Pasar de la interfaz visual al diseñador
 
-La interfaz visual (versión preliminar) se ha actualizado y ahora es el diseñador Azure Machine Learning. El diseñador se ha rediseñado para usar un back-end basado en canalización que se integra totalmente con las otras características de Azure Machine Learning. 
+La interfaz visual (versión preliminar) se ha actualizado y ahora es el diseñador Azure Machine Learning (versión preliminar). El diseñador se ha rediseñado para usar un back-end basado en canalización que se integra totalmente con las otras características de Azure Machine Learning. 
 
 Como resultado de estas actualizaciones, algunos conceptos y términos de la interfaz visual se han cambiado o renombrado. Consulte la tabla siguiente para obtener los cambios conceptuales más importantes. 
 
@@ -135,13 +135,5 @@ Puede convertir los experimentos de interfaz visual y los servicios Web existent
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Aprenda los aspectos básicos del análisis predictivo y del aprendizaje automático con el [Tutorial: Predicción del precio de un automóvil con el diseñador](tutorial-designer-automobile-price-train-score.md)
-* Utilice uno de los ejemplos y modifíquelo cuanto necesite para adaptarlo a sus necesidades:
-
-- [Ejemplo 1 - Regresión: predicción del precio de un automóvil](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Ejemplo 2 - Regresión: comparación de algoritmos para la predicción de precios de automóvil](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Ejemplo 3: clasificación con selección de características: Predicción de ingresos](how-to-designer-sample-classification-predict-income.md)
-- [Ejemplo 4 - Clasificación: predicción del riesgo crediticio (sensible a los costos)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Ejemplo 5 - Clasificación: predicción de la renovación](how-to-designer-sample-classification-churn.md)
-- [Ejemplo 6 - Clasificación: Predicción de retrasos en los vuelos](how-to-designer-sample-classification-flight-delay.md)
-- [Ejemplo 7 - Clasificación de texto: Conjunto de datos de SP 500 de Wikipedia](how-to-designer-sample-text-classification.md)
+* Aprenda a modificar los [ejemplos existentes del diseñador](samples-designer.md) para adaptarlos a sus necesidades.
 

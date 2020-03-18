@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 395b7bc31377fd771549a399032bad9d951ec804
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: b5d9df7a0afa9b4270f0eff643e083e5bccfceb8
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384925"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933727"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Niveles de coherencia en Azure Cosmos DB
 
@@ -41,37 +41,37 @@ Aquí se describe la semántica de los cinco niveles de coherencia:
 
 - **Alta**: La coherencia fuerte ofrece una garantía de linearización. La linearización hace referencia a la capacidad de servir solicitudes simultáneamente. Se garantiza que las lecturas devuelven la versión más reciente de un elemento. Un cliente nunca ve una escritura no confirmada ni parcial. Se garantiza que los usuarios siempre leerán la escritura confirmada más reciente.
 
-- **De obsolescencia entrelazada**: Se garantiza que las lecturas respetan la garantía de prefijo coherente. Las lecturas pueden ir con retraso respecto a las escrituras en un máximo de versiones *"K"* (es decir, "actualizaciones") de un elemento o el intervalo de tiempo *"T"* . En otras palabras, cuando elige la obsolescencia limitada, la "obsolescencia" se puede configurar de dos maneras: 
+  En el gráfico siguiente se ilustra la coherencia fuerte con notas musicales. Una vez que los datos se han escrito en la región "Este de EE. UU.", al leer los datos de otras regiones, obtiene el valor más reciente:
+
+  ![video](media/consistency-levels/strong-consistency.gif)
+
+- **De obsolescencia entrelazada**: Se garantiza que las lecturas respetan la garantía de prefijo coherente. Las lecturas pueden ir con retraso respecto a las escrituras en un máximo de versiones *"K"* (es decir, "actualizaciones") de un elemento o en el intervalo de tiempo *"T"* . En otras palabras, cuando elige la obsolescencia limitada, la "obsolescencia" se puede configurar de dos maneras: 
 
   * El número de versiones (*K*) del elemento
   * El intervalo de tiempo (*T*) que las lecturas pueden retrasarse con respecto a las escrituras 
 
   La obsolescencia limitada ofrece un orden global total, excepto dentro de la "ventana de obsolescencia". La garantía de lectura monotónica existe dentro de una región, tanto dentro como fuera de la ventana de obsolescencia. La coherencia fuerte tiene la misma semántica que la que ofrece la obsolescencia limitada. La ventana de obsolescencia es igual a cero. La obsolescencia limitada también se conoce como linealidad retardada. Cuando un cliente realiza operaciones de lectura en una región que acepta las escrituras, las garantías que proporciona la obsolescencia limitada son idénticas a las garantías por la coherencia fuerte.
 
-- **Sesión**:  En una sesión de cliente individual, se garantiza que las lecturas respetan las garantías de prefijo coherente (suponiendo que hay una sesión de "escritor" única), lecturas monotónicas, escrituras monotónicas, lectura de la escritura y escritura tras las lecturas. Los clientes que están fuera de la sesión que realiza escrituras verán la coherencia final.
+  Las aplicaciones distribuidas globalmente que esperan bajas latencias de escritura pero que necesitan una garantía de orden global, suelen elegir la obsolescencia limitada. La obsolescencia limitada es ideal para las aplicaciones que se caracterizan por la colaboración en grupo y el uso compartido, el tablero de cotizaciones, la publicación o suscripción, la puesta en cola, etc. En el gráfico siguiente se ilustra la coherencia de obsolescencia limitada con notas musicales. Una vez que los datos se han escrito en la región "Este de EE. UU.", las regiones "Oeste de EE. UU." y "Este de Australia" leen el valor escrito según el tiempo de retardo máximo configurado o las operaciones máximas:
+
+  ![video](media/consistency-levels/bounded-staleness-consistency.gif)
+
+- **Sesión**:  en una sesión de cliente individual, se garantiza que las lecturas respetan las garantías de prefijo coherente (suponiendo que hay una sola sesión de "escritor"), lecturas monotónicas, escrituras monotónicas, lectura de las escrituras y escritura tras lecturas. Los clientes que están fuera de la sesión que realiza escrituras verán la coherencia final.
+
+  La coherencia de la sesión es el nivel de coherencia más usado para regiones únicas, así como para aplicaciones distribuidas globalmente. Proporciona latencias de escritura, disponibilidad y rendimiento de lectura equiparables a los de la coherencia final, pero también proporciona las garantías de coherencia que satisfacen las necesidades de aplicaciones escritas para funcionar en el contexto de un usuario. En el gráfico siguiente se ilustra la coherencia de la sesión con notas musicales. La región "Oeste de EE. UU." y las regiones "Este de EE. UU." usan la misma sesión (sesión A), por lo que ambas leen los datos al mismo tiempo. Sin embargo, la región "Este de Australia" usa la "sesión B", por lo que recibe los datos más tarde pero en el mismo orden en que se escriben.
+
+  ![video](media/consistency-levels/session-consistency.gif)
 
 - **De prefijo coherente**: Las actualizaciones que se devuelven contienen prefijos para todas las actualizaciones, sin espacios. El nivel de coherencia del prefijo coherente garantiza que las lecturas nunca vean escrituras desordenadas.
 
-- **Ocasional**: No hay ninguna garantía de ordenación para las lecturas. En ausencia de escrituras adicionales, las réplicas terminarán por converger.
+  Si se realizan escrituras en el orden `A, B, C`, un cliente ve `A`, `A,B` o `A,B,C`, pero nunca un desorden como `A,C` o `B,A,C`. El prefijo coherente proporciona latencias de escritura, disponibilidad y rendimiento de lectura equiparables a los de la coherencia final, pero también proporciona las garantías de orden que se ajustan a las necesidades de escenarios en los que el orden es importante. En el gráfico siguiente se ilustra la coherencia del prefijo de coherencia con notas musicales. En todas las regiones, las lecturas no ven nunca las escrituras desordenadas:
 
-## <a name="consistency-levels-explained-through-baseball"></a>Niveles de coherencia explicados a través del béisbol
+  ![video](media/consistency-levels/consistent-prefix.gif)
 
-Tomemos como ejemplo un escenario de un juego de béisbol. Imagine una secuencia de escrituras que representa el marcador de un juego de béisbol. El típico marcador de dos líneas con el resultado de cada entrada se describe en el documento [Replicated data consistency through baseball](https://www.microsoft.com/en-us/research/wp-content/uploads/2011/10/ConsistencyAndBaseballReport.pdf) (Descripción de la coherencia de datos mediante el béisbol). Este juego de béisbol hipotético actualmente está en la mitad de la séptima entrada, es decir, la entrada de la suerte. Los visitantes pierden por un marcador de 2 a 5, como se muestra a continuación:
+- **Ocasional**: No hay ninguna garantía de ordenación para las lecturas. En ausencia de escrituras adicionales, las réplicas terminarán por converger.  
+La coherencia final es la forma más débil de coherencia, ya que un cliente puede leer los valores que son más antiguos que los que había leído antes. La coherencia final es adecuada cuando la aplicación no requiere ninguna garantía de ordenación. Entre los ejemplos se incluye el recuento de retweets, Me gusta o comentarios no encadenados. En el gráfico siguiente se ilustra la coherencia final con notas musicales.
 
-| | **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** | **Carreras** |
-| - | - | - | - | - | - | - | - | - | - | - |
-| **Visitante** | 0 | 0 | 1 | 0 | 1 | 0 | 0 |  |  | 2 |
-| **Local** | 1 | 0 | 1 | 1 | 0 | 2 |  |  |  | 5 |
-
-Un contenedor de Azure Cosmos guarda el número total de carreras del equipo visitante y del equipo local. Mientras el partido está en curso, las diferentes garantías de lectura pueden tener como resultado que los clientes lean diferentes marcadores. En la siguiente tabla se enumera el conjunto completo de marcadores que se puede devolver con la lectura de los marcadores del equipo visitante y el equipo local con cada uno de los cinco niveles de garantía de coherencia. El marcador del equipo visitante aparece primero. Los distintos valores devueltos posibles están separados por comas.
-
-| **Nivel de coherencia** | **Marcadores (equipo visitante, equipo local)** |
-| - | - |
-| **Fuerte** | 2-5 |
-| **Obsolescencia limitada** | Loos marcadores van como máximo con una entrada de retraso: 2-3, 2-4, 2-5 |
-| **De sesión** | <ul><li>Para el agente de escritura: 2-5</li><li> Para cualquier otro que no sea el agente de escritura: 0-0, 0-1, 0-2, 0-3, 0-4, 0-5, 1-0, 1-1, 1-2, 1-3, 1-4, 1-5, 2-0, 2-1, 2-2, 2-3, 2-4, 2-5</li><li>Después de la lectura de 1-3: 1-3, 1-4, 1-5, 2-3, 2-4, 2-5</li> |
-| **De prefijo coherente** | 0-0, 0-1, 1-1, 1-2, 1-3, 2-3, 2-4, 2-5 |
-| **Posible** | 0-0, 0-1, 0-2, 0-3, 0-4, 0-5, 1-0, 1-1, 1-2, 1-3, 1-4, 1-5, 2-0, 2-1, 2-2, 2-3, 2-4, 2-5 |
+  ![video](media/consistency-levels/eventual-consistency.gif)
 
 ## <a name="additional-reading"></a>Lecturas adicionales
 

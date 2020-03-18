@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.openlocfilehash: 71a02e47db288890d1392f5423da0ef817ecd690
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 6b1c671d2079c7d8ab59e9afe981ccef3f58ef27
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303127"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086884"
 ---
 # <a name="data-ingestion-in-azure-machine-learning"></a>Ingesta de datos en Azure Machine Learning
 
@@ -26,7 +26,7 @@ En este artículo, obtendrá información sobre las ventajas y desventajas de la
 
 La ingesta de datos es el proceso en el que los datos no estructurados se extraen de uno o varios orígenes y, a continuación, se preparan para entrenar modelos de Machine Learning. También requiere mucho tiempo, especialmente si se realiza manualmente, y si tiene grandes cantidades de datos de varios orígenes. La automatización de este esfuerzo libera recursos y garantiza que los modelos utilicen los datos más recientes y aplicables.
 
-Se recomienda que evalúe el uso inicial de Azure Data Factory (ADF), ya que se crea específicamente para extraer, cargar y transformar datos. Si no puede cumplir sus requisitos con ADF, puede usar el SDK de Python para desarrollar una solución de código personalizada, o bien usar ADF y el SDK de Python juntos para crear un flujo de trabajo de ingesta de datos general que satisfaga sus necesidades.
+Azure Data Factory (ADF) se ha creado específicamente para extraer, cargar y transformar datos; sin embargo, el SDK de Python permite desarrollar una solución de código personalizada para las tareas básicas de ingesta de datos. Si tampoco son suficientes para sus necesidades, también puede usar ADF y el SDK de Python juntos para crear un flujo de trabajo de ingesta de datos general que satisfaga sus necesidades. 
 
 ## <a name="use-azure-data-factory"></a>Usar Azure Data Factory
 
@@ -52,6 +52,8 @@ Estos pasos y el siguiente diagrama sirven para ilustrar el flujo de trabajo de 
 
 
     ![Ingesta de datos de ADF](media/concept-data-ingestion/data-ingest-option-one.svg)
+    
+Aprenda a crear una canalización de ingesta de datos para Machine Learning con [Azure Data Factory](how-to-data-ingest-adf.md).
 
 ## <a name="use-the-python-sdk"></a>Uso del SDK de Python 
 

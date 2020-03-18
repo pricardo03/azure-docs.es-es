@@ -4,21 +4,26 @@ description: Aprenda a migrar un dispositivo de las series 8100 o 8600 de StorSi
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 78100a5dd38b211f6b0241d5a0bac10cf86b09f6
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: d937852ace8d9bf39495f1fdd92e6edfc4452a0a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250943"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943586"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migración de las series 8100 y 8600 de StorSimple a Azure File Sync
 
-La serie 8000 de StorSimple representa dos SKU independientes y se pueden migrar los datos desde cualquiera de ellas a un entorno de Azure File Sync. En este artículo se describe la migración de ambos dispositivos a Azure File Sync y se proporcionan los conocimientos subyacentes necesarios y los pasos de la migración a Azure File Sync para que esta se realice correctamente.
+La serie StorSimple 8000 está representada por los dispositivos físicos y locales 8100 o 8600, y sus componentes de servicios en la nube. Los datos de uno de estos dispositivos se pueden migrar a un entorno de Azure File Sync. Azure File Sync es el servicio de Azure a largo plazo, estratégico y predeterminado al que se pueden migrar los dispositivos StorSimple.
+
+StorSimple serie 8000 alcanzará el [final de su ciclo de vida](https://support.microsoft.com/en-us/lifecycle/search?alpha=StorSimple%208000%20Series) en diciembre de 2022. Es importante empezar a planear la migración lo antes posible. En este artículo se proporcionan los conocimientos básicos y los pasos de migración necesarios para realizar una migración correcta a Azure File Sync. 
 
 ## <a name="azure-file-sync"></a>Azure File Sync
+
+> [!IMPORTANT]
+> Microsoft se compromete a ayudar a los clientes en su migración. Envíe un correo electrónico a AzureFilesMigration@microsoft.com si desea obtener un plan de migración personalizado, así como ayuda durante la migración.
 
 Azure File Sync es un servicio en la nube de Microsoft, que se basa en dos componentes principales:
 
@@ -238,10 +243,10 @@ Durante este proceso de migración, montará varios clones de volumen en la máq
 > [!IMPORTANT]
 > Para que esto funcione, se debe configurar una clave del Registro en el servidor antes de configurar Azure File Sync.
 
-1. Cree un nuevo directorio en la unidad de sistema de la máquina virtual. La información de Azure File Sync se tendrá que conservar allí en lugar de en los clones de volumen montados. Por ejemplo: `“C:\syncmetadata”`
+1. Cree un nuevo directorio en la unidad de sistema de la máquina virtual. La información de Azure File Sync se tendrá que conservar allí en lugar de en los clones de volumen montados. Por ejemplo: `"C:\syncmetadata"`
 2. Abra regedit y busque el siguiente subárbol de registro: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`.
 3. Cree una nueva clave de tipo cadena, denominada: ***MetadataRootPath***
-4. Establezca la ruta de acceso completa al directorio que ha creado en el volumen del sistema, por ejemplo, `C:\syncmetadata”`
+4. Establezca la ruta de acceso completa al directorio que ha creado en el volumen del sistema, por ejemplo, `C:\syncmetadata"`
 
 ### <a name="configure-azure-file-sync-on-the-azure-vm"></a>Configuración de Azure File Sync en la máquina virtual de Azure
 

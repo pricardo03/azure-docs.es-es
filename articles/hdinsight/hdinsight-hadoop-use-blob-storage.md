@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: f496f6c06d36f817b0a933bdc68d5c53f308e3f2
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: e62f6f8df51c6acf4e2ad8e28e431d264c2c99e8
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78192632"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037237"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Uso de Azure Storage con clústeres de Azure HDInsight
 
@@ -25,11 +25,11 @@ En este artículo, aprenderá cómo funciona Azure Storage con clústeres de HDI
 > [!IMPORTANT]  
 > El tipo de cuenta de almacenamiento **BlobStorage** solo puede usarse como almacenamiento secundario para los clústeres de HDInsight.
 
-| Tipo de cuenta de almacenamiento | Servicios admitidos | Niveles de rendimiento admitidos | Niveles de acceso admitidos |
-|----------------------|--------------------|-----------------------------|------------------------|
-| StorageV2 (uso general v2)  | Blob     | Estándar                    | Frecuente, esporádico, archivo\*   |
-| Storage (uso general v1)   | Blob     | Estándar                    | N/D                    |
-| BlobStorage                    | Blob     | Estándar                    | Frecuente, esporádico, archivo\*   |
+| Tipo de cuenta de almacenamiento | Servicios admitidos | Niveles de rendimiento admitidos |Sin niveles de rendimiento admitidos| Niveles de acceso admitidos |
+|----------------------|--------------------|-----------------------------|---|------------------------|
+| StorageV2 (uso general v2)  | Blob     | Estándar                    |Premium| Frecuente, esporádico, archivo\*   |
+| Storage (uso general v1)   | Blob     | Estándar                    |Premium| N/D                    |
+| BlobStorage                    | Blob     | Estándar                    |Premium| Frecuente, esporádico, archivo\*   |
 
 No se recomienda usar el contenedor de blobs predeterminado para almacenar datos empresariales. Conviene eliminar el contenedor de blobs predeterminado después de cada uso para reducir los costos de almacenamiento. El contenedor predeterminado contiene los registros del sistema y de la aplicación. Asegúrese de recuperar los registros antes de eliminar el contenedor.
 

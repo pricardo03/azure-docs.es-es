@@ -2,23 +2,23 @@
 title: Implementación de recursos en el grupo de administración
 description: Se describe cómo implementar recursos en el ámbito de un grupo de administración en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/02/2020
-ms.openlocfilehash: 3b2eeaf2c63a50cda1a32fee94c1e5b99822075d
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.date: 03/09/2020
+ms.openlocfilehash: dc46762755718c798b4a7eed6f2dc6b8afce9b98
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228107"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942763"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Creación de recursos a nivel de grupo de administración
 
-Normalmente, implementa los recursos de Azure en un grupo de recursos en su suscripción de Azure. Sin embargo, también puede crear recursos a nivel de grupo de administración. Las implementaciones de nivel de grupo de administración se usan para realizar acciones que tienen sentido en ese nivel, como la asignación del [control de acceso basado en rol](../../role-based-access-control/overview.md) o la aplicación de [directivas](../../governance/policy/overview.md).
+A medida que la organización madura, es posible que necesite definir y asignar [directivas](../../governance/policy/overview.md) o [controles de acceso basados en rol](../../role-based-access-control/overview.md) para un grupo de administración. Con las plantillas de nivel de grupo de administración, puede aplicar directivas y asignar roles mediante declaración en el nivel de grupo de administración.
 
 ## <a name="supported-resources"></a>Recursos compatibles
 
 Puede implementar los siguientes tipos de recursos en el nivel de grupo de administración:
 
-* [deployments](/azure/templates/microsoft.resources/deployments)
+* [implementaciones](/azure/templates/microsoft.resources/deployments): para plantillas anidadas que se implementan en suscripciones o grupos de recursos.
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
@@ -35,10 +35,10 @@ Para las plantillas, use:
 https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#
 ```
 
-Para los archivos de parámetros, use:
+El esquema de un archivo de parámetros es el mismo para todos los ámbitos de implementación. Para los archivos de parámetros, use:
 
 ```json
-https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentParameters.json#
+https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
 
 ## <a name="deployment-commands"></a>Comandos de implementación
@@ -163,5 +163,4 @@ En el ejemplo siguiente se asigna una definición de directiva existente al grup
 
 * Para aprender sobre los roles de asignación, consulte [Administración del acceso a los recursos de Azure mediante RBAC y plantillas de Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * Para un ejemplo de implementación de la configuración del área de trabajo para Azure Security Center, consulte [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
-* Para más información sobre la creación de plantillas del Administrador de recursos de Azure, consulte [Creación de plantillas](template-syntax.md).
-* Para obtener una lista de las funciones disponibles en una plantilla, consulte [Funciones de plantilla](template-functions.md).
+* También puede implementar plantillas en el [nivel de suscripción](deploy-to-subscription.md) y en el [nivel de inquilino](deploy-to-tenant.md).

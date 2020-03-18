@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 46be210ead3816356b63293b910e1c0e7ffc087b
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: f3edbc4fc48abd9c7df92aedcdea50dd77a0fd4b
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200102"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086267"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creación de una fórmula automática para escalar nodos de ejecución en un grupo de Batch
 
@@ -128,14 +128,14 @@ Puede obtener el valor de estas variables definidas por el servicio para efectua
 | $NetworkInBytes |El número de bytes entrantes. |
 | $NetworkOutBytes |El número de bytes salientes. |
 | $SampleNodeCount |El número de nodos de ejecución. |
-| $ActiveTasks |Número de tareas que están listas para su ejecución pero que aún no se están ejecutando. El recuento de $ActiveTasks incluye todas las tareas que tienen un estado activo y cuyas dependencias se han cumplido. Todas las tareas que tengan un estado activo pero cuyas dependencias no se hayan cumplido se excluirán del recuento de $ActiveTasks.|
+| $ActiveTasks |Número de tareas que están listas para su ejecución pero que aún no se están ejecutando. El recuento de $ActiveTasks incluye todas las tareas que tienen un estado activo y cuyas dependencias se han cumplido. Todas las tareas que tengan un estado activo pero cuyas dependencias no se hayan cumplido se excluirán del recuento de $ActiveTasks. En una tarea de varias instancias, $ActiveTasks incluirá el número de instancias establecido en la tarea.|
 | $RunningTasks |El número de tareas en un estado de ejecución. |
 | $PendingTasks |La suma de $ActiveTasks y $RunningTasks. |
 | $SucceededTasks |El número de tareas que finalizó correctamente. |
 | $FailedTasks |El número de tareas erróneas. |
 | $CurrentDedicatedNodes |El número actual de dedicado de nodos de ejecución dedicados. |
-| $CurrentLowPriorityNodes |Número actual de nodos de ejecución de prioridad baja, incluidos todos los nodos adelantados. |
-| $PreemptedNodeCount | Número de nodos del grupo que se encuentran en estado adelantado. |
+| $CurrentLowPriorityNodes |Número actual de nodos de ejecución de prioridad baja, incluidos todos los nodos con prioridad. |
+| $PreemptedNodeCount | El número de nodos en el grupo que se encuentran en estado reemplazado. |
 
 > [!TIP]
 > Las variables de solo lectura definidas por el servicio que se muestran en la tabla anterior son *objetos* que proporcionan distintos métodos para obtener acceso a los datos asociados a cada uno de ellos. Para obtener más información, consulte la sección [Obtención de datos de ejemplo](#getsampledata), descrita más adelante en este artículo.

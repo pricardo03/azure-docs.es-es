@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dech
-ms.openlocfilehash: 04cfdd1f96f83898710b6f292116f0afddc8df96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57ba647ade45928f03cd7fb2b037642d5e4d52cc
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237230"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096821"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Uso de datos con el Explorador de Azure Cosmos 
 
@@ -46,6 +46,8 @@ El Explorador de Azure Cosmos DB es una interfaz independiente basada en web que
 ## <a name="known-issues"></a>Problemas conocidos
 
 Actualmente, la experiencia de **Open Full Screen** (Abrir pantalla completa) que permite compartir acceso temporal de lectura y escritura o de lectura todavía no es compatible con cuentas de Azure Cosmos DB Gremlin y Table API. Puede seguir viendo sus cuentas de Gremlin y Table API si pasa la cadena de conexión al Explorador de Azure Cosmos DB. 
+
+Actualmente, no se admite la visualización de documentos que contengan un UUID en Data Explorer. Esto no afecta a la carga de colecciones, solo a la visualización de documentos o consultas individuales que incluyen estos documentos. Para ver y administrar estos documentos, los usuarios deben seguir usando la herramienta que se empleó originalmente para crearlos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ya aprendió a empezar a trabajar con el Explorador de Azure Cosmos DB para administrar los datos y continuación podrá:
