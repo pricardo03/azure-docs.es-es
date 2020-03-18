@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b997e15b4e987b7a18890606326f52a82cb15212
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 4c3b3318e941723ec333597c7e4b3e48710152d1
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189931"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78397800"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -56,8 +56,11 @@ El elemento **ClaimType** contiene los elementos siguientes:
 | Máscara | 0:1 | Cadena opcional de caracteres de enmascaramiento que se pueden aplicar al mostrar la notificación. Por ejemplo, el número de teléfono 324-232-4343 se puede enmascarar como XXX-XXX-4343. |
 | UserHelpText | 0:1 | Una descripción del tipo de notificación que puede ser útil para que los usuarios comprendan su propósito. El valor se puede [localizar](localization.md). |
 | UserInputType | 0:1 | El tipo de control de entrada que el usuario debe tener disponible al especificar manualmente los datos de notificación para el tipo de notificación. Vea los tipos de entrada de usuario que se definen más adelante en esta página. |
+| AdminHelpText | 0:1 | Una descripción del tipo de notificación que puede ser útil para que los administradores comprendan su propósito. |
 | Restricción | 0:1 | Las restricciones de valor de esta notificación, como una expresión regular (Regex) o una lista de valores aceptables. El valor se puede [localizar](localization.md). |
 PredicateValidationReference| 0:1 | Una referencia a un elemento **PredicateValidationsInput**. Los elementos **PredicateValidationReference** le permiten realizar un proceso de validación para asegurarse de que solo se introducen datos bien formados. Para obtener más información, vea [Predicados](predicates.md). |
+
+
 
 ### <a name="datatype"></a>DataType
 

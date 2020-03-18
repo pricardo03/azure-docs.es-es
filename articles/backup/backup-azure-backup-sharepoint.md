@@ -4,12 +4,12 @@ description: En este artículo se incluye información general sobre la protecci
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: b766c0401dde10fdc257044e004de3dbf8a7b84c
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 6640690f725c84899babef6825f817bad447b40f
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586485"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673267"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Realización de una copia de seguridad de una granja de SharePoint en Azure con DPM
 
@@ -74,7 +74,7 @@ Puede encontrar **ConfigureSharePoint.exe** en la carpeta [ruta de instalación 
    * Conceda al grupo WSS_Admin_WPG acceso de lectura a la clave del Registro de DPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
 > [!NOTE]
-> Deberá ejecutar ConfigureSharePoint.exe cada vez que haya un cambio en las credenciales de administrador de la granja de servidores de SharePoint.
+> Deberá volver a ejecutar ConfigureSharePoint.exe cada vez que haya un cambio en las credenciales de administrador de la granja de servidores de SharePoint.
 >
 >
 
@@ -133,7 +133,7 @@ Después de que haya configurado DPM y la granja de SharePoint tal y como se ha 
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > DPM proporciona como máximo dos copias de seguridad diarias en Azure en momentos diferentes. Azure Backup también puede controlar la cantidad de ancho de banda WAN que puede usarse para copias de seguridad en horas de máxima y mínima actividad mediante la [limitación de red de Azure Backup](https://azure.microsoft.com/documentation/articles/backup-configure-vault/#enable-network-throttling).
+    > DPM proporciona como máximo dos copias de seguridad diarias en Azure en momentos diferentes. Azure Backup también puede controlar la cantidad de ancho de banda WAN que se puede usar para copias de seguridad en horas de máxima y mínima actividad mediante la [limitación de red de Azure Backup](backup-windows-with-mars-agent.md#enable-network-throttling).
     >
     >
 11. Según la programación de copia de seguridad seleccionada, en la página **Especificar la directiva de retención en línea** , seleccione la directiva de retención para los puntos de copia de seguridad diarios, semanales, mensuales y anuales.

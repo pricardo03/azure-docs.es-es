@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jhakulin
-ms.openlocfilehash: ff8772f7c3c3213c010b0bdbd0d0aa8897404bac
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 350c2bf3c4d0fc0a16f1b393e7c8d8a372679797
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77119986"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331151"
 ---
 # <a name="configure-openssl-for-linux"></a>Configuración de OpenSSL para Linux
 
@@ -42,13 +42,13 @@ Compruebe si existe el subdirectorio `certs` en OPENSSLDIR. En el ejemplo anteri
 - OPENSSLDIR is `/opt/ssl`. Existe un subdirectorio `certs` con muchos archivos `.crt` o `.pem`.
 Establezca la variable de entorno `SSL_CERT_DIR` para que apunte a `/opt/ssl/certs` antes de ejecutar un programa que utilice el SDK de Voz. Por ejemplo:
 ```bash
-SSL_CERT_DIR=/opt/ssl/certs ./helloworld
+export SSL_CERT_DIR=/opt/ssl/certs
 ```
 
-- OPENSSLDIR is `/etc/pki/tls`. Existe un archivo de paquete de certificados, por ejemplo `ca-bundle.pem` o `ca-bundle.crt`.
-Establezca la variable de entorno `SSL_CERT_FILE` para que apunte a `/etc/pki/tls/ca-bundle.pem` antes de ejecutar un programa que utilice el SDK de Voz. Por ejemplo:
+- OPENSSLDIR es `/etc/pki/tls` (como en los sistemas basados en RHEL o CentOS). Existe un subdirectorio `certs` archivo de paquete de certificados, por ejemplo `ca-bundle.crt`.
+Establezca la variable de entorno `SSL_CERT_FILE` para que apunte a ese archivo antes de ejecutar un programa que utilice el SDK de Voz. Por ejemplo:
 ```bash
-SSL_CERT_FILE=/etc/pki/tls/ca-bundle.pem ./helloworld
+export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

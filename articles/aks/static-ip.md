@@ -3,13 +3,13 @@ title: Uso de una dirección IP estática y una etiqueta DNS con el equilibrador
 description: Aprenda a crear y usar una dirección IP estática con el equilibrador de carga de Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: d5177494ecdd112342b2cd719e9305bfab97902c
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.date: 03/09/2020
+ms.openlocfilehash: 32889dbbcafd9510f8d04cb9c602d4802c6d1a1a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77593604"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943581"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Uso de una dirección IP pública estática y una etiqueta DNS con el equilibrador de carga de Azure Kubernetes Service (AKS)
 
@@ -67,7 +67,7 @@ Antes de crear un servicio, compruebe que la entidad de servicio utilizada por e
 ```azurecli-interactive
 az role assignment create \
     --assignee <SP Client ID> \
-    --role "Contributor" \
+    --role "Network Contributor" \
     --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
 ```
 
@@ -97,7 +97,7 @@ kubectl apply -f load-balancer-service.yaml
 
 ## <a name="apply-a-dns-label-to-the-service"></a>Aplicación de una etiqueta DNS al servicio
 
-Si el servicio usa una dirección IP pública dinámica o estática, puede usar la anotación de servicio `service.beta.kubernetes.io/azure-dns-label-name` para establecer una etiqueta DNS de acceso público. Esta acción publica un nombre de dominio completo para el servicio mediante los servidores DNS públicos de Azure y el dominio de nivel superior. El valor de la anotación debe ser único dentro de la ubicación de Azure, por lo que se recomienda usar una etiqueta suficientemente calificada.   
+Si el servicio usa una dirección IP pública dinámica o estática, puede usar la anotación de servicio `service.beta.kubernetes.io/azure-dns-label-name` para establecer una etiqueta DNS de acceso público. Esta acción publica un nombre de dominio completo para el servicio mediante los servidores DNS públicos de Azure y el dominio de nivel superior. El valor de la anotación debe ser único dentro de la ubicación de Azure, por lo que se recomienda usar una etiqueta suficientemente descriptiva.   
 
 A continuación, Azure anexará automáticamente una subred predeterminada, como `<location>.cloudapp.azure.com` (donde location es la región seleccionada), al nombre que proporcione para crear el nombre DNS completo. Por ejemplo:
 

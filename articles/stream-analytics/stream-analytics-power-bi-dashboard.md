@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 76f5c1f0cd3186244e9a262358c9c9a652a73fdb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/05/2019
+ms.openlocfilehash: 8466fbcb4325dc244551a3b84fc20581366b7071
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431628"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851155"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics y Power BI: panel de análisis en tiempo real de flujo de datos
 
@@ -23,12 +23,12 @@ Este artículo continúa a partir del tutorial [Detección de fraudes en tiempo 
 Puede ver un [vídeo](https://www.youtube.com/watch?v=SGUpT-a99MA) que muestra este escenario.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de empezar, asegúrese de que dispone de lo siguiente:
 
 * Una cuenta de Azure.
-* Una cuenta de Power BI. Puede usar una cuenta profesional o una cuenta educativa.
+* Una cuenta de Power BI Pro. Puede usar una cuenta profesional o una cuenta educativa.
 * Versión completa del tutorial [Detección de fraudes en tiempo real](stream-analytics-real-time-fraud-detection.md). El tutorial incluye una aplicación que genera metadatos de llamada telefónica ficticia. En el tutorial, se crea un centro de eventos y se envían los datos de llamada telefónica de streaming al centro de eventos. Escriba una consulta que detecte llamadas fraudulentas (llamadas del mismo número a la vez en distintas ubicaciones). 
 
 

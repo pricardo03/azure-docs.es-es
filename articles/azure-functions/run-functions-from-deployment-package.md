@@ -3,12 +3,12 @@ title: Ejecución de la instancia de Azure Functions desde un paquete
 description: Para que el sistema en tiempo de ejecución de Azure Functions ejecute sus funciones, monte un archivo del paquete de implementación que contenga los archivos de proyecto de la aplicación de función.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: a3e11a7c4f3fd91df2fd9dd7a44f3922c4922585
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 3ae287939f22469b03f0e10f184f067274464905
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921120"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087028"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Ejecución de la instancia de Azure Functions desde un archivo de paquete
 
@@ -74,7 +74,7 @@ Para mayor seguridad, puede usar referencias de Key Vault junto con la direcció
     az keyvault secret set --vault-name "Contoso-Vault" --name "external-url" --value "<insert-your-URL>"
     ```
 
-1. Cree la configuración de aplicación `WEBSITE_RUN_FROM_PACKAGE` y establezca el valor como referencia de Key Vault a la dirección URL externa.
+1. Cree la configuración de aplicación `WEBSITE_RUN_FROM_PACKAGE` y establezca el valor como referencia de Key Vault en la dirección URL externa.
 
     ```azurecli
     az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"
@@ -91,6 +91,7 @@ Vea los siguientes artículos para obtener más información.
 - No se admiten los formatos de archivo tar y gzip.
 - Esta característica no se crea con caché local.
 - Para mejorar el rendimiento del arranque en frío, utilice la opción de archivo zip local (`WEBSITE_RUN_FROM_PACKAGE` = 1).
+- La ejecución desde paquete es incompatible con la opción de personalización de implementación (`SCM_DO_BUILD_DURING_DEPLOYMENT=true`); el paso de compilación se omitirá durante la implementación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

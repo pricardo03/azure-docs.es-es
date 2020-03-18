@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 04/26/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6cad3b3b01a98462e37a4b4b96ba02a1b61a5f62
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 30301832381bdc7b5f001eec2c449c571f9fd671
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025935"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086227"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch
 
@@ -90,13 +90,11 @@ El servicio Batch utiliza la cuenta de Storage asociada para almacenar los paque
 
 Se recomienda crear una cuenta de Storage *específicamente* para su uso con la cuenta de Batch y seleccionarla aquí. Una vez que haya creado una cuenta de Storage, puede vincularla a su cuenta de Batch mediante la ventana **Cuenta de almacenamiento**.
 
-> [!NOTE] 
-> Actualmente no puede utilizar paquetes de aplicación con una cuenta de Azure Storage que esté configurada con [reglas de firewall](../storage/common/storage-network-security.md).
-> 
+> [!IMPORTANT] 
+> - Actualmente no puede utilizar paquetes de aplicación con una cuenta de Azure Storage que esté configurada con [reglas de firewall](../storage/common/storage-network-security.md).
+> - No se puede usar una cuenta de Azure Storage con el **espacio de nombres jerárquico** establecido en **Habilitado** para los paquetes de aplicación.
 
 El servicio Batch utiliza Azure Storage para almacenar los paquetes de aplicación como blobs en bloques. Los datos de blob en bloques se [cobran al precio habitual][storage_pricing] y el tamaño de cada paquete no puede superar el tamaño máximo del blob en bloques. Para más información, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage para las cuentas de almacenamiento](../storage/blobs/scalability-targets.md). Asegúrese de considerar el tamaño y número de los paquetes de aplicación y elimine periódicamente los paquetes en desuso para minimizar los costos.
-> 
-> 
 
 ### <a name="view-current-applications"></a>Visualización de las aplicaciones actuales
 Para ver las aplicaciones en la cuenta de Batch, haga clic en el elemento de menú **Aplicaciones** del menú izquierdo mientras ve la **cuenta de Batch**.

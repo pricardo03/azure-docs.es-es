@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/27/2019
+ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9a9fb1d64fb27507e4ee42c39be9ea80fbe5f168
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: e73eae4d66f4ff94a48dfa27e258f8ba8ef87633
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184458"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126758"
 ---
 # <a name="localization"></a>Localización
 
@@ -146,7 +146,7 @@ El elemento **LocalizedString** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| ElementType | Sí | Referencia a un elemento de tipo de notificación o a un elemento de la interfaz de usuario en la directiva. Valores posibles: `ClaimType`, `UxElement`, `ErrorMessage` o `Predicate`. El valor `ClaimType` se usa para localizar uno de los atributos de la notificación, según se especifica en el elemento StringId. El valor `UxElement` se usa para localizar uno de los elementos de la interfaz de usuario, según se especifica en el elemento StringId. El valor `ErrorMessage` se usa para localizar uno de los mensajes de error del sistema, según se especifica en el elemento StringId. El valor `Predicate` se usa para localizar uno de los mensajes de error de [Predicate](predicates.md), según se especifica en el elemento StringId. El valor `InputValidation` se usa para localizar uno de los mensajes de error de grupo de [PredicateValidation](predicates.md), según se especifica en el elemento StringId. |
+| ElementType | Sí | Referencia a un elemento de tipo de notificación o a un elemento de la interfaz de usuario en la directiva. Valores posibles: `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate` o `GetLocalizedStringsTransformationClaimType`. El valor `ClaimType` se usa para localizar uno de los atributos de la notificación, según se especifica en el elemento StringId. El valor `UxElement` se usa para localizar uno de los elementos de la interfaz de usuario, según se especifica en el elemento StringId. El valor `ErrorMessage` se usa para localizar uno de los mensajes de error del sistema, según se especifica en el elemento StringId. El valor `Predicate` se usa para localizar uno de los mensajes de error de [Predicate](predicates.md), según se especifica en el elemento StringId. El valor `InputValidation` se usa para localizar uno de los mensajes de error de grupo de [PredicateValidation](predicates.md), según se especifica en el elemento StringId. El valor `GetLocalizedStringsTransformationClaimType` se usa para copiar las cadenas localizadas en las notificaciones. Para más información, consulte la [transformación de notificaciones GetLocalizedStringsTransformation](string-transformations.md#getlocalizedstringstransformation).  | 
 | ElementId | Sí | Si **ElementType** se establece en `ClaimType`, `Predicate` o `InputValidation`, este elemento contiene una referencia a un tipo de notificación que ya se ha definido en la sección ClaimsSchema. |
 | StringId | Sí | Si **ElementType** se establece en `ClaimType`, este elemento contiene una referencia a un atributo de un tipo de notificación. Valores posibles: `DisplayName`, `AdminHelpText` o `PatternHelpText`. El valor `DisplayName` se usa para establecer el nombre para mostrar de la notificación. El valor `AdminHelpText` se usa para establecer el nombre del texto de ayuda del usuario de la notificación. El valor `PatternHelpText` se usa para establecer el texto de ayuda del patrón de la notificación. Si **ElementType** se establece en `UxElement`, este elemento contiene una referencia a un atributo de un elemento de la interfaz de usuario. Si **ElementType** se establece en `ErrorMessage`, este elemento especifica el identificador de un mensaje de error. Vea la lista completa de los identificadores de `UxElement` en [Id. de cadena Localization](localization-string-ids.md).|
 
@@ -207,160 +207,9 @@ En el elemento **BuildingBlocks**, agregue el elemento **Localization** con la l
 </Localization>
 ```
 
-### <a name="provide-language-specific-strings-and-collections"></a>Proporcionar cadenas y colecciones específicas del idioma
+## <a name="next-steps"></a>Pasos siguientes
 
-Agregue los elementos **LocalizedResources** dentro del elemento **Localization** después de cerrar el elemento **SupportedLanguages**. Agregue los elementos **LocalizedResources** por cada página (definición de contenido) e idioma que quiera admitir. Para personalizar la página unificada de registro o inicio de sesión, las páginas de registro y autenticación multifactor (MFA) para inglés, español y francés, agregue los siguientes elementos **LocalizedResources**.
+Consulte los siguientes artículos para obtener ejemplos de localización:
 
-- Página unificada de registro o inicio de sesión, inglés `<LocalizedResources Id="api.signuporsignin.en">`
-- Página unificada de registro o inicio de sesión, español `<LocalizedResources Id="api.signuporsignin.es">`
-- Página unificada de registro o inicio de sesión, francés `<LocalizedResources Id="api.signuporsignin.fr">`
-- Registro, inglés `<LocalizedResources Id="api.localaccountsignup.en">`
-- Registro, español `<LocalizedResources Id="api.localaccountsignup.es">`
-- Registro, francés `<LocalizedResources Id="api.localaccountsignup.fr">`
-- MFA, inglés `<LocalizedResources Id="api.phonefactor.en">`
-- MFA, español `<LocalizedResources Id="api.phonefactor.es">`
-- MFA, francés `<LocalizedResources Id="api.phonefactor.fr">`
-
-Cada elemento **LocalizedResources** contiene todos los elementos **LocalizedStrings** necesarios con varios elementos **LocalizedString**, así como elementos **LocalizedCollections** con varios elementos **LocalizedCollection**.  En la ejemplo siguiente, se agrega la localización de inglés para la página de registro:
-
-Nota: En este ejemplo, se realiza una referencia a los tipos de notificación `Gender` y `City`. Para usar este ejemplo, asegúrese de definir esas notificaciones. Para obtener más información, vea [ClaimsSchema](claimsschema.md).
-
-```XML
-<LocalizedResources Id="api.localaccountsignup.en">
-
- <LocalizedCollections>
-   <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
-      <Item Text="Female" Value="F" />
-      <Item Text="Male" Value="M" />
-    </LocalizedCollection>
-   <LocalizedCollection ElementType="ClaimType" ElementId="City" TargetCollection="Restriction">
-      <Item Text="New York" Value="NY" />
-      <Item Text="Paris" Value="Paris" />
-      <Item Text="London" Value="London" />
-    </LocalizedCollection>
-  </LocalizedCollections>
-
-  <LocalizedStrings>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
-   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
-  </LocalizedStrings>
-</LocalizedResources>
-```
-
-Localización de la página de registro para español.
-
-```XML
-<LocalizedResources Id="api.localaccountsignup.es">
-
- <LocalizedCollections>
-   <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
-      <Item Text="Femenino" Value="F" />
-      <Item Text="Masculino" Value="M" />
-    </LocalizedCollection>
-   <LocalizedCollection ElementType="ClaimType" ElementId="City" TargetCollection="Restriction">
-      <Item Text="Nueva York" Value="NY" />
-      <Item Text="París" Value="Paris" />
-      <Item Text="Londres" Value="London" />
-    </LocalizedCollection>
-  </LocalizedCollections>
-
-  <LocalizedStrings>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Dirección de correo electrónico</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Dirección de correo electrónico que puede usarse para ponerse en contacto con usted.</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Introduzca una dirección de correo electrónico.</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="button_continue">Crear</LocalizedString>
-   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">Ya existe un usuario con el id. especificado. Elija otro diferente.</LocalizedString>
-  </LocalizedStrings>
-</LocalizedResources>
-```
-
-### <a name="edit-the-contentdefinition-for-the-page"></a>Edición de ContentDefinition para la página
-
-Por cada página que quiera localizar, especifique los códigos de idioma que tienen que buscarse en el elemento **ContentDefinition**.
-
-En el ejemplo siguiente, las cadenas personalizadas inglés (en) y español (es) se agregan a la página de registro. El elemento **LocalizedResourcesReferenceId** por cada elemento **LocalizedResourcesReference** es el mismo que la configuración regional, pero puede usarse cualquier cadena como el identificador. Por cada combinación de idioma y página, apunte al elemento **LocalizedResources** correspondiente que ha creado anteriormente.
-
-```XML
-<ContentDefinition Id="api.localaccountsignup">
-...
-  <LocalizedResourcesReferences MergeBehavior="Prepend">
-    <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
-    <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
-  </LocalizedResourcesReferences>
-</ContentDefinition>
-```
-
-En el ejemplo siguiente, se muestra el XML final:
-
-```XML
-<BuildingBlocks>
-  <ContentDefinitions>
-    <ContentDefinition Id="api.localaccountsignup">
-      <!-- Other content definitions elements... -->
-      <LocalizedResourcesReferences MergeBehavior="Prepend">
-         <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
-         <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
-      </LocalizedResourcesReferences>
-    </ContentDefinition>
-    <!-- More content definitions... -->
-  </ContentDefinitions>
-
-  <Localization Enabled="true">
-
-    <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
-      <SupportedLanguage>en</SupportedLanguage>
-      <SupportedLanguage>es</SupportedLanguage>
-      <!-- More supported language... -->
-    </SupportedLanguages>
-
-    <LocalizedResources Id="api.localaccountsignup.en">
-      <LocalizedCollections>
-        <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
-          <Item Text="Female" Value="F" />
-          <Item Text="Male" Value="M" />
-          <!-- More items... -->
-        </LocalizedCollection>
-        <LocalizedCollection ElementType="ClaimType" ElementId="City" TargetCollection="Restriction">
-          <Item Text="New York" Value="NY" />
-          <Item Text="Paris" Value="Paris" />
-          <Item Text="London" Value="London" />
-        </LocalizedCollection>
-        <!-- More localized collections... -->
-      </LocalizedCollections>
-      <LocalizedStrings>
-        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
-      <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
-        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
-        <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
-       <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
-        <!-- More localized strings... -->
-      </LocalizedStrings>
-    </LocalizedResources>
-
-    <LocalizedResources Id="api.localaccountsignup.es">
-      <LocalizedCollections>
-       <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
-          <Item Text="Femenino" Value="F" />
-          <Item Text="Masculino" Value="M" />
-        </LocalizedCollection>
-        <LocalizedCollection ElementType="ClaimType" ElementId="City" TargetCollection="Restriction">
-          <Item Text="Nueva York" Value="NY" />
-          <Item Text="París" Value="Paris" />
-          <Item Text="Londres" Value="London" />
-        </LocalizedCollection>
-      </LocalizedCollections>
-      <LocalizedStrings>
-        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Dirección de correo electrónico</LocalizedString>
-        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Dirección de correo electrónico que puede usarse para ponerse en contacto con usted.</LocalizedString>
-        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Introduzca una dirección de correo electrónico.</LocalizedString>
-        <LocalizedString ElementType="UxElement" StringId="button_continue">Crear</LocalizedString>
-      <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">Ya existe un usuario con el id. especificado. Elija otro diferente.</LocalizedString>
-      </LocalizedStrings>
-    </LocalizedResources>
-    <!-- More localized resources... -->
-  </Localization>
-</BuildingBlocks>
-```
+- [Personalización de idioma con directiva personalizada en Azure Active Directory B2C](custom-policy-localization.md)
+- [Personalización de idioma con flujos de usuario en Azure Active Directory B2C](user-flow-language-customization.md)

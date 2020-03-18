@@ -1,26 +1,18 @@
 ---
 title: Implementación de la primera aplicación en Cloud Foundry en Microsoft Azure
 description: Implemente una aplicación en Cloud Foundry en Azure
-services: virtual-machines-linux
-documentationcenter: ''
 author: seanmck
-manager: gwallace
-editor: ''
-tags: ''
-keywords: ''
-ms.assetid: 8fa04a58-56ad-4e6c-bef4-d02c80d4b60f
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: b1f9ab5289a41aacb5514e954f1ca01f6ad66152
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 45ae8979a2617d4f380e417e3f0910182ebe145e
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036823"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970069"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Implementación de la primera aplicación en Cloud Foundry en Microsoft Azure
 
@@ -39,7 +31,7 @@ Hay varias opciones para crear un entorno de Cloud Foundry en Azure:
 
 ## <a name="connect-to-the-cloud-controller"></a>Conexión a Cloud Controller
 
-Cloud Controller es el punto de entrada principal a un entorno de Cloud Foundry para implementar y administrar aplicaciones. La API de Cloud Controller (CCAPI) principal es una API de REST, pero se puede acceder a ella a través de varias herramientas. En este caso, se interactúa con ella mediante la [CLI de Cloud Foundry][cf-cli]. La CLI se puede instalar en Linux, MacOS o Windows, pero si prefiere no instalarla, está disponible preinstalada en [Azure Cloud Shell][cloudshell-docs].
+Cloud Controller es el punto de entrada principal a un entorno de Cloud Foundry para implementar y administrar aplicaciones. La API de Cloud Controller (CCAPI) principal es una API de REST, pero se puede acceder a ella a través de varias herramientas. En este caso, se interactúa con ella mediante la [CLI de Cloud Foundry][cf-cli]. La CLI se puede instalar en Linux, macOS o Windows, pero si prefiere no instalarla, está disponible preinstalada en [Azure Cloud Shell][cloudshell-docs].
 
 Para iniciar sesión, anteponga `api` a la dirección de SYSTEMDOMAINURL que ha obtenido en la implementación de Marketplace. Dado que la implementación predeterminada usa un certificado autofirmado, también debe incluir el modificador `skip-ssl-validation`.
 

@@ -1,17 +1,17 @@
 ---
-title: 'Recopilación del registro de actividad de Azure con configuración de diagnóstico (versión preliminar): Azure Monitor | Microsoft Docs'
+title: 'Recopilación del registro de actividad de Azure con configuración de diagnóstico: Azure Monitor | Microsoft Docs'
 description: Use la configuración de diagnóstico para reenviar registros de actividad de Azure a los registros de Azure Monitor, a Azure Storage o a Azure Event Hubs.
 author: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: fcf7eef269c9fa8b62217fb64ed792aece1fce4e
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 6d4c724c7cfb4c1779f0fc6592a7e61e060755b9
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670345"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096894"
 ---
 # <a name="update-to-azure-activity-log-collection-and-export"></a>Actualización de la recopilación del registro de actividad de Azure y exportación
 El [Registro de actividad de Azure](platform-logs-overview.md) es un [registro de plataforma](platform-logs-overview.md) que proporciona información de los eventos de nivel de suscripción que se han producido en Azure. El método para enviar entradas del registro de actividad a [un centro de eventos o una cuenta de almacenamiento](activity-log-export.md) o a un [área de trabajo de Log Analytics](activity-log-collect.md) ha cambiado para usar la [configuración de diagnóstico](diagnostic-settings.md). En este artículo se describe la diferencia entre los métodos y cómo borrar la configuración heredada como preparación para la configuración de diagnóstico.

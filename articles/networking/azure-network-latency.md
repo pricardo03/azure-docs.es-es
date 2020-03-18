@@ -5,14 +5,14 @@ services: networking
 author: nayak-mahesh
 ms.service: virtual-network
 ms.topic: article
-ms.date: 02/10/2020
+ms.date: 03/10/2020
 ms.author: kumud
-ms.openlocfilehash: dc2cb6545093e8ab70d18014a5fd9d0e7d36f8b7
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 3469daa8b81b20d5d0052a23ce3236fc4fde75de
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122407"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082952"
 ---
 # <a name="azure-network-round-trip-latency-statistics"></a>Estadísticas de latencia de recorrido de ida y vuelta de red de Azure
 
@@ -22,9 +22,9 @@ Azure supervisa continuamente la latencia (velocidad) de las áreas principales 
 
 Las medidas de latencia se recopilan de agentes de ThousandEyes hospedados en regiones en la nube de Azure de todo el mundo, que envían continuamente sondeos de red entre ellos, en intervalos de 1 minuto. Las estadísticas de latencia mensuales se derivan de calcular el promedio de las muestras recopiladas del mes.
 
-## <a name="january-2020-round-trip-latency-figures"></a>Cifras de latencia de recorrido de ida y vuelta de enero de 2020
+## <a name="february-2020-round-trip-latency-figures"></a>Cifras de latencia de recorrido de ida y vuelta de febrero de 2020
 
-A continuación se muestra el promedio mensual de los tiempos de recorrido de ida y vuelta entre las regiones de Azure durante los últimos 31 días (que terminan el 31 de enero de 2020). Las siguientes medidas cuentan con la tecnología de [ThousandEyes](https://thousandeyes.com).
+A continuación se muestra el promedio mensual de los tiempos de recorrido de ida y vuelta entre las regiones de Azure durante los últimos 29 días (que terminan el 29 de febrero de 2020). Las siguientes medidas cuentan con la tecnología de [ThousandEyes](https://thousandeyes.com).
 
 [![Estadísticas de latencia interregionales de Azure](media/azure-network-latency/azure-network-latency.png)](media/azure-network-latency/azure-network-latency.png#lightbox)
 

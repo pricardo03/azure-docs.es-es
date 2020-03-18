@@ -1,24 +1,24 @@
 ---
-title: 'Preguntas frecuentes sobre la protección con contraseña local: Azure Active Directory'
-description: P+F de la protección con contraseña de Azure AD local
+title: P+F de la protección con contraseña de Azure AD local
+description: Revise las preguntas más frecuentes para la protección con contraseña de Azure AD en un entorno de Active Directory Domain Services local.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7b4c941272906e7ff5a017c78c8bc7c5084a667
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: abef6e52e37cfa2faeb426bc59bb0de5a52a6658
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847837"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671678"
 ---
-# <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>protección con contraseña de Azure AD local: preguntas más frecuentes
+# <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Preguntas más frecuentes sobre protección con contraseña de Azure AD local
 
 En esta sección se dan respuestas a muchas de las preguntas más frecuentes sobre la protección con contraseña de Azure AD.
 

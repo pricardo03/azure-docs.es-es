@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d8cdb32e04f9ba1274291430ac230107f3150c6
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 9859c884f6a1e22a1ac2bd21106ef51ead23fa41
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78298384"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080070"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Procedimientos: Uso obligatorio de directivas de protección de aplicaciones y una aplicación aprobada por el cliente para el acceso a aplicaciones en la nube con acceso condicional
 
@@ -30,6 +30,9 @@ En este artículo se presentan dos escenarios para configurar directivas de acce
 En el acceso condicional, estas aplicaciones cliente se conocen como directivas protegidas con una directiva de protección de aplicaciones. Puede encontrar más información sobre las directivas de protección de aplicaciones en el artículo [Introducción a las directivas de protección de aplicaciones](/intune/apps/app-protection-policy).
 
 Para obtener una lista de aplicaciones cliente aptas, consulte [Requisito de directiva de protección de aplicaciones](concept-conditional-access-grant.md).
+
+> [!NOTE]
+>    La cláusula OR se usa dentro de la directiva para que los usuarios puedan utilizar las aplicaciones que admiten los controles de concesión **Requerir directiva de protección de aplicaciones** o **Requerir aplicación cliente aprobada**. Para más información sobre las aplicaciones que admiten el control de concesión **Requerir directiva de protección de aplicaciones**, consulte el [requisito de la directiva de protección de aplicaciones](concept-conditional-access-grant.md).
 
 ## <a name="scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies"></a>Escenario 1: Las aplicaciones de Office 365 requieren aplicaciones aprobadas con directivas de protección de aplicaciones
 
@@ -56,7 +59,7 @@ Las organizaciones deben completar los pasos siguientes para requerir el uso de 
 1. En **Controles de acceso** > **Conceder**, seleccione las opciones siguientes:
    - **Requerir aplicación cliente aprobada**
    - **Requerir directiva de protección de aplicaciones (versión preliminar)**
-   - **Requerir todos los controles seleccionados**
+   - **Requerir uno de los controles seleccionados**
 1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
 1. Seleccione **Crear** para crear y habilitar la directiva.
 
@@ -75,7 +78,7 @@ Para la directiva de acceso condicional descrita en este paso, configure los com
    1. **Aplicaciones cliente (versión preliminar)** :
       1. Establezca **Configurar** en **Sí**.
       1. Seleccione **Aplicaciones móviles y clientes de escritorio** y **Clientes de Exchange ActiveSync**.
-1. En **Controles de acceso** > **Conceder**, seleccione **Conceder acceso**, **Requerir aplicación cliente aprobada** y **Seleccionar**.
+1. En **Controles de acceso** > **Conceder**, seleccione **Conceder acceso**, **Requerir directiva de protección de aplicaciones** y **Seleccionar**.
 1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
 1. Seleccione **Crear** para crear y habilitar la directiva.
 
@@ -108,7 +111,7 @@ Las organizaciones deben completar los tres pasos siguientes para requerir el us
 1. En **Controles de acceso** > **Conceder**, seleccione las opciones siguientes:
    - **Requerir aplicación cliente aprobada**
    - **Requerir directiva de protección de aplicaciones (versión preliminar)**
-   - **Requerir todos los controles seleccionados**
+   - **Requerir uno de los controles seleccionados**
 1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
 1. Seleccione **Crear** para crear y habilitar la directiva.
 
@@ -125,7 +128,7 @@ Las organizaciones deben completar los tres pasos siguientes para requerir el us
    1. **Aplicaciones cliente (versión preliminar)** :
       1. Establezca **Configurar** en **Sí**.
       1. Seleccione **Aplicaciones móviles y clientes de escritorio** y **Clientes de Exchange ActiveSync**.
-1. En **Controles de acceso** > **Conceder**, seleccione **Conceder acceso**, **Requerir aplicación cliente aprobada** y **Seleccionar**.
+1. En **Controles de acceso** > **Conceder**, seleccione **Conceder acceso**, **Requerir directiva de protección de aplicaciones** y **Seleccionar**.
 1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
 1. Seleccione **Crear** para crear y habilitar la directiva.
 

@@ -7,19 +7,19 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 02/04/2020
+ms.date: 03/11/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 47f142a19ac470fb29e9542941cd94a6b29ce240
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 82bf6f9a78a46659cc2e0955895c6e1a6e6eb3aa
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78195930"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096629"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Supervisión del uso de recursos y la actividad de consultas en Azure Synapse Analytics
-Azure Synapse Analytics proporciona una experiencia de supervisión enriquecida dentro de Azure Portal que expone la información a la carga de trabajo del almacenamiento de datos. Azure Portal es la herramienta recomendada al supervisar el almacenamiento de datos, ya que proporciona períodos de retención configurables, alertas, recomendaciones, y gráficos y paneles personalizables para métricas y registros. El portal también le permite integrarse con otros servicios de supervisión de Azure tales como Operations Management Suite (OMS) y Azure Monitor (registros) para ofrecer una experiencia de supervisión holística no solo para el almacenamiento de datos sino también para toda la plataforma Azure Analytics como experiencia de supervisión integrada. Esta documentación describe las funcionalidades de supervisión disponibles para optimizar y administrar la plataforma de análisis con SQL Analytics. 
+Azure Synapse Analytics proporciona una experiencia de supervisión enriquecida dentro de Azure Portal que expone la información relacionada con la carga de trabajo del almacenamiento de datos. Azure Portal es la herramienta recomendada al supervisar el almacenamiento de datos, ya que proporciona períodos de retención configurables, alertas, recomendaciones, y gráficos y paneles personalizables para métricas y registros. El portal también le permite integrarse con otros servicios de supervisión de Azure tales como Azure Monitor (registros) con Log Analytics para ofrecer una experiencia de supervisión holística no solo para el almacenamiento de datos sino también para toda la plataforma Azure Analytics como experiencia de supervisión integrada. Esta documentación describe las funcionalidades de supervisión disponibles para optimizar y administrar la plataforma de análisis con SQL Analytics. 
 
 ## <a name="resource-utilization"></a>Utilización de recursos 
 En Azure Portal para SQL Analytics hay disponibles las métricas siguientes. Estas métricas se exponen a través de [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
@@ -41,9 +41,13 @@ En Azure Portal para SQL Analytics hay disponibles las métricas siguientes. Est
 | Porcentaje de aciertos de caché    | (aciertos de caché/error de caché) * 100 donde aciertos de caché corresponde al total de todos los aciertos de segmentos del almacén de columnas en la caché de SSD local y error de caché corresponde a la suma de los errores de segmentos del almacén de columnas en la caché SSD local de todos los nodos | Prom., Mín., Máx.    |
 | Porcentaje de caché usada   | (caché usada/capacidad de la memoria caché) * 100 donde la memoria caché usada corresponde al total de todos los bytes en la caché SSD local en todos los nodos y capacidad de la memoria caché corresponde al total de la capacidad de almacenamiento de la caché SSD local en todos los nodos | Prom., Mín., Máx.    |
 | Porcentaje de tempdb local | El uso de tempdb local en todos los nodos de ejecución. Los valores se emiten cada cinco minutos | Prom., Mín., Máx.    |
+| Tamaño del almacenamiento de datos | Tamaño total de los datos cargados en la base de datos. Esto incluye los datos que residen en tablas CCI y las que no son CCI donde el tamaño de estas últimas se mide por el tamaño total del archivo de base de datos. | Sum |
+| Tamaño de la recuperación ante desastres | Tamaño total de la copia de seguridad geográfica realizada cada 24 horas | Sum |
+| Tamaño del almacenamiento de instantáneas | Tamaño total de las instantáneas tomadas para proporcionar puntos de restauración de datos. Esto incluye instantáneas automatizadas y definidas por el usuario. | Sum |
 
 Aspectos que se deben tener en cuenta al visualizar métricas y establecer alertas:
 
+- Las unidades de almacenamiento de datos son solo una **representación de alto nivel del uso** en el grupo de SQL y no se pretende que constituyan un indicador exclusivo de utilización. Para determinar si realizar un escalado o reducción vertical, tenga en cuenta todos los factores que podrían verse afectados por el indicador Unidad de almacenamiento de datos como, por ejemplo, la simultaneidad, la memoria, tempdb y la capacidad de la caché adaptable. Le recomendamos [ejecutar la carga de trabajo con valores diferentes de DWU](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview#finding-the-right-size-of-data-warehouse-units) para averiguar cuál funciona mejor para satisfacer sus objetivos de negocio.
 - Las conexiones erróneas y correctas se indican para un almacenamiento de datos determinado, no para el servidor lógico.
 - El porcentaje de memoria refleja el uso incluso si el almacenamiento de datos se encuentra en estado de inactividad (no refleja el consumo de memoria de carga de trabajo activa). Use y realice un seguimiento de esta métrica junto con otras (tempdb, memoria caché de Gen2) para tomar una decisión holística sobre si el escalado para conseguir capacidad de la memoria caché adicional aumentará el rendimiento de la carga de trabajo para cumplir sus requisitos.
 

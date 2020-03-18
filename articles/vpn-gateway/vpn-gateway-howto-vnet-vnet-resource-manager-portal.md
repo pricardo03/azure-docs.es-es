@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 03/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 18ef9d89a2366e6d4db3c3154bae0bd83e0386f1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 3d91203253c08acdaa159fc70f7a34fa7fca20c8
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654786"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674155"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configuración de una conexión de VPN Gateway de red virtual a red virtual mediante Azure Portal
 
@@ -75,16 +75,16 @@ En este artículo se muestra cómo conectar redes virtuales mediante el tipo de 
 
 - **Configuración de la red virtual**
     - **Name**: VNet1
-    - **Espacio de direcciones**: 10.11.0.0/16
+    - **Espacio de direcciones**: 10.1.0.0/16
     - **Suscripción**: Seleccione la suscripción que quiere usar.
     - **Grupo de recursos**: TestRG1
     - **Ubicación**: Este de EE. UU.
     - **Subred**
         - **Name**: FrontEnd
-        - **Intervalo de direcciones**: 10.11.0.0/24
+        - **Intervalo de direcciones**: 10.1.0.0/24
     - **Subred de puerta de enlace**:
         - **Name**: *GatewaySubnet* se rellena automáticamente
-        - **Intervalo de direcciones**: 10.11.255.0/27
+        - **Intervalo de direcciones**: 10.1.255.0/27
 
 - **Configuración de puerta de enlace de red virtual**
     - **Name**: VNet1GW
@@ -127,12 +127,7 @@ Si ya dispone de una red virtual, compruebe que la configuración sea compatible
 ### <a name="to-create-a-virtual-network"></a>Creación de una red virtual
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="add-additional-address-space-and-create-subnets"></a>Incorporación de un espacio de direcciones adicional y creación de subredes
-Una vez que la red virtual se haya creado, puede agregar un espacio de direcciones adicional y crear subredes.
-
-[!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
-
-## <a name="create-a-virtual-network-gateway"></a>Creación de una puerta de enlace de red virtual
+## <a name="create-the-vnet1-gateway"></a>Creación de la puerta de enlace de VNet1
 En este paso, se crea la puerta de enlace para la red virtual. La creación de una puerta de enlace suele tardar 45 minutos o más, según la SKU de la puerta de enlace seleccionada. Si va a crear esta configuración como ejercicio, consulte la [configuración de ejemplo](#example-settings).
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
@@ -143,7 +138,7 @@ En este paso, se crea la puerta de enlace para la red virtual. La creación de u
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="create-and-configure-vnet4"></a>Creación y configuración de VNet4
-Después de configurar VNet1, cree VNet4 repitiendo los pasos anteriores, pero reemplazando los valores por los de VNet4. No es preciso esperar a que la puerta de enlace de red virtual de VNet1 haya terminado de crearse para configurar VNet4. Si usa sus propios valores, asegúrese de que los espacios de direcciones no se superponen con las redes virtuales a las que quiere conectarse.
+Después de configurar VNet1, cree VNet4 y la puerta de enlace de VNet4 repitiendo los pasos anteriores, pero reemplazando los valores por los de VNet4. No es preciso esperar a que la puerta de enlace de red virtual de VNet1 haya terminado de crearse para configurar VNet4. Si usa sus propios valores, asegúrese de que los espacios de direcciones no se superponen con las redes virtuales a las que quiere conectarse.
 
 ## <a name="configure-the-vnet1-gateway-connection"></a>Configuración de la conexión de puerta de enlace de VNet1
 Cuando se hayan completado las puertas de enlace de red virtual de VNet1 y VNet4, puede crear las conexiones de dichas puertas de enlace. En esta sección, se crea una conexión de VNet1 a VNet4. Estos pasos solo funcionan para las redes virtuales en la misma suscripción. Si las redes virtuales se encuentran en distintas suscripciones, debe usar [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) para realizar la conexión. Sin embargo, si las redes virtuales se encuentran en distintos grupos de recursos de la misma suscripción, puede conectarlas mediante el portal.
@@ -153,7 +148,7 @@ Cuando se hayan completado las puertas de enlace de red virtual de VNet1 y VNet4
    ![Página Conexiones](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections.png "Página Conexiones")
 2. Seleccione **+ Agregar** para abrir la página **Agregar conexión**.
 
-   ![Agregar conexión](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-to-vnet4.png "Agregar una conexión")
+   ![Agregar conexión](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-vnet4-connection.png "Agregar una conexión")
 3. En la página **Agregar conexión**, rellene los valores de la conexión:
 
    - **Name**: Escriba un nombre para la conexión. Por ejemplo, *VNet1toVNet4*.

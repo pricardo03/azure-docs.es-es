@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83b86b9bc5c09cc9f97a320e3019ddea68434309
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 3a0a5d39a7cb2162186291ea534a623ef45c40d4
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616456"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675624"
 ---
 # <a name="operating-system-upgrade"></a>Actualización del sistema operativo
 Este documento describe los detalles acerca de las actualizaciones del sistema operativo en las instancias grandes HANA.
@@ -58,11 +58,11 @@ Con el tiempo, la configuración del sistema operativo puede desviarse de la con
   Para conseguir el rendimiento de red y la estabilidad del sistema adecuados, se recomienda asegurarse de tener instalada la versión correcta específica del sistema operativo de los controladores eNIC y fNIC, tal y como se muestra en la siguiente tabla de compatibilidad. Los servidores se entregan a los clientes con versiones compatibles. Tenga en cuenta que, en algunos casos, durante la aplicación de revisiones del sistema operativo o del kernel, los controladores pueden revertir a sus versiones predeterminadas. Asegúrese de que la versión del controlador correcta ejecuta operaciones posteriores a la aplicación de revisiones del sistema operativo o del kernel.
        
       
-  |  Fabricante del sistema operativo    |  Versión del paquete del sistema operativo     |  Controlador eNIC  |  Controlador fNIC |
-  |---------------|-------------------------|---------------|--------------|
-  |   SuSE        |  SLES 12 SP2            |   2.3.0.40    |   1.6.0.34   |
-  |   SuSE        |  SLES 12 SP3            |   2.3.0.44    |   1.6.0.36   |
-  |   Red Hat     |  RHEL 7.2               |   2.3.0.39    |   1.6.0.34   |
+  |  Fabricante del sistema operativo    |  Versión del paquete del sistema operativo     |  Versión de firmware  |  Controlador eNIC |  Controlador fNIC | 
+  |---------------|-------------------------|--------------------|--------------|--------------|
+  |   SuSE        |  SLES 12 SP2            |   3.1.3h           |  2.3.0.40    |   1.6.0.34   |
+  |   SuSE        |  SLES 12 SP3            |   3.1.3h           |  2.3.0.44    |   1.6.0.36   |
+  |   Red Hat     |  RHEL 7.2               |   3.1.3h           |  2.3.0.39    |   1.6.0.34   |
  
 
 ### <a name="commands-for-driver-upgrade-and-to-clean-old-rpm-packages"></a>Comandos para actualizar controladores y limpiar paquetes RPM antiguos

@@ -6,12 +6,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
-ms.openlocfilehash: a44aa5b355bea675f5d99761d97b8876a9b2a7d7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 78bc629598c0635b7760285d0507b7a85a4ab551
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572339"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126866"
 ---
 # <a name="refresh-with-logic-apps"></a>Actualización con Logic Apps
 
@@ -21,14 +21,14 @@ Para información sobre cómo usar las API de REST con Azure Analysis Services, 
 
 ## <a name="authentication"></a>Authentication
 
-Todas las llamadas se deben autenticar con un token válido de Azure Active Directory (OAuth 2).  En los ejemplos de este artículo se usará una entidad de servicio (SPN) para la autenticación en Azure Analysis Services. Para más información, consulte [Creación de una aplicación mediante Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
+Todas las llamadas se deben autenticar con un token válido de Azure Active Directory (OAuth 2).  En los ejemplos de este artículo se usará una entidad de servicio (SPN) para la autenticación en Azure Analysis Services. Para más información, consulte [Creación de una aplicación mediante Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## <a name="design-the-logic-app"></a>Diseño de la aplicación lógica
 
 > [!IMPORTANT]
-> En los ejemplos siguientes, se supone que el firewall de Azure Analysis Services está deshabilitado.  Si el firewall está habilitado, la dirección IP pública del iniciador de la solicitud debe figurar en la lista blanca del firewall de Azure Analysis Services. Para información sobre los intervalos de IP de Logic Apps por región, consulte [Información de límites y configuración para Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses).
+> En los ejemplos siguientes, se supone que el firewall de Azure Analysis Services está deshabilitado. Si el firewall está habilitado, la dirección IP pública del iniciador de la solicitud debe figurar en la lista blanca del firewall de Azure Analysis Services. Para más información sobre los intervalos de IP de Azure Logic Apps de cada región, consulte este tema sobre los [límites y la configuración de Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#configuration).
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 #### <a name="create-a-service-principal-spn"></a>Creación de una entidad de servicio (SPN)
 
@@ -62,7 +62,7 @@ Con este paso, se rellena con la dirección URL de HTTP POST después de que se 
 
 Configure la actividad HTTP tal como se indica abajo:
 
-|Propiedad  |Valor  |
+|Propiedad  |Value  |
 |---------|---------|
 |**Método**     |POST         |
 |**URI**     | https://*región del servidor*/servers/*nombre del servidor aas*/models/*nombre de la base de datos*/refreshes <br /> <br /> Por ejemplo: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes|
@@ -72,7 +72,7 @@ Configure la actividad HTTP tal como se indica abajo:
 |**Inquilino**     |Especifique el id. de inquilino de Azure Active Directory         |
 |**Audiencia**     |https://*.asazure.windows.net         |
 |**Id. de cliente**     |Especifique el id. de cliente del nombre de entidad de servicio         |
-|**Tipo de credencial**     |Secret         |
+|**Tipo de credencial**     |Secreto         |
 |**Secreto**     |Especifique el secreto del nombre de entidad de servicio         |
 
 Ejemplo:
@@ -116,4 +116,4 @@ Guarde la aplicación lógica.
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Muestras](analysis-services-samples.md)  
-[API DE REST](https://docs.microsoft.com/rest/api/analysisservices/servers)
+[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)

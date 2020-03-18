@@ -3,12 +3,12 @@ title: Información general de Service Health | Microsoft Docs
 description: Información personalizada sobre cómo las aplicaciones de Azure se ven afectadas por el mantenimiento y los problemas de servicios de Azure actuales y futuros.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: db9d74e2883e755c3e5c3dbbe9d6570f1e78c4a6
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: a1c6a10ab48125c030c9a35864f829438404ad97
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654025"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898437"
 ---
 # <a name="service-health-overview"></a>Información general de Service Health
 
@@ -16,11 +16,12 @@ Service Health proporciona un panel personalizable que realiza un seguimiento de
 
 ## <a name="service-health-events"></a>Eventos de Service Health
 
-Service Health realiza un seguimiento de tres tipos de eventos de estado que pueden afectar a los recursos:
+Service Health realiza un seguimiento de cuatro tipos de eventos de estado que pueden afectar a los recursos:
 
 1. **Problemas de servicios**: problemas en los servicios de Azure que le afectan ahora mismo. 
 2. **Mantenimiento planeado**: próximas acciones de mantenimiento que pueden afectar a la disponibilidad de los servicios en el futuro.  
 3. **Avisos de estado**: cambios en los servicios de Azure que requieren su atención. Por ejemplo, cuando están en desuso características de Azure o si se supera una cuota de uso.
+4. **Avisos de seguridad (versión preliminar**): notificaciones relacionadas con la seguridad que pueden afectar a la disponibilidad de los servicios de Azure.
 
 > [!NOTE]
 > Para ver los eventos de Service Health, a los usuarios se les debe [conceder el rol de lector](../role-based-access-control/role-assignments-portal.md) en una suscripción.

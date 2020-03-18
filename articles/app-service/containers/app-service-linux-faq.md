@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c590a27f61c1a555ae30828332e4140a6116f95f
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 2413601db629fda62976b75e349b0340749dc6fa
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443863"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944083"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Peguntas más frecuentes sobre Azure App Service en Linux
 
@@ -180,6 +180,10 @@ Estas son las reglas para determinar qué contenedor es accesible, en el orden d
 Se le cobrará el número de horas que se ejecute la aplicación, con los precios normales de Azure App Service.
 
 ## <a name="other-questions"></a>Otras preguntas
+
+**¿Qué significa "La característica solicitada no está disponible en el grupo de recursos"?**
+
+Este mensaje puede aparecer al crear una aplicación web con Azure Resource Manager (ARM). Debido a una limitación actual, no se pueden mezclar en el mismo grupo de recursos aplicaciones de Windows y Linux de la misma región.
 
 **¿Cuáles son los caracteres admitidos en los nombres de configuración de la aplicación?**
 

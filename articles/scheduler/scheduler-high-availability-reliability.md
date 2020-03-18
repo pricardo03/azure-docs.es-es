@@ -1,25 +1,26 @@
 ---
-title: Alta disponibilidad y confiabilidad en Azure Scheduler
+title: Alta disponibilidad y confiabilidad
 description: Obtenga más información sobre la alta disponibilidad y confiabilidad en Azure Scheduler
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
+ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/16/2016
-ms.openlocfilehash: 6a729df7eb08f8dacff4b0d35d011854208510ff
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 20c2054e168a9b17d9b4ab159cfefbf607ab6d11
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979285"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898561"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Alta disponibilidad y confiabilidad en Azure Scheduler
 
 > [!IMPORTANT]
 > [Azure Logic Apps](../logic-apps/logic-apps-overview.md) reemplaza a Azure Scheduler, que se [va a retirar](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para seguir utilizando los trabajos configurados en Scheduler, [migre a Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) cuanto antes. 
+>
+> Scheduler ya no está disponible en Azure portal, pero la [API REST](/rest/api/scheduler) y los [cmdlets de PowerShell para Azure Scheduler](scheduler-powershell-reference.md) siguen disponibles en la actualidad para que pueda administrar los trabajos y las colecciones de trabajos.
 
 Azure Scheduler ofrece tanto [alta disponibilidad](https://docs.microsoft.com/azure/architecture/framework/#resiliency) como confiabilidad para sus trabajos. Para más información, consulte el [Acuerdo de Nivel de Servicio de Scheduler](https://azure.microsoft.com/support/legal/sla/scheduler).
 
@@ -29,13 +30,13 @@ Azure Scheduler tiene una [alta disponibilidad] y usa una implementación del se
 
 ### <a name="geo-redundant-service-deployment"></a>Implementación de servicio con redundancia geográfica
 
-Azure Scheduler está disponible en Azure Portal en casi [todas las regiones geográficas admitidas por Azure actualmente](https://azure.microsoft.com/global-infrastructure/regions/#services). Por lo tanto, si un centro de datos de Azure en una región hospedada deja de estar disponible, podrá seguir usando Azure Scheduler porque las funcionalidades de conmutación por error del servicio hacen que Scheduler esté disponible en otro centro de datos.
+Azure Scheduler está disponible en prácticamente [todas las regiones geográficas admitidas por Azure actualmente](https://azure.microsoft.com/global-infrastructure/regions/#services). Por lo tanto, si un centro de datos de Azure en una región hospedada deja de estar disponible, podrá seguir usando Azure Scheduler porque las funcionalidades de conmutación por error del servicio hacen que Scheduler esté disponible en otro centro de datos.
 
 ### <a name="geo-regional-job-replication"></a>Replicación geográfica regional de trabajos
 
 Los trabajos que tenga en Azure Scheduler se replican entre las regiones de Azure. Si se produce una interrupción en una región, Azure Scheduler conmuta por error y garantiza que el trabajo se ejecuta en otro centro de datos en la región geográfica emparejada.
 
-Por ejemplo, si crea un trabajo en la zona Centro-sur de EE. UU., Azure Scheduler replica automáticamente ese trabajo en la zona Centro-norte de EE. UU. Si se produce un error en la región Centro-sur de EE. UU., Azure Scheduler ejecuta el trabajo en Centro-norte de EE. UU. 
+Por ejemplo, si crea un trabajo en la zona Centro-sur de EE. UU.., Azure Scheduler replica automáticamente ese trabajo en la zona Centro-norte de EE. UU. Si se produce un error en la región Centro-sur de EE. UU., Azure Scheduler ejecuta el trabajo en Centro-norte de EE. UU. 
 
 ![Replicación geográfica regional de trabajos](./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png)
 
@@ -70,9 +71,9 @@ El tipo de acción alternativa puede diferir de la acción original. Por ejemplo
 
 Para más información sobre cómo configurar un punto de conexión alternativo, consulte [errorAction](scheduler-concepts-terms.md#error-action).
 
-## <a name="see-also"></a>Consulte también
+## <a name="next-steps"></a>Pasos siguientes
 
-* [¿Qué es Azure Scheduler?](scheduler-intro.md)
 * [Conceptos, terminología y jerarquía de entidades](scheduler-concepts-terms.md)
-* [Creación de programaciones complejas y periodicidad avanzada](scheduler-advanced-complexity.md)
+* [Referencia de API de REST de Azure Scheduler](/rest/api/scheduler)
+* [Referencia de cmdlets de PowerShell de Azure Scheduler](scheduler-powershell-reference.md)
 * [Límites, cuotas, valores predeterminados y códigos de error](scheduler-limits-defaults-errors.md)

@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: b891c8a7bbb33e3a3f18adbbc723d4bc9aa99a3a
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 6a967f328a4fbe17f2c451d35f413bd7fdcbc24a
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246462"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331475"
 ---
 # <a name="my-first-graphical-runbook"></a>Mi primer runbook gráfico
 
@@ -22,7 +22,7 @@ ms.locfileid: "78246462"
 > * [Python](automation-first-runbook-textual-python2.md)
 > 
 
-Este tutorial le guiará por la creación de un [runbook gráfico](automation-runbook-types.md#graphical-runbooks) en Azure Automation. Comenzará con un runbook simple que prueba y publica, mientras aprende cómo hacer un seguimiento del estado del trabajo del runbook. A continuación, modificará el runbook para administrar recursos de Azure; en este caso, iniciando una máquina virtual de Azure. Completará el tutorial agregando parámetros y vínculos condicionales al runbook, para hacerlo más sólido.
+Este tutorial le guiará por la creación de un [runbook gráfico](automation-runbook-types.md#graphical-runbooks) en Azure Automation. Comienza con un runbook simple que puede probar y publicar, mientras aprende a realizar el seguimiento del estado del trabajo del runbook. A continuación, modificará el runbook para administrar recursos de Azure; en este caso, iniciando una máquina virtual de Azure. Completará el tutorial agregando parámetros y vínculos condicionales al runbook, para hacerlo más sólido.
 
 >[!NOTE]
 >Este artículo se ha actualizado para usar el nuevo módulo Az de Azure PowerShell. Aún puede usar el módulo de AzureRM que continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo. Para más información acerca del nuevo módulo Az y la compatibilidad con AzureRM, consulte [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0) (Presentación del nuevo módulo Az de Azure PowerShell). Para obtener instrucciones sobre la instalación del módulo Az en Hybrid Runbook Worker, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Puede actualizar los módulos de su cuenta de Automation a la versión más reciente mediante [Actualización de módulos de Azure PowerShell en Azure Automation](automation-update-azure-modules.md).
@@ -37,7 +37,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ## <a name="step-1---create-runbook"></a>Paso 1: Creación del runbook
 
-Empezaremos creando un runbook simple cuya salida sea el texto "Hola mundo".
+Empiece creando un runbook simple cuya salida sea el texto **Hola mundo**.
 
 1. En Azure Portal, abra su cuenta de Automation. 
 
@@ -78,7 +78,7 @@ Antes de publicar el runbook para que esté disponible en producción, debe prob
 
    El estado del trabajo se inicia como **En cola**, que indica que está esperando a que haya disponible un trabajo de runbook en la nube. El estado cambia a **Iniciando** cuando un trabajo lo solicita. Por último, el estado pasa a **En ejecución** cuando el runbook comienza a ejecutarse.
 
-1. Cuando se completa el trabajo del runbook, la página de prueba muestra su salida. En este caso, verá **Hola mundo**.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
+1. Cuando se completa el trabajo del runbook, el panel de prueba muestra su salida. En este caso, verá **Hola mundo**.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
 1. Cierre el panel Prueba para volver al lienzo.
 
 ## <a name="step-4---publish-and-start-the-runbook"></a>Paso 4: publicar e iniciar el runbook
@@ -97,7 +97,7 @@ El runbook que ha creado aún está en modo de borrador. Debe publicarse antes d
 1. Cierre la página Salida.
 1. Haga clic en **Todos los registros** para abrir el panel Transmisiones para el trabajo de Runbook. Solo debería ver **Hola mundo** en el flujo de salida. 
 
-    Tenga en cuenta que el panel Transmisiones puede mostrar otras transmisiones de un trabajo de runbook, como las transmisiones de error y detalladas, si el runbook escribe en ellas.
+    Tenga en cuenta que el panel Transmisiones puede mostrar otras transmisiones de un trabajo de runbook, como las de error y detalladas, si el runbook escribe en ellas.
 1. Cierre el panel Transmisiones y el panel Trabajo para volver a la página de **MyFirstRunbook-Graphical**.
 1. Para ver todos los trabajos del runbook, seleccione **Trabajos** en **Recursos**. La página Trabajos muestra todos los trabajos creados por el runbook. Solo debería ver un trabajo en la lista, ya que solo ejecutó el trabajo una vez.
 1. Haga clic en el nombre del trabajo para abrir el mismo panel Trabajo que vio cuando inició el runbook. Use este panel para ver los detalles de cualquier trabajo creado para el runbook.

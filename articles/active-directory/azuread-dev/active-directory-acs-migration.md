@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 7b009a6e2f540dc076340a6803679a541e60adc7
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 63ace9af31dd284c61fae188744b24361f33c170
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163769"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377905"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedimientos: Migración desde Azure Access Control Service
 
@@ -68,13 +68,13 @@ Siga los pasos descritos en esta sección para averiguar qué aplicaciones se ve
 ### <a name="download-and-install-acs-powershell"></a>Descargue e instale ACS PowerShell
 
 1. Vaya a la Galería de PowerShell y descargue [Acs.Namespaces](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2).
-1. Ejecute lo siguiente para instalar el módulo:
+2. Ejecute lo siguiente para instalar el módulo:
 
     ```powershell
     Install-Module -Name Acs.Namespaces
     ```
 
-1. Ejecute lo siguiente para obtener una lista de todos los comandos posibles:
+3. Ejecute lo siguiente para obtener una lista de todos los comandos posibles:
 
     ```powershell
     Get-Command -Module Acs.Namespaces
@@ -94,8 +94,8 @@ Siga los pasos descritos en esta sección para averiguar qué aplicaciones se ve
   
     Puede que tenga que ejecutar `Set-ExecutionPolicy -ExecutionPolicy Bypass` antes de poder ejecutar los comandos y que tenga que ser el administrador de esas suscripciones para poder ejecutar los comandos.
 
-1. Enumere las suscripciones de Azure disponibles con el cmdlet **Get AcsSubscription**.
-1. Enumere los espacios de nombres de ACS con el cmdlet **Get AcsNamespace**.
+2. Enumere las suscripciones de Azure disponibles con el cmdlet **Get AcsSubscription**.
+3. Enumere los espacios de nombres de ACS con el cmdlet **Get AcsNamespace**.
 
 ### <a name="check-which-applications-will-be-impacted"></a>Compruebe qué aplicaciones que se verán afectadas
 
@@ -103,8 +103,8 @@ Siga los pasos descritos en esta sección para averiguar qué aplicaciones se ve
 
     Por ejemplo, si uno de los espacios de nombres es contoso-test, vaya a `https://contoso-test.accesscontrol.windows.net`
 
-1. En **Relaciones de confianza**, seleccione **Aplicaciones de usuario de confianza** para ver la lista de aplicaciones que se verán afectadas por la retirada de ACS.
-1. Repita los pasos 1 y 2 para otros espacios de nombres de ACS que tenga.
+2. En **Relaciones de confianza**, seleccione **Aplicaciones de usuario de confianza** para ver la lista de aplicaciones que se verán afectadas por la retirada de ACS.
+3. Repita los pasos 1 y 2 para otros espacios de nombres de ACS que tenga.
 
 ## <a name="retirement-schedule"></a>Calendario de retiradas
 
@@ -210,7 +210,7 @@ En líneas generales, *Azure Active Directory probablemente no sea la opción ad
 | Carga de certificados de firma de tokens personalizados | Compatible | Compatible |
 | Personalización de notificaciones en tokens |- Paso a través de notificaciones de entrada desde proveedores de identidad<br />- Obtención de token de acceso del proveedor de identidades como una notificación<br />- Emisión de notificaciones de salida basadas en valores de las notificaciones de entrada<br />- Emisión de notificaciones de salida con valores constantes |- No se puede pasar a través notificaciones desde proveedores de identidades federados.<br />- No se puede obtener el token de acceso del proveedor de identidades como una notificación<br />- No se pueden emitir notificaciones de salida basadas en valores de notificaciones de entrada.<br />- Se pueden emitir notificaciones de salida con valores constantes.<br />- Se pueden emitir notificaciones de salida en función de las propiedades de los usuarios que se sincronizan con Azure AD. |
 | **Automation** | | |
-| Automatización de las tareas de configuración y administración | Compatible a través del servicio de administración de Access Control | Compatible a través de Microsoft Graph y Graph API de Azure AD. |
+| Automatización de las tareas de configuración y administración | Compatible a través del servicio de administración de Access Control | Compatible mediante Microsoft Graph API |
 
 Si decide que Azure AD es la forma adecuada para migrar sus aplicaciones y servicios, debe tener en cuenta dos maneras de integrar con ella su aplicación.
 
@@ -261,7 +261,7 @@ En la siguiente tabla se comparan las características de Access Control pertine
 | Carga de certificados de firma de tokens personalizados | Compatible | Las claves de firma personalizadas, no los certificados, se admiten a través de directivas personalizadas |
 | Personalización de notificaciones en tokens |- Paso a través de notificaciones de entrada desde proveedores de identidad<br />- Obtención de token de acceso del proveedor de identidades como una notificación<br />- Emisión de notificaciones de salida basadas en valores de las notificaciones de entrada<br />- Emisión de notificaciones de salida con valores constantes |- Puede pasar a través de notificaciones de proveedores de identidad; directivas personalizadas necesarias para algunas notificaciones<br />- No se puede obtener el token de acceso del proveedor de identidades como una notificación<br />- No se pueden emitir notificaciones de salida según los valores de las notificaciones de entrada a través de directivas personalizadas<br />- Se pueden emitir notificaciones de salida con valores constantes a través de directivas personalizadas |
 | **Automation** | | |
-| Automatización de las tareas de configuración y administración | Compatible a través del servicio de administración de Access Control |- Creación de usuarios con permiso a través de Graph API de Azure AD<br />- No se pueden crear mediante programación las directivas, las aplicaciones ni los inquilinos de B2C |
+| Automatización de las tareas de configuración y administración | Compatible a través del servicio de administración de Access Control |- Creación de usuarios permitidos mediante Microsoft Graph API<br />- No se pueden crear mediante programación las directivas, las aplicaciones ni los inquilinos de B2C |
 
 Si decide que Azure AD B2C es la forma adecuada para migrar sus aplicaciones y servicios, debe comenzar con los recursos siguientes:
 
@@ -325,7 +325,7 @@ Asimismo, también puede utilizar Azure AD para realizar la autenticación de un
 | Métodos de autenticación del cliente |- Contraseña simple<br />- SWT firmado<br />- Token SAML del proveedor de identidades federadas |- Contraseña simple<br />- SWT firmado |
 | Formatos de tokens |- JWT<br />- SAML 1.1<br />- SAML 2.0<br />- SWT<br /> | Solo JWT |
 | Transformación de token |- Incorporación de notificaciones personalizadas<br />- Lógica de emisión de notificaciones if-then simple | Incorporación de notificaciones personalizadas | 
-| Automatización de las tareas de configuración y administración | Compatible a través del servicio de administración de Access Control | Compatible a través de Microsoft Graph y Graph API de Azure AD. |
+| Automatización de las tareas de configuración y administración | Compatible a través del servicio de administración de Access Control | Compatible mediante Microsoft Graph API |
 
 Para obtener información sobre escenarios de implementación entre servidores, consulte los siguientes recursos:
 

@@ -8,12 +8,12 @@ ms.date: 10/22/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f218c64d3ffe4955877516551a29376372144598
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: fbdb447905ae43fe92693dfe45c1add710f76355
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526729"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933589"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferencia de datos con AzCopy y Blob Storage
 
@@ -73,7 +73,8 @@ Para obtener documentos de referencia detallados, consulte [azcopy copy](storage
 También puede cargar un archivo mediante un símbolo comodín (*) en cualquier lugar de la ruta de acceso o del nombre de archivo. Por ejemplo: `'C:\myDirectory\*.txt'` o `C:\my*\*.txt`.
 
 > [!NOTE]
-> De forma predeterminada, AzCopy carga datos en blobs en bloques. Para cargar archivos como blobs en anexos o blobs en páginas, use la marca `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
+> De manera predeterminada, AzCopy carga los datos como blobs en bloques. Para cargar archivos como blobs en anexos o blobs en páginas, use la marca `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
+> De manera predeterminada, AzCopy carga los datos para heredar el nivel de acceso de la cuenta. Para cargar archivos en un [nivel de acceso](../blobs/storage-blob-storage-tiers.md) concreto, use la marca `--block-blob-tier=[Hot|Cool|Archive]`.
 
 ### <a name="upload-a-directory"></a>Subir un directorio
 

@@ -16,18 +16,18 @@ ms.date: 11/01/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a78a69301ab2ae637531f8643d9d57a8b44b563f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 99de022b7259b33baab3aa825673a8f85e932bff
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608400"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968741"
 ---
 # <a name="review-access-of-an-access-package-in-azure-ad-entitlement-management"></a>Revisión del acceso de un paquete de acceso de administración de derechos de Azure AD
 
 La administración de derechos de Azure AD simplifica el modo en que las empresas administran el acceso a grupos, aplicaciones y sitios de SharePoint. En este artículo se describe cómo realizar revisiones de acceso para otros usuarios que están asignados a un paquete de acceso como revisor designado.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para revisar las asignaciones de paquete de acceso activas de los usuarios, debe cumplir los requisitos previos para realizar una revisión de acceso:
 - Azure AD Premium P2
@@ -47,7 +47,7 @@ Siga estos pasos para buscar y abrir la revisión de acceso:
 
 1. Haga clic en el vínculo **Review user access** (Revisar acceso de usuario) para abrir la revisión de acceso. 
 
-1. Si no tiene el correo electrónico, puede encontrar las revisiones de acceso pendientes navegando directamente a https://myaccess.microsoft.com.
+1. Si no tiene el correo electrónico, puede encontrar las revisiones de acceso pendientes navegando directamente a https://myaccess.microsoft.com.  (Para el Gobierno de EE. UU., utilice en su lugar `https://myaccess.microsoft.us`.)
 
 1. Haga clic en **Revisiones de acceso** en la barra de navegación de la izquierda para ver una lista de las revisiones de acceso pendientes que tiene asignadas.
     

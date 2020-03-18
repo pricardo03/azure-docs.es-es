@@ -9,14 +9,14 @@ ms.topic: conceptual
 author: clauren42
 ms.author: clauren
 ms.reviewer: jmartens
-ms.date: 10/25/2019
+ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1645d2848c6d4b852a81042c4db8a0f6e90fd8fd
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: fab46f7d7ae74ad643ce3f122b27b0dc767f5a78
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945810"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399688"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Solución de problemas con la implementación de Azure Machine Learning, Azure Kubernetes Service y Azure Container Instances
 
@@ -36,7 +36,7 @@ El enfoque recomendado y más actualizado para la implementación de modelo se r
 
 Más información sobre este proceso en la introducción a la [administración de modelos](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una **suscripción de Azure**. Si no tiene una ya, pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 * El [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
@@ -221,6 +221,10 @@ def run(input_data):
 
 **Nota**: La devolución de mensajes de error de la llamada `run(input_data)` se debe realizar solo con fines de depuración. Por motivos de seguridad, no debe devolver los mensajes de error de este modo en un entorno de producción.
 
+## <a name="http-status-code-502"></a>Código de estado HTTP 502
+
+Un código de estado 502 indica que el servicio ha producido una excepción o se ha bloqueado en el método `run()` del archivo score.py. Utilice la información de este artículo para depurar el archivo.
+
 ## <a name="http-status-code-503"></a>Código de estado HTTP 503
 
 Las implementaciones de Azure Kubernetes Service admiten el escalado automático, que permite que las réplicas se agreguen para admitir una carga adicional. Sin embargo, el escalador automático está diseñado para controlar cambios **graduales** en la carga. Si recibe grandes picos en las solicitudes por segundo, los clientes pueden recibir un código de estado HTTP 503.
@@ -261,6 +265,12 @@ Hay dos cosas que ayudan a impedir los códigos de estado 503:
     > Si recibe picos de solicitudes más grandes que el número mínimo nuevo de réplicas que se puede controlar, es posible que reciba códigos de estado 503 otra vez. Por ejemplo, a medida que el tráfico al servicio aumente, es posible que deba aumentar el número mínimo de réplicas.
 
 Para obtener más información sobre cómo configurar `autoscale_target_utilization`, `autoscale_max_replicas`, y `autoscale_min_replicas`, vea la referencia de módulo [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py).
+
+## <a name="http-status-code-504"></a>Código de estado HTTP 504
+
+Un código de estado 504 indica que la solicitud ha agotado el tiempo de espera. El tiempo de espera predeterminado es 1 minuto.
+
+Puede aumentar el tiempo de espera o intentar acelerar el servicio modificando el archivo score.py para quitar llamadas innecesarias. Si estas acciones no solucionan el problema, use la información de este artículo para depurar el archivo score.py. El código puede estar en un estado bloqueado o en un bucle infinito.
 
 ## <a name="advanced-debugging"></a>Depuración avanzada
 

@@ -1,22 +1,14 @@
 ---
 title: 'Cómo probar una base de conocimiento: QnA Maker'
-titleSuffix: Azure Cognitive Services
 description: La prueba de la base de conocimiento de QnA Maker es una parte importante de un proceso iterativo para mejorar la precisión de las respuestas devueltas. Puede probar la base de conocimiento mediante una interfaz de chat mejorada que también permite realizar ediciones.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: c139d3a740067e3cecaff90d3171d7b0cb3d52c7
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.date: 03/05/2020
+ms.openlocfilehash: da4988ced0b077952ce64e6227d16e58d40ae329
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091750"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927269"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Prueba de una base de conocimiento en QnA Maker
 
@@ -45,7 +37,7 @@ Puede inspeccionar los detalles del resultado de las pruebas en el panel Inspecc
 
     ![Inspeccionar respuestas](../media/qnamaker-how-to-test-kb/inspect.png)
 
-2.  Aparece el panel Inspección. El panel incluye la intención con la mayor puntuación, así como cualquier entidad identificada. El panel muestra el resultado de la expresión seleccionada.
+2.  Aparece el panel Inspección. El panel incluye la intención de mayor puntuación, así como cualquier entidad identificada. El panel muestra el resultado de la expresión seleccionada.
 
 ### <a name="correct-the-top-scoring-answer"></a>Corrección de la respuesta con mayor puntuación
 
@@ -61,11 +53,11 @@ Puede agregar formas alternativas de una pregunta a una respuesta determinada. E
 
 ### <a name="add-a-new-answer"></a>Adición de una nueva respuesta
 
-Puede agregar una respuesta nueva si cualquiera de las respuestas existentes coincidentes son incorrectas o la respuesta no existe en la base de conocimiento (ninguna coincidencia adecuada encontrada en la base de conocimiento). 
+Puede agregar una respuesta nueva si cualquiera de las respuestas existentes coincidentes son incorrectas o la respuesta no existe en la base de conocimiento (ninguna coincidencia adecuada encontrada en la base de conocimiento).
 
-En la parte inferior de la lista de las respuestas, use el cuadro de texto para escribir una nueva respuesta y presione Entrar para agregarla. 
+En la parte inferior de la lista de las respuestas, use el cuadro de texto para escribir una nueva respuesta y presione Entrar para agregarla.
 
-Seleccione **Guardar y entrenar** para persistir esta respuesta. Se ha agregado un par pregunta-respuesta nuevo a la base de conocimiento. 
+Seleccione **Guardar y entrenar** para persistir esta respuesta. Se ha agregado un par pregunta-respuesta nuevo a la base de conocimiento.
 
 > [!NOTE]
 > Todas las modificaciones realizadas en la base de conocimiento solo se guardan si presiona el botón **Guardar y entrenar**.
@@ -83,12 +75,14 @@ Use la herramienta de pruebas por lotes cuando quiera:
 * determinar la mejor respuesta y la puntuación de un conjunto de preguntas
 * validar la respuesta esperada para el conjunto de preguntas
 
-Las pruebas por lotes se proporcionan con la herramienta de pruebas por lotes. Esta herramienta está disponible como [ejecutable comprimido](https://aka.ms/qnamakerbatchtestingtool) para descarga o como [código fuente de C#](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting). 
+Pata obtener instrucciones detalladas, lea el [tutorial](../Quickstarts/batch-testing.md) de las pruebas por lotes.
+
+Las pruebas por lotes se proporcionan con la herramienta de pruebas por lotes. Esta herramienta está disponible como [ejecutable comprimido](https://aka.ms/qnamakerbatchtestingtool) para descarga o como [código fuente de C#](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting).
 
 La [documentación de referencia sobre la herramienta](../reference-tsv-format-batch-testing.md) incluye:
 
 * el ejemplo de la línea de comandos de la herramienta
-* el formato de los archivos de entrada y salida de TSV 
+* el formato de los archivos de entrada y salida de TSV
 
 ## <a name="next-steps"></a>Pasos siguientes
 

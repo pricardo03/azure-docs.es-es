@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 06c9e79a68540cb10557b0951b743bf841963057
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: a621165210702e075f15fb61bd615e157f997fe1
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190269"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79078870"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de Azure Active Directory en una directiva personalizada en Azure Active Directory B2C
 
@@ -28,8 +28,8 @@ Azure Active Directory B2C (Azure AD B2C) proporciona compatibilidad con la a
 
 El atributo **Name** del elemento **Protocol** tiene que establecerse en `Proprietary`. El atributo **handler** debe contener el nombre completo del ensamblado de controlador de protocolo `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
-Todos los perfiles técnicos de Azure AD incluyen el perfil técnico **AAD-Common**. Los perfiles técnicos siguientes no especifican el protocolo porque el protocolo está configurado en el perfil técnico **AAD-Common**:
-
+Siguiendo el [paquete de inicio de directivas personalizadas](custom-policy-get-started.md#custom-policy-starter-pack), los perfiles técnicos de Azure AD incluyen el perfil técnico **AAD-Common**. Los perfiles técnicos de Azure AD no especifican el protocolo porque este está configurado en el perfil técnico **AAD-Common**:
+ 
 - **AAD-UserReadUsingAlternativeSecurityId** y **AAD-UserReadUsingAlternativeSecurityId-NoError**: buscar una cuenta de redes sociales en el directorio.
 - **AAD-UserWriteUsingAlternativeSecurityId**: crear una cuenta de redes sociales.
 - **AAD-UserReadUsingEmailAddress**: buscar una cuenta local en el directorio.
@@ -56,21 +56,21 @@ En el ejemplo siguiente se muestra el perfil técnico **AAD-Common**:
 </TechnicalProfile>
 ```
 
-## <a name="input-claims"></a>Notificaciones de entrada
+## <a name="inputclaims"></a>InputClaims
 
-Los perfiles técnicos siguientes incluyen **InputClaims** para las cuentas locales y sociales:
+El elemento InputClaims contiene una notificación, que se usa para buscar una cuenta en el directorio o crear una nueva. Debe haber exactamente un elemento InputClaim en la colección de notificaciones de entrada para todos los perfiles técnicos de Azure AD. Es posible que tenga que asignar el nombre de la notificación definida en la directiva al nombre definido en Azure Active Directory.
 
-- Los perfiles técnicos de cuenta social **AAD-UserReadUsingAlternativeSecurityId** y **AAD-UserWriteUsingAlternativeSecurityId** incluyen la notificación **AlternativeSecurityId**. Esta notificación contiene el identificador de usuario de la cuenta de red social.
-- Los perfiles técnicos de cuenta local **AAD UserReadUsingEmailAddress** y **AAD-UserWriteUsingLogonEmail** incluyen la notificación **email**. Esta notificación contiene el nombre de inicio de sesión de la cuenta local.
-- Los perfiles técnicos (local y de red social) unificados **AAD-UserReadUsingObjectId**, **AAD-UserWritePasswordUsingObjectId**, **AAD-UserWriteProfileUsingObjectId** y **AAD-UserWritePhoneNumberUsingObjectId** incluyen la notificación **objectId**. El identificador único de una cuenta.
+Para leer, actualizar o eliminar una cuenta de usuario existente, la notificación de entrada es una clave que identifica de forma única la cuenta en el directorio de Azure AD. Por ejemplo, **objectId**, **userPrincipalName**, **signInNames.emailAddress**, **signInNames.userName** o **alternativeSecurityId**. 
 
-El elemento **InputClaimsTransformations** puede contener una colección de elementos **InputClaimsTransformation** que se usan para modificar las notificaciones de entrada o generar otras nuevas.
+Para crear una nueva cuenta de usuario, la notificación de entrada es una clave que identifica de forma única una cuenta local o federada. Por ejemplo, cuenta local: **signInNames.emailAddress** o **signInNames.userName**. En el caso de una cuenta federada: **alternativeSecurityId**.
 
-## <a name="output-claims"></a>Notificaciones de salida
+El elemento [InputClaimsTransformations](technicalprofiles.md#inputclaimstransformations) puede contener una colección de elementos de transformación de notificaciones de entrada que se usan para modificar las notificaciones de entrada o generar otras nuevas.
+
+## <a name="outputclaims"></a>OutputClaims
 
 El elemento **OutputClaims** contiene una lista de notificaciones devuelta por el perfil técnico de Azure AD. Es posible que tenga que asignar el nombre de la notificación definida en la directiva al nombre definido en Azure Active Directory. También puede incluir las notificaciones que Azure Active Directory no devuelve, siempre y cuando establezca el atributo `DefaultValue`.
 
-El elemento **OutputClaimsTransformations** puede contener una colección de elementos **OutputClaimsTransformation** que se usan para modificar las notificaciones de salida o para generar nuevas.
+El elemento [OutputClaimsTransformations](technicalprofiles.md#outputclaimstransformations) puede contener una colección de elementos **OutputClaimsTransformation** que se usan para modificar las notificaciones de salida o para generar nuevas.
 
 Por ejemplo, el perfil técnico **AAD-UserWriteUsingLogonEmail** crea una cuenta local y devuelve las notificaciones siguientes:
 
@@ -92,7 +92,7 @@ Por ejemplo, el perfil técnico **AAD-UserWriteUsingLogonEmail** crea una cuenta
 
 ## <a name="persistedclaims"></a>PersistedClaims
 
-El elemento **PersistedClaims** contiene todos los valores que Azure AD debe conservar con la información de asignaciones posibles entre un tipo de notificación ya definido en la sección ClaimsSchema de la directiva y el nombre de atributo de Azure AD.
+El elemento **PersistedClaims** contiene todos los valores que Azure AD debe conservar con la información de asignaciones posibles entre un tipo de notificación ya definido en la sección [ClaimsSchema](claimsschema.md) de la directiva y el nombre de atributo de Azure AD.
 
 El perfil técnico **AAD-UserWriteUsingLogonEmail** crea una cuenta local y conserva las notificaciones siguientes:
 
@@ -123,9 +123,7 @@ El nombre de la notificación es el del atributo de Azure AD, a menos que se esp
 
 ### <a name="read"></a>Lectura
 
-La operación **Read** lee los datos sobre una sola cuenta de usuario. Para leer datos del usuario, hay que proporcionar una clave como una notificación de entrada, como **objectId**, **userPrincipalName**, **signInNames** (cualquier tipo, nombre de usuario y cuenta de correo electrónico) o **alternativeSecurityId**.
-
-El perfil técnico siguiente lee los datos sobre una cuenta de usuario mediante el valor objectId del usuario:
+La operación **Read** lee los datos sobre una sola cuenta de usuario. El perfil técnico siguiente lee los datos sobre una cuenta de usuario mediante el valor objectId del usuario:
 
 ```XML
 <TechnicalProfile Id="AAD-UserReadUsingObjectId">
@@ -155,9 +153,7 @@ El perfil técnico siguiente lee los datos sobre una cuenta de usuario mediante 
 
 ### <a name="write"></a>Escritura
 
-La operación **Write** crea o actualiza una sola cuenta de usuario. Para escribir una cuenta de usuario, hay que proporcionar una clave como una notificación de entrada, como **objectId**, **userPrincipalName**, **signInNames.emailAddress** o **alternativeSecurityId**.
-
-El perfil técnico siguiente crea la cuenta de red social:
+La operación **Write** crea o actualiza una sola cuenta de usuario. El perfil técnico siguiente crea la cuenta de red social:
 
 ```XML
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
@@ -197,9 +193,7 @@ El perfil técnico siguiente crea la cuenta de red social:
 
 ### <a name="deleteclaims"></a>DeleteClaims
 
-La operación **DeleteClaims** borra la información de una lista de notificaciones proporcionada. Para eliminar información de las notificaciones, hay que proporcionar una clave como una notificación de entrada, como **objectId**, **userPrincipalName**, **signInNames.emailAddress** o **alternativeSecurityId**.
-
-El perfil técnico siguiente elimina notificaciones:
+La operación **DeleteClaims** borra la información de una lista de notificaciones proporcionada. El perfil técnico siguiente elimina notificaciones:
 
 ```XML
 <TechnicalProfile Id="AAD-DeleteClaimsUsingObjectId">
@@ -220,9 +214,7 @@ El perfil técnico siguiente elimina notificaciones:
 
 ### <a name="deleteclaimsprincipal"></a>DeleteClaimsPrincipal
 
-La operación **DeleteClaimsPrincipal** elimina una sola cuenta de usuario del directorio. Para eliminar una cuenta de usuario, hay que proporcionar una clave como una notificación de entrada, como **objectId**, **userPrincipalName**, **signInNames.emailAddress** o **alternativeSecurityId**.
-
-El perfil técnico siguiente elimina una cuenta de usuario del directorio mediante el nombre principal de usuario:
+La operación **DeleteClaimsPrincipal** elimina una sola cuenta de usuario del directorio. El perfil técnico siguiente elimina una cuenta de usuario del directorio mediante el nombre principal de usuario:
 
 ```XML
 <TechnicalProfile Id="AAD-DeleteUserUsingObjectId">
@@ -257,12 +249,26 @@ El perfil técnico siguiente elimina una cuenta de usuario de red social mediant
 | --------- | -------- | ----------- |
 | Operación | Sí | La operación que se va a realizar. Valores posibles: `Read`, `Write`, `DeleteClaims` o `DeleteClaimsPrincipal`. |
 | RaiseErrorIfClaimsPrincipalDoesNotExist | Sin | Genera un error si el objeto de usuario no existe en el directorio. Valores posibles: `true` o `false`. |
-| UserMessageIfClaimsPrincipalDoesNotExist | Sin | Si se va a generar un error (vea la descripción del atributo RaiseErrorIfClaimsPrincipalDoesNotExist), especifique el mensaje para mostrar al usuario si el objeto de usuario no existe. El valor se puede [localizar](localization.md).|
 | RaiseErrorIfClaimsPrincipalAlreadyExists | Sin | Genera un error si el objeto de usuario ya existe. Valores posibles: `true` o `false`.|
-| UserMessageIfClaimsPrincipalAlreadyExists | Sin | Si se va a generar un error (vea la descripción del atributo RaiseErrorIfClaimsPrincipalAlreadyExists), especifique el mensaje para mostrar al usuario si el objeto de usuario ya existe. El valor se puede [localizar](localization.md).|
 | ApplicationObjectId | Sin | El identificador de objeto de aplicación para los atributos de extensión. Valor: ObjectId de una aplicación. Para más información, vea [Uso de los atributos personalizados en una directiva de edición de perfil personalizada](custom-policy-custom-attributes.md). |
 | ClientId | Sin | El identificador de cliente para acceder al inquilino como un tercero. Para más información, vea [Uso de los atributos personalizados en una directiva de edición de perfil personalizada](custom-policy-custom-attributes.md). |
 | IncludeClaimResolvingInClaimsHandling  | Sin | En el caso de las notificaciones de entrada y salida, especifica si se incluye la [resolución de notificaciones](claim-resolver-overview.md) en el perfil técnico. Valores posibles: `true` o `false`  (valor predeterminado). Si desea utilizar un solucionador de notificaciones en el perfil técnico, establézcalo en `true`. |
+
+### <a name="error-messages"></a>Mensajes de error
+ 
+La configuración siguiente se puede usar para establecer el mensaje de error que se muestra cuando se produce un error. Los metadatos se deben configurar en el perfil técnico [autoafirmado](self-asserted-technical-profile.md). Los mensajes de error se pueden [localizar](localization.md).
+
+| Atributo | Obligatorio | Descripción |
+| --------- | -------- | ----------- |
+| UserMessageIfClaimsPrincipalAlreadyExists | Sin | Si se va a generar un error (vea la descripción del atributo RaiseErrorIfClaimsPrincipalAlreadyExists), especifique el mensaje para mostrar al usuario si el objeto de usuario ya existe. |
+| UserMessageIfClaimsPrincipalDoesNotExist | Sin | Si se va a generar un error (vea la descripción del atributo RaiseErrorIfClaimsPrincipalDoesNotExist), especifique el mensaje para mostrar al usuario si el objeto de usuario no existe. |
+
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Consulte el siguiente artículo para obtener un ejemplo del uso de un perfil técnico de Azure AD:
+
+- [Adición de notificaciones y personalización de la entrada del usuario mediante directivas personalizadas en Azure Active Directory B2C](custom-policy-configure-user-input.md)
 
 
 

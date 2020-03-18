@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: d485a2655b569b3def6162934857b02dbe4f75ea
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 85be49ad88ac62d90235c3da6b89b0da6a11487c
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76273982"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933759"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Administración del servicio StorSimple Data Manager en Azure Portal
 
@@ -102,7 +102,7 @@ Realice los siguientes pasos para crear una definición de trabajo.
 
    3. En la subsección **Filter** (Filtro), escriba el directorio raíz que contiene los datos de interés en formato _\MyRootDirectory\Data_. Las letras de unidad como _\C:\Data_ no se admiten. Aquí también se pueden agregar los filtros de archivo.
 
-   4. El servicio de transformación de datos funciona en los datos que se insertan en Azure a través de instantáneas. Al ejecutar este trabajo, puede elegir entre realizar una copia de seguridad cada vez que se ejecuta este trabajo (para trabajar con los datos más recientes) o utilizar la última copia de seguridad existente en la nube (si trabaja con datos archivados).
+   4. El servicio de transformación de datos solo funciona en la instantánea más reciente de los datos que se insertan en Azure.
 
    5. Haga clic en **OK**.
 
@@ -150,6 +150,11 @@ Siempre que tenga que mover los datos de StorSimple a la cuenta de almacenamient
 4. Para supervisar este trabajo, vaya a la página **Jobs** (Trabajos) de StorSimple Data Manager. Además de la supervisión de la hoja **Trabajos**, también puede escuchar la cola de almacenamiento a la que se agrega un mensaje cada vez que se mueve un archivo desde StorSimple a la cuenta de almacenamiento.
 
     ![Iniciar ejecución de trabajo 4](./media/storsimple-data-manager-ui/start-job-run4.png)
+
+### <a name="view-logs-after-job-completion"></a>Visualización de registros después de la finalización de trabajos
+
+Una vez finalizado un trabajo, se puede ver su estado. El estado del trabajo puede ser **Realizado correctamente**, **Realizado parcialmente** y **Con errores**. Puede ver la lista de archivos que se han copiado correctamente y los que no se pudieron copiar. Estas listas están disponibles en un contenedor denominado **"storsimple-data-manager-joblogs"** dentro de la cuenta de almacenamiento de destino. En este contenedor, puede buscar una carpeta que tenga el mismo nombre que la definición del trabajo. Dentro de ella se creará una carpeta para cada ejecución de trabajo que contendrá las listas. El nombre de esta carpeta será el GUID del trabajo, que se puede obtener en la página de detalles del trabajo. Como alternativa, en la mayoría de los casos verá un vínculo para los registros de copia dentro de la propia página de trabajos.
+En esta carpeta verá dos conjuntos de archivos csv. Todos los archivos que comiencen por **copiedfilelist...** contendrán la lista de archivos copiados correctamente. Todos los archivos que comiencen por **failedfilelist...** contienen archivos que no se pudieron copiar, junto con un mensaje de error.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 11/27/2019
-ms.openlocfilehash: 72006f907a1c1641308c8ee43e7a405765410789
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.date: 03/09/2020
+ms.openlocfilehash: 75ac5a7fc352f877573d79a004d8da761c6f1cef
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770890"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082887"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Supervisión del rendimiento de un clúster en Azure HDInsight
 
@@ -33,7 +33,7 @@ Para obtener una visión de alto nivel de los nodos de un clúster y su carga, i
 | Naranja | Al menos un componente subordinado del host está inactivo. Mueva el puntero encima para una información sobre herramientas que enumera los componentes afectados. |
 | Amarillo | El servidor de Ambari no recibió ningún latido del host durante más de 3 minutos. |
 | Verde | Estado de funcionamiento normal. |
- 
+
 También verá columnas que muestra el número de núcleos y la cantidad de RAM de cada host, así como el uso del disco y el promedio de carga.
 
 ![Información general de la pestaña Hosts de Apache Ambari](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
@@ -81,6 +81,46 @@ Si la memoria auxiliar del clúster es Azure Data Lake Storage (ADLS), lo más p
 * [Guía para la optimización del rendimiento de Apache Hive en HDInsight y Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-hive.md)
 * [Guía para la optimización del rendimiento de MapReduce en HDInsight y Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
 * [Guía para la optimización del rendimiento de Apache Storm en HDInsight y Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-storm.md)
+
+## <a name="troubleshoot-sluggish-node-performance"></a>Solución de problemas de rendimiento lento del nodo
+
+En algunos casos, puede producirse una lentitud debido a que hay poco espacio en disco en el clúster. Realice una investigación con estos pasos:
+
+1. Use [comandos de SSH](./hdinsight-hadoop-linux-use-ssh-unix.md) para conectarse a cada uno de los nodos.
+
+1. Compruebe el uso del disco mediante la ejecución de uno de los siguientes comandos:
+
+    ```bash
+    df -h
+    du -h --max-depth=1 / | sort -h
+    ```
+
+1. Revise la salida y compruebe si hay archivos de gran tamaño en la carpeta `mnt` u otras carpetas. Normalmente, las carpetas `usercache` y `appcache` (mnt/resource/hadoop/yarn/local/usercache/hive/appcache/) contienen archivos grandes.
+
+1. Si hay archivos grandes, o bien un trabajo actual está causando el aumento del archivo o bien un trabajo anterior con errores ha contribuido a este problema. Para comprobar si este comportamiento se debe a un trabajo actual, ejecute el siguiente comando:
+
+    ```bash
+    sudo du -h --max-depth=1 /mnt/resource/hadoop/yarn/local/usercache/hive/appcache/
+    ```
+
+1. Si este comando indica un trabajo específico, puede elegir finalizar el trabajo con un comando similar al siguiente:
+
+    ```bash
+    yarn application -kill -applicationId <application_id>
+    ```
+
+    Reemplace `application_id` por el identificador de la aplicación. Si no se indica ningún trabajo específico, vaya al paso siguiente.
+
+1. Cuando finalice el comando anterior o si no se indica ningún trabajo específico, elimine los archivos grandes que identificó, mediante la ejecución de un comando similar al siguiente:
+
+    ```bash
+    rm -rf filecache usercache
+    ```
+
+Para más información acerca de los problemas de espacio en disco, consulte el artículo sobre [espacio insuficiente en disco](./hadoop/hdinsight-troubleshoot-out-disk-space.md).
+
+> [!NOTE]  
+> Si tiene archivos grandes que desea conservar, pero que contribuyen al problema de poco espacio en disco, debe escalar verticalmente el clúster de HDInsight y reiniciar los servicios. Después de completar este procedimiento y esperar unos minutos, observará que el almacenamiento se libera y se restaura el rendimiento habitual del nodo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

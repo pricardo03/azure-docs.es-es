@@ -9,12 +9,12 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7529cfbd0ab75d0113e5cea666bc04aa1b15d30b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 76e34736238273f2af3fccae0ac2b5ed0ff491f0
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157727"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128335"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Inicio de una conmutación por error de la cuenta de almacenamiento (versión preliminar)
 
@@ -29,9 +29,8 @@ En este artículo se muestra cómo iniciar una conmutación por error de la cuen
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Para poder realizar una conmutación por error de la cuenta, asegúrese de que se han realizado los pasos siguientes:
+Para poder realizar una conmutación por error de su cuenta de almacenamiento, asegúrese de que se han realizado los pasos siguientes:
 
-- Regístrese para la versión preliminar de conmutación por error de la cuenta. Para información sobre cómo registrarse, consulte [Acerca de la versión preliminar](storage-disaster-recovery-guidance.md#about-the-preview).
 - Asegúrese de que la cuenta de almacenamiento esté configurada para usar almacenamiento con redundancia geográfica (GRS) o almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). Para más información sobre el almacenamiento con redundancia geográfica, consulte [Redundancia de Azure Storage](storage-redundancy.md).
 
 ## <a name="important-implications-of-account-failover"></a>Implicaciones importantes de la conmutación por error de la cuenta

@@ -9,26 +9,30 @@ ms.topic: conceptual
 ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
-ms.date: 11/04/2019
-ms.openlocfilehash: 49ee00d43820d5aeb50e44cff1b6c5a448b4ce81
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.date: 03/11/2020
+ms.openlocfilehash: fe6125682f669e453100488b7e0afc4c49409588
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623916"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129731"
 ---
 # <a name="create-event-driven-machine-learning-workflows-preview"></a>Creación de flujos de trabajo de aprendizaje automático controlados por eventos (versión preliminar)
 
-[Azure Event Grid](https://docs.microsoft.com/azure/event-grid/) admite eventos de Azure Machine Learning. Por ejemplo, puede usar eventos de la finalización de la ejecución, el registro del modelo, la implementación del modelo y la detección del desfase de datos en el ámbito de un área de trabajo.
+[Azure Event Grid](https://docs.microsoft.com/azure/event-grid/) admite eventos de Azure Machine Learning. Puede suscribirse y consumir eventos como el cambio en el estado de ejecución, la finalización de la ejecución, el registro de modelos, la implementación de modelos y la detección de desfase de datos dentro de un área de trabajo.
 
-Para más información, vea [Integración de Azure Machine Learning con Event Grid](concept-event-grid-integration.md) y [Esquema de Event Grid de Azure Machine Learning](/azure/event-grid/event-schema-machine-learning).
+Para más información sobre los tipos de eventos, vea [Integración de Azure Machine Learning con Event Grid](concept-event-grid-integration.md) y [Esquema de Event Grid de Azure Machine Learning](/azure/event-grid/event-schema-machine-learning).
 
 Use Event Grid para habilitar escenarios comunes, como:
 
-* Envío de correos electrónicos al finalizar la ejecución
+* Envío de correos electrónicos en caso de error de ejecución y al finalizar la ejecución
 * Uso de una función de Azure una vez registrado un modelo
 * Streaming de eventos desde Azure Machine Learning a varios puntos de conexión
 * Desencadenamiento de una canalización de Machine Learning cuando se detecta un desfase
+
+> [!NOTE] 
+> Actualmente, los eventos runStatusChanged solo se desencadenan cuando el estado de ejecución es **failed**
+>
 
 ## <a name="prerequisites"></a>Prerrequisitos
 * Acceso de colaborador o propietario al área de trabajo de Azure Machine Learning para la que se crearán los eventos.
@@ -43,13 +47,14 @@ Use Event Grid para habilitar escenarios comunes, como:
 
 1. Seleccione el tipo de evento que se va a consumir. Por ejemplo, en la captura de pantalla siguiente se ha seleccionado __Modelo registrado__, __Modelo implementado__, __Ejecución completada__ y __Desfase del conjunto de datos detectado__:
 
-    ![add-event-type](./media/how-to-use-event-grid/add-event-type.png)
+    ![add-event-type](./media/how-to-use-event-grid/add-event-type-updated.png)
 
 1. Seleccione el punto de conexión en el que se va a publicar el evento. En la captura de pantalla siguiente, __Centro de eventos__ es el punto de conexión seleccionado:
 
     ![select-event-handler](./media/how-to-use-event-grid/select-event-handler.png)
 
 Una vez que haya confirmado la selección, haga clic en __Crear__. Después de la configuración, estos eventos se insertarán en el punto de conexión.
+
 
 ### <a name="configure-eventgrid-using-the-cli"></a>Configuración de EventGrid mediante la CLI
 
@@ -76,13 +81,17 @@ az eventgrid event-subscription create \
   --subject-begins-with "models/mymodelname"
 ```
 
+## <a name="filter-events"></a>Filtrado de eventos
+
+Al configurar eventos, puede aplicar filtros para que se desencadenen únicamente con datos de eventos específicos. En el ejemplo siguiente, para eventos de cambio de estado de ejecución, puede filtrar por tipos de ejecución. El evento solo se desencadena cuando se cumplen los criterios. Consulte el [Esquema de Event Grid de Azure Machine Learning](/azure/event-grid/event-schema-machine-learning) para obtener información sobre los datos de eventos que puede filtrar. 
+
+1. Vaya a Azure Portal y seleccione una suscripción nueva o existente. 
+
+1. Seleccione la pestaña de filtros y desplácese hacia abajo hasta los filtros avanzados. En **Clave** y **Valor**, proporcione los tipos de propiedad por los que desee filtrar. Aquí puede ver que el evento solo se desencadenará cuando el tipo de ejecución sea una ejecución de canalización o de paso de canalización.  
+
+    :::image type="content" source="media/how-to-use-event-grid/select-event-filters.png" alt-text="filtrado de eventos":::
+
 ## <a name="sample-scenarios"></a>Escenarios de ejemplo
-
-### <a name="use-azure-functions-to-deploy-a-model-based-on-tags"></a>Uso de Azure Functions para implementar un modelo basado en etiquetas
-
-Un objeto de modelo de Azure Machine Learning contiene parámetros sobre los que puede dinamizar las implementaciones, como el nombre del modelo, la versión, la etiqueta y la propiedad. El evento de registro del modelo puede desencadenar un punto de conexión y puede usar una función de Azure para implementar un modelo en función del valor de esos parámetros.
-
-Para obtener un ejemplo, vea el repositorio [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) y siga los pasos del archivo **Léame**.
 
 ### <a name="use-a-logic-app-to-send-email-alerts"></a>Uso de una aplicación lógica para enviar alertas por correo electrónico
 
@@ -100,7 +109,7 @@ Aproveche [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) para 
 
     ![select-event-runcomplete](./media/how-to-use-event-grid/select-event-runcomplete.png)
 
-1. También puede agregar filtros para desencadenar la aplicación lógica solo para un subconjunto de tipos de evento. En la captura de pantalla siguiente, se usa un __filtro de prefijo__ de __/datadriftID/runs/__ .
+1. Puede usar el método de filtrado de la sección anterior o agregar filtros para desencadenar solo la aplicación lógica en un subconjunto de tipos de evento. En la captura de pantalla siguiente, se usa un __filtro de prefijo__ de __/datadriftID/runs/__ .
 
     ![filter-events](./media/how-to-use-event-grid/filtering-events.png)
 
@@ -164,6 +173,11 @@ Ahora la canalización de Data Factory se desencadena cuando se produce el desfa
 
 ![view-in-workspace](./media/how-to-use-event-grid/view-in-workspace.png)
 
+### <a name="use-azure-functions-to-deploy-a-model-based-on-tags"></a>Uso de Azure Functions para implementar un modelo basado en etiquetas
+
+Un objeto de modelo de Azure Machine Learning contiene parámetros sobre los que puede dinamizar las implementaciones, como el nombre del modelo, la versión, la etiqueta y la propiedad. El evento de registro del modelo puede desencadenar un punto de conexión y puede usar una función de Azure para implementar un modelo en función del valor de esos parámetros.
+
+Para obtener un ejemplo, vea el repositorio [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) y siga los pasos del archivo **Léame**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

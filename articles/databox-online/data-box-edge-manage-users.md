@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 68f8ad903f967812c4a416c732b35fa1712404cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 443ed983a0eec5dfd8f7a917fbc1440cd66c3db3
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60756705"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946140"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-edge"></a>Uso de Azure Portal para administrar usuarios en Azure Data Box Edge
 
 En este artículo se describe cómo administrar usuarios en Azure Data Box Edge. Azure Data Box Edge se puede administrar a través de Azure Portal o de la interfaz de usuario web local. Usar Azure Portal para agregar, modificar o eliminar usuarios.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Adición de un usuario
@@ -33,8 +33,7 @@ Los usuarios pueden ser de solo lectura o tener privilegios totales. Como indica
  - **Usuario con privilegios totales**: un usuario local con acceso completo.
  - **Usuario de solo lectura**: un usuario local con acceso de solo lectura. Estos usuarios están asociados a los recursos compartidos que permiten operaciones de solo lectura.
 
-Los permisos del usuario se definen por primera vez cuando se crea el usuario durante la creación de los recursos compartidos. Una vez que se definen los permisos asociados a un usuario, se pueden modificar mediante el Explorador de archivos. 
-
+Los permisos del usuario se definen por primera vez cuando se crea el usuario durante la creación de los recursos compartidos. Actualmente no se admite la modificación de permisos en el nivel de recurso compartido.
 
 ## <a name="add-a-user"></a>Adición de un usuario
 

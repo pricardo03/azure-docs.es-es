@@ -12,12 +12,12 @@ ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1c362cd2924de73b2e40e634fe554ff1526e09d8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 4cf572b09f1e44faca002528fd00fe5be0b51bc5
+ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189657"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933037"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrar una aplicación SAML en Azure AD B2C
 
@@ -113,7 +113,7 @@ A continuación, cargue el certificado de firma de respuesta y aserción de SAML
 
 ### <a name="21-create-the-saml-token-issuer"></a>2.1 Crear el emisor de tokens SAML
 
-Ahora, agregue la funcionalidad para que el inquilino emita tokens SAML.
+Ahora, agregue la funcionalidad para que el inquilino emita tokens de SAML, mediante los perfiles técnicos [emisor de tokens SAML](saml-issuer-technical-profile.md) y [proveedor de sesión de SAML](custom-policy-reference-sso.md#samlssosessionprovider).
 
 Abra `SocialAndLocalAccounts\` **`TrustFrameworkExtensions.xml`** en el paquete de inicio de directivas personalizadas.
 
@@ -297,7 +297,7 @@ Los metadatos son información que se usa en el protocolo SAML para exponer la c
 
 Si hay propiedades especificadas *tanto* en la dirección URL de metadatos de SAML como en el manifiesto del registro de la aplicación, se **combinan**. Las propiedades especificadas en la dirección URL de metadatos se procesan primero y tienen prioridad.
 
-Para este tutorial, en el que se usa la aplicación de prueba de SAML, use el siguiente valor para `samlMetadataUrl`:
+Para este tutorial, en el que se usa la aplicación de prueba de SAML, utilice el siguiente valor para `samlMetadataUrl`:
 
 ```JSON
 "samlMetadataUrl":"https://samltestapp2.azurewebsites.net/Metadata",

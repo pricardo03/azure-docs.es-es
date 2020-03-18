@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 13c51f0db468c1591ca29de17f1744752589a1c8
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/09/2020
+ms.openlocfilehash: 77a451cb9f6598bbe7013f4215cfa7cab40186bd
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77663752"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037540"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usar el cliente de Apache Beeline con Apache Hive
 
@@ -54,6 +54,12 @@ beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD
 ```
 
 Reemplace `<username>` con el nombre de una cuenta en el dominio con permisos para obtener acceso al clúster. Reemplace `<AAD-DOMAIN>` por el nombre de la instancia de Azure Active Directory (AAD) a la que está unido el clúster. Use una cadena en mayúsculas para el valor `<AAD-DOMAIN>`; de lo contrario, la credencial no se encontrará. Consulte en `/etc/krb5.conf` los nombres de dominio kerberos si es necesario.
+
+Para buscar la dirección URL de JDBC desde Ambari:
+
+1. En un explorador web, vaya a `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary`, donde `CLUSTERNAME` es el nombre del clúster. Asegúrese de que HiveServer2 está en ejecución.
+
+1. Use el portapapeles para copiar la dirección URL de JDBC de HiveServer2.
 
 ---
 
@@ -199,7 +205,7 @@ Este ejemplo se basa en el uso del cliente de Beeline desde una conexión SSH.
     |CREATE EXTERNAL TABLE|Crea una tabla **externa** en Hive. Las tablas externas solo almacenan la definición de Tabla en Hive. Los datos permanecen en la ubicación original.|
     |FORMATO DE FILA|Indica el formato de los datos. En este caso, los campos de cada registro se separan mediante un espacio.|
     |STORED AS TEXTFILE LOCATION|Indica dónde se almacenan los datos y en qué formato de archivo.|
-    |SELECT|Selecciona un recuento de todas las filas donde la columna **t4** contiene el valor [ERROR]. Esta consulta devuelve un valor de **3** ya que hay tres filas que contienen este valor.|
+    |SELECT|Selecciona un recuento de todas las filas donde la columna **t4** contiene el valor **[ERROR]** . Esta consulta devuelve un valor de **3** ya que hay tres filas que contienen este valor.|
     |INPUT__FILE__NAME LIKE '%.log'|Hive intenta aplicar el esquema a todos los archivos en el directorio. En este caso, el directorio contiene archivos que no coinciden con el esquema. Para evitar que haya datos inservibles en los resultados, esta instrucción indica a Hive que solo se deben devolver datos de archivos que terminen en .log.|
 
    > [!NOTE]  
@@ -260,7 +266,7 @@ Esta es una continuación del ejemplo anterior. Use los pasos siguientes para cr
     |---|---|
     |CREATE TABLE IF NOT EXISTS|Si todavía no existe la tabla, se crea. Dado que no se utiliza la palabra clave **EXTERNAL**, esta instrucción crea una tabla interna. Las tablas internas se guardan en el almacenamiento de datos de Hive y Hive las administra por completo.|
     |STORED AS ORC|almacena los datos en el formato de columnas de filas optimizadas (ORC, Optimized Row Columnar). ORC es un formato altamente optimizado y eficiente para almacenar datos de Hive.|
-    |INSERT OVERWRITE ... SELECT|selecciona en la tabla **log4jLogs** las filas que contienen **[ERROR]** y, después, inserta los datos en la tabla errorLogs.|
+    |INSERT OVERWRITE ... SELECT|selecciona en la tabla **log4jLogs** las filas que contienen **[ERROR]** y, después, inserta los datos en la tabla **errorLogs**.|
 
     > [!NOTE]  
     > A diferencia de las tablas externas , la eliminación de una tabla interna también elimina los datos subyacentes.

@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: b9ac15e6909498c38f618a24be6b010dc2774b07
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 431372b930269c3dfa6bdc6e8b2fe4d291a8162e
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905503"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933793"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -171,7 +171,7 @@ Copia de un subconjunto de cubos mediante un símbolo comodín (*) en el nombre 
 
 **--blob-type** string                     Define el tipo de blob en el destino. Se usa para cargar blobs y al copiar entre cuentas (el valor predeterminado es "Detect"). Los valores válidos incluyen "Detect", "BlockBlob", "PageBlob" y "AppendBlob". Al copiar entre cuentas, un valor "Detect" hace que AzCopy use el tipo de blob de origen para determinar el tipo del blob de destino. Al cargar un archivo, "Detect" determina si el archivo es un archivo VHD o VHDX en función de la extensión del archivo. Si el archivo es VHD o VHDX, AzCopy lo trata como un blob en páginas. (el valor predeterminado es "Detect")
 
-**--block-blob-tier** string               Carga un blob en bloques en Azure Storage con este nivel de blobs. (el valor predeterminado es "None")
+**--block-blob-tier** string               Carga los blobs en bloques directamente en el [nivel de acceso](../blobs/storage-blob-storage-tiers.md) que prefiera. (el valor predeterminado es "None") Entre los valores válidos se incluyen "None", "Hot", "Cool" y "Archive". Si el valor es "None" o no se pasa ningún nivel, el blob heredará el nivel de la cuenta de almacenamiento.
 
 **--block-size-mb** float                  Usa este tamaño de bloque (especificado en MiB) al cargar y descargar de Azure Storage. El valor predeterminado se calcula automáticamente en función del tamaño del archivo. Se permiten fracciones decimales (por ejemplo: 0,25).
 

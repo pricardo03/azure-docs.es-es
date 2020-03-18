@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f1df037b66c72177a96f77231cee70782d04992
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 3fff08690eb2807fbbd50f297761c57d3fef88fe
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620708"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671839"
 ---
 # <a name="custom-controls-preview"></a>Controles personalizados (versión preliminar)
 
-Los controles personalizados son una funcionalidad de la edición Azure Active Directory Premium P1. Al utilizar controles personalizados, los usuarios se redirigen a un servicio compatible para satisfacer más requisitos fuera de Azure Active Directory. Para satisfacer este control, el explorador de un usuario se redirige al servicio externo, lleva a cabo todas las actividades de autenticación y validación necesarias y luego se vuelve a redirigir a Azure Active Directory. Azure Active Directory comprueba la respuesta y, si el usuario se autenticó o validó correctamente, seguirá en el flujo de acceso condicional.
+Los controles personalizados son una funcionalidad de la edición Azure Active Directory Premium P1. Al utilizar controles personalizados, los usuarios se redirigen a un servicio compatible para satisfacer más requisitos fuera de Azure Active Directory. Para satisfacer este control, el explorador de un usuario se redirige al servicio externo, lleva a cabo todas las actividades de autenticación o validación necesarias y luego se vuelve a redirigir a Azure Active Directory. Azure Active Directory comprueba la respuesta y, si el usuario se autenticó o validó correctamente, seguirá en el flujo de acceso condicional.
 
 Estos controles permiten el uso de determinados servicios externos o personalizados como controles de acceso condicional y generalmente amplían las funcionalidades de acceso condicional.
 
@@ -67,22 +67,10 @@ Para eliminar un control personalizado, primero debe asegurarse de que no se usa
 
 Para editar un control personalizado, debe eliminar el control actual y crear un nuevo control con la información actualizada.
 
-## <a name="session-controls"></a>Controles de sesión
-
-Los controles de sesión permiten limitar la experiencia desde una aplicación en la nube. Los controles de sesión son aplicados por aplicaciones en la nube y se basan en información adicional sobre la sesión proporcionada por Azure AD a la aplicación.
-
-![Control](./media/controls/31.png)
-
-### <a name="use-app-enforced-restrictions"></a>Usar restricciones que exige la aplicación
-
-Puede usar este control para requerir que Azure AD transmita la información del dispositivo a la aplicación en la nube. La información del dispositivo permite que las aplicaciones de nube sepan si una conexión se inicia desde un dispositivo compatible o unido al dominio. Este control solo admite Exchange Online y SharePoint Online como aplicaciones de nube seleccionadas. Cuando se selecciona, la aplicación de nube usa la información del dispositivo para proporcionar a los usuarios una experiencia completa o limitada, según el estado del dispositivo.
-
-Para obtener más información, consulte:
-
-- [Habilitación del acceso limitado con SharePoint Online](https://aka.ms/spolimitedaccessdocs)
-- [Habilitación del acceso limitado con Exchange Online](https://aka.ms/owalimitedaccess)
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si quiere saber cómo configurar una directiva de acceso condicional, vea [Requerir MFA para aplicaciones específicas con acceso condicional a Azure Active Directory](app-based-mfa.md).
-- Si está listo para configurar directivas de acceso condicional para su entorno, vea [Procedimientos recomendados para el acceso condicional en Azure Active Directory](best-practices.md).
+- [Directivas de acceso condicional habituales](concept-conditional-access-policy-common.md)
+
+- [Modo de solo informe](concept-conditional-access-report-only.md)
+
+- [Simulación del comportamiento de inicio de sesión mediante la herramienta What If de acceso condicional](troubleshoot-conditional-access-what-if.md)

@@ -3,7 +3,7 @@ title: Solución de errores de la API de informes de Azure Active Directory | Mi
 description: Le proporciona una resolución a los errores mientras llama a las API de informes de Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 0030c5a4-16f0-46f4-ad30-782e7fea7e40
@@ -14,36 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6f1f34dcece9acb20d0db091152b24b26cb9fa2
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 0d1fb4f49e4f9ad41f971d869873200e6180b5cd
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989530"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399292"
 ---
 # <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>Solución de errores de la API de informes de Azure Active Directory
 
-En este artículo se enumeran los mensajes de error más comunes con los que puede encontrarse al acceder a los informes de actividad mediante la MS Graph API y los pasos para su resolución.
+En este artículo se enumeran los mensajes de error más comunes con los que puede encontrarse al acceder a los informes de actividad mediante Microsoft Graph API y los pasos para su resolución.
 
 ### <a name="500-http-internal-server-error-while-accessing-microsoft-graph-v2-endpoint"></a>Error de servidor interno HTTP 500 al obtener acceso al punto de conexión de Microsoft Graph V2
 
 Actualmente no se admite el punto de conexión Microsoft Graph v2; asegúrese de acceder a los registros de actividad mediante el punto de conexión Microsoft Graph v1.
-
-### <a name="error-failed-to-get-user-roles-from-ad-graph"></a>Error: No se pudieron obtener los roles de usuario de Graph AD
-
-Es posible que aparezca este mensaje de error al intentar acceder a los inicios de sesión mediante el Probador de Graph. Asegúrese de que ha iniciado sesión en su cuenta con los dos botones de inicio de sesión de la interfaz de usuario del Probador de Graph, tal como se muestra en la imagen siguiente. 
-
-![Explorador de Graph](./media/troubleshoot-graph-api/graph-explorer.png)
-
-### <a name="error-failed-to-do-premium-license-check-from-ad-graph"></a>Error: No se pudo realizar la comprobación de licencia Premium de AD Graph 
-
-Si se encuentra con este mensaje de error al intentar acceder a los inicios de sesión mediante el Probador de Graph, seleccione **Modificar permisos** debajo de su cuenta en la barra de navegación de la izquierda y seleccione **Tasks.ReadWrite** y **Directory.Read.All**. 
-
-![Modificación de la interfaz de usuario de permisos](./media/troubleshoot-graph-api/modify-permissions.png)
-
 
 ### <a name="error-neither-tenant-is-b2c-or-tenant-doesnt-have-premium-license"></a>Error: El inquilino no es B2C o el inquilino no tiene licencia Premium
 
@@ -57,7 +44,7 @@ Si ve este mensaje de error mientras intenta acceder a los registros de auditor�
 
 Siga los pasos del artículo [Requisitos previos para acceder a la API de generación de informes de Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md) para asegurarse de que la aplicación se ejecuta con el conjunto correcto de permisos. 
 
-### <a name="error-application-missing-msgraph-api-read-all-audit-log-data-permission"></a>Error: Falta el permiso de MSGraph API "Leer todos los datos de registro de auditoría"
+### <a name="error-application-missing-microsoft-graph-api-read-all-audit-log-data-permission"></a>Error: Falta el permiso de Microsoft Graph API de la aplicación "Leer todos los datos de registro de auditoría"
 
 Siga los pasos del artículo [Requisitos previos para acceder a la API de generación de informes de Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md) para asegurarse de que la aplicación se ejecuta con el conjunto correcto de permisos. 
 

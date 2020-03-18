@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 593f80583067d28292701353c8a6a62d81282614
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.date: 03/10/2020
+ms.openlocfilehash: 98d71434ac9e3f712be0cbd8c505b7d5a537e7cc
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650833"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79095551"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparación de opciones de almacenamiento para los clústeres de Azure HDInsight
 
@@ -28,7 +28,7 @@ En la tabla siguiente se resumen los servicios de Azure Storage que son compatib
 
 | Servicio de Storage | Tipo de cuenta | Tipo de espacio de nombres | Servicios admitidos | Niveles de rendimiento admitidos | Niveles de acceso admitidos | Versión de HDInsight | Tipo de clúster |
 |---|---|---|---|---|---|---|---|
-|Azure Data Lake Storage Gen2| Uso general v2 | Jerárquico (sistema de archivos) | Blob | Estándar | Frecuente, esporádico, archivo | 3.6+ | Todos excepto Spark 2.1 |
+|Azure Data Lake Storage Gen2| Uso general v2 | Jerárquico (sistema de archivos) | Blob | Estándar | Frecuente, esporádico, archivo | 3.6+ | Todos excepto Spark 2.1 y 2.2|
 |Azure Storage| Uso general v2 | Object | Blob | Estándar | Frecuente, esporádico, archivo | 3.6+ | All |
 |Azure Storage| Uso general v1 | Object | Blob | Estándar | N/D | All | All |
 |Azure Storage| Blob Storage** | Object | Blob en bloques | Estándar | Frecuente, esporádico, archivo | All | All |
@@ -46,7 +46,6 @@ Puede crear un clúster mediante diversas combinaciones de servicios para el alm
 |---|---|---|---|
 | 3.6 y 4.0 | Uso general V1, uso general V2 | Uso general V1, uso general V2, BlobStorage (blobs en bloques) | Sí |
 | 3.6 y 4.0 | Uso general V1, uso general V2 | Data Lake Storage Gen2 | Sin |
-| 3.6 y 4.0 | Uso general V1, uso general V2 | Data Lake Storage Gen1 | Sí |
 | 3.6 y 4.0 | Data Lake Storage Gen2* | Data Lake Storage Gen2 | Sí |
 | 3.6 y 4.0 | Data Lake Storage Gen2* | Uso general V1, uso general V2, BlobStorage (blobs en bloques) | Sí |
 | 3.6 y 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | Sin |
@@ -54,11 +53,12 @@ Puede crear un clúster mediante diversas combinaciones de servicios para el alm
 | 3.6 | Data Lake Storage Gen1 | Uso general V1, uso general V2, BlobStorage (blobs en bloques) | Sí |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Sin |
 | 4.0 | Data Lake Storage Gen1 | Any | Sin |
+| 4.0 | Uso general V1, uso general V2 | Data Lake Storage Gen1 | Sin |
 
 * Podría tratarse de una o varias cuentas de Data Lake Storage Gen2, siempre y cuando todas estén configuradas para usar la misma identidad administrada para el acceso al clúster.
 
 > [!Note] 
-> El almacenamiento principal de Data Lake Storage Gen2 no es compatible con los clústeres de Spark 2.1. 
+> El almacenamiento principal de Data Lake Storage Gen2 no es compatible con los clústeres de Spark 2.1 o 2.2. 
 
 ## <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Uso de Azure Data Lake Storage Gen2 con Apache Hadoop en Azure HDInsight
 

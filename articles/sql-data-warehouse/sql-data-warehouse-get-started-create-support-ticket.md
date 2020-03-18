@@ -1,59 +1,111 @@
 ---
-title: Procedimiento para crear una incidencia de soporte técnico
-description: Procedimiento para crear una incidencia de soporte técnico de Azure Synapse Analytics.
+title: Solicitud de aumento de cuota y obtención de soporte técnico
+description: Creación de una solicitud de soporte técnico en Azure Portal para Azure Synapse Analytics Solicite aumentos de cuota o soporte técnico para solucionar un problema.
 services: sql-data-warehouse
-author: kevinvngo
-manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 04/17/2018
+ms.date: 03/10/2020
+author: kevinvngo
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 9623a878ea009ec7363501c09c324baa6d0fa7ad
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 88cc737fddfdd896575227e036df087c13a4d0f6
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78195718"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79130170"
 ---
-# <a name="how-to-create-a-support-ticket-for-azure-synapse-analytics"></a>Procedimiento para crear una incidencia de soporte técnico de Azure Synapse Analytics
-Si tiene algún problema con Azure Synapse Analytics, cree una incidencia de soporte técnico para que el equipo de soporte técnico de ingeniería pueda ayudarle.
+# <a name="request-quota-increases-and-get-support-for-azure-synapse-analytics"></a>Solicitud de aumentos de cuota y obtención de soporte técnico para Azure Synapse Analytics
+
+En este artículo se describe cómo enviar una incidencia de soporte técnico en Azure Portal para Azure Synapse Analytics. Este proceso le permite solicitar un aumento de la cuota o enviar una solicitud de soporte técnico al equipo de soporte técnico de ingeniería.
 
 ## <a name="create-a-support-ticket"></a>Creación de una incidencia de soporte técnico
-1. Abra [Azure Portal](https://portal.azure.com/).
-1. En la pantalla de inicio, haga clic en la pestaña **Ayuda y soporte técnico**.
-   
-    ![Ayuda y soporte técnico](./media/sql-data-warehouse-get-started-create-support-ticket/main-page.png)
+
+Use los pasos siguientes para crear una nueva solicitud de soporte técnico desde Azure Portal para Azure Synapse Analytics.
+
+1. En el menú de [Azure Portal](https://portal.azure.com), seleccione **Ayuda y soporte técnico**.
+
+   ![El vínculo de Ayuda y soporte técnico](./media/sql-data-warehouse-get-started-create-support-ticket/help-plus-support.png)
+
+
+1. Seleccione **Ayuda y soporte técnico** y **Nueva solicitud de soporte técnico**.
+
+    ![Creación de una solicitud de soporte técnico](./media/sql-data-warehouse-get-started-create-support-ticket/new-support-request.png)
 
 1. Revise el [Plan de soporte técnico de Azure](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/).
-   
+
    * El soporte técnico para **facturación, cuota y administración de suscripciones** está disponible en todos los niveles.
    * El soporte técnico para problemas del tipo **break-fix** se proporciona en los niveles [Desarrollador](https://azure.microsoft.com/support/plans/developer/), [Estándar](https://azure.microsoft.com/support/plans/standard/), [Professional Direct](https://azure.microsoft.com/support/plans/prodirect/) o [Premier](https://azure.microsoft.com/support/plans/premier/). Los problemas "break-fix" son aquellos que experimentan los clientes mientras usan Azure en los que hay una posibilidad razonable de que hayan sido causados por Microsoft.
-   * El **aprendizaje para desarrolladores** y los **servicios de asesoramiento** están disponibles en los niveles de soporte técnico [Professional Direct](https://azure.microsoft.com/support/plans/prodirect/) y [Premier](https://azure.microsoft.com/support/plans/premier/). 
-     
-     Si tiene un plan de soporte técnico Premier, también puede informar sobre problemas relacionados con SQL Data Warehouse en el [portal Microsoft Premier Online](https://premier.microsoft.com/). Consulte [Planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/) para obtener más información sobre los diversos planes de soporte técnico, incluido su ámbito, los tiempos de respuesta, el precio, etc.  Si quiere ver las preguntas más frecuentes sobre el soporte técnico de Azure, consulte [Preguntas más frecuentes de soporte técnico de Azure](https://azure.microsoft.com/support/faq/).
-1. En la página **Ayuda y soporte técnico**, seleccione **Nueva solicitud de soporte técnico**. Seleccione un tipo de problema en el menú desplegable. Luego siga rellenando la información de la pestaña **Datos básicos**. Escriba un **Resumen** del problema, seleccione un **Tipo de problema** en el menú y luego seleccione Guardar.
+   * El **aprendizaje para desarrolladores** y los **servicios de asesoramiento** están disponibles en los niveles de soporte técnico [Professional Direct](https://azure.microsoft.com/support/plans/prodirect/) y [Premier](https://azure.microsoft.com/support/plans/premier/).
 
-    ![Ayuda y soporte técnico](./media/sql-data-warehouse-get-started-create-support-ticket/issue-type.png)
+   Si tiene un plan de soporte técnico Premier, también puede informar sobre problemas relacionados con Azure Synapse Analytics en el [portal Microsoft Premier Online](https://premier.microsoft.com/). Consulte [Planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/) para obtener más información sobre los diversos planes de soporte técnico, incluido su ámbito, los tiempos de respuesta, el precio, etc.  Si quiere ver las preguntas más frecuentes sobre el soporte técnico de Azure, consulte [Preguntas más frecuentes de soporte técnico de Azure](https://azure.microsoft.com/support/faq/).
+
+1. En **Tipo de problema**, seleccione el tipo de problema apropiado. En caso de problemas de break-fix, seleccione **Técnico**. Para las solicitudes de aumento de cuota, seleccione **Límites de servicio y suscripción (cuotas)** .
+
+   ![Selección de un tipo de problema](./media/sql-data-warehouse-get-started-create-support-ticket/select-quota-issue-type.png)  
 
    > [!NOTE]
-   > De forma predeterminada, cada servidor SQL (por ejemplo, myserver.database.windows.net) tiene una **cuota de DTU** de 45 000. Esta cuota es simplemente un límite de seguridad. Puede aumentar la cuota creando una incidencia de soporte técnico y seleccionando *Cuota* como el tipo de solicitud. Para calcular cuántas DTU se necesitan, multiplique 7,5 por el total de [DWU](sql-data-warehouse-overview-what-is.md) necesarias. Por ejemplo, desea hospedar dos DW6000s en un servidor SQL, así que debe solicitar una cuota de DTU de 90 000.  Puede ver el consumo de DTU actual en la hoja del servidor SQL en el portal. Tanto las bases de datos en pausa como las no pausadas cuentan en la cuota de DTU. 
-   > 
+   > El resto de este artículo se centra en las solicitudes de aumento de cuota. No obstante, también puede seleccionar **Técnico** aquí para solicitudes de soporte técnico para la resolución de problemas. Si selecciona **Técnico**, se le pedirá que proporcione un resumen y, a continuación, identifique un tipo de problema en **Seleccionar el tipo de problema**. Es posible que vea soluciones que le ayuden a resolver el problema. Si las soluciones presentadas no resuelven el problema, seleccione **Siguiente: Detalles** y rellene el formulario para enviar la incidencia de soporte técnico.
 
-1. Es posible que vea soluciones que le ayuden a resolver el problema. Si las soluciones presentadas no resuelven el problema, seleccione **Siguiente: Detalles**. Envíe los detalles del problema y la información de contacto. Seleccione **Siguiente: Revisar y crear**
-![Detalles](./media/sql-data-warehouse-get-started-create-support-ticket/details.png).
+1. Para las solicitudes de aumento de cuota, seleccione **Azure Synapse Analytics** para el **Tipo de cuota**. Después, seleccione **Next: Soluciones >>** .
 
-    
-1. Revise la información y seleccione **Crear** en la parte inferior del formulario para enviar la solicitud de soporte técnico.
+   ![Selección de un tipo de cuota](./media/sql-data-warehouse-get-started-create-support-ticket/select-quota-type.png)
+
+1. En la ventana **Detalles**, seleccione **Proporcionar detalles** para especificar información adicional.
+
+   ![El vínculo "Proporcionar detalles"](./media/sql-data-warehouse-get-started-create-support-ticket/provide-details-link.png)
+
+## <a name="quota-request-types"></a>Tipos de solicitud de cuota
+
+Cuando hace clic en **Proporcionar detalles** aparece la ventana **Detalles de la cuota** que le permite agregar información adicional. En las secciones siguientes se describen las diferentes solicitudes de cuota disponibles para Azure Synapse Analytics.
+
+### <a name="data-warehouse-units-dwus-per-server"></a>Unidades de almacenamiento de datos (DWU) por servidor
+
+Siga estos pasos para solicitar un aumento de las DWU por servidor.
+
+1. Seleccione el tipo de cuota **Unidades de almacenamiento de datos (DWU) por servidor**.
+
+1. En la lista **Recurso**, seleccione el recurso de destino.
+
+1. En el campo **Solicitar cuota**, escriba el nuevo límite de DWU que solicita.
+
+   ![Detalles de la cuota de DWU](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-dwus.png)
+
+### <a name="servers-per-subscription"></a>Servidores por suscripción
+
+Siga estos pasos para solicitar un aumento en el número de servidores por suscripción.
+
+1. Seleccione el tipo de cuota **Servidores por suscripción**.
+
+1. En la lista **Ubicación**, seleccione la región de Azure que se va a usar. La cuota es por suscripción en cada región.
+
+1. En el campo **Nueva cuota**, escriba la solicitud del número máximo de servidores de esa región.
+
+   ![Detalles de la cuota de servidores](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-servers.png)
+
+### <a name="enable-subscription-access-to-a-region"></a>Habilitar el acceso de suscripciones a una región
+
+Algunos tipos de oferta no están disponibles en todas las regiones. Puede ver un error como el siguiente:
+
+`This location is not available for subscription`
+
+Si su suscripción necesita acceso en una región determinada, use la opción **Otra solicitud de cuota** para solicitar acceso. En la solicitud, especifique los detalles de la oferta y la SKU que desea habilitar para la región. Para explorar las opciones de ofertas y SKU, consulte [Precios de Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
+
+![Otros detalles de cuota](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-whitelisting.png)
+
+## <a name="submit-your-request"></a>Enviar la solicitud
+
+El paso final consiste en rellenar los detalles restantes de la solicitud de soporte técnico de SQL Database. Después, seleccione **Next: Revisar y crear>>** y, después de revisar los detalles de la solicitud, haga clic en **Crear** para enviar la solicitud.
 
 ## <a name="monitor-a-support-ticket"></a>Supervisión de una incidencia de soporte técnico
+
 Una vez que ha enviado la solicitud de asistencia, el equipo de soporte técnico de Azure se pondrá en contacto con usted. Para comprobar tanto el estado de la solicitud como los detalles de la misma, haga clic en **Todas las solicitudes de soporte técnico** en el panel.
 
 ![Comprobar estado](./media/sql-data-warehouse-get-started-create-support-ticket/monitor-ticket.png)
 
 ## <a name="other-resources"></a>Otros recursos
-Puede conectar con la comunidad de SQL Data Warehouse en [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/) o en el [foro de MSDN de Azure SQL Data Warehouse](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/).
 
- 
+Puede conectar con la comunidad de Azure Synapse Analytics en [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) o en el [foro de MSDN de Azure SQL Data Warehouse](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/).
+

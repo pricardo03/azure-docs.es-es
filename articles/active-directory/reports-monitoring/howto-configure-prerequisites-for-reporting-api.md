@@ -17,16 +17,16 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f25f13c60a60e1a397e4c63443ee786a9acdf6d1
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 12abfc0d345c937ae886f9bfacfb8ce30227cc45
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273799"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399311"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Requisitos previos para acceder a la API de generación de informes de Azure Active Directory
 
-Las [API de generación de informes de Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) proporcionan acceso mediante programación a los datos a través de un conjunto de API de REST. A estas API se les puede llamar desde los lenguajes y herramientas de programación.
+Las [API de generación de informes de Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api) proporcionan acceso mediante programación a los datos a través de un conjunto de API de REST. A estas API se les puede llamar desde los lenguajes y herramientas de programación.
 
 La API de generación de informes utiliza [OAuth](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) para autorizar el acceso a las API web.
 
@@ -191,7 +191,6 @@ Necesitará estos valores al configurar llamadas a la API de generación de info
 
 En esta sección se enumeran los mensajes de error más comunes con los que puede encontrarse al acceder a los informes de actividad mediante Microsoft Graph API y los pasos para su resolución.
 
-
 ### <a name="error-failed-to-get-user-roles-from-microsoft-graph"></a>Error: No se pudieron obtener los roles de usuario de Microsoft Graph
 
  Inicie sesión en su cuenta con los dos botones de inicio de sesión de la interfaz de usuario del Probador de Graph para no recibir un error al intentar iniciar sesión con el Probador de Graph. 
@@ -204,7 +203,6 @@ Si se encuentra con este mensaje de error al intentar acceder a los inicios de s
 
 ![Modificación de la interfaz de usuario de permisos](./media/troubleshoot-graph-api/modify-permissions.png)
 
-
 ### <a name="error-tenant-is-not-b2c-or-tenant-doesnt-have-premium-license"></a>Error: El inquilino no es B2C o el inquilino no tiene licencia Premium
 
 El acceso a los informes de inicio de sesión requiere una licencia Premium 1 (P1) de Azure Active Directory. Si ve este mensaje de error al acceder a los inicios de sesión, asegúrese de que su inquilino tiene una licencia P1 de Azure AD.
@@ -215,7 +213,7 @@ El acceso a los informes de inicio de sesión requiere una licencia Premium 1 (P
 
 ### <a name="error-application-missing-aad-read-directory-data-permission"></a>Error: Falta el permiso de AAD de la aplicación "Leer datos de directorio" 
 
-### <a name="error-application-missing-microsoft-api-read-all-audit-log-data-permission"></a>Error: Falta el permiso de Microsoft API "Leer todos los datos de registro de auditoría"
+### <a name="error-application-missing-microsoft-graph-api-read-all-audit-log-data-permission"></a>Error: Falta el permiso de Microsoft Graph API de la aplicación "Leer todos los datos de registro de auditoría"
 
 Siga los pasos del artículo [Requisitos previos para acceder a la API de generación de informes de Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md) para asegurarse de que la aplicación se ejecuta con el conjunto correcto de permisos. 
 

@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 03/06/2020
 tags: connectors
-ms.openlocfilehash: 24746b7bbbbf3985a9801139b301a829c51a14da
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 1578ca030bc8bab971a44e1afcce1d1ab9e1d5e9
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030086"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674082"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Creación y ejecución de flujos de trabajo basados en eventos automatizados mediante webhooks HTTP en Azure Logic Apps
 
@@ -53,7 +53,7 @@ Para más información, consulte los temas siguientes:
 * [Webhooks y suscripciones](../logic-apps/logic-apps-workflow-actions-triggers.md#webhooks-and-subscriptions)
 * [Creación de API personalizadas compatibles con webhook](../logic-apps/logic-apps-create-api-app.md)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
@@ -65,35 +65,47 @@ Para más información, consulte los temas siguientes:
 
 ## <a name="add-an-http-webhook-trigger"></a>Adición de un desencadenador de webhook HTTP
 
-Este desencadenador integrado registra una dirección URL de devolución de llamada con el servicio especificado y espera a que ese servicio envíe una solicitud HTTP POST a esa dirección URL. Cuando se produce este evento, el desencadenador se activa y ejecuta inmediatamente la aplicación lógica.
+Este desencadenador integrado llama al punto de conexión de suscripción en el servicio de destino y registra una dirección URL de devolución de llamada en el servicio de destino. A continuación, la aplicación lógica espera a que el servicio de destino envíe una solicitud `HTTP POST` a la dirección URL de devolución de llamada. Cuando se produce este evento, el desencadenador se activa y pasa los datos de la solicitud junto al flujo de trabajo.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). Abra la aplicación lógica en blanco en el diseñador de aplicación lógica.
 
-1. En el diseñador, en el cuadro de búsqueda, escriba "webhook http" como filtro. En la lista de **desencadenadores**, seleccione el desencadenador **webhook HTTP**.
+1. En el cuadro de búsqueda del diseñador, escriba `http webhook` como filtro. En la lista de **desencadenadores**, seleccione el desencadenador **webhook HTTP**.
 
    ![Selección de un desencadenador de webhook HTTP](./media/connectors-native-webhook/select-http-webhook-trigger.png)
 
-   En este ejemplo se cambia el nombre del desencadenador a "desencadenador de webhook HTTP" para que el paso tenga un nombre más descriptivo. Además, más adelante, en el ejemplo se agrega una acción de webhook HTTP, y ambos nombres deben ser únicos.
+   En este ejemplo se cambia el nombre del desencadenador a `HTTP Webhook trigger` para que el paso tenga un nombre más descriptivo. Además, más adelante, en el ejemplo se agrega una acción de webhook HTTP, y ambos nombres deben ser únicos.
 
-1. Proporcione los valores para los [parámetros del desencadenador de webhook HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger) que quiera usar para las llamadas de suscripción y cancelación de suscripción, por ejemplo:
+1. Proporcione los valores para los [parámetros del desencadenador de webhook HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger) que quiera usar para las llamadas de suscripción y cancelación de suscripción.
+
+   En este ejemplo, el desencadenador incluye los métodos, los identificadores URI y los cuerpos de mensaje que se van a usar al realizar las operaciones de suscripción y cancelación de suscripción.
 
    ![Introducción de parámetros del desencadenador de webhook HTTP](./media/connectors-native-webhook/http-webhook-trigger-parameters.png)
 
-1. Para agregar otros parámetros disponibles, abra la lista **Agregar nuevo parámetro** y seleccione los parámetros que quiera.
+   | Propiedad | Obligatorio | Descripción |
+   |----------|----------|-------------|
+   | **Suscripción: método** | Sí | Método que se va a usar al suscribirse al punto de conexión de destino. |
+   | **Suscripción: URI** | Sí | Dirección URL que se va a usar al suscribirse al punto de conexión de destino. |
+   | **Suscripción: cuerpo** | Sin | Cuerpo del mensaje que se va a incluir en la solicitud de suscripción. En este ejemplo se incluye la dirección URL de devolución de llamada que identifica de forma única al suscriptor, que es la aplicación lógica, mediante el uso de la expresión `@listCallbackUrl()` para recuperar la dirección URL de devolución de llamada de la aplicación lógica. |
+   | **Cancelación de suscripción: método** | Sin | Método que se va a usar al cancelar la suscripción del punto de conexión de destino. |
+   | **Cancelación de suscripción: URI** | Sin | Dirección URL que se va a usar al cancelar la suscripción del punto de conexión de destino. |
+   | **Cancelación de suscripción: cuerpo** | Sin | Cuerpo del mensaje opcional que se va a incluir en la solicitud de cancelación de suscripción. <p><p>**Nota**: Esta propiedad no admite el uso de la función `listCallbackUrl()`. Sin embargo, el desencadenador incluye y envía automáticamente los encabezados, `x-ms-client-tracking-id` y `x-ms-workflow-operation-name`, que el servicio de destino puede usar para identificar de forma única al suscriptor. |
+   ||||
 
-   Para obtener más información sobre los tipos de autenticación disponibles para webhook de HTTP, consulte [Incorporación de la autenticación en las llamadas salientes](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+1. Para agregar otras propiedades del desencadenador, abra la lista **Agregar nuevo parámetro**.
+
+   ![Adición de más propiedades del desencadenador](./media/connectors-native-webhook/http-webhook-trigger-add-properties.png)
+
+   Por ejemplo, si necesita usar la autenticación, puede agregar las propiedades **Suscripción: autenticación** y **Cancelación de suscripción: autenticación**. Para obtener más información sobre los tipos de autenticación disponibles para webhook de HTTP, consulte [Incorporación de la autenticación en las llamadas salientes](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. Continúe creando el flujo de trabajo de la aplicación lógica con acciones que se ejecuten cuando se activa el desencadenador.
 
 1. Cuando haya finalizado, recuerde guardar la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Save** (Guardar).
 
-   Al guardar la aplicación lógica, esta llama al punto de conexión de suscripción y registra la dirección URL de devolución de llamada para desencadenar esta aplicación lógica.
-
-1. Ahora, cada vez que el servicio de destino envía una solicitud `HTTP POST` a la dirección URL de devolución de llamada, se activa la aplicación de lógica e incluye los datos que se pasan a través de la solicitud.
+   Al guardar la aplicación lógica, se llama al punto de conexión de suscripción del servicio de destino y se registra la dirección URL de devolución de llamada. A continuación, la aplicación lógica espera a que el servicio de destino envíe una solicitud `HTTP POST` a la dirección URL de devolución de llamada. Cuando se produce este evento, el desencadenador se activa y pasa los datos de la solicitud junto al flujo de trabajo. Si esta operación se completa correctamente, el desencadenador anula la suscripción del punto de conexión y la aplicación lógica continúa con el flujo de trabajo restante.
 
 ## <a name="add-an-http-webhook-action"></a>Adición de una acción de webhook HTTP
 
-Esta acción integrada registra una dirección URL de devolución de llamada con el servicio especificado, pausa el flujo de trabajo de la aplicación lógica y espera a que ese servicio envíe una solicitud HTTP POST a esa dirección URL. Cuando se produce este evento, la acción reanuda la ejecución de la aplicación lógica.
+Esta acción integrada llama al punto de conexión de suscripción en el servicio de destino y registra una dirección URL de devolución de llamada en el servicio de destino. A continuación, la aplicación lógica se pone en pausa y espera a que el servicio de destino envíe una solicitud `HTTP POST` a la dirección URL de devolución de llamada. Cuando se produce este evento, la acción pasa los datos de la solicitud junto al flujo de trabajo. Si la operación se completa correctamente, la acción cancela la suscripción del punto de conexión y la aplicación lógica reanuda la ejecución del flujo de trabajo restante.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). Abra la aplicación lógica en el Diseñador de aplicaciones lógicas.
 
@@ -103,23 +115,37 @@ Esta acción integrada registra una dirección URL de devolución de llamada con
 
    Para agregar una acción entre un paso y otro, mueva el puntero sobre la flecha entre ellos. Seleccione el signo más ( **+** ) que aparece y, luego, seleccione **Agregar una acción**.
 
-1. En el diseñador, en el cuadro de búsqueda, escriba "webhook http" como filtro. En la lista **Acciones**, seleccione la acción **webhook HTTP**.
+1. En el cuadro de búsqueda del diseñador, escriba `http webhook` como filtro. En la lista **Acciones**, seleccione la acción **webhook HTTP**.
 
    ![Selección de una acción de webhook HTTP](./media/connectors-native-webhook/select-http-webhook-action.png)
 
    En este ejemplo se cambia el nombre de la acción a "acción de webhook HTTP" para que el paso tenga un nombre más descriptivo.
 
-1. Proporcione los valores para los parámetros de la acción de webhook HTTP, que son parecidos a los [parámetros del desencadenador de webhook HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger), que quiera usar para las llamadas de suscripción y cancelación de suscripción, por ejemplo:
+1. Proporcione los valores para los parámetros de la acción de webhook HTTP, que son parecidos a los [parámetros del desencadenador de webhook HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger), que quiera usar para las llamadas de suscripción y cancelación de suscripción.
+
+   En este ejemplo, la acción incluye los métodos, los identificadores URI y los cuerpos de mensaje que se van a usar al realizar las operaciones de suscripción y cancelación de suscripción.
 
    ![Introducción de los parámetros de acción de webhook HTTP](./media/connectors-native-webhook/http-webhook-action-parameters.png)
 
-   Durante el tiempo de ejecución, la aplicación lógica llama al punto de conexión de suscripción cuando se ejecuta esta acción. Luego la aplicación lógica pausa el flujo de trabajo y espera a que el servicio de destino envíe una solicitud `HTTP POST` a la dirección URL de devolución de llamada. Si la acción se completa correctamente, la acción cancela la suscripción desde el punto de conexión y la aplicación lógica reanuda la ejecución del flujo de trabajo.
+   | Propiedad | Obligatorio | Descripción |
+   |----------|----------|-------------|
+   | **Suscripción: método** | Sí | Método que se va a usar al suscribirse al punto de conexión de destino. |
+   | **Suscripción: URI** | Sí | Dirección URL que se va a usar al suscribirse al punto de conexión de destino. |
+   | **Suscripción: cuerpo** | Sin | Cuerpo del mensaje que se va a incluir en la solicitud de suscripción. En este ejemplo se incluye la dirección URL de devolución de llamada que identifica de forma única al suscriptor, que es la aplicación lógica, mediante el uso de la expresión `@listCallbackUrl()` para recuperar la dirección URL de devolución de llamada de la aplicación lógica. |
+   | **Cancelación de suscripción: método** | Sin | Método que se va a usar al cancelar la suscripción del punto de conexión de destino. |
+   | **Cancelación de suscripción: URI** | Sin | Dirección URL que se va a usar al cancelar la suscripción del punto de conexión de destino. |
+   | **Cancelación de suscripción: cuerpo** | Sin | Cuerpo del mensaje opcional que se va a incluir en la solicitud de cancelación de suscripción. <p><p>**Nota**: Esta propiedad no admite el uso de la función `listCallbackUrl()`. Sin embargo, la acción incluye y envía automáticamente los encabezados, `x-ms-client-tracking-id` y `x-ms-workflow-operation-name`, que el servicio de destino puede usar para identificar de forma única al suscriptor. |
+   ||||
 
-1. Para agregar otros parámetros disponibles, abra la lista **Agregar nuevo parámetro** y seleccione los parámetros que quiera.
+1. Para agregar otras propiedades de la acción, abra la lista **Agregar nuevo parámetro**.
 
-   Para obtener más información sobre los tipos de autenticación disponibles para webhook de HTTP, consulte [Incorporación de la autenticación en las llamadas salientes](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+   ![Adición de más propiedades de la acción](./media/connectors-native-webhook/http-webhook-action-add-properties.png)
+
+   Por ejemplo, si necesita usar la autenticación, puede agregar las propiedades **Suscripción: autenticación** y **Cancelación de suscripción: autenticación**. Para obtener más información sobre los tipos de autenticación disponibles para webhook de HTTP, consulte [Incorporación de la autenticación en las llamadas salientes](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. Cuando haya finalizado, recuerde guardar la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Save** (Guardar).
+
+   Ahora, cuando se ejecuta esta acción, la aplicación lógica llama al punto de conexión de suscripción del servicio de destino y registra la dirección URL de devolución de llamada. A continuación, la aplicación lógica pone en pausa el flujo de trabajo y espera a que el servicio de destino envíe una solicitud `HTTP POST` a la dirección URL de devolución de llamada. Cuando se produce este evento, la acción pasa los datos de la solicitud junto al flujo de trabajo. Si la operación se completa correctamente, la acción cancela la suscripción del punto de conexión y la aplicación lógica reanuda la ejecución del flujo de trabajo restante.
 
 ## <a name="connector-reference"></a>Referencia de conectores
 

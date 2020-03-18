@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/01/2020
+ms.date: 03/07/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2fda5d1bdd00a601df363bd930e5f2f6d610c7f
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.openlocfilehash: 42fc10c1e7e88e36e4d2174671702e043fb96538
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78208719"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78926841"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Creación de un punto de conexión de SCIM y configuración del aprovisionamiento de usuarios con Azure Active Directory (Azure AD)
 
@@ -33,7 +33,7 @@ SCIM es una definición estándar de dos puntos de conexión: /Users (Usuarios) 
 
 El esquema de objetos de usuario estándar y las API REST para administración definidas en SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.ietf.org/html/rfc7643), [7644](https://tools.ietf.org/html/rfc7644)) permiten que los proveedores de identidades y las aplicaciones se integren más fácilmente entre sí. Los desarrolladores de aplicaciones que crean un punto de conexión SCIM se pueden integrar con cualquier cliente compatible con SCIM sin tener que realizar ningún trabajo personalizado.
 
-Para automatizar el aprovisionamiento de una aplicación, es necesario crear e integrar un punto de conexión SCIM con el punto de conexión SCIM de Azure AD compatible. Realice los pasos siguientes para iniciar el aprovisionamiento de usuarios y grupos en la aplicación. 
+Para automatizar el aprovisionamiento de una aplicación, es necesario crear e integrar un punto de conexión SCIM con el cliente SCIM de Azure AD. Realice los pasos siguientes para iniciar el aprovisionamiento de usuarios y grupos en la aplicación. 
     
   * **[Paso 1: Diseñe el esquema de grupos y usuarios.](#step-1-design-your-user-and-group-schema)** Identifique los objetos y atributos que necesite la aplicación, y determine cómo se asignan al esquema de usuarios y de grupos que admite la implementación de SCIM de Azure AD.
 

@@ -1,26 +1,19 @@
 ---
 title: Traslado de archivos a máquinas virtuales Linux de Azure, o desde ellas, mediante SCP
 description: Traslado seguro de archivos a la máquina virtual Linux de Azure o desde ella mediante SCP y un par de claves de SSH.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: d78a8e59a55718048df2022cec75c7a2b56f1a6b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a0837790b70de42073338bf085ee0f3976b866f6
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036597"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969613"
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Traslado de archivos a una máquina virtual Linux o desde ella mediante SCP
 
@@ -72,7 +65,7 @@ El siguiente comando copia los archivos en el directorio */home/azureuser/logs/*
 scp -r azureuser@myserver.eastus.cloudapp.com:/home/azureuser/logs/. /tmp/
 ```
 
-La marca de la CLI de `-r` indica a SCP que copie de forma recursiva los archivos y directorios desde el punto del directorio enumerado en el comando.  Tenga también en cuenta que la sintaxis de línea de comandos es similar a un comando de copia de `cp`.
+La marca `-r` indica a SCP que copie de forma recursiva los archivos y directorios desde el punto del directorio enumerado en el comando.  Tenga también en cuenta que la sintaxis de línea de comandos es similar a un comando de copia de `cp`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

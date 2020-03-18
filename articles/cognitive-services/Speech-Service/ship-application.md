@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 4f75adba27c8173f918fa1afbd44f307d50eb995
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9507428e63b337b3d8419a833d03d081d494c522
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76902014"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330811"
 ---
 # <a name="ship-an-application"></a>Distribuir una aplicación
 
@@ -52,7 +52,7 @@ Los archivos necesarios del SDK de Voz se pueden implementar en el mismo directo
 
 ## <a name="linux"></a>Linux
 
-Speech SDK admite actualmente distribuciones Ubuntu 16.04 y 18.04 y Debian 9.
+El SDK de Voz admite actualmente las distribuciones Ubuntu 16.04 y 18.04, Debian 9, RHEL 8 y CentOS 8.
 Para una aplicación nativa, se debe distribuir la biblioteca de Speech SDK, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Asegúrese de seleccionar la versión (x86, x64) que coincida con la aplicación. Según la versión de Linux, es posible que también tenga que incluir las dependencias siguientes:
 
@@ -73,6 +73,16 @@ En Debian 9 instale estos paquetes:
 sudo apt-get update
 sudo apt-get install libssl1.0.2 libasound2
 ```
+
+En On RHEL/CentOS 8:
+
+```sh
+sudo yum update
+sudo yum install alsa-lib openssl
+```
+
+> [!NOTE]
+> En RHEL/CentOS 8, siga las instrucciones sobre [cómo configurar OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

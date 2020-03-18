@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 03/09/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee0dd0cd83ab27dd728a7572b6fcd69c40bb1b00
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 5a82c69575e82a7cf397955f08c3f114e449ba6b
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848755"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968771"
 ---
 # <a name="what-are-authentication-methods"></a>¿Qué son los métodos de autenticación?
 
@@ -156,9 +156,9 @@ Los usuarios pueden tener una combinación de hasta cinco tokens de hardware de 
 
 ## <a name="oath-hardware-tokens-public-preview"></a>Tokens de hardware OATH (versión preliminar pública)
 
-OATH es un estándar abierto que especifica cómo se general los códigos de contraseña de un solo uso (OTP). Azure AD admitirá el uso de tokens OATH-TOTP SHA-1 de la variedad de 30 o 60 segundos. Los clientes pueden adquirir estos tokens a través del proveedor que elijan. Las claves secretas se limitan a 128 caracteres lo que puede no ser compatible con todos los tokens. Las claves secretas se deben codificar en Base32.
+OATH es un estándar abierto que especifica cómo se general los códigos de contraseña de un solo uso (OTP). Azure AD admitirá el uso de tokens OATH-TOTP SHA-1 de la variedad de 30 o 60 segundos. Los clientes pueden adquirir estos tokens a través del proveedor que elijan. Las claves secretas se limitan a 128 caracteres lo que puede no ser compatible con todos los tokens. La clave secreta solo puede contener los caracteres *a-z* o *A-Z* y los dígitos *1-7* y deben estar codificados en base 32.
 
-![Carga de tokens OATH en la hoja de tokens OATH del servidor de MFA](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
+![Carga de tokens OATH en la hoja de tokens OATH de MFA](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
 Los tokens de hardware OATH se admiten como parte de una versión preliminar pública. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
@@ -166,15 +166,15 @@ Una vez que se adquieren los tokens, se deben cargar en un formato de archivo de
 
 ```csv
 upn,serial number,secret key,time interval,manufacturer,model
-Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
+Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
 ```
 
 > [!NOTE]
-> Asegúrese de incluir la fila de encabezado en el archivo CSV como se muestra arriba.
+> Asegúrese de incluir la fila de encabezado en el archivo CSV.
 
-Una vez formateado correctamente como un archivo CSV, un administrador puede iniciar sesión en Azure Portal y navegar a **Azure Active Directory**, **Servidor MFA**, **Tokens OATH** para cargar el archivo CSV resultante.
+Una vez formateado correctamente como un archivo CSV, el administrador puede iniciar sesión en Azure Portal y desplazarse a **Azure Active Directory** > **Seguridad** > **MFA** > **Tokens OATH** y cargar el archivo CSV resultante.
 
-En función del tamaño del archivo CSV, puede tardar unos minutos en procesarse. Haga clic en el botón **Actualizar** para ver el estado actual. Si hay algún error en el archivo, tendrá la opción de descargar un archivo CSV con los errores para poder resolverlos.
+En función del tamaño del archivo CSV, puede tardar unos minutos en procesarse. Haga clic en el botón **Actualizar** para ver el estado actual. Si hay algún error en el archivo, tendrá la opción de descargar un archivo CSV con los errores para poder resolverlos. Los nombres de campo del archivo CSV descargado son diferentes de los de la versión cargada.
 
 Una vez solucionados los errores, para activar las claves, el administrador puede hacer clic en la opción **Activar** del token que debe activarse y escribir la OTP que se muestra en el token.
 
@@ -206,7 +206,7 @@ Se envía un SMS al número de teléfono móvil con un código de verificación.
 Se realiza una llamada de voz automática al número de teléfono que proporcione. El usuario responde a la llamada y pulsa # en el teclado del teléfono para autenticarse.
 
 > [!IMPORTANT]
-> A partir de marzo de 2019, las opciones de llamada de teléfono no estarán disponibles para los usuarios de MFA y SSPR en inquilinos de Azure AD gratis o de evaluación. Los mensajes SMS no se ven afectados por este cambio. Las llamadas de teléfono seguirán estando disponibles para los usuarios de inquilinos de Azure AD de pago. Este cambio solo afecta a los inquilinos de Azure AD gratis o de evaluación.
+> A partir de marzo de 2019, las opciones de llamada de teléfono no estarán disponibles para los usuarios de MFA y SSPR en inquilinos de Azure AD gratis o de evaluación. Los mensajes SMS no se ven afectados por este cambio. Las llamadas de teléfono seguirán estando disponibles para los usuarios de inquilinos de Azure AD de pago. Este cambio solo afecta a los inquilinos de Azure AD gratis o de evaluación.
 
 ### <a name="office-phone"></a>Teléfono del trabajo
 
@@ -217,7 +217,7 @@ Para funcionar correctamente, los números de teléfono deben tener el formato *
 El administrador administra el atributo del teléfono de la oficina.
 
 > [!IMPORTANT]
-> A partir de marzo de 2019, las opciones de llamada de teléfono no estarán disponibles para los usuarios de MFA y SSPR en inquilinos de Azure AD gratis o de evaluación. Los mensajes SMS no se ven afectados por este cambio. Las llamadas de teléfono seguirán estando disponibles para los usuarios de inquilinos de Azure AD de pago. Este cambio solo afecta a los inquilinos de Azure AD gratis o de evaluación.
+> A partir de marzo de 2019, las opciones de llamada de teléfono no estarán disponibles para los usuarios de MFA y SSPR en inquilinos de Azure AD gratis o de evaluación. Los mensajes SMS no se ven afectados por este cambio. Las llamadas de teléfono seguirán estando disponibles para los usuarios de inquilinos de Azure AD de pago. Este cambio solo afecta a los inquilinos de Azure AD gratis o de evaluación.
 
 > [!NOTE]
 > Debe haber un espacio entre el código de país y el número de teléfono.

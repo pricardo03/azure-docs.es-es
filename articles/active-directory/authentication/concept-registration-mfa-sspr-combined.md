@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 03/06/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c882d286a73900f58ef06e7c51b05c7237e39a7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4cb5aca128679b21072a2a3daa503dc43a8e2885
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425340"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942892"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registro de información de seguridad combinado (vista preliminar)
 
@@ -49,15 +49,16 @@ El registro combinado admite los siguientes métodos y acciones de autenticació
 
 |   | Register | Change | Eliminar |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Sí (máximo de 5) | No | Sí |
-| Aplicación autenticadora distinta | Sí (máximo de 5) | No | Sí |
-| Token de hardware | No | No | Sí |
+| Microsoft Authenticator | Sí (máximo de 5) | Sin | Sí |
+| Aplicación autenticadora distinta | Sí (máximo de 5) | Sin | Sí |
+| Token de hardware | Sin | Sin | Sí |
 | Teléfono | Sí | Sí | Sí |
 | Teléfono alternativo | Sí | Sí | Sí |
-| Teléfono del trabajo | No | No | No |
+| Teléfono del trabajo | Sin | Sin | Sin |
 | Email | Sí | Sí | Sí |
-| Preguntas de seguridad | Sí | No | Sí |
-| Contraseñas de aplicación | Sí | No | Sí |
+| Preguntas de seguridad | Sí | Sin | Sí |
+| Contraseñas de aplicación | Sí | Sin | Sí |
+| Claves de seguridad FIDO2<br />*Modo administrado solo desde la página [Información de seguridad](https://mysignins.microsoft.com/security-info)*| Sí | Sí | Sí |
 
 > [!NOTE]
 > Las contraseñas de aplicación solo están disponibles para los usuarios a los que se les ha exigido Multi-Factor Authentication. Las contraseñas de aplicación no están disponibles para los usuarios que están habilitados para Multi-Factor Authentication través de una directiva de acceso condicional.

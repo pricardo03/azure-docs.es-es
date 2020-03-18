@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 68b144a838f0c6e65f3e399f610644315d109fde
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 05a155584f0cb69191883cb82b3db0af435ccc12
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903470"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970096"
 ---
 # <a name="set-and-manage-immutability-policies-for-blob-storage"></a>Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs
 
@@ -23,7 +23,7 @@ En este artículo se explica cómo establecer y administrar directivas de inmuta
 
 ## <a name="set-retention-policies-and-legal-holds"></a>Establecimiento de directivas de retención y suspensiones legales
 
-### <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Cree un nuevo contenedor o seleccione un contenedor existente para almacenar los blobs que se deben conservar en estado inmutable. El contenedor debe estar en una cuenta de uso general v2 o de Blob Storage.
 
@@ -59,11 +59,11 @@ En este artículo se explica cómo establecer y administrar directivas de inmuta
 
 9. Para borrar una suspensión legal, quite la etiqueta de identificador de suspensión legal aplicada.
 
-### <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 La característica se incluye en los siguientes grupos de comandos: `az storage container immutability-policy` y `az storage container legal-hold`. Ejecute `-h` en ellos para ver los comandos.
 
-### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -116,10 +116,10 @@ Remove-AzRmStorageContainerLegalHold -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -Name $container -Tag <tag3>
 ```
 
-Creación o actualización de directivas de inmutabilidad:
+Creación o actualización de directivas de inmutabilidad basadas en tiempo:
 
 ```powershell
-# Create an immutablity policy
+# Create a time-based immutablity policy
 Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -ContainerName $container -ImmutabilityPeriod 10
 ```
@@ -168,17 +168,23 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 ## <a name="enabling-allow-protected-append-blobs-writes"></a>Habilitación de las escrituras de blobs en anexos protegidos
 
-En este momento, solo puede acceder a la configuración `allowProtectedAppendWrites` para las directivas de retención con duración definida a través de este [vínculo de portal](https://aka.ms/immutableappendblobs) específico. 
-
-> [!IMPORTANT] 
->  Actualmente, la configuración para permitir escrituras de blobs en anexos protegidos en la retención de duración definida solo es visible y está disponible en las siguientes regiones:
-> - East US
-> - Centro-Sur de EE. UU
-> - Oeste de EE. UU. 2
->
-> Para obtener más información, consulte cómo [permitir la escritura de blobs en anexos protegidos](storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 ![Permitir escrituras de anexiones adicionales](media/storage-blob-immutability-policies-manage/immutable-allow-additional-append-writes.png)
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+La característica se incluye en los siguientes grupos de comandos: `az storage container immutability-policy` y `az storage container legal-hold`. Ejecute `-h` en ellos para ver los comandos.
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```powershell
+# Create an immutablity policy with appends allowed
+Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
+    -StorageAccountName $storageAccount -ContainerName $container -ImmutabilityPeriod 10 -AllowProtectedAppendWrite $true
+```
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

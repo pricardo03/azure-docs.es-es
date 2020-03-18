@@ -4,26 +4,31 @@ description: Obtenga información sobre cómo migrar una aplicación virtual Sto
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 184101db34edbf5391b37c43770e8393316fe2fc
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 6863e7f8ef8e2f263cda824fd13186dc7b035454
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252673"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943606"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>Migración de StorSimple 1200 a Azure File Sync
 
-StorSimple de la serie 1200 es una aplicación virtual que se ejecuta en un centro de datos local. Los datos de esta aplicación se pueden migrar a un entorno de Azure File Sync. En este artículo se proporcionan los conocimientos básicos y los pasos de migración necesarios para realizar una migración correcta a Azure File Sync.
+StorSimple de la serie 1200 es una aplicación virtual que se ejecuta en un centro de datos local. Los datos de esta aplicación se pueden migrar a un entorno de Azure File Sync. Azure File Sync es el servicio de Azure a largo plazo, estratégico y predeterminado al que se pueden migrar los dispositivos StorSimple.
+
+StorSimple serie 1200 alcanzará el [final de su ciclo de vida](https://support.microsoft.com/en-us/lifecycle/search?alpha=StorSimple%201200%20Series) en diciembre de 2022.  Es importante empezar a planear la migración lo antes posible. En este artículo se proporcionan los conocimientos básicos y los pasos de migración necesarios para realizar una migración correcta a Azure File Sync. 
 
 ## <a name="azure-file-sync"></a>Azure File Sync
+
+> [!IMPORTANT]
+> Microsoft se compromete a ayudar a los clientes en su migración. Envíe un correo electrónico a AzureFilesMigration@microsoft.com si desea obtener un plan de migración personalizado, así como ayuda durante la migración.
 
 Azure File Sync es un servicio en la nube de Microsoft, que se basa en dos componentes principales:
 
 * Sincronización de archivos y nube por niveles.
-* Recursos compartidos de archivos como almacenamiento nativo en Azure, a los que se puede acceder a través de varios protocolos, como SMB y REST de archivos. Un recurso compartido de archivos de Azure es comparable a un recurso compartido de archivos en una servidor de Windows Server, que puede montar de forma nativa como una unidad de red. Admite aspectos importantes de la fidelidad de los archivos, como atributos, permisos y marcas de tiempo. A diferencia de StorSimple, no se requiere ninguna aplicación ni ningún servicio para interpretar los archivos y las carpetas almacenados en la nube. Enfoque ideal y más flexible para almacenar los datos del servidor de archivos de uso general, así como algunos datos de aplicaciones, en la nube.
+* Recursos compartidos de archivos como almacenamiento nativo en Azure, a los que se puede acceder a través de varios protocolos, como SMB y REST de archivos. Un recurso compartido de archivos de Azure es comparable a uno de un servidor de Windows Server y este último se puede montar de forma nativa como una unidad de red. Admite aspectos importantes de la fidelidad de los archivos, como atributos, permisos y marcas de tiempo. A diferencia de StorSimple, no se requiere ninguna aplicación ni ningún servicio para interpretar los archivos y las carpetas almacenados en la nube. Enfoque ideal y más flexible para almacenar los datos del servidor de archivos de uso general, así como algunos datos de aplicaciones, en la nube.
 
 Este artículo se centra en los pasos de migración. Si antes de la migración desea obtener más información sobre Azure File Sync, se recomienda consultar los siguientes artículos:
 
@@ -126,7 +131,7 @@ Fondo:
       /COPY:copyflag[s]
    :::column-end:::
    :::column span="1":::
-      Fidelidad de la copia de archivos (el valor predeterminado es /COPY:DAT), marcas de copia: D = datos, A = atributos, T = marcas de tiempo, S = seguridad=ACL de NTFS, O = información del propietario, U = información de auditoría
+      Fidelidad de la copia de archivos (el valor predeterminado es /COPY:DAT), marcas de copia: D = datos, A = atributos, T = marcas de tiempo, S = seguridad = ACL de NTFS, O = información del propietario, U = información de auditoría
    :::column-end:::
 :::row-end:::
 :::row:::

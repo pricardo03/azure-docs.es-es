@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 03/09/2020
 ms.author: iainfou
-ms.openlocfilehash: a25337cad39674bc6016f67bdc46a804518d0b03
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: a57826c79babded6e616548879a5ec0c223307d0
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509026"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946434"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Preguntas más frecuentes (P+F)
 
@@ -36,18 +36,21 @@ Esta página responde a las preguntas más frecuentes acerca de Azure Active Dir
 * [¿Puedo agregar controladores de dominio a un dominio administrado de Servicios de dominio de Azure AD?](#can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain)
 * [¿Pueden los usuarios invitados a mi directorio usar Azure AD Domain Services?](#can-guest-users-invited-to-my-directory-use-azure-ad-domain-services)
 * [¿Puedo trasladar un dominio administrado existente de Azure AD Domain Services a otra suscripción, grupo de recursos, región o red virtual?](#can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network)
+* [¿Azure AD Domain Services incluye opciones de alta disponibilidad?](#does-azure-ad-domain-services-include-high-availability-options)
 
 ### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>¿Se pueden crear varios dominios administrados para un único directorio de Azure AD?
 No. Solo se puede crear un único dominio administrado atendido por Azure AD Domain Services para un único directorio de Azure AD.
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-a-classic-virtual-network"></a>¿Puedo habilitar Azure AD Domain Services en una red virtual clásica?
-No se admiten redes virtuales clásicas para nuevas implementaciones. Los dominios administrados existentes implementados en redes virtuales clásicas seguirán siendo compatibles. También puede [migrar Azure AD Domain Services desde el modelo de red virtual clásica a Resource Manager (versión preliminar)](migrate-from-classic-vnet.md).
+No se admiten redes virtuales clásicas para nuevas implementaciones. Los dominios administrados existentes implementados en redes virtuales clásicas seguirán siendo compatibles hasta que se retiren el 1 de marzo de 2023. Para las implementaciones existentes, puede [migrar Azure AD Domain Services desde el modelo de red virtual clásica a Resource Manager](migrate-from-classic-vnet.md).
+
+Para obtener más información, vea el [aviso de desuso oficial](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/).
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>¿Puedo habilitar Azure AD Domain Services en una red virtual de Azure Resource Manager?
 Sí. Azure AD Domain Services se puede habilitar en una red virtual de Azure Resource Manager. Ya no hay redes virtuales clásicas de Azure disponibles cuando crea un nuevo dominio administrado.
 
 ### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>¿Puedo migrar mi dominio administrado existente de una red virtual clásica a una red virtual de Resource Manager?
-Sí, esta característica se encuentra en versión preliminar. Para más información, consulte [Migración de Azure AD Domain Services desde el modelo de red virtual clásica a Resource Manager (versión preliminar)](migrate-from-classic-vnet.md).
+Sí. Para más información, consulte [Migración de Azure AD Domain Services desde el modelo de red virtual clásica a Resource Manager](migrate-from-classic-vnet.md).
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>¿Puedo habilitar Azure AD Domain Services en una suscripción de Azure CSP (proveedor de soluciones en la nube)?
 Sí. Para obtener más información, consulte [cómo habilitar Azure AD Domain Services en las suscripciones de Azure CSP](csp.md).
@@ -73,6 +76,10 @@ No. Los usuarios invitados a su directorio de Azure AD mediante el proceso de in
 ### <a name="can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network"></a>¿Puedo trasladar un dominio administrado existente de Azure AD Domain Services a otra suscripción, grupo de recursos, región o red virtual?
 No. Después de crear un dominio administrado de Azure AD Domain Services, no puede trasladar la instancia a otro grupo de recursos, red virtual, suscripción, etc. Tenga cuidado a la hora de seleccionar la suscripción, el grupo de recursos, la región y la red virtual más adecuados al implementar la instancia de Azure AD DS.
 
+### <a name="does-azure-ad-domain-services-include-high-availability-options"></a>¿Azure AD Domain Services incluye opciones de alta disponibilidad?
+
+Sí. Cada dominio administrado de Azure AD Domain Services contiene dos controladores de dominio. No necesita administrar estos controladores de dominio ni conectarse a ellos; forman parte del servicio administrado. Si implementa Azure AD Domain Services en una región que admite Availability Zones, los controladores de dominio se distribuirán por diferentes zonas. En las regiones que no admitan Availability Zones, los controladores de dominio se distribuirán por diferentes conjuntos de disponibilidad. No tiene ninguna opción de configuración ni ningún control que le permita administrar esta distribución. Para más información, consulte [Opciones de disponibilidad para máquinas virtuales de Azure](../virtual-machines/windows/availability.md).
+
 ## <a name="administration-and-operations"></a>Administración y operaciones
 
 * [¿Puedo conectarme al controlador de dominio para mi dominio administrado mediante Escritorio remoto?](#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop)
@@ -89,13 +96,13 @@ No. Después de crear un dominio administrado de Azure AD Domain Services, no pu
 No. Los administradores de inquilinos no tienen privilegios para conectarse a controladores de dominio en el dominio administrado con el Escritorio remoto. Los miembros del grupo *Administradores de controlador de dominio de AAD* pueden administrar el dominio administrado usando las herramientas de administración de AD, como el Centro de administración de Active Directory (ADAC) o AD PowerShell. Estas herramientas se instalan mediante la característica *Herramientas de administración de servidor remoto* en un servidor de Windows unido al dominio administrado. Para obtener más información, consulte [Creación de una máquina virtual de administración para configurar y administrar un dominio administrado de Azure AD Domain Services](tutorial-create-management-vm.md).
 
 ### <a name="ive-enabled-azure-ad-domain-services-what-user-account-do-i-use-to-domain-join-machines-to-this-domain"></a>He habilitado Azure AD Domain Services. ¿Qué cuenta de usuario utilizo para unir máquinas a este dominio?
-Los miembros del grupo administrativo *Administradores de controlador de dominio de AAD* pueden unir máquinas mediante dominio. Además, los miembros de este grupo se les concede acceso mediante Escritorio remoto a las máquinas que se han unido al dominio.
+Cualquier cuenta de usuario que forme parte del dominio administrado de Azure AD DS puede unirse a una VM. A los miembros del grupo *Administradores de AAD DC* se les concede acceso de Escritorio remoto a las máquinas que se han unido al dominio administrado.
 
 ### <a name="do-i-have-domain-administrator-privileges-for-the-managed-domain-provided-by-azure-ad-domain-services"></a>¿Puedo tener privilegios de administrador de dominio para el dominio administrado proporcionado por Azure AD Domain Services?
 No. No se le conceden privilegios administrativos en el dominio administrado. Los privilegios *Administrador de dominio* y *Administrador de organización* no estarán disponibles dentro del dominio. A los miembros de los grupos de administradores de dominio o administradores de organización dentro del directorio local de Active Directory tampoco se les concederán privilegios de administrador de dominio o de organización en el dominio administrado.
 
 ### <a name="can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains"></a>¿Puedo modificar pertenencias a grupos mediante LDAP u otras herramientas administrativas de AD en dominios administrados?
-No. Las pertenencias a grupos en dominios ofrecidos por Servicios de dominio de Azure AD no se pueden modificar. Lo mismo se aplica para los atributos de usuario. Puede cambiar la pertenencia a grupos o los atributos de usuario en Azure AD o en el dominio local. Los cambios se sincronizarán automáticamente con Azure AD Domain Services.
+Los usuarios y grupos que se sincronizan desde Azure Active Directory con Azure AD Domain Services no se pueden modificar porque su origen es Azure Active Directory. Cualquier grupo o usuario que se origine en el dominio administrado se puede modificar.
 
 ### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>¿Cuánto tardan los cambios realizados en el directorio de Azure AD en estar visibles en mi dominio administrado?
 Los cambios realizados en el directorio de Azure AD mediante la interfaz de usuario de Azure AD o PowerShell se sincronizan automáticamente con el dominio administrado. Este proceso de sincronización se ejecuta en segundo plano. No hay ningún período de tiempo definido para que esta sincronización complete todos los cambios en el objeto.

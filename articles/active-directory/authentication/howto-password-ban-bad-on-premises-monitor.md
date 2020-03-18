@@ -1,6 +1,6 @@
 ---
-title: Supervisión y registro en Protección de contraseñas de Azure Active Directory
-description: Información sobre la supervisión y el registro de la protección con contraseña de Azure AD
+title: Supervisión de la protección con contraseña de Azure AD local
+description: Aprenda a supervisar y revisar los registros de la protección con contraseña de Azure AD para un entorno de Active Directory Domain Services local.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,14 +11,14 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c74ea99d3a0e39729bb4d89f012d7b790bf0568b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: fbb533d5565009fb22d686e4082c9b4bfaae6dc1
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847718"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671651"
 ---
-# <a name="azure-ad-password-protection-monitoring-and-logging"></a>Supervisión y registro de la protección con contraseña de Azure AD
+# <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>Supervisión y revisión de los registros de los entornos de protección con contraseña de Azure AD local
 
 Una vez realizada la implementación de protección con contraseña de Azure AD, la supervisión y la notificación son tareas fundamentales. En este artículo se ofrece información detallada para ayudarle a conocer las distintas técnicas de supervisión, además de explicar dónde registra cada servicio la información y cómo envía notificaciones sobre el uso de la protección con contraseña de Azure AD.
 
@@ -235,7 +235,7 @@ El registro de texto está deshabilitado de manera predeterminada. El reinicio d
 
 El software del servicio de agente de controlador de dominio instala un objeto de contador de rendimiento denominado **Protección con contraseña de Azure AD**. Los siguientes contadores de rendimiento están disponibles actualmente:
 
-|Nombre del contador de rendimiento | DESCRIPCIÓN|
+|Nombre del contador de rendimiento | Descripción|
 | --- | --- |
 |Contraseñas procesadas |Este contador muestra el número total de contraseñas que se procesan (aceptadas o rechazadas) desde el último reinicio.|
 |Contraseñas aceptadas |Este contador muestra el número total de contraseñas que se aceptaron desde el último reinicio.|

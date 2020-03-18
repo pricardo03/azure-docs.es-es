@@ -7,24 +7,24 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/27/2019
-ms.openlocfilehash: 6027978b50ca72de5d18ff474b36814e22a94e85
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: cd515bfd1dc57e78a041ed96686e1ba692bf6d3f
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552226"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082870"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Acceso a Grafana en Azure HDInsight
 
 [Grafana](https://grafana.com/) es un software popular y de código abierto para crear gráficos y paneles. Grafana está lleno de características; no solo permite a los usuarios crear paneles que pueden personalizar y compartir, sino que también ofrece paneles con plantillas o scripts, integración de LDAP, varios orígenes de datos y mucho más.
 
-Actualmente, en Azure HDInsight, Grafana es compatible con los tipos de clúster de HBase, Kafka e Interactive Query. No es compatible con clústeres que tengan habilitado Enterprise Security Pack.
+Actualmente, en Azure HDInsight, Grafana es compatible con los tipos de clúster de Spark, HBase, Kafka e Interactive Query. No es compatible con clústeres que tengan habilitado Enterprise Security Pack.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="create-an-apache-hadoop-cluster"></a>Creación de un clúster de Apache Hadoop
 
-Consulte [Creación de clústeres de Apache Hadoop mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md). En **Tipo de clúster**, seleccione **Kafka**, **HBase** o **Interactive Query**.
+Consulte [Creación de clústeres de Apache Hadoop mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md). En **Tipo de clúster**, seleccione **Spark**, **Kafka**, **HBase** o **Interactive Query**.
 
 ## <a name="access-the-grafana-dashboard"></a>Acceso al panel de Grafana
 

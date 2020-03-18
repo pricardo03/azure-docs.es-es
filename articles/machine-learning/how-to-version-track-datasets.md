@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: sihhu
 author: sihhu
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
+ms.date: 03/09/2020
 ms.custom: ''
-ms.openlocfilehash: 4c8f3e7e47f9c8f924faf513d984d5474c105038
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 7b124c0f35b5cfda4380555385971e4968d4c45c
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834793"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78939260"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Versión y seguimiento de conjuntos de valores en experimentos
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +28,7 @@ Escenarios de control de versiones típicos:
 * Cuando hay nuevos datos disponibles para el reentrenamiento
 * Cuando se aplican diferentes enfoques de preparación de datos o de ingeniería de características
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este tutorial, necesitará:
 
@@ -60,6 +60,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  description = 'titanic training data',
                                  create_new_version = True)
 ```
+También puede registrar una nueva versión de un conjunto de datos en 
 
 ### <a name="retrieve-a-dataset-by-name"></a>Recuperar un conjunto de datos por nombre
 
@@ -120,7 +121,7 @@ dataset2.register(workspace = workspace,
 
 Puede usar un conjunto de datos como entrada y salida de cada paso de canalización de Machine Learning. Al volver a ejecutar las canalizaciones, la salida de cada paso de la canalización se registra como una nueva versión del conjunto de datos.
 
-Dado que las canalizaciones de Machine Learning rellenan la salida de cada paso en una nueva carpeta cada vez que se vuelve a ejecutar la canalización, los conjuntos de datos de salida con versión se pueden reproducir.
+Dado que las canalizaciones de Machine Learning rellenan la salida de cada paso en una nueva carpeta cada vez que se vuelve a ejecutar la canalización, los conjuntos de datos de salida con versión se pueden reproducir. Más información sobre los [conjuntos de datos en canalizaciones](how-to-create-your-first-pipeline.md#steps).
 
 ```Python
 from azureml.core import Dataset
@@ -169,7 +170,7 @@ input_dataset = inputs[0]['dataset']
 input_dataset.to_path()
 ```
 
-También encontrará los `input_datasets` en los experimentos con [Azure Machine Learning Studio](https://ml.azure.com/). 
+También encontrará los `input_datasets` en los experimentos con https://ml.azure.com/. 
 
 En la imagen siguiente se muestra dónde encontrar el conjunto de datos de entrada de un experimento en Azure Machine Learning Studio. En este ejemplo, vaya al panel **Experimentos** y abra la pestaña **Propiedades** para una ejecución concreta del experimento, `keras-mnist`.
 
@@ -183,7 +184,9 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-Después del registro, puede ver la lista de modelos registrados con el conjunto de datos mediante Python o [Azure Machine Learning Studio](https://ml.azure.com/). La siguiente vista es del panel **Conjunto de datos** en **Activos**. Seleccione el conjunto de datos y, después, seleccione la pestaña **Modelos** para obtener una lista de modelos registrados el conjunto de datos. 
+Después del registro, puede ver la lista de modelos registrados con el conjunto de datos mediante Python o ir a https://ml.azure.com/.
+
+La siguiente vista es del panel **Conjunto de datos** en **Activos**. Seleccione el conjunto de datos y, después, seleccione la pestaña **Modelos** para obtener una lista de modelos registrados el conjunto de datos. 
 
 ![Modelos de conjuntos de datos de entrada](./media/how-to-version-track-datasets/dataset-models.png)
 

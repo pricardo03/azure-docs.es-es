@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: c22ee0ef0393c0dae64674d18bae5a2e92969b4c
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: fd5308574e84ab6d2e30b9352254683b2d1d6fdd
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206079"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78403573"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>Cifrado de disco mediante claves administradas por el cliente
 
@@ -34,7 +34,7 @@ Puede usar Azure Portal o la CLI de Azure para rotar las claves en el almacén d
 
 |Tipo de clúster |Disco del sistema operativo (disco administrado) |Disco de datos (disco administrado) |Disco de datos temporales (SSD local) |
 |---|---|---|---|
-|Kafka, HBase con escrituras aceleradas|Cifrado SSE|Cifrado SSE + cifrado opcional de CMK|Cifrado opcional de CMK|
+|Kafka, HBase con escrituras aceleradas|[Cifrado SSE](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption)|Cifrado SSE + cifrado opcional de CMK|Cifrado opcional de CMK|
 |Todos los demás clústeres (Spark, Interactive, Hadoop, HBase sin escrituras aceleradas)|Cifrado SSE|N/D|Cifrado opcional de CMK|
 
 ## <a name="get-started-with-customer-managed-keys"></a>Introducción a las claves administradas por el cliente

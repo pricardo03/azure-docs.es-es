@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
-ms.date: 08/05/2019
-ms.openlocfilehash: 16ba90aab52c00f77af590f854217cd989df53b3
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.date: 03/09/2020
+ms.openlocfilehash: 822fab5c00501d415c3c184587141e869523e417
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251913"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945393"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Controles de acceso a la red para Azure SQL Database y Data Warehouse
 
@@ -27,19 +27,28 @@ ms.locfileid: "77251913"
 > [!IMPORTANT]
 > Este artículo *no* es válido para las **instancias administradas de Azure SQL Database**. Para más información sobre la configuración de red, consulte el artículo de [conexión a una instancia administrada](sql-database-managed-instance-connect-app.md).
 
-Al crear una nueva instancia de Azure SQL Server [en Azure Portal](sql-database-single-database-get-started.md), el resultado es un punto de conexión público con el formato *nombreDelServidor.database.windows.net*. Por diseño, se deniega todo acceso al punto de conexión público. Después, puede usar los siguientes controles de acceso a la red para permitir el acceso a la base de datos SQL de forma selectiva mediante el punto de conexión público.
+Al crear una nueva instancia de Azure SQL Server en [Azure Portal](sql-database-single-database-get-started.md), el resultado es un punto de conexión público con el formato *nombreDelServidor.database.windows.net*.
+
+Puede usar los siguientes controles de acceso a la red para permitir el acceso a la base de datos SQL de forma selectiva mediante el punto de conexión público:
 - Allow Azure Services (Permitir servicios de Azure): cuando se establece en ACTIVADO, otros recursos dentro de los límites de Azure, por ejemplo, una máquina virtual de Azure, pueden acceder a SQL Database.
 
 - Reglas de firewall de IP: use esta característica para permitir explícitamente las conexiones desde una dirección IP específica, por ejemplo, desde máquinas locales.
 
+También puede permitir el acceso privado a SQL Database desde [redes virtuales](../virtual-network/virtual-networks-overview.md) a través de:
 - Reglas de firewall de la red virtual: use esta característica para permitir el tráfico desde una red virtual específica dentro de los límites de Azure.
 
+- Private Link: Use esta característica para crear un punto de conexión privado para Azure SQL Server dentro de una red virtual específica
+
+
+
+Vea el vídeo siguiente para obtener una explicación de alto nivel sobre estos controles de acceso y lo que hacen:
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--SQL-Database-Connectivity-Explained/player?WT.mc_id=dataexposed-c9-niner]
+
 
 ## <a name="allow-azure-services"></a>Allow Azure Services (Permitir servicios de Azure) 
 Durante la creación de una nueva instancia de Azure SQL Server [en Azure Portal](sql-database-single-database-get-started.md), esta configuración se deja desactivada.
 
- ![Captura de pantalla de creación del nuevo servidor][1]
+
 
 También puede cambiar esta configuración desde el panel de firewall después de crear la instancia de Azure SQL Server como sigue.
   
@@ -129,6 +138,9 @@ Las reglas de red virtual son alternativas más fáciles de establecer y su acce
 > [!NOTE]
 > Aún no se puede disponer de SQL Database en una subred. Si su servidor de Azure SQL Database fuera un nodo de una subred de la red virtual, todos los nodos de la red virtual podrían comunicarse con su instancia de SQL Database. En este caso, las máquinas virtuales podrían comunicarse con SQL Database sin necesitar ninguna regla IP ni regla de red virtual.
 
+## <a name="private-link"></a>Private Link 
+Private Link le permite conectarse a Azure SQL Server mediante un **punto de conexión privado**. Un punto de conexión privado es una dirección IP privada dentro de una [red virtual](../virtual-network/virtual-networks-overview.md) y una subred específicas.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para consultar un inicio rápido sobre cómo crear una regla de firewall por IP de nivel de servidor, consulte [Creación de una base de datos de Azure SQL](sql-database-single-database-get-started.md).
@@ -146,3 +158,4 @@ Las reglas de red virtual son alternativas más fáciles de establecer y su acce
 <!--Image references-->
 [1]: ./media/sql-database-get-started-portal/new-server2.png
 [2]: ./media/sql-database-get-started-portal/manage-server-firewall.png
+

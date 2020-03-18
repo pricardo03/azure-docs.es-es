@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/26/2020
+ms.date: 03/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 155498aeaea30bf2da1d5aa0dbcb322aeb43bbdd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 4b469c098db4f8d90147b491bcb54bd55d326b03
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661301"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080315"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA
 
@@ -279,6 +279,9 @@ Al diseñar la infraestructura de SAP en Azure, debe tener en cuenta los requisi
 Los [límites de rendimiento de Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) por 1 TiB de cuota de volumen son los siguientes:
 - Capa Premium Storage: 64 MiB/s  
 - Capa de almacenamiento Ultra: 128 MiB/s  
+
+> [!IMPORTANT]
+> Independientemente de la capacidad que implemente en un volumen NFS individual, se espera que el rendimiento se nivele en el rango de 1,2-1,4 GB/s de ancho de banda usado por un consumidor en una máquina virtual. Esto tiene que ver con la arquitectura subyacente de la oferta de ANF y los límites de sesiones de Linux relacionadas alrededor de NFS. Las cifras relativas al rendimiento y a la capacidad de proceso que se indican en el artículo [Banco de pruebas de rendimiento de resultados de pruebas para Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-performance-benchmarks) se obtuvieron en un volumen NFS compartido con varias máquinas virtuales cliente y como resultado con varias sesiones. Dicho escenario es diferente del escenario que medimos en SAP. Ahí medimos la capacidad de procesamiento de una sola máquina virtual en un volumen NFS hospedado en ANF.
 
 Para cumplir los requisitos de rendimiento mínimo de SAP para los datos y el registro, y de acuerdo con las directrices para `/hana/shared`, los tamaños recomendados serían los siguientes:
 

@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/15/2020
-ms.openlocfilehash: daaedf346bed78a93e0762a37687b623d25ef753
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 23c370289669c2dde4f8969a2921018cd0abc08c
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77441976"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943676"
 ---
 # <a name="knowledge-store-projections-how-to-shape-and-export-enrichments"></a>Proyecciones del almacén de conocimiento: Dar forma y exportar enriquecimientos
 
@@ -671,7 +671,13 @@ Al definir una proyección, hay algunos problemas comunes que pueden generar res
 
 Los ejemplos de este artículo muestran patrones comunes sobre cómo crear proyecciones. Ahora que conoce los conceptos, está mejor preparado para compilar proyecciones para su escenario concreto.
 
-Cuando recorra las definiciones del almacén de conocimiento, considere la posibilidad de realizar el enriquecimiento incremental como próximo paso. El enriquecimiento incremental se basa en el almacenamiento en caché, lo cual le permite volver a usar todos los enriquecimientos que no se hayan visto afectados por una modificación del conjunto de aptitudes. Esto es especialmente útil para aquellas canalizaciones que incluyen OCR y análisis de imágenes.
+Cuando explore nuevas características, considere el enriquecimiento incremental como el siguiente paso. El enriquecimiento incremental se basa en el almacenamiento en caché, lo cual le permite volver a usar todos los enriquecimientos que no se hayan visto afectados por una modificación del conjunto de aptitudes. Esto es especialmente útil para aquellas canalizaciones que incluyen OCR y análisis de imágenes.
 
 > [!div class="nextstepaction"]
 > [Introducción al enriquecimiento incremental y al almacenamiento en caché](cognitive-search-incremental-indexing-conceptual.md)
+
+Para obtener información general sobre las proyecciones, obtenga más información sobre funcionalidades como los grupos y la segmentación, y cómo [definirlos en un conjunto de aptitudes](knowledge-store-projection-overview.md)
+
+> [!div class="nextstepaction"]
+> [Proyecciones en un almacén de conocimiento](knowledge-store-projection-overview.md)
+

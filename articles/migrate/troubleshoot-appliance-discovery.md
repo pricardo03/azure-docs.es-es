@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 37da62a4eb0f934133d6486872ba319138299614
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 3e25f55d82ba146f9076e38faf1e399c5228d947
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048703"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080399"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solución de problemas del dispositivo de Azure Migrate y la detección
 
@@ -150,6 +150,7 @@ Los errores de detección de aplicaciones típicos se resumen en la tabla.
 10004: "No se pueden detectar las aplicaciones instaladas para máquinas <Windows o Linux>." |  No se proporcionaron las credenciales para acceder a las máquinas <Windows o Linux> en el dispositivo.| Agregue una credencial al dispositivo que tenga acceso a las máquinas <Windows o Linux>.
 10005: "No se puede obtener acceso al servidor local". | Es posible que las credenciales de acceso sean erróneas. | Actualice las credenciales del dispositivo. Asegúrese de que puede acceder a la máquina pertinente con ellas. 
 10006: "No se puede obtener acceso al servidor local". | Esto puede ocurrir si el sistema operativo de la máquina no es Windows o Linux.|  Use solo detección de aplicaciones para Windows o Linux.
+10007: "Unable to process the metadata retrieved" (No se pueden procesar los metadatos recuperados) | Este error interno se produjo al intentar deserializar JSON | Para resolverlo, póngase en contacto con el servicio de Soporte técnico de Microsoft
 9000/9001/9002: "No se pueden detectar las aplicaciones instaladas en el servidor". | Es posible que las herramientas de VMware no estén instaladas o estén dañadas. | Instale o vuelva a instalar las herramientas de VMware en el equipo correspondiente y compruebe que se está ejecutando.
 9003: "No se pueden detectar las aplicaciones instaladas en el servidor". | Esto puede ocurrir si el sistema operativo de la máquina no es Windows o Linux. | Use solo detección de aplicaciones para Windows o Linux.
 9004: "No se pueden detectar las aplicaciones instaladas en el servidor". | Esto puede ocurrir si la máquina virtual está apagada. | Para la detección, asegúrese de que la máquina virtual está encendida.
@@ -158,9 +159,21 @@ Los errores de detección de aplicaciones típicos se resumen en la tabla.
 9008: "No se pueden recuperar las aplicaciones instaladas en el servidor". | Podría ser un error interno.  | Si el problema no se resuelve en un plazo de veinticuatro horas, póngase en contacto con el soporte técnico.
 9009: "No se pueden recuperar las aplicaciones instaladas en el servidor". | Puede producirse si la configuración del Control de cuentas de usuario (UAC) de Windows en el servidor es restrictiva e impide la detección de las aplicaciones instaladas. | Busque la configuración "Control de cuentas de usuario" en el servidor y configure la opción de UAC del servidor en uno de los dos niveles inferiores.
 9010: "No se pueden recuperar las aplicaciones instaladas en el servidor". | Podría ser un error interno.  | Si el problema no se resuelve en un plazo de veinticuatro horas, póngase en contacto con el soporte técnico.
+9011: "File to download from guest is not found on the guest VM" (El archivo para descargar desde el invitado no se encuentra en la máquina virtual invitada) | El problema puede producirse debido a un error interno. | El problema debería resolverse automáticamente en 24 horas. Si el problema persiste, póngase en contacto con el soporte técnico de Microsoft.
+9012: "Result file contents are empty." (El contenido del archivo de resultados está vacío) | El problema puede producirse debido a un error interno. | El problema debería resolverse automáticamente en 24 horas. Si el problema persiste, póngase en contacto con el soporte técnico de Microsoft.
+9013: "A new temporary profile is created for every login to the VMware VM" (Se crea un nuevo perfil temporal para cada inicio de sesión en la máquina virtual de VMware) | Se crea un nuevo perfil temporal para cada inicio de sesión en la máquina virtual | Asegúrese de que el nombre de usuario proporcionado en las credenciales de la máquina virtual invitada esté en formato UPN.
+9015: "Unable to connect to VMware VMs due to insufficient privileges on vCenter" (No se puede conectar a máquinas virtuales de VMware debido a la falta de privilegios suficientes en vCenter) | El rol Operaciones de invitado no está habilitado en la cuenta de usuario de vCenter | Asegúrese de que el rol Operaciones de invitado está habilitado en la cuenta de usuario de vCenter.
+9016: "Unable to connect to VMware VMs as the guest operations agent is out of data" (No se puede conectar a máquinas virtuales de VMware porque el agente de operaciones de invitado no tiene datos) | Las herramientas de VMware no están instalado correctamente o no están actualizadas. | Asegúrese de que las herramientas de VMware están correctamente instaladas y actualizadas.
+9017: "File with discovered metadata is not found on the VM." (No se encuentra el archivo con los metadatos detectados en la máquina virtual). | El problema puede producirse debido a un error interno. | Para resolverlo, póngase en contacto con el servicio de Soporte técnico de Microsoft.
+9018: "PowerShell is not installed in the Guest VMs." (PowerShell no está instalado en las máquinas virtuales invitadas) | PowerShell aún no está disponible en la máquina virtual invitada. | Instale PowerShell en la máquina virtual invitada.
+9019: "Unable to discover due to guest VM operation failures" (No se puede realizar la detección debido a errores de operación de la máquina virtual invitada) | No se pudo realizar la operación de invitado de VMware en la máquina virtual. | Asegúrese de que las credenciales de la máquina virtual sean válidas y que el nombre de usuario proporcionado en las credenciales de la máquina virtual invitada esté en formato UPN.
+9020: "File creation permission is denied." (Se denegó el permiso de creación de archivo) | El rol asociado al usuario o a la directiva de grupo está restringiendo al usuario a la hora de crear el archivo en la carpeta | Compruebe si el usuario invitado proporcionado tiene permiso de creación para el archivo en la carpeta. Consulte las **notificaciones** en Server Assessment para ver el nombre de la carpeta.
+9021: "File create permission is denied in folder System Temp Path." (Se denegó el permiso de creación de archivo en la ruta de acceso temporal del sistema de carpeta.) | No se admite la versión de las herramientas de VMware en la máquina virtual | Actualice la versión de las herramientas de VMware a una versión superior a 10.2.0.
+9022: "Get WMI object access is denied." (Acceso denegado al objeto Get WMI) | El rol asociado al usuario o a la directiva de grupo está restringiendo el acceso del usuario al objeto WMI. | Póngase en contacto con el soporte técnico de Microsoft.
+9023: "SystemRoot environment variable value is empty." (El valor de la variable de entorno SystemRoot está vacío) | Desconocido | Póngase en contacto con el soporte técnico de Microsoft.
+9024: "TEMP environment variable value is empty." (El valor de la variable de entorno TEMP está vacío) | Desconocido | Póngase en contacto con el soporte técnico de Microsoft.
+9025: "PowerShell is corrupt in the Guest VMs." (PowerShell está dañado en las máquinas virtuales invitadas) | Desconocido | Vuelva a instalar PowerShell en la máquina virtual invitada y compruebe si PowerShell puede ejecutarse en ella.
 8084: "No se pueden detectar las aplicaciones debido a un error de VMware: <Exception from VMware>" | El dispositivo de Azure Migrate usa las API de VMware para detectar aplicaciones. Este problema puede producirse si vCenter Server inicia una excepción al intentar detectar las aplicaciones. El mensaje de error de VMware se muestra en el mensaje de error que aparece en el portal. | Busque el mensaje en la [documentación de VMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html) y siga los pasos para solucionarlo. Si no lo puede solucionar, póngase en contacto con el soporte técnico de Microsoft.
-9012: "No se pueden detectar las aplicaciones instaladas en el servidor" | El problema puede producirse debido a un error interno.  | Si el problema no se resuelve en un plazo de 24 horas, póngase en contacto con el soporte técnico.
-9013: "No se pueden detectar las aplicaciones instaladas en el servidor" | Cada vez que se produce un inicio de sesión en la máquina virtual, se crea un nuevo perfil temporal.  | Asegúrese de que no se crea un perfil temporal para el usuario invitado especificado.
 
 
 

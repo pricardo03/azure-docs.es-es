@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/12/2019
-ms.openlocfilehash: a255d89aa4850d1249f1af9bdd0cb43b0826914f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 03/08/2020
+ms.openlocfilehash: 2d04de420f743e4fef4cff4bd2912559dae0886a
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930241"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78934184"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>Transformación Selección de Mapping Data Flow
 
@@ -55,6 +55,11 @@ Sin embargo, si desea agregar reglas personalizadas, tendrá que hacer clic en "
 Al elegir la asignación basada en reglas, se indica a ADF que evalúe la expresión coincidente para que coincida con las reglas de patrón de entrada y que defina los nombres de los campos salientes. Puede agregar cualquier combinación de asignaciones basadas en campos y en reglas. A continuación, el ADF genera los nombres de campo en el entorno en tiempo de ejecución en función de los metadatos entrantes del origen. Puede ver los nombres de los campos generados durante la depuración y mediante el panel de vista previa de los datos.
 
 En la [documentación acerca de los patrones de columnas](concepts-data-flow-column-pattern.md) hay más detalles acerca de la coincidencia de patrones.
+
+### <a name="use-rule-based-mapping-to-parameterize-the-select-transformation"></a>Uso de la asignación basada en reglas para parametrizar la transformación Seleccionar
+Puede parametrizar la asignación de campos en la transformación Seleccionar mediante la asignación basada en reglas. Use la palabra clave ```name``` para comprobar los nombres de columna de entrada con un parámetro. Por ejemplo, si tiene un parámetro de flujo de datos denominado ```mycolumn```, puede crear una única regla de transformación de selección que siempre asigne el nombre de columna que establezca en ```mycolumn``` a un nombre de campo de esta manera:
+
+```name == $mycolumn```
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Después de usar Selección para cambiar el nombre de las columnas, reordenarlas y crear alias, use la [transformación del receptor](data-flow-sink.md) para enviar los datos a un almacén de datos.

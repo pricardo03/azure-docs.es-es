@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 11/1/2019
+ms.date: 03/05/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6da9aed857524e9b71aad4dfc99f1d2e54306dc9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 72c18e48c27942c7bea47931ec79a31af941064e
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74272879"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126659"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Incorporación de Google como proveedor de identidades para los usuarios invitados de B2B
 
@@ -55,25 +55,24 @@ En primer lugar, cree un nuevo proyecto en la consola de desarrolladores de Goog
    
    ![Captura de pantalla que muestra la página de nuevo proyecto de Google](media/google-federation/google-new-project.png)
 
-3. Asegúrese de que el nuevo proyecto está seleccionado en el menú del proyecto. A continuación, abra el menú de la esquina superior izquierda y seleccione **APIs & Services** (API y servicios)  > **Credentials** (Credenciales).
+3. Asegúrese de que el nuevo proyecto está seleccionado en el menú del proyecto. En **APIs y Servicios**, seleccione **Pantalla de consentimiento de OAuth**.
 
-   ![Captura de pantalla que muestra la opción de credenciales de la API de Google](media/google-federation/google-api.png)
- 
-4. Seleccione la pestaña **Pantalla de consentimiento de OAuth** y especifique un **nombre de aplicación**. (Deje intactos los valores restantes).
+4. Seleccione **Externo** y después **Crear**. 
+5. En **Pantalla de consentimiento de OAuth**, especifique un **nombre de aplicación**. (Deje intactos los valores restantes).
 
    ![Captura de pantalla que muestra la opción de Pantalla de consentimiento de OAuth de Google](media/google-federation/google-oauth-consent-screen.png)
 
-5. Desplácese hasta la sección **Dominios autorizados**  y escriba microsoftonline.com.
+6. Desplácese hasta la sección **Dominios autorizados**  y escriba microsoftonline.com.
 
    ![Captura de pantalla que muestra la sección de dominios autorizados](media/google-federation/google-oauth-authorized-domains.png)
 
-6. Seleccione **Guardar**.
+7. Seleccione **Guardar**.
 
-7. Elija la pestaña **Credentials** (Credenciales). En el menú **Create credentials** (Crear credenciales), elija **OAuth client ID** (Id. de cliente de OAuth).
+8. Elija **Credenciales**. En el menú **Create credentials** (Crear credenciales), elija **OAuth client ID** (Id. de cliente de OAuth).
 
    ![Captura de pantalla que muestra la opción de creación de credenciales de las API de Google](media/google-federation/google-api-credentials.png)
 
-8. En **Application type** (Tipo de aplicación), elija **Web application** (Aplicación web) y, en **Authorized redirect URIs** (URI de redireccionamiento autorizados), escriba los siguientes:
+9. En **Application type** (Tipo de aplicación), elija **Web application** (Aplicación web) y, en **Authorized redirect URIs** (URI de redireccionamiento autorizados), escriba los siguientes:
    - `https://login.microsoftonline.com` 
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(donde `<directory id>` es el identificador del directorio)
    
@@ -82,7 +81,7 @@ En primer lugar, cree un nuevo proyecto en la consola de desarrolladores de Goog
 
    ![Captura de pantalla que muestra la sección de identificadores URI de redirección autorizados](media/google-federation/google-create-oauth-client-id.png)
 
-9. Seleccione **Crear**. Copie el identificador y el secreto de cliente, que se usarán al agregar el proveedor de identidades en el portal de Azure AD.
+10. Seleccione **Crear**. Copie el identificador y el secreto de cliente, que se usarán al agregar el proveedor de identidades en el portal de Azure AD.
 
    ![Captura de pantalla que muestra el Id. de cliente de OAuth y el secreto de cliente](media/google-federation/google-auth-client-id-secret.png)
 

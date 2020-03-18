@@ -1,14 +1,14 @@
 ---
 title: Configuración de la visualización de dependencias en Azure Migrate
-description: Describe la configuración de la visualización de dependencias en Azure Migrate Server Assessment.
+description: En este artículo se describe cómo configurar la visualización de dependencias en Azure Migrate Server Assessment.
 ms.topic: article
 ms.date: 2/24/2020
-ms.openlocfilehash: 054e2301160a885909630c2968863e5f9e25af69
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 2b75a38a376558946841d08ab7a9dbf730232e51
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77916292"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942077"
 ---
 # <a name="set-up-dependency-visualization"></a>Configuración de la visualización de dependencias
 
@@ -19,7 +19,7 @@ En este artículo se describe cómo configurar la visualización de dependencias
 - [Revise](concepts-dependency-visualization.md) los requisitos y los costos asociados con la visualización de dependencias.
 - Asegúrese de que ha [creado](how-to-add-tool-first-time.md) un proyecto de Azure Migrate.
 - Si ya ha creado un proyecto, asegúrese de que ha [agregado](how-to-assess.md) la herramienta Azure Migrate: Server Assessment.
-- Asegúrese de que ha configurado un [dispositivo Azure Migrate](migrate-appliance.md) para detectar las máquinas locales. Obtenga información sobre cómo configurar un dispositivo para [VMware](how-to-set-up-appliance-vmware.md) o [Hyper-V](how-to-set-up-appliance-hyper-v.md). El dispositivo detecta máquinas locales, y envía metadatos y datos de rendimiento a Azure Migrate: Server Assessment.
+- Asegúrese de que ha configurado un [dispositivo Azure Migrate](migrate-appliance.md) para detectar las máquinas locales. Obtenga información sobre cómo configurar un dispositivo para [VMware](how-to-set-up-appliance-vmware.md) o [Hyper-V](how-to-set-up-appliance-hyper-v.md). El dispositivo detecta máquinas locales y envía metadatos y datos de rendimiento a Azure Migrate: Server Assessment.
 - Si quiere usar la visualización de dependencias, debe asociar un [área de trabajo de Log Analytics](../azure-monitor/platform/manage-access.md) con un proyecto de Azure Migrate:
     - Asegúrese de que tiene un área de trabajo en la suscripción que contiene el proyecto de Azure Migrate.
     - El área de trabajo debe residir en las regiones Este de EE. UU., Sudeste Asiático u Oeste de Europa. Las áreas de trabajo de otras regiones no se pueden asociar a un proyecto.
@@ -32,8 +32,8 @@ En este artículo se describe cómo configurar la visualización de dependencias
 
 ## <a name="associate-a-workspace"></a>Asociación de un área de trabajo
 
-1. Una vez que haya detectado las máquinas que se van a evaluar, en **Servidores** > **Azure Migrate:Server Assessment**, haga clic en **Información general**.  
-2. En **Azure Migrate:Server Assessment**, haga clic en **Información esencial**.
+1. Una vez que haya descubierto las máquinas para su valoración, en **Servidores** > **Azure Migrate: Server Assessment**, haga clic en **Información general**.  
+2. En **Azure Migrate: Server Assessment**, haga clic en **Información esencial**.
 3. En **Área de trabajo de OMS**, haga clic en **Requiere configuración**.
 
      ![Configuración de un área de trabajo de Log Analytics](./media/how-to-create-group-machine-dependencies/oms-workspace-select.png)   

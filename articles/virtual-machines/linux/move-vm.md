@@ -1,36 +1,26 @@
 ---
-title: Traslado de una máquina virtual Linux en Azure
-description: Mueva una máquina virtual Linux a otro grupo de recursos o suscripción de Azure en el modelo de implementación de Resource Manager.
-services: virtual-machines-linux
-documentationcenter: ''
+title: Traslado de una máquina virtual mediante la CLI de Azure
+description: Traslado de una máquina virtual a otra suscripción o grupo de recursos de Azure mediante la CLI de Azure.
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: d635f0a5-4458-4b95-a5f8-eed4f41eb4d4
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 2ba8a8cdc324f46e25f9665cfce0aa07fc948e88
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ebcd5f166fd1876f67121787c23d23860c9fa4b6
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979037"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944602"
 ---
-# <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Traslado de una máquina virtual Linux a otra suscripción o grupo de recursos
-Este artículo le guiará en el procedimiento para mover una máquina virtual (VM) Linux entre suscripciones o grupos de recursos. Mover una máquina virtual entre suscripciones puede ser útil si ha creado una máquina virtual en una suscripción personal y ahora quiere moverla a la suscripción de su compañía.
+# <a name="move-a-vm-to-another-subscription-or-resource-group"></a>Traslado de una máquina virtual a otra suscripción o grupo de recursos
+Este artículo le guiará en el procedimiento para mover una máquina virtual (VM) entre suscripciones o grupos de recursos. Mover una máquina virtual entre suscripciones puede ser útil si ha creado una máquina virtual en una suscripción personal y ahora quiere moverla a la suscripción de su compañía.
 
 > [!IMPORTANT]
->No se puede mover Azure Managed Disks en este momento.
->
 >Como parte de esta operación, se crean nuevos identificadores de recurso. Después de haber movido la VM, debe actualizar sus herramientas y scripts para usar los nuevos id. de recursos.
 >
->
+
 
 ## <a name="use-the-azure-cli-to-move-a-vm"></a>Usar la CLI de Azure para mover una máquina virtual
 

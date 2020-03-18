@@ -1,23 +1,18 @@
 ---
-title: Implementación de hosts dedicados de Azure mediante Azure Portal
-description: Implementación de máquinas virtuales en hosts dedicados mediante Azure Portal.
-services: virtual-machines-windows
+title: Implementación de hosts dedicados de Azure mediante el portal
+description: Implemente máquinas virtuales en hosts dedicados desde el portal.
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/26/2019
+ms.date: 03/10/2020
 ms.author: cynthn
-ms.openlocfilehash: aa19c343e003bf1cd55e3d12b18e595113a7189e
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: b6f5e155b76535c4d9e0080983d5f54cec3adb01
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75833949"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086942"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>implementación de máquinas virtuales en hosts dedicados mediante el portal
 
@@ -40,6 +35,25 @@ En este artículo se ofrecen instrucciones para crear un [host dedicado](dedicat
 1. Deje los valores predeterminados restantes y luego seleccione el botón **Revisar + crear** en la parte inferior de la página.
 1. Cuando vea el mensaje en el que se indica que la validación se ha realizado correctamente, seleccione **Crear**.
 
+## <a name="add-an-existing-vm"></a>Incorporación de una máquina virtual existente 
+
+Es posible incorporar una máquina virtual existente a un host dedicado, pero para ello antes es preciso detenerla o desasignarla. Antes de mover una máquina virtual a un host dedicado, asegúrese de que se admite su configuración:
+
+- El tamaño de la máquina virtual debe estar en la misma familia de tamaños que el host dedicado. Por ejemplo, si el host dedicado es DSv3, el tamaño de la máquina virtual puede ser Standard_D4s_v3, pero no Standard_A4_v2. 
+- Es preciso que la máquina virtual se encuentre en la misma región que el host dedicado.
+- La máquina virtual no puede formar parte de ningún grupo de ubicación por proximidad. Quite la máquina virtual del grupo de ubicación por proximidad antes de moverla a un host dedicado. Para más información, consulte [Traslado de una VM existente fuera de un grupo de selección de ubicación de proximidad](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#move-an-existing-vm-out-of-a-proximity-placement-group)
+- La máquina virtual no puede estar en un conjunto de disponibilidad.
+- Si la máquina virtual está en una zona de disponibilidad, debe estar en la misma que el grupo host. Los valores de zona de disponibilidad de la máquina virtual y del grupo host deben coincidir.
+
+Mueva la máquina virtual a un host dedicado desde el [portal](https://portal.azure.com).
+
+1. Abra la página de la máquina virtual.
+1. Seleccione **Stop** (Detener) para detener o desasignar la máquina virtual.
+1. Seleccione **Configuration** (Configuración) en el menú de la izquierda.
+1. Seleccione un grupo host y un host en los menús desplegables.
+1. Cuando haya terminado, seleccione **Save** (Guardar) en la parte superior de la página.
+1. Una vez que la máquina virtual se haya agregado al host, seleccione **Overview** (Información general) en el menú de la izquierda.
+1. En la parte superior de la página, seleccione **Start** (Iniciar) para reiniciar la máquina virtual.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

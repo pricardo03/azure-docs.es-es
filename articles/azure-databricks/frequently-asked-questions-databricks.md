@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: c2cb7a90f0fe57efcd8f4d75aff3b5ee375abd07
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8d7aab43641c6c594ff60368ccb3810e0c060dd7
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75971496"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671574"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Preguntas más frecuentes sobre Azure Databricks
 
@@ -40,11 +40,11 @@ Para más información, consulte [Use Azure Data Lake Storage with Azure Databri
 
 Estos son algunos de los problemas que podría encontrar con Databricks.
 
-### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Problema: Esta suscripción no está registrada para usar el espacio de nombres "Microsoft.Databricks"
+### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Problema: Esta suscripción no está registrada para usar el espacio de nombres "Microsoft.Databricks".
 
 #### <a name="error-message"></a>Mensaje de error
 
-"Esta suscripción no está registrada para usar el espacio de nombres "Microsoft.Databricks". Consulte https://aka.ms/rps-not-found para saber cómo registrar las suscripciones. (Código: MissingSubscriptionRegistration)"
+"Esta suscripción no está registrada para usar el espacio de nombres Microsoft.Databricks". Consulte https://aka.ms/rps-not-found para saber cómo registrar las suscripciones. (Código: MissingSubscriptionRegistration)"
 
 #### <a name="solution"></a>Solución
 
@@ -88,11 +88,20 @@ Si no creó el área de trabajo y se le agrega como usuario, póngase en contact
 
 #### <a name="error-message"></a>Mensaje de error
 
-"Error de inicio del proveedor de nube: hubo un error de proveedor de nube al configurar el clúster. Para más información, vea la guía de Databricks. Código de error de Azure: PublicIPCountLimitReached. Mensaje de error de Azure: No se pueden crear más de 60 direcciones IP públicas para esta suscripción en esta región".
+"Error de inicio del proveedor de nube: hubo un error de proveedor de nube al configurar el clúster. Para más información, vea la guía de Databricks. Código de error de Azure: PublicIPCountLimitReached. Mensaje de error de Azure: No se pueden crear más de diez direcciones IP públicas para esta suscripción en esta región.
+
+#### <a name="background"></a>Información previa
+
+Los clústeres de Databricks usan una dirección IP pública por nodo (incluido el nodo del controlador). Las suscripciones de Azure tienen [límites de direcciones IP públicas](/azure/azure-resource-manager/management/azure-subscription-service-limits#publicip-address) por región. Por lo tanto, se puede producir un error en las operaciones de creación de clústeres y de escalado vertical si provocan que el número de direcciones IP públicas asignadas a esa suscripción en esa región supere el límite. Este límite también incluye las direcciones IP públicas asignadas para uso que no sea de Databricks, por ejemplo las máquinas virtuales personalizadas definidas por el usuario.
+
+En general, los clústeres solo consumen direcciones IP públicas mientras están activas. Sin embargo, es posible que se produzcan errores de `PublicIPCountLimitReached` durante un breve período de tiempo incluso después de que se terminen otros clústeres. Esto se debe a que los Databricks almacenan temporalmente en memoria caché los recursos de Azure cuando se termina un clúster. El almacenamiento en caché de recursos es por diseño, ya que reduce significativamente la latencia del inicio del clúster y el escalado automático en muchos escenarios comunes.
 
 #### <a name="solution"></a>Solución
 
-Los clústeres de Databricks usan una dirección IP pública por nodo. Si la suscripción ya ha utilizado todas sus direcciones IP públicas, debe [solicitar aumentar la cuota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request). Elija **Cuota** como el **Tipo de problema** y **Redes: ARM** como el **Tipo de cuota**. En **Details**, solicite un aumento de la cuota de la dirección IP pública. Por ejemplo, si el límite es actualmente 60 y desea crear un clúster de 100 nodos, solicite un aumento del límite hasta 160.
+Si su suscripción ya ha alcanzado su límite de direcciones IP públicas para una región determinada, debe realizar una de las siguientes acciones.
+
+- Cree nuevos clústeres en otro área de trabajo de Databricks. El otro área de trabajo debe estar ubicada en una región en la que no haya alcanzado el límite de direcciones IP públicas de su suscripción.
+- [Solicite el aumento del límite de direcciones IP públicas](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request). Elija **Cuota** como el **Tipo de problema** y **Redes: ARM** como el **Tipo de cuota**. En **Details**, solicite un aumento de la cuota de la dirección IP pública. Por ejemplo, si el límite es actualmente 60 y desea crear un clúster de 100 nodos, solicite un aumento del límite hasta 160.
 
 ### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>Problema: Un segundo tipo de error al iniciar el proveedor de nube al configurar el clúster (MissingSubscriptionRegistration)
 
@@ -123,4 +132,3 @@ Inicie sesión en Azure Portal como administrador global. En Azure Active Direct
 
 - [Inicio rápido: Introducción a Azure Databricks](quickstart-create-databricks-workspace-portal.md)
 - [¿Qué es Azure Databricks?](what-is-azure-databricks.md)
-

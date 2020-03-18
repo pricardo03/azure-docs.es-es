@@ -8,12 +8,12 @@ ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 1b0047cda3664759f4f1b6499c8a54ee22f98ab3
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 359f78cabbe0372e6892695c092ae49b62df7bfa
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78227456"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944191"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Solución de problemas relacionados con Update Management
 
@@ -219,14 +219,17 @@ Este problema puede ocurrir debido a uno de los siguientes motivos:
 
 Cuando proceda, use [grupos dinámicos](../automation-update-management-groups.md) para las implementaciones de actualizaciones. Además:
 
-* Compruebe que la máquina aún exista y sea accesible. Si no existe, edite la implementación y quite la máquina.
+* Compruebe que la máquina aún exista y sea accesible. 
+* Si no existe, edite la implementación y quite la máquina.
 * Consulte la sección sobre el [planeamiento de red](../automation-update-management.md#ports) para obtener una lista de puertos y direcciones que son necesarios para Update Management y asegúrese de que la máquina cumple estos requisitos.
-* Ejecute la siguiente consulta en Log Analytics para encontrar las máquinas del entorno cuyo valor de `SourceComputerId` haya cambiado. Busque los equipos que tienen el mismo valor de `Computer`, pero un distinto valor de `SourceComputerId`. 
+* Compruebe la conectividad con el Hybrid Runbook Worker mediante el solucionador de problemas del agente de Hybrid Runbook Worker. Para más información sobre el solucionador de problemas, consulte el artículo sobre [cómo solucionar problemas con el agente de actualización](update-agent-issues.md).
+* Ejecute la siguiente consulta en Log Analytics para encontrar las máquinas del entorno cuyo valor de `SourceComputerId` haya cambiado. Busque los equipos que tienen el mismo valor de `Computer`, pero un distinto valor de `SourceComputerId`.
 
    ```loganalytics
    Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
    ```
-   Después de encontrar las máquinas afectadas, debe editar las implementaciones de actualizaciones que se dirijan a esas máquinas, y quitarlas y volverlas a agregar para que `SourceComputerId` refleje el valor correcto.
+
+* Después de encontrar las máquinas afectadas, debe editar las implementaciones de actualizaciones que se dirijan a esas máquinas, y quitarlas y volverlas a agregar para que `SourceComputerId` refleje el valor correcto.
 
 ## <a name="updates-nodeployment"></a>Escenario: Las actualizaciones se instalan sin una implementación
 

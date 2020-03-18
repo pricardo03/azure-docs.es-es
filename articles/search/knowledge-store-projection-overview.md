@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: d8302b69f1e868536eb954a650a62f41e4006b82
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: d264768bf27967d1a778400ae4e9e6f2e054d746
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754529"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942969"
 ---
 # <a name="projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Proyecciones en un almacén de conocimiento en Azure Cognitive Search
 
@@ -211,3 +211,8 @@ Como siguiente paso, cree su primer almacén de conocimiento con instrucciones y
 
 > [!div class="nextstepaction"]
 > [Creación de un almacén de conocimiento con REST](knowledge-store-create-rest.md)
+
+Para ver un tutorial que abarca conceptos de proyecciones avanzadas como la segmentación, la forma insertada y las relaciones, empiece por [definir proyecciones en un almacén de conocimiento.](knowledge-store-projections-examples.md)
+
+> [!div class="nextstepaction"]
+> [Definición de proyecciones en un almacén de conocimiento](knowledge-store-projections-examples.md)

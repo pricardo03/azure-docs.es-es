@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: 2d1e6e484fd704669951bd37b17356fd3689cc91
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 8b63233aa2b20862e4654c89f1a6dd5d00c78940
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485189"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096076"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para Application Gateway
 
@@ -125,10 +125,6 @@ Para Application Gateway, están disponibles las métricas siguientes:
 
    Recuento de solicitudes correctas que ha servido Application Gateway. El recuento de solicitudes puede filtrarse aún más para mostrar el recuento por cada combinación de configuración de grupo de back-end o http específica.
 
-- **Reglas de coincidencia de Firewall de aplicaciones Web**
-
-- **Reglas desencadenadas por el Firewall de aplicaciones Web**
-
 ### <a name="backend-metrics"></a>Métricas de back-end
 
 Para Application Gateway, están disponibles las métricas siguientes:
@@ -180,9 +176,9 @@ Para Application Gateway, están disponibles las métricas siguientes:
 
   Recuento de solicitudes correctas que ha servido Application Gateway. El recuento de solicitudes puede filtrarse aún más para mostrar el recuento por cada combinación de configuración de grupo de back-end o http específica.
 
-- **Reglas de coincidencia de Firewall de aplicaciones Web**
-
-- **Reglas desencadenadas por el Firewall de aplicaciones Web**
+- **Web Application Firewall Blocked Requests Count** (Recuento de solicitudes bloqueadas por el firewall de aplicaciones web)
+- **Web Application Firewall Blocked Requests Rule Distribution** (Distribución de reglas de solicitudes bloqueadas por el firewall de aplicaciones web)
+- **Web Application Firewall Total Rule Distribution** (Distribución de reglas totales del firewall de aplicaciones web)
 
 ### <a name="backend-metrics"></a>Métricas de back-end
 

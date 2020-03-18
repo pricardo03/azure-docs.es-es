@@ -1,0 +1,188 @@
+---
+title: Seguridad y autenticación de Azure Event Grid
+description: Describe Azure Event Grid y sus conceptos.
+services: event-grid
+author: banisadr
+manager: timlt
+ms.service: event-grid
+ms.topic: conceptual
+ms.date: 05/22/2019
+ms.author: babanisa
+ms.openlocfilehash: 03bc2f9de6f50f08c9f62f86a3d1791a067cecd0
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899006"
+---
+# <a name="authorizing-access-to-event-grid-resources"></a>Autorización de acceso a recursos de Event Grid
+Azure Event Grid permite controlar el nivel de acceso dado a distintos usuarios para realizar diversas operaciones de administración, como enumerar las suscripciones a eventos, crear otras nuevas y generar claves. Event Grid usa el control de acceso basado en rol (RBAC) de Azure.
+
+## <a name="operation-types"></a>Tipos de operación
+
+Event Grid admite las siguientes acciones:
+
+* Microsoft.EventGrid/*/read
+* Microsoft.EventGrid/*/write
+* Microsoft.EventGrid/*/delete
+* Microsoft.EventGrid/eventSubscriptions/getFullUrl/action
+* Microsoft.EventGrid/topics/listKeys/action
+* Microsoft.EventGrid/topics/regenerateKey/action
+
+Las tres últimas operaciones devuelven información potencialmente confidencial, la cual se filtra de las operaciones de lectura normales. Se recomienda restringir el acceso a estas operaciones. 
+
+## <a name="built-in-roles"></a>Roles integrados
+
+Event Grid proporciona dos roles integrados para administrar las suscripciones de eventos. Son importantes al implementar [dominios de eventos](event-domains.md) porque proporcionan a los usuarios los permisos que necesitan para suscribirse a temas en el dominio del evento. Estos roles se centran en las suscripciones de eventos y no conceden acceso para acciones como la creación de temas.
+
+También puede [asignar estos roles a un usuario o grupo](../role-based-access-control/quickstart-assign-role-user-portal.md).
+
+**Colaborador de EventGrid EventSubscription**: administre las operaciones de suscripción de Event Grid.
+
+```json
+[
+  {
+    "Description": "Lets you manage EventGrid event subscription operations.",
+    "IsBuiltIn": true,
+    "Id": "428e0ff05e574d9ca2212c70d0e0a443",
+    "Name": "EventGrid EventSubscription Contributor",
+    "IsServiceRole": false,
+    "Permissions": [
+      {
+        "Actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.EventGrid/eventSubscriptions/*",
+          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.Resources/deployments/*",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Support/*"
+        ],
+        "NotActions": [],
+        "DataActions": [],
+        "NotDataActions": [],
+        "Condition": null
+      }
+    ],
+    "Scopes": [
+      "/"
+    ]
+  }
+]
+```
+
+**Lector de EventGrid EventSubscription**: lea las suscripciones de Event Grid.
+
+```json
+[
+  {
+    "Description": "Lets you read EventGrid event subscriptions.",
+    "IsBuiltIn": true,
+    "Id": "2414bbcf64974faf8c65045460748405",
+    "Name": "EventGrid EventSubscription Reader",
+    "IsServiceRole": false,
+    "Permissions": [
+      {
+        "Actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.EventGrid/eventSubscriptions/read",
+          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read"
+        ],
+        "NotActions": [],
+        "DataActions": [],
+        "NotDataActions": []
+       }
+    ],
+    "Scopes": [
+      "/"
+    ]
+  }
+]
+```
+
+## <a name="custom-roles"></a>Roles personalizados
+
+Si tiene que especificar permisos distintos a los de los roles integrados, puede crear roles personalizados.
+
+Las siguientes son definiciones de roles de Event Grid de ejemplo que permiten a los usuarios realizar distintas acciones. Estos roles personalizados son diferentes de los roles integrados, ya que conceden acceso más amplio que las suscripciones a eventos.
+
+**EventGridReadOnlyRole.json**: Únicamente se permiten operaciones de solo lectura.
+
+```json
+{
+  "Name": "Event grid read only role",
+  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856",
+  "IsCustom": true,
+  "Description": "Event grid read only role",
+  "Actions": [
+    "Microsoft.EventGrid/*/read"
+  ],
+  "NotActions": [
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription Id>"
+  ]
+}
+```
+
+**EventGridNoDeleteListKeysRole.json**: permitir acciones de publicación restringidas pero denegar acciones de eliminación.
+
+```json
+{
+  "Name": "Event grid No Delete Listkeys role",
+  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174",
+  "IsCustom": true,
+  "Description": "Event grid No Delete Listkeys role",
+  "Actions": [
+    "Microsoft.EventGrid/*/write",
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
+    "Microsoft.EventGrid/topics/listkeys/action",
+    "Microsoft.EventGrid/topics/regenerateKey/action"
+  ],
+  "NotActions": [
+    "Microsoft.EventGrid/*/delete"
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription id>"
+  ]
+}
+```
+
+**EventGridContributorRole.json**: Permite todas las acciones de Event Grid.
+
+```json
+{
+  "Name": "Event grid contributor role",
+  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514",
+  "IsCustom": true,
+  "Description": "Event grid contributor role",
+  "Actions": [
+    "Microsoft.EventGrid/*/write",
+    "Microsoft.EventGrid/*/delete",
+    "Microsoft.EventGrid/topics/listkeys/action",
+    "Microsoft.EventGrid/topics/regenerateKey/action",
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
+  ],
+  "NotActions": [],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription id>"
+  ]
+}
+```
+
+Puede crear roles personalizados con [PowerShell](../role-based-access-control/custom-roles-powershell.md), la [CLI de Azure](../role-based-access-control/custom-roles-cli.md) o [REST](../role-based-access-control/custom-roles-rest.md).
+
+
+
+### <a name="encryption-at-rest"></a>Cifrado en reposo
+
+Todos los eventos o datos escritos en el disco por el servicio Event Grid se cifran mediante una clave administrada por Microsoft, lo que garantiza que se cifran en reposo. Además, el período máximo que se conservan los eventos o los datos es de 24 horas, conforme a la [directiva de reintentos de Event Grid](delivery-and-retry.md). Event Grid elimina automáticamente todos los eventos o datos tras 24 horas, o el período de vida del evento, lo que sea menor.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* Para obtener una introducción a Event Grid, vea [About Event Grid](overview.md) (Acerca de Event Grid).

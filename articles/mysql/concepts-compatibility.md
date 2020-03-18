@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/05/2019
-ms.openlocfilehash: bb8477165afcaafe6d03ccb3fe7764124aa166c6
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7cbd2dfab7d0d9ee0df730eb15fa2c4b4952c85b
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928665"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399184"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Herramientas de administración y controladores de MySQL compatibles con Azure Database for MySQL
 En este artículo se describen las herramientas de administración y los controladores compatibles con Azure Database for MySQL.
@@ -23,7 +23,7 @@ Azure Database for MySQL usa la edición comunitaria más popular del mundo de l
 | :----------------------- | :--------- | :-------- | :---------------------- | :------------------------ | :-------- |
 | PHP | mysqli, pdo_mysql, mysqlnd | https://secure.php.net/downloads.php | 5.5, 5.6, 7.x | 5.3 | Para la conexión PHP 7.0 con SSL MySQLi, agregue MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT en la cadena de conexión. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> PDO: establezca la opción ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` en false.|
 | .NET | Conector de MySQL asincrónico para .NET | https://github.com/mysql-net/MySqlConnector <br> [Paquete de instalación de NuGet](https://www.nuget.org/packages/MySqlConnector/) | 0.27 y posterior | 0.26.5 y anterior | |
-| .NET | Conector MySQL/NET | https://github.com/mysql/mysql-connector-net | 8.0, 7.0, 6.10 |  | Un error de codificación puede provocar errores de conexión en algunos sistemas Windows que no sean UTF8. |
+| .NET | Conector MySQL/NET | https://github.com/mysql/mysql-connector-net | 6.6.3 ,7.0 ,8.0 |  | Un error de codificación puede provocar errores de conexión en algunos sistemas Windows que no sean UTF8. |
 | Node.js | mysqljs | https://github.com/mysqljs/mysql/ <br> Paquete de instalación de NPM:<br> Ejecute `npm install mysql` en NPM | 2.15 | 2.14.1 y anterior | |
 | Node.js | node-mysql2 | https://github.com/sidorares/node-mysql2 | 1.3.4+ | | |
 | Go | Controlador de MySQL de Go | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1.2 y anterior | Use `allowNativePasswords=true` en la cadena de conexión para la versión 1.3. La versión 1.4 contiene una corrección y `allowNativePasswords=true` ya no es necesario. |
@@ -48,9 +48,9 @@ La ventaja de compatibilidad se amplía también a las herramientas de administr
 | Crear, actualizar, leer, escribir, eliminar | X | X | X |
 | Conexión SSL | X | X | X |
 | Completado automático de consultas SQL | X | X |  |
-| Importación y exportación de datos | X | X | X | 
+| Importar y exportar datos | X | X | X | 
 | Exportación en varios formatos | X | X | X |
-| Copia de seguridad y restauración |  | X |  |
+| Copias de seguridad y restauración |  | X |  |
 | Muestra de parámetros de servidor | X | X | X |
 | Muestra de conexiones de cliente | X | X | X |
 

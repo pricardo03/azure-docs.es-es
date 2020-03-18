@@ -1,20 +1,17 @@
 ---
-title: Implementación de hosts dedicados de Azure mediante la CLI
+title: Implementación de máquinas virtuales Linux en hosts dedicados mediante la CLI
 description: Implemente máquinas virtuales en hosts dedicados mediante la CLI de Azure.
-services: virtual-machines-linux
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: ab9d7128748e99b75b7e1a7187a7958e18300759
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: ba40e610e31a1215ac90baf63a04b435b636d68a
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77483489"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127698"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Implementación de máquinas virtuales en hosts dedicados mediante la CLI de Azure
  
@@ -27,7 +24,7 @@ Asegúrese de tener instalada la CLI de Azure, versión 2.0.70 o posterior, y de
 ## <a name="limitations"></a>Limitaciones
 
 - Actualmente, los conjuntos de escalado de máquinas virtuales no se admiten en los hosts dedicados.
-- La versión inicial admite las siguientes series de máquinas virtuales: DSv3, ESv3, FSv2, LSv2 y MSv2. 
+- Los tamaños y tipos de hardware disponibles para hosts dedicados varían según la región. Para más información, consulte la [página de precios](https://aka.ms/ADHPricing) de hosts.
  
 
 ## <a name="create-resource-group"></a>Creación de un grupo de recursos 
@@ -80,7 +77,7 @@ az vm host group create \
  
 ## <a name="create-a-host"></a>Creación de un host 
 
-Ahora vamos a crear un host dedicado en el grupo host. Además de un nombre para el host, se le pedirá que proporcione el SKU del host. El SKU del host registra la serie de máquinas virtuales admitidas, así como la generación de hardware del host dedicado.  Se admiten los siguientes valores de SKU: DSv3_Type1 y ESv3_Type1.
+Ahora vamos a crear un host dedicado en el grupo host. Además de un nombre para el host, se le pedirá que proporcione el SKU del host. El SKU del host registra la serie de máquinas virtuales admitidas, así como la generación de hardware del host dedicado.  
 
 Para más información sobre los precios y los SKU de host, consulte [Precios de hosts dedicados de Azure](https://aka.ms/ADHPricing).
 

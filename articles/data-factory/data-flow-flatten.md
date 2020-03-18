@@ -1,39 +1,141 @@
 ---
-title: Transformación Aplanar de Mapping Data Flow
-description: Transformación Aplanar de Mapping Data Flow de Azure Data Factory
+title: Transformación Aplanar en el flujo de datos de asignación
+description: Desnormalice los datos jerárquicos mediante la transformación Aplanar.
 author: kromerm
 ms.author: makromer
+ms.review: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 415a093fd8a8fbe27e1d240b061548e18f2ca6b6
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.date: 03/09/2020
+ms.openlocfilehash: 74f6df1fbc749a5ec015afb954ca6b12cbe0f18f
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164736"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086952"
 ---
-# <a name="azure-data-factory-flatten-transformation"></a>Transformación Aplanar de Azure Data Factory
+# <a name="flatten-transformation-in-mapping-data-flow"></a>Transformación Aplanar en el flujo de datos de asignación
 
-La transformación Aplanar se puede usar para dinamizar los valores de matriz dentro de una estructura jerárquica en filas nuevas, esencialmente desnormalizando los datos.
+Use la transformación Aplanar para tomar valores de matriz incluidos en estructuras jerárquicas, como JSON, y expandirlos en filas individuales. Este proceso se conoce como desnormalización.
 
-![Cuadro de herramientas de la transformación](media/data-flow/flatten5.png "Cuadro de herramientas de la transformación")
+## <a name="configuration"></a>Configuración
 
-![Transformación Aplanar 1](media/data-flow/flatten7.png "Transformación Aplanar 1")
+La transformación Aplanar contiene los siguientes valores de configuración:
 
-## <a name="unroll-by"></a>Expandir por
+![Configuración de Aplanar](media/data-flow/flatten1.png "Configuración de Aplanar")
 
-En primer lugar, elija la columna de la matriz que quiere expandir y dinamizar.
+### <a name="unroll-by"></a>Expandir por
 
-![Configuración de la transformación Aplanar](media/data-flow/flatten1.png "Configuración de la transformación Aplanar")
+Seleccione la matriz que se va a expandir. Los datos de salida tendrán una fila por cada elemento de cada matriz. Si la matriz que se va a expandir de la fila de entrada tiene un valor NULL o está vacía, habrá una fila de salida con valores no expandidos con valor NULL.
 
-## <a name="unroll-root"></a>Expandir la raíz
+### <a name="unroll-root"></a>Expandir la raíz
 
-De manera predeterminada, ADF aplanará la estructura en la matriz de expansión que eligió anteriormente. O bien puede elegir una parte distinta de la jerarquía para expandirla. "Expandir la raíz" es una configuración opcional.
+De forma predeterminada, la transformación Aplanar expande una matriz sobre la jerarquía en la que existe. Opcionalmente, puede seleccionar una matriz como raíz de la expansión. La raíz de la expansión debe ser una matriz de objetos complejos que sea o que contenga la matriz que se va a expandir. Si se selecciona una raíz de expansión, los datos de salida contendrán al menos una fila por cada elemento de dicha raíz. Si la fila de entrada no tiene ningún elemento de la raíz de expansión, se quitará de los datos de salida. Al elegir una raíz de expansión, siempre se generará un número de filas menor o igual que el comportamiento predeterminado.
 
-## <a name="input-columns"></a>Columnas de entrada
+### <a name="flatten-mapping"></a>Asignación de aplanamiento
 
-Por último, elija la proyección de la estructura nueva en función de los campos de entrada, así como la columna normalizada que expandió.
+De forma similar a la transformación de selección, elija la proyección de la nueva estructura a partir de los campos de entrada y la matriz desnormalizada. Si se asigna una matriz desnormalizada, la columna de salida tendrá el mismo tipo de datos que la matriz. Si la matriz de expansión es una matriz de objetos complejos que contiene submatrices, la asignación de un elemento de dicha submatriz producirá una matriz.
+
+Consulte la pestaña de inspección y la vista previa de los datos para comprobar la salida de la asignación.
+
+## <a name="examples"></a>Ejemplos
+
+Consulte el siguiente objeto JSON como referencia para los ejemplos siguientes de la transformación Aplanar.
+
+``` json
+[{
+  "name":"MSFT","location":"Redmond", "satellites": ["Bay Area", "Shanghai"],
+  "goods": {
+    "trade":true, "customers":["government", "distributer", "retail"],
+    "orders":[
+        {"orderId":1,"orderTotal":123.34,"shipped":{"orderItems":[{"itemName":"Laptop","itemQty":20},{"itemName":"Charger","itemQty":2}]}},
+        {"orderId":2,"orderTotal":323.34,"shipped":{"orderItems":[{"itemName":"Mice","itemQty":2},{"itemName":"Keyboard","itemQty":1}]}}
+    ]}},
+{"name":"Company1","location":"Seattle", "satellites": ["New York"],
+  "goods":{"trade":false, "customers":["store1", "store2"],
+  "orders":[
+      {"orderId":4,"orderTotal":123.34,"shipped":{"orderItems":[{"itemName":"Laptop","itemQty":20},{"itemName":"Charger","itemQty":3}]}},
+      {"orderId":5,"orderTotal":343.24,"shipped":{"orderItems":[{"itemName":"Chair","itemQty":4},{"itemName":"Lamp","itemQty":2}]}}
+    ]}},
+{"name": "Company2", "location": "Bellevue",
+  "goods": {"trade": true, "customers":["Bank"], "orders": [{"orderId": 4, "orderTotal": 123.34}]}},
+{"name": "Company3", "location": "Kirkland"}]
+```
+
+### <a name="no-unroll-root-with-string-array"></a>Sin raíz de expansión, con matriz de cadenas
+
+| Expandir por | Expandir la raíz | Proyección |
+| --------- | ----------- | ---------- |
+| goods.customers | None | name <br> customer = goods.customer |
+
+#### <a name="output"></a>Output
+
+```
+{ 'MSFT', 'government'},
+{ 'MSFT', 'distributer'},
+{ 'MSFT', 'retail'},
+{ 'Company1', 'store'},
+{ 'Company1', 'store2'},
+{ 'Company2', 'Bank'},
+{ 'Company3', null}
+```
+
+### <a name="no-unroll-root-with-complex-array"></a>Sin raíz de expansión, con matriz compleja
+
+| Expandir por | Expandir la raíz | Proyección |
+| --------- | ----------- | ---------- |
+| goods.orders.shipped.orderItems | None | name <br> orderId = goods.orders.orderId <br> itemName = goods.orders.shipped.orderItems.itemName <br> itemQty = goods.orders.shipped.orderItems.itemQty <br> location = location |
+
+#### <a name="output"></a>Output
+
+```
+{ 'MSFT', 1, 'Laptop', 20, 'Redmond'},
+{ 'MSFT', 1, 'Charger', 2, 'Redmond'},
+{ 'MSFT', 2, 'Mice', 2, 'Redmond'},
+{ 'MSFT', 2, 'Keyboard', 1, 'Redmond'},
+{ 'Company1', 4, 'Laptop', 20, 'Seattle'},
+{ 'Company1', 4, 'Charger', 3, 'Seattle'},
+{ 'Company1', 5, 'Chair', 4, 'Seattle'},
+{ 'Company1', 5, 'Lamp', 2, 'Seattle'},
+{ 'Company2', 4, null, null, 'Bellevue'},
+{ 'Company3', null, null, null, 'Kirkland'}
+```
+
+### <a name="same-root-as-unroll-array"></a>Misma raíz que la matriz de expansión
+
+| Expandir por | Expandir la raíz | Proyección |
+| --------- | ----------- | ---------- |
+| goods.orders | goods.orders | name <br> goods.orders.shipped.orderItems.itemName <br> goods.customers <br> ubicación |
+
+#### <a name="output"></a>Output
+
+```
+{ 'MSFT', ['Laptop','Charger'], ['government','distributer','retail'], 'Redmond'},
+{ 'MSFT', ['Mice', 'Keyboard'], ['government','distributer','retail'], 'Redmond'},
+{ 'Company1', ['Laptop','Charger'], ['store', 'store2'], 'Seattle'},
+{ 'Company1', ['Chair', 'Lamp'], ['store', 'store2'], 'Seattle'},
+{ 'Company2', null, ['Bank'], 'Bellevue'}
+```
+
+### <a name="unroll-root-with-complex-array"></a>Raíz de expansión, con matriz compleja
+
+| Expandir por | Expandir la raíz | Proyección |
+| --------- | ----------- | ---------- |
+| goods.orders.shipped.orderItem | goods.orders |name <br> orderId = goods.orders.orderId <br> itemName = goods.orders.shipped.orderItems.itemName <br> itemQty = goods.orders.shipped.orderItems.itemQty <br> location = location |
+
+#### <a name="output"></a>Output
+
+```
+{ 'MSFT', 1, 'Laptop', 20, 'Redmond'},
+{ 'MSFT', 1, 'Charger', 2, 'Redmond'},
+{ 'MSFT', 2, 'Mice', 2, 'Redmond'},
+{ 'MSFT', 2, 'Keyboard', 1, 'Redmond'},
+{ 'Company1', 4, 'Laptop', 20, 'Seattle'},
+{ 'Company1', 4, 'Charger', 3, 'Seattle'},
+{ 'Company1', 5, 'Chair', 4, 'Seattle'},
+{ 'Company1', 5, 'Lamp', 2, 'Seattle'},
+{ 'Company2', 4, null, null, 'Bellevue'}
+```
 
 ## <a name="data-flow-script"></a>Script de flujo de datos
 
@@ -53,25 +155,16 @@ foldDown(unroll(<unroll cols>),
 ### <a name="example"></a>Ejemplo
 
 ```
-source(output(
-        name as string,
-        location as string,
-        satellites as string[],
-        goods as (trade as boolean, customers as string[], orders as (orderId as string, orderTotal as double, shipped as (orderItems as (itemName as string, itemQty as string)[]))[])
-    ),
-    allowSchemaDrift: true,
-    validateSchema: false) ~> source2
-source2 foldDown(unroll(goods.orders.shipped.orderItems),
+source foldDown(unroll(goods.orders.shipped.orderItems, goods.orders),
     mapColumn(
         name,
-        each(goods.orders, match(type == 'integer')),
-        each(goods.orders.shipped.orderItems, match(true())),
-        location
-    )) ~> Flatten1
-Flatten1 sink(allowSchemaDrift: true,
-    validateSchema: false,
-    skipDuplicateMapInputs: true,
-    skipDuplicateMapOutputs: true) ~> sink1
+        orderId = goods.orders.orderId,
+        itemName = goods.orders.shipped.orderItems.itemName,
+        itemQty = goods.orders.shipped.orderItems.itemQty,
+        location = location
+    ),
+    skipDuplicateMapInputs: false,
+    skipDuplicateMapOutputs: false) 
 ```    
 
 ## <a name="next-steps"></a>Pasos siguientes

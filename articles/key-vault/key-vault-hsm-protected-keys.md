@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
-ms.openlocfilehash: d7f9527aa5aa3353dc9087f4bcc5f3a5fb241637
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 048e5072c592cf2de32e533014c99034572a1c47
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184560"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082904"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importación de claves protegidas con HSM en Key Vault
 
@@ -31,10 +31,19 @@ Esta funcionalidad no está disponible para Azure China 21Vianet.
 
 La transferencia de claves protegidas con HSM a Key Vault se admite a través de dos métodos diferentes en función de los HSM que se usen. Use la tabla siguiente para determinar qué método debe usar para generar los HSM y transferir sus propias claves protegidas con HSM para usarlas con Azure Key Vault. 
 
-|Nombre del proveedor de HSM|Modelos de HSM compatibles|Método de transferencia de clave HSM compatible|
-|---|---|---|
-|Thales|<ul><li>Familia SafeNet Luna HSM 7 con la versión del firmware 7.3 o posterior</li></ul>| [Use el nuevo método BYOK (versión preliminar)](hsm-protected-keys-vendor-agnostic-byok.md)|
-|nCipher|<ul><li>Familia nShield de HSM</li></ul>|[Use el método BYOK heredado](hsm-protected-keys-legacy.md)|
+|Nombre del proveedor|Tipo de proveedor|Modelos de HSM compatibles|Método de transferencia de clave HSM compatible|
+|---|---|---|---|
+|nCipher|Fabricante|<ul><li>Familia nShield de HSM</li></ul>|[Use el método BYOK heredado](hsm-protected-keys-legacy.md)|
+|Thales|Fabricante|<ul><li>Familia SafeNet Luna HSM 7 con la versión del firmware 7.3 o posterior</li></ul>| [Use el nuevo método BYOK (versión preliminar)](hsm-protected-keys-vendor-agnostic-byok.md)|
+|Fortanix|HSM como servicio|<ul><li>Self-Defending Key Management Service (SDKMS)</li></ul>|[Use el nuevo método BYOK (versión preliminar)](hsm-protected-keys-vendor-agnostic-byok.md)|
+
+
+
+
+
+
+
+
 
 
 ## <a name="next-steps"></a>Pasos siguientes

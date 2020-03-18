@@ -8,13 +8,13 @@ author: Blackmist
 ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 09/18/2019
-ms.openlocfilehash: f46dd2b30ca84a7e6a1b0fc34ef0fa5bafffaef5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 03/05/2020
+ms.openlocfilehash: 68ad9cc47d68f7bc3ae952f7e458781cdc1c4ab2
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721122"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129777"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Entrenamiento de modelos con Azure Machine Learning
 
@@ -28,6 +28,8 @@ Azure Machine Learning proporciona varias maneras de entrenar los modelos, desde
     | [Aprendizaje automático automatizado](#automated-machine-learning) | El aprendizaje automático automatizado el permite **entrenar modelos sin un amplio conocimiento de programación ni de ciencia de datos**. En el caso de las personas con conocimientos de programación y de ciencia de datos, proporciona una manera de ahorrar tiempo y recursos mediante la automatización de la selección de algoritmos y la optimización de los hiperparámetros. No tiene que preocuparse de definir una configuración de ejecución al usar el aprendizaje automático automatizado. |
     | [Estimadores](#estimators) | Las clases de estimador **facilitan el entrenamiento de modelos en función de marcos populares de aprendizaje automático**. Hay clases de estimador para **Scikit-learn**, **PyTorch**, **TensorFlow** y **Chainer**. También hay un estimador genérico que se puede usar con marcos que aún no tienen una clase de estimador dedicada. No tiene que preocuparse de definir una configuración de ejecución al usar estimadores. |
     | [Canalización de aprendizaje automático](#machine-learning-pipeline) | Las canalizaciones no son un método de entrenamiento distinto, sino una **manera de definir un flujo de trabajo con pasos modulares y reutilizables**, que puede incluir el entrenamiento como parte del flujo de trabajo. Las canalizaciones de aprendizaje automático admiten el uso de aprendizaje automático automatizado, estimadores y configuración de ejecución para entrenar modelos. Como las canalizaciones no se centran específicamente en el entrenamiento, las razones para usar una canalización son más variadas que los demás métodos de entrenamiento. Por lo general, puede usar una canalización cuando:<br>* Quiere **programar procesos desatendidos**, como trabajos de entrenamiento de larga duración o la preparación de los datos.<br>* Use **varios pasos** coordinados entre ubicaciones de almacenamiento y recursos de proceso heterogéneos.<br>* Use la canalización como una **plantilla reutilizable** para escenarios específicos, como el reentrenamiento o la puntuación por lotes.<br>* **Haga seguimiento y realice versiones de sus orígenes de datos, entradas y salidas** del flujo de trabajo.<br>* El flujo de trabajo **lo implementan distintos equipos que trabajan en pasos específicos de manera independiente**. Luego, los pasos se pueden reunir en una canalización para implementar el flujo de trabajo. |
+
++ [SDK de Azure Machine Learning para Python](#r-sdk): El SDK usa el paquete de reticulate para enlazar con el SDK de Python de Azure Machine Learning. Esto permite acceder a los objetos y métodos principales implementados en el SDK de Python desde cualquier entorno de R.
 
 + **Diseñador**: el diseñador de Azure Machine Learning (versión preliminar) proporciona un punto de entrada sencillo al aprendizaje automático para crear una prueba de conceptos o para los usuarios que no tengan mucha experiencia en la codificación. Permite entrenar modelos mediante una interfaz de usuario basada en web de arrastrar y colocar. Puede usar el código de Python como parte del diseño o entrenar modelos sin necesidad de escribir nada de código.
 
@@ -67,7 +69,7 @@ Defina las iteraciones, la configuración de hiperparámetros, la caracterizaci�
 * [Ejemplos: ejemplos de Jupyter Notebook para el aprendizaje automático automatizado](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
 * [Cómo: Configuración de experimentos de ML automatizado en Python](how-to-configure-auto-train.md)
 * [Cómo: Entrenamiento automático de un modelo de previsión de series temporales](how-to-auto-train-forecast.md)
-* [Instrucciones: Cree, explore e implemente experimentos de aprendizaje automático automatizado con [Azure Machine Learning Studio](how-to-create-portal-experiments.md)
+* [Cómo: Cree, explore e implemente experimentos de aprendizaje automático automatizado con Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md)
 
 ### <a name="estimators"></a>Estimadores
 
@@ -88,6 +90,15 @@ Las canalizaciones de aprendizaje automático pueden usar los métodos de entren
 * [Ejemplos: ejemplos de Jupyter Notebook para las canalizaciones de aprendizaje automático](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [Ejemplos: canalización con aprendizaje automático automatizado](https://aka.ms/pl-automl)
 * [Ejemplos: canalización con estimadores](https://aka.ms/pl-estimator)
+
+## <a name="r-sdk"></a>SDK de R
+
+El SDK de R permite usar el lenguaje R con Azure Machine Learning. El SDK usa el paquete de reticulate para enlazar con el SDK de Python de Azure Machine Learning. Esto permite acceder a los objetos y métodos principales implementados en el SDK de Python desde cualquier entorno de R.
+
+Para más información, consulte los siguientes artículos.
+
+* [Tutorial: Crear un modelo de regresión logística](tutorial-1st-r-experiment.md)
+* [Referencia del SDK de Azure Machine Learning para R](https://azure.github.io/azureml-sdk-for-r/index.html)
 
 ## <a name="azure-machine-learning-designer"></a>Diseñador de Azure Machine Learning
 

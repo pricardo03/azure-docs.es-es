@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 01/14/2020
-ms.openlocfilehash: 6f4e0744aad5f053cdda0a52b382ad3c86982c2f
-ms.sourcegitcommit: d48afd9a09f850b230709826d4a5cd46e57d19fa
+ms.date: 03/11/2020
+ms.openlocfilehash: fa39c8f65b00283044ef31dc7577a4668b3e634b
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75904927"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127636"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configure claves administradas por el cliente para cifrar los datos en reposo para los entornos de servicio de integración (ISE) en Azure Logic Apps
 
@@ -19,7 +19,7 @@ Azure Logic Apps se basa en Azure Storage para almacenar y [cifrar automáticame
 
 Al crear un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) para hospedar las aplicaciones lógicas y desea tener un mayor control sobre las claves de cifrado que usa Azure Storage, puede configurar, usar y administrar su propia clave mediante [Azure Key Vault](../key-vault/key-vault-overview.md). Esta funcionalidad también se conoce como "Bring Your Own Key" (BYOK) y la clave se denomina "clave administrada por el cliente".
 
-En este tema se muestra cómo configurar y especificar su propia clave de cifrado que se usará al crear el ISE. 
+En este tema se muestra cómo configurar y especificar su propia clave de cifrado que se usará al crear el ISE mediante la API REST de Logic Apps. Para ver los pasos generales para crear un ISE mediante la API REST de Logic Apps, consulte [Creación de un entorno del servicio de integración (ISE) mediante la API REST de Logic Apps](../logic-apps/create-integration-service-environment-rest-api.md).
 
 ## <a name="considerations"></a>Consideraciones
 
@@ -33,9 +33,9 @@ En este tema se muestra cómo configurar y especificar su propia clave de cifrad
 
 * En un plazo de *30 minutos* después de enviar la solicitud HTTPS PUT que crea su ISE, debe [proporcionar acceso al almacén de claves a la identidad asignada por el sistema de ISE](#identity-access-to-key-vault). En caso contrario, se produce un error en la creación de ISE que tendrá como consecuencia un error de permisos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Los mismos [requisitos previos](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#prerequisites) y [requisitos para habilitar el acceso a su ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access) que cuando se crea un ISE en Azure Portal
 
 * Un almacén de claves de Azure con las propiedades **Soft Delete** y **Do Not Purge**
 
@@ -66,6 +66,15 @@ Para crear su ISE mediante una llamada a la API de REST de Logic Apps, realice e
 
 > [!IMPORTANT]
 > La versión 2019-05-01 de la API de REST de Logic Apps requiere que realice su propia solicitud HTTP PUT para conectores ISE.
+
+Normalmente, la implementación tarda un máximo de dos horas en completarse. En ocasiones, la implementación puede tardar hasta cuatro horas. Para comprobar el estado de implementación, en [Azure Portal](https://portal.azure.com), en la barra de herramientas de Azure, seleccione el icono de notificaciones, que abre el panel de notificaciones.
+
+> [!NOTE]
+> Si se produce un error en la implementación o se elimina el ISE, Azure podría tardar hasta una hora en liberar las subredes. Debido a este retraso, es posible que deba esperar antes de volver a usar esas subredes en otro ISE.
+>
+> Si elimina su red virtual, Azure generalmente tarda hasta dos horas antes de liberar las subredes, pero esta operación puede llevar más tiempo. 
+> Cuando elimine redes virtuales, asegúrese de que no haya recursos conectados. 
+> Consulte [Eliminar red virtual](../virtual-network/manage-virtual-network.md#delete-a-virtual-network).
 
 ### <a name="request-header"></a>Encabezado de solicitud
 

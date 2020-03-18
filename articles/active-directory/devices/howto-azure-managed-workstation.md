@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d713dd968956f5bcc93e7b53ed2d7801e5d7bec2
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 5d02b0299b6267fdd9d880d5bc0fe8c93d0edadc
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561931"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672603"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Implementación de una estación de trabajo segura administrada por Azure
 
@@ -57,14 +57,14 @@ Para automatizar el aprovisionamiento de licencias, considere la posibilidad de 
 
 Azure Active Directory (Azure AD) administra usuarios, grupos y dispositivos para las estaciones de trabajo de administrador. Habilite las características y los servicios de identidad con una [cuenta de administrador](../users-groups-roles/directory-assign-admin-roles.md).
 
-Cuando se crea la cuenta de administrador de la estación de trabajo protegida, la cuenta se expone a la estación de trabajo actual. Asegúrese de usar un dispositivo seguro conocido para realizar la configuración inicial y toda la configuración global. Para reducir el riesgo de ataques en la experiencia inicial, tenga en cuenta los siguientes [consejos para evitar infecciones de malware](https://docs.microsoft.com/windows/security/threat-protection/intelligence/prevent-malware-infection).
+Cuando se crea la cuenta de administrador de la estación de trabajo protegida, la cuenta se expone a la estación de trabajo actual. Asegúrese de usar un dispositivo seguro conocido para realizar la configuración inicial y toda la configuración global. Para reducir el riesgo de ataques en la experiencia inicial, tenga en cuenta los siguientes [consejos para evitar infecciones de malware](/windows/security/threat-protection/intelligence/prevent-malware-infection).
 
 Exija la autenticación multifactor, al menos a los administradores. Consulte más información sobre la [implementación de MFA basada en la nube](../authentication/howto-mfa-getstarted.md).
 
 ### <a name="azure-ad-users-and-groups"></a>Usuarios y grupos de Azure AD
 
 1. En Azure Portal, vaya a **Azure Active Directory** > **Usuarios** > **Nuevo usuario**.
-1. Cree el administrador del dispositivo con los pasos descritos en el [tutorial para crear un usuario](https://docs.microsoft.com/Intune/quickstart-create-user).
+1. Cree el administrador del dispositivo con los pasos descritos en el [tutorial para crear un usuario](/Intune/quickstart-create-user).
 1. Especifique:
 
    * **Nombre**: Administrador de la estación de trabajo segura.
@@ -127,7 +127,7 @@ En el Portal de Azure:
 1. Cambie el valor de **Ámbito de usuario de MDM** a **Todos**.
 1. Seleccione **Guardar**.
 
-Estos pasos le permiten administrar cualquier dispositivo con Intune. Para obtener más información, consulte [Inicio rápido de Intune: Configurar la inscripción automática para dispositivos Windows 10](https://docs.microsoft.com/Intune/quickstart-setup-auto-enrollment). Creará directivas de cumplimiento y configuración de Intune en un paso posterior.
+Estos pasos le permiten administrar cualquier dispositivo con Intune. Para obtener más información, consulte [Inicio rápido de Intune: Configurar la inscripción automática para dispositivos Windows 10](/Intune/quickstart-setup-auto-enrollment). Creará directivas de cumplimiento y configuración de Intune en un paso posterior.
 
 #### <a name="azure-ad-conditional-access"></a>Acceso condicional de Azure AD
 
@@ -137,7 +137,7 @@ El acceso condicional de Azure AD puede ayudarle a restringir tareas administra
 
 ### <a name="configure-enrollment-status"></a>Configuración del estado de la inscripción
 
-Es importante asegurarse de que la estación de trabajo segura es un dispositivo limpio de confianza. Al comprar dispositivos nuevos, puede insistir en que se establezcan en la configuración de fábrica de [Windows 10 Pro en modo S](https://docs.microsoft.com/Windows/deployment/Windows-10-pro-in-s-mode), lo que limita la exposición a las vulnerabilidades durante la administración de la cadena de suministro. Después de recibir un dispositivo de su proveedor, puede usar Autopilot para cambiarlo del modo S. A continuación se explica cómo aplicar el proceso de transformación.
+Es importante asegurarse de que la estación de trabajo segura es un dispositivo limpio de confianza. Al comprar dispositivos nuevos, puede insistir en que se establezcan en la configuración de fábrica de [Windows 10 Pro en modo S](/Windows/deployment/Windows-10-pro-in-s-mode), lo que limita la exposición a las vulnerabilidades durante la administración de la cadena de suministro. Después de recibir un dispositivo de su proveedor, puede usar Autopilot para cambiarlo del modo S. A continuación se explica cómo aplicar el proceso de transformación.
 
 Para asegurarse de que los dispositivos estén completamente configurados antes de su uso, Intune proporciona un medio de **bloquear el uso del dispositivo hasta que todos los perfiles y aplicaciones estén instalados**.
 
@@ -162,7 +162,7 @@ En Intune en Azure Portal:
 
 1. Seleccione **Next** (Siguiente).
 
-   * Para el **Modo de implementación**, elija **Implementación automática (versión preliminar)** . Los dispositivos con este perfil se asocian al usuario que inscribe el dispositivo. Se necesitan credenciales de usuario para inscribir el dispositivo. Es esencial tener en cuenta que la implementación de un dispositivo en el modo **Implementación automática**  le permitirá implementar equipos portátiles en un modelo compartido. No se producirá ninguna asignación de usuario hasta que el dispositivo se asigne a un usuario por primera vez. Por consiguiente, las directivas de usuario como BitLocker no se habilitarán hasta que se complete una asignación de usuario. Para obtener más información sobre cómo iniciar sesión en un dispositivo protegido, vea la información relacionada con los [perfiles seleccionados](https://docs.microsoft.com/intune/device-profile-assign).
+   * Para el **Modo de implementación**, elija **Implementación automática (versión preliminar)** . Los dispositivos con este perfil se asocian al usuario que inscribe el dispositivo. Se necesitan credenciales de usuario para inscribir el dispositivo. Es esencial tener en cuenta que la implementación de un dispositivo en el modo **Implementación automática**  le permitirá implementar equipos portátiles en un modelo compartido. No se producirá ninguna asignación de usuario hasta que el dispositivo se asigne a un usuario por primera vez. Por consiguiente, las directivas de usuario como BitLocker no se habilitarán hasta que se complete una asignación de usuario. Para obtener más información sobre cómo iniciar sesión en un dispositivo protegido, vea la información relacionada con los [perfiles seleccionados](/intune/device-profile-assign).
    * En el cuadro **Unirse a Azure AD como** debe aparecer **Unido a Azure AD** atenuado.
    * Seleccione el Idioma (región) y el tipo de cuenta de usuario **Estándar**. 
 
@@ -175,7 +175,7 @@ En Intune en Azure Portal:
 1. Seleccione **Next** (Siguiente).
 1. Seleccione **Crear** para crear el perfil. El perfil de implementación de Autopilot ya está disponible para asignarse a dispositivos.
 
-La inscripción de dispositivos en AutoPilot proporciona una experiencia de usuario diferente en función del tipo de dispositivo y el rol. En nuestro ejemplo de implementación, se muestra un modelo en el que los dispositivos protegidos se implementan de forma masiva y se pueden compartir, pero cuando se usan por primera vez, los dispositivos se asignan a un usuario. Para más información, consulte [¿Qué es la inscripción de dispositivos?](https://docs.microsoft.com/intune/device-enrollment).
+La inscripción de dispositivos en AutoPilot proporciona una experiencia de usuario diferente en función del tipo de dispositivo y el rol. En nuestro ejemplo de implementación, se muestra un modelo en el que los dispositivos protegidos se implementan de forma masiva y se pueden compartir, pero cuando se usan por primera vez, los dispositivos se asignan a un usuario. Para más información, consulte [¿Qué es la inscripción de dispositivos?](/intune/device-enrollment).
 
 ### <a name="configure-windows-update"></a>Configuración de Windows Update
 
@@ -203,7 +203,7 @@ En Azure Portal:
 1. Seleccione **Crear**.
 1. En la pestaña **Asignaciones**, agregue el grupo **Estaciones de trabajo seguras**.
 
-Para obtener más información sobre las directivas de Windows Update, vea [Directiva CSP: actualización](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-update).
+Para obtener más información sobre las directivas de Windows Update, vea [Directiva CSP: actualización](/windows/client-management/mdm/policy-csp-update).
 
 ### <a name="windows-defender-atp-intune-integration"></a>Integración de Intune con ATP de Windows Defender
 
@@ -223,7 +223,7 @@ Para configurar la integración de ATP de Windows Defender e Intune, vaya a Azur
 1. Establezca **Conectar dispositivos Windows de la versión 10.0.15063 y posteriores a ATP de Windows Defender** en **Activado**.
 1. Seleccione **Guardar**.
 
-Para obtener más información, consulte [Protección contra amenazas avanzada de Windows Defender](https://docs.microsoft.com/Windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection).
+Para obtener más información, consulte [Protección contra amenazas avanzada de Windows Defender](/Windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection).
 
 ### <a name="finish-workstation-profile-hardening"></a>Finalización de la protección del perfil de la estación de trabajo
 
@@ -245,7 +245,7 @@ Cuando el script se ejecute correctamente, podrá actualizar los perfiles y las 
 * Aquí encontrará los perfiles de configuración de dispositivos de Intune creados por los scripts: **Azure Portal** > **Microsoft Intune** > **Configuración del dispositivo** > **Perfiles**.
 * Aquí encontrará las directivas de cumplimiento de dispositivos de Intune creadas por los scripts: **Azure Portal** > **Microsoft Intune** > **Configuración del dispositivo** > **Directivas**.
 
-Para revisar los cambios realizados por los scripts, puede exportar los perfiles. De este modo, se podrá determinar si es necesaria una protección adicional, de conformidad con la [documentación de SECCON](https://docs.microsoft.com/windows/security/threat-protection/windows-security-configuration-framework/windows-security-configuration-framework).
+Para revisar los cambios realizados por los scripts, puede exportar los perfiles. De este modo, se podrá determinar si es necesaria una protección adicional, de conformidad con la [documentación de SECCON](/windows/security/threat-protection/windows-security-configuration-framework/windows-security-configuration-framework).
 
 Ejecute el script de exportación de datos de Intune `DeviceConfiguration_Export.ps1` desde el [repositorio de GitHub DeviceConfiguration](https://github.com/microsoftgraph/powershell-intune-samples/tree/master/DeviceConfiguration) para exportar todos los perfiles de Intune actuales.
 
@@ -260,7 +260,7 @@ Con las instrucciones indicadas aquí, ha implementado una estación de trabajo 
 
 ### <a name="set-rules-in-the-firewall-configuration-service-provider-csp"></a>Establecimiento de reglas en el proveedor de servicios de configuración (CSP) del firewall
 
-Puede realizar cambios adicionales en la administración de las reglas de entrada y de salida según sea necesario para los puntos de conexión permitidos y bloqueados. Al mismo tiempo que aumenta la protección de la estación de trabajo segura, puede reducir la restricción que deniega todo el tráfico entrante y saliente. Existe la posibilidad de agregar sitios de salida permitidos para incluir sitios web comunes y de confianza. Para obtener más información, consulte [CSP de firewall](https://docs.microsoft.com/Windows/client-management/mdm/firewall-csp).
+Puede realizar cambios adicionales en la administración de las reglas de entrada y de salida según sea necesario para los puntos de conexión permitidos y bloqueados. Al mismo tiempo que aumenta la protección de la estación de trabajo segura, puede reducir la restricción que deniega todo el tráfico entrante y saliente. Existe la posibilidad de agregar sitios de salida permitidos para incluir sitios web comunes y de confianza. Para obtener más información, consulte [CSP de firewall](/Windows/client-management/mdm/firewall-csp).
 
 La administración restrictiva de tráfico de dirección URL incluye lo siguiente:
 
@@ -302,7 +302,7 @@ Para obtener más información sobre cómo configurar las opciones de Chrome, ve
 
 En modo seguro, la instalación de aplicaciones está restringida al portal de empresa de Intune. Aun así, es necesario acceder a Microsoft Store para instalar el portal. En la solución protegida, puede hacer que el portal de empresa esté disponible para todos los dispositivos mediante un modo sin conexión.
 
-Una copia administrada por Intune del [Portal de empresa](https://docs.microsoft.com/Intune/store-apps-company-portal-app) le proporciona acceso a petición a otras herramientas que puede insertar en los usuarios de las estaciones de trabajo protegidas.
+Una copia administrada por Intune del [Portal de empresa](/Intune/store-apps-company-portal-app) le proporciona acceso a petición a otras herramientas que puede insertar en los usuarios de las estaciones de trabajo protegidas.
 
 Es posible que necesite instalar aplicaciones de Windows 32 bits u otras aplicaciones cuya implementación requieran una preparación especial. En tales casos, la [Herramienta de preparación de contenido de Win32 de Microsoft](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) puede proporcionar un archivo de formato `.intunewin` listo para usar para la instalación.
 
@@ -371,11 +371,11 @@ Una vez que haya configurado el dispositivo, realice una revisión y compruebe l
 
 ## <a name="assign-devices"></a>Asignación de dispositivos
 
-Para asignar usuarios y dispositivos, deberá asignar los [perfiles seleccionados](https://docs.microsoft.com/intune/device-profile-assign) al grupo de seguridad. Todos los usuarios nuevos que requieran permisos para el servicio deberán agregarse también al grupo de seguridad.
+Para asignar usuarios y dispositivos, deberá asignar los [perfiles seleccionados](/intune/device-profile-assign) al grupo de seguridad. Todos los usuarios nuevos que requieran permisos para el servicio deberán agregarse también al grupo de seguridad.
 
 ## <a name="using-sentinel-and-windows-defender-atp-to-monitor-and-respond-to-security-incidents"></a>Uso de Sentinel y ATP de Windows Defender para supervisar y responder a incidentes de seguridad
 
-La supervisión de la implementación de la estación de trabajo segura puede realizarse mediante la habilitación de [Sentinel] y el uso de la [Administración de amenazas y vulnerabilidades](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/next-gen-threat-and-vuln-mgt). La guía no proporcionará una búsqueda exhaustiva de amenazas, sino que proporcionará esfuerzos buenos de sentido común para supervisar y responder a posibles incidentes de seguridad.
+La supervisión de la implementación de la estación de trabajo segura puede realizarse mediante la habilitación de [Sentinel] y el uso de la [Administración de amenazas y vulnerabilidades](/windows/security/threat-protection/microsoft-defender-atp/next-gen-threat-and-vuln-mgt). La guía no proporcionará una búsqueda exhaustiva de amenazas, sino que proporcionará esfuerzos buenos de sentido común para supervisar y responder a posibles incidentes de seguridad.
 
 Se usará **Azure Sentinel** para lo siguiente: 
 
@@ -412,7 +412,7 @@ Usaremos **ATP de Windows Defender (WDATP)** para lo siguiente:
 * Usar el panel para identificar vulnerabilidades de nivel de máquina durante las investigaciones.
 * Extraer correcciones a Intune.
 
-Configure el [Panel de ATP de Defender](https://securitycenter.windows.com/machines). Uso de la guía en [Información general del panel de Administración de amenazas y vulnerabilidades](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/tvm-dashboard-insights).
+Configure el [Panel de ATP de Defender](https://securitycenter.windows.com/machines). Uso de la guía en [Información general del panel de Administración de amenazas y vulnerabilidades](/windows/security/threat-protection/microsoft-defender-atp/tvm-dashboard-insights).
 
 ## <a name="monitoring-application-activity-using-microsoft-monitoring-agent-mma"></a>Supervisión de la actividad de la aplicación mediante Microsoft Monitoring Agent (MMA)
 A partir de la estación de trabajo especializada, el bloqueador de aplicaciones está habilitado para la supervisión de la actividad de la aplicación en una estación de trabajo. Para que la supervisión se integre en el área de trabajo de Log Analytics, se debe seguir una configuración y un agente de MMA. 
@@ -449,18 +449,18 @@ El registro de aplicaciones estará disponible en el área de trabajo selecciona
 
 ## <a name="monitoring"></a>Supervisión
 
-* Obtención de información sobre cómo [Detectar amenazas con Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats)
-* [Investigación de incidentes con Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-investigate-cases)
-* [Configuración de respuestas automatizadas frente a amenazas en Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-respond-threats-playbook)
-* Descripción de la revisión de la [Puntuación de exposición](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/tvm-exposure-score)
-* Revisión de las [Recomendaciones de seguridad](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/tvm-security-recommendation)
-* Administración de las [Correcciones](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/tvm-remediation) de seguridad
-* Administración de [Detección y respuesta de puntos de conexión](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
-* Supervisión de los perfiles con la [Supervisión de perfiles de Intune](https://docs.microsoft.com/intune/device-profile-monitor)
+* Obtención de información sobre cómo [Detectar amenazas con Azure Sentinel](/azure/sentinel/tutorial-detect-threats)
+* [Investigación de incidentes con Azure Sentinel](/azure/sentinel/tutorial-investigate-cases)
+* [Configuración de respuestas automatizadas frente a amenazas en Azure Sentinel](/azure/sentinel/tutorial-respond-threats-playbook)
+* Descripción de la revisión de la [Puntuación de exposición](/windows/security/threat-protection/microsoft-defender-atp/tvm-exposure-score)
+* Revisión de las [Recomendaciones de seguridad](/windows/security/threat-protection/microsoft-defender-atp/tvm-security-recommendation)
+* Administración de las [Correcciones](/windows/security/threat-protection/microsoft-defender-atp/tvm-remediation) de seguridad
+* Administración de [Detección y respuesta de puntos de conexión](/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
+* Supervisión de los perfiles con la [Supervisión de perfiles de Intune](/intune/device-profile-monitor)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre [Microsoft Intune](https://docs.microsoft.com/intune/index).
+* Obtenga más información sobre [Microsoft Intune](/intune/index).
 * Descripción de [Azure AD](../index.yml).
-* Trabaje con [Advanced Threat Protection de Microsoft Defender](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection).
-* Descubra [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/).
+* Trabaje con [Advanced Threat Protection de Microsoft Defender](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection).
+* Descubra [Azure Sentinel](/azure/sentinel/).

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 106f83e4c8fdf33ac8752e5942dbb22a2df78693
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f2703994d3fe8765662e6a0205d63cef9327e17a
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840509"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080191"
 ---
 # <a name="image-analysis-cognitive-skill"></a>Aptitud cognitiva de análisis de imágenes
 
@@ -35,7 +35,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 | Nombre de parámetro     | Descripción |
 |--------------------|-------------|
 | defaultLanguageCode   |  Cadena que indica el idioma que se devolverá. Este servicio devuelve los resultados de reconocimiento en un idioma concreto. Si esta no se especifica este parámetro, se usa el valor predeterminado "en". <br/><br/>Estos son los idiomas admitidos: <br/>*en*: inglés (predeterminado) <br/> *es*: español <br/> *ja*: japonés <br/> *pt*: portugués <br/> *zh*: chino simplificado|
-| visualFeatures |  Matriz de cadenas que indica los tipos de características visual que se devolverán. Los tipos de características visuales válidos incluyen:  <ul><li>*adult*: detecta si la imagen es de naturaleza pornográfica (representa desnudez o un acto sexual) o cruenta (muestra sangre o violencia extrema). También se detecta contenido provocativo (esto es, contenido subido de tono).</li><li>*brands*: detecta varias marcas en una imagen, incluida la ubicación aproximada. La característica visual *brands* solo está disponible en inglés.</li><li> *categories*: clasifica el contenido de la imagen según una taxonomía definida en la [documentación de Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) de Cognitive Services. </li><li> *color*: determina el color de énfasis, el color dominante y si la imagen está en blanco y negro.</li><li>*description*: describe el contenido de la imagen con una oración completa en los idiomas que se admiten.</li><li>*faces*: detecta si hay caras presentes. Si las hay, indica las coordenadas, el género y la edad.</li><li>  *ImageType*: detecta si la imagen está prediseñada o si es un dibujo lineal.</li><li>  *objects*: detecta varios objetos en una imagen, incluida la ubicación aproximada. La característica visual *objects* solo está disponible en inglés.</li><li> *Etiquetas*: etiquetas de la imagen con una lista detallada de palabras relacionadas con el contenido de la imagen.</li></ul> Los nombres de las características visuales distinguen entre mayúsculas y minúsculas.|
+| visualFeatures |  Matriz de cadenas que indica los tipos de características visual que se devolverán. Los tipos de características visuales válidos incluyen:  <ul><li>*adult*: detecta si la imagen es de naturaleza pornográfica (representa desnudez o un acto sexual) o cruenta (muestra sangre o violencia extrema). También se detecta contenido provocativo (esto es, contenido subido de tono).</li><li>*brands*: detecta varias marcas en una imagen, incluida la ubicación aproximada. La característica visual *brands* solo está disponible en inglés.</li><li> *categories*: clasifica el contenido de la imagen según una taxonomía definida en la [documentación de Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) de Cognitive Services. </li><li>*description*: describe el contenido de la imagen con una oración completa en los idiomas que se admiten.</li><li>*faces*: detecta si hay caras presentes. Si las hay, indica las coordenadas, el género y la edad.</li><li> *objects*: detecta varios objetos en una imagen, incluida la ubicación aproximada. La característica visual *objects* solo está disponible en inglés.</li><li> *Etiquetas*: etiquetas de la imagen con una lista detallada de palabras relacionadas con el contenido de la imagen.</li></ul> Los nombres de las características visuales distinguen entre mayúsculas y minúsculas. Tenga en cuenta que las características visuales *color* y *imageType* han quedado en desuso, pero todavía se puede acceder a esta funcionalidad mediante una [aptitud personalizada](https://go.microsoft.com/fwlink/?linkid=2121117).|
 | detalles   | Matriz de cadenas que indica qué detalles específicos del dominio que se devolverán. Los tipos de características visuales válidos incluyen: <ul><li>*celebrities*: identifica celebridades si se detectan en la imagen.</li><li>*landmarks*: identifica puntos de referencia si se detectan en la imagen. </li></ul> |
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud
@@ -470,20 +470,6 @@ Puede definir asignaciones de campos de salida para propiedades de nivel inferio
             ]
           }
         ],
-        "color": {
-          "dominantColorForeground": "Brown",
-          "dominantColorBackground": "Brown",
-          "dominantColors": [
-            "Brown",
-            "Black"
-          ],
-          "accentColor": "873B59",
-          "isBwImg": false
-        },
-        "imageType": {
-          "clipArtType": 0,
-          "lineDrawingType": 0
-        },
         "objects": [
           {
             "rectangle": {

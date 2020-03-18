@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94d32bf26def6832f51b4e09c697bca885162dc2
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: ea90032b1f0cfe598ffdb3d35448a996f3111036
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174407"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968759"
 ---
 # <a name="share-link-to-request-an-access-package-in-azure-ad-entitlement-management"></a>Compartición de un vínculo para solicitar un paquete de acceso en la administración de derechos de Azure AD
 
@@ -41,7 +41,7 @@ Siempre que el catálogo para el paquete de acceso esté [habilitado para los us
 
     ![Información general del paquete acceso: vínculo del portal Mi acceso](./media/entitlement-management-shared/my-access-portal-link.png)
 
-    Es importante que copie todo el vínculo al portal Mi acceso cuando lo envíe a un partner comercial interno. De este modo, se garantiza que el partner obtendrá acceso al portal del directorio para realizar su solicitud. El vínculo comienza con `myaccess`, incluye una sugerencia de directorio y termina con un identificador de paquete de acceso.
+    Es importante que copie todo el vínculo al portal Mi acceso cuando lo envíe a un partner comercial interno. De este modo, se garantiza que el partner obtendrá acceso al portal del directorio para realizar su solicitud. El vínculo comienza con `myaccess`, incluye una sugerencia de directorio y termina con un identificador de paquete de acceso.  (Para el Gobierno de EE. UU., el dominio del vínculo del portal Mi acceso será `myaccess.microsoft.us`).
 
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 

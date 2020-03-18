@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 234c8be8c696ca7381b8860680d072e84820d424
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1904ed9707859f0d00bca3b6e3aef90d1346cea5
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431976"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331509"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>Creación de una cuenta de Media Services desde Azure Portal
 
@@ -37,7 +37,7 @@ En este artículo se muestra cómo crear una cuenta de Media Services con Azure 
 > [!NOTE]
 > Para obtener información acerca de la disponibilidad de las características de Azure Media Services en distintas regiones, consulte la sección [Availability of Media Services features across datacenters](scenarios-and-availability.md#availability) (Disponibilidad de las características de Media Services en los centros de datos).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/). 
 
@@ -46,13 +46,9 @@ Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener m�
 Los pasos de esta sección muestran cómo crear una cuenta de AMS.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Haga clic en **+Nuevo** > **Web y móvil** > **Servicios multimedia**.
-   
-    ![Creación de servicios multimedia](./media/media-services-create-account/media-services-new1.png)
+2. Haga clic en **+ Crear un recurso** > **Multimedia** > **Media Services**.
 3. En **CREAR CUENTA DE SERVICIOS MULTIMEDIA** especifique los valores obligatorios.
-   
-    ![Creación de servicios multimedia](./media/media-services-create-account/media-services-new3.png)
-   
+
    1. En **Nombre de la cuenta**, especifique el nombre de la cuenta nueva de AMS. El nombre de la cuenta de Media Services debe estar compuesto totalmente de minúsculas o de números, sin espacios, y con una longitud de entre 3 y 24 caracteres.
    2. En Suscripción, seleccione entre las diferentes suscripciones de Azure a las que tiene acceso.
    3. En **Grupo de recursos**seleccione el recurso nuevo o uno ya existente.  Un grupo de recursos es una colección de recursos que comparten ciclos de vida, permisos y directivas. Obtenga más información [aquí](../../azure-resource-manager/management/overview.md#resource-groups).
@@ -71,7 +67,6 @@ Los pasos de esta sección muestran cómo crear una cuenta de AMS.
 ## <a name="to-manage-your-ams-account"></a>Administración de una cuenta de AMS
 
 Para administrar una cuenta de AMS (por ejemplo, conectarse a la API de AMS mediante programación, cargar vídeos, codificar recursos, configurar la protección de contenido o supervisar el progreso del trabajo) seleccione **Configuración** en el lado izquierdo del portal. En **Configuración**, vaya a una de las hojas disponibles (por ejemplo: **Acceso de API**, **Recursos**, **Trabajos**, **Content Protection**).
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/14/2020
-ms.openlocfilehash: 14b04f7d6068863c79c7060d29b58232be1f40cb
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 03/10/2020
+ms.openlocfilehash: 8f22b1ff97826dc318794aca58973b1276e74209
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201805"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087860"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nivel de compatibilidad de los trabajos de Azure Stream Analytics
 
@@ -25,11 +25,9 @@ Los niveles de compatibilidad controlan el comportamiento en tiempo de ejecució
 
 Actualmente, Azure Stream Analytics admite tres niveles de compatibilidad:
 
-* 1.0: comportamiento anterior
-* 1.1: comportamiento predeterminado
+* 1.0: el nivel de compatibilidad original, se incorporó durante la disponibilidad general de Azure Stream Analytics hace varios años.
+* 1.1: comportamiento anterior
 * 1.2: comportamiento más nuevo con las mejoras más recientes
-
-El nivel de compatibilidad 1.0 original se incorporó durante la disponibilidad general de Azure Stream Analytics hace varios años.
 
 Al crear un nuevo trabajo de Stream Analytics, se recomienda hacerlo con el nivel de compatibilidad más reciente. Inicie el diseño del trabajo basándose en los comportamientos más recientes a fin de evitar la incorporación de cambio y complejidad más adelante.
 

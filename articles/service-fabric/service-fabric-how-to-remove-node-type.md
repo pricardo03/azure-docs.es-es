@@ -6,12 +6,12 @@ manager: sridmad
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: chrpap
-ms.openlocfilehash: d8ee2327f65332d32038806f2d2416cac190875b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 330b455a61c45ccdb59e5aef8162fd1b04859a00
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661983"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969400"
 ---
 # <a name="how-to-remove-a-service-fabric-node-type"></a>Eliminación de un tipo de nodo de Service Fabric
 En este artículo, se explica cómo escalar un clúster de Azure Service Fabric quitando un tipo de nodo existente de un clúster. Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Un equipo o máquina virtual que forma parte de un clúster se denomina nodo. Los conjuntos de escalado de máquinas virtuales son un recurso de proceso de Azure que se puede usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Cada tipo de nodo que se define en un clúster de Azure está [configurado como un conjunto de escalado independiente](service-fabric-cluster-nodetypes.md). Cada tipo de nodo, a continuación, se puede administrar por separado. Después de crear un clúster de Service Fabric, puede escalarlo horizontalmente quitando un tipo de nodo (conjunto de escalado de máquinas virtuales) junto con todos sus nodos.  Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster.  Según se escala el clúster, las aplicaciones se escalan automáticamente.
@@ -31,7 +31,7 @@ Service Fabric “organiza” los cambios subyacentes y las actualizaciones para
 
 Al quitar un tipo de nodo Bronze, todos los nodos del tipo de nodo dejarán de estar activos de inmediato. Service Fabric no obtiene las actualizaciones del conjunto de escalado de los nodos Bronze y, por lo tanto, todas las máquinas virtuales dejan de estar activas de inmediato. Si tenía algún elemento con estado en esos nodos, los datos se perderán. Ahora, aunque no tengan estado, todos los nodos de Service Fabric participarán en el anillo, lo que podría hacer que se perdiera un grupo de nodos entero y desestabilizar al propio clúster.
 
-## <a name="remove-a-non-primary-node-type"></a>Eliminación de tipos de nodos no principales
+## <a name="remove-a-node-type"></a>Eliminación de un tipo de nodo
 
 1. Compruebe estos requisitos previos antes de iniciar el proceso.
 
@@ -122,7 +122,7 @@ Al quitar un tipo de nodo Bronze, todos los nodos del tipo de nodo dejarán de e
     - Busque la plantilla de Azure Resource Manager usada para la implementación.
     - Busque la sección relacionada con el tipo de nodo en la sección Service Fabric.
     - Quite la sección correspondiente al tipo de nodo.
-    - En el caso de los clústeres de durabilidad Silver y superior, actualice el recurso de clúster en la plantilla y configure directivas de mantenimiento para omitir el estado de la aplicación fabric:/System; para ello, agregue `applicationDeltaHealthPolicies` como se indica a continuación. La directiva siguiente debe omitir los errores existentes, pero no permitir nuevos errores de estado. 
+    - Solo en el caso de los clústeres de durabilidad Silver y superior, actualice el recurso de clúster en la plantilla y configure directivas de mantenimiento para omitir el estado de la aplicación fabric:/System; para ello, agregue `applicationDeltaHealthPolicies` en el recurso de clúster `properties` como se indica a continuación. La directiva siguiente debe omitir los errores existentes, pero no permitir nuevos errores de estado. 
  
  
      ```json
@@ -158,7 +158,7 @@ Al quitar un tipo de nodo Bronze, todos los nodos del tipo de nodo dejarán de e
     },
     ```
 
-    Implemente la plantilla de Azure Resource Manager modificada. ** Este paso tardará un rato, habitualmente puede llegar a las dos horas. Esta actualización cambiará la configuración a InfrastructureService, por lo que es necesario reiniciar el nodo. En este caso `forceRestart` se pasa por alto. 
+    - Implemente la plantilla de Azure Resource Manager modificada. ** Este paso tardará un rato, habitualmente puede llegar a las dos horas. Esta actualización cambiará la configuración a InfrastructureService, por lo que es necesario reiniciar el nodo. En este caso `forceRestart` se pasa por alto. 
     El parámetro `upgradeReplicaSetCheckTimeout` especifica el tiempo máximo que Service Fabric espera a que una partición pase a un estado seguro, si aún no lo está. Una vez que se superan las comprobaciones de seguridad de todas las particiones de un nodo, Service Fabric continúa con la actualización en ese nodo.
     El valor del parámetro `upgradeTimeout` puede reducirse a 6 horas, pero debe usarse la seguridad máxima de 12 horas.
 

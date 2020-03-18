@@ -4,14 +4,14 @@ description: Obtenga información sobre la cláusula WHERE de SQL para Azure Cos
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 03/06/2020
 ms.author: tisande
-ms.openlocfilehash: 31653b598f0f3a79bf7f9c09231b1d111f167a16
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 483a0533eafc81ef8698d260a753062ae074f6d4
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982236"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898778"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Cláusula WHERE en Azure Cosmos DB
 
@@ -35,10 +35,11 @@ WHERE <filter_condition>
   
    Expresión que representa el valor que hay que calcular. Para más información, consulte [Expresiones escalares](sql-query-scalar-expressions.md).  
   
-
 ## <a name="remarks"></a>Observaciones
   
-  Para que el documento se devuelva, debe establecerse en true una expresión especificada como condición de filtro. Solo un valor booleano true cumplirá la condición, los demás valores (undefined, null, false, número, matriz u objeto) no cumplirán la condición. 
+  Para que el documento se devuelva, debe establecerse en true una expresión especificada como condición de filtro. Solo un valor booleano `true` cumplirá la condición, los demás valores (undefined, null, false, número, matriz u objeto) no cumplirán la condición.
+
+  Si incluye la clave de partición en la cláusula `WHERE` como parte de un filtro de igualdad, la consulta se filtrará automáticamente para solo las particiones pertinentes.
 
 ## <a name="examples"></a>Ejemplos
 

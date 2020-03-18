@@ -6,12 +6,12 @@ manager: andneil
 ms.author: getroyer
 ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 7a47be46818c633c016c791d0c52eb9393029973
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b4da63b7b2a6da4316215b85a09ca7420745251c
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647001"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898401"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Uso de Data Science Virtual Machines de Azure
 
@@ -38,6 +38,9 @@ Una vez creada la instancia de DSVM, seleccione la lista desplegable **Ejecutar*
 
 Al seleccionar una instancia de DSVM, Azure Notebooks puede solicitar las credenciales de la máquina específica que usó cuando creó la VM.
 
+> [!Important]
+> El nombre de usuario debe estar en minúsculas para usarse con JupyterHub.
+
 Si no se cumple alguna de las condiciones, todavía puede conectarse a la instancia de DSVM. En la lista desplegable, seleccione la opción **Direct Compute** (Proceso directo), que le pedirá un nombre (que mostrar en la lista), la dirección IP y puerto (normalmente 8000, el puerto predeterminado al que JupyterHub escucha) de la máquina virtual y sus credenciales:
 
 ![Solicitud para recopilar información del servidor para la opción Direct Compute (Proceso directo)](media/project-compute-tier-direct.png)
@@ -60,7 +63,7 @@ Si varios usuarios comparten un DSVM, puede evitar que se bloqueen entre sí si 
 
 1. En [Azure Portal](https://portal.azure.com), vaya a su máquina virtual.
 1. En **Soporte técnico y solución de problemas** en el margen izquierdo, seleccione **Restablecer contraseña**.
-1. Escriba un nombre de usuario y contraseña y seleccione **Actualizar**. (Los nombres de usuario existentes no resultan afectados).
+1. Escriba un nuevo **nombre de usuario**. El nombre de usuario debe estar en minúsculas para usarse con JupyterHub. Escriba una contraseña. Después, seleccione **Actualizar**. (Los nombres de usuario existentes no resultan afectados).
 1. Repita el paso anterior para todos los usuarios adicionales.
 
 ## <a name="next-steps"></a>Pasos siguientes

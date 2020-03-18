@@ -7,21 +7,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/21/2020
-ms.openlocfilehash: 6eb8f86d7bfa1c140c6422753840ded8a37ce3c4
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.date: 03/05/2020
+ms.openlocfilehash: 68bc30d08d95fe8e3d20a8ecb7af6c9710951921
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616091"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399721"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Escalado automático de clústeres de Azure HDInsight
 
 > [!Important]
-> La característica de escalado automático de Azure HDInsight se lanzó con carácter general el 7 de noviembre de 2019 para los clústeres de Spark y Hadoop, e incluía mejoras que no están disponibles en la versión preliminar de la característica. Si creó un clúster de Spark antes del 7 de noviembre de 2019 y quiere usar la característica de escalado automático en el clúster, la ruta recomendada es crear un nuevo clúster y habilitar el escalado automático en el nuevo clúster. 
+> La característica de escalado automático de Azure HDInsight se lanzó con carácter general el 7 de noviembre de 2019 para los clústeres de Spark y Hadoop, e incluía mejoras que no están disponibles en la versión preliminar de la característica. Si creó un clúster de Spark antes del 7 de noviembre de 2019 y quiere usar la característica de escalado automático en el clúster, la ruta recomendada es crear un nuevo clúster y habilitar el escalado automático en el nuevo clúster.
 >
->El escalado automático para los clústeres de Interactive Query (LLAP) y HBase todavía está en versión preliminar. El escalado automático solo está disponible en los clústeres de Spark, Hadoop, Interactive Query y HBase. 
-
+> El escalado automático para los clústeres de Interactive Query (LLAP) y HBase todavía está en versión preliminar. El escalado automático solo está disponible en los clústeres de Spark, Hadoop, Interactive Query y HBase.
 
 La característica de escalabilidad automática de clústeres de Azure HDInsight escala o reduce verticalmente el número de nodos de trabajo. Actualmente no se pueden escalar otros tipos de nodos del clúster.  Durante la creación de un nuevo clúster de HDInsight, se puede establecer un número mínimo y máximo de nodos de trabajo. La escalabilidad automática luego supervisa los requisitos de recursos de la carga de análisis y escala o reduce verticalmente el número de nodos de trabajo. El uso de esta característica no tiene un cargo adicional.
 
@@ -59,23 +58,18 @@ La escalabilidad automática supervisa continuamente el clúster y recopila las 
 
 Las métricas anteriores se comprueban cada 60 segundos. La escalabilidad automática toma decisiones de escalar o reducir verticalmente según estas métricas.
 
-### <a name="load-based-cluster-scale-up"></a>Escalado vertical de clústeres basados en carga
+### <a name="load-based-scale-conditions"></a>Condiciones de escalado basado en la carga
 
-Cuando se detectan las condiciones siguientes, Escalabilidad automática emitirá un solicitud de escalado vertical:
+Cuando se detectan las condiciones siguientes, Escalabilidad automática emite una solicitud de escalado:
 
-* El total de CPU pendiente es mayor que el total de CPU libre durante más de 3 minutos.
-* El total de memoria pendiente es mayor que el total de memoria libre durante más de 3 minutos.
+|Escalabilidad vertical|Reducción vertical|
+|---|---|
+|El total de CPU pendiente es mayor que el total de CPU libre durante más de 3 minutos.|El total de CPU pendiente es menor que el total de CPU libre durante más de 10 minutos.|
+|El total de memoria pendiente es mayor que el total de memoria libre durante más de 3 minutos.|El total de memoria pendiente es menor que el total de memoria libre durante más de 10 minutos.|
 
-El servicio de HDInsight calcula cuántos nodos de trabajo nuevos se necesitan para cumplir con los requisitos actuales de CPU y memoria y, luego, emite una solicitud de escalado vertical para agregar el número de nodos necesario.
+Para la escalabilidad vertical, el servicio de HDInsight calcula cuántos nodos de trabajo nuevos se necesitan para cumplir con los requisitos actuales de CPU y memoria y, luego, emite una solicitud de escalabilidad vertical para agregar el número de nodos necesario.
 
-### <a name="load-based-cluster-scale-down"></a>Reducción vertical de clústeres basados en carga
-
-Cuando se detectan las condiciones siguientes, Escalabilidad automática emitirá un solicitud de reducción vertical:
-
-* El total de CPU pendiente es menor que el total de CPU libre durante más de 10 minutos.
-* El total de memoria pendiente es menor que el total de memoria libre durante más de 10 minutos.
-
-En función del número de contenedores de AM por nodo y de los requisitos actuales de CPU y memoria, Escalabilidad automática emite una solicitud para quitar un número determinado de nodos. El servicio detecta también qué nodos son candidatos para la eliminación en función de la ejecución del trabajo actual. En primer lugar, la operación de reducción vertical retira los nodos y, luego, los quita del clúster.
+Para la reducción vertical, en función del número de contenedores de AM por nodo y de los requisitos actuales de CPU y memoria, Escalabilidad automática emite una solicitud para quitar un número determinado de nodos. El servicio detecta también qué nodos son candidatos para la eliminación en función de la ejecución del trabajo actual. En primer lugar, la operación de reducción vertical retira los nodos y, luego, los quita del clúster.
 
 ## <a name="get-started"></a>Introducción
 

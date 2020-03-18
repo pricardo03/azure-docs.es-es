@@ -1,23 +1,23 @@
 ---
-title: 'Preparación de los datos de prueba para Custom Speech: servicio de voz'
+title: 'Preparación de los datos de prueba para Habla personalizada: Servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Al probar la precisión del reconocimiento de voz de Microsoft o entrenar sus modelos personalizados, necesitará datos de texto y de audio. En esta página, veremos los tipos de datos, cómo se usan y administran.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.author: erhopf
-ms.openlocfilehash: 6100ac6a6b01a7d0eac74b0e83539bf4e671cb89
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.date: 03/09/2020
+ms.author: dapine
+ms.openlocfilehash: 969c1450966d2754e6e8f00126da52a1e88181fc
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660416"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942707"
 ---
-# <a name="prepare-data-for-custom-speech"></a>Preparación de los datos para Custom Speech
+# <a name="prepare-data-for-custom-speech"></a>Preparación de los datos para Habla personalizada
 
 Al probar la precisión del reconocimiento de voz de Microsoft o entrenar sus modelos personalizados, necesitará datos de texto y de audio. En esta página, veremos los tipos de datos, cómo se usan y administran.
 
@@ -27,22 +27,22 @@ En esta tabla se enumeran los tipos de datos aceptados, cuándo se debe utilizar
 
 | Tipo de datos | Se usa para pruebas | Cantidad recomendada | Se utiliza para el entrenamiento | Cantidad recomendada |
 |-----------|-----------------|----------|-------------------|----------|
-| [Audio](#audio-data-for-testing) | Sí<br>Se utiliza para la inspección visual | Más de cinco archivos de audio | No | N/a |
+| [Audio](#audio-data-for-testing) | Sí<br>Se utiliza para la inspección visual | Más de cinco archivos de audio | Sin | N/a |
 | [Transcripciones de audio con etiqueta humana](#audio--human-labeled-transcript-data-for-testingtraining) | Sí<br>Se utiliza para evaluar la precisión | De 0,5 a 5 horas de audio | Sí | De 1 a 1000 horas de audio |
-| [Texto relacionado](#related-text-data-for-training) | No | N/a | Sí | De 1 a 200 MB de texto relacionado |
+| [Texto relacionado](#related-text-data-for-training) | Sin | N/a | Sí | De 1 a 200 MB de texto relacionado |
 
 Los archivos deben agruparse por tipo en un conjunto de datos y cargarse como archivo zip. Cada conjunto de datos solo puede contener un tipo de datos.
 
 > [!TIP]
-> Para empezar a trabajar rápidamente, considere la posibilidad de usar datos de ejemplo. Consulte este repositorio de GitHub para obtener <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">datos de Custom Speech de ejemplo <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> Para empezar a trabajar rápidamente, considere la posibilidad de usar datos de ejemplo. Consulte este repositorio de GitHub para obtener <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">datos de Habla personalizada de ejemplo <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 ## <a name="upload-data"></a>Carga de datos
 
-Para cargar los datos, navegue al portal de <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech <span class="docon docon-navigate-external x-hidden-focus"></span></a>. En el portal, haga clic en **Cargar datos** para iniciar el asistente y crear el primer conjunto de datos. Se le pedirá que seleccione un tipo de datos de voz para el conjunto de datos, antes de permitirle cargar los datos.
+Para cargar los datos, navegue al portal de <a href="https://speech.microsoft.com/customspeech" target="_blank">Habla personalizada <span class="docon docon-navigate-external x-hidden-focus"></span></a>. En el portal, haga clic en **Cargar datos** para iniciar el asistente y crear el primer conjunto de datos. Se le pedirá que seleccione un tipo de datos de voz para el conjunto de datos, antes de permitirle cargar los datos.
 
 ![Selección del audio desde el portal de Voz](./media/custom-speech/custom-speech-select-audio.png)
 
-Cada conjunto de datos que cargue debe cumplir los requisitos del tipo de datos elegido. Los datos deben tener el formato correcto para poder cargarse. Los datos con el formato correcto garantizan que el servicio Custom Speech procesará los datos con precisión. Los requisitos se muestran en las secciones siguientes.
+Cada conjunto de datos que cargue debe cumplir los requisitos del tipo de datos elegido. Los datos deben tener el formato correcto para poder cargarse. Los datos con el formato correcto garantizan que el servicio Habla personalizada procesará los datos con precisión. Los requisitos se muestran en las secciones siguientes.
 
 Una vez cargado el conjunto de datos, tiene algunas opciones:
 
@@ -53,17 +53,19 @@ Una vez cargado el conjunto de datos, tiene algunas opciones:
 
 Los datos de audio son óptimos para probar la precisión del modelo de línea de base de Microsoft de voz a texto o de un modelo personalizado. Tenga en cuenta que los datos de audio se utilizan para inspeccionar la precisión de la voz con respecto al rendimiento de un modelo específico. Si busca cuantificar la precisión de un modelo, utilice los [datos de transcripción de audio y con etiqueta humana](#audio--human-labeled-transcript-data-for-testingtraining).
 
-Utilice esta tabla para asegurarse de que los archivos de audio están formateados correctamente para su uso con Custom Speech:
+Utilice esta tabla para asegurarse de que los archivos de audio están formateados correctamente para su uso con Habla personalizada:
 
-| Propiedad | Value |
-|----------|-------|
-| Formato de archivo | RIFF (WAV) |
-| Velocidad de muestreo | 8000 o 16 000 Hz |
-| Canales | 1 (mono) |
-| Longitud máxima por audio | 2 horas |
-| Formato de ejemplo | PCM, 16 bits |
-| Formato de archivo | .zip |
-| Tamaño de archivo máximo | 2 GB |
+| Propiedad                 | Value                 |
+|--------------------------|-----------------------|
+| Formato de archivo              | RIFF (WAV)            |
+| Velocidad de muestreo              | 8000 o 16 000 Hz |
+| Canales                 | 1 (mono)              |
+| Longitud máxima por audio | 2 horas               |
+| Formato de ejemplo            | PCM, 16 bits           |
+| Formato de archivo           | .zip                  |
+| Tamaño de archivo máximo     | 2 GB                  |
+
+[!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
 > [!TIP]
 > Al cargar los datos del entrenamiento y de las pruebas, el archivo ZIP no puede superar los 2 GB. Si requiere más datos para el entrenamiento, divídalos en varios archivos ZIP y cárguelos por separado. Más adelante, puede optar por entrenar en *varios* conjuntos de datos. Aunque solo puede realizar pruebas desde un *único* conjunto de datos.
@@ -79,18 +81,20 @@ Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX <spa
 
 Para medir la precisión de la precisión de la conversión de voz a texto de Microsoft al procesar sus archivos de audio, debe proporcionar transcripciones con etiqueta humana (palabra por palabra) para su comparación. Aunque la transcripción con etiqueta humana a menudo requiere mucho tiempo, es necesario evaluar la precisión y entrenar al modelo para los casos de uso. Tenga en cuenta que las mejoras en el reconocimiento solo serán tan buenas como los datos proporcionados. Por ese motivo, es importante que solo se carguen las transcripciones de alta calidad.
 
-| Propiedad | Value |
-|----------|-------|
-| Formato de archivo | RIFF (WAV) |
-| Velocidad de muestreo | 8000 o 16 000 Hz |
-| Canales | 1 (mono) |
+| Propiedad                 | Value                               |
+|--------------------------|-------------------------------------|
+| Formato de archivo              | RIFF (WAV)                          |
+| Velocidad de muestreo              | 8000 o 16 000 Hz               |
+| Canales                 | 1 (mono)                            |
 | Longitud máxima por audio | 2 horas (pruebas)/60 s (entrenamiento) |
-| Formato de ejemplo | PCM, 16 bits |
-| Formato de archivo | .zip |
-| Tamaño máximo de archivo zip | 2 GB |
+| Formato de ejemplo            | PCM, 16 bits                         |
+| Formato de archivo           | .zip                                |
+| Tamaño máximo de archivo zip         | 2 GB                                |
+
+[!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
 > [!NOTE]
-> Al cargar los datos del entrenamiento y de las pruebas, el archivo ZIP no puede superar los 2 GB. Solo puede realizar pruebas desde un *único* conjunto de datos; asegúrese de mantenerlo dentro del tamaño de archivo adecuado.
+> Al cargar los datos del entrenamiento y de las pruebas, el archivo ZIP no puede superar los 2 GB. Solo puede realizar pruebas desde un *único* conjunto de datos; asegúrese de mantenerlo dentro del tamaño de archivo adecuado. Además, cada archivo de entrenamiento no puede superar los 60 segundos, ya que, si lo hace, se producirá un error.
 
 Para abordar problemas como la eliminación o sustitución de palabras, se necesita una cantidad significativa de datos para mejorar el reconocimiento. Por lo general, se recomienda proporcionar transcripciones palabra por palabra para aproximadamente de 10 a 1000 horas de audio. Las transcripciones para todos los archivos WAV deben incluirse en un único archivo de texto sin formato. Cada línea del archivo de transcripción debe contener el nombre de uno de los archivos de audio, seguido de la transcripción correspondiente. El nombre de archivo y la transcripción deben estar separados por un carácter de tabulación (\t).
 
@@ -106,7 +110,7 @@ Para abordar problemas como la eliminación o sustitución de palabras, se neces
 
 Las transcripciones son texto normalizado para que el sistema pueda procesarlas. Aunque hay algunas normalizaciones importantes que debe hacer el usuario antes de cargar los datos en Speech Studio. Para conocer el idioma que debe usar al preparar las transcripciones, consulte [How to create a human-labeled transcription](how-to-custom-speech-human-labeled-transcriptions.md) (Creación de una transcripción con etiqueta humana).
 
-Cuando haya reunido los archivos de audio y las transcripciones correspondientes, debe empaquetarlos como un solo archivo .zip antes de cargarlos en el <a href="https://speech.microsoft.com/customspeech" target="_blank">portal de Custom Speech<span class="docon docon-navigate-external x-hidden-focus"></span></a>. A continuación se muestra un conjunto de datos de ejemplo con tres archivos de audio y un archivo de transcripción con etiqueta humana:
+Cuando haya reunido los archivos de audio y las transcripciones correspondientes, debe empaquetarlos como un solo archivo .zip antes de cargarlos en el <a href="https://speech.microsoft.com/customspeech" target="_blank">portal de Habla personalizada<span class="docon docon-navigate-external x-hidden-focus"></span></a>. A continuación se muestra un conjunto de datos de ejemplo con tres archivos de audio y un archivo de transcripción con etiqueta humana:
 
 > [!div class="mx-imgBorder"]
 > ![Selección del audio desde el portal de Voz](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
@@ -120,7 +124,7 @@ Los nombres de producto o las características que son únicas deben incluir dat
 | Frases (expresiones) | Mejore la precisión al reconocer nombres de productos o vocabulario específico del sector dentro del contexto de una frase. |
 | Pronunciaciones | Mejore la pronunciación de términos poco comunes, acrónimos u otras palabras de pronunciación indefinida. |
 
-Las frases se pueden proporcionar como un solo archivo de texto o como varios archivos de texto. Para mejorar la precisión, use datos de texto que estén más cerca de las expresiones orales esperadas. Las pronunciaciones deben proporcionarse como un único archivo de texto. Todo se puede empaquetar como un único archivo zip y cargarse en el <a href="https://speech.microsoft.com/customspeech" target="_blank">portal de Custom Speech<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Las frases se pueden proporcionar como un solo archivo de texto o como varios archivos de texto. Para mejorar la precisión, use datos de texto que estén más cerca de las expresiones orales esperadas. Las pronunciaciones deben proporcionarse como un único archivo de texto. Todo se puede empaquetar como un único archivo zip y cargarse en el <a href="https://speech.microsoft.com/customspeech" target="_blank">portal de Habla personalizada<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ### <a name="guidelines-to-create-a-sentences-file"></a>Directrices para crear un archivo de frases
 

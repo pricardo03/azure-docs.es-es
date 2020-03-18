@@ -1,14 +1,14 @@
 ---
 title: Descripción del lenguaje de consultas
 description: Describe las tablas de Resource Graph y los tipos de datos, los operadores y las funciones de Kusto disponibles que se pueden usar con Azure Resource Graph.
-ms.date: 12/05/2019
+ms.date: 03/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: a3503ce8d83b5bd47872db4b1de0eadb88be432c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2f4be4d86a340867e1ad3015ff288f98fc54cecf
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851220"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927498"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Información del lenguaje de consulta de Azure Resource Graph
 
@@ -24,12 +24,16 @@ En este artículo se tratan los componentes de idioma admitidos por Resource Gra
 
 Resource Graph proporciona varias tablas para los datos que almacena sobre los tipos de recursos de Resource Manager y sus propiedades. Estas tablas se pueden utilizar con los operadores `join` o `union` para obtener propiedades de tipos de recursos relacionados. Esta es la lista de tablas disponibles en Resource Graph:
 
-|Tablas de Resource Graph |DESCRIPCIÓN |
+|Tablas de Resource Graph |Descripción |
 |---|---|
 |Recursos |La tabla predeterminada, si no se ha definido ninguna en la consulta. La mayoría de los tipos de recursos y propiedades de Resource Manager están aquí. |
 |ResourceContainers |Incluye los datos y los tipos de recursos de suscripción (en versión preliminar: `Microsoft.Resources/subscriptions`) y grupo de recursos (`Microsoft.Resources/subscriptions/resourcegroups`). |
-|AlertsManagementResources |Incluye recursos _relacionados_ para `Microsoft.AlertsManagement`. |
+|AdvisorResources |Incluye recursos _relacionados_ con `Microsoft.Advisor`. |
+|AlertsManagementResources |Incluye recursos _relacionados_ con `Microsoft.AlertsManagement`. |
+|MaintenanceResources |Incluye recursos _relacionados_ con `Microsoft.Maintenance`. |
 |SecurityResources |Incluye recursos _relacionados_ con `Microsoft.Security`. |
+
+Para obtener una lista completa, incluidos los tipos de recursos, consulte [Referencia: tablas y tipos de recursos admitidos](../reference/supported-tables-resources.md).
 
 > [!NOTE]
 > _Recursos_ es la tabla predeterminada. Al consultar la tabla _Recursos_, no es necesario proporcionar el nombre de la tabla a menos que se utilicen `join` o `union`. Sin embargo, el procedimiento recomendado es incluir siempre la tabla inicial en la consulta.
@@ -81,7 +85,7 @@ Esta es la lista de operadores tabulares de KQL admitidos por Resource Graph con
 |[summarize](/azure/kusto/query/summarizeoperator) |[Count Azure resources](../samples/starter.md#count-resources) |Solo la primera página simplificada |
 |[take](/azure/kusto/query/takeoperator) |[List all public IP addresses](../samples/starter.md#list-publicip) |Sinónimo de `limit` |
 |[top](/azure/kusto/query/topoperator) |[Show first five virtual machines by name and their OS type](../samples/starter.md#show-sorted) | |
-|[union](/azure/kusto/query/unionoperator) |[Combinación de los resultados de dos consultas para formar un solo resultado](../samples/advanced.md#unionresults) |Tabla única permitida: _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_NombreDeColumna_\] _Tabla_. Límite de 3 partes de `union` en una sola consulta. No se permite la resolución aproximada de tablas de segmento `union`. Se puede usar en una sola tabla o entre las tablas _Resources_ y _ResourceContainers_. |
+|[union](/azure/kusto/query/unionoperator) |[Combinación de los resultados de dos consultas para formar un solo resultado](../samples/advanced.md#unionresults) |Tabla única permitida: _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_nombreDeColumna_\] _tabla_. Límite de 3 partes de `union` en una sola consulta. No se permite la resolución aproximada de tablas de segmento `union`. Se puede usar en una sola tabla o entre las tablas _Resources_ y _ResourceContainers_. |
 |[where](/azure/kusto/query/whereoperator) |[Show resources that contain storage](../samples/starter.md#show-storage) | |
 
 ## <a name="escape-characters"></a>Carácter de escape

@@ -6,20 +6,22 @@ ms.service: scheduler
 ms.suite: infrastructure-services
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, estfan
 ms.topic: article
-ms.date: 09/23/2019
-ms.openlocfilehash: c5de7b7bf30726dbfbf165799280ad892eca628a
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.date: 02/29/2020
+ms.openlocfilehash: 90c3cc2e096b9b58465987bc53f718c5d06c6203
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911997"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899076"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migración de trabajos de Azure Scheduler to Azure Logic Apps
 
 > [!IMPORTANT]
 > [Azure Logic Apps](../logic-apps/logic-apps-overview.md) reemplaza a Azure Scheduler, que se [va a retirar](#retire-date). Para seguir utilizando los trabajos configurados en Scheduler, siga este artículo para migrar a Azure Logic Apps cuanto antes. 
+>
+> Scheduler ya no está disponible en Azure portal, pero la [API REST](/rest/api/scheduler) y los [cmdlets de PowerShell para Azure Scheduler](scheduler-powershell-reference.md) siguen disponibles en la actualidad para que pueda administrar los trabajos y las colecciones de trabajos.
 
 En este artículo se muestra cómo se pueden programar tanto los trabajos únicos como los periódicos mediante la creación de flujos de trabajo automatizados con Azure Logic Apps, en lugar de con Azure Scheduler. Si se crean trabajos programados con Logic Apps, se obtienen estas ventajas:
 
@@ -33,7 +35,7 @@ En este artículo se muestra cómo se pueden programar tanto los trabajos único
 
 Para más información, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md),o bien, intente crear su primera aplicación lógica en este inicio rápido: [Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
@@ -45,19 +47,19 @@ Cada trabajo Scheduler es único, por lo que no existe ninguna herramienta que s
 
 ## <a name="schedule-one-time-jobs"></a>Programación de trabajos únicos
 
-La creación de una aplicación lógica individual permite ejecutar varios trabajos únicos. 
+La creación de una aplicación lógica individual permite ejecutar varios trabajos únicos.
 
-1. En [Azure Portal](https://portal.azure.com), cree una aplicación lógica en blanco en el Diseñador de aplicaciones lógicas. 
+1. En [Azure Portal](https://portal.azure.com), cree una aplicación lógica en blanco en el Diseñador de aplicaciones lógicas.
 
    Para conocer los pasos básicos, siga el [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. En el cuadro de búsqueda, escriba "when a http request" como filtro. En la lista de desencadenadores, seleccione este desencadenador: **Cuando se recibe una solicitud HTTP** 
+1. En el cuadro de búsqueda, escriba `when a http request` para buscar el desencadenador de solicitud. En la lista de desencadenadores, seleccione este desencadenador: **Cuando se recibe una solicitud HTTP**
 
    ![Agregar un desencadenador de "solicitud"](./media/migrate-from-scheduler-to-logic-apps/request-trigger.png)
 
-1. En el caso del desencadenador de solicitud, también puede proporcionar un esquema de JSON, que ayuda al Diseñador de aplicaciones lógicas a conocer la estructura de las entradas de la solicitud entrante y facilita la selección de salidas más adelante en el flujo de trabajo.
+1. En el caso del desencadenador de solicitud, también puede proporcionar un esquema de JSON, que ayuda al Diseñador de aplicaciones lógicas a conocer la estructura de las entradas incluidas en la llamada entrante al desencadenador de solicitud y facilita las salidas más adelante en el flujo de trabajo.
 
-   Para especificar un esquema, especifique el esquema en el cuadro **Esquema JSON de cuerpo de solicitud**, por ejemplo: 
+   En el cuadro **Esquema JSON de cuerpo de solicitud**, especifique el esquema, por ejemplo:
 
    ![Esquema de solicitud](./media/migrate-from-scheduler-to-logic-apps/request-schema.png)
 
@@ -69,23 +71,30 @@ La creación de una aplicación lógica individual permite ejecutar varios traba
 
       ![Carga de ejemplo](./media/migrate-from-scheduler-to-logic-apps/sample-payload.png)
 
-1. En el desencadenador, seleccione **Nuevo paso**. 
+      ```json
+      {
+         "runat": "2012-08-04T00:00Z",
+         "endpoint": "https://www.bing.com"
+      }
+      ```
 
-1. En el cuadro de búsqueda, escriba "retraso hasta" como filtro. En la lista de acciones, seleccione esta acción: **Retraso hasta**
+1. En el desencadenador, seleccione **Nuevo paso**.
+
+1. En el cuadro de búsqueda, escriba `delay until` como filtro. En la lista de acciones, seleccione esta acción: **Retraso hasta**
 
    Dicha acción detiene el flujo de la aplicación lógica hasta una fecha y hora especificadas.
 
    ![Agregar acción "Retraso hasta"](./media/migrate-from-scheduler-to-logic-apps/delay-until.png)
 
-1. Especifique la marca de tiempo del momento en que desea iniciar el flujo de trabajo de la aplicación lógica. 
+1. Especifique la marca de tiempo del momento en que desea iniciar el flujo de trabajo de la aplicación lógica.
 
    Al hacer clic dentro del cuadro **Marca de tiempo** aparece la lista de contenido dinámico, con el fin de que tenga la opción de seleccionar una salida del desencadenador.
 
    ![Especificar los detalles de "Retraso hasta"](./media/migrate-from-scheduler-to-logic-apps/delay-until-details.png)
 
-1. Agregue todas las acciones que desee ejecutar mediante la selección de [cientos de conectores listos para usar](../connectors/apis-list.md). 
+1. Agregue todas las acciones que desee ejecutar mediante la selección de [cientos de conectores listos para usar](../connectors/apis-list.md).
 
-   Por ejemplo, puede incluir una acción de HTTP que envía una solicitud a una dirección URL o las acciones que trabajar con Colas de almacenamiento, colas de Service Bus o temas de Service Bus: 
+   Por ejemplo, puede incluir una acción de HTTP que envía una solicitud a una dirección URL o las acciones que trabajar con Colas de almacenamiento, colas de Service Bus o temas de Service Bus:
 
    ![Acción HTTP](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
 
@@ -93,16 +102,15 @@ La creación de una aplicación lógica individual permite ejecutar varios traba
 
    ![Guardado de la aplicación lógica](./media/migrate-from-scheduler-to-logic-apps/save-logic-app.png)
 
-   La primera vez que se guarda una aplicación lógica por primera vez, la dirección URL del punto de conexión del desencadenador de solicitud de la aplicación lógica aparece en el cuadro **Dirección URL de HTTP POST**. 
-   Si desea llamar a la aplicación lógica y enviar las entradas a ella para su procesamiento, use esta dirección URL como destino de la llamada.
+   La primera vez que se guarda una aplicación lógica por primera vez, la dirección URL del punto de conexión del desencadenador de solicitud de la aplicación lógica aparece en el cuadro **Dirección URL de HTTP POST**. Si desea llamar a la aplicación lógica y enviar las entradas a ella para su procesamiento, use esta dirección URL como destino de la llamada.
 
    ![Guardar la dirección URL del punto de conexión del desencadenador de solicitud](./media/migrate-from-scheduler-to-logic-apps/request-endpoint-url.png)
 
-1. Copie y guarde la dirección URL del punto de conexión, con el fin de que posteriormente pueda enviar una solicitud manual que desencadene la aplicación lógica. 
+1. Copie y guarde la dirección URL del punto de conexión, con el fin de que posteriormente pueda enviar una solicitud manual que desencadene la aplicación lógica.
 
 ## <a name="start-a-one-time-job"></a>Iniciar un trabajo único
 
-Para ejecutar o desencadenar un trabajo único, envíe una llamada a la dirección URL del punto de conexión del desencadenador de solicitud de la aplicación lógica. En esta llamada, especifique la entrada o la carga que envía, que es posible que ha descrito anteriormente mediante la especificación de un esquema. 
+Para ejecutar o desencadenar un trabajo único, envíe una llamada a la dirección URL del punto de conexión del desencadenador de solicitud de la aplicación lógica. En esta llamada, especifique la entrada o la carga que envía, que es posible que ha descrito anteriormente mediante la especificación de un esquema.
 
 Por ejemplo, con la aplicación Postman puede crear una solicitud POST con una configuración similar a la de este ejemplo y luego seleccionar **Enviar** para realizar la solicitud.
 
@@ -129,11 +137,11 @@ En Logic Apps, cada trabajo único se ejecuta como una instancia de la ejecució
 
 ## <a name="schedule-recurring-jobs"></a>Programar trabajos repetitivos
 
-1. En [Azure Portal](https://portal.azure.com), cree una aplicación lógica en blanco en el Diseñador de aplicaciones lógicas. 
+1. En [Azure Portal](https://portal.azure.com), cree una aplicación lógica en blanco en el Diseñador de aplicaciones lógicas.
 
    Para conocer los pasos básicos, siga el [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. En el cuadro de búsqueda, escriba "periodicidad" para el filtro. En la lista de desencadenadores, seleccione este desencadenador: **Periodicidad** 
+1. En el cuadro de búsqueda, escriba "periodicidad" para el filtro. En la lista de desencadenadores, seleccione este desencadenador: **Periodicidad**
 
    ![Agregar desencadenador "Periodicidad"](./media/migrate-from-scheduler-to-logic-apps/recurrence-trigger.png)
 
@@ -145,7 +153,7 @@ En Logic Apps, cada trabajo único se ejecuta como una instancia de la ejecució
 
 1. Agregue otras acciones que desee mediante la selección de [cientos de conectores listos para usar](../connectors/apis-list.md). En el desencadenador, seleccione **Nuevo paso**. Busque y seleccione las acciones que desea.
 
-   Por ejemplo, puede incluir una acción de HTTP que envía una solicitud a una dirección URL o las acciones que trabajar con Colas de almacenamiento, colas de Service Bus o temas de Service Bus: 
+   Por ejemplo, puede incluir una acción de HTTP que envía una solicitud a una dirección URL o las acciones que trabajar con Colas de almacenamiento, colas de Service Bus o temas de Service Bus:
 
    ![Acción HTTP](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
 
@@ -173,7 +181,7 @@ Para controlar la forma en que las acciones intentan volver a ejecutarse en una 
 
 En Azure Scheduler, si la acción predeterminada no se ejecuta, puede ejecutar una acción alternativa que solucione el error. En Azure Logic Apps, también puede realizar la misma tarea.
 
-1. En el Diseñador de aplicación lógica, encima de la acción que quiera administrar, mueva el puntero sobre la flecha entre los pasos y seleccione **Agregar una rama paralela**. 
+1. En el Diseñador de aplicación lógica, encima de la acción que quiera administrar, mueva el puntero sobre la flecha entre los pasos y seleccione **Agregar una rama paralela**.
 
    ![Incorporación de una rama paralela](./media/migrate-from-scheduler-to-logic-apps/add-parallel-branch.png)
 
@@ -204,13 +212,13 @@ Para más información acerca del control de excepciones, consulte [Detección y
 **R.** : Todas las colecciones de trabajos y los trabajos de Scheduler dejan de ejecutarse y se eliminan del sistema.
 
 **P.** : ¿Tengo que hacer una copia de seguridad o realizar cualquier otra tarea antes de migrar mis trabajos de Scheduler a Logic Apps? <br>
-**R.** : Como procedimiento recomendado, realice siempre una copia de seguridad de su trabajo. Compruebe que las aplicaciones lógicas que creó se ejecutan según lo esperado antes de eliminar o deshabilitar los trabajos de Scheduler. 
+**R.** : Como procedimiento recomendado, realice siempre una copia de seguridad de su trabajo. Compruebe que las aplicaciones lógicas que creó se ejecutan según lo esperado antes de eliminar o deshabilitar los trabajos de Scheduler.
 
 **P.** : ¿Hay alguna herramienta que pueda ayudarme a migrar mis trabajos de Scheduler a Logic Apps? <br>
 **R.** : Cada trabajo de Scheduler es único, por lo que no existe una que sirva para todos los trabajos. Sin embargo, en función de sus necesidades, puede [editar esta secuencia de comandos para migrar trabajos de Azure Scheduler a Azure Logic Apps ](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration).
 
 **P.** : ¿Dónde puedo obtener soporte técnico para migrar mis trabajos de Scheduler? <br>
-**R.** : Estas son algunas formas de obtener soporte técnico: 
+**R.** : Estas son algunas formas de obtener soporte técnico:
 
 **Azure Portal**
 
@@ -237,4 +245,3 @@ Si su suscripción de Azure tiene un plan de soporte técnico de pago, puede cre
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación de tareas y flujos de trabajo que se ejecutan regularmente con Azure Logic Apps](../connectors/connectors-native-recurrence.md)
-* [Tutorial: Comprobación del tráfico con una aplicación lógica basada en una programación](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)

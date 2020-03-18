@@ -1,23 +1,18 @@
 ---
 title: Implementar hosts dedicados de Azure mediante el Azure PowerShell
 description: Implemente máquinas virtuales en hosts dedicados mediante Azure PowerShell.
-services: virtual-machines-windows
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 5cd82635f3aec2cca251e122aadf96f70d377c8a
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 30d15970b00a81ab85cdb85d2c0a27ee23ed1b92
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190521"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79130314"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Implementación de máquinas virtuales en hosts dedicados mediante Azure PowerShell
 
@@ -28,7 +23,7 @@ Asegúrese de que tiene instalada la versión 2.8.0 de Azure PowerShell, o cualq
 ## <a name="limitations"></a>Limitaciones
 
 - Actualmente, los conjuntos de escalado de máquinas virtuales no se admiten en los hosts dedicados.
-- Se admiten las siguientes series de máquinas virtuales: DSv3, ESv3 y Fsv2. 
+- Los tamaños y tipos de hardware disponibles para hosts dedicados varían según la región. Para más información, consulte la [página de precios](https://aka.ms/ADHPricing) de hosts.
 
 ## <a name="create-a-host-group"></a>Creación de un grupo host
 
@@ -57,7 +52,6 @@ $hostGroup = New-AzHostGroup `
 ## <a name="create-a-host"></a>Creación de un host
 
 Ahora vamos a crear un host dedicado en el grupo host. Además de un nombre para el host, se le pedirá que proporcione el SKU del host. El SKU del host registra la serie de máquinas virtuales admitidas, así como la generación de hardware del host dedicado.
-
 
 Para más información sobre los precios y los SKU de host, consulte [Precios de hosts dedicados de Azure](https://aka.ms/ADHPricing).
 

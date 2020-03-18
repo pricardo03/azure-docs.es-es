@@ -1,26 +1,19 @@
 ---
 title: Cambios de punto de conexión para predicciones en la versión 3 de la API
-titleSuffix: Azure Cognitive Services
 description: Se cambiaron las API v3 del punto de conexión para la predicción de consultas. Use esta guía para aprender a migrar a la versión 3 de las API de punto de conexión.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 03/11/2020
 ms.author: diberry
-ms.openlocfilehash: 8756d8e60e7612c1610e07b0567465e3a0ea8884
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 9a8e8cb331dd11eebaddbcbf8f603c1148415aef
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531503"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117372"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Cambios de punto de conexión para predicciones para la versión 3
 
-Se cambiaron las API v3 del punto de conexión para la predicción de consultas. Use esta guía para aprender a migrar a la versión 3 de las API de punto de conexión. 
+Se cambiaron las API v3 del punto de conexión para la predicción de consultas. Use esta guía para aprender a migrar a la versión 3 de las API de punto de conexión.
 
 [!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
@@ -42,9 +35,9 @@ Puede consultar la [documentación de referencia](https://aka.ms/luis-api-v3) pa
 
 ## <a name="v3-changes-from-preview-to-ga"></a>Cambios en la versión 3 desde la versión preliminar a la disponibilidad general
 
-La versión 3 realizó los cambios siguientes como parte de la migración a la disponibilidad general: 
+La versión 3 realizó los cambios siguientes como parte de la migración a la disponibilidad general:
 
-* Estas entidades creadas previamente tienen respuestas JSON distintas: 
+* Estas entidades creadas previamente tienen respuestas JSON distintas:
     * [OrdinalV1](luis-reference-prebuilt-ordinal.md)
     * [GeographyV2](luis-reference-prebuilt-geographyv2.md)
     * [DatetimeV2](luis-reference-prebuilt-datetimev2.md)
@@ -59,23 +52,26 @@ La versión 3 realizó los cambios siguientes como parte de la migración a la d
 
 ## <a name="suggested-adoption-strategy"></a>Estrategia de adopción sugerida
 
-Si usa Bot Framework, Bing Spell Check V7 o solo quiere migrar la creación de aplicaciones de LUIS, siga usando la versión 2 del punto de conexión. 
+Si usa Bot Framework, Bing Spell Check V7 o solo quiere migrar la creación de aplicaciones de LUIS, siga usando la versión 2 del punto de conexión.
 
-Si sabe que ninguna de las aplicaciones cliente o integraciones (Bot Framework y Bing Spell Check V7) se ven afectadas y está familiarizado con la migración de la creación de aplicaciones de LUIS y el punto de conexión para predicciones al mismo tiempo, empiece a usar la versión 3 del punto de conexión para predicciones. La versión 2 del punto de conexión para predicciones seguirá disponible y es una buena estrategia de retroceso. 
+Si sabe que ninguna de las aplicaciones cliente o integraciones (Bot Framework y Bing Spell Check V7) se ven afectadas y está familiarizado con la migración de la creación de aplicaciones de LUIS y el punto de conexión para predicciones al mismo tiempo, empiece a usar la versión 3 del punto de conexión para predicciones. La versión 2 del punto de conexión para predicciones seguirá disponible y es una buena estrategia de retroceso.
+
 
 ## <a name="not-supported"></a>No compatible
 
-* Bing Spell Check API no es compatible en la versión 3 del punto de conexión para predicciones. Siga usando la versión 2 de la API del punto de conexión para predicciones para las correcciones ortográficas.
+### <a name="bing-spell-check"></a>Bing Spell Check
+
+Esta API no es compatible en la versión 3 del punto de conexión para predicciones. Siga usando la versión 2 de la API del punto de conexión para predicciones para las correcciones ortográficas. Si necesita una corrección ortográfica mientras usa la versión 3 de la API, haga que la aplicación cliente llame a la API [Bing Spell Check](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/overview) y cambie el texto para que tenga la ortografía correcta antes de enviarlo a API LUIS.
 
 ## <a name="bot-framework-and-azure-bot-service-client-applications"></a>Aplicaciones cliente de Azure Bot Service y Bot Framework
 
-Siga usando la versión 2 de la API del punto de conexión para predicciones hasta que aparezca la versión 4.7 de Bot Framework. 
+Siga usando la versión 2 de la API del punto de conexión para predicciones hasta que aparezca la versión 4.7 de Bot Framework.
 
-## <a name="v2-api-deprecation"></a>Desuso de la versión 2 de la API 
+## <a name="v2-api-deprecation"></a>Desuso de la versión 2 de la API
 
-La versión 2 de Prediction API no entrará en desuso durante un mínimo de 9 meses después del lanzamiento de la versión preliminar v3, el 8 de junio de 2020. 
+La versión 2 de Prediction API no entrará en desuso durante un mínimo de 9 meses después del lanzamiento de la versión preliminar v3, el 8 de junio de 2020.
 
-## <a name="endpoint-url-changes"></a>Cambios en la dirección URL del punto de conexión 
+## <a name="endpoint-url-changes"></a>Cambios en la dirección URL del punto de conexión
 
 ### <a name="changes-by-slot-name-and-version-name"></a>Cambios por nombre de ranura y nombre de versión
 
@@ -95,7 +91,7 @@ Si quiere realizar una consulta por visión, primero debe [publicarla a través 
 |`production`|
 |`staging`|
 
-## <a name="request-changes"></a>Solicitud de cambios 
+## <a name="request-changes"></a>Solicitud de cambios
 
 ### <a name="query-string-changes"></a>Cambios en la cadena de consulta
 
@@ -103,7 +99,7 @@ La API v3 tiene parámetros de cadena de consulta diferentes.
 
 |Nombre del parámetro|Tipo|Versión|Valor predeterminado|Propósito|
 |--|--|--|--|--|
-|`log`|boolean|v2 y v3|false|Almacena la consulta en el archivo de registro. El valor predeterminado es False.| 
+|`log`|boolean|v2 y v3|false|Almacena la consulta en el archivo de registro. El valor predeterminado es False.|
 |`query`|string|Solo v3|No tiene valor predeterminado: es obligatorio en la solicitud GET.|**En la versión 2**, la expresión que va a predecirse se almacena en el parámetro `q`. <br><br>**En la versión 3**, la funcionalidad se pasa en el parámetro `query`.|
 |`show-all-intents`|boolean|Solo v3|false|Devuelve todas las intenciones con la puntuación correspondiente en el objeto **prediction.intents**. Las intenciones se devuelven como objetos en un objeto `intents` primario. Esto habilita el acceso mediante programación sin necesidad de encontrar la intención en una matriz: `prediction.intents.give`. En la versión 2, se devuelven en una matriz. |
 |`verbose`|boolean|v2 y v3|false|**En la versión 2**, cuando se establece en true, se devuelven todas las intenciones previstas. Si necesita todas las intenciones previstas, use el parámetro v3 de `show-all-intents`.<br><br>**En la versión 3**, este parámetro solo proporciona detalles de los metadatos de la entidad para la predicción de entidad.  |
@@ -137,7 +133,7 @@ La API v3 tiene parámetros de cadena de consulta diferentes.
 
 ## <a name="response-changes"></a>Cambios de respuesta
 
-El elemento JSON de la respuesta de consulta se cambió para permitir el acceso mediante programación a los datos usados con más frecuencia. 
+El elemento JSON de la respuesta de consulta se cambió para permitir el acceso mediante programación a los datos usados con más frecuencia.
 
 ### <a name="top-level-json-changes"></a>Cambios JSON de nivel superior
 
@@ -162,7 +158,7 @@ Las principales propiedades JSON para la versión 3 son:
     "query": "this is your utterance you want predicted",
     "prediction":{
         "topIntent": "intent-name-1",
-        "intents": {}, 
+        "intents": {},
         "entities":{}
     }
 }
@@ -180,13 +176,13 @@ Los cambios en el esquema JSON de la respuesta permiten lo siguiente:
 * Una clara distinción entre la expresión original, `query`, y la predicción devuelta, `prediction`.
 * Fácil acceso mediante programación a los datos previstos. En lugar de realizar la enumeración a través de una matriz en la versión 2, puede acceder a los valores por **nombre** en ambas intenciones y entidades. Para los roles de entidad prevista, se devuelve el nombre del rol porque es único en toda la aplicación.
 * Los tipos de datos, si están establecidos, se respetan. Los valores numéricos ya no se devuelven como cadenas.
-* Distinción entre la información de predicciones de máxima prioridad y los metadatos adicionales, que se devuelven en el objeto `$instance`. 
+* Distinción entre la información de predicciones de máxima prioridad y los metadatos adicionales, que se devuelven en el objeto `$instance`.
 
 ### <a name="entity-response-changes"></a>Cambios en la respuesta de la entidad
 
 #### <a name="marking-placement-of-entities-in-utterances"></a>Selección de la ubicación de las entidades en las expresiones
 
-**En la versión 2**, una entidad se marca dentro de una expresión con `startIndex` y `endIndex`. 
+**En la versión 2**, una entidad se marca dentro de una expresión con `startIndex` y `endIndex`.
 
 **En la versión 3**, la entidad se marca con `startIndex` y `entityLength`.
 
@@ -196,13 +192,13 @@ Si tiene metadatos de entidad, la cadena de consulta debe usar la marca `verbose
 
 #### <a name="each-predicted-entity-is-represented-as-an-array"></a>Todas las entidades de predicción se representan como una matriz.
 
-El objeto `prediction.entities.<entity-name>` contiene una matriz, dado que cada entidad se puede predecir más de una vez en la expresión. 
+El objeto `prediction.entities.<entity-name>` contiene una matriz, dado que cada entidad se puede predecir más de una vez en la expresión.
 
 <a name="prebuilt-entities-with-new-json"></a>
 
 #### <a name="prebuilt-entity-changes"></a>Cambios de entidad generados previamente
 
-El objeto de respuesta de la versión 3 incluye cambios en las entidades compiladas previamente. Revise las [entidades compiladas previamente específicas](luis-reference-prebuilt-entities.md) para más información. 
+El objeto de respuesta de la versión 3 incluye cambios en las entidades compiladas previamente. Revise las [entidades compiladas previamente específicas](luis-reference-prebuilt-entities.md) para más información.
 
 #### <a name="list-entity-prediction-changes"></a>Cambios en la predicción de entidad de lista
 
@@ -216,7 +212,7 @@ El código JSON de una predicción de entidad la lista se cambió para que sea u
     ]
 }
 ```
-Cada matriz interior corresponde al texto dentro de la expresión. El objeto interior es una matriz porque el mismo texto puede aparecer en más de una sublista de una entidad de lista. 
+Cada matriz interior corresponde al texto dentro de la expresión. El objeto interior es una matriz porque el mismo texto puede aparecer en más de una sublista de una entidad de lista.
 
 Cuando se realiza una asignación del objeto `entities` y el objeto `$instance`, se conserva el orden de los objetos para las predicciones de entidad de lista.
 
@@ -226,7 +222,7 @@ const predictedCanonicalForm = entities.my_list_entity[item];
 const associatedMetadata = entities.$instance.my_list_entity[item];
 ```
 
-#### <a name="entity-role-name-instead-of-entity-name"></a>Nombre del rol de entidad en lugar del nombre de entidad 
+#### <a name="entity-role-name-instead-of-entity-name"></a>Nombre del rol de entidad en lugar del nombre de entidad
 
 En la versión 2, la matriz `entities` devuelve todas las entidades previstas, cuyo el nombre de entidad es el identificador único. En la versión 3, si la entidad usa roles y la predicción es para un rol de entidad, el identificador principal es el nombre del rol. Esto es posible porque los nombres de rol de entidad deben ser únicos en toda la aplicación, incluidos otros nombres del modelo (entidad, intención).
 
@@ -289,11 +285,11 @@ En la versión 3, el mismo resultado con la marca `verbose` para devolver los me
 
 Las entidades externas permiten que la aplicación de LUIS identifique y etiquete las entidades durante el tiempo de ejecución, que pueden usarse como características para las entidades existentes. Esto le permite utilizar sus propios extractores de entidades personalizados e independientes antes de enviar consultas al punto de conexión de predicción. Puesto que este proceso se realiza en el punto de conexión de predicción de consulta, no es necesario volver a entrenar y publicar el modelo.
 
-La aplicación cliente proporciona su propio extractor de entidades al administrar la entidad coincidente y determinar su ubicación dentro de la expresión de la entidad coincidente. A continuación, envía esa información con la solicitud. 
+La aplicación cliente proporciona su propio extractor de entidades al administrar la entidad coincidente y determinar su ubicación dentro de la expresión de la entidad coincidente. A continuación, envía esa información con la solicitud.
 
 Las entidades externas son el mecanismo para extender cualquier tipo de entidad mientras aún está en uso como señal para otros modelos, como roles, compuestos y otros.
 
-Esto resulta útil para una entidad que tiene datos disponibles solo durante el tiempo de ejecución de la predicción de consulta. Los ejemplos de este tipo de datos son los datos en cambio constante o específicos de un usuario. Puede ampliar una entidad de contacto de LUIS con información externa desde la lista de contactos de un usuario. 
+Esto resulta útil para una entidad que tiene datos disponibles solo durante el tiempo de ejecución de la predicción de consulta. Los ejemplos de este tipo de datos son los datos en cambio constante o específicos de un usuario. Puede ampliar una entidad de contacto de LUIS con información externa de la lista de contactos de un usuario.
 
 ### <a name="entity-already-exists-in-app"></a>La entidad ya existe en la aplicación
 
@@ -305,7 +301,7 @@ Imagine la primera expresión de la conversación con un bot de chat, en la que 
 
 `Send Hazem a new message`
 
-La solicitud del bot de chat a LUIS puede pasar información en el cuerpo POST sobre `Hazem`, por lo que coincide directamente con uno de los contactos del usuario.
+La solicitud del bot de chat a LUIS puede pasar información del cuerpo de POST acerca de `Hazem`, por lo que se empareja directamente como uno de los contactos del usuario.
 
 ```json
     "externalEntities": [
@@ -321,7 +317,7 @@ La solicitud del bot de chat a LUIS puede pasar información en el cuerpo POST s
     ]
 ```
 
-La respuesta de predicción incluye esa entidad externa con todas las demás entidades previstas porque está definida en la solicitud.  
+La respuesta de predicción incluye esa entidad externa con todas las demás entidades previstas porque está definida en la solicitud.
 
 ### <a name="second-turn-in-conversation"></a>Segunda entrega en una conversación
 
@@ -345,11 +341,11 @@ En la expresión anterior, se usa `him` como una referencia a `Hazem`. El bot de
     ]
 ```
 
-La respuesta de predicción incluye esa entidad externa con todas las demás entidades previstas porque está definida en la solicitud.  
+La respuesta de predicción incluye esa entidad externa con todas las demás entidades previstas porque está definida en la solicitud.
 
 ### <a name="override-existing-model-predictions"></a>Invalidación de las predicciones del modelo existente
 
-La propiedad de opciones `preferExternalEntities` especifica que si el usuario envía una entidad externa que se superpone con una entidad de predicción con el mismo nombre, LUIS elige la entidad que se pasó o la entidad existente en el modelo. 
+La propiedad de opciones `preferExternalEntities` especifica que si el usuario envía una entidad externa que se superpone con una entidad de predicción con el mismo nombre, LUIS elige la entidad que se pasó o la entidad existente en el modelo.
 
 Por ejemplo, considere la consulta `today I'm free`. LUIS detecta que `today` es un datetimeV2 con la siguiente respuesta:
 
@@ -380,7 +376,7 @@ Si el usuario envía la entidad externa:
 }
 ```
 
-Si `preferExternalEntities` está establecida en `false`, LUIS devuelve una respuesta como si la entidad externa no se hubiera enviado. 
+Si `preferExternalEntities` está establecida en `false`, LUIS devuelve una respuesta como si la entidad externa no se hubiera enviado.
 
 ```JSON
 "datetimeV2": [
@@ -410,22 +406,22 @@ Si `preferExternalEntities` está establecida en `true`, LUIS devuelve una respu
 
 #### <a name="resolution"></a>Solución
 
-La propiedad _optional_ `resolution` se devuelve en la respuesta de predicción, lo que le permite pasar los metadatos asociados con la entidad externa y, después, recibirlos de vuelta en la respuesta. 
+La propiedad _optional_ `resolution` se devuelve en la respuesta de predicción, lo que le permite pasar los metadatos asociados con la entidad externa y, después, recibirlos de vuelta en la respuesta.
 
-La finalidad principal es extender entidades precompiladas, pero no se limita a ese tipo de entidad. 
+La finalidad principal es extender entidades precompiladas, pero no se limita a ese tipo de entidad.
 
 La propiedad `resolution` puede ser un número, una cadena, un objeto o una matriz:
 
 * "Dallas"
 * {"text": "value"}
-* 12345 
+* 12345
 * ["a", "b", "c"]
 
 
 
 ## <a name="dynamic-lists-passed-in-at-prediction-time"></a>Listas dinámicas que se pasan al momento de la predicción
 
-Las listas dinámicas permiten extender una entidad de lista existente entrenada y publicada, ya presente en la aplicación de LUIS. 
+Las listas dinámicas permiten extender una entidad de lista existente entrenada y publicada, ya presente en la aplicación de LUIS.
 
 Use esta característica cuando necesite cambiar periódicamente los valores de la entidad de lista. Esta característica le permite extender una entidad de lista ya entrenada y publicada:
 
@@ -463,12 +459,12 @@ Envíe el siguiente cuerpo JSON para agregar una nuevo sublista con sinónimos a
 }
 ```
 
-La respuesta de predicción incluye esa entidad de lista con todas las demás entidades previstas porque está definida en la solicitud. 
+La respuesta de predicción incluye esa entidad de lista con todas las demás entidades previstas porque está definida en la solicitud.
 
-## <a name="deprecation"></a>Desuso 
+## <a name="deprecation"></a>Desuso
 
-La API v2 no entrará en desuso durante un mínimo de 9 meses después del lanzamiento de la versión preliminar v3. 
+La API v2 no entrará en desuso durante un mínimo de 9 meses después del lanzamiento de la versión preliminar v3.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Use la documentación de la API v3 para actualizar las llamadas REST existentes al [punto de conexión](https://aka.ms/luis-api-v3) de LUIS. 
+Use la documentación de la API v3 para actualizar las llamadas REST existentes al [punto de conexión](https://aka.ms/luis-api-v3) de LUIS.

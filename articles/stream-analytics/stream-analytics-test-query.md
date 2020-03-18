@@ -6,22 +6,22 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 85d32e96335a9fffa874f1f370f72883ff420df0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: de2b99666dbed4eaec3db3e56800e9a7352e10e7
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369871"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898385"
 ---
-# <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>Probar un trabajo en Azure Stream Analytics con datos de ejemplo
+# <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Prueba de un trabajo de Azure Stream Analytics en el portal
 
-En Azure Stream Analytics, puede probar la consulta sin iniciar o detener el trabajo. Puede probar consultas en los datos entrantes del receptor de entrada o en los datos de ejemplo cargados desde un archivo local en Azure Portal. También puede probar las consultas de forma local desde los datos de ejemplo locales o los datos en directo en [Visual Studio](stream-analytics-live-data-local-testing.md) y [Visual Studio Code](visual-studio-code-local-run-live-input.md).
+En Azure Stream Analytics, puede probar la consulta sin iniciar o detener el trabajo. Las consultas se pueden probar en los datos entrantes que provienen de los orígenes del streaming, o bien se pueden cargar datos de ejemplo de un archivo local en Azure Portal. También puede probar las consultas de forma local desde los datos de ejemplo locales o los datos en directo en [Visual Studio](stream-analytics-live-data-local-testing.md) y [Visual Studio Code](visual-studio-code-local-run-live-input.md).
 
-## <a name="sample-incoming-data-from-input"></a>Datos entrantes de ejemplo de entrada
+## <a name="automatically-sample-incoming-data-from-input"></a>Muestreo automático de los datos entrantes de ejemplo provenientes de la entrada
 
-Azure Stream Analytics captura automáticamente los eventos de la entrada de streaming. Puede ejecutar consultas en el ejemplo predeterminado o establecer un período de tiempo específico para el ejemplo.
+Azure Stream Analytics captura automáticamente los eventos de las entradas de streaming. Puede ejecutar consultas en el ejemplo predeterminado o establecer un período de tiempo específico para el ejemplo.
 
 1. Inicie sesión en Azure Portal.
 
@@ -98,6 +98,7 @@ En lugar de usar datos en vivo, puede usar datos de ejemplo de un archivo local 
 10. Después de comprobar los resultados mostrados en el explorador, puede **iniciar** el trabajo.
 
 ## <a name="next-steps"></a>Pasos siguientes
+* [Compilación de una solución de IoT con Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics): este tutorial le guiará a la hora de compilar una solución de un extremo a otro con un generador de datos que simulará el tráfico en una cabina de peaje.
 
 * [Referencia del lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 

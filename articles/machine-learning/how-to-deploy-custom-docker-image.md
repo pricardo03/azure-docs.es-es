@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 08/22/2019
-ms.openlocfilehash: 05a466d52d89fa021235c10e7187900c350b5e50
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.date: 03/05/2020
+ms.openlocfilehash: 24ca37f5610589ae675a47a1dd966871b3004800
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086932"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851262"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implementación de un modelo con una imagen base de Docker personalizada
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -48,7 +48,7 @@ Este documento se divide en dos secciones:
 * La[CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * La [extensión de la CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Una instancia de [Azure Container Registry](/azure/container-registry) u otro registro de Docker accesible en Internet.
-* En este documento, se da por hecho que está familiarizado con la creación y el uso de un objeto de __configuración de inferencia__ como parte de la implementación de modelos. Para obtener más información, consulte la sección sobre la preparación de la implementación de [Dónde implementar y cómo](how-to-deploy-and-where.md#prepare-deployment-artifacts).
+* En este documento, se da por hecho que está familiarizado con la creación y el uso de un objeto de __configuración de inferencia__ como parte de la implementación de modelos. Para obtener más información, consulte la sección sobre la preparación de la implementación de [Dónde implementar y cómo](how-to-deploy-and-where.md#prepare-to-deploy).
 
 ## <a name="create-a-custom-base-image"></a>Creación de una imagen base personalizada
 
@@ -155,6 +155,9 @@ Los pasos de esta sección le orientan a lo largo de la creación de una imagen 
     az acr build --image myimage:v1 --registry <registry_name> --file Dockerfile .
     ```
 
+    > [!TIP]
+    > En este ejemplo, se aplica una etiqueta de `:v1` a la imagen. Si no se proporciona ninguna etiqueta, se aplica una etiqueta de `:latest`.
+
     Durante el proceso de compilación, se transmite en secuencias información para respaldar la línea de comandos. Si la compilación se completa correctamente, recibirá un mensaje similar al texto siguiente:
 
     ```text
@@ -170,6 +173,10 @@ Para más información acerca de cómo cargar imágenes existentes en una instan
 Para usar una imagen personalizada, necesitará la siguiente información:
 
 * El __nombre de la imagen__. Por ejemplo, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` es la ruta de acceso a una imagen de Docker básica que proporciona Microsoft.
+
+    > [!IMPORTANT]
+    > En el caso de las imágenes personalizadas que haya creado, asegúrese de incluir todas las etiquetas que se usaron con la imagen. Por ejemplo, si la imagen se creó con una etiqueta específica, como `:v1`. Si no usó ninguna etiqueta específica al crear la imagen, se aplicó una etiqueta de `:latest`.
+
 * Si la imagen está en un __repositorio privado__, necesita la siguiente información:
 
     * La __dirección__ del registro. Por ejemplo, `myregistry.azureecr.io`.

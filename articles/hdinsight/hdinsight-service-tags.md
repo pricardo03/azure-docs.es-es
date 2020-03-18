@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/05/2019
-ms.openlocfilehash: 24ecf90c2ffc88415afbf84f54af3efa7d5f4a39
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/10/2020
+ms.openlocfilehash: a72753d5553e79a8ed28c3afcc7e54af6c2d230c
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435411"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117235"
 ---
 # <a name="network-security-group-nsg-service-tags-for-azure-hdinsight"></a>Etiquetas de servicio del grupo de seguridad de red (NSG) para Azure HDInsight
 
@@ -40,7 +40,7 @@ La manera más fácil de empezar a usar etiquetas de servicio con el clúster de
 
 1. En la lista desplegable **Etiqueta de servicio de origen**, seleccione **HDInsight**.
 
-    ![Etiqueta de servicio Agregar de Azure Portal](./media/hdinisght-service-tags/azure-portal-add-service-tag.png)
+    ![Etiqueta de servicio Agregar de Azure Portal](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
 
 Esta etiqueta contiene las direcciones IP de los servicios de mantenimiento y administración de todas las regiones donde está disponible HDInsight y garantiza que el clúster pueda comunicarse con los servicios de mantenimiento y administración necesarios, independientemente de dónde se cree.
 
@@ -63,19 +63,20 @@ Si prefiere la segunda opción de etiqueta de servicio y el clúster se encuentr
 | &nbsp; | Norte de China 2 | HDInsight.ChinaNorth2 |
 | Estados Unidos | Centro-Norte de EE. UU | HDInsight.NorthCentralUS |
 | &nbsp; | Oeste de EE. UU. 2 | HDInsight.WestUS2 |
-| &nbsp; | Centro occidental de EE.UU. | HDInsight.WestCentralUS |
+| &nbsp; | Centro-Oeste de EE. UU. | HDInsight.WestCentralUS |
 | Canadá | Este de Canadá | HDInsight.CanadaEast |
 | Brasil | Sur de Brasil | HDInsight.BrazilSouth |
-| Corea | Corea Central | HDInsight.KoreaCentral |
+| Corea | Centro de Corea del Sur | HDInsight.KoreaCentral |
 | &nbsp; | Corea del Sur | HDInsight.KoreaSouth |
-| India | India Central | HDInsight.CentralIndia |
+| India | Centro de la India | HDInsight.CentralIndia |
 | &nbsp; | Sur de la India | HDInsight.SouthIndia |
-| Japón | Oeste de Japón | HDInsight.JapanWest |
+| Japón | Japón Occidental | HDInsight.JapanWest |
 | Francia | Centro de Francia| HDInsight.FranceCentral |
 | Reino Unido | Sur de Reino Unido 2 | HDInsight.UKSouth |
 | Azure Government | Departamento de Defensa de centro de EE. UU.   | HDInsight.USDoDCentral |
-| &nbsp; | Gov (US): Texas | HDInsight.USGovTexas |
+| &nbsp; | USGov: Texas | HDInsight.USGovTexas |
 | &nbsp; | Departamento de Defensa de este de EE. UU. | HDInsight.USDoDEast |
+| &nbsp; | USGov: Arizona | HDInsight.USGovArizona |
 
 ### <a name="use-multiple-regional-service-tags"></a>Uso de varias etiquetas de servicio regional
 
@@ -98,14 +99,14 @@ Por ejemplo, si el clúster se crea en la región `East US 2`, tendrá que agreg
 | Estados Unidos | Este de EE. UU. 2 | HDInsight.EastUS2 |
 | &nbsp; | Centro de EE. UU. | HDInsight.CentralUS |
 | &nbsp; | Centro-Norte de EE. UU. | HDInsight. NorthCentralUS |
-| &nbsp; | Centro-Sur de EE. UU | HDInsight.SouthCentralUS |
-| &nbsp; | East US | HDInsight.EastUS |
+| &nbsp; | Centro-sur de EE. UU. | HDInsight.SouthCentralUS |
+| &nbsp; | Este de EE. UU. | HDInsight.EastUS |
 | &nbsp; | Oeste de EE. UU. | HDInsight.WestUS |
-| Japón | Este de Japón | HDInsight.JapanEast |
-| Europa | Europa del Norte | HDInsight.NorthEurope |
-| &nbsp; | Europa occidental| HDInsight.WestEurope |
-| Asia | Asia oriental | HDInsight.EastAsia |
-| &nbsp; | Sudeste asiático | HDInsight.SoutheastAsia |
+| Japón | Japón Oriental | HDInsight.JapanEast |
+| Europa | Norte de Europa | HDInsight.NorthEurope |
+| &nbsp; | Oeste de Europa| HDInsight.WestEurope |
+| Asia | Este de Asia | HDInsight.EastAsia |
+| &nbsp; | Sudeste de Asia | HDInsight.SoutheastAsia |
 | Australia | Este de Australia | HDInsight.AustraliaEast |
 
 #### <a name="group-2"></a>Grupo 2

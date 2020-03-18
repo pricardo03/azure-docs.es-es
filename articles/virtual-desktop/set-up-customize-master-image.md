@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 23763123ce8e92b6bb15b2b33a196ed1a1d75c9f
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: 867b327ac25d51cd3955e622da9d8067ae6d9ae9
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368800"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127733"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparación y personalización de una imagen de disco duro virtual maestro
 
@@ -66,7 +67,7 @@ En esta sección se describe la preparación y la instalación de FSLogix y Wind
 
 Si va a instalar Office 365 ProPlus y OneDrive en la máquina virtual, vaya a [Instalación de Office en la imagen de un disco duro virtual principal](install-office-on-wvd-master-image.md) y siga las instrucciones que se indican para instalar las aplicaciones. Cuando haya terminado, vuelva a este artículo.
 
-Si los usuarios necesitan tener acceso a determinadas aplicaciones LOB, se recomienda instalarlas después de completar las instrucciones de esta sección.
+Si los usuarios necesitan tener acceso a determinadas aplicaciones de línea de negocio, se recomienda instalarlas después de completar las instrucciones de esta sección.
 
 ### <a name="set-up-user-profile-container-fslogix"></a>Configurar un contenedor de perfiles de usuario (FSLogix)
 
@@ -182,9 +183,9 @@ Después de preparar la imagen para su carga, asegúrese de que la máquina virt
 
 Esta sección solo procede si la imagen maestra se ha creado localmente.
 
-Las siguientes instrucciones le indicarán cómo cargar la imagen maestra en una cuenta de Azure Storage. Si aún no tiene una cuenta de Azure Storage, siga las instrucciones de [este artículo](/azure/javascript/tutorial-vscode-static-website-node-03) para crear una.
+Las siguientes instrucciones le indicarán cómo cargar la imagen maestra en una cuenta de Azure Storage. Si aún no tiene una cuenta de Azure Storage, siga las instrucciones de [este artículo](/azure/javascript/tutorial-vscode-static-website-node-03) para crearla.
 
-1. Establezca la imagen de máquina virtual (VHD) como fija, si aún no lo ha hecho. Si no la establece en fija, no podrá crear la imagen correctamente.
+1. Si aún no lo ha hecho, convierta la imagen de máquina virtual (VHD) en fija. Si no lo hace, no podrá crear la imagen correctamente.
 
 2. Cargue la VHD en un contenedor de blobs en la cuenta de almacenamiento. Puede hacerlo rápidamente con la [herramienta Explorador de Storage](https://azure.microsoft.com/features/storage-explorer/). Para obtener más información sobre la herramienta Explorador de Storage, vea [este artículo](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
 
@@ -194,7 +195,7 @@ Las siguientes instrucciones le indicarán cómo cargar la imagen maestra en una
 
     ![Captura de pantalla de la página Crear imagen de Azure Portal rellenada con valores de ejemplo de la imagen](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
 
-4. Una vez que haya creado la imagen, debería ver una notificación como la de esta captura de pantalla:
+4. Una vez que haya creado la imagen, debería ver una notificación como la de la siguiente captura de pantalla:
 
     ![Captura de pantalla de la notificación "Se creó correctamente la imagen"](media/1f41b7192824a2950718a2b7bb9e9d69.png)
 

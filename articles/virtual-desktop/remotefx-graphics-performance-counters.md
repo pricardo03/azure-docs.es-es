@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
-ms.openlocfilehash: eee8fdf515861b43b58d5af111930e2224c9a60a
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: 84cee86dbddff77f6142925eec01889cf793a466
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367241"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127556"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnóstico de problemas de rendimiento de gráficos en Escritorio remoto
 
@@ -71,7 +72,7 @@ Si el contador Fotogramas de salida/segundo coincide con el contador Fotogramas 
 
 Para más información acerca de cómo diagnosticar problemas relacionados con la aplicación, consulte [Contadores de rendimiento de retraso de entrada del usuario](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/).
 
-Dado que RDP admite un promedio de tiempo de codificación de 33 ms, también admite una velocidad de fotogramas de entrada de hasta 30 fotogramas por segundo. Tenga en cuenta que 33 ms es la velocidad de fotogramas máxima permitida. En muchos casos, la velocidad de fotogramas experimentada por el usuario será menor, en función de la frecuencia con la que el origen proporciona un fotograma a RDP. Por ejemplo, tareas como ver un vídeo requieren una velocidad de fotogramas de entrada completa de 30 fotogramas/segundo, pero las tareas con un proceso menos intensivo, como la edición de un documento con poca frecuencia, dan como resultado un valor de fotogramas de entrada/segundo mucho menor sin degradar la calidad de la experiencia del usuario.
+Dado que RDP admite un promedio de tiempo de codificación de 33 ms, también admite una velocidad de fotogramas de entrada de hasta 30 fotogramas por segundo. Tenga en cuenta que 33 ms es la velocidad de fotogramas máxima permitida. En muchos casos, la velocidad de fotogramas experimentada por el usuario será menor, en función de la frecuencia con la que el origen proporciona un fotograma a RDP. Por ejemplo, tareas como ver un vídeo requieren una velocidad de fotogramas de entrada completa de 30 fotogramas por segundo, pero las tareas con un proceso menos intensivo, como la edición de un documento con poca frecuencia, dan como resultado un valor de fotogramas de entrada/segundo mucho menor sin degradar la calidad de la experiencia del usuario.
 
 ### <a name="addressing-poor-frame-quality"></a>Solución de problemas de baja calidad de los fotogramas
 

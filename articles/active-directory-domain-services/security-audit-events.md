@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 89fa2297c50b6f28045f6f934092de3fd5d6c879
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: b2138818a9092999dd54b14664f7146f087c4fed
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613058"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328653"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Habilitación de auditorías de seguridad para Azure Active Directory Domain Services
 
@@ -193,7 +193,7 @@ AADDomainServicesAccountManagement
 
 ### <a name="sample-query-2"></a>Consulta de ejemplo 2
 
-Vea todos los eventos de bloqueo de cuentas (*4740*) entre el 3 de febrero de 2020 a las 9:00 y el 10 de febrero de 2019 a medianoche, ordenados de forma ascendente por fecha y hora:
+Vea todos los eventos de bloqueo de cuentas (*4740*) entre el 3 de febrero de 2020 a las 9:00 y el 10 de febrero de 2020 a medianoche, ordenados de forma ascendente por fecha y hora:
 
 ```Kusto
 AADDomainServicesAccountManagement

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: be1697038674a177eaced03732536c0df5b16983
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 74a4279d347be92b1047a9cf361e233ecc7fcff8
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046149"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674315"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entienda la factura de Azure Cosmos DB
 
@@ -95,31 +95,31 @@ Puede agregar o quitar regiones de Azure de cualquier parte del mundo en la cuen
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>Ejemplo de facturación: cuenta de Azure Cosmos de varias regiones, escrituras en una sola región
 
-Supongamos que tiene un contenedor de Azure Cosmos en Oeste de EE. UU. El contenedor se crea con un rendimiento de 10 000 RU/s y almacena 1 TB de datos este mes. Supongamos que agrega tres regiones (Este de EE. UU., Norte de Europa y Asia Oriental) a su cuenta de Azure Cosmos, cada una con la misma cantidad de rendimiento y almacenamiento. Su factura total mensual (suponiendo que un mes tiene 30 días) sería como sigue: 
+Supongamos que tiene un contenedor de Azure Cosmos en Oeste de EE. UU. El contenedor se crea con un rendimiento de 10 000 RU/s y almacena 1 TB de datos este mes. Supongamos que agrega tres regiones (Este de EE. UU., Norte de Europa y Este de Asia) a su cuenta de Azure Cosmos, cada una con la misma cantidad de rendimiento y almacenamiento. Su factura total mensual (suponiendo que un mes tiene 30 días) sería como sigue: 
 
 |**Elemento** |**Uso (mes)** |**Tarifa** |**Costo mensual** |
 |---------|---------|---------|-------|
 |Factura de rendimiento por el contenedor en Oeste de EE. UU.      | 10 000  RU/s * 24 * 30    |0,008 USD por 100 RU/s por hora   |576 USD|
-|Factura de rendimiento para 3 regiones adicionales: Este de EE. UU., Norte de Europa y Asia Oriental       | 3 * 10 000 RU/s * 24 * 30    |0,008 USD por 100 RU/s por hora  |1728 USD|
+|Factura de rendimiento para 3 regiones adicionales: Este de EE. UU., Norte de Europa y Este de Asia       | 3 * 10 000 RU/s * 24 * 30    |0,008 USD por 100 RU/s por hora  |1728 USD|
 |Factura de almacenamiento por el contenedor en Oeste de EE. UU.      | 250 GB    |0,25 USD/GB  |62,50 USD|
-|Factura de almacenamiento para 3 regiones adicionales: Este de EE. UU., Norte de Europa y Asia Oriental      | 3 * 250 GB    |0,25 USD/GB  |187,50 USD|
+|Factura de almacenamiento para 3 regiones adicionales: Este de EE. UU., Norte de Europa y Este de Asia      | 3 * 250 GB    |0,25 USD/GB  |187,50 USD|
 |**Total**     |     |  |**2554 USD**|
 
-*Suponga que hace salir 100 GB de datos todos los meses del contenedor de la región Oeste de EE. UU. para replicar datos en las regiones Este de EE. UU., Norte de Europa y Asia Oriental. Se le facturará la salida según las tarifas de transferencia de datos.*
+*Suponga que hace salir 100 GB de datos todos los meses del contenedor de la región Oeste de EE. UU. para replicar datos en las regiones Este de EE. UU., Norte de Europa y Este de Asia. Se le facturará la salida según las tarifas de transferencia de datos.*
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-multi-region-writes"></a>Ejemplo de facturación: cuenta de Azure Cosmos de varias regiones, escrituras en varias regiones
 
-Supongamos que crea un contenedor de Azure Cosmos en Oeste de EE. UU. El contenedor se crea con un rendimiento de 10 000 RU/s y almacena 1 TB de datos este mes. Suponga que agrega tres regiones (Este de EE. UU., Norte de Europa y Asia Oriental), cada una con el mismo almacenamiento y rendimiento, y quiere ser capaz de escribir en los contenedores de todas las regiones asociadas con su cuenta de Azure Cosmos. Su factura total mensual (suponiendo que un mes tiene 30 días) será:
+Supongamos que crea un contenedor de Azure Cosmos en Oeste de EE. UU. El contenedor se crea con un rendimiento de 10 000 RU/s y almacena 1 TB de datos este mes. Suponga que agrega tres regiones (Este de EE. UU., Norte de Europa y Este de Asia), cada una con el mismo almacenamiento y rendimiento, y quiere ser capaz de escribir en los contenedores de todas las regiones asociadas con su cuenta de Azure Cosmos. Su factura total mensual (suponiendo que un mes tiene 30 días) será:
 
 |**Elemento** |**Uso (mes)**|**Tarifa** |**Costo mensual** |
 |---------|---------|---------|-------|
 |Factura de rendimiento para un contenedor en Oeste de EE. UU. (se puede escribir en todas las regiones)       | 10 000  RU/s * 24 * 30    |0,016 USD por 100 RU/s por hora    |1152 USD |
-|Factura de rendimiento para 3 regiones adicionales: Este de EE. UU., Norte de Europa y Asia Oriental (se puede escribir en todas las regiones)        | (3 + 1) * 10 000 RU/s * 24 * 30    |0,016 USD por 100 RU/s por hora   |4608 USD |
+|Factura de rendimiento para 3 regiones adicionales: Este de EE. UU., Norte de Europa y Este de Asia (se puede escribir en todas las regiones)        | (3 + 1) * 10 000 RU/s * 24 * 30    |0,016 USD por 100 RU/s por hora   |4608 USD |
 |Factura de almacenamiento por el contenedor en Oeste de EE. UU.      | 250 GB    |0,25 USD/GB  |62,50 USD|
-|Factura de almacenamiento para 3 regiones adicionales: Este de EE. UU., Norte de Europa y Asia Oriental      | 3 * 250 GB    |0,25 USD/GB  |187,50 USD|
+|Factura de almacenamiento para 3 regiones adicionales: Este de EE. UU., Norte de Europa y Este de Asia      | 3 * 250 GB    |0,25 USD/GB  |187,50 USD|
 |**Total**     |     |  |**6010 USD**|
 
-*Suponga que hace salir 100 GB de datos todos los meses del contenedor de la región Oeste de EE. UU. para replicar datos en las regiones Este de EE. UU., Norte de Europa y Asia Oriental. Se le facturará la salida según las tarifas de transferencia de datos.*
+*Suponga que hace salir 100 GB de datos todos los meses del contenedor de la región Oeste de EE. UU. para replicar datos en las regiones Este de EE. UU., Norte de Europa y Este de Asia. Se le facturará la salida según las tarifas de transferencia de datos.*
 
 ### <a name="billing-example-azure-cosmos-account-with-multi-master-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>Ejemplo de facturación: Cuenta de Azure Cosmos con rendimiento en el nivel de la base de datos, arquitectura multimaestro, incluido el modo de rendimiento dedicado para algunos contenedores
 
@@ -198,6 +198,37 @@ La factura mensual total (suponiendo 30 días o 720 horas en un mes) se calcular
 |[701-720] |D1:20 000 <br/>D2:50 000 <br/>C1: -- |Factura de rendimiento para un contenedor en Oeste de EE. UU. (se puede escribir en todas las regiones)  |`D1: 20 K RU/sec/100 *$0.016 * 20 hours = $64` <br/>`D2: 50 K RU/sec/100 *$0.016 * 20 hours = $160` |224 USD  |
 | | |Factura de rendimiento para 2 regiones adicionales: Este de EE. UU., Norte de Europa (se puede escribir en todas las regiones)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |224 USD  |
 || |**Costo mensual total**  | |**38 688 USD**   |
+
+## <a name="billing-examples-with-free-tier-accounts"></a>Ejemplos de facturación con cuentas de nivel Gratis
+Con el nivel Gratis de Azure Cosmos DB, obtendrá en la cuenta las primeras 400 RU/s y 5 GB de almacenamiento gratis, que se aplicarán en el nivel de cuenta. Las RU/s y el almacenamiento que superen, respectivamente, las 400 RU/s y los 5 GB, se facturarán según las tarifas de precios habituales de la página de precios. En la factura no verá un cargo o una partida por las 400 RU/s y los 5 GB gratis, solo por las RU/s y el almacenamiento que supere lo que cubre el nivel Gratis. Las 400 RU/s se aplican a cualquier tipo de RU/s: capacidad de proceso aprovisionada, Autopilot (versión preliminar) y arquitectura multimaestro.  
+
+### <a name="billing-example---container-or-database-with-provisioned-throughput"></a>Ejemplo de facturación: contenedor o base de datos con capacidad de proceso aprovisionada
+- Supongamos que creamos una base de datos o un contenedor en una cuenta de nivel Gratis con 400 RU/s y 5 GB de almacenamiento.
+- La factura no mostrará ningún cargo por este recurso. El costo por hora y mensual será de 0 USD.
+- Supongamos ahora que en la misma cuenta agregamos otra base de datos o contenedor con 1000 RU/s y 10 GB de almacenamiento.
+- La factura mostrará un cargo por los 1000 RU/s y los 10 GB de almacenamiento. 
+
+### <a name="billing-example---container-or-database-with-autopilot-throughput-preview"></a>Ejemplo de facturación: contenedor o base de datos con capacidad de proceso de Autopilot (versión preliminar)
+- Supongamos que en una cuenta de nivel Gratis creamos una base de datos o un contenedor con AutoPilot habilitado, con un máximo de 4000 RU/s. Este recurso se escalará automáticamente entre 400 y 4000 RU/s. 
+- Supongamos que, desde la hora 1 a la hora 10, el recurso se sitúa en el mínimo de 400 RU/s. Durante la hora 11, el recurso se escala verticalmente hasta 1000 RU/s y después vuelve a 400 RU/s en la misma hora.
+- En las horas de 1 a 10 se le facturará 0 USD por la capacidad de proceso, ya que las 400 RU/s están cubiertas por el nivel Gratis. 
+- En la hora 11 se le facturará por una cantidad efectiva de 1000 RU/s - 400 RU/s = 600 RU/s, ya que es el valor máximo de RU/s de la hora. Serán 6 unidades de 100 RU/s por la hora, por lo que el costo de capacidad de proceso total de la hora será de 6 unidades * 0,012 USD = 0,072 USD. 
+- Cualquier almacenamiento que supere los primeros 5 GB se facturará a las tarifas de almacenamiento normales. 
+
+### <a name="billing-example---multi-region-single-write-region-account"></a>Ejemplo de facturación: cuenta de varias regiones, con una sola región de escritura
+- Supongamos que en una cuenta de nivel Gratis creamos una base de datos o un contenedor con 1200 RU/s y 10 GB de almacenamiento. Replicamos la cuenta en 3 regiones y contamos con una cuenta de maestro único (una sola región de escritura).
+- En total, sin el nivel Gratis, se le facturarían 3 * 1200 RU/s = 3600 RU/s y 3 * 10 GB = 30 GB de almacenamiento.
+- Con el descuento por nivel Gratis, después de quitar 400 RU/s y 5 GB de almacenamiento, se le facturará por una cantidad efectiva de 3200 RU/s (32 unidades) de capacidad de proceso aprovisionada con la tarifa de región de escritura única y 25 GB de almacenamiento.
+- El costo mensual de RU/s sería: 32 unidades * 0,008 USD * 24 horas * 31 días = 190,46 USD. El costo mensual del almacenamiento sería: 25 GB * 0,25/GB = 6,25 USD. El costo total sería de 190,46 + 6,25 = 196,71 USD.
+- Nota: si el precio por unidad de RU/s o de almacenamiento difiere en las regiones, las 400 RU/s y los 5 GB del nivel Gratis reflejarán las tarifas de la cuenta en la que se creó la región.
+
+### <a name="billing-example---multi-region-multi-master-multiple-write-region-account"></a>Ejemplo de facturación: cuenta de varias regiones, con arquitectura multimaestro (varias regiones de escritura)
+
+Este ejemplo refleja los [precios de la arquitectura multimaestro](https://azure.microsoft.com/pricing/details/cosmos-db/) para las cuentas creadas después del 1 de diciembre de 2019. 
+- Supongamos que en una cuenta de nivel Gratis creamos una base de datos o un contenedor con 1200 RU/s y 10 GB de almacenamiento. Replicamos la cuenta en 3 regiones y contamos con una cuenta de arquitectura multimaestro (varias regiones de escritura). 
+- En total, sin el nivel Gratis, se le facturarían 3 * 1200 RU/s = 3600 RU/s y 3 * 10 GB = 30 GB de almacenamiento.
+- Con el descuento por nivel Gratis, después de quitar 400 RU/s y 5 GB de almacenamiento, se le facturará por una cantidad efectiva de 3200 RU/s (32 unidades) de capacidad de proceso aprovisionada con la tarifa de varias regiones de escritura y 25 GB de almacenamiento.
+- El costo mensual de RU/s sería: 32 unidades * 0,016 USD * 24 horas * 31 días = 380,93 USD. El costo mensual del almacenamiento sería: 25 GB * 0,25/GB = 6,25 USD. El costo total sería de 380,93 + 6,25 = 387,18 USD.
 
 ## <a name="proactively-estimating-your-monthly-bill"></a>Cálculo proactivo de la factura mensual  
 

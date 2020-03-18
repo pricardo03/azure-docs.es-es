@@ -7,14 +7,14 @@ manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 7/25/2019
+ms.date: 3/11/2020
 ms.author: evansma
-ms.openlocfilehash: 40d466bd4e5959453f8c3042c4b14f6c3ef605bf
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 80911ce7858308302b1736328b6c7954c0e05a86
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933455"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79095530"
 ---
 # <a name="support-for-the-marketplace"></a>Soporte técnico de Azure Marketplace  
 A continuación, se muestra una lista de las opciones admitidas en Marketplace.  
@@ -23,13 +23,13 @@ También puede consultar muchas de las preguntas respondidas en el [canal Market
 
 ## <a name="onboarding"></a>Incorporación
 
-Abra una incidencia con el [soporte técnico para anunciantes de Marketplace](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) de Microsoft para problemas con la incorporación y la introducción, o con el [soporte técnico para asociados](https://partner.microsoft.com/support) de Microsoft si tiene alguna pregunta sobre Microsoft Partner Network.
+Abra un vale con el [soporte técnico del anunciante de Marketplace](https://aka.ms/marketplacepublishersupport) de Microsoft para todos los problemas relacionados con la incorporación y la introducción.
 
 ## <a name="partner-center-or-cloud-partner-portal"></a>Centro de partners o Cloud Partner Portal  
 
 | Canal de soporte técnico | Descripción | Disponibilidad |  
 |:--- |:--- |:--- |  
-| Para obtener ayuda, visite la página de creación de incidentes en el [soporte técnico de Marketplace](https://go.microsoft.com/fwlink/?linkid=844975).</li> </ul> | Soporte técnico para el Centro de partners o Cloud Partner Portal. | Se proporciona soporte técnico entre las 6 a. m. y las 6 p. m., hora estándar del Pacífico. |  
+| Para obtener ayuda, visite la página de creación de incidentes en el [soporte técnico de Marketplace](https://aka.ms/marketplacepublishersupport).</li> </ul> | Soporte técnico para el Centro de partners o Cloud Partner Portal. | La compatibilidad se proporciona 24 horas, 5 días de la semana. |  
 
 ## <a name="technical"></a>Requisitos previos técnicos  
 

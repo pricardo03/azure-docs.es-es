@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 03/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 74d9aa8228e841b17313fb3c15efe459ccd7339a
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: bce71355eef19ec3cc85525033274f57b1a3e0b9
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613587"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946423"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Administración de directivas de grupo en un dominio administrado con Azure AD Domain Services
 
@@ -42,7 +42,11 @@ Para completar este artículo, necesitará los siguientes recursos y privilegios
 * Una cuenta de usuario que sea miembro del grupo de *administradores de Azure AD DC* en el inquilino de Azure AD.
 
 > [!NOTE]
-> Como [no hay acceso a los controladores de dominio en Azure AD DS](faqs.md#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop), no se puede crear ni usar un almacén central para las plantillas administrativas de directiva de grupo en un dominio administrado. [Sysvol no se incluye en la sincronización de Azure AD Connect local](synchronization.md#what-isnt-synchronized-to-azure-ad-ds), por lo que tampoco se puede crear un almacén central local y sincronizarlo con Azure AD DS a través de Azure AD.
+> Para usar las plantillas administrativas de la directiva de grupo, puede copiar las nuevas plantillas en la estación de trabajo de administración. Copie los archivos *.admx* en `%SYSTEMROOT%\PolicyDefinitions` y los archivos *.adml* de la configuración regional en `%SYSTEMROOT%\PolicyDefinitions\[Language-CountryRegion]`, donde `Language-CountryRegion` coincide con el idioma y la región de los archivos *.adml*.
+>
+> Por ejemplo, copie la versión Inglés - Estados Unidos de los archivos *.adml* en la carpeta `\en-us`.
+>
+> También puede almacenar de forma centralizada la plantilla administrativa de la directiva de grupo en los controladores de dominio que forman parte del dominio administrado de Azure AD DS. Para más información, consulte [Cómo crear y administrar el almacén central de plantillas administrativas de la directiva de grupo en Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
 
 ## <a name="install-group-policy-management-tools"></a>Instalación de las herramientas de Administración de directivas de grupo
 
@@ -53,7 +57,7 @@ Para crear y configurar objetos de directiva de grupo (GPO), debe instalar las h
 1. En el *Panel de información* de la ventana **Administrador del servidor**, seleccione **Agregar roles y características**.
 1. En la página **Antes de comenzar** del *Asistente para agregar roles y características*, seleccione **Siguiente**.
 1. En *Tipo de instalación*, deje activada la opción **Instalación basada en características o en roles** y seleccione **Siguiente**.
-1. En la página **Selección de servidor**, seleccione la máquina virtual actual del grupo de servidores, por ejemplo *mivm.aaddscontoso.com*, y luego **Siguiente**.
+1. En la página **Selección de servidor**, elija la máquina virtual actual del grupo de servidores, por ejemplo *mivm.aaddscontoso.com*, y seleccione **Siguiente**.
 1. En la página **Roles de servidor**, haga clic en **Siguiente**.
 1. En la página **Características**, seleccione la **Administración de directivas de grupo**.
 

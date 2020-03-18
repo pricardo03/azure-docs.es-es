@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 9bcb0fd26710b5f44ca9e3e3715c40cb32b3c40d
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 535707191557142054e493d0216b713312f53953
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913947"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368658"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Uso del control de mapa de Azure Maps
 
@@ -27,23 +27,23 @@ Puede insertar un mapa en una página web mediante la biblioteca de JavaScript d
 
 2. Cárguelo en el SDK web de Azure Maps. Puede elegir una de las dos opciones:
 
-   1. Use la versión de CDN hospedada globalmente del SDK web de Azure Maps mediante la adición de los puntos de conexión de direcciones URL a las referencias de script y de hojas de estilo en el elemento `<head>` del archivo:
+    * Use la versión de CDN hospedado globalmente del SDK web de Azure Maps; para ello, agregue referencias a la hoja de estilo y a JavaScript en el elemento `<head>` del archivo HTML:
 
-      ```HTML
-       <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
-       <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
-      ```
+        ```HTML
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+        ```
 
-   1. Cargue localmente el código fuente del SDK web de Azure Maps mediante el paquete de NPM [azure-maps-control](https://www.npmjs.com/package/azure-maps-control) y hospédelo con la aplicación. Este paquete también incluye las definiciones de TypeScript.
+    * Cargue localmente el código fuente del SDK web de Azure Maps mediante el paquete de NPM [azure-maps-control](https://www.npmjs.com/package/azure-maps-control) y hospédelo con la aplicación. Este paquete también incluye las definiciones de TypeScript.
 
-      > **npm install azure-maps-control**
+        > **npm install azure-maps-control**
 
-   Agregue las referencias de hoja de estilos y origen de script de Azure Maps al elemento `<head>` del archivo:
+       Agregue las referencias de hoja de estilos y origen de script de Azure Maps al elemento `<head>` del archivo:
 
-      ```HTML
-       <link rel="stylesheet" href="node_modules/azure-maps-control/dist/atlas.min.css" type="text/css"> 
-       <script src="node_modules/azure-maps-control/dist/atlas.min.js"></script>
-      ```
+        ```HTML
+        <link rel="stylesheet" href="node_modules/azure-maps-control/dist/atlas.min.css" type="text/css"> 
+        <script src="node_modules/azure-maps-control/dist/atlas.min.js"></script>
+        ```
 
     > [!Note]
     > Las definiciones de Typescript se pueden importar en la aplicación si agrega el código siguiente:

@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: a07a5a5956d8ea295d269d81ed264177bc8805f2
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 47870410741cf96e289014fab5a9c2eab26759b1
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77424990"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096421"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Ingesta de blobs en Azure Data Explorer mediante la suscripción a las notificaciones de Event Grid
 
@@ -118,7 +118,7 @@ Ahora, conéctese a la instancia de Event Grid desde Azure Data Explorer para qu
      **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
     | Tabla | *TestTable* | La tabla que creó en **TestDatabase**. |
-    | Formato de datos | *JSON* | Los formatos admitidos son Avro, CSV, JSON, JSON de varias líneas, PSV, SOH, SCSV, TSV y TXT. Opciones de compresión admitidas: ZIP y GZIP |
+    | Formato de datos | *JSON* | Los formatos admitidos son Avro, CSV, JSON, JSON de varias líneas, PSV, SOH, SCSV, TSV, RAW y TXT. Opciones de compresión admitidas: ZIP y GZIP |
     | Asignación de columnas | *TestMapping* | La asignación que creó en **TestDatabase**, que asigna los datos JSON entrantes a los nombres de columnas y tipos de datos de **TestTable**.|
     | | |
     
@@ -150,13 +150,32 @@ Guarde los datos en un archivo y cárguelo con este script:
     az storage container create --name $container_name
 
     echo "Uploading the file..."
-    az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name
+    az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name --metadata "rawSizeBytes=1024"
 
     echo "Listing the blobs..."
     az storage blob list --container-name $container_name --output table
 
     echo "Done"
 ```
+
+> [!NOTE]
+> Para lograr el mejor rendimiento de la ingesta, se deben comunicar los tamaño *sin comprimir* de los blobs comprimidos enviados para la ingesta. Dado que las notificaciones de Event Grid solo contienen detalles básicos, debe comunicarse explícitamente la información de tamaño. La información de tamaño sin comprimir se puede proporcionar estableciendo la propiedad `rawSizeBytes` en los metadatos del blob con el tamaño de los datos *sin comprimir* expresado en bytes.
+
+### <a name="ingestion-properties"></a>Propiedades de la ingesta
+
+Puede especificar las [propiedades de la ingesta](https://docs.microsoft.com/azure/kusto/management/data-ingestion/#ingestion-properties) de blobs mediante los metadatos del blob.
+
+Se pueden establecer estas propiedades:
+
+|**Propiedad** | **Descripción de la propiedad**|
+|---|---|
+| `rawSizeBytes` | Tamaño de los datos sin formato (sin comprimir). En Avro/ORC/Parquet, es el tamaño antes de que se aplique la compresión específica del formato.|
+| `kustoTable` |  Nombre de la tabla de destino existente. Invalida el valor de `Table` establecido en la hoja `Data Connection`. |
+| `kustoDataFormat` |  Formato de datos. Invalida el valor de `Data format` establecido en la hoja `Data Connection`. |
+| `kustoIngestionMappingReference` |  Nombre de la asignación de ingesta existente que se va a usar. Invalida el valor de `Column mapping` establecido en la hoja `Data Connection`.|
+| `kustoIgnoreFirstRecord` | Si se establece en `true`, Kusto omite la primera fila del blob. Úselo en datos con formato tabular (CSV, TSV o similar) para omitir los encabezados. |
+| `kustoExtentTags` | Cadena que representa [etiquetas](/azure/kusto/management/extents-overview#extent-tagging) que se adjuntarán a la extensión resultante. |
+| `kustoCreationTime` |  Invalida [$IngestionTime](/azure/kusto/query/ingestiontimefunction?pivots=azuredataexplorer) para el blob, con el formato de una cadena ISO 8601. Se usa para la reposición. |
 
 > [!NOTE]
 > Azure Data Explorer no eliminará los blobs con posterioridad a la ingesta.

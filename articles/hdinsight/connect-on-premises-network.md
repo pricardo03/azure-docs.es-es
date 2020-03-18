@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/16/2019
-ms.openlocfilehash: 97725099e82c5edb05447d97b47f352c440bd8e8
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.custom: hdinsightactive
+ms.date: 03/04/2020
+ms.openlocfilehash: 2ed7a5b9c81d1b50f80f379a88688b69c49ed382
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529298"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897908"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Conexión de HDInsight a la red local
 
@@ -28,12 +28,12 @@ Obtenga información sobre cómo conectar HDInsight a la red local mediante inst
 
 Para permitir que HDInsight y los recursos de la red combinada se comuniquen por nombre, debe realizar las acciones siguientes:
 
-* Cree una instancia de Azure Virtual Network.
-* Cree un servidor DNS personalizado en la instancia de Azure Virtual Network.
-* Configure la red virtual para que use el servidor DNS personalizado en lugar de la resolución recursiva de Azure predeterminada.
-* Configure el reenvío entre el servidor DNS personalizado y el servidor DNS local.
+1. Cree una instancia de Azure Virtual Network.
+1. Cree un servidor DNS personalizado en la instancia de Azure Virtual Network.
+1. Configure la red virtual para que use el servidor DNS personalizado en lugar de la resolución recursiva de Azure predeterminada.
+1. Configure el reenvío entre el servidor DNS personalizado y el servidor DNS local.
 
-Esta configuración permite el siguiente comportamiento:
+Estas configuraciones permiten que se produzca el siguiente comportamiento:
 
 * Las solicitudes de nombres de dominio completos con el sufijo DNS __para la red virtual__ se reenvían al servidor DNS personalizado. Entonces, el servidor DNS personalizado reenvía estas solicitudes a la resolución recursiva de Azure, que devuelve la dirección IP.
 * Todas las otras solicitudes se reenvían al servidor DNS local. Incluso las solicitudes de recursos de Internet, como microsoft.com, se reenvían al servidor DNS local para la resolución de nombres.
@@ -42,7 +42,7 @@ En el diagrama siguiente, las líneas verdes son solicitudes de recursos que fin
 
 ![Diagrama de cómo se resuelven las solicitudes DNS en la configuración](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un cliente SSH. Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](./hdinsight-hadoop-linux-use-ssh-unix.md).
 * Si usa PowerShell, necesitará el [Módulo AZ](https://docs.microsoft.com/powershell/azure/overview).
@@ -63,15 +63,17 @@ Use los documentos siguientes para obtener información sobre cómo crear una in
 
 Los pasos siguientes usan [Azure Portal](https://portal.azure.com) para crear una instancia de Azure Virtual Machine. Para conocer otras formas de crear una máquina virtual, consulte los documentos [Creación de una máquina virtual: CLI de Azure](../virtual-machines/linux/quick-create-cli.md) y [Creación de una máquina virtual: Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md).  Para crear una máquina virtual Linux que usa el software DNS [Bind](https://www.isc.org/downloads/bind/), use los pasos siguientes:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
   
-2. En el menú de la izquierda, vaya a la opción **+ Crear un recurso** > **Proceso** > **Ubuntu Server 18.04 LTS**.
+1. En el menú superior, seleccione **+ Crear un recurso**.
 
-    ![Creación de una máquina virtual Ubuntu](./media/connect-on-premises-network/create-ubuntu-virtual-machine.png)
+    ![Creación de una máquina virtual Ubuntu](./media/connect-on-premises-network/azure-portal-create-resource.png)
 
-3. Introduzca la siguiente información de la pestaña __Aspectos básicos__:  
+1. Seleccione **Proceso** > **Virtual machine** (Máquina virtual) para ir a la página **Crear una máquina virtual**.
+
+1. Introduzca la siguiente información de la pestaña __Aspectos básicos__:  
   
-    | Campo | Valor |
+    | Campo | Value |
     | --- | --- |
     |Subscription |Seleccione una suscripción adecuada.|
     |Resource group |Seleccione el grupo de recursos que contiene la red virtual que ha creado antes.|
@@ -90,7 +92,7 @@ Los pasos siguientes usan [Azure Portal](https://portal.azure.com) para crear un
 
 4. Introduzca la siguiente información de la pestaña **Redes**:
 
-    | Campo | Valor |
+    | Campo | Value |
     | --- | --- |
     |Virtual network | Seleccione la red virtual que ha creado antes.|
     |Subnet | Seleccione la subred predeterminada de la red virtual que ha creado antes. __No__ seleccione la subred que la puerta de enlace de VPN usa.|
@@ -178,7 +180,7 @@ Una vez que se haya creado la máquina virtual, recibirá una notificación de *
     dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
     ```
 
-    El texto `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` está en el __sufijo DNS__ de esta red virtual. Guarde este valor, porque se usará más adelante.
+    El texto `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` está en el __sufijo DNS__ de esta red virtual. Guarde este valor, porque se utiliza más adelante.
 
 5. Para configurar Bind a fin de resolver nombres DNS para recursos dentro de la red virtual, use el texto siguiente como contenido del archivo `/etc/bind/named.conf.local`:
 

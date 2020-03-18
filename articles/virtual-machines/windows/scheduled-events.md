@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: c4461856bd5eeb01eb84b0d39afef9507438f8d3
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 2b3aa5d50822863e3aa46fcf9970e0b3e67a6f69
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920671"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944461"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Scheduled Events para máquinas virtuales Windows
 
@@ -45,7 +45,7 @@ Con Eventos programados, la aplicación puede detectar cuándo se producirá el 
 
 Eventos programados proporciona eventos en los casos de uso siguientes:
 - [Mantenimiento iniciado por la plataforma](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (por ejemplo, reinicio de máquina virtual, migración en vivo o actualizaciones con conservación de memoria para el host)
-- Hardware degradado
+- La máquina virtual funciona en un [hardware de host degradado](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) que se predice que fallará pronto
 - Mantenimiento iniciado por el usuario (por ejemplo, el usuario reinicia o vuelve a implementar una máquina virtual)
 - Expulsiones de instancias de [máquina virtual de Spot](spot-vms.md) y [conjunto de escalado de Spot](../../virtual-machine-scale-sets/use-spot.md)
 
@@ -135,6 +135,9 @@ Cada evento se programa una cantidad mínima de tiempo en el futuro en función 
 | Volver a implementar | 10 minutos |
 | Preempt | 30 segundos |
 | Terminate | [Configurable por el usuario](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): de 5 a 15 minutos |
+
+> [!NOTE] 
+> En algunos casos, Azure puede predecir errores en el host debidos a que el hardware está degradado e intentará mitigar la interrupción del servicio mediante la programación de una migración. Las máquinas virtuales afectadas recibirán un evento programado con un valor de `NotBefore` que habitualmente es unos días posteriores. El tiempo real varía en función de la valoración de riesgo de error predicha. Azure intenta avisar con 7 días de antelación siempre que sea posible, pero el tiempo real varía y puede ser menor si la predicción es que sea muy probable que se produzcan errores en el hardware de forma inminente. Para minimizar el riesgo para el servicio si se produce un error en el hardware antes de que se realice la migración iniciada por el sistema, se recomienda implementar automáticamente la máquina virtual lo antes posible.
 
 ### <a name="event-scope"></a>Ámbito actual     
 Los eventos programados se entregan a:

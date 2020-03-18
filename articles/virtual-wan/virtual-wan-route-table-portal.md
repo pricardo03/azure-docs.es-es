@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 03/05/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
-ms.openlocfilehash: c0681024b60827cf589906041c264d912ab209bb
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 0807b535adc45093b439dba5ab8a0ea26b2a0721
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75612367"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402939"
 ---
 # <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Cree una tabla de rutas de concentrador de Virtual WAN para dispositivos virtuales de red: Portal de Azure
 
@@ -31,13 +31,14 @@ Compruebe que se cumplen los criterios siguientes:
 
     * El NVA no se implementa en el concentrador virtual. Se debe implementar en una red virtual independiente.
 
-    *  La red virtual NVA puede tener una o varias redes virtuales conectadas a ella. En este artículo, nos referimos a la red virtual de NVA como "red virtual de radio indirecta". Estas redes virtuales pueden conectarse a la red virtual de NVA mediante emparejamiento de redes virtuales. Los vínculos de emparejamiento de VNet se representan mediante las flechas negras de la ilustración anterior entre la red virtual 1, la red virtual 2 y la red virtual NVA.
+    *  La red virtual de NVA puede tener una o varias redes virtuales conectadas. En este artículo, nos referimos a la red virtual de NVA como "red virtual de radio indirecta". Estas redes virtuales pueden conectarse a la red virtual de NVA mediante el emparejamiento de VNET. Los vínculos de emparejamiento de VNET se representan mediante flechas negras en la ilustración anterior entre VNet 1, VNet 2 y NVA VNet.
 *  Ha creado dos redes virtuales. Se usarán como redes virtuales de radio.
 
-    * En este ejercicio, los espacios de direcciones de red virtual de radio son: VNet1: 10.0.2.0/24 y VNet2: 10.0.3.0/24. Si necesita más información sobre cómo crear una red virtual, consulte [Creación de una red virtual](../virtual-network/quick-create-portal.md).
+    * Los espacios de direcciones de red virtual de radio son: VNet1: 10.0.2.0/24 y VNet2: 10.0.3.0/24. Si necesita información sobre cómo crear una red virtual, consulte [Creación de una red virtual](../virtual-network/quick-create-portal.md).
 
     * Asegúrese de que no haya ninguna puerta de enlace de red virtual en ninguna de las redes virtuales.
-    * Para esta configuración, estas redes virtuales no requieren una subred de puerta de enlace.
+
+    * Las redes virtuales no requieren ninguna subred de puerta de enlace.
 
 ## <a name="signin"></a>1. Iniciar sesión
 
@@ -45,7 +46,7 @@ Desde un explorador, navegue al [Portal de Azure](https://portal.azure.com) e in
 
 ## <a name="vwan"></a>2. Creación de una instancia de Virtual WAN
 
-Cree una WAN virtual. A efectos de este ejercicio, puede utilizar los valores siguientes:
+Cree una WAN virtual. Use los valores de ejemplo siguientes:
 
 * **Nombre de Virtual WAN:** myVirtualWAN
 * **Grupo de recursos:** TestRG
@@ -55,7 +56,7 @@ Cree una WAN virtual. A efectos de este ejercicio, puede utilizar los valores si
 
 ## <a name="hub"></a>3. Crear un concentrador
 
-Cree el concentrador. A efectos de este ejercicio, puede utilizar los valores siguientes:
+Cree el concentrador. Use los valores de ejemplo siguientes:
 
 * **Ubicación:** Oeste de EE. UU.
 * **Nombre:** westushub
@@ -65,7 +66,7 @@ Cree el concentrador. A efectos de este ejercicio, puede utilizar los valores si
 
 ## <a name="route"></a>4. Creación y aplicación de una tabla de rutas de concentrador
 
-Actualice el concentrador con una tabla de rutas de concentrador. A efectos de este ejercicio, puede utilizar los valores siguientes:
+Actualice el concentrador con una tabla de rutas de concentrador. Use los valores de ejemplo siguientes:
 
 * **Espacios de direcciones de red virtual de radio:** (VNet1 y VNet2) 10.0.2.0/24 y 10.0.3.0/24
 * **Dirección IP privada de interfaz con red NVA de la red perimetral:** 10.0.4.5
@@ -79,17 +80,17 @@ Actualice el concentrador con una tabla de rutas de concentrador. A efectos de e
 
 ## <a name="connections"></a>5. Creación de las conexiones de red virtual
 
-Cree una conexión de red virtual desde cada red virtual de radio indirecta (VNet1 y VNet2) al centro de conectividad. Estas conexiones de red virtual se representan mediante las flechas azules de la ilustración anterior. Después, cree una conexión de red virtual desde la red virtual NVA al centro de conectividad (flecha negra de la ilustración). 
+Cree una conexión de red virtual desde cada red virtual de radio indirecta (VNet1 y VNet2) al centro de conectividad. Estas conexiones de red virtual se representan mediante flechas azules en la ilustración anterior. Después, cree una conexión de red virtual desde la red virtual de NVA al centro de conectividad (flecha negra de la ilustración).
 
  En este paso se pueden usar los siguientes valores:
 
-| Nombre de red virtual| Nombre de conexión|
+| Nombre de la red virtual| Nombre de conexión|
 | --- | --- |
 | VNet1 | testconnection1 |
 | VNet2 | testconnection2 |
 | NVAVNet | testconnection3 |
 
-Repita los pasos siguientes para cada red virtual que quiera conectar.
+Repita el procedimiento siguiente en todas las redes virtuales que quiera conectar.
 
 1. En la página de la red WAN virtual, haga clic en **Conexiones de red virtual**.
 2. En la página de conexión de red virtual, haga clic en **+ Agregar conexión**.

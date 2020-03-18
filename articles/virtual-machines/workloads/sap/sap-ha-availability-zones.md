@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/17/2020
+ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ee3d1d896d99d892d0a41799c4c1695633d29c4
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: a7a92bef85cd4ee7530940a065135e88c7530781
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291505"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675603"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configuraciones de cargas de trabajo de SAP con Azure Availability Zones
 Una de las características de alta disponibilidad que Azure ofrece es [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). El uso de Availability Zones mejora la disponibilidad general de las cargas de trabajo de SAP en Azure. Esta característica ya está disponible en algunas [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/). En el futuro, estará disponible en más regiones.
@@ -118,6 +118,9 @@ Las siguientes consideraciones se aplican a esta configuración:
 - La tercera zona se usa para hospedar el dispositivo SBD en caso de que compile un [clúster de Pacemaker en SUSE Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) o instancias de aplicación adicionales.
 - Para lograr la coherencia del tiempo de ejecución para algunos trabajos o transacciones empresariales críticos, puede intentar dirigir determinados trabajos por lotes y usuarios directamente a instancias de aplicación específicas que se encuentran en la zona con la instancia de DBMS activa con el uso de grupos de servidor por lotes de SAP, grupos de inicio de sesión SAP o grupos de RFC. Sin embargo, en el caso de una conmutación por error zonal, debe mover manualmente estos grupos a instancias que se ejecutan en VM en zona con la VM de la base de datos activa.  
 - Es posible que desee implementar instancias de diálogo inactivas en cada una de las zonas. Esto sirve para habilitar una devolución inmediata a la capacidad de recursos anterior si una zona que se usa por parte de las instancias de la aplicación se queda fuera de servicio.
+
+> [!IMPORTANT]
+> En este escenario activo/activo, Microsoft anuncia que a partir del 1 de abril de 2020 habrá cargos adicionales por el ancho de banda. Consulte el documento [Detalles de precios de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/). La transferencia de datos entre la capa de aplicación de SAP y la capa de DBMS de SAP es bastante intensiva. Por consiguiente, el escenario activo/activo puede contribuir al aumento de costos. Para conocer los costos exactos, siga leyendo este artículo 
 
 
 ## <a name="activepassive-deployment"></a>Implementación activa/pasiva

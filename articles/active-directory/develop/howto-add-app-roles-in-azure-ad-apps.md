@@ -14,12 +14,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5400ede4f3afd9f94d7380c6dfd55d8aa45d08ca
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 3a911db36fd03ebcb5e0fc53d4d7f36d68648249
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834253"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399093"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procedimientos: Agregar roles de aplicación en la aplicación y recibirlos en el token
 
@@ -44,10 +44,10 @@ Estos roles de aplicación se definen en [Azure Portal](https://portal.azure.com
 1. Localice la opción de configuración `appRoles` para editar el manifiesto de la aplicación y agregar los roles de aplicación.
 
      > [!NOTE]
-     > Cada definición de roles de aplicación de este manifiesto debe tener un GUID válido diferente en el contexto del manifiesto para la propiedad `id`.    
-     > 
+     > Cada definición de roles de aplicación de este manifiesto debe tener un GUID válido diferente en el contexto del manifiesto para la propiedad `id`.
+     >
      > La propiedad `value` de cada definición de rol de la aplicación debe coincidir exactamente con las cadenas que se usan en el código de la aplicación. La propiedad `value` no puede contener espacios. Si es así, recibirá un error al guardar el manifiesto.
-     
+
 1. Guarde el manifiesto.
 
 ### <a name="examples"></a>Ejemplos
@@ -122,7 +122,7 @@ Una vez que haya agregado los roles de aplicación en la aplicación, puede asig
 
 ## <a name="more-information"></a>Más información
 
-- [Autorización en una aplicación web con roles de aplicación de Azure AD &amp; notificaciones de rol (ejemplo)](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims)
+- [Incorporación de autorización mediante roles de aplicación y notificaciones de roles a una aplicación web de ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
 - [Uso de grupos de seguridad y roles de aplicación en las aplicaciones (vídeo)](https://www.youtube.com/watch?v=V8VUPixLSiM)
 - [Azure Active Directory, ahora con notificaciones de grupo y roles de aplicación](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Manifiesto de la aplicación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)

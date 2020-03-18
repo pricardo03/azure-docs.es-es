@@ -1,27 +1,22 @@
 ---
-title: Apertura de puertos a una máquina virtual Linux con CLI de Azure
-description: Más información sobre cómo abrir un puerto o crear un punto de conexión a la máquina virtual Linux mediante el modelo de implementación de Azure Resource Manager y la CLI de Azure
-services: virtual-machines-linux
-documentationcenter: ''
+title: Apertura de puertos en una máquina virtual con la CLI de Azure
+description: Aprenda a abrir un puerto o crear un punto de conexión en su máquina virtual mediante la CLI de Azure.
 author: cynthn
 manager: gwallace
-editor: ''
-ms.assetid: eef9842b-495a-46cf-99a6-74e49807e74e
-ms.service: virtual-machines-linux
-ms.devlang: azurecli
+ms.service: virtual-machines
+ms.subservice: networking
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: cfcea8c775b2d6a9bee3c078cf67f0a942af5984
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d9488b7a466dfc67edbf2dcbee966fc1fc72e8b7
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354045"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944539"
 ---
-# <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Abrir puertos y puntos de conexión para una máquina virtual de Linux con la CLI de Azure
+# <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Abrir puertos y puntos de conexión en una máquina virtual con la CLI de Azure
 
 En Azure, se abre un puerto o se crea un punto de conexión a una máquina virtual creando un filtro de red en una subred o una interfaz de red de máquina virtual. Estos filtros, que controlan el tráfico entrante y saliente, se colocan en un grupo de seguridad de red y se asocian al recurso que va a recibir dicho tráfico. Vamos a usar un ejemplo común de tráfico web en el puerto 80. En este artículo se muestra cómo abrir un puerto a una VM mediante la CLI de Azure. 
 

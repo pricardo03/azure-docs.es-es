@@ -10,18 +10,18 @@ author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: eac7674ae4a88621a803c70bd55a88e65b2cb7e9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: caf2437b4a4853bc29f094d082a4ea15d2f7a3c9
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838691"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388484"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Repetición del entrenamiento e implementación de un servicio web de Studio (clásico)
 
 Una forma de garantizar que los modelos de Machine Learning siguen siendo precisos y se basan en los datos más adecuados disponibles, es volver a entrenarlos. En este artículo se muestra cómo volver a entrenar un servicio web de Studio clásico. Para más información acerca de cómo volver a entrenar un nuevo servicio web de Studio (clásico), [consulte este artículo de procedimientos](retrain-machine-learning-model.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este artículo se asume que tiene un experimento de reciclaje y un experimento de predicción. Estos pasos se explican en [Reciclaje de un modelo de Azure Machine Learning Studio](/azure/machine-learning/studio/retrain-machine-learning-model). Sin embargo, en lugar de implementar el modelo de Machine Learning como un servicio web nuevo, implementará el experimento de predicción como un servicio web clásico.
      
@@ -52,19 +52,6 @@ También puede agregar puntos de conexión de puntuación mediante el código de
 ## <a name="update-the-added-endpoints-trained-model"></a>Actualización del modelo entrenado del punto de conexión agregado
 
 ### <a name="retrieve-patch-url"></a>Recuperación de URL de PATCH
-
-### <a name="option-1-programmatically"></a>Opción 1: De manera programática
-
-Para obtener el valor correcto de URL de PATCH mediante programación, siga estos pasos:
-
-1. Ejecute el código de ejemplo [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) .
-1. En la salida de AddEndpoint, busque el valor *HelpLocation* y copie la dirección URL.
-
-   ![HelpLocation en la salida del ejemplo de addEndpoint.](./media/retrain-classic/addEndpoint-output.png)
-1. Pegue la dirección URL en un explorador para ir a una página que proporciona vínculos de ayuda para el servicio web.
-1. Haga clic en el vínculo **Actualizar recurso** para abrir la página de ayuda sobre aplicación de revisiones.
-
-### <a name="option-2-use-the-azure-machine-learning-web-services-portal"></a>Opción 2: Mediante el portal de Web Services de Azure Machine Learning
 
 Para obtener el valor correcto de URL de PATCH mediante el portal web, siga estos pasos:
 
@@ -101,8 +88,8 @@ El código de ejemplo siguiente muestra cómo utilizar *BaseLocation*, *Relative
                     Location = new AzureBlobDataReference()
                     {
                         BaseLocation = "https://esintussouthsus.blob.core.windows.net/",
-                        RelativeLocation = "your endpoint relative location", //from the output, for example: “experimentoutput/8946abfd-79d6-4438-89a9-3e5d109183/8946abfd-79d6-4438-89a9-3e5d109183.ilearner”
-                        SasBlobToken = "your endpoint SAS blob token" //from the output, for example: “?sv=2013-08-15&sr=c&sig=37lTTfngRwxCcf94%3D&st=2015-01-30T22%3A53%3A06Z&se=2015-01-31T22%3A58%3A06Z&sp=rl”
+                        RelativeLocation = "your endpoint relative location", //from the output, for example: "experimentoutput/8946abfd-79d6-4438-89a9-3e5d109183/8946abfd-79d6-4438-89a9-3e5d109183.ilearner"
+                        SasBlobToken = "your endpoint SAS blob token" //from the output, for example: "?sv=2013-08-15&sr=c&sig=37lTTfngRwxCcf94%3D&st=2015-01-30T22%3A53%3A06Z&se=2015-01-31T22%3A58%3A06Z&sp=rl"
                     }
                 }
             }
@@ -131,7 +118,7 @@ Se puede obtener *apiKey* y *endpointUrl* para la llamada desde el panel del pun
 
 El valor del parámetro *Name* de *Resources* debe coincidir con el nombre del recurso del modelo entrenado guardado en el experimento predictivo. Para obtener el nombre del recurso:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Haga clic en **Machine Learning**en el menú izquierdo.
 1. En Nombre, haga clic en el área de trabajo y, a continuación, haga clic en **Servicios web**.
 1. En Nombre, haga clic en **Census Model [predictive exp.]** (Modelo de censo [exp. predictivo]).

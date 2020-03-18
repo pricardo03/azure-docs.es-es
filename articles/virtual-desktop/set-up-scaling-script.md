@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: helohr
-ms.openlocfilehash: f38fc45411c89351eb9a50a48f22d22905ee34e6
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: 2078869aef5964b30723d8b6854c4b15f0423205
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367257"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127544"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Escalado de hosts de sesión con Azure Automation
 
@@ -37,7 +38,7 @@ Durante el tiempo de uso en horas punta, el trabajo comprueba el número actual 
 >[!NOTE]
 >*SessionThresholdPerCPU* no restringe el número de sesiones en la máquina virtual. Este parámetro solo determina cuándo es necesario iniciar nuevas máquinas virtuales para equilibrar la carga de las conexiones. Para restringir el número de sesiones, debe seguir las instrucciones de [Set-RdsHostPool](/powershell/module/windowsvirtualdesktop/set-rdshostpool/) para configurar el parámetro *MaxSessionLimit* en consecuencia.
 
-En las horas de menos uso, el trabajo determina qué máquinas virtuales de los hosts de sesión deben apagarse según el parámetro *MinimumNumberOfRDSH*. El trabajo establecerá las máquinas virtuales de los hosts de sesión en modo de purga para evitar que las nuevas sesiones se conecten a los hosts. Si establece el parámetro *LimitSecondsToForceLogOffUser* en un valor positivo distinto de cero, el script le enviará una notificación cada vez que los usuarios que tengan la sesión iniciada guarden su trabajo, esperará el tiempo predeterminado y, después, forzará a los usuarios a cerrar la sesión. Cuando se hayan cerrado todas las sesiones de usuario en la máquina virtual del host de sesión, el script apagará la máquina virtual.
+En las horas de menos uso, el trabajo determina qué máquinas virtuales de los hosts de sesión deben apagarse según el parámetro *MinimumNumberOfRDSH*. El trabajo establecerá las máquinas virtuales de los hosts de sesión en modo de purga para evitar que las nuevas sesiones se conecten a los hosts. Si establece el parámetro *LimitSecondsToForceLogOffUser* en un valor positivo distinto de cero, el trabajo enviará a los usuarios que tengan la sesión iniciada la notificación de que guarden su trabajo, esperará el periodo predeterminado y, después, obligará a los usuarios a cerrar la sesión. Cuando se hayan cerrado todas las sesiones de usuario en la máquina virtual del host de sesión, el trabajo apagará la máquina virtual.
 
 Si establece el parámetro *LimitSecondsToForceLogOffUser* en cero, el trabajo permitirá que el valor de configuración de la sesión de las directivas de grupo especificadas controle el cierre de las sesiones de los usuarios. Para ver estas directivas de grupo, vaya a **Configuración del equipo** > **Directivas** > **Plantillas administrativas** > **Componentes de Windows** > **Terminal Services** > **Terminal Server** > **Límites de tiempo de sesión**. Si hay sesiones activas en una máquina virtual del host de sesión, el trabajo dejará que se ejecute esa máquina. Si no hay sesiones activas, el trabajo apagará la máquina virtual del host de sesión.
 
@@ -83,7 +84,9 @@ En primer lugar, necesitará una cuenta de Azure Automation para ejecutar el run
 3. Ejecute el siguiente cmdlet para descargar el script para crear la cuenta de Azure Automation:
 
      ```powershell
-     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazureautomationaccount.ps1" -OutFile "your local machine path\ createazureautomationaccount.ps1"
+     Set-Location -Path "c:\temp"
+     $uri = "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazureautomationaccount.ps1"
+     Invoke-WebRequest -Uri $uri -OutFile ".\createazureautomationaccount.ps1"
      ```
 
 4. Ejecute el siguiente cmdlet para ejecutar el script y crear la cuenta de Azure Automation:
@@ -175,9 +178,9 @@ Por último, deberá crear la aplicación lógica de Azure y configurar una prog
 
      $tenantName = Read-Host -Prompt "Enter the name of your WVD tenant"
 
-     $hostPoolName = Read-Host -Prompt "Enter the name of the host pool you’d like to scale"
+     $hostPoolName = Read-Host -Prompt "Enter the name of the host pool you'd like to scale"
 
-     $recurrenceInterval = Read-Host -Prompt "Enter how often you’d like the job to run in minutes, e.g. ‘15’"
+     $recurrenceInterval = Read-Host -Prompt "Enter how often you'd like the job to run in minutes, e.g. '15'"
 
      $beginPeakTime = Read-Host -Prompt "Enter the start time for peak hours in local time, e.g. 9:00"
 
@@ -203,7 +206,7 @@ Por último, deberá crear la aplicación lógica de Azure y configurar una prog
 
      $automationAccountName = Read-Host -Prompt "Enter the name of the Azure Automation Account"
 
-     $maintenanceTagName = Read-Host -Prompt "Enter the name of the Tag associated with VMs you don’t want to be managed by this scaling tool"
+     $maintenanceTagName = Read-Host -Prompt "Enter the name of the Tag associated with VMs you don't want to be managed by this scaling tool"
 
      .\createazurelogicapp.ps1 -ResourceGroupName $resourceGroupName `
        -AADTenantID $aadTenantId `

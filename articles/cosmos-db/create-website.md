@@ -4,17 +4,17 @@ description: Aprenda a implementar una cuenta de Azure Cosmos DB, Azure App Serv
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 03/11/2019
 ms.author: sngun
-ms.openlocfilehash: 11b84877171fae8e788d3298973fd74645b35480
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 2306dbe234e171ac613c33458df1990b767637df
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901917"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128376"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Implementar Azure Cosmos DB y Azure App Service Web Apps con una plantilla de Azure Resource Manager
-En este tutorial se muestra cómo usar una plantilla de Azure Resource Manager para implementar e integrar [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), una aplicación web de [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) y una aplicación web de ejemplo.
+En este tutorial se muestra cómo usar una plantilla de Azure Resource Manager para implementar e integrar [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), una aplicación web de [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) y una aplicación web de ejemplo.
 
 Con las plantillas de Azure Resource Manager, puede automatizar fácilmente la implementación y la configuración de sus recursos de Azure.  En este tutorial se muestra cómo implementar una aplicación web y configurar automáticamente la información de conexión de la cuenta de Azure Cosmos DB.
 
@@ -25,7 +25,7 @@ Después de completar este tutorial, podrá responder a las siguientes preguntas
 
 <a id="Prerequisites"></a>
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 > [!TIP]
 > Aunque en este tutorial no se exige experiencia con plantillas de Azure Resource Manager o JSON, si quiere modificar las plantillas o las opciones de implementación a las que se hace referencia, entonces sí es necesario tener conocimientos sobre cada una de estas áreas.
 > 

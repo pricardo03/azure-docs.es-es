@@ -1,25 +1,17 @@
 ---
-title: 'Pasos detallados: par de claves SSH para máquinas virtuales Linux de Azure'
+title: Pasos detallados para crear un par de claves de SSH
 description: Obtenga información acerca de los pasos detallados para crear y administrar un par de claves SSH pública y privada para VM Linux en Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: eea078a4fb8287a4f07db478adf059eecce9ed82
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c34a88c39104d3af2c5747d1cd6d3dea6929379a
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929708"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969535"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Pasos detallados: crear y administrar claves SSH para la autenticación en una VM Linux en Azure 
 Con un par de claves de Secure Shell (SSH), puede crear una máquina virtual Linux en Azure que, de forma predeterminada, use claves SSH para la autenticación, lo que elimina la necesidad de contraseñas para iniciar sesión. Las VM creadas con Azure Portal, CLI de Azure, plantillas de Resource Manager u otras herramientas pueden incluir la clave pública SSH como parte de la implementación, lo que configura la autenticación de clave SSH para las conexiones SSH. 
@@ -172,7 +164,7 @@ ssh azureuser@myvm.westus.cloudapp.azure.com
 
 Si proporcionó una frase de contraseña cuando creó el par de claves, escríbala cuando se le solicite durante el proceso de inicio de sesión. (El servidor se agrega a la carpeta `~/.ssh/known_hosts` y no se le pedirá que se conecte de nuevo hasta que la clave pública de la máquina virtual de Azure cambie o se quite el nombre del servidor de `~/.ssh/known_hosts`).
 
-Si la máquina virtual está usando la directiva de acceso Just-In-Time, deberá solicitar acceso antes de poder conectarse a la máquina virtual. Para obtener más información sobre la directiva Just-in-Time, consulte [Administración del acceso a máquina virtual mediante Just-In-Time](../../security-center/security-center-just-in-time.md).
+Si la máquina virtual está usando la directiva de acceso Just-In-Time, deberá solicitar acceso antes de poder conectarse a la máquina virtual. Para más información sobre la directiva Just-in-Time, vea [Administración del acceso a máquina virtual mediante Just-In-Time](../../security-center/security-center-just-in-time.md).
 
 ## <a name="use-ssh-agent-to-store-your-private-key-passphrase"></a>Use ssh-agent para almacenar la frase de contraseña de clave privada
 
@@ -217,7 +209,7 @@ touch ~/.ssh/config
 vim ~/.ssh/config
 ```
 
-### <a name="example-configuration"></a>Configuración de ejemplo
+### <a name="example-configuration"></a>Ejemplo de configuración
 
 Agregue valores de configuración adecuados para la VM host.
 

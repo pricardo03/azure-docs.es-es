@@ -1,25 +1,25 @@
 ---
-title: Uso de la identidad administrada para autenticar el trabajo de Azure Stream Analytics en la salida de Power BI (versión preliminar)
+title: Uso de la identidad administrada para autenticar el trabajo de Azure Stream Analytics en la salida de Power BI
 description: En este artículo se describe cómo usar las identidades administradas para autenticar el trabajo de Azure Stream Analytics en la salida de Power BI.
 author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.openlocfilehash: 264c434849d5d5afb5934873c75d172a3783ac86
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 3/10/2020
+ms.openlocfilehash: 8a7dfd7c690d79d8430f7c33a25b38949dbd06c4
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459677"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086330"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi-preview"></a>Uso de la identidad administrada para autenticar el trabajo de Azure Stream Analytics en Power BI (versión preliminar)
+# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Uso de la identidad administrada para autenticar el trabajo de Azure Stream Analytics en Power BI
 
-La [autenticación de identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) para la salida en Power BI está disponible para Azure Stream Analytics como versión preliminar. Esto proporciona a los trabajos de Stream Analytics acceso directo a un área de trabajo dentro de la cuenta de Power BI. Esta característica permite que las implementaciones de los trabajos de Stream Analytics se automaticen de manera completa, dado que ya no es necesario que un usuario inicie sesión de forma interactiva en Power BI a través de Azure Portal. Además, los trabajos de larga duración que escriben en Power BI ahora se admiten mejor, ya que no será necesario volver a autorizar el trabajo de forma periódica.
+[Autenticación de identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) para la salida a Power BI proporciona a los trabajos de Stream Analytics acceso directo a un área de trabajo dentro de la cuenta de Power BI. Esta característica permite que las implementaciones de los trabajos de Stream Analytics se automaticen de manera completa, dado que ya no es necesario que un usuario inicie sesión de forma interactiva en Power BI a través de Azure Portal. Además, los trabajos de larga duración que escriben en Power BI ahora se admiten mejor, ya que no será necesario volver a autorizar el trabajo de forma periódica.
 
 En este artículo se muestra cómo habilitar la identidad administrada para las salidas a Power BI de un trabajo de Stream Analytics a través de Azure Portal y de una implementación de Azure Resource Manager.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para usar esta característica se requiere lo siguiente:
 

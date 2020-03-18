@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 03/09/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e28403d905a25e9e792b3b1f31b79c39cd7728b
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 5b29f84931c169ffe1c2c81d5e32201cbc63fc88
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522105"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942868"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Habilitar el inicio de sesión con una clave de seguridad sin contraseña en recursos locales con Azure Active Directory (versión preliminar)
 
@@ -50,6 +50,7 @@ Las organizaciones también deben cumplir los siguientes requisitos de software.
 
 - Los dispositivos deben ejecutar Windows 10 Insider Build 18945 o una versión posterior.
 - Debe tener la versión 1.4.32.0 o una versión posterior de [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
+  - Para más información sobre las opciones de autenticación híbrida de Azure AD disponibles, consulte el artículo sobre cómo [seleccionar el método de autenticación adecuado para la solución de identidad híbrida de Azure Active Directory](../../security/fundamentals/choose-ad-authn.md) y cómo [seleccionar el tipo de instalación que se va a usar para Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
 - Los controladores de dominio de Windows Server deben tener instaladas las siguientes revisiones:
     - Para Windows Server 2016: https://support.microsoft.com/help/4534307/windows-10-update-kb4534307
     - Para Windows Server 2019: https://support.microsoft.com/help/4534321/windows-10-update-kb4534321

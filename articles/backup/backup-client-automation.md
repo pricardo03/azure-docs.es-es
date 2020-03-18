@@ -3,12 +3,12 @@ title: Uso de PowerShell para hacer una copia de seguridad de Windows Server en 
 description: En este artículo aprenderá  usar PowerShell para configurar Azure Backup en un servidor o un cliente de Windows y para administrar copias de seguridad y recuperaciones.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 85006a318864aed537b70a97fb38f89746d2878c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: efe0b93fe1e37990422ffbd2256e38c12401dca5
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622803"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673188"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementación y administración de copias de seguridad en Azure para Windows Server o cliente de Windows mediante PowerShell
 
@@ -138,7 +138,7 @@ $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault1 
 > [!NOTE]
 > En la versión Az 3.5.0, se corrige un error con la generación del certificado de almacén. Use la versión Az 3.5.0 o posterior para descargar un certificado de almacén.
 
-En el módulo Az más reciente de PowerShell, debido a las limitaciones subyacentes de la plataforma, la descarga de las credenciales de almacén requiere un certificado autofirmado. En el ejemplo siguiente se muestra cómo proporcionar un certificado autofirmado y descargar las credenciales del almacén.
+En el módulo Az más reciente de PowerShell, debido a las limitaciones de la plataforma subyacente, la descarga de las credenciales del almacén requiere un certificado autofirmado. En el ejemplo siguiente se muestra cómo proporcionar un certificado autofirmado y descargar las credenciales del almacén.
 
 ```powershell
 $dt = $(Get-Date).ToString("M-d-yyyy")
@@ -740,4 +740,4 @@ Invoke-Command -Session $Session -Script { param($D, $A) Start-Process -FilePath
 Para más información sobre Azure Backup para Windows Server o cliente de Windows:
 
 * [Introducción a Azure Backup](backup-introduction-to-azure-backup.md)
-* [Copia de seguridad de servidores Windows](backup-configure-vault.md)
+* [Copia de seguridad de servidores Windows](backup-windows-with-mars-agent.md)

@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 11/08/2019
+ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 97d8d49b958293e3b51937cafc0874beb4f5ff4a
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 678af1855baf52efa727444236de8a1724a7d0b0
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942232"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79078489"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Entrenamiento de modelos con Azure Machine Learning mediante un objeto Estimator
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,7 +38,7 @@ Este artículo se centra en los pasos 4 y 5. Para obtener información sobre los
 
 ### <a name="single-node-training"></a>Entrenamiento de nodo único
 
-Utilice un objeto `Estimator` para una ejecución de entrenamiento de nodo único en proceso remoto en Azure para un modelo scikit-learn. Debería haber creado su objeto de [destino de proceso](how-to-set-up-training-targets.md#amlcompute)`compute_target` y su objeto de [almacén de datos](how-to-access-data.md)`ds`.
+Utilice un objeto `Estimator` para una ejecución de entrenamiento de nodo único en proceso remoto en Azure para un modelo scikit-learn. Debería haber creado ya su objeto de [destino de proceso](how-to-set-up-training-targets.md#amlcompute) `compute_target` y su objeto [FileDataset](how-to-create-register-datasets.md) `ds`.
 
 ```Python
 from azureml.train.estimator import Estimator

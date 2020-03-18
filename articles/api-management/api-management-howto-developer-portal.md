@@ -11,24 +11,20 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/22/2019
+ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: a206ef6eb529fc396ec4ecb82d468c19f9e54b8a
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 311ce34a4b5cfbb9a54a285094dac34c7dd5a225
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108245"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126534"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Introducción al portal para desarrolladores de Azure API Management
 
 El portal para desarrolladores es un sitio web totalmente personalizable que se genera automáticamente con la documentación de las API. Aquí, los consumidores de API pueden detectar las API, aprender a usarlas, solicitar acceso y probarlas.
 
 En este artículo se describen las diferencias entre las versiones autohospedadas y administradas del portal para desarrolladores de API Management. También se explica su arquitectura y se proporcionan respuestas a las preguntas más frecuentes.
-
-> [!WARNING]
->
-> [Obtenga información sobre cómo migrar desde la versión preliminar a la versión disponible con carácter general](#preview-to-ga) del portal para desarrolladores.
 
 ![API Management developer portal](media/api-management-howto-developer-portal/cover.png)
 
@@ -39,7 +35,7 @@ En este artículo se describen las diferencias entre las versiones autohospedada
 Puede crear su portal para desarrolladores de dos maneras:
 
 - **Versión administrada**: mediante la edición y la personalización del portal, que se integra en la instancia de API Management y es accesible a través de la dirección URL `<your-api-management-instance-name>.developer.azure-api.net`. Consulte [este artículo de la documentación](api-management-howto-developer-portal-customize.md) para aprender a acceder al portal administrado y a personalizarlo.
-- **Versión autohospedada**: mediante la implementación y autohospedaje del portal fuera de una instancia de API Management. Este enfoque le permite editar el código base del portal y ampliar la funcionalidad principal proporcionada. También debe actualizar manualmente el portal a la versión más reciente. Para información detallada e instrucciones, consulte el [repositorio de GitHub con el código fuente del portal][1] y [el tutorial para la implementación de un widget][3]. En el [tutorial de la versión administrada](api-management-howto-developer-portal-customize.md) se recorre el panel administrativo del portal, que también se incluye en la versión autohospedada.
+- **Versión autohospedada**: mediante la implementación y autohospedaje del portal fuera de una instancia de API Management. Este enfoque permite editar el código base del portal y ampliar la funcionalidad básica proporcionada; por ejemplo, implementar widgets personalizados para integraciones con sistemas de terceros. En este escenario, usted es el mantenedor del portal y la persona responsable de actualizarlo a la versión más reciente. Para información detallada e instrucciones, consulte el [repositorio de GitHub con el código fuente del portal][1] y [el tutorial para la implementación de un widget][3]. En el [tutorial de la versión administrada](api-management-howto-developer-portal-customize.md), se explica el panel administrativo del portal, que es igual para la versión administrada y para la versión autohospedada.
 
 ## <a name="portal-architectural-concepts"></a>Conceptos arquitectónicos del portal
 
@@ -70,7 +66,7 @@ El portal se basa en una bifurcación adaptada del [marco de Paperbits](https://
 
 ## <a name="faq"></a> Preguntas más frecuentes
 
-En esta sección se responde a preguntas comunes sobre el nuevo portal para desarrolladores, que son de naturaleza general. Si tiene preguntas específicas de la versión autohospedada, consulte la [sección wiki del repositorio de GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
+En esta sección, respondemos preguntas frecuentes generales sobre el portal para desarrolladores. Si tiene preguntas específicas de la versión autohospedada, consulte la [sección wiki del repositorio de GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
 
 ### <a name="a-idpreview-to-ga-how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"/> ¿Cómo puedo migrar desde la versión preliminar del portal?
 
@@ -86,13 +82,13 @@ Si no desea restablecer el contenido del portal, puede usar los widgets más rec
 
 Si el portal se aprovisionó después del anuncio de disponibilidad general, ya debería ofrecer el nuevo contenido predeterminado. No es necesario que realice ninguna acción.
 
-### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-new-developer-portal"></a>¿Cómo puedo migrar el portal para desarrolladores anterior al nuevo?
+### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-developer-portal"></a>¿Cómo puedo migrar el portal para desarrolladores anterior a la nueva versión?
 
 Los portales son incompatibles y debe migrar el contenido manualmente.
 
-### <a name="does-the-new-portal-have-all-the-features-of-the-old-portal"></a>¿El nuevo portal tiene todas las características del portal anterior?
+### <a name="does-the-portal-have-all-the-features-of-the-old-portal"></a>¿El portal tiene todas las características de la versión anterior?
 
-El nuevo portal para desarrolladores no es compatible ni con las *aplicaciones* ni con las *incidencias*. Si ha usado *incidencias* en el portal anterior y las necesita en el nuevo, publique un comentario en [una incidencia de GitHub específica](https://github.com/Azure/api-management-developer-portal/issues/122).
+El portal para desarrolladores no es compatible con las *aplicaciones* ni con las *incidencias*.
 
 Todavía no se admite la autenticación con OAuth en la consola de desarrollador interactiva. Puede realizar un seguimiento del progreso a través [del problema de GitHub](https://github.com/Azure/api-management-developer-portal/issues/208).
 
@@ -104,23 +100,25 @@ La retirada de los portales heredados se anunciará por separado. Si tiene pregu
 
 ### <a name="functionality-i-need-isnt-supported-in-the-portal"></a>No se admite la funcionalidad que necesito en el portal
 
-Use la versión autohospedada e [implemente su propio widget][3].
+Puede abrir una [solicitud de característica](https://aka.ms/apimwish) o [implementar por sí mismo la funcionalidad que falta][3]. Si implementa la funcionalidad usted mismo, puede autohospedar el portal para desarrolladores o abrir una solicitud de incorporación de cambios en GitHub para incluir los cambios de la versión administrada.
 
 ### <a name="how-can-i-automate-portal-deployments"></a>¿Cómo puedo automatizar las implementaciones del portal?
 
 Puede acceder al contenido del portal para desarrolladores y administrarlo mediante programación a través de la API de REST, independientemente de si está usando una versión administrada o autohospedada.
 
-La API se documenta en [la sección wiki del repositorio de GitHub][2]. También se puede usar para automatizar las migraciones del contenido del portal entre entornos, por ejemplo, de un entorno de prueba al de producción. Puede obtener más información sobre este proceso [en este artículo de la documentación](https://aka.ms/apimdocs/migrateportal) en GitHub.
+La API se documenta en [la sección wiki del repositorio de GitHub][2]. Se puede usar para automatizar las migraciones del contenido del portal entre entornos; por ejemplo, de un entorno de prueba al de producción. Puede obtener más información sobre este proceso [en este artículo de la documentación](https://aka.ms/apimdocs/migrateportal) en GitHub.
 
 ### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>¿Admite el portal plantillas de Azure Resource Manager o es compatible con el kit de recursos de DevOps de API Management?
 
 No.
 
-### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-new-managed-portal-dependencies"></a>¿Debo habilitar la conectividad de red virtual adicional para las nuevas dependencias del portal administrado?
+### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-managed-portal-dependencies"></a>¿Debo habilitar una conectividad de red virtual adicional para las dependencias del portal administrado?
 
 En la mayoría de los casos, no.
 
 Si el servicio API Management se encuentra en una red virtual interna, solo se puede acceder al portal para desarrolladores desde dentro de la red. El nombre de host del punto de conexión de administración debe resolverse en la dirección VIP interna del servicio desde la máquina que se usa para acceder a la interfaz administrativa del portal. Asegúrese de que el punto de conexión de administración está registrado en el DNS. En caso de que haya una configuración incorrecta, verá un error: `Unable to start the portal. See if settings are specified correctly in the configuration (...)`.
+
+Si el servicio API Management se encuentra en una red virtual interna y accede a él a través de Application Gateway desde Internet, no olvide habilitar la conectividad con el portal para desarrolladores y los puntos de conexión de administración de API Management.
 
 ### <a name="i-have-assigned-a-custom-api-management-domain-and-the-published-portal-doesnt-work"></a>He asignado un dominio de API Management personalizado y el portal publicado no funciona
 
@@ -138,24 +136,17 @@ Después de configurar la delegación, debe [volver a publicar el portal](api-ma
 
 La mayoría de los cambios de configuración (por ejemplo, red virtual, inicio de sesión y términos del producto) requieren [volver a publicar el portal](api-management-howto-developer-portal-customize.md#publish).
 
-### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a>Obtengo un error de CORS al usar la consola interactiva
+### <a name="cors"></a> Aparece un error de CORS cuando uso la consola interactiva
 
 La consola interactiva realiza una solicitud de API del lado cliente desde el explorador. Para resolver el problema de CORS, agregue [una directiva de CORS](api-management-cross-domain-policies.md#CORS) en las API. Puede especificar todos los parámetros manualmente o usar valores `*` comodín. Por ejemplo:
 
 ```XML
-<cors>
+<cors allow-credentials="true">
     <allowed-origins>
-        <origin>*</origin>
+        <origin>https://contoso.com</origin>
     </allowed-origins>
-    <allowed-methods>
-        <method>GET</method>
-        <method>POST</method>
-        <method>PUT</method>
-        <method>DELETE</method>
-        <method>HEAD</method>
-        <method>OPTIONS</method>
-        <method>PATCH</method>
-        <method>TRACE</method>
+    <allowed-methods preflight-result-max-age="300">
+        <method>*</method>
     </allowed-methods>
     <allowed-headers>
         <header>*</header>
@@ -170,7 +161,7 @@ La consola interactiva realiza una solicitud de API del lado cliente desde el ex
 > 
 > Si aplica la directiva de CORS en el ámbito del producto, en lugar del ámbito de las API, y la API usa la autenticación de clave de suscripción a través de un encabezado, la consola no funcionará.
 >
-> El explorador emite automáticamente una solicitud HTTP OPTIONS, que no contiene un encabezado con la clave de suscripción. Debido a la clave de suscripción ausente, API Management no puede asociar la llamada de OPTIONS a un producto, por lo que no puede aplicar la directiva de CORS.
+> El explorador emite automáticamente una solicitud HTTP OPTIONS, que no contiene un encabezado con la clave de suscripción. Como falta la clave de suscripción, API Management no puede asociar la llamada a OPTIONS con ningún producto, por lo que no puede aplicar la directiva de CORS.
 >
 > Como solución alternativa, puede pasar la clave de suscripción en un parámetro de consulta.
 
@@ -221,7 +212,7 @@ El error de llamada también puede deberse a un certificado SSL, que se asigna a
 | Apple Safari                | Sí<sup>1</sup> |
 | Google Chrome               | Sí<sup>1</sup> |
 | Microsoft Edge              | Sí<sup>1</sup> |
-| Microsoft Internet Explorer | No              |
+| Microsoft Internet Explorer | Sin              |
 | Mozilla Firefox             | Sí<sup>1</sup> |
 
  <small><sup>1</sup> Se admite en las dos últimas versiones de producción.</small>

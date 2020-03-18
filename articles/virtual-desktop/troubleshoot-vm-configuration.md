@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: c15662409f9f5badf50765b78bce7dd71e9fb1bc
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: c7d9a5d576ceec301eba7436c1e0af34412ae854
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367167"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127590"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuración de máquina virtual de host de sesión
 
@@ -226,7 +227,7 @@ Existen circunstancias conocidas que pueden provocar que la pila en paralelo no 
 - Ejecutar enablesxsstackrc.ps1 varias veces
 - Ejecutar enablesxsstackrc.ps1 en una cuenta que no tiene privilegios de administrador local
 
-Las instrucciones de esta sección pueden ayudarle a desinstalar la pila en paralelo de Windows Virtual Desktop. Una vez que se desinstale la pila en paralelo, vaya a "Registrar las máquinas virtuales al grupo host de vista previa de Escritorio Virtual de Windows" en [Creación de un grupo host con PowerShell](create-host-pools-powershell.md) para reinstalar la pila en paralelo.
+Las instrucciones de esta sección pueden ayudarle a desinstalar la pila en paralelo de Windows Virtual Desktop. Una vez que se desinstale la pila en paralelo, vaya a "Registro de la máquina virtual al grupo host de Windows Virtual Desktop" en [Creación de un grupo host con PowerShell](create-host-pools-powershell.md) para reinstalar la pila en paralelo.
 
 La VM usada para ejecutar la corrección debe estar en la misma subred y el mismo dominio que la VM con la pila en paralelo con error de funcionamiento.
 
@@ -298,7 +299,7 @@ Si el sistema operativo es Microsoft Windows 10, continúe con las instrucciones
 
 ## <a name="remote-desktop-licensing-mode-isnt-configured"></a>El modo de licencia de Escritorio remoto no está configurado
 
-Si inicia sesión en Windows 10 Enterprise multisesión con una cuenta administrativa, puede recibir una notificación que dice que "el modo de administración de licencias de Escritorio remoto no está configurado, los servicios de Escritorio remoto dejarán de funcionar en X días. En el servidor de Agente de conexión, use el administrador del servidor para especificar el modo de administración de licencias de Escritorio remoto."
+Si inicia sesión en Windows 10 Enterprise multisesión con una cuenta administrativa, puede recibir una notificación que diga que "el modo de administración de licencias de Escritorio remoto no está configurado, los servicios de Escritorio remoto dejarán de funcionar en X días. En el servidor de Agente de conexión, use el administrador del servidor para especificar el modo de administración de licencias de Escritorio remoto."
 
 Si el límite de tiempo expira, aparece el mensaje de error "Se desconectó la sesión remota porque no hay licencias de acceso de cliente de Escritorio remoto disponibles para este equipo".
 

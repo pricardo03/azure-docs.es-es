@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70fe718884796ac127be38c375003dd728089be8
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: ffb0f7cdb320d009eb1549efabac60d7710b9b0e
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016041"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080081"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicio de sesión en una máquina virtual Windows en Azure mediante la autenticación de Azure Active Directory (versión preliminar)
 
@@ -38,7 +38,7 @@ Usar la autenticación de Azure AD para iniciar sesión en VM Windows en Azure i
 - Automatice y escale la unión a Azure AD de las máquinas virtuales Windows de Azure que forman parte de las implementaciones de VDI.
 
 > [!NOTE]
-> Una vez habilitada esta funcionalidad, las máquinas virtuales de Windows en Azure se unirán a Azure AD. No se puede unir a otro dominio, como AD local o Azure AD DS. Si tiene que hacerlo, tendrá que desconectar la máquina virtual del inquilino de Azure AD desinstalando la extensión.
+> Una vez habilitada esta funcionalidad, las máquinas virtuales de Windows en Azure se unirán a Azure AD. No se puede unir a otro dominio, como AD local o Azure AD DS. Si tiene que hacerlo, tendrá que desconectar la máquina virtual del inquilino de Azure AD desinstalando la extensión.
 
 ## <a name="requirements"></a>Requisitos
 
@@ -86,7 +86,7 @@ Para crear una VM de Windows Server 2019 Datacenter en Azure con inicio de sesi�
 1. Escriba **Windows Server** en el campo de búsqueda de la barra de búsqueda de Marketplace.
    1. Haga clic en **Windows Server** y elija **Windows Server 2019 Datacenter** de la lista desplegable Seleccionar un plan de software.
    1. Haga clic en **Crear**.
-1. En la pestaña "Administración", cambie la opción **Iniciar sesión con las credenciales de AAD (versión preliminar)** de la sección Azure Active Directory de Desactivado a **Activado**.
+1. En la pestaña "Administración", cambie la opción **Iniciar sesión con las credenciales de AAD (versión preliminar)** de la sección Azure Active Directory de Desactivado a **Activado**.
 1. Asegúrese de que la opción **Identidad administrada asignada por el sistema** en la sección Identidad se haya establecido en **Activado**. Esta acción debe realizarse automáticamente una vez habilitado el inicio de sesión con credenciales de Azure AD.
 1. Pase por el resto de la experiencia de creación de una máquina virtual. Durante esta versión preliminar, tendrá que crear un nombre de usuario y contraseña de administrador para la VM.
 
@@ -99,14 +99,14 @@ Para crear una VM de Windows Server 2019 Datacenter en Azure con inicio de sesi�
 
 Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Cloud Shell incluye herramientas comunes de Azure preinstaladas y configuradas para que las use con su cuenta. Solo hay que seleccionar el botón Copiar para copiar el código, pegarlo en Cloud Shell y presionar Entrar para que se ejecute. Existen varias maneras de abrir Cloud Shell:
 
-Seleccione Probarlo en la esquina superior derecha de un bloque de código.
+Seleccione Pruébelo en la esquina superior derecha de un bloque de código.
 Abra Cloud Shell en el explorador.
 Seleccione el botón Cloud Shell en el menú de la esquina superior derecha de [Azure Portal](https://portal.azure.com).
 
-Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0.31 o posterior de la CLI de Azure. Para saber qué versión tiene, ejecute el comando az --version. Si necesita instalar o actualizar, consulte el artículo [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0.31 o posterior de la CLI de Azure. Para saber qué versión tiene, ejecute el comando az --version. Si necesita instalar o actualizar, consulte el artículo [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
-1. Cree un grupo de recursos con [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create). 
-1. Cree una VM con [az vm create](https://docs.microsoft.com/cli/azure/vm#az-vm-create) con una distribución compatible en una región compatible. 
+1. Cree un grupo de recursos con [az group create](/cli/azure/group#az-group-create). 
+1. Cree una VM con [az vm create](/cli/azure/vm#az-vm-create) con una distribución compatible en una región compatible. 
 1. Instale la extensión de VM para el inicio de sesión de Azure AD. 
 
 En el ejemplo siguiente se implementa una VM denominada myVM que usa Win2019Datacenter en un grupo de recursos denominado myResourceGroup en la región southcentralus. En los ejemplos siguientes, puede proporcionar sus propios nombres de máquinas virtuales y grupos de recursos según sea necesario.
@@ -128,7 +128,7 @@ az vm create \
 
 La creación de la máquina virtual y los recursos auxiliares tarda unos minutos en realizarse.
 
-Por último, instale la extensión de VM de inicio de sesión de Azure AD para habilitar el inicio de sesión de Azure AD para la VM Windows. Las extensiones de máquina virtual son aplicaciones pequeñas que realizan tareas de automatización y configuración posterior a la implementación en máquinas virtuales de Azure. Use [az vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) para instalar la extensión AADLoginForWindows en la Vm denominada myVM en el grupo de recursos myResourceGroup:
+Por último, instale la extensión de VM de inicio de sesión de Azure AD para habilitar el inicio de sesión de Azure AD para la VM Windows. Las extensiones de máquina virtual son aplicaciones pequeñas que realizan tareas de automatización y configuración posterior a la implementación en máquinas virtuales de Azure. Use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) para instalar la extensión AADLoginForWindows en la Vm denominada myVM en el grupo de recursos myResourceGroup:
 
 > [!NOTE]
 > Puede instalar la extensión AADLoginForWindows en una VM existente de Windows Server 2019 o Windows 10 1809 y versiones posteriores para habilitarla para la autenticación de Azure AD. A continuación se muestra un ejemplo de la CLI de AZ.
@@ -175,9 +175,9 @@ Transcurridos unos instantes, se asigna el rol a la entidad de seguridad en el �
 
 ### <a name="using-the-azure-cloud-shell-experience"></a>Mediante la experiencia de Azure Cloud Shell
 
-En el ejemplo siguiente se usa [az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) para asignar el rol Inicio de sesión de administrador de Virtual Machine a la VM para el usuario de Azure actual. El nombre de usuario de la cuenta de Azure activa se obtiene con [az account show](https://docs.microsoft.com/cli/azure/account#az-account-show) y el ámbito se establece en la VM que se creó en un paso anterior con [az vm show](https://docs.microsoft.com/cli/azure/vm#az-vm-show). El ámbito también se podría asignar en el nivel de un grupo de recursos o de suscripción y se aplican los permisos de herencia de RBAC normales. Para más información, consulte [Controles de acceso basado en rol](../../virtual-machines/linux/login-using-aad.md).
+En el ejemplo siguiente se usa [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) para asignar el rol Inicio de sesión de administrador de Virtual Machine a la VM para el usuario de Azure actual. El nombre de usuario de la cuenta de Azure activa se obtiene con [az account show](/cli/azure/account#az-account-show) y el ámbito se establece en la VM que se creó en un paso anterior con [az vm show](/cli/azure/vm#az-vm-show). El ámbito también se podría asignar en el nivel de un grupo de recursos o de suscripción y se aplican los permisos de herencia de RBAC normales. Para más información, consulte [Controles de acceso basado en rol](../../virtual-machines/linux/login-using-aad.md).
 
-```AzureCLI
+```   zureCLI
 username=$(az account show --query user.name --output tsv)
 vm=$(az vm show --resource-group myResourceGroup --name myVM --query id -o tsv)
 
@@ -188,13 +188,13 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> Si su dominio de AAD y el dominio del nombre de usuario de inicio de sesión no coinciden, debe especificar el identificador de objeto de su cuenta de usuario mediante `--assignee-object-id`, y no solo el nombre de usuario para `--assignee`. Puede obtener el identificador de objeto para su cuenta de usuario mediante [az ad user list](https://docs.microsoft.com/cli/azure/ad/user#az-ad-user-list).
+> Si su dominio de AAD y el dominio del nombre de usuario de inicio de sesión no coinciden, debe especificar el identificador de objeto de su cuenta de usuario mediante `--assignee-object-id`, y no solo el nombre de usuario para `--assignee`. Puede obtener el identificador de objeto para su cuenta de usuario mediante [az ad user list](/cli/azure/ad/user#az-ad-user-list).
 
 Para más información sobre cómo usar RBAC para administrar el acceso a los recursos de la suscripción de Azure, consulte los siguientes artículos:
 
-- [Administración del acceso a los recursos de Azure mediante RBAC y la CLI de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
-- [Administración del acceso a los recursos de Azure mediante RBAC y Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
-- [Administración del acceso a los recursos de Azure mediante RBAC y Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
+- [Administración del acceso a los recursos de Azure mediante RBAC y la CLI de Azure](/azure/role-based-access-control/role-assignments-cli)
+- [Administración del acceso a los recursos de Azure mediante RBAC y Azure Portal](/azure/role-based-access-control/role-assignments-portal)
+- [Administración del acceso a los recursos de Azure mediante RBAC y Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
 
 ## <a name="using-conditional-access"></a>Uso del acceso condicional
 
@@ -228,13 +228,12 @@ Habrá iniciado sesión en la máquina virtual Windows Server 2019 de Azure con 
 
 Para que la VM complete el proceso de unión a Azure AD, la extensión AADLoginForWindows se debe instalar correctamente. Si la extensión de la VM no se instala correctamente, realice los pasos siguientes.
 
-1. Establezca una conexión RDP a la VM con la cuenta de administrador local y examine el registro CommandExecution.log en  
+1. Establezca una conexión RDP a la máquina virtual con la cuenta de administrador local y examine el registro CommandExecution.log en  
    
    C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.ActiveDirectory.AADLoginForWindows\0.3.1.0. 
 
    > [!NOTE]
-   > Si la extensión se reinicia después del error inicial, el registro con el error de implementación se guardará como CommandExecution_AAAAMMDDHHMMSSSSS.log. 
-
+   > Si la extensión se reinicia después del error inicial, el registro con el error de implementación se guardará como CommandExecution_AAAAMMDDHHMMSSSSS.log. "
 1. Abra un símbolo del sistema en la VM y compruebe estas consultas con el punto de conexión de Instance Metadata Service (IMDS) que se ejecuta en el host de Azure:
 
    | Comando para ejecutar | Salida prevista |
@@ -338,7 +337,7 @@ Si ve el siguiente mensaje de error al iniciar una conexión de Escritorio remot
 
 ![Las credenciales no funcionaron.](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
 
-Compruebe que el equipo con Windows 10 que usa para iniciar la conexión de Escritorio remoto es uno de los unidos a Azure AD o unidos al entorno híbrido de Azure AD al mismo directorio de Azure AD al que se una la VM. Para más información sobre la identidad del dispositivo, consulte el artículo [¿Qué es una identidad de dispositivo?](https://docs.microsoft.com/azure/active-directory/devices/overview)
+Compruebe que el equipo con Windows 10 que usa para iniciar la conexión de Escritorio remoto es uno de los unidos a Azure AD o unidos al entorno híbrido de Azure AD al mismo directorio de Azure AD al que se una la VM. Para más información sobre la identidad del dispositivo, consulte el artículo [¿Qué es una identidad de dispositivo?](/azure/active-directory/devices/overview)
 
 > [!NOTE]
 > Windows 10 20H1, agregará compatibilidad para un equipo registrado en Azure AD para iniciar una conexión de Escritorio remoto en la VM. Únase al programa Windows Insider para probar y explorar las nuevas características de Windows 10.
@@ -355,7 +354,7 @@ Si ve el siguiente mensaje de error al iniciar una conexión de Escritorio remot
 
 Si configuró una directiva de acceso condicional que requiere que la autenticación multifactor (MFA) se realice antes de poder acceder al recurso, debe asegurarse de que el equipo Windows 10 que inicia la conexión de Escritorio remoto a la VM inicie sesión con un método de autenticación seguro, como Windows Hello. Si no usa un método de autenticación seguro para la conexión de Escritorio remoto, verá el anterior error.
 
-Si no ha implementado Windows Hello para empresas ni se plantea hacerlo por ahora, puede excluir el requisito de MFA configurando la directiva de acceso condicional que excluye la aplicación de inicio de sesión de máquinas virtuales Windows de Azure en la lista de aplicaciones en la nube que requieren MFA. Para obtener más información sobre Windows Hello para empresas, consulte [Información general de Windows Hello para empresas](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
+Si no ha implementado Windows Hello para empresas ni se plantea hacerlo por ahora, puede excluir el requisito de MFA configurando la directiva de acceso condicional que excluye la aplicación de inicio de sesión de máquinas virtuales Windows de Azure en la lista de aplicaciones en la nube que requieren MFA. Para obtener más información sobre Windows Hello para empresas, consulte [Información general de Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
 > [!NOTE]
 > La autenticación con el PIN de Windows Hello para empresas con RDP es compatible con varias versiones de Windows 10. También se ha agregado compatibilidad con la autenticación biométrica con RDP en la versión 1809 de Windows 10. El uso de la autenticación de Windows Hello para empresas durante RDP solo está disponible para las implementaciones que usan el modelo de confianza de certificados y actualmente no están disponibles para el modelo de confianza de claves.
@@ -365,4 +364,5 @@ Si no ha implementado Windows Hello para empresas ni se plantea hacerlo por aho
 Comparta sus comentarios sobre esta Característica en vista previa (GB) o notifique cualquier problema mediante el [foro de comentarios de Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre Azure Active Directory, consulte [¿Qué es Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
+
+Para más información sobre Azure Active Directory, consulte [¿Qué es Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)

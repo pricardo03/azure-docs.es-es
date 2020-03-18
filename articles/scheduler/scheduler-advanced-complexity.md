@@ -1,26 +1,27 @@
 ---
-title: 'Creación de programaciones de trabajo avanzadas y periodicidades: Azure Scheduler'
+title: Creación de programaciones de trabajo avanzadas y periodicidades
 description: Aprenda a crear programaciones avanzadas y periodicidades para trabajos en Azure Scheduler
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
+ms.reviewer: klam, estfan
 ms.suite: infrastructure-services
-ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: 386284543cd8fb00cc49fea9a29d9eaee4ca4963
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: b85932bf0d4fd080afadef2bc28d6a218b2d627a
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300963"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898599"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Creación de programaciones avanzadas y periodicidades para trabajos en Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) reemplaza a Azure Scheduler, que se [va a retirar](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para seguir utilizando los trabajos configurados en Scheduler, [migre a Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) cuanto antes.
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) reemplaza a Azure Scheduler, que se [va a retirar](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para seguir utilizando los trabajos configurados en Scheduler, [migre a Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) cuanto antes. 
+>
+> Scheduler ya no está disponible en Azure portal, pero la [API REST](/rest/api/scheduler) y los [cmdlets de PowerShell para Azure Scheduler](scheduler-powershell-reference.md) siguen disponibles en la actualidad para que pueda administrar los trabajos y las colecciones de trabajos.
 
 En un trabajo de [Azure Scheduler](../scheduler/scheduler-intro.md), la programación es el núcleo que determina cuándo y cómo el servicio Scheduler ejecuta el trabajo. Con Scheduler puede configurar varias programaciones únicas o periódicas para un trabajo. Las programaciones únicas se ejecutan solo una vez en un momento determinado; básicamente son programaciones periódicas que se ejecutan solo una vez. Las programaciones periódicas se ejecutan con una frecuencia determinada. Gracias a esta flexibilidad, puede usar Scheduler en varios escenarios empresariales, como:
 
@@ -63,7 +64,7 @@ Para crear una programación básica con la [API REST de Azure Scheduler](/rest/
 
 Esta tabla proporciona información general de alto nivel de los principales elementos JSON que puede usar al configurar la periodicidad y las programaciones para los trabajos. 
 
-| Elemento | Obligatorio | DESCRIPCIÓN | 
+| Elemento | Obligatorio | Descripción | 
 |---------|----------|-------------|
 | **startTime** | Sin | Un valor de cadena de fecha y hora en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que especifica cuándo el trabajo se inicia por primera vez en una programación básica. <p>Para las programaciones complejas, el trabajo no se inicia antes de **startTime**. | 
 | **recurrence** | Sin | Las reglas de periodicidad de ejecución del trabajo. El objeto **recurrence** admite los siguientes elementos: **frequency**, **interval**, **schedule**, **count** y **endTime**. <p>Si usa el elemento **recurrence** elemento, también debe usar **frequency**, mientras que los demás elementos de **recurrence** son opcionales. |
@@ -159,7 +160,7 @@ Si especifica más de un elemento de programación, el orden de evaluación es d
 
 En la siguiente tabla se describen los elementos de schedule con detalle:
 
-| Nombre JSON | DESCRIPCIÓN | Valores válidos |
+| Nombre JSON | Descripción | Valores válidos |
 |:--- |:--- |:--- |
 | **minutes** |Minutos de la hora en la que se ejecuta el trabajo. |Una matriz de enteros. |
 | **hours** |Horas del día en las que se ejecuta el trabajo. |Una matriz de enteros. |
@@ -173,7 +174,7 @@ Los ejemplos siguientes muestran varias programaciones de periodicidad. Los ejem
 
 Estas programaciones asumen que **interval** está establecido en 1\.. Los ejemplos también suponen los valores correctos de **frequency** para los valores de **schedule**. Por ejemplo, no puede tener un valor de **frequency** de "day" y tener también una modificación de **monthDays** en el objeto **schedule**. Estas restricciones se han descrito anteriormente en el artículo.
 
-| Ejemplo | DESCRIPCIÓN |
+| Ejemplo | Descripción |
 |:--- |:--- |
 | `{"hours":[5]}` |Se ejecuta a las 5 a. m. todos los días.<br /><br />Scheduler hace corresponder cada valor en "horas" con cada valor de "minutos", uno por uno, para crear una lista de todas las veces en las que se ejecuta el trabajo. |
 | `{"minutes":[15], "hours":[5]}` |Se ejecuta a las 5:15 a. m. todos los días. |
@@ -207,8 +208,9 @@ Estas programaciones asumen que **interval** está establecido en 1\.. Los ejemp
 | `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` |Se ejecuta cada 15 minutos el último viernes del mes. |
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` |Se ejecuta a las 5:15 a. m., 5:45 a. m., 5:15 a. m. y las 5:45 a. m. el tercer miércoles de cada mes. |
 
-## <a name="see-also"></a>Otras referencias
+## <a name="next-steps"></a>Pasos siguientes
 
-* [¿Qué es Azure Scheduler?](scheduler-intro.md)
 * [Conceptos, terminología y jerarquía de entidades de Azure Scheduler](scheduler-concepts-terms.md)
+* [Referencia de API de REST de Azure Scheduler](/rest/api/scheduler)
+* [Referencia de cmdlets de PowerShell de Azure Scheduler](scheduler-powershell-reference.md)
 * [Límites, valores predeterminados y códigos de error de Azure Scheduler](scheduler-limits-defaults-errors.md)

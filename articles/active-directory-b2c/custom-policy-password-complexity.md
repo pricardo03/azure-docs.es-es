@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2de1130e28b5071913e4cf3632c3fe4407597a98
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: af6a7611381cbf7a251e65969d156f4c40d71843
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189147"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126775"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración de la complejidad de las contraseñas con directivas personalizadas en Azure Active Directory B2C
 
@@ -26,89 +26,112 @@ En Azure Active Directory B2C (Azure AD B2C), puede configurar los requisitos
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Siga los pasos de [Introducción a las directivas personalizadas en Active Directory B2C](custom-policy-get-started.md).
+Realice los pasos del artículo [Introducción a las directivas personalizadas](custom-policy-get-started.md). Debe tener una directiva personalizada activa para registrar e iniciar sesión de cuentas locales.
+
 
 ## <a name="add-the-elements"></a>Adición de los elementos
 
-1. Copie el archivo *SignUpOrSignIn.xml* que descargó con el paquete de inicio y asígnele el nombre de archivo *SingUpOrSignInPasswordComplexity.xml*.
-2. Abra el archivo *SingUpOrSignInPasswordComplexity.xml* y cambie el valor de **PolicyId** y **PublicPolicyUri** a un nuevo nombre de directiva. Por ejemplo, *B2C_1A_signup_signin_password_complexity*.
-3. Agregue los siguientes elementos **ClaimType** con los identificadores de `newPassword` y `reenterPassword`:
+Para configurar la complejidad de la contraseña, reemplace los [tipos de notificaciones](claimsschema.md) de `newPassword` y `reenterPassword` por una referencia a las [validaciones de predicado](predicates.md#predicatevalidations). El elemento PredicateValidations agrupa un conjunto de predicados para formar una validación de entrada de usuario que se puede aplicar a un tipo de notificación. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em>.
+
+1. Busque el elemento [BuildingBlocks](buildingblocks.md). Si el elemento no existe, agréguelo.
+1. Busque el elemento [ClaimsSchema](claimsschema.md). Si el elemento no existe, agréguelo.
+1. Agregue las notificaciones `newPassword` y `reenterPassword` al elemento **ClaimsSchema**.
 
     ```XML
-    <ClaimsSchema>
-      <ClaimType Id="newPassword">
-        <InputValidationReference Id="PasswordValidation" />
-      </ClaimType>
-      <ClaimType Id="reenterPassword">
-        <InputValidationReference Id="PasswordValidation" />
-      </ClaimType>
-    </ClaimsSchema>
+    <ClaimType Id="newPassword">
+      <PredicateValidationReference Id="CustomPassword" />
+    </ClaimType>
+    <ClaimType Id="reenterPassword">
+      <PredicateValidationReference Id="CustomPassword" />
+    </ClaimType>
     ```
 
-4. Los elementos [Predicates](predicates.md) tienen tipos de método de `IsLengthRange` o `MatchesRegex`. El tipo `MatchesRegex` se usa para hacer coincidir con una expresión regular. El tipo `IsLengthRange` toma una longitud de cadena mínima y máxima. Agregue un elemento **Predicates** al elemento **BuildingBlocks**, si no existe, con los siguientes elementos **Predicate**:
+1. [Predicates](predicates.md) define una validación básica para comprobar el valor de un tipo de notificación y devuelve true o false. La validación se realiza mediante un elemento de método especificado y un conjunto de parámetros pertinentes para el método. Agregue los siguientes predicados al elemento **BuildingBlocks** justo después del cierre del elemento `</ClaimsSchema>`:
 
     ```XML
     <Predicates>
-      <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be a pin.">
+      <Predicate Id="LengthRange" Method="IsLengthRange">
+        <UserHelpText>The password must be between 6 and 64 characters.</UserHelpText>
         <Parameters>
-          <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
+          <Parameter Id="Minimum">6</Parameter>
+          <Parameter Id="Maximum">64</Parameter>
         </Parameters>
       </Predicate>
-      <Predicate Id="Length" Method="IsLengthRange" HelpText="The password must be between 8 and 16 characters.">
+      <Predicate Id="Lowercase" Method="IncludesCharacters">
+        <UserHelpText>a lowercase letter</UserHelpText>
         <Parameters>
-          <Parameter Id="Minimum">8</Parameter>
-          <Parameter Id="Maximum">16</Parameter>
+          <Parameter Id="CharacterSet">a-z</Parameter>
+        </Parameters>
+      </Predicate>
+      <Predicate Id="Uppercase" Method="IncludesCharacters">
+        <UserHelpText>an uppercase letter</UserHelpText>
+        <Parameters>
+          <Parameter Id="CharacterSet">A-Z</Parameter>
+        </Parameters>
+      </Predicate>
+      <Predicate Id="Number" Method="IncludesCharacters">
+        <UserHelpText>a digit</UserHelpText>
+        <Parameters>
+          <Parameter Id="CharacterSet">0-9</Parameter>
+        </Parameters>
+      </Predicate>
+      <Predicate Id="Symbol" Method="IncludesCharacters">
+        <UserHelpText>a symbol</UserHelpText>
+        <Parameters>
+          <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\\:',.?/`~"();!</Parameter>
         </Parameters>
       </Predicate>
     </Predicates>
     ```
 
-5. Cada elemento **InputValidation** se construye con los elementos **Predicate** definidos. Este elemento le permite realizar agregaciones booleanas similares a `and` y `or`. Agregue un elemento **InputValidations** al elemento **BuildingBlocks**, si no existe, con el siguiente elemento **InputValidation**:
+1. Agregue las siguientes validaciones de predicado al elemento **BuildingBlocks** justo después del cierre del elemento `</Predicates>`:
 
     ```XML
-    <InputValidations>
-      <InputValidation Id="PasswordValidation">
-        <PredicateReferences Id="LengthGroup" MatchAtLeast="1">
-          <PredicateReference Id="Length" />
-        </PredicateReferences>
-        <PredicateReferences Id="3of4" MatchAtLeast="3" HelpText="You must have at least 3 of the following character classes:">
-          <PredicateReference Id="Lowercase" />
-          <PredicateReference Id="Uppercase" />
-          <PredicateReference Id="Number" />
-          <PredicateReference Id="Symbol" />
-        </PredicateReferences>
-      </InputValidation>
-    </InputValidations>
+    <PredicateValidations>
+      <PredicateValidation Id="CustomPassword">
+        <PredicateGroups>
+          <PredicateGroup Id="LengthGroup">
+            <PredicateReferences MatchAtLeast="1">
+              <PredicateReference Id="LengthRange" />
+            </PredicateReferences>
+          </PredicateGroup>
+          <PredicateGroup Id="CharacterClasses">
+            <UserHelpText>The password must have at least 3 of the following:</UserHelpText>
+            <PredicateReferences MatchAtLeast="3">
+              <PredicateReference Id="Lowercase" />
+              <PredicateReference Id="Uppercase" />
+              <PredicateReference Id="Number" />
+              <PredicateReference Id="Symbol" />
+            </PredicateReferences>
+          </PredicateGroup>
+        </PredicateGroups>
+      </PredicateValidation>
+    </PredicateValidations>
     ```
 
-6. Asegúrese de que el perfil técnico **PolicyProfile** contiene los siguientes elementos:
+1. Los siguientes perfiles técnicos son [perfiles técnicos de Active Directory](active-directory-technical-profile.md), que leen y escriben datos en Azure Active Directory. Reemplace estos perfiles técnicos en el archivo de extensión. Use `PersistedClaims` para deshabilitar la directiva de contraseñas seguras. Busque el elemento **ClaimsProviders**.  Agregue los siguientes proveedores de notificaciones tal como se indica a continuación:
 
     ```XML
-    <RelyingParty>
-      <DefaultUserJourney ReferenceId="SignUpOrSignIn"/>
-      <TechnicalProfile Id="PolicyProfile">
-        <DisplayName>PolicyProfile</DisplayName>
-        <Protocol Name="OpenIdConnect"/>
-        <InputClaims>
-          <InputClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
-        </InputClaims>
-        <OutputClaims>
-          <OutputClaim ClaimTypeReferenceId="displayName"/>
-          <OutputClaim ClaimTypeReferenceId="givenName"/>
-          <OutputClaim ClaimTypeReferenceId="surname"/>
-          <OutputClaim ClaimTypeReferenceId="email"/>
-          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-        </OutputClaims>
-        <SubjectNamingInfo ClaimType="sub"/>
-      </TechnicalProfile>
-    </RelyingParty>
+    <ClaimsProvider>
+      <DisplayName>Azure Active Directory</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
+          <PersistedClaims>
+            <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
+          </PersistedClaims>
+        </TechnicalProfile>
+        <TechnicalProfile Id="AAD-UserWritePasswordUsingObjectId">
+          <PersistedClaims>
+            <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
+          </PersistedClaims>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
     ```
 
-7. Guarde el archivo de directiva.
+1. Guarde el archivo de directiva.
 
 ## <a name="test-your-policy"></a>Prueba de la directiva
-
-Al probar las aplicaciones en Azure AD B2C, puede ser útil que el token de Azure AD B2C se devuelva a `https://jwt.ms` para poder revisar las notificaciones en él.
 
 ### <a name="upload-the-files"></a>Carga de los archivos
 
@@ -117,12 +140,12 @@ Al probar las aplicaciones en Azure AD B2C, puede ser útil que el token de Azur
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 4. Seleccione **Marco de experiencia de identidad**.
 5. En la página Directivas personalizadas, haga clic en **Cargar directiva**.
-6. Seleccione **Sobrescribir la directiva, si existe** y busque y seleccione el archivo *SingUpOrSignInPasswordComplexity.xml*.
+6. Seleccione **Sobrescribir la directiva si existe**, y busque y seleccione el archivo *TrustFrameworkExtensions.xml*.
 7. Haga clic en **Cargar**.
 
 ### <a name="run-the-policy"></a>Ejecución de la directiva
 
-1. Abra la directiva que ha cambiado. Por ejemplo, *B2C_1A_signup_signin_password_complexity*.
+1. Abra la directiva de registro o de inicio de sesión. Por ejemplo, *B2C_1A_signup_signin*.
 2. En **Aplicación**, seleccione la aplicación que registró anteriormente. Para ver el token, **URL de respuesta** debe mostrar `https://jwt.ms`.
 3. Haga clic en **Ejecutar ahora**.
 4. Seleccione **Registrarse ahora**, escriba una dirección de correo electrónico y escriba una contraseña nueva. Se presenta una guía sobre las restricciones de las contraseñas. Termine de especificar la información de usuario y, a continuación, haga clic en **Crear**. Debería ver el contenido del token que se devolvió.
@@ -130,5 +153,4 @@ Al probar las aplicaciones en Azure AD B2C, puede ser útil que el token de Azur
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre [Configuración del cambio de contraseñas mediante directivas personalizadas en Azure Active Directory B2C](custom-policy-password-change.md).
-
-
+- - Más información sobre los elementos [Predicates](predicates.md) y [PredicateValidations](predicates.md#predicatevalidations) en la referencia de IEF.

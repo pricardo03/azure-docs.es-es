@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 44de5878dcc39e09adf24f69b883a29370f00b48
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 97ea98fc38fc8d06dc1bc65ee057241da6f15488
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505731"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851386"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Solución de problemas de la solución Start/Stop VMs during off-hours
 
@@ -203,7 +203,7 @@ Este problema puede deberse a una cuenta de ejecución mal configurada o expirad
 
 Para comprobar si la cuenta de ejecución está configurada correctamente, vaya a la cuenta de Automation en Azure Portal y seleccione **Cuentas de ejecución** en **Configuración de la cuenta**. Aquí verá el estado de las cuentas de ejecución; si alguna de ellas está configurada incorrectamente o expirada, el estado lo indicará.
 
-Si la cuenta de ejecución está [mal configurada](../manage-runas-account.md#misconfiguration), debe eliminarla y volver a crearla.
+Si la cuenta de ejecución está mal configurada, debe eliminarla y volver a crearla. Consulte [Administración de cuentas de ejecución de Azure Automation](../manage-runas-account.md).
 
 Si el certificado de la cuenta de ejecución ha expirado, siga los pasos de [Renovación de certificado autofirmado](../manage-runas-account.md#cert-renewal) para renovarlo.
 

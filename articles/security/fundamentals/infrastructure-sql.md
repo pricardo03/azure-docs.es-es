@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: 74b0fa4643907493904e77ce333d1ec1dba01f49
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: ad6d3992f03802174eb03aa30b57b8d3dac1d6c4
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727101"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942954"
 ---
 # <a name="azure-sql-database-security-features"></a>Características de seguridad de Azure SQL Database    
 Azure SQL Database ofrece un servicio de base de datos relacional en Azure. Para proteger los datos de los clientes y proporcionar características sólidas de seguridad que los clientes esperan de un servicio de base de datos relacional, SQL Database tiene sus propios conjuntos de funcionalidades de seguridad. Estas funcionalidades se basan en los controles que se heredan de Azure.
@@ -75,7 +75,7 @@ El hipervisor y el sistema operativo raíz administran el aislamiento del sistem
 ### <a name="types-of-rules-on-firewalls"></a>Tipos de reglas en firewalls
 Una regla se define como:
 
-{IP de Security Response Center (Src), puerto de Src, IP de destino, puerto de destino, protocolo de destino, entrada/salida, con estado/sin estado, tiempo de espera de flujo con estado}.
+{IP de Src, puerto de Src, IP de destino, puerto de destino, protocolo de destino, entrada/salida, con estado/sin estado, tiempo de espera de flujo con estado}.
 
 Los paquetes de carácter inactivo síncrono (SYN) solo pueden entrar o salir si alguna de las reglas lo permite. Para TCP, Azure usa reglas sin estado, donde el principio es que solo permite que todos los paquetes que no sean SYN entren o salgan de la máquina virtual. La premisa de seguridad es que toda pila de host sea resistente de omitir un paquete que no sea SYN si no ha visto anteriormente un paquete SYN. El propio protocolo TCP es con estado y, en combinación con la regla sin estado basada en SYN, logra un comportamiento general de una implementación con estado.
 
@@ -93,7 +93,7 @@ Los cambios se supervisan para comprobar que sean correctos. En un escenario de 
 De forma similar, los cambios de hardware y de red cuentan con pasos de validación establecidos para evaluar el cumplimiento de los requisitos de compilación. Las versiones se revisan y autorizan a través de un comité de evaluación de cambios (CAB) coordinado de los respectivos grupos a través de la pila.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre lo que hace Microsoft para proteger la infraestructura de Azure, consulte:
+Para más información sobre lo que hace Microsoft para proteger la infraestructura de Azure, consulte:
 
 - [Instalaciones de Azure, entornos locales y seguridad física](physical-security.md)
 - [Disponibilidad de la infraestructura de Azure](infrastructure-availability.md)
@@ -104,5 +104,3 @@ Para obtener más información sobre lo que hace Microsoft para proteger la infr
 - [Supervisión de la infraestructura de Azure](infrastructure-monitoring.md)
 - [Integridad de la infraestructura de Azure](infrastructure-integrity.md)
 - [Protección de datos de cliente de Azure](protection-customer-data.md)
-
-

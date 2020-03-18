@@ -9,12 +9,12 @@ ms.date: 02/10/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 950580048f0496fd8436901938a5b6768c61bab6
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: e27135d09da7060f2a948e37f6026fe66fbef5b3
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132090"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096614"
 ---
 # <a name="set-directory-level-inactivity-timeout"></a>Establecimiento del tiempo de expiración de inactividad de nivel de directorio
 
@@ -43,7 +43,7 @@ Para confirmar que la directiva de tiempo de expiración de inactividad se ha es
 La configuración surte efecto para las nuevas sesiones. No se aplicará de forma inmediata a ningún usuario que ya haya iniciado sesión.
 
 > [!NOTE]
-> Si un administrador ha configurado un valor de tiempo de expiración del nivel de directorio, los usuarios pueden invalidar la directiva y establecer su propia duración de cierre de sesión inactiva. Pero el usuario tendrá que elegir un intervalo temporal que sea menor que el establecido en el nivel de directorio.
+> Si un administrador global ha configurado un valor de tiempo de expiración del nivel de directorio, los usuarios pueden invalidar la directiva y establecer su propia duración de cierre de sesión inactiva. Sin embargo, el usuario tendrá que elegir un intervalo temporal que sea menor que el establecido en el nivel de directorio por el administrador global.
 >
 
 ## <a name="next-steps"></a>Pasos siguientes

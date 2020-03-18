@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 70c67a99274eaedc5592c7b90b1ef80a3a17acf8
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 8c52bb21276071581a83fb3ee6a3a4a31ba0bb4a
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110008"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78400004"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Actividad de webhook en Azure Data Factory
 Puede usar una actividad de webhook para controlar la ejecución de canalizaciones a través de su código personalizado. Con la actividad de webhook, los clientes pueden llamar a un punto de conexión y pasar una dirección URL de devolución de llamada. La ejecución de canalización espera a que la devolución de llamada se invoque antes de continuar con la siguiente actividad.
@@ -61,9 +61,9 @@ method | Método de API de REST para el punto de conexión de destino. | String.
 url | Punto de conexión y ruta de acceso de destino | Cadena (o expresión con un valor resultType de cadena). | Sí |
 headers | Encabezados que se envían a la solicitud. Por ejemplo, para establecer el idioma y el tipo en una solicitud: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }. | Cadena (o expresión con un valor resultType de cadena) | Sí, el encabezado Content-type es necesario. "headers":{ "Content-Type":"application/json"} |
 body | Representa la carga útil que se envía al punto de conexión. | JSON válido (o expresión con un valor resultType de JSON). Vea el esquema de la carga de solicitud en la sección [Solicitar un esquema de carga](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23request-payload-schema&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=ljUZv5csQQux2TT3JtTU9ZU8e1uViRzuX5DSNYkL0uE%3D&amp;reserved=0). | Sí |
-autenticación | Método de autenticación usado para llamar al punto de conexión. Los tipos admitidos son "Basic" y "ClientCertificate". Para más información, vea la sección [Autenticación](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23authentication&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=GdA1%2Fh2pAD%2BSyWJHSW%2BSKucqoAXux%2F4L5Jgndd3YziM%3D&amp;reserved=0). Si la autenticación no es necesaria, excluya esta propiedad. | Cadena (o expresión con un valor resultType de cadena) | No |
-timeout | ¿Durante cuánto tiempo esperará la actividad a que se invoque &#39;callBackUri&#39;? ¿Durante cuánto tiempo esperará la actividad a que se invoque "callBackUri"? El valor predeterminado es 10 min ("00:10:00"). El formato es un intervalo de tiempo, es decir, d.hh:mm:ss | String | No |
-Notificar el estado de la devolución de llamada | Permite al usuario informar del estado de error de la actividad de webhook, que marcará la actividad como con errores. | Boolean | No |
+autenticación | Método de autenticación usado para llamar al punto de conexión. Los tipos admitidos son "Basic" y "ClientCertificate". Para más información, vea la sección [Autenticación](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23authentication&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=GdA1%2Fh2pAD%2BSyWJHSW%2BSKucqoAXux%2F4L5Jgndd3YziM%3D&amp;reserved=0). Si la autenticación no es necesaria, excluya esta propiedad. | Cadena (o expresión con un valor resultType de cadena) | Sin |
+timeout | ¿Durante cuánto tiempo esperará la actividad a que se invoque &#39;callBackUri&#39;? ¿Durante cuánto tiempo esperará la actividad a que se invoque "callBackUri"? El valor predeterminado es 10 min ("00:10:00"). El formato es un intervalo de tiempo, es decir, d.hh:mm:ss | String | Sin |
+Notificar el estado de la devolución de llamada | Permite al usuario informar del estado de error de la actividad de webhook, que marcará la actividad como con errores. | Boolean | Sin |
 
 ## <a name="authentication"></a>Authentication
 
@@ -116,6 +116,10 @@ Especifique el URI de recurso para el que el token de acceso se solicitará util
 Azure Data Factory pasará una propiedad adicional "callBackUri" en el cuerpo al punto de conexión de URL, y esperará que este URI se invoque antes del valor de tiempo de espera especificado. Si no se invoca el URI, se producirá un error en la actividad con estado "TimedOut".
 
 La propia actividad de webhook produce un error cuando la llamada al punto de conexión personalizado genera un error. Cualquier mensaje de error se puede agregar al cuerpo de la devolución de llamada y usarse en una actividad posterior.
+
+Además, en cada llamada API REST, el cliente agotará el tiempo de espera si el punto de conexión no responde en 1 minuto. Se trata del procedimiento recomendado de http estándar. Para corregir este problema, debe implementar el patrón 202 en este caso, donde el punto de conexión devolverá 202 (aceptado) y el cliente realizará un sondeo.
+
+El tiempo de espera de 1 minuto de la solicitud no tiene nada que ver con el tiempo de espera de la actividad. El primero se usará para esperar el valor de callbackUri.
 
 El cuerpo devuelto al URI de devolución de llamada debe ser un JSON válido. Debe establecer el encabezado Content-Type en `application/json`.
 

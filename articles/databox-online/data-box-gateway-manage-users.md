@@ -8,33 +8,32 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 9ee5eec5a5c17e443fe71f0093f09c96cf81ece0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 60fd5476d687d9f44aec885cdf888572e8e523a4
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60754817"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946118"
 ---
-# <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-gateway"></a>Uso de Azure Portal para administrar usuarios en Azure Data Box Gateway 
+# <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-gateway"></a>Uso de Azure Portal para administrar usuarios en Azure Data Box Gateway
 
 En este artículo se describe cómo administrar usuarios en Azure Data Box Gateway. Azure Data Box Gateway se puede administrar a través de Azure Portal o de la interfaz de usuario web local. Usar Azure Portal para agregar, modificar o eliminar usuarios.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Adición de un usuario
 > * Modificación de un usuario
-> * Eliminar un usuario 
+> * Eliminar un usuario
 
 ## <a name="about-users"></a>Acerca de los usuarios
 
-Los usuarios pueden ser de solo lectura o tener privilegios totales. Como indican los nombres, los usuarios de solo lectura solo pueden ver los datos de los recursos compartidos. Los usuarios con privilegios totales pueden leer datos de los recursos compartidos, escribir en estos recursos compartidos y modificar o eliminar los datos de los recursos compartidos. 
+Los usuarios pueden ser de solo lectura o tener privilegios totales. Como indican los nombres, los usuarios de solo lectura solo pueden ver los datos de los recursos compartidos. Los usuarios con privilegios totales pueden leer datos de los recursos compartidos, escribir en estos recursos compartidos y modificar o eliminar los datos de los recursos compartidos.
 
- - **Usuario con privilegios totales**: un usuario local con acceso completo. 
+ - **Usuario con privilegios totales**: un usuario local con acceso completo.
  - **Usuario de solo lectura**: un usuario local con acceso de solo lectura. Estos usuarios están asociados a los recursos compartidos que permiten operaciones de solo lectura.
 
-Los permisos del usuario se definen por primera vez cuando se crea el usuario durante la creación de los recursos compartidos. Una vez que se definen los permisos asociados a un usuario, se pueden modificar mediante el Explorador de archivos. 
-
+Los permisos del usuario se definen por primera vez cuando se crea el usuario durante la creación de los recursos compartidos. Actualmente no se admite la modificación de permisos en el nivel de recurso compartido.
 
 ## <a name="add-a-user"></a>Adición de un usuario
 

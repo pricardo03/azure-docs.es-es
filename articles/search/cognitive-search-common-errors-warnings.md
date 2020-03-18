@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f17192e738bb82fb348c660488e6296aa550bd25
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 72bf08dce36d857c1fe91bbe9806336dfa185f7e
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913487"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671973"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solución de errores y advertencias comunes con el indexador en Azure Cognitive Search
 
@@ -48,7 +48,7 @@ El indexador no pudo leer el documento del origen de datos. Estos pueden ser los
 
 | Motivo | Detalles/ejemplo | Solución |
 | --- | --- | --- |
-| tipos de campo incoherentes en distintos documentos | El tipo de valor no coincide con el tipo de columna. No se pudo almacenar `'{47.6,-122.1}'` en la columna de autores.  El tipo esperado es JArray. | Asegúrese de que el tipo de cada campo sea el mismo en los distintos documentos. Por ejemplo, si el campo `'startTime'` del primer documento es DateTime y el del segundo documento es una cadena, se mostrará este error. |
+| Tipos de campo incoherentes en distintos documentos | "El tipo de valor no coincide con el tipo de columna. No se pudo almacenar `'{47.6,-122.1}'` en la columna de autores.  El tipo esperado es JArray".  "Error al convertir el tipo de datos nvarchar a float".  "Error de conversión al convertir el valor nvarchar "12 meses" al tipo de datos int".  “Error de desbordamiento aritmético al convertir expresión al tipo de datos int”. | Asegúrese de que el tipo de cada campo sea el mismo en los distintos documentos. Por ejemplo, si el campo `'startTime'` del primer documento es DateTime y el del segundo documento es una cadena, se mostrará este error. |
 | errores del servicio subyacente del origen de datos | (de Cosmos DB) `{"Errors":["Request rate is large"]}` | Compruebe la instancia de almacenamiento para asegurarse de que es correcta. Es posible que tenga que ajustar el escalado o la creación de particiones. |
 | problemas transitorios | Error en el nivel del transporte al recibir los resultados del servidor. (proveedor: Proveedor TCP, error: 0: El host remoto forzó el cierre de la conexión existente. | En ocasiones, hay problemas de conectividad inesperados. Intente volver a ejecutar el documento mediante el indexador más adelante. |
 

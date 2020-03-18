@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: chrisgre
-ms.openlocfilehash: 9a7e2d9874f049000dadcb3e46cccb2202b53698
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 381f550f6d64dee3c7649a040c1e24b7c9d42f2c
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429281"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78669421"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Administración automática de dispositivos y módulos IoT mediante la CLI de Azure
 
@@ -36,8 +36,12 @@ Las configuraciones automáticas se ejecutan por primera vez poco después de cr
 ## <a name="cli-prerequisites"></a>Requisitos previos de la CLI
 
 * Una instancia de [IoT Hub](../iot-hub/iot-hub-create-using-cli.md) en la suscripción de Azure. 
-* La [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) en su entorno. La versión mínima de la CLI de Azure es la 2.0.24. Use `az –-version` para asegurarse. Esta versión admite comandos az extension e introduce la plataforma de comandos de Knack. 
-* La [extensión de IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension).
+
+* La [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) en su entorno. Como mínimo, la versión de la CLI de Azure debe ser la 2.0.70. Use `az –-version` para asegurarse. Esta versión admite comandos az extension e introduce la plataforma de comandos de Knack. 
+
+* La [extensión de IoT para la CLI de Azure](https://github.com/Azure/azure-cli).
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="implement-twins"></a>Implementación de gemelos
 
@@ -47,7 +51,7 @@ Las configuraciones automáticas de módulos requieren el uso de módulos gemelo
 
 ## <a name="use-tags-to-target-twins"></a>Uso de etiquetas para identificar los gemelos
 
-Antes de crear una configuración, debe especificar a qué dispositivos o módulos quiere que se aplique. Azure IoT Hub identifica dispositivos mediante etiquetas en el dispositivo gemelo e identifica módulos mediante etiquetas en el módulo gemelo. Cada dispositivo o módulo puede tener varias etiquetas y puede definirlas de cualquier manera que tenga sentido para su solución. Por ejemplo, si administra dispositivos en distintas ubicaciones, agregue las siguientes etiquetas a un dispositivo gemelo:
+Antes de crear una configuración, debe especificar a qué dispositivos o módulos quiere que se aplique. Azure IoT Hub identifica dispositivos mediante etiquetas en el dispositivo gemelo e identifica módulos mediante etiquetas en el módulo gemelo. Cada dispositivo o módulo puede tener varias etiquetas, y puede definirlas de cualquier manera que tenga sentido para su solución. Por ejemplo, si administra dispositivos en distintas ubicaciones, agregue las siguientes etiquetas a un dispositivo gemelo:
 
 ```json
 "tags": {
@@ -183,7 +187,7 @@ Si actualiza la condición de destino, se producen las siguientes actualizacione
 
 * Si un gemelo no cumplía la condición de destino anterior, pero cumple la nueva condición de destino y esta configuración es la prioridad más alta para ese gemelo, se aplica esta configuración. 
 
-* Si un gemelo que ejecuta actualmente esta configuración ya no cumple la condición de destino, los valores de la configuración se eliminarán y el gemelo se modificará con la configuración de la siguiente prioridad más alta. 
+* Si un gemelo que ejecuta actualmente esta configuración ya no cumple la condición de destino, los valores de la configuración se quitarán y el gemelo se modificará con la configuración de la siguiente prioridad más alta. 
 
 * Si un gemelo que ejecuta actualmente esta configuración ya no cumple la condición de destino y tampoco la condición de destino de cualquier otra configuración, los valores de la configuración se eliminarán y no se realizará ningún otro cambio en el gemelo. 
 

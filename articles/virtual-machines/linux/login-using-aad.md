@@ -1,25 +1,18 @@
 ---
 title: Inicio de sesión en una máquina virtual Linux con credenciales de Azure Active Directory
 description: Aprenda a crear y configurar una máquina virtual Linux para iniciar sesión con la autenticación de Azure Active Directory.
-services: virtual-machines-linux
-documentationcenter: ''
 author: iainfoulds
-manager: gwallace
-editor: ''
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 9980ad7af4a9e5db1d93ffb389ef7b04209b8c43
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: eb303ecb5657e9312445093841cfa6c501efda18
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544623"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944792"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Vista previa: Inicio de sesión en una máquina virtual Linux en Azure mediante la autenticación de Azure Active Directory
 
@@ -113,7 +106,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-El estado *provisioningState* con valor *Succeeded* aparece una vez que la extensión se instala correctamente en la máquina virtual.
+El estado *provisioningState* con valor *Succeeded* aparece una vez que la extensión se instala correctamente en la máquina virtual. La máquina virtual necesita un agente de máquina virtual en ejecución para instalar la extensión. Para más información, consulte [Introducción al agente de máquina virtual](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Configuración de asignaciones de roles para la máquina virtual
 

@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1b52d9b7eb60483da91f87435ace1994d91b1039
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 6f49529b0599f36ae4a26939bbbe171a45a1a53a
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77665848"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127183"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configuración de experimentos de ML automatizado en Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,7 +35,7 @@ Opciones de configuración disponibles en el aprendizaje automático automatizad
 * Explorar las métricas del modelo
 * Registrar e implementar el modelo
 
-Si prefiere una experiencia sin código, también puede [crear experimentos de aprendizaje automático automatizados en Azure Machine Learning Studio](how-to-create-portal-experiments.md).
+Si prefiere una experiencia sin código, también puede [crear experimentos de aprendizaje automático automatizados en Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md).
 
 ## <a name="select-your-experiment-type"></a>Seleccione el tipo de experimento
 
@@ -130,8 +130,8 @@ Use un conjunto de datos de validación personalizado si la división aleatoria 
 ## <a name="compute-to-run-experiment"></a>Proceso para ejecutar el experimento
 
 A continuación, determine dónde se va a entrenar el modelo. Un experimento de entrenamiento de aprendizaje automático automatizado se puede ejecutar en las opciones de proceso siguientes:
-*   La máquina local, como un escritorio local o un equipo portátil: generalmente, cuando haya un pequeño conjunto de datos y siga en la fase de exploración.
-*   Una máquina remota en la nube: [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) es un servicio administrado que permite entrenar modelos de aprendizaje automático en clústeres de máquinas virtuales de Azure.
+*    La máquina local, como un escritorio local o un equipo portátil: generalmente, cuando haya un pequeño conjunto de datos y siga en la fase de exploración.
+*    Una máquina remota en la nube: [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) es un servicio administrado que permite entrenar modelos de aprendizaje automático en clústeres de máquinas virtuales de Azure.
 
     Visite este [sitio de GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) para obtener ejemplos de cuadernos con destinos de proceso locales y remotos.
 
@@ -147,25 +147,25 @@ Se pueden usar varias opciones para configurar el experimento de aprendizaje aut
 
 Estos son algunos ejemplos:
 
-1.  Experimento de clasificación con AUC ponderado como métrica principal con los minutos de tiempo de espera del experimento establecidos en 30 minutos y 2 iteraciones de validación cruzada.
+1.    Experimento de clasificación con AUC ponderado como métrica principal con los minutos de tiempo de espera del experimento establecidos en 30 minutos y 2 iteraciones de validación cruzada.
 
     ```python
     automl_classifier=AutoMLConfig(
         task='classification',
         primary_metric='AUC_weighted',
         experiment_timeout_minutes=30,
-        blacklist_models='XGBoostClassifier',
+        blacklist_models=['XGBoostClassifier'],
         training_data=train_data,
         label_column_name=label,
         n_cross_validations=2)
     ```
-2.  A continuación, se incluye un ejemplo de un conjunto de experimentos de regresión que finaliza después de sesenta iteraciones con cinco iteraciones de validación cruzada.
+2.    A continuación, se incluye un ejemplo de un conjunto de experimentos de regresión que finaliza después de sesenta iteraciones con cinco iteraciones de validación cruzada.
 
     ```python
     automl_regressor = AutoMLConfig(
         task='regression',
         experiment_timeout_minutes=60,
-        whitelist_models='kNN regressor'
+        whitelist_models=['kNN regressor'],
         primary_metric='r2_score',
         training_data=train_data,
         label_column_name=label,
@@ -191,7 +191,7 @@ Obtenga información acerca de las definiciones específicas de estas métricas 
 
 ### <a name="data-featurization"></a>Caracterización de datos
 
-En cada experimento de aprendizaje automático automatizado, los datos se [escalan y se normalizan automáticamente](concept-automated-ml.md#preprocess) para ayudar a *determinados* algoritmos que dependen de características que se encuentran en diferentes escalas.  Sin embargo, también puede habilitar la caracterización adicional, como la atribución de valores que faltan, la codificación y las transformaciones. [Más información sobre qué caracterización se incluye](how-to-create-portal-experiments.md#featurization).
+En cada experimento de aprendizaje automático automatizado, los datos se [escalan y se normalizan automáticamente](concept-automated-ml.md#preprocess) para ayudar a *determinados* algoritmos que dependen de características que se encuentran en diferentes escalas.  Sin embargo, también puede habilitar la caracterización adicional, como la atribución de valores que faltan, la codificación y las transformaciones. [Más información sobre qué caracterización se incluye](how-to-use-automated-ml-for-ml-models.md#featurization).
 
 Al configurar los experimentos, puede habilitar la configuración avanzada `featurization`. En la tabla siguiente se muestra la configuración aceptada para la caracterización de la clase [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
@@ -199,7 +199,7 @@ Al configurar los experimentos, puede habilitar la configuración avanzada `feat
 | ------------- | ------------- |
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| Indica que se debe usar un paso personalizado de caracterización. [Aprenda a personalizar la caracterización](how-to-configure-auto-train.md#customize-feature-engineering).|
 |`"featurization": 'off'`| Indica que el paso de caracterización no debe realizarse automáticamente.|
-|`"featurization": 'auto'`| Indica que, como parte del preprocesamiento, los [pasos de caracterización y protección](how-to-create-portal-experiments.md#advanced-featurization-options) se realizan automáticamente.|
+|`"featurization": 'auto'`| Indica que, como parte del preprocesamiento, los [pasos de caracterización y protección](how-to-use-automated-ml-for-ml-models.md#advanced-featurization-options) se realizan automáticamente.|
 
 > [!NOTE]
 > Los pasos de la caracterización del aprendizaje automático automatizado (normalización de características, control de los datos que faltan, conversión de valores de texto a numéricos, etc.) se convierten en parte del modelo subyacente. Cuando se usa el modelo para realizar predicciones, se aplican automáticamente a los datos de entrada los mismos pasos de caracterización que se aplican durante el entrenamiento.
@@ -369,7 +369,7 @@ Utilice estas dos API en el primer paso del modelo ajustado para más informaci�
   En esta lista se incluyen todos los nombres de las características de diseño.
 
   >[!Note]
-  >Utilice 'timeseriestransformer' para la tarea = "forecasting"; en caso contrario, utilice 'datatransformer' para la tarea "regression" o "classification".
+  >Utilice 'timeseriestransformer' para la tarea = 'forecasting'; en caso contrario, utilice 'datatransformer' para la tarea 'regression' o 'classification'.
 
 + API 2: `get_featurization_summary()` devuelve un resumen de la caracterización para todas las características de entrada.
 
@@ -379,7 +379,7 @@ Utilice estas dos API en el primer paso del modelo ajustado para más informaci�
   ```
 
   >[!Note]
-  >Utilice 'timeseriestransformer' para la tarea = "forecasting"; en caso contrario, utilice 'datatransformer' para la tarea "regression" o "classification".
+  >Utilice 'timeseriestransformer' para la tarea = 'forecasting'; en caso contrario, utilice 'datatransformer' para la tarea 'regression' o 'classification'.
 
   Salida:
   ```

@@ -4,19 +4,19 @@ description: Este artículo proporciona información general de la compatibilida
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 1/7/2020
+ms.date: 03/11/2020
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: ac9dd31e01b1915642951aeddb10d3eae118d943
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: c43ac0923e0d3d76c25657f4870a0a0431bc8b6e
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77523788"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096431"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hospedaje de varios sitios de Application Gateway
 
-El hospedaje de varios sitios permite configurar más de una aplicación web en el mismo puerto de una puerta de enlace de aplicaciones. Esta característica permite configurar una topología más eficaz para las implementaciones al agregar hasta 100 sitios web en una puerta de enlace de aplicaciones. Cada sitio web se puede dirigir a su propio grupo de back-end. En el ejemplo siguiente, la puerta de enlace de aplicaciones atiende el tráfico de contoso.com y fabrikam.com desde dos grupos de servidores back-end denominados ContosoServerPool y FabrikamServerPool.
+El hospedaje de varios sitios permite configurar más de una aplicación web en el mismo puerto de una puerta de enlace de aplicaciones. Esta característica permite configurar una topología más eficaz para las implementaciones al agregar hasta 100 sitios web en una puerta de enlace de aplicaciones. Cada sitio web se puede dirigir a su propio grupo de back-end. En el ejemplo siguiente, la puerta de enlace de aplicaciones atiende el tráfico de `contoso.com` y `fabrikam.com` desde dos grupos de servidores back-end llamados ContosoServerPool y FabrikamServerPool.
 
 ![imageURLroute](./media/multiple-site-overview/multisite.png)
 
@@ -25,7 +25,7 @@ El hospedaje de varios sitios permite configurar más de una aplicación web en 
 
 Las solicitudes para `http://contoso.com` se enrutan a ContosoServerPool y para `http://fabrikam.com` se enrutan a FabrikamServerPool.
 
-De forma similar, dos subdominios del mismo dominio primario pueden hospedarse en la misma implementación de puerta de enlace de aplicaciones. Ejemplos del uso de subdominios podrían incluir `http://blog.contoso.com` y `http://app.contoso.com` hospedados en una única implementación de la puerta de enlace de aplicaciones.
+De forma similar, puede hospedar varios subdominios del mismo dominio principal en la misma implementación de la puerta de enlace de aplicaciones. Por ejemplo, puede hospedar `http://blog.contoso.com` y `http://app.contoso.com` en la misma implementación de puerta de enlace de aplicaciones.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>Encabezados de host e Indicación de nombre de servidor (SNI)
 
@@ -35,11 +35,17 @@ Existen tres mecanismos comunes para habilitar el hospedaje de varios sitios en 
 2. Use el nombre de host para hospedar varias aplicaciones web en la misma dirección IP.
 3. Use puertos distintos para hospedar varias aplicaciones web en la misma dirección IP.
 
-Actualmente, una puerta de enlace de aplicaciones obtiene una dirección IP pública única en la que escucha el tráfico. Por lo tanto, la compatibilidad con varias aplicaciones, cada una con su propia dirección IP, no se admite actualmente. Application Gateway admite el hospedaje de varias aplicaciones, cada una escuchando en puertos distintos; pero este escenario requeriría que las aplicaciones aceptaran el tráfico en puertos no estándar y no suele ser una configuración deseada. Application Gateway se basa en los encabezados de host HTTP 1.1 para hospedar más de un sitio web en la misma dirección IP pública y en el mismo puerto. Los sitios que se hospedan en la puerta de enlace de aplicaciones también pueden admitir la descarga SSL con la extensión TLS de Indicación de nombre de servidor (SNI). Este escenario significa que el explorador cliente y la granja de servidores web back-end deben admitir la extensión TLS y HTTP/1.1, como se define en RFC 6066.
+En la actualidad, Application Gateway admite una dirección IP pública única en la que escucha el tráfico. Por lo tanto, actualmente no se permite tener varias aplicaciones, cada una con su propia dirección IP. 
+
+Application Gateway permite que haya varias aplicaciones y cada una escuche en un puerto diferente. Sin embargo, este escenario requiere que las aplicaciones acepten el tráfico en puertos no estándar. Esta no suele ser la configuración deseada.
+
+Application Gateway se basa en los encabezados de host HTTP 1.1 para hospedar más de un sitio web en la misma dirección IP pública y en el mismo puerto. Los sitios que se hospedan en la puerta de enlace de aplicaciones también pueden admitir la descarga SSL con la extensión TLS de Indicación de nombre de servidor (SNI). Este escenario significa que el explorador cliente y la granja de servidores web back-end deben admitir la extensión TLS y HTTP/1.1, como se define en RFC 6066.
 
 ## <a name="listener-configuration-element"></a>Elemento de configuración de agente de escucha
 
-El elemento de configuración HTTPListener existente se mejora para admitir los elementos de indicación de nombre de servidor y nombre de host, que usa la puerta de enlace de aplicaciones para enrutar el tráfico al grupo de back-end adecuado. El ejemplo de código siguiente es el fragmento de código del elemento HttpListeners del archivo de plantilla.
+Los elementos de configuración de HTTPListener existentes se han mejorado para admitir los elementos que indican el nombre del host y el nombre del servidor. Se utilizan en Application Gateway para enrutar el tráfico al grupo de back-ends adecuado. 
+
+El ejemplo de código siguiente es el fragmento del elemento HttpListeners de un archivo de plantilla:
 
 ```json
 "httpListeners": [
@@ -81,7 +87,7 @@ Puede consultar la [plantilla de Resource Manager con hospedaje de múltiples si
 
 ## <a name="routing-rule"></a>Regla de enrutamiento
 
-No se requiere ningún cambio en la regla de enrutamiento. La regla de enrutamiento 'básica' debería seguir eligiéndose para vincular el agente de escucha del sitio adecuado al grupo de direcciones de back-end correspondiente.
+No es necesario realizar ningún cambio en la regla de enrutamiento. La regla de enrutamiento 'básica' debería seguir eligiéndose para vincular el agente de escucha del sitio adecuado al grupo de direcciones de back-end correspondiente.
 
 ```json
 "requestRoutingRules": [

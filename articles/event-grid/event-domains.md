@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: df560df21740d5396bc177e20de5d0eb4bf47713
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: f6698f91d7659f9fc2c314a9291380301146f8ed
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76511389"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898864"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Dominios de eventos para administrar temas de Event Grid
 
@@ -43,13 +43,13 @@ También le ofrece un punto de conexión único, en el que puede publicar todos 
 
 Con un dominio, obtendrá un mayor control de la autenticación y la autorización sobre cada tema a través del Control de acceso basado en rol (RBAC) de Azure. Estos roles pueden usarse para restringir cada arrendatario de la aplicación únicamente a los temas a los que desea concederle acceso.
 
-RBAC en dominios de eventos funciona del mismo modo que lo hace el [control de acceso administrado](security-authentication.md#management-access-control) en el resto de Event Grid y Azure. Use RBAC para crear y aplicar definiciones de roles personalizados en dominios de eventos.
+RBAC en dominios de eventos funciona del mismo modo que lo hace el [control de acceso administrado](security-authorization.md) en el resto de Event Grid y Azure. Use RBAC para crear y aplicar definiciones de roles personalizados en dominios de eventos.
 
 ### <a name="built-in-roles"></a>Roles integrados
 
 Event Grid tiene dos definiciones de roles integradas que facilitan el trabajo de RBAC con dominios de eventos. Estos roles son los de **colaborador de EventGrid EventSubscription (versión preliminar)** y **lector de EventGrid EventSubscription (versión preliminar)** . Estos roles se asignan a los usuarios que necesitan suscribirse a temas en el dominio de eventos. El ámbito de la asignación de roles se limita a solo el tema al que necesitan suscribirse los usuarios.
 
-Para información sobre estos roles, consulte [Roles integrados para Event Grid](security-authentication.md#built-in-roles).
+Para información sobre estos roles, consulte [Roles integrados para Event Grid](security-authorization.md#built-in-roles).
 
 ## <a name="subscribing-to-topics"></a>Suscribirse a temas
 

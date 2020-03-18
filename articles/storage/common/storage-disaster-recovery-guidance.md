@@ -10,12 +10,12 @@ ms.date: 01/23/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 40a7f49cbb2d74b55ccb85dce64eea936a20801e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 8442d3f7ed3e73dc5d7358a9bc1d3ee31d7668cd
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905517"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894522"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>Recuperación ante desastres y conmutación por error de la cuenta (versión preliminar)
 
@@ -114,22 +114,17 @@ Puede iniciar la conmutación por error de una cuenta desde Azure Portal, PowerS
 
 ## <a name="about-the-preview"></a>Acerca de la versión preliminar
 
-La conmutación por error de una cuenta está disponible en versión preliminar para todos los clientes que usan GRS o RA-GRS con implementaciones de Azure Resource Manager. Se admiten los tipos de cuenta de Uso general v1, Uso general v2 y Cuenta de Blob Storage. La conmutación por error de una cuenta está disponible actualmente en estas regiones:
-
-- Este de Asia
-- Sudeste de Asia
-- Este de Australia
-- Sudeste de Australia
-- Centro de EE. UU.
-- Este de EE. UU. 2
-- Centro-oeste de EE. UU.
-- Oeste de EE. UU. 2
+La conmutación por error de una cuenta está disponible en versión preliminar para todos los clientes que usan GRS o RA-GRS con implementaciones de Azure Resource Manager. Se admiten los tipos de cuenta de Uso general v1, Uso general v2 y Cuenta de Blob Storage. La conmutación por error de una cuenta está disponible actualmente en todas las regiones públicas. La conmutación por error de una cuenta no está disponible en las nubes soberanas/nacionales en estos momentos.
 
 La versión preliminar está pensada para usos distintos del de producción. En este momento no hay contratos de nivel de servicio de producción disponibles.
 
 ### <a name="additional-considerations"></a>Consideraciones adicionales
 
 Revise las consideraciones adicionales que se describen en esta sección para entender cómo las aplicaciones y los servicios pueden verse afectados cuando se fuerza una conmutación por error durante el período de versión preliminar.
+
+#### <a name="storage-account-containing-archived-blobs"></a>Cuenta de almacenamiento que contiene blobs archivados
+
+Las cuentas de almacenamiento que contienen blobs archivados admiten la conmutación por error de la cuenta. Una vez que la conmutación por error está completa, para volver a convertir la cuenta en GRS o RA-GRS es preciso volver a hidratar antes todos los blobs archivados a un nivel en línea.
 
 #### <a name="storage-resource-provider"></a>Proveedor de recursos de Storage
 
@@ -162,8 +157,8 @@ Recuerde que los datos almacenados en un disco temporal se pierden cuando se apa
 
 Las siguientes características y servicios no son compatibles con la conmutación por error de una cuenta en la versión preliminar:
 
-- Azure File Sync no admite la conmutación por error de una cuenta de almacenamiento. No se debe realizar la conmutación por error de las cuentas de almacenamiento que contienen recursos compartidos de archivos de Azure y que se usan como puntos de conexión de nube en Azure File Sync. Si lo hace, la sincronización dejará de funcionar y también podría provocar una pérdida inesperada de datos en el caso de archivos recién organizados en capas.  
-- No se puede conmutar por error una cuenta de almacenamiento que contiene blobs archivados. Mantenga los blobs archivados en otra cuenta de almacenamiento que no planee conmutar por error.
+- Azure File Sync no admite la conmutación por error de una cuenta de almacenamiento. No se debe realizar la conmutación por error de las cuentas de almacenamiento que contienen recursos compartidos de archivos de Azure y que se usan como puntos de conexión de nube en Azure File Sync. Si lo hace, la sincronización dejará de funcionar y también podría provocar una pérdida inesperada de datos en el caso de archivos recién organizados en capas.
+- Actualmente, no se admiten cuentas de almacenamiento ADLS Gen2 (cuantas que tienen el espacio de nombres jerárquico habilitado).
 - No se puede conmutar por error una cuenta de almacenamiento que contiene blobs en bloques Premium. Las cuentas de almacenamiento que admiten los blobs en bloques Premium actualmente no admiten la redundancia geográfica.
 - No se puede conmutar por error una cuenta de almacenamiento que contenga contenedores habilitados por la [Directiva de inmutabilidad de gusanos](../blobs/storage-blob-immutable-storage.md). Las directivas de retención legal o retención basada en tiempo desbloqueada o bloqueada impiden la conmutación por error para mantener el cumplimiento.
 - Una vez completada la conmutación por error, las siguientes características dejarán de funcionar si estaban habilitadas originalmente: [Suscripciones a eventos](../blobs/storage-blob-event-overview.md), [Fuente de cambios](../blobs/storage-blob-change-feed.md), [Directivas de ciclo de vida](../blobs/storage-lifecycle-management-concepts.md) y [Registro de Storage Analytics](storage-analytics-logging.md).

@@ -2,21 +2,22 @@
 title: Azure Disk Encryption con máquinas virtuales IaaS de Linux de aplicación de Azure AD (versión anterior)
 description: En este artículo se proporcionan instrucciones sobre cómo habilitar Microsoft Azure Disk Encryption para máquinas virtuales IaaS de Linux.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: d41f2138a453e4a34354c10bbebad41724a18d1d
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ee365d37a957350fa8a68da0f34149d3210d6238
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457486"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970617"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Habilitación de Azure Disk Encryption con Azure AD en máquinas virtuales Linux (versión anterior)
 
-La nueva versión de Azure Disk Encryption elimina la necesidad de proporcionar un parámetro de aplicación de Azure Active Directory (Azure AD) para habilitar el cifrado de disco de máquina virtual. Con la nueva versión, ya no es necesario proporcionar credenciales de Azure AD durante el paso de habilitar el cifrado. Todas las nuevas máquinas virtuales deben cifrarse sin los parámetros de aplicación de Azure AD mediante la nueva versión. Para ver las instrucciones sobre cómo habilitar el cifrado de disco de máquina virtual con la nueva versión, consulte [Azure Disk Encryption para máquinas virtuales Linux](disk-encryption-linux.md). Las máquinas virtuales que ya se han cifrado con parámetros de la aplicación de Azure AD siguen siendo compatibles y deben continuar manteniéndose con la sintaxis de AAD.
+La nueva versión de Azure Disk Encryption elimina el requisito de tener que proporcionar un parámetro de aplicación de Azure Active Directory (Azure AD) para habilitar el cifrado de disco de la máquina virtual. Con la nueva versión, ya no es necesario proporcionar credenciales de Azure AD durante el paso de habilitar el cifrado. Todas las máquinas virtuales nuevas se deben cifrar sin los parámetros de aplicación de Azure AD con la nueva versión. Para ver las instrucciones sobre cómo habilitar el cifrado de disco de máquina virtual con la nueva versión, consulte [Azure Disk Encryption para máquinas virtuales Linux](disk-encryption-linux.md). Las máquinas virtuales que ya se han cifrado con parámetros de la aplicación de Azure AD siguen siendo compatibles y deben continuar manteniéndose con la sintaxis de AAD.
 
 Puede habilitar varios escenarios de cifrado de disco y los pasos pueden variar según el escenario. En las secciones siguientes se tratan con más detalle los escenarios de máquinas virtuales de infraestructura como servicio (IaaS) de Linux. El cifrado de disco solo se puede aplicar a las máquinas virtuales que tengan [tamaños y sistemas operativos compatibles](disk-encryption-overview.md#supported-vms-and-operating-systems). También es preciso que se cumplan los siguientes requisitos previos:
 
@@ -35,7 +36,7 @@ Tome una [instantánea](snapshot-copy-managed-disk.md), realice una copia de seg
 
  
 
-## <a name="bkmk_RunningLinux"></a> Habilitación del cifrado en una máquina virtual IaaS de Linux existente o en ejecución
+## <a name="bkmk_RunningLinux"> </a> Habilitación del cifrado en una máquina virtual IaaS de Linux existente o en ejecución
 
 En este escenario, puede habilitar el cifrado mediante la plantilla de Azure Resource Manager, los cmdlets de PowerShell o los comandos de la CLI. 
 
@@ -141,7 +142,7 @@ Puede habilitar el cifrado de disco en una máquina virtual IaaS con Linux exist
 
 En la tabla siguiente figuran los parámetros de la plantilla de Resource Manager para máquinas virtuales existentes o en ejecución que usan un identificador de cliente de Azure AD:
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | --- | --- |
 | AADClientID | Identificador de cliente de la aplicación de Azure AD que tiene permisos para escribir secretos en el almacén de claves. |
 | AADClientSecret | Secreto de cliente de la aplicación de Azure AD que tiene permisos para escribir secretos en el almacén de claves. |
@@ -163,7 +164,7 @@ El parámetro EncryptFormatAll reduce el tiempo que se tarda en cifrar los disco
 > EncryptFormatAll no debe usarse cuando hay datos necesarios en los volúmenes de datos de una máquina virtual. Para excluir discos del cifrado, puede desmontarlos. Pruebe primero el parámetro EncryptFormatAll en una VM de prueba para entender el parámetro de característica y su implicación antes de probarlo en la VM de producción. La opción EncryptFormatAll formatea el disco de datos, por lo que todos los datos que contiene se pierden. Antes de continuar, compruebe que los discos que quiere excluir estén desmontados correctamente. </br></br>
  >Si establece este parámetro mientras actualiza la configuración de cifrado, podría provocar un reinicio antes del cifrado real. En este caso, también quiere quitar el disco que no quiere que se formatee a partir del archivo fstab. De igual forma, debe agregar la partición que quiere cifrar formateada al archivo fstab antes de iniciar la operación de cifrado. 
 
-### <a name="bkmk_EFACriteria"> </a> Criterios de EncryptFormatAll
+### <a name="bkmk_EFACriteria"> </a>Criterios de EncryptFormatAll
 El parámetro recorre todas las particiones y las cifra siempre que cumplan *todos* los criterios siguientes: 
 - No es una partición raíz, de arranque o del sistema operativo
 - Ya no está cifrada
@@ -183,7 +184,7 @@ Para usar la opción EncryptFormatAll, use cualquier plantilla de Azure Resource
 4. Seleccione la suscripción, el grupo de recursos, la ubicación del grupo de recursos, otros parámetros, los términos legales y el contrato. Seleccione **Crear** para habilitar el cifrado en la máquina virtual IaaS existente o en ejecución.
 
 
-### <a name="bkmk_EFAPSH"> </a> Uso del parámetro EncryptFormatAll con un cmdlet de PowerShell
+### <a name="bkmk_EFAPSH"> </a>Uso del parámetro EncryptFormatAll con un cmdlet de PowerShell
 Use el cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) con el parámetro EncryptFormatAll.
 
 **Cifrado de una máquina virtual en ejecución mediante un secreto de cliente y EncryptFormatAll:** por ejemplo, el siguiente script inicializa las variables y ejecuta el cmdlet Set-AzVMDiskEncryptionExtension con el parámetro EncryptFormatAll. El grupo de recursos, la máquina virtual, el almacén de claves, la aplicación de Azure AD y el secreto de cliente deben haberse creado ya como requisitos previos. Reemplace MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM, MySecureVault, My-AAD-client-ID y My-AAD-client-secret por sus propios valores.
@@ -202,7 +203,7 @@ Use el cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/se
    ```
 
 
-### <a name="bkmk_EFALVM"> </a> Uso del parámetro EncryptFormatAll con el Administrador de volúmenes lógicos (LVM) 
+### <a name="bkmk_EFALVM"> </a>Uso del parámetro EncryptFormatAll con el Administrador de volúmenes lógicos (LVM) 
 Se recomienda una configuración LVM-on-crypt. En todos los ejemplos siguientes, reemplace la ruta de acceso de dispositivo y los puntos de montaje por lo que se adapte a su caso de uso. Esta configuración se puede realizar de la manera siguiente:
 
 - Agregue los discos de datos que componen la máquina virtual.
@@ -229,7 +230,7 @@ Se recomienda una configuración LVM-on-crypt. En todos los ejemplos siguientes,
 
 
 
-## <a name="bkmk_VHDpre"> </a> Máquinas virtuales IaaS creadas a partir de discos duros virtuales cifrados y claves de cifrado
+## <a name="bkmk_VHDpre"> </a>Nuevas máquinas virtuales IaaS creadas a partir de discos duros virtuales cifrados por el cliente y claves de cifrado
 En este escenario, se puede habilitar el cifrado mediante la plantilla de Resource Manager, cmdlets de PowerShell o comandos de la CLI. Las siguientes secciones explican con más detalle la plantilla de Resource Manager y los comandos de la CLI. 
 
 Use las instrucciones del apéndice para preparar imágenes previamente cifradas que se pueden usar en Azure. Una vez creada la imagen, puede seguir los pasos de la sección siguiente para crear una VM cifrada de Azure.
@@ -243,7 +244,7 @@ Use las instrucciones del apéndice para preparar imágenes previamente cifradas
 
 
 
-### <a name="bkmk_VHDprePSH"> </a> Uso de Azure PowerShell para cifrar las máquinas virtuales IaaS con discos duros virtuales previamente cifrados 
+### <a name="bkmk_VHDprePSH"> </a> Uso de Azure PowerShell para cifrar máquinas virtuales IaaS con discos duros virtuales previamente cifrados 
 Puede habilitar el cifrado de disco en el disco duro virtual cifrado mediante el cmdlet [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk#examples) de PowerShell. En el ejemplo siguiente se ofrecen algunos parámetros comunes. 
 
 ```powershell

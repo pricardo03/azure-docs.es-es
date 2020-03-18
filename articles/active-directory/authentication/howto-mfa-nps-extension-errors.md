@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8d67d1d318bf823145a57d2e55774695d151996
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f4f086b7c2f24cfe5d3fe74c25f6f5690b090800
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425314"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086399"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolución de mensajes de error de la extensión de NPS para Azure Multi-Factor Authentication
 
@@ -98,7 +98,7 @@ Si los usuarios [tienen problemas con la verificación en dos pasos](../user-hel
 
 ### <a name="health-check-script"></a>Script de comprobación de estado
 
-El [script de comprobación de estado de la extensión NPS para Azure MFA](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb) está disponible en la galería de TechNet para realizar una comprobación de estado básica al solucionar problemas de la extensión NPS. Ejecute el script y elija la opción 3.
+El [script de comprobación de estado de la extensión NPS para Azure MFA](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) realiza una comprobación de estado básica al solucionar problemas de la extensión NPS. Ejecute el script y elija la opción 3.
 
 ### <a name="contact-microsoft-support"></a>Consultar al soporte técnico de Microsoft
 

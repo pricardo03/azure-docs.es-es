@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
-ms.date: 02/28/2020
+ms.date: 03/7/2020
 tags: connectors
-ms.openlocfilehash: e7a0791cc2bca672e7fde142650ad25e7e8ab58b
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: d4ab7425c967d3a176c0a576d0be38ece1701b8b
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161881"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128399"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Supervisión, creación y administración de archivos SFTP mediante SSH y Azure Logic Apps
 
@@ -36,29 +36,31 @@ Para conocer las diferencias entre el conector SFTP-SSH y el conector SFTP, revi
   > [!NOTE]
   > En el caso de las aplicaciones lógicas de un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versión con la etiqueta ISE de este conector usa en su lugar los [límites de mensajes de ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits).
 
+  Puede invalidar este comportamiento adaptable en caso de [especificar un tamaño de fragmento constante](#change-chunk-size) para usar en su lugar. Este tamaño puede oscilar entre 5 MB y 50 MB. Por ejemplo, supongamos que tiene un archivo de 45 MB y una red que admite ese tamaño de archivo sin latencia. La fragmentación adaptable da como resultado varias llamadas, en lugar de una llamada. Para reducir el número de llamadas, puede intentar establecer un tamaño de fragmento de 50 MB. En un escenario diferente, si se agota el tiempo de espera de la aplicación lógica, por ejemplo, al usar fragmentos de 15 MB, puede intentar reducir el tamaño a 5 MB.
+
   El tamaño del fragmento está asociado a una conexión, lo que significa que puede usar la misma conexión para las acciones que admiten la fragmentación y, a continuación, para las acciones que no la admiten. En este caso, el tamaño del fragmento para las acciones que no admiten fragmentación abarca de 5 MB a 50 MB. En esta tabla se muestra qué acciones de SFTP-SSH admiten fragmentación:
 
-  | Acción | Compatibilidad con la fragmentación |
-  |--------|------------------|
-  | **Copiar archivo** | Sin |
-  | **Crear archivo** | Sí |
-  | **Crear carpeta** | No aplicable |
-  | **Eliminar archivo** | No aplicable |
-  | **Extraer archivo en la carpeta** | No aplicable |
-  | **Obtener contenido de archivo** | Sí |
-  | **Obtener contenido de archivo mediante la ruta de acceso** | Sí |
-  | **Obtener metadatos de archivo** | No aplicable |
-  | **Obtener metadatos de archivo mediante la ruta de acceso** | No aplicable |
-  | **Enumerar archivos de la carpeta** | No aplicable |
-  | **Cambiar nombre de archivo** | No aplicable |
-  | **Actualizar archivo** | Sin |
-  |||
+  | Acción | Compatibilidad con la fragmentación | Invalidación de la compatibilidad con el tamaño de fragmento |
+  |--------|------------------|-----------------------------|
+  | **Copiar archivo** | Sin | No aplicable |
+  | **Crear archivo** | Sí | Sí |
+  | **Crear carpeta** | No aplicable | No aplicable |
+  | **Eliminar archivo** | No aplicable | No aplicable |
+  | **Extraer archivo en la carpeta** | No aplicable | No aplicable |
+  | **Obtener contenido de archivo** | Sí | Sí |
+  | **Obtener contenido de archivo mediante la ruta de acceso** | Sí | Sí |
+  | **Obtener metadatos de archivo** | No aplicable | No aplicable |
+  | **Obtener metadatos de archivo mediante la ruta de acceso** | No aplicable | No aplicable |
+  | **Enumerar archivos de la carpeta** | No aplicable | No aplicable |
+  | **Cambiar nombre de archivo** | No aplicable | No aplicable |
+  | **Actualizar archivo** | Sin | No aplicable |
+  ||||
 
-* Los desencadenadores SFTP-SSH no admiten la fragmentación. Cuando se solicita el contenido del archivo, los desencadenadores seleccionan solo los archivos que tienen un tamaño de 15 MB o menos. Para obtener archivos de más de 15 MB, siga este patrón en su lugar:
+* Los desencadenadores SFTP-SSH no admiten la fragmentación de mensajes. Cuando se solicita el contenido del archivo, los desencadenadores seleccionan solo los archivos que tienen un tamaño de 15 MB o menos. Para obtener archivos de más de 15 MB, siga este patrón en su lugar:
 
-  * Use un desencadenador SFTP-SSH que devuelva las propiedades de archivo, como **Cuando se agrega o modifica un archivo (solo propiedades)** .
+  1. Use un desencadenador SFTP-SSH que devuelva solo las propiedades de archivo, como **Cuando se agrega o modifica un archivo (solo propiedades)** .
 
-  * Siga el desencadenador con la acción **Obtener contenido de archivo** SFTP-SSH, que lee el archivo completo y utiliza implícitamente la fragmentación de mensajes.
+  1. Siga el desencadenador con la acción **Obtener contenido de archivo** SFTP-SSH, que lee el archivo completo y utiliza implícitamente la fragmentación de mensajes.
 
 <a name="comparison"></a>
 
@@ -153,13 +155,13 @@ Si la clave privada está en formato PuTTy, que usa la extensión de nombre de a
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra la aplicación lógica en el diseñador de aplicaciones lógicas, si aún no lo ha hecho.
 
-1. Para las aplicaciones lógicas en blanco, en el cuadro de búsqueda, escriba "sftp ssh" como filtro. En la lista de desencadenadores, seleccione el que desee.
+1. Para las aplicaciones lógicas en blanco, en el cuadro de búsqueda, escriba `sftp ssh` como filtro. En la lista de desencadenadores, seleccione el que desee.
 
    O bien
 
-   Para las aplicaciones lógicas existentes, en el último paso donde desea agregar una acción, elija **Nuevo paso**. En el cuadro de búsqueda, escriba "sftp ssh" como filtro. En la lista de acciones, seleccione la que desee.
+   Para las aplicaciones lógicas existentes, en el último paso donde desea agregar una acción, seleccione **Nuevo paso**. En el cuadro de búsqueda, escriba `sftp ssh` como filtro. En la lista de acciones, seleccione la que desee.
 
-   Para agregar una acción entre un paso y otro, mueva el puntero sobre la flecha entre ellos. Elija el signo más ( **+** ) que aparece y seleccione **Agregar una acción**.
+   Para agregar una acción entre un paso y otro, mueva el puntero sobre la flecha entre ellos. Seleccione el signo más ( **+** ) que aparece y, luego, seleccione **Agregar una acción**.
 
 1. Proporcione la información necesaria para la conexión.
 
@@ -177,9 +179,25 @@ Si la clave privada está en formato PuTTy, que usa la extensión de nombre de a
 
    1. En el desencadenador o la acción SFTP-SSH que ha agregado, pegue la clave *completa* que copió en la propiedad **SSH private key**, que admite varias líneas.  ***Asegúrese de pegar*** la clave. ***No especifique ni edite la clave manualmente***.
 
-1. Cuando haya terminado de especificar los detalles de conexión, elija **Crear**.
+1. Cuando haya terminado de especificar los detalles de conexión, seleccione **Crear**.
 
 1. Ahora, proporcione los detalles necesarios para el desencadenador o la acción seleccionados y continúe con la compilación del flujo de trabajo de la aplicación lógica.
+
+<a name="change-chunk-size"></a>
+
+## <a name="override-chunk-size"></a>Invalidación del tamaño de fragmento
+
+Para invalidar el comportamiento adaptable predeterminado que usa la fragmentación, puede especificar un tamaño de fragmento constante de 5 MB a 50 MB.
+
+1. En la esquina superior derecha de la acción, seleccione el botón de puntos suspensivos ( **...** ) y, a continuación, seleccione **Configuración**.
+
+   ![Apertura de la configuración de SFTP-SSH](./media/connectors-sftp-ssh/sftp-ssh-connector-setttings.png)
+
+1. En **Transferencia de contenido**, en la propiedad **Tamaño de fragmento**, escriba un valor entero de `5` a `50`, por ejemplo: 
+
+   ![Especificación del tamaño de fragmento que se usará en su lugar](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
+
+1. Cuando haya finalizado, seleccione **Listo**.
 
 ## <a name="examples"></a>Ejemplos
 

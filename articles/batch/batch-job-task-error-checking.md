@@ -5,14 +5,14 @@ services: batch
 author: mscurrell
 ms.service: batch
 ms.topic: article
-ms.date: 12/01/2019
+ms.date: 03/10/2019
 ms.author: markscu
-ms.openlocfilehash: c4e36d76bf85b9715a817dbeb7c690aa77f8d978
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4ace0de6d252680eb64990277b9478adf752f54d
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851934"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087011"
 ---
 # <a name="job-and-task-error-checking"></a>Comprobación de errores de trabajos y tareas
 
@@ -72,6 +72,17 @@ En todos los casos, se debe comprobar si hay errores en las siguientes propiedad
 Se deben tener en cuenta el impacto de los errores de las tareas en el trabajo y las dependencias de las tareas.  Se puede especificar la propiedad [exitConditions](https://docs.microsoft.com/rest/api/batchservice/task/add#exitconditions) de una tarea para configurar una acción para las dependencias y para el trabajo.
 - En el caso de las dependencias, [DependencyAction](https://docs.microsoft.com/rest/api/batchservice/task/add#dependencyaction) controla si las tareas que dependen de la tarea con errores se bloquean o se ejecutan.
 - En el caso del trabajo, [JobAction](https://docs.microsoft.com/rest/api/batchservice/task/add#jobaction) controla si la tarea con errores hace que el trabajo se deshabilite, finalice o quede sin cambios.
+
+### <a name="task-command-line-failures"></a>Errores de la línea de comandos de la tarea
+
+Cuando se ejecuta la línea de comandos de la tarea, la salida se escribe en `stderr.txt` y `stdout.txt`. Además, la aplicación puede escribir en archivos de registro específicos de la aplicación.
+
+Si el nodo del grupo en el que se ha ejecutado una tarea sigue existiendo, se pueden obtener y ver los archivos de registro. Por ejemplo, en Azure Portal se muestra y se pueden ver los archivos de registro de una tarea o un nodo del grupo. Varias API también permiten enumerar y obtener los archivos de tareas, como [Get From Task](https://docs.microsoft.com/rest/api/batchservice/file/getfromtask).
+
+Debido a que los grupos y los nodos del grupo suelen ser efímeros, con nodos que se agregan y eliminan continuamente, se recomienda que se conserven los archivos de registro. [Los archivos de salida de la tarea](https://docs.microsoft.com/azure/batch/batch-task-output-files) son una manera cómoda de guardar los archivos de registro en Azure Storage.
+
+### <a name="output-file-failures"></a>Errores del archivo de salida
+En cada carga de archivos, Batch escribe dos archivos de registro en el nodo de proceso, `fileuploadout.txt` y `fileuploaderr.txt`. Puede examinar estos archivos de registro para obtener más información sobre un error específico. En aquellos casos en los que la carga de archivos nunca se intentó, por ejemplo, porque no se pudo ejecutar la tarea propiamente dicha, estos archivos de registro no existen.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

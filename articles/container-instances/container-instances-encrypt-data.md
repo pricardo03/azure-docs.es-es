@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: 41c7fc7380ca2b58326c4a35a3b5fdab1c64c4a3
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
+ms.openlocfilehash: ad232c5d9df9f6bfae3a79dbd72e2c68143be949
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544324"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080367"
 ---
 # <a name="encrypt-deployment-data"></a>Cifrado de datos de implementación
 
@@ -41,6 +41,10 @@ En el resto del documento se describen los pasos necesarios para cifrar los dato
 
 El primer paso es asegurarse de que el [inquilino de Azure](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) tiene asignada una entidad de servicio para conceder permisos al servicio de Azure Container Instances. 
 
+> [!IMPORTANT]
+> Para ejecutar el siguiente comando y crear una entidad de servicio correctamente, confirme que tiene permisos para crear entidades de servicio en el inquilino.
+>
+
 El siguiente comando de la CLI configurará la entidad de servicio de ACI en el entorno de Azure:
 
 ```azurecli-interactive
@@ -48,6 +52,10 @@ az ad sp create --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9
 ```
 
 El resultado de la ejecución de este comando debe mostrar una entidad de servicio configurada con el valor "displayName": "Azure Container Instance Service".
+
+En caso de que no pueda crear correctamente la entidad de servicio:
+* confirme que tiene permisos para hacerlo en el inquilino
+* compruebe si ya existe una entidad de servicio en el inquilino para la implementación en ACI. Para ello, ejecute `az ad sp show --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9` y use esa entidad de servicio en su lugar.
 
 ### <a name="create-a-key-vault-resource"></a>Creación de un recurso de Key Vault
 

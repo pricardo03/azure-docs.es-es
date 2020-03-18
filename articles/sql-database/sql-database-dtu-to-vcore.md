@@ -8,17 +8,17 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 10/08/2019
-ms.openlocfilehash: f34439b7750ca1858e71d4a36121eb65001fff50
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 03/09/2020
+ms.openlocfilehash: 693065046f92e0e9eade14c43e9942772440937d
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811269"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945397"
 ---
 # <a name="migrate-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migrar desde el modelo basado en DTU al modelo basado en núcleos virtuales
 
-## <a name="migrate-a-database"></a>Migración de una base de datos
+## <a name="migrate-a-database"></a>Migración de bases de datos
 
 La migración de una base de datos del modelo de compra basado en DTU al modelo de compra basado en núcleo virtual es similar a la actualización o degradación entre los niveles de servicio Estándar y Premium en el modelo de compra basado en DTU.
 
@@ -45,7 +45,7 @@ En la tabla siguiente se proporciona una guía para escenarios de migración esp
 |Uso general|Crítico para la empresa|Actualizar|Debe migrar primero la secundaria|
 ||||
 
-\* Cada 100 DTU en el nivel estándar requieren como mínimo 1 núcleo virtual, y cada 125 DTU en el nivel premium requieren como mínimo 1 núcleo virtual.
+\* Como regla de oro, cada 100 DTU en el nivel estándar requieren como mínimo 1 núcleo virtual, y cada 125 DTU en el nivel premium requieren como mínimo 1 núcleo virtual. Para más información, consulte la sección [Modelo de compra basado en núcleos virtuales](https://docs.microsoft.com/azure/sql-database/sql-database-purchase-models#vcore-based-purchasing-model).
 
 ## <a name="migrate-failover-groups"></a>Migración de grupos de conmutación por error
 

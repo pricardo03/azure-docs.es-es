@@ -1,20 +1,19 @@
 ---
 title: Carga de un disco duro virtual mediante la CLI de Azure
 description: Obtenga información sobre cómo cargar un disco virtual en un disco administrado de Azure y copiar un disco administrado en todas las regiones, mediante la CLI de Azure, a través de una carga directa.
-services: virtual-machines-linux,storage
+services: virtual-machines,storage
 author: roygara
 ms.author: rogarana
 ms.date: 09/20/2019
 ms.topic: article
-ms.service: virtual-machines-linux
-ms.tgt_pltfrm: linux
+ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 51c3933b5ee585c96ad81fe04d379b6771ae81e3
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 2a5bfec08546d6cf00b1e04017b3879db8f016ee
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457592"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970335"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Carga de un disco duro virtual mediante la CLI de Azure
 
@@ -24,7 +23,7 @@ Si va a proporcionar una solución de copia de seguridad para las máquinas virt
 
 Actualmente, la carga directa es compatible con los HDD estándar, la unidad de estado sólido estándar y los discos administrados SSD prémium. Aún no es compatible con el almacenamiento en discos Ultra.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Descargue la [versión más reciente de AzCopy, v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
