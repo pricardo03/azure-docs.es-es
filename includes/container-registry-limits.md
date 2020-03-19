@@ -5,15 +5,15 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 11/05/2019
+ms.date: 03/11/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 6707e844948ac76d4cec29faf69d80b3c9cb3c0f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0090f02382e024e5539383328b55d58798002d63
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75392371"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117112"
 ---
 | Resource | Básica | Estándar | Premium |
 |---|---|---|---|
@@ -27,6 +27,8 @@ ms.locfileid: "75392371"
 | Replicación geográfica | N/D | N/D | [Compatible][geo-replication] |
 | Confianza de contenido | N/D | N/D | [Compatible][content-trust] |
 | Acceso de redes virtuales | N/D | N/D | [Versión preliminar][vnet] |
+| Integración de Private Link | N/D | N/D | [Versión preliminar][plink] |
+| Claves administradas por el cliente | N/D | N/D | [Versión preliminar][cmk] |
 | Permisos de ámbito de repositorio | N/D | N/D | [Versión preliminar][token]|
 | &bull; Tokens | N/D | N/D | 20.000 |
 | &bull; Asignaciones de ámbito | N/D | N/D | 20.000 |
@@ -48,4 +50,6 @@ ms.locfileid: "75392371"
 [geo-replication]: ../articles/container-registry/container-registry-geo-replication.md
 [content-trust]: ../articles/container-registry/container-registry-content-trust.md
 [vnet]: ../articles/container-registry/container-registry-vnet.md
+[plink]: ../articles/container-registry/container-registry-private-link.md
+[cmk]: ../articles/container-registry/container-registry-customer-managed-keys.md
 [token]: ../articles/container-registry/container-registry-repository-scoped-permissions.md

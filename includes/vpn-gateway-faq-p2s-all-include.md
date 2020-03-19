@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 02/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: be858e9200191de7e0bda0ae227519666d80fb7a
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: ec684e5e6fa2ef8e9ed30be49f59e8aa7ef3a28b
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500588"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117096"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>¿Cuántos puntos de conexión de cliente VPN puedo tener en mi configuración punto a sitio?
 
 Depende de la SKU de puerta de enlace. Para más información sobre el número de conexiones admitidas, consulte [SKU de puerta de enlace](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
 
-### <a name="supportedclientos"></a>¿Qué sistemas operativos de cliente puedo usar para las conexiones de punto a sitio?
+### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a><a name="supportedclientos"></a>¿Qué sistemas operativos de cliente puedo usar para las conexiones de punto a sitio?
 
 Se admiten los siguientes sistemas operativos de cliente:
 
@@ -58,9 +58,13 @@ Las VPN de punto a sitio no admiten la reconexión automática y el DDNS.
 
 Sí. Para el modelo de implementación de Resource Manager, debe tener un tipo de VPN basada en ruta para la puerta de enlace. Para el modelo de implementación clásica, necesita una puerta de enlace dinámica. No se admite la configuración de punto a sitio para puertas de enlace de VPN de enrutamiento estático o puertas de enlace de VPN basadas en directivas.
 
+### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-network-gateways-at-the-same-time"></a>¿Se puedo configurar un cliente de punto a sitio para conectarse a varias puertas de enlace de red virtual al mismo tiempo?
+
+En función del software cliente de VPN que se use, es posible conectarse a varias puertas de enlace de red virtual, siempre que las redes virtuales con las que se va a establecer la conexión no tengan espacios en conflicto entre ellas ni con la red desde la que se conecta el cliente.  Aunque el cliente VPN de Azure admite muchas conexiones VPN, no es posible establecer varias simultáneamente.
+
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>¿Puedo configurar un cliente de punto a sitio para conectarse a varias redes virtuales al mismo tiempo?
 
-No. Un cliente de punto a sitio solo puede conectarse a los recursos de la red virtual en la que reside la puerta de enlace de red virtual.
+Sí, las conexiones de punto a sitio con una puerta de enlace de red virtual implementada en una red virtual emparejada con otras redes virtuales pueden tener acceso a otras redes virtuales emparejadas.  Siempre que las redes virtuales emparejadas usen las características UseRemoteGateway/AllowGatewayTransit, el cliente de punto a sitio podrá conectarse con ellas.  Para más información, consulte [este](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md) artículo.
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>¿Qué rendimiento puedo esperar en las conexiones de sitio a sitio o de punto a sitio?
 
@@ -99,7 +103,7 @@ Azure es compatible con Windows, Mac y Linux para VPN de P2S.
 
 Sí, puede habilitar estas características nuevas en puertas de enlace ya implementadas mediante Powershell o Azure Portal, siempre que la SKU de la puerta de enlace que use admita RADIUS o IKEv2. Por ejemplo, la SKU de nivel Básico de VPN Gateway no admite RADIUS ni IKEv2.
 
-### <a name="removeconfig"></a>¿Cómo se puede quitar la configuración de una conexión P2S?
+### <a name="how-do-i-remove-the-configuration-of-a-p2s-connection"></a><a name="removeconfig"></a>¿Cómo se puede quitar la configuración de una conexión P2S?
 
 Se puede quitar la configuración P2S mediante la CLI de Azure y PowerShell mediante los comandos siguientes:
 
